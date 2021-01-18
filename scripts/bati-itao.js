@@ -13,5 +13,9 @@ $( document ).on( "wb-ready.wb", function( event ) {
         }).on('input', function () {
         this.style.height = 'auto';
         this.style.height = (this.scrollHeight) + 'px';
-    });
+	});
+
+	// add Github icons to the footer
+	$( "#wb-info .landscape a" ).prepend( "<i class='fab fa-3x fa-github mrgn-rght-md' aria-hidden='true'></i>" );
+
 });
