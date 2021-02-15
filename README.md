@@ -9,5 +9,3 @@ Nous sommes des chefs de file confirmes, engages envers notre mandat d'accessibi
 IT Accessibility Office provides adaptive technology and advocate for inclusiveness of people with disabilities in the workplace.
 
 We are demonstrated leaders, committed to our accessibility mandate, continuing to provide support to employees with disabilities.
-
-For more information about submodules check out [Using submodules in Git - Tutorial](https://www.vogella.com/tutorials/GitSubmodules/article.html)
