@@ -1,5 +1,5 @@
-# Accessibility - What is it, who needs it
+# Accessibility Coaching Series - Manager Training Course V1
 
-Presentation prepared for St. Lawrence Secondary School
+### A Work in Progress
 
 Created with [reveal.js](https://revealjs.com/).
