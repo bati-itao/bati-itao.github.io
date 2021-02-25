@@ -1,4 +1,5 @@
 const link = require('linkinator');
+var chalk = require('chalk');
 
 async function complex() {
   // create a new `LinkChecker` that we'll use to run the scan.
@@ -15,17 +16,17 @@ async function complex() {
 
 		if (result.state == 'BROKEN' && result.status != 0) {
 
-			// What page linked here?
-			console.log(`Found on: ${result.parent}`);
-			
 			// check the specific url that was scanned
-			console.log(`Broken link: ${result.url}`);
+			console.log(chalk.white.bgBlack.bold(`Broken link: ${result.url}`));
+			
+			// What page linked here?
+			console.log(chalk.yellow(`Found on: ${result.parent}`));
 			
 			// How did the scan go?  Potential states are `BROKEN`, `OK`, and `SKIPPED`
-			console.log(`${result.state}`);
+			// console.log(`${result.state}`);
 			
 			// What was the status code of the response?
-			console.log(`${result.status}`);
+			// console.log(`${result.status}`);
 			
 		}
 	});
@@ -54,7 +55,7 @@ async function complex() {
 
   // The final result will contain the list of checked links, and the pass/fail
   const brokeLinksCount = result.links.filter(x => x.state === 'BROKEN' && x.status !== 0);
-  console.log(`Detected ${brokeLinksCount.length} broken links.`);
+  console.log(`Detected ${chalk.red(brokeLinksCount.length + ' broken')} links.`);
 }
 
 complex();
