@@ -550,8 +550,8 @@
 
 		// Arrow controls
 		dom.controls = createSingletonNode( dom.wrapper, 'aside', 'controls',
-			'<button class="navigate-left" aria-label="previous slide"><div class="controls-arrow"></div></button>' +
-			'<button class="navigate-right" aria-label="next slide"><div class="controls-arrow"></div></button>' +
+			'<button class="navigate-left" aria-label="previous slide" title="Go to previous slide"><div class="controls-arrow"></div></button>' +
+			'<button class="navigate-right" aria-label="next slide" title="Go to next slide"><div class="controls-arrow"></div></button>' +
 			'<button class="navigate-up" aria-label="above slide"><div class="controls-arrow"></div></button>' +
 			'<button class="navigate-down" aria-label="below slide"><div class="controls-arrow"></div></button>' );
 
