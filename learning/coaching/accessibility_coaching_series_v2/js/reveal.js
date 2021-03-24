@@ -550,10 +550,10 @@
 
 		// Arrow controls
 		dom.controls = createSingletonNode( dom.wrapper, 'aside', 'controls',
-			'<button class="navigate-left" aria-label="previous slide" title="Go to previous slide"><div class="controls-arrow"></div></button>' +
-			'<button class="navigate-right" aria-label="next slide" title="Go to next slide"><div class="controls-arrow"></div></button>' +
-			'<button class="navigate-up" aria-label="above slide"><div class="controls-arrow"></div></button>' +
-			'<button class="navigate-down" aria-label="below slide"><div class="controls-arrow"></div></button>' );
+			'<button class="navigate-left" aria-label="Previous slide" title="Go to previous slide"><div class="controls-arrow"></div></button>' +
+			'<button class="navigate-right" aria-label="Next slide" title="Go to next slide"><div class="controls-arrow"></div></button>' +
+			'<button class="navigate-up" aria-label="Above slide"><div class="controls-arrow"></div></button>' +
+			'<button class="navigate-down" aria-label="Below slide"><div class="controls-arrow"></div></button>' );
 
 		// Slide number
 		dom.slideNumber = createSingletonNode( dom.wrapper, 'div', 'slide-number', '' );
@@ -583,7 +583,7 @@
 		dom.statusDiv = createStatusDiv();
 	}
 
-	/**
+	/*
 	 * Creates a hidden div with role aria-live to announce the
 	 * current slide content. Hide the div off-screen to make it
 	 * available only to Assistive Technologies.
