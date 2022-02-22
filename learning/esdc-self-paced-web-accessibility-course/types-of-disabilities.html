@@ -16,8 +16,11 @@
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 	<!-- Write closure template -->
 	<script src="../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../css/a11y-dark.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -53,6 +56,109 @@
             }],
             "menuPath": "../../ajax/menu-en.html"
         });
+		
+
+$(function(){
+
+  
+	var getTextNodesIn = function(el) { // Look at all the page elements and returns the text nodes
+	    return $(el).find(":not(iframe,script)").addBack().contents().filter(function() {
+	        return this.nodeType == 3; // Text node types are type 3
+	    });
+	};
+
+	// var textNodes = getTextNodesIn($("p, h1, h2, h3","*"));
+	var textNodes = getTextNodesIn($(".dyslexiaSim p"));
+
+	function isLetter(char) {
+		return /^[\d]$/.test(char);
+	}
+
+	var wordsInTextNodes = [];
+	for (var i = 0; i < textNodes.length; i++) {
+		var node = textNodes[i];
+
+		var words = []
+
+		var re = /\w+/g;
+		var match;
+		while ((match = re.exec(node.nodeValue)) != null) {
+
+			var word = match[0];
+			var position = match.index;
+
+			words.push({
+				length: word.length,
+				position: position
+			});
+		}
+
+		wordsInTextNodes[i] = words;
+	};
+
+	function messUpWords () {
+
+		for (var i = 0; i < textNodes.length; i++) {
+
+			var node = textNodes[i];
+
+			for (var j = 0; j < wordsInTextNodes[i].length; j++) {
+
+				// Only change a tenth of the words each round.
+				if (Math.random() > 1/10) {
+
+					continue;
+				}
+
+				var wordMeta = wordsInTextNodes[i][j];
+
+				var word = node.nodeValue.slice(wordMeta.position, wordMeta.position + wordMeta.length);
+				var before = node.nodeValue.slice(0, wordMeta.position);
+				var after  = node.nodeValue.slice(wordMeta.position + wordMeta.length);
+
+				node.nodeValue = before + messUpWord(word) + after;
+			};
+		};
+	}
+
+	function messUpWord (word) {
+
+		if (word.length < 3) {
+
+			return word;
+		}
+
+		return word[0] + messUpMessyPart(word.slice(1, -1)) + word[word.length - 1];
+	}
+
+	function messUpMessyPart (messyPart) {
+
+		if (messyPart.length < 2) {
+
+			return messyPart;
+		}
+
+		var a, b;
+		while (!(a < b)) {
+
+			a = getRandomInt(0, messyPart.length - 1);
+			b = getRandomInt(0, messyPart.length - 1);
+		}
+
+		return messyPart.slice(0, a) + messyPart[b] + messyPart.slice(a+1, b) + messyPart[a] + messyPart.slice(b+1);
+	}
+
+	// From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+	function getRandomInt(min, max) {
+		
+		return Math.floor(Math.random() * (max - min + 1) + min);
+	}
+
+
+	setInterval(messUpWords, 150);
+});
+
+
     </script>
 <div class="container">
 <div class="row">
@@ -60,12 +166,12 @@
 		<h1 property="name" id="wb-cont">Type of disabilities</h1>
                 
                 
-                <nav role="navigation">
+                	<nav role="navigation">
       <div class="panel panel-default mrgn-tp-lg">
         <header class="panel-heading">
-          <h2 class="panel-title">Table of contents</h2>
+          <h2 class="panel-title"  >Table of contents</h2>
         </header>
-        <div class="panel-body">
+        <div class="panel-body" aria-label="Table of contents">
           <ul>
             <li><a href="#blind">Blind</a></li>
               <li><a href="#low-vision">Low vision</a></li>
@@ -332,7 +438,40 @@
 				</ul>
 				<h3>Dyslexia simulation</h3>
 				<p>Below is a simulation of the dyslexia reading experience, where letters appear to move and swap places.</p>
-				<p>[<a href="https://codepen.io/Liight/pen/yOexqo">Animated simulation</a>]</p>
+<ul class="list-unstyled dyslexiaSim">
+	<li>
+		<details>
+			<summary>Dyslexia - Example</summary>
+		
+				  <p>Friends who have dyslexia described to me how they experience reading. She <em>can</em> read, but it takes a lot of concentration, and the letters seems to "jump around".</p>
+
+				  <p>I remembered reading about <a href="https://en.wikipedia.org/wiki/Typoglycemia">typoglycemia.</a> Wouldn't it be possible to do it interactively on a website with Javascript? Sure it would.</p>
+
+				  <blockquote>
+					<p>
+					  Dyslexia is characterized by difficulty with learning to read fluently and with accurate comprehension despite normal intelligence. This includes difficulty with phonological awareness, phonological decoding, processing speed, orthographic coding, auditory
+					  short-term memory, language skills/verbal comprehension, and/or rapid naming.</p>
+
+					<p>
+					  Developmental reading disorder (DRD) is the most common learning disability. Dyslexia is the most recognized of reading disorders, however not all reading disorders are linked to dyslexia.
+					</p>
+
+
+					<p>
+					  Some see dyslexia as distinct from reading difficulties resulting from other causes, such as a non-neurological deficiency with vision or hearing, or poor or inadequate reading instruction. There are three proposed cognitive subtypes of dyslexia (auditory,
+					  visual and attentional), although individual cases of dyslexia are better explained by specific underlying neuropsychological deficits and co-occurring learning disabilities (e.g. attention-deficit/hyperactivity disorder, math disability, etc.).
+					  Although it is considered to be a receptive language-based learning disability in the research literature, dyslexia also affects one's expressive language skills. Researchers at MIT found that people with dyslexia exhibited impaired voice-recognition
+					  abilities.
+					</p>
+				  </blockquote>
+
+
+				  <p><em>Sruoce: <a href="http://en.wikipedia.org/wiki/Dyslexia">Wipiiekda</a></em></p>
+
+		</details>
+	</li>
+	</ul>
+
 				<p>The IT Accessibility Office (ITAO) remains to be a provider of adaptive technology and an advocate for inclusiveness of people with disabilities in the workplace. We are demonstrated leaders, committed to our accessibility mandate, continuing to provide support to employees with disabilities. In accordance with the Accessible Canada Act and in collaboration with our partners in central agencies, we recommend internationally recognized standards, guidelines and best practices.</p>
 				<h3>Designing for reading disabilities</h3>
 				<ul>
@@ -362,21 +501,12 @@
 				Module 1 – Accessibility Fundamentals - Disabilities, Guidelines and Law
 				</h3>
 				
-				<ul class=" list-group menu list-unstyled">
-					<li>
-						<a class="list-group-item" href="web-accessibility.html">Web accessibility</a>
-					</li>
-					<li> <a class="list-group-item" href="types-of-disabilities.html">Type of disabilities</a>
-					
-					</li>
-					<li>
-						<a class="list-group-item" href="accessibility-guidelines.html">Accessibility guidelines</a>
-					</li>
-					<li>
-						<a class="list-group-item" href="laws-and-government-standards.html">Laws and government standards</a>
-					</li>
-				
-				</ul>
+			<div class="list-group">
+						<a class="list-group-item" href="web-accessibility.html">Web Accessibility</a>
+						<a class="list-group-item active"  aria-current="page" href="types-of-disabilities.html">Type of disabilities</a>
+						<a class="list-group-item" href="accessibility-guidelines.html">Accessibility Guidelines</a>
+						<a class="list-group-item" href="laws-and-government-standards.html">Laws and Government Standards</a>
+				</div>
 			
 			</section>
 			
@@ -385,77 +515,18 @@
 				<h3 class="wb-navcurr">
 				All modules
 				</h3>
-				
-				<ul class=" list-group menu list-unstyled">
-						<li>				
-						<a class="list-group-item" href="Module01-Accessibility-Fundamentals.html">	Module 1 - Accessibility Fundamentals – Disabilities, Guidelines and Laws</a>
-							
-											</li>
-					<li>
-						
-							
-						<a class="list-group-item" href="Module02-Page-Structure-and-Semantics.html">Module 2  – Page Structure and Semantics</a>
-						
-							
-					
-					</li>
-					<li>
-						
-							
+			
+					<div class="list-group">
+						<a class="list-group-item active" href="Module01-Accessibility-Fundamentals.html">	Module 1 - Accessibility Fundamentals – Disabilities, Guidelines and Laws</a>
+						<a class="list-group-item" href="Module02-Page-Structure-and-Semantics.html">Module 2  – Page Structure and Semantics</a>			
 						<a class="list-group-item" href="">Module 3 – Links and Navigation</a>
-						
-							
-						
-					</li>
-					<li>
-						
-							
 						<a class="list-group-item" href="">Module 4 – Tables</a>
-						
-							
-						
-					</li>
-					<li>
-						
-							
-							<a class="list-group-item" href="module05-images.html">Module 5 – Images</a>
-							
-													
-					</li>
-					<li>
-						
-							
-						<a class="list-group-item" href="">Module 6 – Forms</a>
-						
-							
-						
-					</li>
-					<li>
-						
-							
+						<a class="list-group-item" href="module05-images.html">Module 5 – Images</a>
+						<a class="list-group-item" href="">Module 6 – Forms</a>	
 						<a class="list-group-item" href="">Module 7 – Visual Design and Colours</a>
-						
-							
-						
-					</li>
-					<li>
-						
-							
 						<a class="list-group-item" href="">Module 8 – Zoom and Responsive Design</a>
-						
-							
-						
-					</li>
-					<li>
-						
-							
 						<a class="list-group-item" href="">	Module 9 - Audio, Video, Animation and Motion</a>
-						
-							
-						
-					</li>
-				</ul>
-						
+			</div>
 
 			</section>
 		
