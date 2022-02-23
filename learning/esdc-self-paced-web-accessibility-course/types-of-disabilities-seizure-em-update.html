@@ -16,11 +16,8 @@
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
 	<!-- Write closure template -->
 	<script src="../../scripts/refTop.min.js"></script>
-	<link rel="stylesheet" href="../../css/a11y-dark.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -56,109 +53,6 @@
             }],
             "menuPath": "../../ajax/menu-en.html"
         });
-		
-
-$(function(){
-
-  
-	var getTextNodesIn = function(el) { // Look at all the page elements and returns the text nodes
-	    return $(el).find(":not(iframe,script)").addBack().contents().filter(function() {
-	        return this.nodeType == 3; // Text node types are type 3
-	    });
-	};
-
-	// var textNodes = getTextNodesIn($("p, h1, h2, h3","*"));
-	var textNodes = getTextNodesIn($(".dyslexiaSim p"));
-
-	function isLetter(char) {
-		return /^[\d]$/.test(char);
-	}
-
-	var wordsInTextNodes = [];
-	for (var i = 0; i < textNodes.length; i++) {
-		var node = textNodes[i];
-
-		var words = []
-
-		var re = /\w+/g;
-		var match;
-		while ((match = re.exec(node.nodeValue)) != null) {
-
-			var word = match[0];
-			var position = match.index;
-
-			words.push({
-				length: word.length,
-				position: position
-			});
-		}
-
-		wordsInTextNodes[i] = words;
-	};
-
-	function messUpWords () {
-
-		for (var i = 0; i < textNodes.length; i++) {
-
-			var node = textNodes[i];
-
-			for (var j = 0; j < wordsInTextNodes[i].length; j++) {
-
-				// Only change a tenth of the words each round.
-				if (Math.random() > 1/10) {
-
-					continue;
-				}
-
-				var wordMeta = wordsInTextNodes[i][j];
-
-				var word = node.nodeValue.slice(wordMeta.position, wordMeta.position + wordMeta.length);
-				var before = node.nodeValue.slice(0, wordMeta.position);
-				var after  = node.nodeValue.slice(wordMeta.position + wordMeta.length);
-
-				node.nodeValue = before + messUpWord(word) + after;
-			};
-		};
-	}
-
-	function messUpWord (word) {
-
-		if (word.length < 3) {
-
-			return word;
-		}
-
-		return word[0] + messUpMessyPart(word.slice(1, -1)) + word[word.length - 1];
-	}
-
-	function messUpMessyPart (messyPart) {
-
-		if (messyPart.length < 2) {
-
-			return messyPart;
-		}
-
-		var a, b;
-		while (!(a < b)) {
-
-			a = getRandomInt(0, messyPart.length - 1);
-			b = getRandomInt(0, messyPart.length - 1);
-		}
-
-		return messyPart.slice(0, a) + messyPart[b] + messyPart.slice(a+1, b) + messyPart[a] + messyPart.slice(b+1);
-	}
-
-	// From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-	function getRandomInt(min, max) {
-		
-		return Math.floor(Math.random() * (max - min + 1) + min);
-	}
-
-
-	setInterval(messUpWords, 150);
-});
-
-
     </script>
 <div class="container">
 <div class="row">
@@ -166,22 +60,22 @@ $(function(){
 		<h1 property="name" id="wb-cont">Type of disabilities</h1>
                 
                 
-                	<nav role="navigation">
+                <nav role="navigation">
       <div class="panel panel-default mrgn-tp-lg">
         <header class="panel-heading">
-          <h2 class="panel-title"  >Table of contents</h2>
+          <h2 class="panel-title">Table of contents</h2>
         </header>
-        <div class="panel-body" aria-label="Table of contents">
+        <div class="panel-body">
           <ul>
             <li><a href="#blind">Blind</a></li>
-              <li><a href="#low-vision">Low vision</a></li>
+              <li><a href="#low-vision">Low Vision</a></li>
               <li><a href="#colour-blind">Colour-blind</a></li>
               <li><a href="#deaf">Deaf</a></li>
               <li><a href="#deaf-blindness">Deaf-blindness</a></li>
-              <li><a href="#motor-disabilities">Motor disabilities</a></li>
-              <li><a href="#speech-disabilities">Speech disabilities</a></li>
-              <li><a href="#disabilities">Cognitive, learning, and neurological disabilities</a></li>
-              <li><a href="#reading-disabilities">Reading disabilities</a></li>
+              <li><a href="#motor-disabilities">Motor Disabilities</a></li>
+              <li><a href="#speech-disabilities">Speech Disabilities</a></li>
+              <li><a href="#disabilities">Cognitive, Learning, and Neurological Disabilities</a></li>
+              <li><a href="#reading-disabilities">Reading Disabilities</a></li>
           </ul>
         </div>
       </div>
@@ -197,16 +91,18 @@ $(function(){
 					<li>either listen to audio description of video or read the transcript.</li>
 					<li>rely on properly coded HTML page structures (like lists, headings and tables) and controls (like links, buttons, and form controls) to read and navigate the design and operate its functionality.</li>
 				</ul>
-				<h3>Video: Demo of assistive technology – Screen reader</h3>
-
+				<h3>Video: Demo of Assistive Technology – Screen Reader</h3>
+				<p>
+					<a href="https://web.microsoftstream.com/video/bec098c5-8b75-4ac4-96eb-2e7890723c91">Microsoft Stream</a>
+				</p>
 				<p>Hadi Rangin is an expert user of screen reader software. In this video, he demonstrates the elements of a well-designed web page and how they sound to someone who is blind. Issues discussed include ARIA landmarks, headings, and text content.</p>
-				
+				<p>Source (English only):The DO-IT Center [TheDOITCenter]. (2017, October 3). Using a Screen Reader [Video]. YouTube.</p>
 					<div class="iframe-container"> 
 
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/7Rs3YpsnfoI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=7Rs3YpsnfoI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
-					</div> 
-				<p>Source: The DO-IT Center [TheDOITCenter]. (2017, October 3). Using a Screen Reader [Video]. YouTube.</p>
+</div> 
+				
 				<h3>Designing for blindness</h3>
 				<ul>
 					<li>Provide equivalent text alternatives for images</li>
@@ -217,8 +113,8 @@ $(function(){
 					<li>Provide name, role and value for custom controls</li>
 				</ul>
 			</section>
-			<section aria-label="Low vision">
-				<h2 id="low-vision">Low vision</h2>
+			<section aria-label="Low Vision">
+				<h2 id="low-vision">Low Vision</h2>
 				<ul>
 					<li>W3C defines low vision as “poor acuity (vision that is not sharp), tunnel vision (seeing only the middle of the visual field), central field loss (seeing only the edges of the visual field), and clouded vision. </li>
 					<li>Low vision includes people with cataracts, diabetic retinopathy, glaucoma, hemianopia, macular degeneration, retinal detachment, etc.</li>
@@ -257,16 +153,21 @@ $(function(){
 					<li>People with low vision may enlarge text or change fonts, colours and spacing to make content more usable for their needs. </li>
 					<li>People with a restricted field of view may not enlarge text, but benefit from responsive design (to narrow the display), from related information being grouped together, and from labels and controls being positioned closely to one another.</li>
 				</ul>
-				<h3>Video: Demo of assistive technology – Screen magnification</h3>
-					<p>In this video, discover how screen magnification software is used to access the Web, and what Web designers can do to improve access.</p>
-					
-	
-					<div class="iframe-container"> 
+				<h3>Video: Demo of Assistive Technology – Screen Magnification</h3>
+				<ul>
+					<li>
+						<a href="https://web.microsoftstream.com/video/1220d7e5-9315-415d-823a-c2db62177d7f">Microsoft Stream</a>
+					</li>
+					<li>In this video, discover how screen magnification software is used to access the Web, and what Web designers can do to improve access.</li>
+					<li>Source (English only):UW-Madison Division of Information Technology [ UWDoIT]. (2013, July 29). Screen Magnification and the Web [Video]. YouTube.
+ </li>
+				</ul>
+									<div class="iframe-container"> 
 
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/4ZRVDgeMpXc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=4ZRVDgeMpXc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
-					</div>
-					<p>Source: UW-Madison Division of Information Technology [UWDoIT]. (2013, July 29). Screen Magnification and the Web [Video]. YouTube.</p>
+</div>
+				
 				<h3>Designing for low vision</h3>
 				<ul>
 					<li>Ensure sufficient contrast between text and background colour</li>
@@ -275,9 +176,13 @@ $(function(){
 					<li>Position labels close to their controls</li>
 					<li>Consider using colour to help users differentiate different regions of the page</li>
 				</ul>
-				<p>The video and simulations of low vision are from the University of Washington DO-IT: </p>
-				<p>UW-Madison Division of Information Technology [ UWDoIT]. (2013, July 29). Screen Magnification and the Web [Video]. YouTube. <a href="https://www.youtube.com/watch?v=4ZRVDgeMpXc">https://www.youtube.com/watch?v=4ZRVDgeMpXc</a> </p>
+				<p>The video and simulations of low vision are from the University of Washington DO-IT. </p>
+				<p>UW-Madison Division of Information Technology [ UWDoIT]. (2013, July 29). Screen Magnification and the Web [Video]. YouTube. </p>
+			<div class="iframe-container"> 
 
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=4ZRVDgeMpXc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+
+</div>
 			</section>
 			<section aria-label="Colour-blind">
 				<h2 id="colour-blind">Colour-blind</h2>
@@ -331,22 +236,24 @@ $(function(){
 				<p>The braille device is typically situated directly below the keyboard. Screen readers intercept the page content and send the characters to the Braille device.</p>
 				<img src="images/image9.png" class="img-responsive" alt="A braille device below a laptop keyboard.">
 			</section>
-			<section aria-label="Motor disabilities">
-				<h2 id="motor-disabilities">Motor disabilities</h2>
+			<section aria-label="Motor Disabilities">
+				<h2 id="motor-disabilities">Motor Disabilities</h2>
 				<p>Motor disabilities can refer to a range of physical experiences. </p>
 				<p>Using a mouse is often not an option. Users may have a temporary inability to use a single hand due to an injury, difficulty using or controlling their hands, little to no motor control of their limbs, or missing limbs/hands. </p>
 				<p>People with motor disabilities often use alternate keyboards or input devices that act as keyboard emulators. Keyboard emulators include speech recognition software, sip and puff device, on-screen keyboards, scanning software and other assistive technologies. </p>
 				<p>It’s important to ensure all functionality of the content is operable through a keyboard interface.</p>
-				<h3>Video: Demo of assistive technology – Sip and puff switch</h3>
-		
-				<p>This video demonstrates the Assistive Technology (AT) Sip and Puff Switch. Jared, a young man with cerebral palsy who, with the help of AT, is able to control his entire computer and run his graphic arts business through a sip and puff switch.</p>
-				
+				<h3>Video: Demo of Assistive Technology – Sip and Puff Switch</h3>
+				<p>
+					<a href="https://web.microsoftstream.com/video/718c4e37-4107-4fcb-ae0b-00e9bfe13152">Microsoft Stream</a>
+				</p>
+				<p>Demo Assistive Technology Sip and Puff Switch:Jared, a young man with cerebral palsy who, with the help of AT, is able to control his entire computer and run his graphic arts business through a sip and puff switch.</p>
+				<p>Source (English only):PACER Center [pacercenter]. (2013, May 14). Assistive Technology in Action - Meet Jared [Video]. YouTube.</p>
 				<div class="iframe-container"> 
 
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/Bhj5vs9P5cw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=Bhj5vs9P5cw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 
-				</div>
-				<p>Source: PACER Center [pacercenter]. (2013, May 14). Assistive Technology in Action - Meet Jared [Video]. YouTube.</p>
+</div>
+				
 				<h3>Designing for motor disabilities</h3>
 				<ul>
 					<li>Ensure all functions are available via both mouse and keyboard for those users who may not be able to use the mouse</li>
@@ -356,8 +263,8 @@ $(function(){
 					<li>Ensure content works in both horizontal and vertical orientation and do not rely on swiping or dragging.</li>
 				</ul>
 			</section>
-			<section aria-label="Speech disabilities">
-				<h2 id="speech-disabilities">Speech disabilities</h2>
+			<section aria-label="Speech Disabilities">
+				<h2 id="speech-disabilities">Speech Disabilities</h2>
 				<p>People with speech disabilities have difficulty with producing voice sounds and using muscles in their mouths.</p>
 				<h3>Designing for speech disabilities</h3>
 				<ul>
@@ -366,8 +273,8 @@ $(function(){
 					<li>Ensure any voice search feature has a text-based search alternative.</li>
 				</ul>
 			</section>
-			<section aria-label="Cognitive, learning, and neurological disabilities">
-				<h2 id="disabilities">Cognitive, learning, and neurological disabilities</h2>
+			<section aria-label="Cognitive, Learning, and Neurological Disabilities">
+				<h2 id="disabilities">Cognitive, Learning, and Neurological Disabilities</h2>
 				<p>Cognitive disabilities are by far the most common type of disability. According to the W3C-WAI,  cognitive, learning and neurological disabilities affect any part of the nervous system and impact how well people hear, move, see, speak, and understand information. Cognitive, learning, and neurological disabilities do not necessarily affect the intelligence of a person.</p>
 				<h3>Examples of cognitive, learning, and neurological disabilities</h3>
                 <dl>
@@ -410,57 +317,24 @@ $(function(){
 					<li>The flashing content is large enough. WCAG provides a complex formula here, but the rule of thumb is flashing content larger than 21,824 square pixels is problematic.</li>
 					<li>The flashing content has high contrast. WCAG provides another complex formula here, but as an alternative recommends assessing flashing content using a tool such as the <a href="http://trace.umd.edu/peat">Photosensitive Epilepsy Analysis Tool (PEAT).</a></li>
 				</ul>
-				<p>Because users may magnify the page and so enlarge the flashing area, it’s safest to limit the flashing of any size content to no more than three flashes in any 1-second period</p>
-				<h4 id="idelem4x5670">Designing for seizure disorders</h4>
+				<p>Because users may magnify the page and so enlarge the flashing area, it’s safest to limit the flashing of <em>any</em> size content to no more than three flashes in any 1-second period</p>
+				<h4 id="idelem4x5670">Designing for Seizure Disorders</h4>
 				<ul>
 					<li>Don't include flashing light sequences of 3 times or more per second in videos, animations, or transitions. If you can’t edit the source, don’t use it.</li>
 				</ul>
 			</section>
 			<section aria-label="Reading Disabilities">
-				<h2 id="reading-disabilities">Reading disabilities</h2>
-				<h3>Difficulty reading</h3>
+				<h2 id="reading-disabilities">Reading Disabilities</h2>
+				<h3>Difficulty Reading</h3>
 				<ul>
 					<li>Some people with cognitive disabilities and people with dyslexia have reading difficulties.</li>
 					<li>For people with dyslexia, spelling or reading words can be error prone because visual encoding of text is difficult.</li>
 				</ul>
-				<h3>Dyslexia simulation</h3>
+				<h3>Dyslexia Simulation</h3>
 				<p>Below is a simulation of the dyslexia reading experience, where letters appear to move and swap places.</p>
-<ul class="list-unstyled dyslexiaSim">
-	<li>
-		<details>
-			<summary>Dyslexia - Example</summary>
-		
-				  <p>Friends who have dyslexia described to me how they experience reading. She <em>can</em> read, but it takes a lot of concentration, and the letters seems to "jump around".</p>
-
-				  <p>I remembered reading about <a href="https://en.wikipedia.org/wiki/Typoglycemia">typoglycemia.</a> Wouldn't it be possible to do it interactively on a website with Javascript? Sure it would.</p>
-
-				  <blockquote>
-					<p>
-					  Dyslexia is characterized by difficulty with learning to read fluently and with accurate comprehension despite normal intelligence. This includes difficulty with phonological awareness, phonological decoding, processing speed, orthographic coding, auditory
-					  short-term memory, language skills/verbal comprehension, and/or rapid naming.</p>
-
-					<p>
-					  Developmental reading disorder (DRD) is the most common learning disability. Dyslexia is the most recognized of reading disorders, however not all reading disorders are linked to dyslexia.
-					</p>
-
-
-					<p>
-					  Some see dyslexia as distinct from reading difficulties resulting from other causes, such as a non-neurological deficiency with vision or hearing, or poor or inadequate reading instruction. There are three proposed cognitive subtypes of dyslexia (auditory,
-					  visual and attentional), although individual cases of dyslexia are better explained by specific underlying neuropsychological deficits and co-occurring learning disabilities (e.g. attention-deficit/hyperactivity disorder, math disability, etc.).
-					  Although it is considered to be a receptive language-based learning disability in the research literature, dyslexia also affects one's expressive language skills. Researchers at MIT found that people with dyslexia exhibited impaired voice-recognition
-					  abilities.
-					</p>
-				  </blockquote>
-
-
-				  <p><em>Sruoce: <a href="http://en.wikipedia.org/wiki/Dyslexia">Wipiiekda</a></em></p>
-
-		</details>
-	</li>
-	</ul>
-
+				<p>[<a href="https://codepen.io/Liight/pen/yOexqo">Animated simulation</a>]</p>
 				<p>The IT Accessibility Office (ITAO) remains to be a provider of adaptive technology and an advocate for inclusiveness of people with disabilities in the workplace. We are demonstrated leaders, committed to our accessibility mandate, continuing to provide support to employees with disabilities. In accordance with the Accessible Canada Act and in collaboration with our partners in central agencies, we recommend internationally recognized standards, guidelines and best practices.</p>
-				<h3>Designing for reading disabilities</h3>
+				<h3>Designing for Reading Disabilities</h3>
 				<ul>
 					<li>Don’t communicate solely through text. Supplement text with informative images, videos and audio.</li>
 				</ul>
@@ -468,8 +342,8 @@ $(function(){
 			<nav role="navigation">
 	<h2 class="wb-inv">Document navigation</h2>
 	<ul class="pager">
-		<li class="previous"> <a rel="prev" href="web-accessibility.html">Previous - Web accessibility</a></li>
-	  <li class="next"> <a rel="next" href="accessibility-guidelines.html">Next - Accessibility guidelines</a> </li>
+		<li class="previous"> <a rel="prev" href="web-accessibility.html">Previous - Web Accessibility</a></li>
+	  <li class="next"> <a rel="next" href="accessibility-guidelines.html">Next - Accessibility Guidelines</a> </li>
 	</ul>
   </nav>
 					
@@ -488,12 +362,21 @@ $(function(){
 				Module 1 – Accessibility Fundamentals - Disabilities, Guidelines and Law
 				</h3>
 				
-			<div class="list-group">
+				<ul class=" list-group menu list-unstyled">
+					<li>
 						<a class="list-group-item" href="web-accessibility.html">Web Accessibility</a>
-						<a class="list-group-item active"  aria-current="page" href="types-of-disabilities.html">Type of disabilities</a>
+					</li>
+					<li> <a class="list-group-item" href="types-of-disabilities.html">Type of disabilities</a>
+					
+					</li>
+					<li>
 						<a class="list-group-item" href="accessibility-guidelines.html">Accessibility Guidelines</a>
+					</li>
+					<li>
 						<a class="list-group-item" href="laws-and-government-standards.html">Laws and Government Standards</a>
-				</div>
+					</li>
+				
+				</ul>
 			
 			</section>
 			
@@ -502,18 +385,77 @@ $(function(){
 				<h3 class="wb-navcurr">
 				All modules
 				</h3>
-			
-					<div class="list-group">
-						<a class="list-group-item active" href="Module01-Accessibility-Fundamentals.html">	Module 1 - Accessibility Fundamentals – Disabilities, Guidelines and Laws</a>
-						<a class="list-group-item" href="Module02-Page-Structure-and-Semantics.html">Module 2  – Page Structure and Semantics</a>			
+				
+				<ul class=" list-group menu list-unstyled">
+						<li>				
+						<a class="list-group-item" href="Module01-Accessibility-Fundamentals.html">	Module 1 - Accessibility Fundamentals – Disabilities, Guidelines and Laws</a>
+							
+											</li>
+					<li>
+						
+							
+						<a class="list-group-item" href="Module02-Page-Structure-and-Semantics.html">Module 2  – Page Structure and Semantics</a>
+						
+							
+					
+					</li>
+					<li>
+						
+							
 						<a class="list-group-item" href="">Module 3 – Links and Navigation</a>
+						
+							
+						
+					</li>
+					<li>
+						
+							
 						<a class="list-group-item" href="">Module 4 – Tables</a>
-						<a class="list-group-item" href="module05-images.html">Module 5 – Images</a>
-						<a class="list-group-item" href="">Module 6 – Forms</a>	
+						
+							
+						
+					</li>
+					<li>
+						
+							
+							<a class="list-group-item" href="module05-images.html">Module 5 – Images</a>
+							
+													
+					</li>
+					<li>
+						
+							
+						<a class="list-group-item" href="">Module 6 – Forms</a>
+						
+							
+						
+					</li>
+					<li>
+						
+							
 						<a class="list-group-item" href="">Module 7 – Visual Design and Colours</a>
+						
+							
+						
+					</li>
+					<li>
+						
+							
 						<a class="list-group-item" href="">Module 8 – Zoom and Responsive Design</a>
+						
+							
+						
+					</li>
+					<li>
+						
+							
 						<a class="list-group-item" href="">	Module 9 - Audio, Video, Animation and Motion</a>
-			</div>
+						
+							
+						
+					</li>
+				</ul>
+						
 
 			</section>
 		
