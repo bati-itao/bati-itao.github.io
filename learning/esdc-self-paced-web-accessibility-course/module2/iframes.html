@@ -17,7 +17,8 @@
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
 	<!-- Write closure template -->
-	<script src="../../scripts/refTop.min.js"></script>
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -29,29 +30,28 @@
         defTop.outerHTML = wet.builder.appTop({
             "appName": [{
                 "text": "ESDC / IT Accessibility office",
-                "href": "../../index.html"
+                "href": "../../../index.html"
             }],
            "breadcrumbs" : [{
                 "title": "Home",
-                "href" : "../../index.html"
+                "href" : "../../../index.html"
             },{
                 "title": "Learning",
-                "href" : "../index.html"
+                "href" : "../../index.html"
             },
 			{
                 "title": "Web accessibility course",
-                "href" : "index.html"
+                "href" : "../index.html"
             },
-			{
-                "title": "Module 1 – Accessibility Fundamentals - Disabilities, Guidelines and Law",
-                "href" : "Module01-Accessibility-Fundamentals.html"
+			{ "title": "Module 2 – Page Structure and Semantics",
+                "href" : "index.html"
             }],
             "lngLinks": [{
                 "lang": "fr",
-                "href": "./index-fr.html",
+                "href": "-fr.html",
                 "text": "Français"
             }],
-            "menuPath": "../../ajax/menu-en.html"
+            "menuPath": "../../../ajax/menu-en.html"
         });
     </script>
 <div class="container">
@@ -64,32 +64,32 @@
 			<section aria-label="Designing with iframes">
 				<h2>Designing with iframes</h2>
 				<p>Iframes enable designers to embed any type of content from another web page. </p>
-				<p>If the iframe consists of decorative images or JavaScript, hide it from screen readers by setting the <code>aria-hidden="true"</code> attribute on the iframe element.</p>
-				<p>If the iframe contains content intended for the user:</p>
+				<p>If the <code>&lt;iframe&gt;</code> consists of decorative images or JavaScript, hide it from screen readers by setting the <code>aria-hidden="true"</code> attribute on the <code>&lt;iframe&gt;</code> element.</p>
+				<p>If the <code>&lt;iframe&gt;</code> contains content intended for the user:</p>
 				<ul>
-					<li>Give the iframe element a descriptive title attribute value.</li>
-					<li>Ensure the iframe title attribute value is unique across iframes on the page.</li>
+					<li>Give the <code>&lt;iframe&gt;</code> element a descriptive <code>title</code> attribute value.</li>
+					<li>Ensure the <code>&lt;iframe&gt;</code> <code>title</code> attribute value is unique across iframes on the page.</li>
 				</ul>
 			</section>
 			<section aria-label="Related WCAG resources">
 				<h2>Related WCAG resources</h2>
-				<h3>Success Criteria</h3>
+				<h3>Success criteria</h3>
 				<ul>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks" target="_blank">2.4.1: Bypass Blocks</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks" >2.4.1: Bypass Blocks</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value" target="_blank">4.1.2: Name, Role, Value</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value" >4.1.2: Name, Role, Value</a>
 					</li>
 				</ul>
 				<h3>Techniques</h3>
 				<ul>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H64" target="_blank">H64: Using the title attribute of the frame and iframe elements</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H64" >H64: Using the title attribute of the frame and iframe elements</a>
 					</li>
 				</ul>
 			</section>
-		<nav role="navigation">
+		<nav role="navigation" aria-label="Document navigation">
 	<h2 class="wb-inv">Document navigation</h2>
 	<ul class="pager">
 		<li class="previous"> <a rel="prev" href="lists.html">Previous - Lists</a></li>
@@ -112,29 +112,23 @@
 				Module 2 – Page Structure and Semantics
 				</h3>
 				
-				<ul class=" list-group menu list-unstyled">
-				<li>
+				<div class="list-group">
+				
 						<a class="list-group-item" href="landmarks.html">Landmarks</a>
-					</li>
-					<li> <a class="list-group-item" href="content-structure.html">Content Structure</a>
+	        <a class="list-group-item" href="headings.html">Headings</a>
+					<a class="list-group-item" href="content-structure.html">Content structure</a>
+
 					
-					</li>
-					<li>
 						<a class="list-group-item" href="language.html">Language</a>
-					</li>
-					<li>
+					
 						<a class="list-group-item" href="lists.html">Lists</a>
-					</li>
-					<li>
-						<a class="list-group-item" href="iframes.html">Iframes</a>
-					</li>
-					<li>
+				
+						<a class="list-group-item active"  aria-current="page" href="iframes.html">Iframes</a>
+					
 						<a class="list-group-item" href="parsing-and-validity.html">Parsing and validity</a>
-					</li>
-					<li>
+					
 						<a class="list-group-item" href="best-practice.html">Best practice</a>
-					</li>
-				</ul>
+				</div>
 			
 			</section>
 			
@@ -144,76 +138,17 @@
 				All modules
 				</h3>
 				
-				<ul class=" list-group menu list-unstyled">
-						<li>				
-						<a class="list-group-item" href="Module01-Accessibility-Fundamentals.html">	Module 1 - Accessibility Fundamentals – Disabilities, Guidelines and Laws</a>
-							
-											</li>
-					<li>
-						
-							
-						<a class="list-group-item" href="Module02-Page-Structure-and-Semantics.html">Module 2  – Page Structure and Semantics</a>
-						
-							
-					
-					</li>
-					<li>
-						
-							
+					<div class="list-group">
+						<a class="list-group-item" href="../module1/index.html">	Module 1 - Accessibility Fundamentals – Disabilities, Guidelines and Laws</a>
+						<a class="list-group-item active" href="index.html">Module 2  – Page Structure and Semantics</a>			
 						<a class="list-group-item" href="">Module 3 – Links and Navigation</a>
-						
-							
-						
-					</li>
-					<li>
-						
-							
 						<a class="list-group-item" href="">Module 4 – Tables</a>
-						
-							
-						
-					</li>
-					<li>
-						
-							
-							<a class="list-group-item" href="module05-images.html">Module 5 – Images</a>
-							
-													
-					</li>
-					<li>
-						
-							
-						<a class="list-group-item" href="">Module 6 – Forms</a>
-						
-							
-						
-					</li>
-					<li>
-						
-							
+						<a class="list-group-item" href="../module5/index.html">Module 5 – Images</a>
+						<a class="list-group-item" href="">Module 6 – Forms</a>	
 						<a class="list-group-item" href="">Module 7 – Visual Design and Colours</a>
-						
-							
-						
-					</li>
-					<li>
-						
-							
 						<a class="list-group-item" href="">Module 8 – Zoom and Responsive Design</a>
-						
-							
-						
-					</li>
-					<li>
-						
-							
 						<a class="list-group-item" href="">	Module 9 - Audio, Video, Animation and Motion</a>
-						
-							
-						
-					</li>
-				</ul>
-						
+			</div>
 
 			</section>
 		
@@ -227,14 +162,14 @@
 			
 </div>
 <div id="def-preFooter"></div>
-		<script src="../../scripts/preFooter.min.js"></script>
+		<script src="../../../scripts/preFooter.min.js"></script>
 </div>	
 		
 		
 	<div id="def-footer"></div>
-	<script src="../../scripts/appFooter.min.js"></script>
-	<script src="../../scripts/refFooter.min.js"></script>
-	<script src="../../scripts/bati-itao.min.js"></script>
+	<script src="../../../scripts/appFooter.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
 </body>
 	
 </html>

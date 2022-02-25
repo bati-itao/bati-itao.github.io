@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Types de handicaps</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Defines the types of disability and their design considerations. Covers blind, low vision, colour blind, deaf, deaf-blind, motor disabilities, reading disabilities, and cognitive, learning and neurological disorders.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../../index-fr.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Accueil",
+                "href" : "../../../index-fr.html"
+            },{
+                "title": "Apprentissage",
+                "href" : "../../index-fr.html"
+            },
+			{
+                "title": "Web accessibility course",
+                "href" : "../index-fr.html"
+            },
+			{
+                "title": "Module 1 – Principes fondamentaux de l’accessibilité",
+                "href" : "index-fr.html"
+            }],
+            "lngLinks": [{
+                "lang": "en",
+                "href": "types-of-disabilities.html",
+                "text": "English"
+            }],
+            "menuPath": "../../../ajax/menu-fr.html"
+        });
+		
+
+$(function(){
+
+  
+	var getTextNodesIn = function(el) { // Look at all the page elements and returns the text nodes
+	    return $(el).find(":not(iframe,script)").addBack().contents().filter(function() {
+	        return this.nodeType == 3; // Text node types are type 3
+	    });
+	};
+
+	// var textNodes = getTextNodesIn($("p, h1, h2, h3","*"));
+	var textNodes = getTextNodesIn($(".dyslexiaSim p"));
+
+	function isLetter(char) {
+		return /^[\d]$/.test(char);
+	}
+
+	var wordsInTextNodes = [];
+	for (var i = 0; i < textNodes.length; i++) {
+		var node = textNodes[i];
+
+		var words = []
+
+		var re = /\w+/g;
+		var match;
+		while ((match = re.exec(node.nodeValue)) != null) {
+
+			var word = match[0];
+			var position = match.index;
+
+			words.push({
+				length: word.length,
+				position: position
+			});
+		}
+
+		wordsInTextNodes[i] = words;
+	};
+
+	function messUpWords () {
+
+		for (var i = 0; i < textNodes.length; i++) {
+
+			var node = textNodes[i];
+
+			for (var j = 0; j < wordsInTextNodes[i].length; j++) {
+
+				// Only change a tenth of the words each round.
+				if (Math.random() > 1/10) {
+
+					continue;
+				}
+
+				var wordMeta = wordsInTextNodes[i][j];
+
+				var word = node.nodeValue.slice(wordMeta.position, wordMeta.position + wordMeta.length);
+				var before = node.nodeValue.slice(0, wordMeta.position);
+				var after  = node.nodeValue.slice(wordMeta.position + wordMeta.length);
+
+				node.nodeValue = before + messUpWord(word) + after;
+			};
+		};
+	}
+
+	function messUpWord (word) {
+
+		if (word.length < 3) {
+
+			return word;
+		}
+
+		return word[0] + messUpMessyPart(word.slice(1, -1)) + word[word.length - 1];
+	}
+
+	function messUpMessyPart (messyPart) {
+
+		if (messyPart.length < 2) {
+
+			return messyPart;
+		}
+
+		var a, b;
+		while (!(a < b)) {
+
+			a = getRandomInt(0, messyPart.length - 1);
+			b = getRandomInt(0, messyPart.length - 1);
+		}
+
+		return messyPart.slice(0, a) + messyPart[b] + messyPart.slice(a+1, b) + messyPart[a] + messyPart.slice(b+1);
+	}
+
+	// From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+	function getRandomInt(min, max) {
+		
+		return Math.floor(Math.random() * (max - min + 1) + min);
+	}
+
+
+	setInterval(messUpWords, 150);
+});
+
+
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
+		<h1 property="name" id="wb-cont">Types de handicaps</h1>
+                
+                
+                	<nav role="navigation"  aria-label="Table des matières">
+      <div class="panel panel-default mrgn-tp-lg">
+        <header class="panel-heading">
+          <h2 class="panel-title">Table des matières</h2>
+        </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#blind">Cécité</a></li>
+              <li><a href="#low-vision">Malvoyance</a></li>
+              <li><a href="#colour-blind">Daltonisme</a></li>
+              <li><a href="#deaf">Surdité</a></li>
+              <li><a href="#deaf-blindness">Surdité et cécité</a></li>
+              <li><a href="#motor-disabilities">Handicaps moteurs</a></li>
+              <li><a href="#speech-disabilities">Troubles de la parole</a></li>
+              <li><a href="#disabilities">Troubles cognitifs, d’apprentissage et neurologiques</a></li>
+              <li><a href="#reading-disabilities">Déficience de lecture</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+			<section aria-label="Cécité">
+                
+				<h2 id="blind">Cécité</h2>
+				<ul>
+					<li>Le W3C définit la cécité comme une «&nbsp;perte de vision importante incorrigible aux deux yeux&nbsp;».</li>
+					<li>Les personnes atteintes de cécité&nbsp;:</li>
+						<ul>
+							<li>utilisent un logiciel de lecture d’écran pour convertir le texte en parole ou en braille; </li>
+					<li>naviguent dans le concept à l’aide du clavier;</li>
+					<li>écoutent la description auditive de la vidéo ou lisent la transcription;</li>
+					<li>se fient à des structures de page HTML codées convenablement (comme des listes, des en-têtes et des tableaux) et à des commandes (comme des liens, des boutons et des commandes de formulaire) pour lire et naviguer dans le concept et exploiter ses fonctions.</li>
+						</ul>
+					</li>
+				</ul>
+				<h3>Vidéo&nbsp;: Comment les aveugles utilisent l'internet</h3>
+				
+				<div class="iframe-container"> 
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/DePdWynmd_Y" title="Vidéo&nbsp;: Comment les aveugles utilisent l'internet" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+				</div> 
+				
+				<h3>Concept visant la cécité</h3>
+				<ul>
+					<li>Fournir des équivalents textuels pour les images;</li>
+					<li>Fournir des transcriptions descriptives ou une audiodescription pour la vidéo;</li>
+					<li>Ne pas utiliser la couleur comme seul moyen visuel pour transmettre de l’information;</li>
+					<li>S’assurer que toutes les fonctions sont utilisables à l’aide d’un clavier;</li>
+					<li>Baliser le contenu avec une structure et une sémantique appropriées (en-têtes, repères, tableaux, listes, etc.);</li>
+					<li>Fournir le nom, le rôle et la valeur des commandes personnalisés.</li>
+				</ul>
+			</section>
+			<section aria-label="Malvoyance">
+				<h2 id="low-vision">Malvoyance</h2>
+				<ul>
+					<li>Le W3C définit la malvoyance comme suit&nbsp;: «&nbsp;faible acuité (vision qui n’est pas tranchée), vision tunnel (vue seulement au milieu du champ visuel), perte du champ central (vue des bords du champ visuel uniquement) et vision trouble&nbsp;». </li>
+					<li>La malvoyance englobe les personnes atteintes de cataractes, de rétinopathie diabétique, de glaucome, d’hémianopie, de dégénérescence maculaire, de décollement rétinien, etc.</li>
+					<li>
+						<p>La perte de vision peut prendre plusieurs formes et être légère ou plutôt extrême. Par exemple, partons du principe que cette image correspond à une vision normale&nbsp;:</p>
+					    <img src="images/image8.jpg" class="img-responsive mrgn-bttm-md" alt="Deux garcons souriant en entreinte, chacun tenant un ballon.">
+					</li>
+					<li>
+						<p>Certaines personnes présentent une hypersensibilité aux reflets&nbsp;:</p>
+						<img src="images/image9.jpg" class="img-responsive mrgn-bttm-md" alt="Des zones brillantes dans l'image ont une lueur blanche qui cachent les details.">
+					</li>
+					<li>
+						<p>Certaines personnes peuvent être daltoniennes&nbsp;:</p>
+					
+						<img src="images/imagea.jpg" class="img-responsive mrgn-bttm-md" alt="Le rouge dans l'image apparait desaturee et puis la couleur orange apparait plutot vert.">
+					</li>
+					<li>
+						<p>Certaines personnes peuvent voir une image complète, mais cette image peut être floue ou brouillée&nbsp;:</p>
+					
+						<img src="images/imageb.jpg" class="img-responsive mrgn-bttm-md" alt="">
+					</li>
+					<li>
+						<<p>D’autres personnes pourraient voir le centre de l’image, symptôme souvent appelé «&nbsp;vision en tunnel&nbsp;».</p>
+						<img src="images/imagec.jpg" class="img-responsive mrgn-bttm-md" alt="Seulement un cercle avec un montant eleve de detail est visible, a peu pres 20% le l'image.">
+					</li>
+					<li>
+						p>D’autres personnes pourraient voir les bords de l’image, trouble souvent appelé «&nbsp;vision périphérique&nbsp;».</p>
+					
+						<img src="images/imaged.jpg" class="img-responsive mrgn-bttm-md" alt="Environ 20% de l'image au centre est obfusquee par un cercle gris.">
+					</li>
+					<li>Un faible contraste crée des obstacles à l’interaction, car les utilisateurs peuvent ne pas être en mesure de déterminer leur emplacement sur une page, l’état des liens et des commandes, de lire du texte ou de déterminer le contenu des images.  </li>
+					<li>Les personnes malvoyantes peuvent agrandir du texte ou changer les polices de caractères, les couleurs et l’espacement pour rendre le contenu plus exploitable en fonction de leurs besoins. </li>
+					<li>Les personnes dont le champ de vision est restreint peuvent ne pas agrandir le texte, mais bénéficier d’un concept réactif (pour réduire l’affichage), d’un regroupement de renseignements connexes et d’un positionnement étroit des étiquettes et des commandes.</li>
+				</ul>
+				
+				<h3>Vidéo&nbsp;: Démonstration de la technologie d'assistance �_ Logiciel Zoom Text/h3>
+					
+	
+					<div class="iframe-container"> 
+
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/L8BfZypla7Q" title="Vidéo&nbsp;: Démonstration de la technologie d�assistance �_ Logiciel Zoom Text" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+
+					</div>
+					
+				<h3>Concept visant la malvoyance</h3>
+				<ul>
+					<li>Assurer un contraste suffisant entre le texte et la couleur de fond;</li>
+					<li>S’assurer que la cible et l’état de survol des liens, des boutons et des autres commandes sont bien visibles;</li>
+					<li>Établir une distinction visuelle claire entre le contenu (p. ex., le texte) et les commandes (p. ex., les boutons, les liens, etc.);</li>
+					<li>Placer les étiquettes près de leurs commandes;</li>
+					<li>Utiliser éventuellement la couleur pour aider les utilisateurs à distinguer les différentes zones de la page.</li>
+				</ul>
+			</section>
+			<section aria-label="Daltonisme">
+				<h2 id="colour-blind">Daltonisme</h2>
+				<p>Le W3C définit le daltonisme comme «&nbsp;la difficulté à faire la distinction entre les couleurs, comme entre le rouge et le vert ou entre le jaune et le bleu, et parfois l’incapacité à percevoir une couleur&nbsp;».</p>
+				<p>Les obstacles pour ces utilisateurs se manifestent partout où seule la couleur véhicule un sens. Par exemple, un formulaire indiquant des champs obligatoires avec une étiquette rouge sans astérisque ou un lien en bleu dépourvu de toute autre amélioration visuelle (soulignement, contraste de 3:1 avec un texte voisin, bordure, etc.).</p>
+				<p>Dans la simulation de daltonisme ci-dessous, les colonnes rouge et verte de l’histogramme sont difficiles à discerner. La solution consiste ici à ajouter un motif de fond, mais les barres pourraient aussi être étiquetées avec du texte visible.</p>
+				<h3>Simulation de daltonisme associé au rouge-vert</h3>
+				<p>Image originale&nbsp;:</p>
+				<img src="images/image6.png" class="img-responsive" alt="Un diagramme a bandes utilisant les couleurs vert, bleu et rouge.">
+				<p>Protanopia (red colour blind) simulation:</p>
+				<img src="images/image7.png" class="img-responsive" alt="Avec un filtre de protanopie, les couleurs rouge et vert transforment en deux teintes brunes. ">
+                
+                <h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span>Exemple type&nbsp;: Utilisation d’un motif de fond</h3>
+				
+				<p>Dans cet exemple, des motifs de fond sont utilisés pour identifier les trois catégories x, y et z. La couleur ne véhicule plus uniquement le sens.</p>
+				<img src="images/image5.png" class="img-responsive" alt="Un diagramme a bandes avec des motifs de fond.">
+				<h3>Concept visant le daltonisme</h3>
+				<ul>
+					<li>Assurer un contraste suffisant entre le texte et la couleur de fond;</li>
+					<li>Ne pas utiliser la couleur comme seul moyen visuel pour transmettre de l’information (p. ex., associer une étiquette textuelle ou introduire un motif de fond en plus de la couleur);</li>
+					<li>S’assurer qu’il est possible de discerner les liens visuellement par rapport au texte voisin avec plus de couleur.</li>
+				</ul>
+			</section>
+			
+			<section aria-label="Surdité">
+				<h2 id="deaf">Surdité</h2>
+				<p>W3C définit une déficience auditive comme étant une perte d’audition légère ou modérée dans une des oreilles ou dans les deux («&nbsp;déficience auditive&nbsp;») ou une perte auditive importante et non corrigible dans les deux oreilles («&nbsp;surdité&nbsp;»). Les personnes ayant une déficience auditive ne peuvent pas entendre l’audio, préfèrent le contenu audio sous une autre forme ou accompagné de sous-titres.</p>
+				<p>La majeure partie du Web est en format visuel ou texte. Il est essentiel de rendre le contenu audio accessible aux utilisateurs ayant une déficience auditive.</p>
+				<h3>Concept visant la surdité</h3>
+				<ul>
+					<li>Prévoir des sous-titres pour le contenu vidéo;</li>
+					<li>Fournir une description audio ou une transcription du contenu vidéo;</li>
+					<li>Fournir une transcription du contenu audio seulement;</li>
+					<li>Fournir une transcription ou une audiodescription pour le contenu vidéo seulement;</li>
+					<li>S’assurer que les sous-titres de la vidéo sont synchronisés avec le discours audio et les sons importants; </li>
+					<li>S’assurer que les sous-titres/légendes codés sont faciles à lire. Le contraste doit être optimal; la taille doit être appropriée, et les sous-titres sont placés en arrière-plan pour ne pas se perdre dans l’arrière-plan vidéo qui change. </li>
+					<li>Les utilisateurs devraient avoir la possibilité d’arrêter, de mettre en pause et d’ajuster le volume du contenu audio (indépendamment du volume du système);</li>
+					<li>S’assurer que la transcription identifie les haut-parleurs et comprend tous les dialogues, les sons importants et la narration.</li>
+				</ul>
+			</section>
+
+			<section aria-label="Surdité et cécité">
+				<h2 id="deaf-blindness">Surdité et cécité</h2>
+				<p>Pour lire, les personnes sourdes et aveugles utilisent un lecteur d’écran doté d’un afficheur braille dynamique, qu’ils manipulent avec leurs doigts. </p>
+				<p>Les personnes sourdes et aveugles ne peuvent accéder au contenu multimédia (audio seulement, vidéo seulement et vidéo avec audio) qu’au moyen de la transcription associée. Ils ne peuvent pas entendre le son, ni voir la vidéo ou lire les sous-titres. Les fichiers audio nécessitent une transcription de base du contenu audio, et les fichiers vidéo nécessitent une transcription descriptive où l’information audio et visuelle essentielle est communiquée. </p>
+				<h3>Concept visant la surdité et la cécité&nbsp;:</h3>
+				<ul>
+					<li>Certaines considérations s’appliquent aux utilisateurs aveugles et sourds, bien que les sous-titres vidéo ne soient pas accessibles au braille dans la plupart des technologies d’assistance.</li>
+					<li>Fournir des transcriptions de base de fichiers audio et des transcriptions descriptives de fichiers vidéo (transcriptions qui comprennent toute l’information audio et visuelle essentielle).</li>
+				</ul>
+				<h3>Convertisseur braille</h3>
+				<p>Le convertisseur braille se situe habituellement directement sous le clavier. Les lecteurs d’écran interceptent le contenu de la page et envoient les caractères au convertisseur braille.</p>
+				<img src="images/image9.png" class="img-responsive" alt="Un dispositif braille sous un clavier d�ordinateur portable.">
+			</section>
+			
+			<section aria-label="Handicaps moteurs">
+				<h2 id="motor-disabilities">Handicaps moteurs</h2>
+				<p>Les handicaps moteurs peuvent faire référence à un large éventail de déficiences physiques. </p>
+				<p>L’utilisation d’une souris n’est souvent pas une option envisageable. Il se peut que les utilisateurs ne soient pas capables temporairement d’utiliser une seule main en raison d’une blessure, d’une difficulté à utiliser ou à contrôler leurs mains, d’un contrôle moteur limité ou inexistant de leurs membres ou d’une main ou d’un membre manquant. </p>
+				<p>Les personnes ayant une déficience motrice utilisent souvent d’autres claviers ou dispositifs de saisie qui agissent comme des émulateurs de clavier. Les émulateurs de clavier comprennent un logiciel de reconnaissance de la parole, des dispositifs de commande au souffle, des claviers à l’écran, des logiciels de balayage et d’autres technologies d’assistance. </p>
+				<p>Il est important de s’assurer que toutes les fonctionnalités du contenu sont utilisables au moyen d’une interface clavier.</p>
+				
+				<h3>Vidéo&nbsp;: Contacteur au souffle</h3>
+				
+				<div class="iframe-container"> 
+
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/H9KahANM1N4" title="Vidéo&nbsp;: Contacteur au souffle" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+
+				</div>
+
+				<h3>Concept visant les handicaps moteurs</h3>
+				<ul>
+					<li>S’assurer que toutes les fonctions sont disponibles au moyen de la souris et du clavier pour les utilisateurs qui pourraient ne pas être en mesure d’utiliser la souris;</li>
+					<li>Permettre aux utilisateurs de modifier ou de désactiver les raccourcis à touche unique; </li>
+					<li>Fournir un lien descriptif et un texte de bouton de commande pour ceux qui utilisent un logiciel de saisie vocale; </li>
+					<li>Un temps de réponse minimal de 2&nbsp;minutes doit être prévu avant l’expiration du délai;</li>
+					<li>S’assurer que le contenu fonctionne à la fois en orientation horizontale et verticale et ne pas se fier aux techniques de «&nbsp;balayage&nbsp;» ou «&nbsp;faire glisser&nbsp;».</li>
+				</ul>
+			</section>
+			<section aria-label="Troubles de la parole">
+				<h2 id="speech-disabilities">Troubles de la parole</h2>
+				<p>Les personnes ayant des troubles de la parole ont de la difficulté à produire des sons vocaux et à utiliser les muscles de leur bouche.</p>
+				<h3>Concept visant les troubles de la parole</h3>
+				<ul>
+					<li>S’assurer qu’une solution de rechange aux services vocaux est fournie sous la forme de clavardage, de formulaires, de courriels, etc.;</li>
+					<li>Si la page «&nbsp;Nous contacter&nbsp;» comporte un numéro de téléphone, fournir également un moyen de contact textuel (courriel ou formulaire «&nbsp;pour nous joindre&nbsp;» accessible); </li>
+					<li>S’assurer que toute fonction de recherche vocale comporte une option de recherche textuelle.</li>
+				</ul>
+			</section>
+			<section aria-label="Troubles cognitifs, d’apprentissage et neurologiques">
+				<h2 id="disabilities">Troubles cognitifs, d’apprentissage et neurologiques</h2>
+				<p>Les invalidités cognitives représentent, et de loin, le type d’incapacité le plus courant. Selon le W3C-IAW, les troubles cognitifs, d’apprentissage et neurologiques affectent n’importe quelle partie du système nerveux et influent sur la façon dont les gens entendent, bougent, voient, parlent et comprennent l’information. Les troubles cognitifs, d’apprentissage et neurologiques n’affectent pas nécessairement l’intelligence d’une personne.</p>
+				<h3>Exemples de déficiences cognitives, d’apprentissage et neurologiques</h3>
+                <dl>
+					<dt>Trouble déficitaire de l’attention avec hyperactivité (TDAH)</dt>  
+					<dd>Il s’agit d’une difficulté à se concentrer sur une seule tâche, à se concentrer pendant de plus longues périodes ou capacité à être facilement distrait.</dd>
+					
+					<dt>Trouble du spectre autistique (TSA)&nbsp;(comprend l’«&nbsp;autisme&nbsp;», le «&nbsp;syndrome d’Asperger&nbsp;» et le «&nbsp;trouble envahissant du développement&nbsp;» [TED])</dt>
+					<dd>Il inclut les déficiences des capacités de communication et d’interaction sociales, et parfois des habitudes et des intérêts restreints.</dd>
+					
+					<dt>Déficiences intellectuelles (parfois appelées «&nbsp;troubles d’apprentissage&nbsp;» en Europe et dans d’autres pays, et «&nbsp;troubles du développement&nbsp;» dans d’autres régions)/dt> 
+					<dd>Elles incluent les déficiences de l’intelligence, un apprentissage plus lent ou la difficulté àcomprendre des concepts complexes. Le syndrome de Down est l’une des nombreuses causes de déficience intellectuelle.</dd>
+					
+					<dt>Troubles d’apprentissage</dt>
+					<dd>Il s’agit d’un terme fonctionnel plutôt que d’un problème de santé, et n’est pas défini de manière homogène. En Europe et dans certains autres pays, il s’agit de déficiences intellectuelles, tandis qu’en Australie, au Canada, aux États-Unis et dans d’autres pays, il s’agit de déficiences perceptuelles.</dd>
+					
+					<dt>Troubles de santé mentale</dt>
+					<dd>Ils comprennent l’anxiété, le délire, la dépression, la paranoïa, la schizophrénie et de nombreux autres troubles. Ces états peuvent entraîner des difficultés à se concentrer sur l’information, à traiter l’information ou à la comprendre. En particulier, les médicaments prescrits pour ces troubles peuvent avoir des effets secondaires comme une vision trouble, un tremblement des mains et d’autres déficiences.</dd>
+					
+					<dt>Troubles de la mémoire</dt>
+					<dd>mémoire à court terme limitée; mémoire à long terme manquante ou capacité limitée à se souvenir du langage. La démence est l’une des nombreuses causes de troubles de la mémoire.</dd>
+					
+					<dt>Sclérose en plaques</dt>
+					<dd>lle cause des lésions aux cellules nerveuses du cerveau et de la moelle épinière et peut affecter les capacités auditives, cognitives, physiques ou visuelles, en particulier pendant les poussées.</dd>
+					
+					<dt>Neurodiversité</dt>
+					<dd>Il s’agit d’un terme sociétal plutôt que médical qui décrit la diversité naturelle du fonctionnement neurocognitif, comme le sexe, l’ethnicité, l’orientation sexuelle et le handicap.</dd>
+					
+					<dt>roubles perceptuels (parfois appelés «&nbsp;troubles d’apprentissage&nbsp;» en Australie, au Canada, aux États-Unis et dans d’autres pays)j</dt>
+					<dd>difficulté à traiter de l’information auditive, tactile, visuelle ou sensorielle. Cela peut avoir un impact sur la lecture (dyslexie), l’écriture (dysgraphie), le traitement des chiffres (dyscalculie) ou l’orientation spatiale et temporelle.</dd>
+					
+					<dt>Troubles convulsifs/dt>
+					<dd>ls comprennent différents types d’épilepsie et de migraines, qui peuvent survenir en réaction au clignotement visuel ou à des signaux audio à certaines fréquences ou tendances.</dd>
+					
+				</dl>
+				<h3>Exemples d’obstacles pour les personnes ayant des troubles cognitifs, d’apprentissage et neurologiques</h3>
+				<ul>
+					<li>Mécanismes de navigation complexes et mises en page difficiles à comprendre et à utiliser;</li>
+					<li>Phrases complexes difficiles à lire et mots inhabituels difficiles à comprendre;</li>
+					<li>Longs passages de texte sans images, graphiques ou autres illustrations pour mettre en évidence le contexte;</li>
+					<li>Contenu en mouvement, clignotant ou scintillant et audio de fond qui ne peut pas être désactivé;</li>
+					<li>Navigateurs Web et lecteurs de médias qui ne fournissent pas de mécanismes pour supprimer les animations et l’audio;</li>
+					<li>Concepts de pages visuelles qui ne peuvent pas être adaptées au moyen de commandes de navigateur Web ou de feuilles de style personnalisées.</li>
+				</ul>
+				<h3>Concept visant les troubles cognitifs, d’apprentissage et neurologiques</h3>
+				<p>Les personnes ayant des troubles cognitifs, d’apprentissage et neurologiques comptent souvent sur&nbsp;:</p>
+				<ul>
+					<li>un contenu clairement structuré qui facilite l’aperçu et l’orientation;</li>
+					<li>l’étiquetage uniforme des formulaires, des boutons et des autres parties du contenu;</li>
+					<li>les cibles de lien prévisibles, la fonctionnalité et l’interaction globale;</li>
+					<li>différentes façons de naviguer sur les sites Web, comme le menu hiérarchique et la recherche;</li>
+					<li>Les options de suppression du contenu clignotant, scintillant, étincelant et d’autre contenu distrayant;</li>
+					<li>Texte plus simple complété par des images, des graphiques et d’autres illustrations.</li>
+				</ul>
+				<p>Le guide de rédaction du contenu Canada.ca exige que les sites qui font face au public aient un contenu qui est au niveau de lecture grade 8, et puis les sites qui font face a l’interne un niveau grade 10. Un outil nommé le Flesch-Kincaid Grade Level test, disponible en anglais exclusivement à l’intérieur de Microsoft Word sous les options d’orthographie et grammaire. L’outil de la mesure de lisibilité <a href="http://www.scolarius.com">www.scolarius.com</a> offre une métrique semblable pour le texte français; une mesure entre 50-89 correspond a le niveau primaire d’éducation, entre 90 et 119 au niveau secondaire, et puis entre 150 a 189 au niveau universitaire.</p>
+				<hr/>
+				<p class="small">La plupart des renseignements contenus dans cet article proviennent du document de l’Initiative d’accessibilité du Web (<a href="https://www.w3.org/WAI/">IAT</a>)&nbsp;: <a href="https://www.w3.org/WAI/people-use-web/abilities-barriers">Capacités et obstacles variés</a>. Shadi&nbsp;Abou-Zahra, éd. Copyright © 2017 W3C® (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>). Statut&nbsp;: Mise à jour le 15&nbsp;mai&nbsp;2017. <a href="https://www.w3.org/WAI/people-use-web/abilities-barriers">https://www.w3.org/WAI/people-use-web/abilities-barriers</a></p>
+				
+				<h3>Convulsions</h3>
+				<p>Des lumières qui clignotent rapidement ou des effets stroboscopiques dans la vidéo, les graphiques ou l’animation peuvent causer des crises photoépileptiques chez les utilisateurs atteints d’épilepsie photosensible. Ces crises, aussi appelées convulsions, sont des perturbations électriques soudaines et non contrôlées du cerveau qui peuvent causer des préjudices physiques.</p>
+				<p>Les feux clignotants peuvent déclencher une crise si&nbsp;:</p>
+				<ul>
+					<li>Des lumières clignotent plus de 3&nbsp;fois par seconde;</li>
+					<li>Le contenu du clignotant est assez grand. Les DACW fournissent une formule complexe ici, mais la règle générale est qu’un contenu clignotant dépassant 21&nbsp;824&nbsp;pixels carrés pose problème.</li>
+					<li>Le contenu clignotant présente un contraste élevé. Les DACW constituent une autre formule complexe ici, mais il est recommandé d’évaluer le contenu clignotant à l’aide d’un outil comme le <a href="http://trace.umd.edu/peat">Photosensitive Epilepsy Analysis Tool (PEAT).</a></li>
+				</ul>
+				<p>Comme les utilisateurs peuvent agrandir la page et agrandir la zone clignotante, il est plus sécuritaire de limiter le clignotement de n’importe quelle taille de contenu à un maximum de trois clignotements par période de 1&nbsp;seconde.</p>
+				<h4>Concept visant les troubles convulsifs</h4>
+				<ul>
+					<li>Ne pas inclure de séquences lumineuses clignotantes de 3&nbsp;fois ou plus par seconde dans les vidéos, les animations ou les transitions. Si vous ne pouvez pas modifier la source, ne pas l’utiliser.</li>
+				</ul>
+			</section>
+			
+			<section aria-label="Déficience de lecture">
+				<h2 id="reading-disabilities">Déficience de lecture</h2>
+				<h3>Difficulté à lire</h3>
+				<ul>
+					<li>Certaines personnes ayant des troubles cognitifs et dyslexiques ont des difficultés à lire.</li>
+					<li>Pour les personnes dyslexiques, l’orthographe ou la lecture des mots peuvent être sujettes à des erreurs parce que le codage visuel du texte est difficile.</li>
+				</ul>
+				<h3>Simulation de dyslexie</h3>
+				<p>Voici la simulation d’une expérience de lecture dyslexique, où les lettres semblent bouger et changer de place.</p>
+<ul class="list-unstyled dyslexiaSim">
+	<li>
+		<details>
+			<summary>Dyslexie - Exemple</summary>
+		
+				  <p>Friends who have dyslexia described to me how they experience reading. She <em>can</em> read, but it takes a lot of concentration, and the letters seems to "jump around".</p>
+
+				  <p>I remembered reading about <a href="https://en.wikipedia.org/wiki/Typoglycemia">typoglycemia.</a> Wouldn't it be possible to do it interactively on a website with Javascript? Sure it would.</p>
+
+				  <blockquote>
+					<p>
+					  Dyslexia is characterized by difficulty with learning to read fluently and with accurate comprehension despite normal intelligence. This includes difficulty with phonological awareness, phonological decoding, processing speed, orthographic coding, auditory
+					  short-term memory, language skills/verbal comprehension, and/or rapid naming.</p>
+
+					<p>
+					  Developmental reading disorder (DRD) is the most common learning disability. Dyslexia is the most recognized of reading disorders, however not all reading disorders are linked to dyslexia.
+					</p>
+
+
+					<p>
+					  Some see dyslexia as distinct from reading difficulties resulting from other causes, such as a non-neurological deficiency with vision or hearing, or poor or inadequate reading instruction. There are three proposed cognitive subtypes of dyslexia (auditory,
+					  visual and attentional), although individual cases of dyslexia are better explained by specific underlying neuropsychological deficits and co-occurring learning disabilities (e.g. attention-deficit/hyperactivity disorder, math disability, etc.).
+					  Although it is considered to be a receptive language-based learning disability in the research literature, dyslexia also affects one's expressive language skills. Researchers at MIT found that people with dyslexia exhibited impaired voice-recognition
+					  abilities.
+					</p>
+				  	<p><em>Sruoce: <a href="http://en.wikipedia.org/wiki/Dyslexia">Wipiiekda</a></em></p>
+				  </blockquote>
+
+
+																						   
+
+		<hr/>
+		<p class="small">Source: [<a href="https://codepen.io/Liight/pen/yOexqo">Animated simulation</a>]</p>
+		</details>
+	</li>
+	</ul>
+
+				<h3>Concept visant les déficiences de lecture</h3>
+				<ul>
+					<li>Ne pas communiquer uniquement au moyen d’un texte. Compléter le texte avec des images informatives, des vidéos et des enregistrements audio.</li>
+				</ul>
+			</section>	
+			
+		<nav role="navigation" aria-label="Document navigation">			<nav role="navigation">
+	<h2 class="wb-inv">Document navigation</h2>
+	<ul class="pager">
+		<li class="previous"> <a rel="prev" href="web-accessibility.html">Previous - Web accessibility</a></li>
+	  <li class="next"> <a rel="next" href="accessibility-guidelines.html">Next - Accessibility guidelines</a> </li>
+	</ul>
+  </nav>
+					
+
+</main>
+		
+		
+
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+			
+			
+
+				<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				Module 1 - Principes fondamentaux de l'accessilité
+				</h3>
+				
+			<div class="list-group">
+						<a class="list-group-item" href="web-accessibility-fr.html">Accessibilité du Web</a>
+						<a class="list-group-item active"  aria-current="page" href="types-of-disabilities-fr.html">Types de handicaps</a>
+						<a class="list-group-item" href="accessibility-guidelines-fr.html">Lignes directrices sur l’accessibilité</a>
+						<a class="list-group-item" href="laws-and-government-standards-fr.html">Lois et normes gouvernementale</a>
+				</div>
+			
+			</section>
+			
+			
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				All modules
+				</h3>
+			
+					<div class="list-group">
+						<a class="list-group-item active" href="index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a>
+						<a class="list-group-item" href="../module2/index-fr.html">Module 2 – Structure et sémantique des pages</a>			
+						<a class="list-group-item" href="">Module 3 – Liens et navigation</a>
+						<a class="list-group-item" href="">Module 4 – Tableaux</a>
+						<a class="list-group-item" href="../module5/index-fr.html">Module 5 – Images</a>
+						<a class="list-group-item" href="">Module 6 – Formulaires</a>	
+						<a class="list-group-item" href="">Module 7 – Conception visuelle coleurs</a>
+						<a class="list-group-item" href="">Module 8 – Zoom et conception adaptée</a>
+						<a class="list-group-item" href="">Module 9 - Audio, vidéo, etc.</a>
+			</div>
+
+			</section>
+		
+		</nav>
+	
+		
+
+		
+		
+	
+			
+</div>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+</div>	
+		
+		
+	<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+</body>
+	
+</html>
