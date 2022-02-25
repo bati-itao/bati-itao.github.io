@@ -79,35 +79,35 @@
       </div>
     </nav>
                 
-		  <section aria-label="Designing with Landmarks">
-				<h2 id="landmarks">Designing with landmarks</h2>
-				<p>Landmarks, also known as page regions, enable screen reader users to identify and navigate directly to important sections of a web page, skipping over blocks of content. Once you introduce landmarks, ensure all content on the page is included in a landmark as content outside a landmark can be easily missed.</p>
-				<p>You identify regions of the page with HTML5 sectioning elements or ARIA landmark <code>role</code> attributes.</p>
-				
+		  <section aria-label="Conception utilisant les points de repère">
+				<h2 id="landmarks">Conception utilisant les points de repère</h2>
+				<p>Les points de repère, également appelés «&nbsp;régions de page&nbsp;», permettent aux utilisateurs du lecteur d’écran de repérer les sections importantes d’une page Web et de naviguer directement vers celles-ci en omettant des blocs de contenu. Lorsque vous introduisez des points de repère, assurez-vous que tout le contenu de la page est inclus dans un point de repère, car il est facile de manquer du contenu à l’extérieur d’un point de repère.</p>
+				<p>Identifiez les régions de la page avec des éléments de section&nbsp;HTML5 ou des attributs de rôle de points de repère ARIA<code>role</code> attributes.</p>
+				<p>[légende]Éléments de région&nbsp;HTML5 et attributs de rôle de points de repère ARIA équivalents</p>
 			  <table class="table table-bordered table-hover">
 					<caption>HTML5 region elements and their equivalent ARIA landmark role attributes</caption>
 					<thead><tr>
 						<th scope="col">
-							HTML5 sectioning element
+							Élément de section&nbsp;HTML5
 						</th>
 						<th scope="col">
-							ARIA landmark roles
+							Rôles de points de repère ARIA
 						</th>
 						<th scope="col">
-							Region
+							Région
 					  </th>
 					</tr>
 				</thead>
 				  <tbody>
 					<tr>
 						<td>
-							<code>&lt;header&gt;</code>when child of <code>&lt;body&gt;</code>
+							<code>&lt;header&gt;</code>orsqu’enfant de<code>&lt;body&gt;</code>
 					  </td>
 						<td>
 							<code>role="banner"</code>
 					  </td>
 						<td>
-							Header - top region of every page that contains info such as logo, search, and nav options.
+							En-tête –&nbsp;région du haut de chaque page qui contient des renseignements comme le logo et les options de recherche et de navigation.
 					  </td>
 					</tr>
 					<tr>
@@ -118,7 +118,7 @@
 							<code>role="contentinfo"</code>
 					  </td>
 						<td>
-							Footer – bottom region of every page that contains info such as copyright, privacy or disclaimers
+							Bas de page –&nbsp;partie inférieure de chaque page qui contient des renseignements relatifs aux droits d’auteur ou à la protection des renseignements personnels, ou les avis de non-responsabilité.
 					  </td>
 					</tr>
 					<tr>
@@ -129,7 +129,7 @@
 							<code>role="main"</code>
 					  </td>
 						<td>
-							Main content region of a page
+							Contenu principal –&nbsp;région du contenu principal d’une page.
 					  </td>
 					</tr>
 					<tr>
@@ -140,7 +140,7 @@
 							<code>role="navigation"</code>
 					  </td>
 						<td>
-							Navigation Menu
+							Menu de navigation
 					  </td>
 					</tr>
 					<tr>
@@ -151,7 +151,7 @@
 							<code>role="complementary"</code>
 					  </td>
 						<td>
-							Complementary Content – regions that support the main content that is separate and meaningful, such as side note explaining the main content
+							Contenu complémentaire –&nbsp;régions qui appuient le contenu principal et qui sont distinctes et importantes, comme une note expliquant le contenu principal.
 					  </td>
 					</tr>
 					<tr>
@@ -162,7 +162,7 @@
 							<code>role="search"</code>
 					  </td>
 						<td>
-							Search – a region that contains a collection of items and objects that, as a whole, combine to create search functionality.
+							Recherche –&nbsp;région qui contient un ensemble d’éléments et d’objets qui, dans leur ensemble, se combinent pour créer une fonction de recherche.
 					  </td>
 					</tr>
 					<tr>
@@ -173,7 +173,7 @@
 							<code>role="form"</code> should be named
 					  </td>
 						<td>
-							Form -- a region that contains a collection of items and objects that, as a whole, combine to create a form. The HTML5 element must be named; the ARIA equivalent may be named. Name with the aria-label, aria-labelledby or title attribute
+							Formulaire –&nbsp;une région qui contient une collection d’éléments et d’objets qui, dans leur ensemble, se combinent pour créer un formulaire.
 					  </td>
 					</tr>
 					<tr>
@@ -185,44 +185,47 @@
 							<code>role="region"</code> must be named
 					  </td>
 						<td>
-							Generic region for when named landmarks do not appropriately describe the content. The region must have an accessible name via the aria-label, aria-labelledby or title attribute.
+							L’élément &lt;section&gt; représente une section indépendante d’un document qui n’a pas un élément sémantique plus spécifique pour le représenter. Les sections doivent toujours avoir des entêtes, sauf dans quelques exceptions.
 					  </td>
 					</tr>
 			    </tbody>
 				</table>
 			</section>
 			<section aria-label="Best practices for page regions and landmarks:">
-<h2 id="regions-landmarks">Best practices for page regions and landmarks</h2>
+<h2 id="regions-landmarks">Suivez les pratiques exemplaires suivantes pour les régions de page et les points de repère&nbsp;:</h2>
 				<ul>
-					<li>Use HTML5 sectioning elements (preferred) to identify regions on a page. Use ARIA landmark role attributes if HTML5 sectioning elements cannot be used.
+					<li>Utiliser les éléments de section&nbsp;HTML5 (de préférence) pour identifier les régions sur une page. Utiliser des attributs de rôle de point de repère ARIA s’il est impossible d’utiliser des éléments de section&nbsp;HTML5.
 						<ul>
-							<li>Exception: to support IE 11, add the role="main" attribute to the <code>&lt;main&gt;</code> element.</li>
+							<li>Exception&nbsp;: pour prendre en charge IE 11, ajouter l’attribut role=”main” <code>&lt;main&gt;</code> à l’élément</li>
 						</ul>
 					</li>
-					<li>Ensure all content on the page is contained within a page/landmark region</li>
-					<li>Ensure only one instance of:
+					<li>S’assurer que tout le contenu de la page se trouve dans une région de page ou un point de repère.</li>
+					<li>S’assurer de la présence d’un seul cas de&nbsp;:
 						<ul>
-							<li><code>&lt;header&gt;</code> only as child of <code>&lt;body&gt;</code>, or <code>role="banner"</code>. A <code>&lt;header&gt;</code> is not considered a banner when it is the child of <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code> or <code>&lt;section&gt;</code>.</li>
+							<li><code>&lt;header&gt;</code> seulement comme enfant de <code>&lt;body&gt;</code>, ou <code>role="banner"</code>. Un <code>&lt;header&gt;</code> n’est pas considéré comme une bannière lorsqu’il s’agit de l’enfant de <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code> ou <code>&lt;section&gt;</code>.</li>
 							<li> <code>&lt;footer&gt;</code></li>
 							<li><code>&lt;main&gt;</code></li>
 						</ul>
 					</li>
-					<li>Ensure <code>&lt;header&gt;</code> (when the banner), <code>&lt;footer&gt;</code>, <code>&lt;main&gt;</code> are direct children of <code>&lt;body&gt;</code></li>
-					<li>Limit the use of <code>&lt;nav&gt;</code> to primary and secondary navigations
+					<li>S’assurer que <code>&lt;header&gt;</code> (quand il s’agit de la bannière), <code>&lt;footer&gt;</code>, <code>&lt;main&gt;</code> sont des enfants directs de <code>&lt;body&gt;</code></li>
+					<li>Limiter l’utilisation de <code>&lt;nav&gt;</code> aux navigations primaires et secondaires.
 						<ul>
-							<li>Use the <code>aria-label</code> attribute to differentiate multiple (different) <code>&lt;nav&gt;</code> items.</li>
-							<li>Use the <code>aria-labelledby</code> attribute to label a <code>&lt;nav&gt;</code> region that begins with a heading element</li>
-							<li>Provide short and descriptive labels </li>
+							<li>Utiliser <code>aria-label</code> pour différencier plusieurs éléments<code>&lt;nav&gt;</code> (différents).</li>
+							<li>Utiliser <code>aria-labelledby</code> l’attribut pour étiqueter une  <code>&lt;nav&gt;</code> région qui commence par un élément d’en-tête.</li>
+							<li>Fournir des étiquettes courtes et descriptives. </li>
 						</ul>
 					</li>
-					<li>The landmark role is declared by a screen reader along with the name, if any. Do not use the landmark role (e.g., "navigation") as part of the name; for instance, the label is "Site" not "Site Navigation" for a navigation landmark. </li>
-					<li>Use <code>role="search"</code> rather than <code>role="form"</code> when the form is used for search functionality.</li>
+					<li>Le rôle du point de repère est énoncé par un lecteur d’écran avec le nom, le cas échéant. Ne pas utiliser le rôle de point de repère (p.&nbsp;ex., «&nbsp;navigation&nbsp;») dans le nom; par exemple, l’étiquette est «&nbsp;site&nbsp;» et non «&nbsp;navigation du site&nbsp;» pour un point de repère de navigation. </li>
+					<li>Utiliser <code>role="search"</code> plutôt que <code>role="form"</code> lorsque le formulaire est utilisé pour la fonction de recherche.</li>
+					<li>Si un élément &lt;form&gt; est nommé (soit par aria-label, aria-labelledby, ou un attribut title), il sera désigné comme point de repère.</li>
+					<li>Si vous utilisez ARIA role=”form”, fournissez un nom bref (utilisant aria-label, aria-labelledby, ou un attribut title) qui décrit l’objectif du formulaire.</li>
+					<li>Si un élément &lt;section&gt; est nommé (soit par aria-label, aria-labelledby, ou bien un attribut title), il sera designé comme point de repère.</li>
+					<li>Si vous utilisez ARIA role=”region”, fournissez un nom bref (utilisant aria-label, aria-labelledby, ou un attribut title) qui décrit l’objectif du contenu dans la région.</li>
 				</ul>
 			</section>
-			<section aria-label="Good example: Common landmarks">
-    		<h2 id="example-1"class="text-success"><span class="glyphicon glyphicon-ok-circle"></span> Good example: Common landmarks</h2>
-				<p>In this example, HTML5 sectioning elements define the landmarks for the most part. The <code>role="search"</code> attribute is unique and descriptive, 
-          and the redundant <code>role="main"</code> supports the IE 11 browser.</p>
+			<section aria-label="Bon exemple : Points de repère communs">
+    		<h2 id="example-1"class="text-success"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Points de repère communs</h2>
+				<p>Dans cet exemple, les éléments de section&nbsp;HTML5 définissent les points de repère, pour la plupart. L’attribut <code>role="search"</code> est unique et descriptif, et le rôle <code>role="main"</code>prend en charge le navigateur IE&nbsp;11.</p>
 				<p class="wb-inv">Code begins</p>
 				<pre>
 					<code class="language-html">
@@ -236,17 +239,17 @@
 &lt;footer aria-label="footer"&gt;…&lt;/footer&gt;</code>
 				</pre>
 				<p class="wb-inv">Code ends</p>
-				<img src="images/image1.png" class="img-responsive" alt=" Screenshot of landmark roles in their conventional locations. A header region holds nav and role=&#34;search&#34; landmarks. Below the header, left to right, are nav, main and aside landmarks. At the bottom is the footer landmark.">
+				<img src="images/image1.png" class="img-responsive" alt=" Un diagramme démontre les zones relatives des points de répère.">
 			</section>
-			<section aria-label="Related WCAG resources">
-				<h2 id="resources-1">Related WCAG resources</h2>
-				<h3>Success criteria</h3>
+			<section aria-label="Ressources WCAG connexes">
+				<h2 id="resources-1">Ressources WCAG connexes</h2>
+				<h3>Critères de succès</h3>
 				<ul>
 					<li>
 						<a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1 Info and Relationships</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks">2.4.1 Bypass Blocks&nbsp;</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks">2.4.1&nbsp;: Bypass Blocks</a>
 					</li>
 					<li>
 						<a href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels">2.4.6 Headings and Labels</a>
