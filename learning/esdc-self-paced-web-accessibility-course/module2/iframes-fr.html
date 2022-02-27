@@ -6,11 +6,11 @@
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-	 <title>Module 2 – Structure et sémantique des pages - En-têtes</title>
+	<title>Module 2 – Structure et sémantique des pages - IFrames</title>
 	<meta content="width=device-width,initial-scale=1" name="viewport">
 	<!-- Meta data -->
 	<meta name="description"
-		content="Accessibility coaching: this is a collection of tutorials that shows how to develop a web content that is accessible to people with disabilities, and provides a better user experience for everyone.">
+		content="Enable designers to embed any type of content from another web page.">
 	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
@@ -18,9 +18,7 @@
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
 	<!-- Write closure template -->
 	<script src="../../../scripts/refTop.min.js"></script>
-		<link rel="stylesheet" href="../../../css/a11y-dark.css">
-	<script src="../../../scripts/highlight.min.js"></script>
-	<script>hljs.highlightAll();</script>		
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -28,7 +26,7 @@
 	</div>
 	<!-- Write closure template -->
     <script>
-        var defTop = document.getElementById("def-top");
+       var defTop = document.getElementById("def-top");
         defTop.outerHTML = wet.builder.appTop({
             "appName": [{
                 "text": "EDSC / Bureau de l’accessibilité des TI",
@@ -51,7 +49,7 @@
             }],
             "lngLinks": [{
                 "lang": "en",
-                "href": "headings.html",
+                "href": "iframes.html",
                 "text": "English"
             }],
             "menuPath": "../../../ajax/menu-fr.html"
@@ -60,69 +58,43 @@
 <div class="container">
 <div class="row">
 	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
+		
 			
-			<h1 property="name" id="wb-cont">En-têtes</h2>
-			<p>Les en-têtes de pages Web aident les utilisateurs à identifier différentes sections du contenu. Les en-têtes sont visuellement plus grands et plus distincts que le texte environnant et fournissent un aperçu de la structure de la page.</p>
-			<p>Les utilisateurs voyants peuvent parcourir la page en lisant les en-têtes. Les utilisateurs du lecteur d’écran peuvent utiliser les en-têtes pour naviguer rapidement dans différentes sections. Les utilisateurs ayant des troubles cognitifs peuvent comprendre la structure et trouver le contenu plus facilement. Il est important de baliser les en-têtes de façon sémantique pour que tout le monde en profite. </p>
-			<p>Suivez les pratiques exemplaires suivantes pour les en-têtes :</p>
-			<ul>
-				<li>Fournir des en-têtes pour chaque page </li>
-				<li>Utiliser les éléments <code>&lt;h1&gt;</code> à <code>&lt;h6&gt;</code> pour tous les en-têtes</li>
-				<li>Ne pas utiliser d’éléments d’en-tête pour du texte qui n’est pas un en-tête. Utiliser plutôt CSS pour modifier la taille ou les styles de police de caractère</li>
-				<li>S’assurer que les titres sont significatifs et concis, et décrivent le sujet ou le but</li>
-				<li>S’assurer que les titres suivent une séquence hiérarchique sans sauter aucun niveau</li>
-				<li>Fournir un en-tête h1 qui décrit le contenu de la page</li>
-			</ul>
-			<section aria-label="Good example: Heading hierarchy">
-				<h2 id="heading-hierarchy" class="text-success"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Hiérarchie des en-têtes</h2>
-				<p>Exemple d’en-têtes descriptifs suivant une hiérarchie sans sauter un niveau :</p>
-				<p class="wb-inv">Code begins</p>
-				<pre>
-					<code class="language-html">
-&lt;h1&gt;Principes de base de l’accessibilité du Web&lt;/h1&gt;
-	&lt;h2&gt;Qu’est-ce que l’accessibilité du Web? &lt;/h2&gt;
-	&lt;h2&gt;Types d’incapacités &lt;/h2&gt;
-		&lt;h3&gt;Cécité&lt;/h3&gt;
-	&lt;h2&gt;Lignes directrices sur l’accessibilité &lt;h2&gt;
-		&lt;h3&gt;Règles pour l’accessibilité des contenus Web &lt;/h3&gt;</code>
-				</pre>
-				<p class="wb-inv">Code ends</p>
+			<h1 property="name" id="wb-cont">IFrames</h1>
+
+			<section aria-label="Designing with iframes">
+				<h2>Designing with iframes</h2>
+				<p>Iframes enable designers to embed any type of content from another web page. </p>
+				<p>If the <code>&lt;iframe&gt;</code> consists of decorative images or JavaScript, hide it from screen readers by setting the <code>aria-hidden="true"</code> attribute on the <code>&lt;iframe&gt;</code> element.</p>
+				<p>If the <code>&lt;iframe&gt;</code> contains content intended for the user:</p>
+				<ul>
+					<li>Give the <code>&lt;iframe&gt;</code> element a descriptive <code>title</code> attribute value.</li>
+					<li>Ensure the <code>&lt;iframe&gt;</code> <code>title</code> attribute value is unique across iframes on the page.</li>
+				</ul>
 			</section>
 			<section aria-label="Related WCAG resources">
-				<h2 id="resources-2">Ressources WCAG connexes</h2>
-				<h3>Critères de succès</h3>
+				<h2>Related WCAG resources</h2>
+				<h3>Success criteria</h3>
 				<ul>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships" >1.3.1 Info and Relationships</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks" >2.4.1: Bypass Blocks</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks" >2.4.1 Bypass Blocks&nbsp;</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels" >2.4.6 Headings and Labels</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value" >4.1.2: Name, Role, Value</a>
 					</li>
 				</ul>
-				<h3 id="">Techniques</h3>
+				<h3>Techniques</h3>
 				<ul>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA12" >ARIA12: Using role=heading to identify headings</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G130" >G130: Providing descriptive headings</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H42" >H42: Using h1-h6 to identify headings</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H69" >H69: Providing heading elements at the beginning of each section of content</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H64" >H64: Using the title attribute of the frame and iframe elements</a>
 					</li>
 				</ul>
 			</section>
-		<nav role="navigation" aria-label="Document navigation">
-	<h2 class="wb-inv">Document navigation</h2>
+		<nav role="navigation" aria-label="Document">
+	<h2 class="wb-inv">Navigation dans le document</h2>
 	<ul class="pager">
-	 <li class="previous"> <a rel="prev" href="landmarks-fr.html">Précédent - Points de repère</a> </li>
-	  <li class="next"> <a rel="next" href="content-structure-fr.html">Suivant - Structure du contenu</a> </li>
+		<li class="previous"> <a rel="prev" href="lists-fr.html">Précédent - Listes</a></li>
+	  <li class="next"> <a rel="next" href="parsing-and-validity-fr.html">Suivant - Analyse syntaxique et validité</a> </li>
 	</ul>
   </nav>
 					
@@ -144,13 +116,13 @@
 					<div class="list-group">
 				
 						<a class="list-group-item" href="landmarks-fr.html">Points de repère</a>
-						<a class="list-group-item active" aria-current="page" href="headings-fr.html">En-têtes</a>
+						<a class="list-group-item" href="headings-fr.html">En-têtes</a>
 						<a class="list-group-item" href="content-structure-fr.html">Structure du contenu</a>
 						<a class="list-group-item" href="language-fr.html">Langue</a>
 					
 						<a class="list-group-item" href="lists-fr.html">Listes</a>
 				
-						<a class="list-group-item" href="iframes-fr.html">IFrames</a>
+						<a class="list-group-item active" aria-current="page" href="iframes-fr.html">IFrames</a>
 					
 						<a class="list-group-item" href="parsing-and-validity-fr.html">Analyse syntaxique et validité</a>
 					
@@ -164,7 +136,8 @@
 				<h3 class="wb-navcurr">
 				Tous les modules
 				</h3>
-				<div class="list-group">
+				
+					<div class="list-group">
 						<a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a>
 						<a class="list-group-item active" href="index-fr.html">Module 2 – Structure et sémantique des pages</a>			
 						<a class="list-group-item" href="../module3/index-fr.html">Module 3 – Liens et navigation</a>
@@ -175,7 +148,6 @@
 						<a class="list-group-item" href="../module8/index-fr.html">Module 8 – Zoom et conception adaptée</a>
 						<a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a>
 			</div>
-						
 
 			</section>
 		
