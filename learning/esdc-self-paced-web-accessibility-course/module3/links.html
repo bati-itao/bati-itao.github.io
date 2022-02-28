@@ -123,13 +123,17 @@
 				<h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using aria-label for link purpose</h3>
 				<p>In this example, the visible link text &ldquo;<q>Access</q>&rdquo; is repeated for each resource. When there's no avoiding duplicated, visible link text, you can distinguish each instance with the aria-label attribute.</p>
 				
-<pre><code class="�language-html"�>&lt;h1&gt;Tools and resources&lt;/h1&gt;
+<pre><code class="language-html">&lt;h1&gt;Tools and resources&lt;/h1&gt;
 &lt;h2&gt;Planning Accessible Virtual Events – Job Aid&lt;/h2&gt;
 &lt;p&gt;[Description of the resource]&lt;/p&gt;
-&lt;p&gt;&lt;a href=”[...]” aria-label=”Access Planning Accessible Virtual Events – Job Aid”&gt;Access&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+	&lt;a href="[...]" aria-label="Access Planning Accessible Virtual Events – Job Aid"&gt;Access&lt;/a&gt;
+&lt;/p&gt;
 &lt;h2&gt;Employees with Disabilities Network (EwDN)&lt;/h2&gt;
 &lt;p&gt;[Description of the resource]&lt;/p&gt;
-&lt;p&gt;&lt;a href=”[...]” aria-label=”Access Employees with Disabilities Network”&gt;Access&lt;/a&gt;&lt;/p&gt;</code>
+&lt;p&gt;
+	&lt;a href="[...]" aria-label="Access Employees with Disabilities Network"&gt;Access&lt;/a&gt;
+&lt;/p&gt;</code>
 </pre>
 				
 				<h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using aria-labelledby for link purpose</h3>
@@ -137,39 +141,39 @@
 		
 
 				<div class="alert alert-info" role="alert"><p>Note that one instance of the link text &ldquo;<q>Access</q>&rdquo; with an id attribute can be referenced by multiple ARIA labels, which may be more convenient than creating an id attribute for each instance of the link &ldquo;<q>Access</q>&rdquo;.</p></div>
-				<pre><code class="�language-html"�>&lt;h1&gt;Tools and resources&lt;/h1&gt;
-&lt;h2 id=”planning-virtual”&gt;Planning Accessible Virtual Events – Job Aid&lt;/h2&gt;
+				<pre><code class="language-html">&lt;h1&gt;Tools and resources&lt;/h1&gt;
+&lt;h2 id="planning-virtual"&gt;Planning Accessible Virtual Events – Job Aid&lt;/h2&gt;
 &lt;p&gt;[Description of the resource]&lt;/p&gt;
 &lt;p&gt;
-&lt;a id=”linktext” href=”[...]” aria-labelledby=”linktext planning-virtual”&gt;Access&lt;/a&gt;
+	&lt;a id="linktext" href="[...]" aria-labelledby="linktext planning-virtual"&gt;Access&lt;/a&gt;
 &lt;/p&gt;
-&lt;h2 id=”ewdn”&gt;Employees with Disabilities Network (EwDN)&lt;/h2&gt;
+&lt;h2 id="ewdn"&gt;Employees with Disabilities Network (EwDN)&lt;/h2&gt;
 &lt;p&gt;[Description of the resource]&lt;/p&gt;
 &lt;p&gt;
-&lt;a href=”[...]” aria-labelledby=”linktext ewdn”&gt;Access&lt;/a&gt;
+	&lt;a href="[...]" aria-labelledby="linktext ewdn"&gt;Access&lt;/a&gt;
 &lt;/p&gt;</code>
 </pre>
 				<h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using visually-hidden text for link purpose</h3>
 				<p>In this example, the duplicated link text &ldquo;<q>Access</q>&rdquo; is extended with text that’s been visually-hidden using the CSS "clip" method. The text is invisible, but it’s still in the HTML and so is encountered by assistive technology.</p>
-				<pre><code class="�language-html"�>&lt;h1&gt;Tools and resources&lt;/h1&gt;
+				<pre><code class="language-html">&lt;h1&gt;Tools and resources&lt;/h1&gt;
 &lt;h2&gt;Planning Accessible Virtual Events – Job Aid&lt;/h2&gt;
 &lt;p&gt;[Description of the resource]&lt;/p&gt;
 &lt;p&gt;
-&lt;a href=”[...]”&gt;
-Access
-&lt;span class="wb-inv"&gt;Planning Accessible Virtual Events – Job Aid&lt;/span&gt;
-&lt;/a&gt;
+	&lt;a href="[...]"&gt;
+		Access
+		&lt;span class="wb-inv"&gt;Planning Accessible Virtual Events – Job Aid&lt;/span&gt;
+	&lt;/a&gt;
 &lt;/p&gt;
 &lt;h2&gt;Employees with Disabilities Network (EwDN)&lt;/h2&gt;
 &lt;p&gt;[Description of the resource]&lt;/p&gt;
 &lt;p&gt;
-&lt;a href=”[...]”&gt;
-Access
-&lt;span class="wb-inv"&gt;Access Employees with Disabilities Network&lt;/span&gt;
-&lt;/a&gt;
+	&lt;a href="[...]"&gt;
+		Access
+		&lt;span class="wb-inv"&gt;Access Employees with Disabilities Network&lt;/span&gt;
+	&lt;/a&gt;
 &lt;/p&gt;</code>
 </pre>
-<pre><code class="�language-css"�>.wb-inv {
+<pre><code class="language-css">.wb-inv {
 	clip: rect(1px,1px,1px,1px);
 	height: 1px;
 	margin: 0;
@@ -186,9 +190,10 @@ Access
 		
 				
 				<h4>Success Criteria</h4>
-				<p>
-					<a href="https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context">2.4.4: Link Purpose (In Context)</a> </p>
-				<p>2.4.9: Link Purpose (Link Only)</p>
+				<ul>
+					<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context">2.4.4: Link Purpose (In Context)</a></li>
+					<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-link-only">2.4.9: Link Purpose (Link Only)</a></li>
+				</ul>
 				<h4>Techniques</h4>
 				<ul>
 					<li>
