@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Module 3 –  Links and Navigation - Navigation</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Accessibility coaching: this is a collection of tutorials that shows how to develop a web content that is accessible to people with disabilities, and provides a better user experience for everyone.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../index.html"
+            },
+			{
+                "title": "Web accessibility course",
+                "href" : "index.html"
+            },
+			{
+                "title": "Module 3 – Links and Navigation",
+                "href" : "index.html"
+            }],
+            "lngLinks": [{
+                "lang": "fr",
+                "href": "./index-fr.html",
+                "text": "Français"
+            }],
+            "menuPath": "../../ajax/menu-en.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
+		
+	
+			<h1 property="name" id="wb-cont">Navigation</h1>
+		
+				                
+                	<nav role="navigation"  aria-label="Table of contents">
+      <div class="panel panel-default mrgn-tp-lg">
+        <header class="panel-heading">
+          <h2 class="panel-title">Table of contents</h2>
+        </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#blocks-navigation">Blocks of navigation</a></li>
+              <li><a href="#consistency">Consistency across pages</a></li>
+              <li><a href="#skip-navigation">Skip navigation links</a></li>
+              <li><a href="#table-of-contents">Table of contents</a></li>
+              <li><a href="#meaningful-sequence">Meaningful Sequence</a></li>
+			  <li><a href="#focus-order">Focus and focus order</a></li>
+             
+          </ul>
+        </div>
+      </div>
+    </nav>
+		
+			<section aria-label="Blocks of navigation">
+				<h2 id="blocks-navigation">Blocks of navigation</h2>
+				
+				 
+				<p>Semantically identify the important blocks of navigation on a page with either the <code>&lt;nav&gt;</code> element or the ARIA role="navigation" attribute. Each creates an ARIA navigation landmark, which screen reader users can target by keyboard command.</p>
+				
+				
+				<p>If there are two or more navigation regions on the page, name each with aria-label or aria-labelledby to differentiate them.</p>
+				<p>Indicating the current link within a block of navigation is an example of an easily achievable WCAG Level AAA Success Criterion. It requires two things:</p>
+				<ul>
+					<li>style the current link to stand apart visually, and</li>
+					<li>set an aria-current="page" attribute on the link. The attribute must be set on the link since it tends only to work on actionable elements. </li>
+				</ul>
+				<h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Pagination</h3>
+				<p>Here, a pagination menu for search results is set in a named nav element. The current link is indicated visually via the CSS, and to screen readers via the aria-current="page" attribute. </p>
+				<pre><code class="language-css">.current-page {
+	background-color: #ccc;
+	border: 1px solid black;
+}</code>
+</pre>
+<pre><code class="language-html">&lt;nav label="Results by page"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href="[…]" aria-label="page 1"&gt;1&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class="current-page"&gt;
+&lt;a href="[…]" aria-current="page" aria-label="page 2"&gt;2
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="[…]" aria-label="page 3"&gt;3&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="[…]" aria-label="page 4"&gt;4&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;</code>
+</pre>
+				
+				<details class="mrgn-tp-lg">
+			<summary class="bg-info"><h3>Related WCAG resources</h3></summary>
+				
+				<p>Success Criteria</p>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1: Info and Relationships</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/location">2.4.8: Location</a> (Level AAA)</li>
+				</ul>
+				<h4>Techniques</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H97">H97: Grouping related links using the nav element</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G128">G128: Indicating current location within navigation bars</a> (Level AAA)</li>
+				</ul>
+				</details>
+			</section>
+			<section>
+				<h2 id="consistency">Consistency across pages</h2>
+				<p>From one page to the next, the relative order of components on the page and of links within navigation blocks should remain unchanged. Other components or links may be removed or inserted, but the relative order should stay the same. </p>
+				<p>Ensuring that repeated components and links occur in the same order on each page helps users predict where they can find things. This helps users with cognitive limitations, with low vision, with intellectual disabilities, and helps users who are blind.</p>
+				
+				<details class="mrgn-tp-lg">
+			<summary class="bg-info"><h3>Related WCAG resources</h3></summary>
+				
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/consistent-navigation">3.2.3: Consistent Navigation</a>
+					</li>
+				</ul>
+				<h4>Techniques</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G61">G61: Presenting repeated components in the same relative order each time they appear</a>
+					</li>
+				</ul>
+				</details>
+			</section>
+			<section >
+				<h2 id="skip-navigation">Skip navigation links</h2>
+				<p>On a poorly-designed website, keyboard users must navigate from the top of the page to the main content area, often through a long list of navigation links and other elements. This can take be tedious and even painful for users with some forms of motor disabilities.</p>
+				<p>A skip navigation link enables screen reader users and sighted keyboard users to navigate directly to the main content from the top of the page.</p>
+				<p>A skip link isn’t needed if only a handful of controls separate the main content from the top of the page.</p>
+				<p>Follow these best practices for skip navigation links:</p>
+				<ul>
+					<li>Place the skip navigation link at the top of the page before any other focusable element (link, button, or custom control).</li>
+					<li>The skip link doesn’t not need to be visible until it receives focus.</li>
+					<li>Use clear link text – e.g. "Skip to Main Content" or "Skip to Content"</li>
+					<li>Use a same-page link, targeting the id attribute value of the destination (usually the <code>&lt;main&gt;</code> element).</li>
+					<li>Assign the destination the tabindex="-1" attribute. This fixes shortcomings in some browsers that move the viewport to the destination but not the focus.</li>
+					<li>Do not hide the skip link using any of these CSS options:</li>
+					<li>Use CSS to permanently position the link off screen</li>
+					<li>Set display: none</li>
+					<li>Set visibility: invisible</li>
+				</ul>
+				<h3>Code Snippet</h3>
+				<p>HTML:</p>
+				<pre><code class="language-html">&lt;body&gt;
+	&lt;a id="skip-nav" class="show-with-focus" href="#main-content"&gt;Skip To Content &lt;/a&gt;
+	[...]
+	&lt;main id="main-content" tabindex="-1"&gt;Main Content Goes Here&lt;/main&gt;
+&lt;/body&gt;</code>
+</pre>
+				<p>CSS:</p>
+				<pre><code class="language-css">.show-with-focus {
+	position: absolute;
+	left: -1000px;
+	top:-1000px;
+	width: 1px;
+	height: 1px;
+	text-align: center;
+	overflow: hidden;
+}
+.show-with-focus: focus, .show-with-focus: active {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: auto;
+	overflow: visible;
+	background-color: #FF3;
+	border: 1px dotted #000;
+}</code>
+</pre>
+				<h3 class="text-success mrgn-bttm-lg"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Skip to main content</h3>
+				<img src="images/image2.png" class="img-responsive" alt=" &#34;Screenshot of the ESDC IT Accessibility office showing a &#34;Skip to main content&#34; link at the top of the page.">
+				<img src="images/image3.png" class="img-responsive" alt=" &#34;Screenshot of the source code. The skip link is one item in a list, in a nav element with the label &#34;Skip links&#34;&#34;">
+				
+				<details class="mrgn-tp-lg">
+			<summary class="bg-info"><h3>Related WCAG resources</h3></summary>
+				
+				<h4>Success Criteria</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks">2.4.1: Bypass Blocks</a>
+					</li>
+				</ul>
+				<h4>Techniques</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G1">G1: Adding a link at the top of each page that goes directly to the main content area</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G123">G123: Adding a link at the beginning of a block of repeated content to go to the end of the block</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G124">G124: Adding links at the top of the page to each area of the content</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR28">SCR28: Using an expandable and collapsible menu to bypass block of content</a>
+					</li>
+				</ul>
+				</details>
+			</section>
+			<section >
+				<h2 id="table-of-contents">Table of contents</h2>
+				<p>A table of contents serves two purposes:</p>
+				<ul>
+					<li>It acts as an overview of the document’s main topics and so allows users to preview the content without having to scroll down and read or skim.</li>
+					<li>It allows readers to navigate directly to a specific section of the document.</li>
+				</ul>
+				<p>The table of contents for a page should reflect the heading structure of the page.</p>
+				<p>A table of contents is particularly helpful to sighted users with motor disabilities, blind users and keyboard users.</p>
+				<p>WCAG Success Criterion 2.4.5: Multiple Ways requires that users have multiple avenues for finding web pages on a site. Navigation blocks, search, site maps, or a table of contents can support this Level AA criterion.</p>
+				<h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Table of contents</h3>
+				<p>In this example, a screenshot of a table of contents shows heading text as links. Headings of levels 1, 2 and 3 are included.</p>
+				<img src="images/image4.png" class="img-responsive" alt="">
+				
+				<details class="mrgn-tp-lg">
+			<summary class="bg-info"><h3>Related WCAG resources</h3></summary>
+				
+				<h4>Success Criteria</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/multiple-ways">2.4.5: Multiple Ways</a>
+					</li>
+				</ul>
+				<h4 id="idelem4x10140">Techniques</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G64">G64: Providing a Table of Contents</a>
+					</li>
+				</ul>
+				</details>
+			</section>
+			<section >
+				
+				<h2 id="meaningful-sequence">Meaningful Sequence</h2>
+				<p>Screen readers read content directly from the DOM (a page’s underlying code after JavaScript has modified it), not the actual screen. They ignore any CSS rules. It’s possible to use CSS (floats, positioning, margins, and padding) to achieve a visual reading order that’s meaningful while under the hood, the reading order of the underlying code (top to bottom) doesn’t make sense. See the example in Failure F1, in Related WCAG resources, below.</p>
+				<p>Remove CSS styling to simulate the screen reader experience. The content should make sense, reading top to bottom.</p>
+				<p>To ensure a meaningful reading order, position content in the same sequence as the underlying code.</p>
+				
+				<details class="mrgn-tp-lg">
+			<summary class="bg-info"><h3>Related WCAG resources</h3></summary>
+				
+				<h4>Success Criteria</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence">1.3.2: Meaningful Sequence</a>
+					</li>
+				</ul>
+				<h4>Techniques</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G57">G57: Ordering the content in a meaningful sequence</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C6">C6: Positioning content based on structural markup</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C27">C27: Making the DOM order match the visual order</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F1">F1: Failure of Success Criterion 1.3.2 due to changing the meaning of content by positioning information with CSS</a>
+					</li>
+				</ul>
+				</details>
+			</section>
+			<section>
+				<h2 id="focus-order">Focus and focus order</h2>
+				<details class="mrgn-tp-lg">
+			<summary><h3>What is focus?</h3></summary>
+				
+				<p>Focus refers to which interactive control on the screen -- a link, form control, button, or custom control -- currently receives input from the keyboard (and from the clipboard when you paste content).</p>
+				<p>Focus determines where keyboard events go in the page. For instance, if you focus a text input field and start typing, it receives the keyboard events and displays the characters you type. While it has focus, it also receives pasted input from the clipboard. Some of the native controls even have additional keyboard support built in. For instance, with the select element focused you can press the Up and Down arrow keys to select different children, and start typing to auto-complete to one of the available items.</p>
+				<p>An item with focus also has what’s called a visual focus indicator or focus ring. The style of it depends on the browser or the styling applied by the page author. Firefox, for instance, displays a dashed border, whereas Chrome highlights focused elements with a blue border.</p>
+				<p>For keyboard users, focus is absolutely critical. It’s the equivalent of a mouse cursor, and it's how they reach all of the interactive controls in an application. </p>
+				<p>Not all elements are focusable. Non-interactive elements like images, paragraphs, divs, and various other page elements are not focused as you tab through the page. This is by design, as users have no need to focus on something if they can't interact with it.</p>
+				</details>
+				<h3>Focus order</h3>
+				<p>Keyboard users navigate from interactive item to interactive item using the Tab key, in sequential order, following what’s called the focus order. They use the Shift-Tab keys to move backwards in the focus order. Like reading order, focus order is determined by the Web page’s source order. The order of interactive items (links, buttons, form controls and custom controls) in the DOM is the order in which they’re encountered by keyboard users.</p>
+				<p>The keyboard navigation order must be logical and intuitive. Typically, this means ensuring the navigation follows the visual flow of the page, left to right, top to bottom. It moves through the banner, main navigation, page navigation and controls, then footer on a typical page.</p>
+				<p>Focus order can be confounded by JavaScript. When JavaScript inserts new content, the content should follow the triggering element, not precede it. Screen reader users will not expect new content to fall before the trigger. Module 10’s section Focus management with JavaScript-injected content goes into greater detail.</p>
+				<p>Built-in interactive HTML elements – links, buttons and form controls – are implicitly focusable, meaning they receive focus by default without additional markup. </p>
+				<p>To receive focus, a link must have a populated href attribute.  </p>
+				<p>To prevent a link from receiving focus, remove its href attribute.</p>
+				<p>To prevent a button or form control from receiving focus, add the Boolean "disabled" attribute. When present, it makes the element not mutable, focusable, or submitted with the form. The user can neither edit nor focus on the control, nor its form control descendants. You can also prevent a control from gaining focus by giving it a tabindex="-1" attribute.</p>
+				<p>Custom links and controls require a tabindex="0" attribute to receive focus. See Good example: Inserting a custom link into the tab order, below, for all the CSS, HTML attributes and JavaScript required to emulate a link. Important: When possible use a built-in HTML element instead of building a custom control with ARIA.</p>
+				<h3>The tabindex attribute</h3>
+				<p>The tabindex attribute is mostly used as a means of managing focus within widgets. See the description of the Tabs widget in module #.</p>
+				<ul>
+					<li>A tabindex attribute value of 0 puts the element in the focus order, at its current location in the DOM.</li>
+					<li>A tabindex value of -1 removes an interactive element from the focus order, but enables it to be targeted by script (and changed) using its focus() method.  For instance, with the Tabs widget, only one tab at a time may be in the tab order: the selected tab has tabindex="0", while the inactive tabs have tabindex="-1". The tabindex values change as the keyboard user navigates across the tabs, using the Arrow keys to set focus on a new tab. See the description of the Tabs widget in module #.</li>
+					<li>A tabindex value greater than 0 is almost always a bad idea and should be avoided. It moves the element to the beginning of the page’s focus order, and is encountered in ascending order with any other positive tabindex values. Positive tabindex values are difficult to maintain and brittle, and their use tends to confound user expectations of focus order. Instead, write the document with the elements in a logical sequence. See Bad example: Page design with positive tab index values, below.</li>
+				</ul>
+				<h4 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Inserting a custom link into the tab order using tabindex="0"</h4>
+				<p>In the example below, press the Tab to move focus forward from link to link, and the Shift-Tab keys to move focus backwards.</p>
+				<p>The third link is a custom link:</p>
+				<ul>
+					<li>The tabindex="0" attribute adds the span element to the focus order.</li>
+					<li>The role="link" attribute identifies it to screen reader users.</li>
+					<li>The class="link" attribute enables styling to match default links and to provide a highly-visible keyboard focus indicator.</li>
+					<li>The onclick event handles mouse and touch input.</li>
+					<li>The onkeydown event handles Enter key input.</li>
+				</ul>
+				<pre><code class="language-html">&lt;head&gt;
+	&lt;style type="text/css"&gt;
+		.link:focus{
+		outline: 3px solid orange;
+	}
+	span.link {
+		cursor: pointer;
+		color: #0000EE;
+		text-decoration: underline;
+	}
+	span.link:active {
+		color: #FF0000;
+	}
+	&lt;/style&gt;
+	&lt;script type="text/javascript"&gt;
+	function goToLink (event, url) {
+		var type = event.type;
+		if ((type === 'click') || (type === 'keydown' &amp;&amp; event.keyCode === 13)) {
+			window.location.href = url;    
+			event.preventDefault();
+			event.stopPropagation();
+		}
+	}
+	&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;a href="http://www.bing.com" class="link"&gt;Bing&lt;/a&gt; 
+	&lt;a href="http://www.duckduckgo.com" class="link"&gt;DuckDuckGo&lt;/a&gt; 
+	&lt;span 
+		tabindex="0" 
+		role="link" 
+		class="link"
+		onclick="goToLink(event, 'http://www.google.ca/')" 
+		onkeydown="goToLink(event, '<a href="http://www.google.ca/">http://www.google.ca/</a>')"&gt;
+			Google
+	&lt;/span&gt;
+&lt;/body&gt;</code>
+</pre>
+				
+
+	<style type="text/css">
+		 .link:focus{
+		outline: 3px solid orange!important; 
+	}
+	.span.link {
+		cursor: pointer !important;
+		color: #0000EE !important;
+		text-decoration: underline !important;
+	}
+	.span.link:active {
+		color: #FF0000 !important;
+	}
+	div:focus {
+   border: 2px solid green !important;
+}
+	</style>
+	<script type="text/javascript">
+	function goToLink (event, url) {
+		var type = event.type;
+		if ((type === 'click') || (type === 'keydown' && event.keyCode === 13)) {
+			window.location.href = url;    
+			event.preventDefault();
+			event.stopPropagation();
+		}
+	}
+	</script>
+
+	<a href="http://www.bing.com" class="link">Bing</a> 
+	<a href="http://www.duckduckgo.com" class="link">DuckDuckGo</a> 
+	<span 
+		tabindex="0" 
+		role="link" 
+		class="link"
+		onclick="goToLink(event, 'http://www.google.ca/')" 
+		onkeydown="goToLink(event, 'goToLink(event, 'http://www.google.ca/')">
+			Google
+	</span>
+<br /><br />
+				<p>The custom link JavaScript is from the Web Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a>) document: <a href="https://www.w3.org/TR/wai-aria-practices/examples/link/link.html">Link Examples</a> in the <a href="https://www.w3.org/TR/wai-aria-practices/">Link</a> pattern of the <a href="https://www.w3.org/TR/wai-aria-practices/">WAI-ARIA Authoring Practices 1.1</a>. <a href="mailto:mck@fb.com">Matt King,</a> <a href="mailto:jku@illinois.edu">JaEun Jemma Ku</a>, <a href="mailto:nurthen@adobe.com">James Nurthen,</a> Zoë Bijl, <a href="mailto:cooper@w3.org">Michael Cooper.</a> Copyright © 2019 W3C® (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>). <a href="https://www.w3.org/TR/wai-aria-practices/examples/link/link.html">https://www.w3.org/TR/wai-aria-practices/examples/link/link.html</a></p>
+				<h3>Element with tabindex = "-1"</h3>
+				<p>A tabindex="-1" attribute value removes the element from the focus order, but allows it to receive programmatic focus. This means focus can be set to it using the element’s JavaScript focus() method. </p>
+				<h4 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Element with tabindex="-1" receives focus by script</h4>
+				<p>In this example, clicking the button sets focus on the div element. </p>
+				<pre><code class="language-html">&lt;button type="button" onclick="document.getElementById('target').focus();"&gt;
+	Click on me to focus the DIV
+&lt;/button&gt;
+&lt;div id="target" tabindex="-1"&gt;
+	I am a div
+&lt;/div&gt;</code>
+</pre>
+				
+<button type="button" onclick="document.getElementById('target').focus();">
+	Click on me to focus the DIV
+</button>
+<div id="target" tabindex="-1">
+	I am a div
+</div>
+				<h3>Element with tabindex &gt; "0"</h3>
+				<p>Using a tabindex attribute value greater than 0 is considered an anti-pattern.</p>
+				<p>Any tabindex greater than 0 jumps the element to the front of the natural tab order. If there are multiple elements with a tabindex &gt; 0, then the tab order starts from the lowest value greater than zero and works its way up. </p>
+				<p>Positive tabindex values often create counter-intuitive flow for keyboard users. If you want an element to come sooner in the tab order, move it to an earlier spot in the DOM rather than set a positive tabindex value.</p>
+				<h4 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad Example: Page design with positive tab index values</h4>
+				<p>The tab order when user tabs the page is as follows:</p>
+				<ul>
+					<li>The "Going to" field (tabindex="1")</li>
+					<li>The "Check-in" field (tabindex="2")</li>
+					<li>The "Check-out" field (tabindex="3")</li>
+					<li>A mystery object that has no functionality, and no visible focus indicator (tabindex="4")</li>
+					<li>"More travel" and then follows the natural tab order (tabindex=’0’).</li>
+				</ul>
+				<img src="images/image7.png" class="img-responsive" alt="Screenshot showing the tab order on a page">
+				<p>The positive tabindex is set on just four items in the "Carnival" page. After navigating through the positive tabindex values, keyboard users are sent back to the top, to the first focusable control on the page at the beginning of the natural tab order.</p>
+				<p>A visually hidden item is in the tab order on the page, creating a "mystery" focus that can lead to confusion. If something is visually hidden, it must not be in the tab order.</p>
+				<p>Avoid using tabindex values greater than 0. Instead, write the document with the elements in a logical sequence. Ensure the source code (DOM) order matches the visual order to avoid confusion for assistive technology users.</p>
+				
+			<details class="mrgn-tp-lg">
+			<summary class="bg-info"><h3>Related WCAG resources</h3></summary>
+				
+				<h4>Success Criteria</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-order">2.4.3: Focus Order</a>
+					</li>
+				</ul>
+				<h4>Techniques</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G59">G59: Placing the interactive elements in an order that follows sequences and relationships within the content</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C27">C27: Making the DOM order match the visual order</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H4.html">H4: Creating a logical tab order through links, form controls, and objects</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR26">SCR26: Inserting dynamic content into the Document Object Model immediately following its trigger element</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR27.html">SCR27: Reordering page sections using the Document Object Model</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR37.html">SCR37: Creating Custom Dialogs in a Device Independent Way</a>
+					</li>
+				</ul>
+				<h4>Failures</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F44">F44: Failure of Success Criterion 2.4.3 due to using tabindex to create a tab order that does not preserve meaning and operability</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F85">F85: Failure of Success Criterion 2.4.3 due to using dialogs or menus that are not adjacent to their trigger control in the sequential navigation order</a>
+					</li>
+				</ul>
+				</details>
+			</section>
+		<nav role="navigation" aria-label="Document navigation">
+	<h2 class="wb-inv">Document navigation</h2>
+	<ul class="pager">
+	 <li class="previous"> <a rel="prev" href="links.html">Previous - Links</a> </li>
+	  <li class="next"> <a rel="next" href="best-practice.html">Next - Best Practice</a> </li>
+	</ul>
+  </nav>
+					
+
+</main>
+		
+		
+
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+			
+			
+
+				<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				Module 3 –  Links and Navigation
+				</h3>
+				
+					<div class="list-group">
+						<a class="list-group-item" href="links.html">Links</a>
+						<a class="list-group-item active" href="navigation.html">Navigation</a>
+						<a class="list-group-item" href="best-practice.html">Best Practice</a>
+				</div>
+			
+			</section>
+			
+			
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				All modules
+				</h3>
+				
+					<div class="list-group">
+						<a class="list-group-item" href="../module1/index.html">	Module 1 - Accessibility Fundamentals – Disabilities, Guidelines and Laws</a>
+						<a class="list-group-item " href="../module2/index.html">Module 2  – Page Structure and Semantics</a>			
+						<a class="list-group-item active" href="index.html">Module 3 – Links and Navigation</a>
+						<a class="list-group-item" href="">Module 4 – Tables</a>
+						<a class="list-group-item" href="module05-images.html">Module 5 – Images</a>
+						<a class="list-group-item" href="">Module 6 – Forms</a>	
+						<a class="list-group-item" href="">Module 7 – Visual Design and Colours</a>
+						<a class="list-group-item" href="">Module 8 – Zoom and Responsive Design</a>
+						<a class="list-group-item" href="">	Module 9 - Audio, Video, Animation and Motion</a>
+			</div>
+
+			</section>
+		
+		</nav>
+	
+		
+
+		
+		
+	
+			
+</div>
+<div id="def-preFooter"></div>
+		<script src="../../scripts/preFooter.min.js"></script>
+</div>	
+		
+		
+	<div id="def-footer"></div>
+	<script src="../../scripts/appFooter.min.js"></script>
+	<script src="../../scripts/refFooter.min.js"></script>
+	<script src="../../scripts/bati-itao.min.js"></script>
+</body>
+	
+</html>

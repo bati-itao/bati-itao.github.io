@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Module 3 –  Links and Navigation - Links</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Accessibility coaching: this is a collection of tutorials that shows how to develop a web content that is accessible to people with disabilities, and provides a better user experience for everyone.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../index.html"
+            },
+			{
+                "title": "Web accessibility course",
+                "href" : "index.html"
+            },
+			{
+                
+                "title": "Module 3 – Links and Navigation",
+                "href" : "index.html"
+            }],
+            "lngLinks": [{
+                "lang": "fr",
+                "href": "./index-fr.html",
+                "text": "Français"
+            }],
+            "menuPath": "../../ajax/menu-en.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
+		
+	<h1 property="name" id="wb-cont">Links</h1>
+		                
+                	<nav role="navigation"  aria-label="Table of contents">
+      <div class="panel panel-default mrgn-tp-lg">
+        <header class="panel-heading">
+          <h2 class="panel-title">Table of contents</h2>
+        </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#link-purpose">Link purpose</a></li>
+              <li><a href="#link-activation">Link activation</a></li>
+              <li><a href="#indicator">Visual focus indicator</a></li>
+              <li><a href="#links-text">Distinguishing links from text</a></li>
+              <li><a href="#links-new-window">Links that open in a new window</a></li>
+             
+          </ul>
+        </div>
+      </div>
+    </nav>
+			<section>
+				
+				
+				<h2 id="link-purpose">Link purpose</h2>
+				<p>Screen readers enable users to skim links on a page, moving from one to the next without declaring the neighboring text. Whenever possible, provide link text that identifies the purpose of the link without needing additional context. According to the Canada.ca Content Style Guide, &ldquo;<q>Your links should be descriptive and able to stand alone so that it's clear what people can expect if they click on them.</q>&rdquo;</p>
+				<p>People with visual disabilities can also determine the purpose of a link by exploring the link's context.  If writing stand-alone link text is impossible, ensure the link text identifies its purpose in combination with one of the following:</p>
+
+				
+				<ul>
+        <li>The enclosing sentence</li>
+					<li>The enclosing list item</li>
+					<li>The enclosing paragraph</li>
+					<li>The enclosing table cell and table header cell</li>
+					<li>The parent list item of a nested list (example follows)</li>
+					</ul>
+				
+	
+				<div class="alert alert-danger" role="alert"><p>Do not use information-empty link text such as &ldquo;<q>click here</q>&rdquo; or &ldquo;<q>Read More</q>&rdquo; etc. </p></div>
+				<p>If two or more links on the same page have identical link text but different destinations, you can distinguish the links from one another in one of three ways:</p>
+				
+				<ul>
+        <li>TRephrase the link text.</li>
+					<li>Use an ARIA label (either the aria-label or aria-labelledby attribute). The ARIA label supercedes the native link text in assistive technology. Be sure to include the visible link text in the ARIA label, so voice input users can target the link (see <a href="#link-activation">Link Activation</a>, below).</li>
+					<li>Add visually-hidden text to the link text (example follows).</li>
+				</ul>
+				
+				<h3>Link vs Button</h3>
+				<p>Developers frequently confuse the link and button roles, passing the confusion on to screen reader users. Users expect links to navigate (across pages or within a page), and buttons to trigger a local effect (or submit a form). A screen reader user can be disorientated when activating a button and instead navigating to a new page, or when activating a link and instead interpreting a local button effect. </p>
+				<h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad Example: Vague link text</h3>
+				<p>In this example, the link text &ldquo;<q>how much</q>&rdquo;communicates nothing useful:</p>
+				<p>A Food Guide Serving is simply a reference amount. It helps you understand <a href="http://www.hc-sc.gc.ca/fn-an/food-guide-aliment/basics-base/quantit-eng.php">how much</a> food is recommended every day from each of the four food groups. In some cases, a Food Guide Serving may be close to what you eat, such as an apple. In other cases, such as rice or pasta, you may serve yourself more than one Food Guide Serving.</p>
+				
+				<h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Descriptive link text</h3>
+				<p>In this example, the purpose of the link is perfectly clear.</p>
+				<p>A Food Guide serving is how much food you should eat from each of the 4 food groups every day. In some cases, a serving is the amount of a given food group that you normally eat in one sitting, like an apple. In other cases, the daily amount is more than one serving, such as for rice or pasta.</p>
+				<p>
+					<a href="http://www.hc-sc.gc.ca/fn-an/food-guide-aliment/basics-base/quantit-eng.php">Number of daily food servings for children, teens and adults</a>
+				</p>
+				
+				<h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using aria-label for link purpose</h3>
+				<p>In this example, the visible link text &ldquo;<q>Access</q>&rdquo; is repeated for each resource. When there's no avoiding duplicated, visible link text, you can distinguish each instance with the aria-label attribute.</p>
+				
+<pre><code class="�language-html"�>&lt;h1&gt;Tools and resources&lt;/h1&gt;
+&lt;h2&gt;Planning Accessible Virtual Events – Job Aid&lt;/h2&gt;
+&lt;p&gt;[Description of the resource]&lt;/p&gt;
+&lt;p&gt;&lt;a href=”[...]” aria-label=”Access Planning Accessible Virtual Events – Job Aid”&gt;Access&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Employees with Disabilities Network (EwDN)&lt;/h2&gt;
+&lt;p&gt;[Description of the resource]&lt;/p&gt;
+&lt;p&gt;&lt;a href=”[...]” aria-label=”Access Employees with Disabilities Network”&gt;Access&lt;/a&gt;&lt;/p&gt;</code>
+</pre>
+				
+				<h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using aria-labelledby for link purpose</h3>
+				<p>Again, the visible link text &ldquo;<q>Access</q>&rdquo; is repeated for each resource. You can distinguish each instance with the aria-labelledby attribute, pointing to one or more id attribute values of elements containing the desired label. In this example, the label concatenates the link text + the preceding heading. </p>
+		
+
+				<div class="alert alert-info" role="alert"><p>Note that one instance of the link text &ldquo;<q>Access</q>&rdquo; with an id attribute can be referenced by multiple ARIA labels, which may be more convenient than creating an id attribute for each instance of the link &ldquo;<q>Access</q>&rdquo;.</p></div>
+				<pre><code class="�language-html"�>&lt;h1&gt;Tools and resources&lt;/h1&gt;
+&lt;h2 id=”planning-virtual”&gt;Planning Accessible Virtual Events – Job Aid&lt;/h2&gt;
+&lt;p&gt;[Description of the resource]&lt;/p&gt;
+&lt;p&gt;
+&lt;a id=”linktext” href=”[...]” aria-labelledby=”linktext planning-virtual”&gt;Access&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=”ewdn”&gt;Employees with Disabilities Network (EwDN)&lt;/h2&gt;
+&lt;p&gt;[Description of the resource]&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=”[...]” aria-labelledby=”linktext ewdn”&gt;Access&lt;/a&gt;
+&lt;/p&gt;</code>
+</pre>
+				<h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using visually-hidden text for link purpose</h3>
+				<p>In this example, the duplicated link text &ldquo;<q>Access</q>&rdquo; is extended with text that’s been visually-hidden using the CSS "clip" method. The text is invisible, but it’s still in the HTML and so is encountered by assistive technology.</p>
+				<pre><code class="�language-html"�>&lt;h1&gt;Tools and resources&lt;/h1&gt;
+&lt;h2&gt;Planning Accessible Virtual Events – Job Aid&lt;/h2&gt;
+&lt;p&gt;[Description of the resource]&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=”[...]”&gt;
+Access
+&lt;span class="wb-inv"&gt;Planning Accessible Virtual Events – Job Aid&lt;/span&gt;
+&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2&gt;Employees with Disabilities Network (EwDN)&lt;/h2&gt;
+&lt;p&gt;[Description of the resource]&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=”[...]”&gt;
+Access
+&lt;span class="wb-inv"&gt;Access Employees with Disabilities Network&lt;/span&gt;
+&lt;/a&gt;
+&lt;/p&gt;</code>
+</pre>
+<pre><code class="�language-css"�>.wb-inv {
+	clip: rect(1px,1px,1px,1px);
+	height: 1px;
+	margin: 0;
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+}</code>
+</pre>
+				
+				
+				<details class="mrgn-tp-lg">
+			<summary class="bg-info"><h3>Related WCAG resources</h3></summary>
+			
+		
+				
+				<h4>Success Criteria</h4>
+				<p>
+					<a href="https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context">2.4.4: Link Purpose (In Context)</a> </p>
+				<p>2.4.9: Link Purpose (Link Only)</p>
+				<h4>Techniques</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G91">G91: Providing link text that describes the purpose of a link</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G53">G53: Identifying the purpose of a link using link text combined with the text of the enclosing sentence</a>
+					</li>
+					<li>H30: Providing link text that describes the purpose of a link for anchor elements</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H77">H77: Identifying the purpose of a link using link text combined with its enclosing list item</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H78">H78: Identifying the purpose of a link using link text combined with its enclosing paragraph</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H79">H79: Identifying the purpose of a link in a data table using the link text combined with its enclosing table cell and associated table header cells</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H81">H81: Identifying the purpose of a link in a nested list using link text combined with the parent list item under which the list is nested</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA7">ARIA7: Using aria-labelledby for link purpose</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA8">ARIA8: Using aria-label for link purpose</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C7">C7: Using CSS to hide a portion of the link text</a>
+					</li>
+				</ul>
+				<h4 id="idelem4x5172">Failures</h4>
+				<ul>
+					<li>F84: Failure of Success Criterion 2.4.9 due to using a non-specific link such as "click here" or "more" without a mechanism to change the link text to specific text.</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F89">F89: Failure of Success Criteria 2.4.4, 2.4.9 and 4.1.2 due to not providing an accessible name for an image which is the only content in a link</a>
+					</li>
+				</ul>
+					
+					</details>
+			</section>
+			<section >
+				<h2 id="link-activation">Link activation</h2>
+				<p>Some people with disabilities are not able to use a mouse and instead leverage mechanisms such as keyboard, voice control and alternative pointing devices to navigate and interact with web. Ensure that links (and buttons and other controls) are focusable and actionable by keyboard and voice input and not just via a mouse.</p>
+				<p>Native links are keyboard-activated by pressing the Enter key. If you design a custom link using the ARIA role="link" attribute and a div or span element, include:</p>
+					
+				<ul>
+        <li>A tabindex="0" attribute, so that the custom link receives keyboard focus via the Tab key.</li>
+					<li>A JavaScript event listener for the Enter key for activation, in addition to mouse click.</li>
+				</ul>
+				
+				<p>To activate a link using voice input, the user declares the name of the link as visible. When using aria-label or aria-labelledby to name a link, ensure the link’s visible text matches or is included in the ARIA label. Otherwise, voice input users won't be able to target the link by name, forcing them to switch to less efficient techniques to activate the link.</p>
+				
+					<details class="mrgn-tp-lg">
+			<summary class="bg-info"><h3>Related WCAG resources</h3></summary>
+				
+				<h4>Success Criteria</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard">2.1.1: Keyboard</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/label-in-name">2.5.3: Label in Name</a>
+					</li>
+				</ul>
+				<h4>Techniques</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G202">G202: Ensuring keyboard control for all functionality</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G90">G90: Providing keyboard-triggered event handlers</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR20">SCR20: Using both keyboard and other device-specific functions</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR35">SCR35: Making actions keyboard accessible by using the onclick event of anchors and buttons</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR2">SCR2: Using redundant keyboard and mouse event handlers</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G208">G208: Including the text of the visible label as part of the accessible name</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G211">G211: Matching the accessible name to the visible label</a>
+					</li>
+				</ul>
+				<h4 id="idelem4x5602">Failures</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F54">F54: Failure of Success Criterion 2.1.1 due to using only pointing-device-specific event handlers (including gesture) for a function</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F42">F42: Failure of Success Criteria 1.3.1, 2.1.1, 2.1.3, or 4.1.2 when emulating links</a>
+					</li>
+				</ul>
+				</details>
+			</section>
+			<section>
+				<h2 id="indicator">Visual focus indicator</h2>
+				<p>For keyboard only users, visually tracking where they are in a page can be challenging. Mouse users can roam the page and receive two clues about actionable items: the mouse arrow turns into a hand when hovering over an actionable item, and the element displays its "hover" state to indicate it’s actionable (e.g., an underline appears under a link). </p>
+				<p>Typically, keyboard users press the Tab key to navigate the interactive elements on a web page (links, buttons, form fields, custom controls). </p>
+				
+				<ul>
+        <li>Tabbing to an item gives it keyboard "focus", at which point it can be activated with the keyboard. See the section <a href="navigation.html#focus-order">Focus and focus order</a> later in this module.</li>
+					<li>Sighted keyboard users need visible feedback of a control’s focus state. </li>
+				</ul>
+				
+				<p>Web browsers provide a default visual focus indicator that varies in appearance by browser but usually consists of a border or outline around the focused element. </p>
+					
+				<ul>
+        <li>Always avoid styles that remove or limit the visibility of keyboard focus indicators. The browser default visual focus indicator can be removed with CSS outline:0 or outline: none, which is a common barrier and anti-pattern. </li>
+					<li>Its best practice to use CSS to design a highly-visible focus indicator with strong contrast.</li>
+				</ul>
+				
+				<h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Visual focus indicator is removed</h3>
+				<p>All browsers display a visible outline around the element that currently has keyboard focus, which can be disabled using the "outline: 0" or "outline: none" CSS property. If the visual focus indicator is removed, sighted keyboard users will have no idea which link has the focus, making it difficult or impossible to navigate the web page.</p>
+				<p>A link to <a href="http://www.google.ca">Google</a></p>
+				<pre><code class="language-html">&lt;style&gt; 
+a:focus {
+	outline: none;
+}
+&lt;/style&gt;</code>
+</pre>
+				<h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Canada.ca visual focus indicator</h3>
+				<p>In this example, the first link in a menu of three has a visual focus indicator consisting of a thick black outline, set closely to the text.</p>
+				<p>CSS</p>
+				<pre><code class="language-css">a:focus { 
+	outline: 2px auto -webkit-focus-ring-color; 
+	outline-offset: -2px; 
+}</code>
+</pre>
+				<img src="images/image1.png" class="img-responsive" alt="Screenshot showing the visual focus indicator on a link, consisting of a thick black outline, set closely to the text. ">
+				
+				
+					<details class="mrgn-tp-lg">
+			<summary class="bg-info"><h3>Related WCAG resources</h3></summary>
+				
+				<h4 id="idelem4x6281">Success Criteria</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible">2.4.7: Focus Visible</a>
+					</li>
+				</ul>
+				<h4 id="idelem4x6303">Techniques</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G149">G149: Using user interface components that are highlighted by the user agent when they receive focus</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G165">G165: Using the default focus indicator for the platform so that high visibility default focus indicators will carry over</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G195">G195: Using an author-supplied, highly visible focus indicator</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C15">C15: Using CSS to change the presentation of a user interface component when it receives focus</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C40">C40: Creating a two-color focus indicator to ensure sufficient contrast with all components</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR31">SCR31: Using script to change the background color or border of the element with focus</a>
+					</li>
+				</ul>
+				<h4>Failures</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F78">F78: Failure of Success Criterion 2.4.7 due to styling element outlines and borders in a way that removes or renders non-visible the visual focus indicator</a>
+					</li>
+				</ul>
+				</details>
+			</section>
+			
+			<section >
+				<h2 id="links-text">Distinguishing links from text</h2>
+				<p>Users with low vision and colour blindness need to distinguish links from neighboring text. The easiest way to do this is with an underline on the link.</p>
+				<p>When colour is used as the only way to identify a link (meaning the underline has been removed), two conditions must be met:</p>
+					
+				<ul>
+        <li>3:1 contrast between the body text and the link text.</li>
+					<li>A "visual cue" (not just a color change) that appears on mouse hover and keyboard focus. The most common way to meet this is to underline the link on hover and focus, but you could also provide a background colour or border or outline.</li>
+				</ul>
+				
+				<div class="alert alert-info" role="alert">
+
+
+				<p>Note that this is only an issue when the link and the body text appear together. It doesn’t apply to links in the header or stacked in a menu, where they’re understood to be links by their position on the page.</p></div>
+				<p>These requirements are in addition to the minimum text contrast requirement of 4.5:1 (see tutorial module 7 Visual design and colours &gt; Contrast). It can be difficult to find a link colour that has both a 3:1 contrast with black body text and a 4.5:1 contrast with a white background. WCAG Technique G182 lists colour values that do, in Example 1 (see Related WCAG resources, below).</p>
+				
+					<details class="mrgn-tp-lg">
+			<summary class="bg-info"><h3>Related WCAG resources</h3></summary>
+				
+				
+				<h4>Success Criteria</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color">1.4.1: Use of Color</a>
+					</li>
+				</ul>
+				<h4>Techniques</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G182">G182: Ensuring that additional visual cues are available when text color differences are used to convey information</a>
+					</li>
+				</ul>
+				</details>
+			</section>
+			<section >
+				<h2 id="links-new-window">Links that open in a new window</h2>
+				<p>Links open in a new window via the target="_blank" attribute. </p>
+				<p>In general, avoid opening links in a new window. When links do open in a new window, warn users. Either:</p>
+				
+				<ul>
+        <li>Add the visible link text &ldquo;<q>(Opens in new window)</q>&rdquo;.</li>
+					<li>Reveal a visually-hidden warning on focus and hover (see example).</li>
+				</ul>
+				
+				<h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Warn users link opens in a new window by revealing a visually-hidden message on focus and hover</h3>
+				<pre><code class="language-html">&lt;p&gt;
+	This is an example of an 
+	&lt;a class="info" href="[...]" target="_blank"&gt;
+		&lt;strong&gt;External link&lt;/strong&gt;
+		&lt;span&gt;Opens a new window&lt;/span&gt;
+	&lt;/a&gt;          
+&lt;/p&gt;</code>
+</pre>
+				<p>Until the link receives focus, the inner span is visually hidden using the CSS "clip" method. On hover or focus, the warning &ldquo;<q>Link opens in new window</q>&rdquo; (or &ldquo;<q>Link opens in new tab</q>&rdquo;) is made visible. See WCAG Technique G201 for the complete HTML and CSS.</p>
+				<p>Consider styling the warning to appear like the title attribute tooltip.</p>
+				
+					<details class="mrgn-tp-lg">
+			<summary class="bg-info"><h3>Related WCAG resources</h3></summary>
+				
+				<h4>Success Criteria</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/on-focus">3.2.1: On Focus</a>
+					</li>
+				</ul>
+				<h4>Techniques</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G200">G200: Opening new windows and tabs from a link only when necessary</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G201">G201: Giving users advanced warning when opening a new window</a>
+					</li>
+				</ul>
+				</details>
+			</section>
+		<nav role="navigation" aria-label="Document navigation">
+	<h2 class="wb-inv">Document navigation</h2>
+	<ul class="pager">
+	  <li class="next"> <a rel="next" href="navigation.html">Next - Navigation</a> </li>
+	</ul>
+  </nav>
+					
+
+</main>
+		
+		
+
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+			
+			
+
+				<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				Module 3 –  Links and Navigation
+				</h3>
+				
+					<div class="list-group">
+						<a class="list-group-item active" href="links.html">Links</a>
+						<a class="list-group-item" href="navigation.html">Navigation</a>
+						<a class="list-group-item" href="best-practice.html">Best Practice</a>
+				</div>
+			
+			</section>
+			
+			
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				All modules
+				</h3>
+				
+					<div class="list-group">
+						<a class="list-group-item" href="../module1/index.html">	Module 1 - Accessibility Fundamentals – Disabilities, Guidelines and Laws</a>
+						<a class="list-group-item " href="../module2/index.html">Module 2  – Page Structure and Semantics</a>			
+						<a class="list-group-item active" href="index.html">Module 3 – Links and Navigation</a>
+						<a class="list-group-item" href="">Module 4 – Tables</a>
+						<a class="list-group-item" href="module05-images.html">Module 5 – Images</a>
+						<a class="list-group-item" href="">Module 6 – Forms</a>	
+						<a class="list-group-item" href="">Module 7 – Visual Design and Colours</a>
+						<a class="list-group-item" href="">Module 8 – Zoom and Responsive Design</a>
+						<a class="list-group-item" href="">	Module 9 - Audio, Video, Animation and Motion</a>
+			</div>
+
+			</section>
+		
+		</nav>
+	
+		
+
+		
+		
+	
+			
+</div>
+<div id="def-preFooter"></div>
+		<script src="../../scripts/preFooter.min.js"></script>
+</div>	
+		
+		
+	<div id="def-footer"></div>
+	<script src="../../scripts/appFooter.min.js"></script>
+	<script src="../../scripts/refFooter.min.js"></script>
+	<script src="../../scripts/bati-itao.min.js"></script>
+</body>
+	
+</html>
