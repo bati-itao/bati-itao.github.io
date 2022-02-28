@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Module 2 – Structure et sémantique des pages - Langue</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Describes the html element lang attribute value that identifies the primary language of the page. Without it, the page content may be rendered as gibberish by some screen readers.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "EDSC / Bureau de l’accessibilité des TI",
+                "href": "../../index-fr.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Accueil",
+                "href" : "../../../index-fr.html"
+            },{
+                "title": "Apprentissage",
+                "href" : "../../index-fr.html"
+            },
+			{
+                "title": "Cours d'accessibilité Web",
+                "href" : "../index-fr.html"
+            },
+			{
+                "title": "Module 2 – Structure et sémantique des pages",
+                "href" : "index-fr.html"
+            }],
+            "lngLinks": [{
+                "lang": "en",
+                "href": "language.html",
+                "text": "English"
+            }],
+            "menuPath": "../../../ajax/menu-fr.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
+		<h1 property="name" id="wb-cont">Language</h1>
+						
+						<nav role="navigation" aria-label="Table of contents">
+      <div class="panel panel-default mrgn-tp-md">
+        <header class="panel-heading">
+          <h2 class="panel-title">Table of contents</h2>
+        </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#language">Language of page</a></li>
+			  <li><a href="#language-of-parts">Language of parts</a></li>
+
+          </ul>
+        </div>
+      </div>
+   </nav>
+			<section aria-label="Language of page">
+				<h2 id="language">Language of page</h2>
+				<p>The <code>&lt;html&gt;</code> element must have a <code>lang</code> attribute value that identifies the primary language of the page. 
+          Without it, the page content may be rendered as gibberish by some screen readers. </p>
+
+				<p>Users configure screen readers with a default language and that’s the language used to declare a page if the <code>&lt;html&gt;</code> element is missing a <code>lang</code> attribute. For instance, a Francophone user's screen reader will attempt to read a page without a <code>lang</code> attribute in French, even if it is written in English. It’s an issue for screen reader users who understand multiple languages and visit websites written in all of them.</p>
+				<p>Follow these best practices for language of page:</p>
+				<p>Add a <code>lang</code> attribute to the <code>&lt;html&gt;</code> element to set the default language for the entire page.</p>
+				<ul>
+					<li>For English: <code>&lt;html lang=”en”&gt;</code> </li>
+					<li>For Canadian French <code>&lt;html lang=”fr-CA”&gt;</code></li>
+					<li>For other languages, choose the appropriate language code from ISO-639. Use the shortest available language code. 
+						<ul>
+							<li>
+								<a href="https://wiki.freepascal.org/Language_Codes" >Language Codes - Free Pascal wiki</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<p>Use a three-letter code if no other code is available. <a href="http://www.loc.gov/standards/iso639-2/php/code_list.php" >ISO 639-2 three-letter code</a>.</p>
+				
+				<h3>Related WCAG resources</h3>
+				<h4>Success criteria</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/language-of-page" >3.1.1: Language of Page</a>
+					</li>
+				</ul>
+				<h4 id="idelem4x6945">Techniques</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H57" >H57: Using the language attribute on the HTML element</a>
+					</li>
+				</ul>				
+		  </section>
+
+			<section aria-label="Language of parts">
+				<h2 id="language-of-parts">Language of parts</h2>
+				<p>Any part of the page that is not written in the page’s primary language must specify its language. Set the lang attribute on the text’s parent element, with a value indicating the language of the part. </p>
+				<p>Identifying changes in language is important for a couple of reasons:</p>
+				<ul>
+					<li>It allows braille translation software to follow changes in language</li>
+					<li>Speech synthesizers that support multiple languages will be able to speak the text in the appropriate accent with proper pronunciation</li>
+				</ul>
+				<h3>Examples</h3>
+				<p>A German phrase in an English document:</p>
+					 <span class="wb-prettify"></span>
+					 <p class="wb-inv">Code begins</p>
+<pre>
+ <code class=”language-html”>&lt;html lang=”en”&gt;
+ [...]
+ &lt;p&gt; He maintained that the DDR (German Democratic Republic) was just a &lt;span lang=”de”&gt;Treppenwitz der Weltgeschichte&lt;/span&gt;.
+ &lt;/p&gt;</code>
+</pre>
+<p class="wb-inv">Code ends</p>
+				<p>Alternative language links [for example: An HTML Web page includes links to versions of the page in other languages (e.g., Deutsch, Français, etc.]</p>
+				<p class="wb-inv">Code begins</p>
+<pre>
+ <code class=”language-html”>&lt;ul&gt;
+	&lt;li lang=”de”&gt;&lt;a href=”[...]”&gt;Deutsch&lt;/&lt;/a&gt;&lt;/li&gt;
+	&lt;li lang=”fr-CA”&gt;&lt;a href=”[...]”&gt; Français &lt;/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code>
+</pre>
+<p class="wb-inv">Code ends</p>
+				<p>Follow these best practices for language of parts:</p>
+				<ul>
+					<li>Insert <code>lang</code> attributes anywhere the default language changes to a different language</li>
+					<li>XHTML should use both the <code>lang</code> attribute and the <code>xml:lang</code> attribute.</li>
+				</ul>
+				<h3>Related WCAG resources</h3>
+				<h4>Success criteria</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/language-of-parts" >3.1.2: Language of Parts</a>
+					</li>
+				</ul>
+				<h4>Techniques</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H58" >H58: Using language attributes to identify changes in the human language</a>
+					</li>
+				</ul>
+			</section>
+		<nav role="navigation"  aria-label="Document">
+	<h2 class="wb-inv">Navigation dans le document</h2>
+	<ul class="pager">
+		<li class="previous"> <a rel="prev" href="content-structure-fr.html">Précédent - Structure du contenu</a></li>
+	  <li class="next"> <a rel="next" href="lists-fr.html">Suivant - Listes</a> </li>
+	</ul>
+  </nav>
+					
+
+</main>
+		
+		
+
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+			
+			
+
+				<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				Module 2 – Structure et sémantique des pages
+				</h3>
+				
+					<div class="list-group">
+				
+						<a class="list-group-item" href="landmarks-fr.html">Points de repère</a>
+						<a class="list-group-item" href="headings-fr.html">En-têtes</a>
+						<a class="list-group-item" href="content-structure-fr.html">Structure du contenu</a>
+						<a class="list-group-item active" aria-current="page" href="language-fr.html">Langue</a>
+					
+						<a class="list-group-item" href="lists-fr.html">Listes</a>
+				
+						<a class="list-group-item" href="iframes-fr.html">IFrames</a>
+					
+						<a class="list-group-item" href="parsing-and-validity-fr.html">Analyse syntaxique et validité</a>
+					
+						<a class="list-group-item" href="best-practice-fr.html">Pratiques exemplaires</a>
+				</div>
+			
+			</section>
+			
+			
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				Tous les modules
+				</h3>
+				<div class="list-group">
+						<a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a>
+						<a class="list-group-item active" href="index-fr.html">Module 2 – Structure et sémantique des pages</a>			
+						<a class="list-group-item" href="../module3/index-fr.html">Module 3 – Liens et navigation</a>
+						<a class="list-group-item" href="../module4/index-fr.html">Module 4 – Tableaux</a>
+						<a class="list-group-item" href="../module5/index-fr.html">Module 5 – Images</a>
+						<a class="list-group-item" href="../module6/index-fr.html">Module 6 – Formulaires</a>	
+						<a class="list-group-item" href="../module7/index-fr.html">Module 7 – Conception visuelle coleurs</a>
+						<a class="list-group-item" href="../module8/index-fr.html">Module 8 – Zoom et conception adaptée</a>
+						<a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a>
+			</div>
+			</section>
+		
+		</nav>
+	
+		
+
+		
+		
+	
+			
+</div>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+</div>	
+		
+		
+	<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+</body>
+	
+</html>
