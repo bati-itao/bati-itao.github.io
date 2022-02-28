@@ -46,8 +46,9 @@
                 "href" : "index.html"
             },
 			{
-                "title": "Module 2 – Page Structure and Semantics",
-                "href" : "Module02-Page-Structure-and-Semantics.html"
+                
+                "title": "Module 3 – Links and Navigation",
+                "href" : "index.html"
             }],
             "lngLinks": [{
                 "lang": "fr",
@@ -61,69 +62,85 @@
 <div class="row">
 	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
 		
-			<h1>Best practice</h1>
-			<section aria-label="Links">
-				<h2 id="idelem4x14695">Links</h2>
-				<h3 id="idelem4x14707">Best practice – Link purpose</h3>
+			<h1 property="name" id="wb-cont">Best practice</h1>
+		                
+                	<nav role="navigation"  aria-label="Table of contents">
+      <div class="panel panel-default mrgn-tp-lg">
+        <header class="panel-heading">
+          <h2 class="panel-title">Table of contents</h2>
+        </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#links">Links</a></li>
+			  <li><a href="#navigation">Navigation</a></li>
+          
+             
+          </ul>
+        </div>
+      </div>
+    </nav>
+			<section>
+				<h2 id="links">Links</h2>
+				<h3>Best practice – Link purpose</h3>
 				<ul>
 					<li>Provide link text that identifies the purpose of the link without needing additional context.</li>
 					<li>If the link text is not self-descriptive, ensure the link context describes the link purpose.</li>
-					<li>Do not use information-empty link text such as “click here” or “Read More” etc.</li>
+					<li>Do not use information-empty link text such as &ldquo;<q>click here</q>&rdquo; or &ldquo;<q>Read More</q>&rdquo; etc.</li>
 					<li>Distinguish links with identical text but different destinations by either </li>
 					<li>rephrasing the link text, </li>
 					<li>using an ARIA label, or </li>
 					<li>adding visually-hidden text to the link text.</li>
 				</ul>
-				<h3 id="idelem4x14833">Best practice – Link activation</h3>
+				<h3>Best practice – Link activation</h3>
 				<ul>
-					<li>Custom links need tabindex=”0” to receive keyboard focus and a onkeypress event to activate by Enter key.</li>
+					<li>Custom links need tabindex="0" to receive keyboard focus and a onkeypress event to activate by Enter key.</li>
 					<li>A link’s visible name matches or is included in the link’s accessible name.</li>
 				</ul>
-				<h3 id="idelem4x14958">Best practice – Visual focus indicator</h3>
+				<h3>Best practice – Visual focus indicator</h3>
 				<ul>
 					<li>Links must have a visible focus state.</li>
 				</ul>
-				<h3 id="idelem4x14997">Best practice – Distinguishing links from text</h3>
+				<h3>Best practice – Distinguishing links from text</h3>
 				<ul>
 					<li>Ensure links have visual indicators to enable users to quickly identify them.</li>
 					<li>Colour must not be the only means of differentiating a link from regular text. Accompany colour with another visual cue (e.g., underline, italics, bold) to differentiate link text from regular text</li>
 				</ul>
-				<h3 id="idelem4x15094">Best practice – Link opens in new window</h3>
+				<h3>Best practice – Link opens in new window</h3>
 				<ul>
 					<li>In general, avoid opening links in a new window. </li>
 					<li>When links do open in a new window, warn users.</li>
 				</ul>
 			</section>
-			<section aria-label="Navigation">
-				<h2 id="idelem4x15141">Navigation</h2>
-				<h3 id="idelem4x15154">Best practice – Blocks of navigation</h3>
+			<section>
+				<h2 id="navigation">Navigation</h2>
+				<h3>Best practice – Blocks of navigation</h3>
 				<ul>
-					<li>Identify important blocks of navigation with the &lt;nav&gt; element or role=”navigation” attribute.</li>
+					<li>Identify important blocks of navigation with the <code>&lt;nav&gt;</code> element or role="navigation" attribute.</li>
 					<li>When there are two or more navigation regions on the page, name each with aria-label or aria-labelledby to differentiate them.</li>
 					<li>Indicate the current location visually, using CSS, and semantically, using the aria-current=”page” attribute.</li>
 				</ul>
-				<h3 id="idelem4x15281">Best practice – Consistency across pages</h3>
+				<h3>Best practice – Consistency across pages</h3>
 				<ul>
 					<li>Ensure the relative order of components on the page and links within navigation blocks remains unchanged across pages.</li>
 				</ul>
-				<h3 id="idelem4x15316">Best practice – Skip navigation links</h3>
+				<h3>Best practice – Skip navigation links</h3>
 				<ul>
 					<li>Place the skip navigation link at the top of the page before any other focusable element (link, button, or custom control).</li>
 					<li>The skip link doesn’t not need to be visible until it receives focus.</li>
-					<li>Use clear link text – e.g. “Skip to Main Content” or “Skip to Content”</li>
-					<li>Use a same-page link, targeting the id attribute value of the destination (usually the &lt;main&gt; element).</li>
+					<li>Use clear link text – e.g. &ldquo;<q>Skip to Main Content</q>&rdquo; or &ldquo;<q>Skip to Content</q>&rdquo;</li>
+					<li>Use a same-page link, targeting the id attribute value of the destination (usually the <code>&lt;main&gt;</code> element).</li>
 					<li>Assign the destination the tabindex="-1" attribute. This fixes shortcomings in some browsers that move the viewport to the destination but not the focus.</li>
 					<li>Do not hide the skip link using any of these CSS options:</li>
 					<li>Use CSS to permanently position the link off screen</li>
 					<li>Set display: none</li>
 					<li>Set visibility: invisible</li>
 				</ul>
-				<h3 id="idelem4x15525">Best practice – Table of contents</h3>
+				<h3>Best practice – Table of contents</h3>
 				<ul>
 					<li>Ensure Table of contents reflects the document’s heading hierarchy </li>
 					<li>Ensure every topic in the Table of Contents links to the appropriate location</li>
 				</ul>
-				<h3 id="idelem4x15624">Best practice – Focus and focus order</h3>
+				<h3>Best practice – Focus and focus order</h3>
 				<ul>
 					<li>Ensure a meaningful tab order by positioning focusable content in the same sequence as the underlying code.</li>
 					<li>Ensure the keyboard navigation order is logical and intuitive. Typically, this means ensuring the navigation follows the visual flow of the page, left to right, top to bottom. It moves through the banner, main navigation, page navigation and controls, then footer on a typical page.</li>
@@ -149,7 +166,7 @@
 				<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">
-				Module 2 – Page Structure and Semantics
+				Module 3 –  Links and Navigation
 				</h3>
 				
 					<div class="list-group">
