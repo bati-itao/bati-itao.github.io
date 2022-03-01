@@ -102,8 +102,8 @@
 				<p>If two or more links on the same page have identical link text but different destinations, you can distinguish the links from one another in one of three ways:</p>
 				
 				<ul>
-        <li>TRephrase the link text.</li>
-					<li>Use an ARIA label (either the aria-label or aria-labelledby attribute). The ARIA label supercedes the native link text in assistive technology. Be sure to include the visible link text in the ARIA label, so voice input users can target the link (see <a href="#link-activation">Link Activation</a>, below).</li>
+					<li>Rephrase the link text.</li>
+					<li>Use an ARIA label (either the <code>aria-label</code> or <code>aria-labelledby</code> attribute). The ARIA label supercedes the native link text in assistive technology. Be sure to include the visible link text in the ARIA label, so voice input users can target the link (see <a href="#link-activation">Link Activation</a>, below).</li>
 					<li>Add visually-hidden text to the link text (example follows).</li>
 				</ul>
 				
@@ -111,17 +111,20 @@
 				<p>Developers frequently confuse the link and button roles, passing the confusion on to screen reader users. Users expect links to navigate (across pages or within a page), and buttons to trigger a local effect (or submit a form). A screen reader user can be disorientated when activating a button and instead navigating to a new page, or when activating a link and instead interpreting a local button effect. </p>
 				<h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad Example: Vague link text</h3>
 				<p>In this example, the link text &ldquo;<q>how much</q>&rdquo;communicates nothing useful:</p>
-				<p>A Food Guide Serving is simply a reference amount. It helps you understand <a href="http://www.hc-sc.gc.ca/fn-an/food-guide-aliment/basics-base/quantit-eng.php">how much</a> food is recommended every day from each of the four food groups. In some cases, a Food Guide Serving may be close to what you eat, such as an apple. In other cases, such as rice or pasta, you may serve yourself more than one Food Guide Serving.</p>
+				<blockquote>
+					<p>A Food Guide Serving is simply a reference amount. It helps you understand <a href="http://www.hc-sc.gc.ca/fn-an/food-guide-aliment/basics-base/quantit-eng.php">how much</a> food is recommended every day from each of the four food groups. In some cases, a Food Guide Serving may be close to what you eat, such as an apple. In other cases, such as rice or pasta, you may serve yourself more than one Food Guide Serving.</p>
+				</blockquote>
 				
 				<h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Descriptive link text</h3>
 				<p>In this example, the purpose of the link is perfectly clear.</p>
-				<p>A Food Guide serving is how much food you should eat from each of the 4 food groups every day. In some cases, a serving is the amount of a given food group that you normally eat in one sitting, like an apple. In other cases, the daily amount is more than one serving, such as for rice or pasta.</p>
-				<p>
-					<a href="http://www.hc-sc.gc.ca/fn-an/food-guide-aliment/basics-base/quantit-eng.php">Number of daily food servings for children, teens and adults</a>
-				</p>
-				
+				<blockquote>
+					<p>A Food Guide serving is how much food you should eat from each of the 4 food groups every day. In some cases, a serving is the amount of a given food group that you normally eat in one sitting, like an apple. In other cases, the daily amount is more than one serving, such as for rice or pasta.</p>
+					<p>
+						<a href="http://www.hc-sc.gc.ca/fn-an/food-guide-aliment/basics-base/quantit-eng.php">Number of daily food servings for children, teens and adults</a>
+					</p>
+				</blockquote>
 				<h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using aria-label for link purpose</h3>
-				<p>In this example, the visible link text &ldquo;<q>Access</q>&rdquo; is repeated for each resource. When there's no avoiding duplicated, visible link text, you can distinguish each instance with the aria-label attribute.</p>
+				<p>In this example, the visible link text &ldquo;<q>Access</q>&rdquo; is repeated for each resource. When there's no avoiding duplicated, visible link text, you can distinguish each instance with the <code>aria-label</code> attribute.</p>
 				
 <pre><code class="language-html">&lt;h1&gt;Tools and resources&lt;/h1&gt;
 &lt;h2&gt;Planning Accessible Virtual Events – Job Aid&lt;/h2&gt;
@@ -137,9 +140,8 @@
 </pre>
 				
 				<h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using aria-labelledby for link purpose</h3>
-				<p>Again, the visible link text &ldquo;<q>Access</q>&rdquo; is repeated for each resource. You can distinguish each instance with the aria-labelledby attribute, pointing to one or more id attribute values of elements containing the desired label. In this example, the label concatenates the link text + the preceding heading. </p>
+				<p>Again, the visible link text &ldquo;<q>Access</q>&rdquo; is repeated for each resource. You can distinguish each instance with the <code>aria-labelledby</code> attribute, pointing to one or more id attribute values of elements containing the desired label. In this example, the label concatenates the link text + the preceding heading. </p>
 		
-
 				<div class="alert alert-info" role="alert"><p>Note that one instance of the link text &ldquo;<q>Access</q>&rdquo; with an id attribute can be referenced by multiple ARIA labels, which may be more convenient than creating an id attribute for each instance of the link &ldquo;<q>Access</q>&rdquo;.</p></div>
 				<pre><code class="language-html">&lt;h1&gt;Tools and resources&lt;/h1&gt;
 &lt;h2 id="planning-virtual"&gt;Planning Accessible Virtual Events – Job Aid&lt;/h2&gt;
@@ -238,14 +240,14 @@
 			<section >
 				<h2 id="link-activation">Link activation</h2>
 				<p>Some people with disabilities are not able to use a mouse and instead leverage mechanisms such as keyboard, voice control and alternative pointing devices to navigate and interact with web. Ensure that links (and buttons and other controls) are focusable and actionable by keyboard and voice input and not just via a mouse.</p>
-				<p>Native links are keyboard-activated by pressing the Enter key. If you design a custom link using the ARIA role="link" attribute and a div or span element, include:</p>
+				<p>Native links are keyboard-activated by pressing the Enter key. If you design a custom link using the ARIA <code>role="link"</code> attribute and a <code>div</code> or <code>span</code> element, include:</p>
 					
 				<ul>
-        <li>A tabindex="0" attribute, so that the custom link receives keyboard focus via the Tab key.</li>
+					<li>A <code>tabindex="0"</code> attribute, so that the custom link receives keyboard focus via the Tab key.</li>
 					<li>A JavaScript event listener for the Enter key for activation, in addition to mouse click.</li>
 				</ul>
 				
-				<p>To activate a link using voice input, the user declares the name of the link as visible. When using aria-label or aria-labelledby to name a link, ensure the link’s visible text matches or is included in the ARIA label. Otherwise, voice input users won't be able to target the link by name, forcing them to switch to less efficient techniques to activate the link.</p>
+				<p>To activate a link using voice input, the user declares the name of the link as visible. When using <code>aria-label</code> or <code>aria-labelledby</code> to name a link, ensure the link's visible text matches or is included in the ARIA label. Otherwise, voice input users won't be able to target the link by name, forcing them to switch to less efficient techniques to activate the link.</p>
 				
 					<details class="mrgn-tp-lg">
 			<summary class="bg-info"><h3>Related WCAG resources</h3></summary>
@@ -300,19 +302,19 @@
 				<p>Typically, keyboard users press the Tab key to navigate the interactive elements on a web page (links, buttons, form fields, custom controls). </p>
 				
 				<ul>
-        <li>Tabbing to an item gives it keyboard "focus", at which point it can be activated with the keyboard. See the section <a href="navigation.html#focus-order">Focus and focus order</a> later in this module.</li>
-					<li>Sighted keyboard users need visible feedback of a control’s focus state. </li>
+					<li>Tabbing to an item gives it keyboard "focus", at which point it can be activated with the keyboard. See the section <a href="navigation.html#focus-order">Focus and focus order</a> later in this module.</li>
+					<li>Sighted keyboard users need visible feedback of a control's focus state. </li>
 				</ul>
 				
 				<p>Web browsers provide a default visual focus indicator that varies in appearance by browser but usually consists of a border or outline around the focused element. </p>
 					
 				<ul>
-        <li>Always avoid styles that remove or limit the visibility of keyboard focus indicators. The browser default visual focus indicator can be removed with CSS outline:0 or outline: none, which is a common barrier and anti-pattern. </li>
+					<li>Always avoid styles that remove or limit the visibility of keyboard focus indicators. The browser default visual focus indicator can be removed with CSS <code>outline:0</code> or <code>outline: none</code>, which is a common barrier and anti-pattern. </li>
 					<li>Its best practice to use CSS to design a highly-visible focus indicator with strong contrast.</li>
 				</ul>
 				
 				<h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Visual focus indicator is removed</h3>
-				<p>All browsers display a visible outline around the element that currently has keyboard focus, which can be disabled using the "outline: 0" or "outline: none" CSS property. If the visual focus indicator is removed, sighted keyboard users will have no idea which link has the focus, making it difficult or impossible to navigate the web page.</p>
+				<p>All browsers display a visible outline around the element that currently has keyboard focus, which can be disabled using the <code>outline: 0</code> or <code>outline: none</code> CSS property. If the visual focus indicator is removed, sighted keyboard users will have no idea which link has the focus, making it difficult or impossible to navigate the web page.</p>
 				<p>A link to <a href="http://www.google.ca">Google</a></p>
 				<pre><code class="language-html">&lt;style&gt; 
 a:focus {
@@ -424,7 +426,7 @@ a:focus {
 &lt;/p&gt;</code>
 </pre>
 				<p>Until the link receives focus, the inner span is visually hidden using the CSS "clip" method. On hover or focus, the warning &ldquo;<q>Link opens in new window</q>&rdquo; (or &ldquo;<q>Link opens in new tab</q>&rdquo;) is made visible. See WCAG Technique G201 for the complete HTML and CSS.</p>
-				<p>Consider styling the warning to appear like the title attribute tooltip.</p>
+				<p>Consider styling the warning to appear like the <code>title</code> attribute tooltip.</p>
 				
 					<details class="mrgn-tp-lg">
 			<summary class="bg-info"><h3>Related WCAG resources</h3></summary>
