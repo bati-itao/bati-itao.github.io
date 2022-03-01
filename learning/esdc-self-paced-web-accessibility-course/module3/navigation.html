@@ -88,7 +88,7 @@
 				<h2 id="blocks-navigation">Blocks of navigation</h2>
 				
 				 
-				<p>Semantically identify the important blocks of navigation on a page with either the <code>&lt;nav&gt;</code> element or the ARIA role="navigation" attribute. Each creates an ARIA navigation landmark, which screen reader users can target by keyboard command.</p>
+				<p>Semantically identify the important blocks of navigation on a page with either the <code>&lt;nav&gt;</code> element or the role="navigation" attribute. Each creates an ARIA navigation landmark, which screen reader users can target by keyboard command.</p>
 				
 				
 				<p>If there are two or more navigation regions on the page, name each with aria-label or aria-labelledby to differentiate them.</p>
@@ -99,28 +99,30 @@
 				</ul>
 				<h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Pagination</h3>
 				<p>Here, a pagination menu for search results is set in a named nav element. The current link is indicated visually via the CSS, and to screen readers via the aria-current="page" attribute. </p>
-				<pre><code class="language-css">.current-page {
-	background-color: #ccc;
-	border: 1px solid black;
-}</code>
-</pre>
-<pre><code class="language-html">&lt;nav label="Results by page"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;a href="[…]" aria-label="page 1"&gt;1&lt;/a&gt;
-&lt;/li&gt;
-&lt;li class="current-page"&gt;
-&lt;a href="[…]" aria-current="page" aria-label="page 2"&gt;2
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href="[…]" aria-label="page 3"&gt;3&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;a href="[…]" aria-label="page 4"&gt;4&lt;/a&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;</code>
-</pre>
+				<pre>
+					<code class="language-css">.current-page {
+						background-color: #ccc;
+						border: 1px solid black;
+						}
+					</code>
+					<code class="language-html">&lt;nav label="Results by page"&gt;
+						&lt;ul&gt;
+						&lt;li&gt;
+						&lt;a href="[…]" aria-label="page 1"&gt;1&lt;/a&gt;
+						&lt;/li&gt;
+						&lt;li class="current-page"&gt;
+						&lt;a href="[…]" aria-current="page" aria-label="page 2"&gt;2
+						&lt;/li&gt;
+						&lt;li&gt;
+						&lt;a href="[…]" aria-label="page 3"&gt;3&lt;/a&gt;
+						&lt;/li&gt;
+						&lt;li&gt;
+						&lt;a href="[…]" aria-label="page 4"&gt;4&lt;/a&gt;
+						&lt;/li&gt;
+						&lt;/ul&gt;
+						&lt;/nav&gt;
+					</code>
+				</pre>
 				
 			<h3 class="wb-inv">Related WCAG resources</h3>
 
@@ -182,10 +184,13 @@
 					<li>Use clear link text – e.g. "Skip to Main Content" or "Skip to Content"</li>
 					<li>Use a same-page link, targeting the id attribute value of the destination (usually the <code>&lt;main&gt;</code> element).</li>
 					<li>Assign the destination the tabindex="-1" attribute. This fixes shortcomings in some browsers that move the viewport to the destination but not the focus.</li>
-					<li>Do not hide the skip link using any of these CSS options:</li>
-					<li>Use CSS to permanently position the link off screen</li>
-					<li>Set display: none</li>
-					<li>Set visibility: invisible</li>
+					<li>Do not hide the skip link using any of these CSS options:
+					<ul>
+						<li>Use CSS to permanently position the link off screen</li>
+						<li>Set display: none</li>
+						<li>Set visibility: invisible</i>
+					</ul>
+					</li>
 				</ul>
 				<h3>Code Snippet</h3>
 				<p>HTML:</p>
@@ -321,7 +326,7 @@
 			<section>
 				<h2 id="focus-order">Focus and focus order</h2>
 				<details class="mrgn-tp-lg">
-			<summary><h3>What is focus?</h3></summary>
+				<h3>What is focus?</h3>
 				
 				<p>Focus refers to which interactive control on the screen -- a link, form control, button, or custom control -- currently receives input from the keyboard (and from the clipboard when you paste content).</p>
 				<p>Focus determines where keyboard events go in the page. For instance, if you focus a text input field and start typing, it receives the keyboard events and displays the characters you type. While it has focus, it also receives pasted input from the clipboard. Some of the native controls even have additional keyboard support built in. For instance, with the select element focused you can press the Up and Down arrow keys to select different children, and start typing to auto-complete to one of the available items.</p>
@@ -332,14 +337,14 @@
 				<h3>Focus order</h3>
 				<p>Keyboard users navigate from interactive item to interactive item using the Tab key, in sequential order, following what’s called the focus order. They use the Shift-Tab keys to move backwards in the focus order. Like reading order, focus order is determined by the Web page’s source order. The order of interactive items (links, buttons, form controls and custom controls) in the DOM is the order in which they’re encountered by keyboard users.</p>
 				<p>The keyboard navigation order must be logical and intuitive. Typically, this means ensuring the navigation follows the visual flow of the page, left to right, top to bottom. It moves through the banner, main navigation, page navigation and controls, then footer on a typical page.</p>
-				<p>Focus order can be confounded by JavaScript. When JavaScript inserts new content, the content should follow the triggering element, not precede it. Screen reader users will not expect new content to fall before the trigger. Module 10’s section Focus management with JavaScript-injected content goes into greater detail.</p>
+				<p>Focus order can be confounded by JavaScript. When JavaScript inserts new content, the content should follow the triggering element, not precede it. Screen reader users will not expect new content to fall before the trigger. Module 10’s section <a href="https://www.bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module10/">Focus management with JavaScript-injected content</a> goes into greater detail.</p>
 				<p>Built-in interactive HTML elements – links, buttons and form controls – are implicitly focusable, meaning they receive focus by default without additional markup. </p>
 				<p>To receive focus, a link must have a populated href attribute.  </p>
 				<p>To prevent a link from receiving focus, remove its href attribute.</p>
 				<p>To prevent a button or form control from receiving focus, add the Boolean "disabled" attribute. When present, it makes the element not mutable, focusable, or submitted with the form. The user can neither edit nor focus on the control, nor its form control descendants. You can also prevent a control from gaining focus by giving it a tabindex="-1" attribute.</p>
 				<p>Custom links and controls require a tabindex="0" attribute to receive focus. See Good example: Inserting a custom link into the tab order, below, for all the CSS, HTML attributes and JavaScript required to emulate a link. Important: When possible use a built-in HTML element instead of building a custom control with ARIA.</p>
 				<h3>The tabindex attribute</h3>
-				<p>The tabindex attribute is mostly used as a means of managing focus within widgets. See the description of the Tabs widget in module #.</p>
+				<p>The tabindex attribute is mostly used as a means of managing focus within widgets. See the description of the Tabs widget in module 10.</p>
 				<ul>
 					<li>A tabindex attribute value of 0 puts the element in the focus order, at its current location in the DOM.</li>
 					<li>A tabindex value of -1 removes an interactive element from the focus order, but enables it to be targeted by script (and changed) using its focus() method.  For instance, with the Tabs widget, only one tab at a time may be in the tab order: the selected tab has tabindex="0", while the inactive tabs have tabindex="-1". The tabindex values change as the keyboard user navigates across the tabs, using the Arrow keys to set focus on a new tab. See the description of the Tabs widget in module #.</li>
