@@ -343,7 +343,7 @@
 				<ul>
 					<li>A tabindex attribute value of 0 puts the element in the focus order, at its current location in the DOM.</li>
 					<li>A tabindex value of -1 removes an interactive element from the focus order, but enables it to be targeted by script (and changed) using its focus() method.  For instance, with the Tabs widget, only one tab at a time may be in the tab order: the selected tab has tabindex="0", while the inactive tabs have tabindex="-1". The tabindex values change as the keyboard user navigates across the tabs, using the Arrow keys to set focus on a new tab. See the description of the Tabs widget in module #.</li>
-					<li>A tabindex value greater than 0 is almost always a bad idea and should be avoided. It moves the element to the beginning of the page’s focus order, and is encountered in ascending order with any other positive tabindex values. Positive tabindex values are difficult to maintain and brittle, and their use tends to confound user expectations of focus order. Instead, write the document with the elements in a logical sequence. See Bad example: Page design with positive tab index values, below.</li>
+					<li>A tabindex value greater than 0 is almost always a bad idea and should be avoided. It moves the element to the beginning of the page’s focus order, and is encountered in ascending order with any other positive tabindex values. Positive tabindex values are difficult to maintain and brittle, and their use tends to confound user expectations of focus order. Instead, write the document with the elements in a logical sequence. See <a href="#bad-example">Bad example: Page design with positive tab index values</a>, below.</li>
 				</ul>
 				<h4 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Inserting a custom link into the tab order using tabindex="0"</h4>
 				<p>In the example below, press the Tab to move focus forward from link to link, and the Shift-Tab keys to move focus backwards.</p>
@@ -456,7 +456,7 @@
 				<p>Using a tabindex attribute value greater than 0 is considered an anti-pattern.</p>
 				<p>Any tabindex greater than 0 jumps the element to the front of the natural tab order. If there are multiple elements with a tabindex &gt; 0, then the tab order starts from the lowest value greater than zero and works its way up. </p>
 				<p>Positive tabindex values often create counter-intuitive flow for keyboard users. If you want an element to come sooner in the tab order, move it to an earlier spot in the DOM rather than set a positive tabindex value.</p>
-				<h4 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad Example: Page design with positive tab index values</h4>
+				<h4 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<id="bad-example">Bad Example: Page design with positive tab index values</h4>
 				<p>The tab order when user tabs the page is as follows:</p>
 				<ul>
 					<li>The "Going to" field (tabindex="1")</li>
