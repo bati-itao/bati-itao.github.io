@@ -86,15 +86,18 @@
 					<li>Provide link text that identifies the purpose of the link without needing additional context.</li>
 					<li>If the link text is not self-descriptive, ensure the link context describes the link purpose.</li>
 					<li>Do not use information-empty link text such as &ldquo;<q>click here</q>&rdquo; or &ldquo;<q>Read More</q>&rdquo; etc.</li>
-					<li>Distinguish links with identical text but different destinations by either </li>
-					<li>rephrasing the link text, </li>
-					<li>using an ARIA label, or </li>
-					<li>adding visually-hidden text to the link text.</li>
+					<li>Distinguish links with identical text but different destinations by either 
+						<ul>
+							<li>rephrasing the link text, </li>
+							<li>using an ARIA label, or </li>
+							<li>adding visually-hidden text to the link text.</li>
+						</ul>
+					</li>
 				</ul>
 				<h3>Best practice – Link activation</h3>
 				<ul>
-					<li>Custom links need tabindex="0" to receive keyboard focus and a onkeypress event to activate by Enter key.</li>
-					<li>A link’s visible name matches or is included in the link’s accessible name.</li>
+					<li>Custom links need <code>tabindex="0"</code> to receive keyboard focus and an <code>onkeypress</code> event to activate by Enter key.</li>
+					<li>A link's visible name matches or is included in the link's accessible name.</li>
 				</ul>
 				<h3>Best practice – Visual focus indicator</h3>
 				<ul>
@@ -115,9 +118,9 @@
 				<h2 id="navigation">Navigation</h2>
 				<h3>Best practice – Blocks of navigation</h3>
 				<ul>
-					<li>Identify important blocks of navigation with the <code>&lt;nav&gt;</code> element or role="navigation" attribute.</li>
-					<li>When there are two or more navigation regions on the page, name each with aria-label or aria-labelledby to differentiate them.</li>
-					<li>Indicate the current location visually, using CSS, and semantically, using the aria-current=”page” attribute.</li>
+					<li>Identify important blocks of navigation with the <code>&lt;nav&gt;</code> element or <code>role="navigation"</code> attribute.</li>
+					<li>When there are two or more navigation regions on the page, name each with <code>aria-label</code> or <code>aria-labelledby</code> to differentiate them.</li>
+					<li>Indicate the current location visually, using CSS, and semantically, using the <code>aria-current="page"</code> attribute.</li>
 				</ul>
 				<h3>Best practice – Consistency across pages</h3>
 				<ul>
@@ -126,25 +129,28 @@
 				<h3>Best practice – Skip navigation links</h3>
 				<ul>
 					<li>Place the skip navigation link at the top of the page before any other focusable element (link, button, or custom control).</li>
-					<li>The skip link doesn’t not need to be visible until it receives focus.</li>
-					<li>Use clear link text – e.g. &ldquo;<q>Skip to Main Content</q>&rdquo; or &ldquo;<q>Skip to Content</q>&rdquo;</li>
-					<li>Use a same-page link, targeting the id attribute value of the destination (usually the <code>&lt;main&gt;</code> element).</li>
-					<li>Assign the destination the tabindex="-1" attribute. This fixes shortcomings in some browsers that move the viewport to the destination but not the focus.</li>
-					<li>Do not hide the skip link using any of these CSS options:</li>
-					<li>Use CSS to permanently position the link off screen</li>
-					<li>Set display: none</li>
-					<li>Set visibility: invisible</li>
+					<li>The skip link doesn't not need to be visible until it receives focus.</li>
+					<li>Use clear link text – e.g. &ldquo;Skip to Main Content&rdquo; or &ldquo;Skip to Content&rdquo;</li>
+					<li>Use a same-page link, targeting the <code>id</code> attribute value of the destination (usually the <code>&lt;main&gt;</code> element).</li>
+					<li>Assign the destination the <code>tabindex="-1"</code> attribute. This fixes shortcomings in some browsers that move the viewport to the destination but not the focus.</li>
+					<li>Do not hide the skip link using any of these CSS options:
+						<ul>
+							<li>Use CSS to permanently position the link off screen</li>
+							<li>Set <code>display: none</code></li>
+							<li>Set <code>visibility: invisible</code></li>
+						</ul>
+					</li>
 				</ul>
 				<h3>Best practice – Table of contents</h3>
 				<ul>
-					<li>Ensure Table of contents reflects the document’s heading hierarchy </li>
+					<li>Ensure Table of contents reflects the document's heading hierarchy </li>
 					<li>Ensure every topic in the Table of Contents links to the appropriate location</li>
 				</ul>
 				<h3>Best practice – Focus and focus order</h3>
 				<ul>
 					<li>Ensure a meaningful tab order by positioning focusable content in the same sequence as the underlying code.</li>
 					<li>Ensure the keyboard navigation order is logical and intuitive. Typically, this means ensuring the navigation follows the visual flow of the page, left to right, top to bottom. It moves through the banner, main navigation, page navigation and controls, then footer on a typical page.</li>
-					<li>Avoid using tabindex values greater than 0.</li>
+					<li>Avoid using <code>tabindex</code> values greater than 0.</li>
 				</ul>
 			</section>
 		<nav role="navigation" aria-label="Document navigation">
@@ -172,7 +178,7 @@
 					<div class="list-group">
 						<a class="list-group-item" href="links.html">Links</a>
 						<a class="list-group-item" href="navigation.html">Navigation</a>
-						<a class="list-group-item active" href="best-practice.html">Best Practice</a>
+						<a class="list-group-item active" aria-current="page" href="best-practice.html">Best practice</a>
 				</div>
 			
 			</section>
