@@ -277,7 +277,7 @@
 				<h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Table of contents</h3>
 				<p>In this example, a screenshot of a table of contents shows heading text as links. Headings of levels 1, 2 and 3 are included.</p>
 				<img src="images/image4.png" class="img-responsive" alt="">
-				
+				<p><mark>Alt text is missing</mark></p>
 			<h3 class="wb-inv">Related WCAG resources</h3>
 
 <details class="mrgn-tp-lg">
@@ -351,8 +351,8 @@
 				<p>The keyboard navigation order must be logical and intuitive. Typically, this means ensuring the navigation follows the visual flow of the page, left to right, top to bottom. It moves through the banner, main navigation, page navigation and controls, then footer on a typical page.</p>
 				<p>Focus order can be confounded by JavaScript. When JavaScript inserts new content, the content should follow the triggering element, not precede it. Screen reader users will not expect new content to fall before the trigger. Module 10’s section <a href="https://www.bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module10/">Focus management with JavaScript-injected content</a> goes into greater detail.</p>
 				<p>Built-in interactive HTML elements – links, buttons and form controls – are implicitly focusable, meaning they receive focus by default without additional markup. </p>
-				<p>To receive focus, a link must have a populated href attribute.  </p>
-				<p>To prevent a link from receiving focus, remove its href attribute.</p>
+				<p>To receive focus, a link must have a populated <code>href</code> attribute.  </p>
+				<p>To prevent a link from receiving focus, remove its <code>href</code> attribute.</p>
 				<p>To prevent a button or form control from receiving focus, add the Boolean "disabled" attribute. When present, it makes the element not mutable, focusable, or submitted with the form. The user can neither edit nor focus on the control, nor its form control descendants. You can also prevent a control from gaining focus by giving it a <code>tabindex="-1"</code> attribute.</p>
 				<p>Custom links and controls require a <code>tabindex="0"</code> attribute to receive focus. See <a href="#custom-link">Good example: Inserting a custom link into the tab order</a>, below, for all the CSS, HTML attributes and JavaScript required to emulate a link. Important: When possible use a built-in HTML element instead of building a custom control with ARIA.</p>
 				
@@ -362,9 +362,9 @@
 				<ul>
 					<li>A <code>tabindex</code> attribute value of 0 puts the element in the focus order, at its current location in the DOM.</li>
 					<li>A <code>tabindex</code> value of -1 removes an interactive element from the focus order, but enables it to be targeted by script (and changed) using its <code>focus()</code> method.  For instance, with the Tabs widget, only one tab at a time may be in the tab order: the selected tab has <code>tabindex="0"</code>, while the inactive tabs have <code>tabindex="-1"</code>. The tabindex values change as the keyboard user navigates across the tabs, using the Arrow keys to set focus on a new tab. See the description of the Tabs widget in module 12.</li>
-					<li>A tabindex value greater than 0 is almost always a bad idea and should be avoided. It moves the element to the beginning of the page’s focus order, and is encountered in ascending order with any other positive tabindex values. Positive tabindex values are difficult to maintain and brittle, and their use tends to confound user expectations of focus order. Instead, write the document with the elements in a logical sequence. See <a href="#bad-example">Bad example: Page design with positive tab index values</a>, below.</li>
+					<li>A <code>tabindex</code> value greater than 0 is almost always a bad idea and should be avoided. It moves the element to the beginning of the page’s focus order, and is encountered in ascending order with any other positive <code>tabindex</code> values. Positive <code>tabindex</code> values are difficult to maintain and brittle, and their use tends to confound user expectations of focus order. Instead, write the document with the elements in a logical sequence. See <a href="#bad-example">Bad example: Page design with positive tab index values</a>, below.</li>
 				</ul>
-				<h4 class="text-success" id="custom-link"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Inserting a custom link into the tab order using tabindex="0"</h4>
+				<h4 class="text-success" id="custom-link"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Inserting a custom link into the tab order using <code>tabindex="0"</code></h4>
 				<p>In the example below, press the Tab to move focus forward from link to link, and the Shift-Tab keys to move focus backwards.</p>
 				<p>The third link is a custom link:</p>
 				<ul>
