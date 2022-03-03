@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Module 3 –  Links and Navigation - Links</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Accessibility coaching: this is a collection of tutorials that shows how to develop a web content that is accessible to people with disabilities, and provides a better user experience for everyone.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../index.html"
+            },
+			{
+                "title": "Web accessibility course",
+                "href" : "index.html"
+            },
+			{
+                
+                "title": "Module 05 - images",
+                "href" : "index.html"
+            }],
+            "lngLinks": [{
+                "lang": "fr",
+                "href": "images-text-fr.html",
+                "text": "Français"
+            }],
+            "menuPath": "../../ajax/menu-en.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
+		
+	<h1 property="name" id="wb-cont">Images of text</h1>
+		                
+    <nav role="navigation"  aria-label="Table of contents">
+      <div class="panel panel-default mrgn-tp-lg">
+        <header class="panel-heading">
+          <h2 class="panel-title">Table of contents</h2>
+        </header>
+        <div class="panel-body">
+          <ul>
+			  <li><a href="#avoid">Avoiding images of text<</a></li>
+              <li><a href="#math">Mathematical expressions</a></li>
+              <li><a href="#wcag">Related WCAG resources</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+	<section>
+		<h2>Avoiding images of text</h2>
+		<p>Images of text are more likely to distort and pixelate when resized and can be problematic for mobile users and users of low vision. In situations where images of text must be used, the text alternative must contain the same text presented in the image.</p>
+		<p>It is good design practice to use real text, formatted and styled with CSS to fit the design rather than an image of text. Actual text can be modified, resized without losing clarity to suit the reading preferences of users and is more flexible than images. </p>
+		<p>Unless the image of text is essential or customizable, images should not include informative text. Text that is part of a logo or brand name is considered essential.</p>
+		<h3 class="">Good Example: Text styled with CSS</h3>
+		<p>In this example, real text styled with CSS is used rather than an image of text. The CSS properties are solely responsible for font and text styling, spacing and layout.</p>
+		<img src="images/image11.png" class="img-reponsive" alt="">
+		<p>Code snippet:</p>
+		<p>&lt;h5 class="checker"&gt;Accessibility at your fingertips&lt;/h5&gt;</p>
+		<p>CSS:</p>
+		<p>.checker {</p>
+		<p>  border: 2px solid black;</p>
+		<p>  background: #aa061a;</p>
+		<p>  outline: #4CAF50 solid 10px;</p>
+		<p>  margin: auto;  </p>
+		<p>  padding: 20px;</p>
+		<p>  padding-top:10px;</p>
+		<p>  text-align: center;</p>
+		<p>  text-shadow: 5px 5px 5px #620915;</p>
+		<p>  font-size:50px;</p>
+		<p>  color:white;</p>
+		<p>}</p>
+		<h3 class="">Bad Example: Image of text </h3>
+		<p>Avoid images of text unless they are essential (like a logo) or customizable. In the example below, three links nest images of text.</p>
+		<img src="images/image12.png" class="img-reponsive" alt="">
+		<p>Screen magnification users may have difficulty reading an image of text when enlarged and pixelated, as shown in the image below.</p>
+		<img src="images/image13.png" class="img-reponsive" alt="">
+	</section>
+	<section>
+		<h2 id="math">Mathematical expressions</h2>
+
+		<h2>Designing with mathematical expressions</h2>
+		<p><mark>Heading levels are wrong</mark></p>
+		<p>HTML lacks markup for mathematical expressions as structures, and there is no simple way to produce anything essentially two-dimen­sion­al beyond superscripting or subscripting.</p>
+		<p>There are two approaches:</p>
+		<ul>
+			<li>Use an image with alt text or long description describing the math expression.</li>
+			<li>Tag the math expression semantically in MathML and use a JavaScript math library.</li>
+		</ul>
+		<h3 class="">Approach 1: Use an image with alt text describing the math expression</h3>
+		<p>Images of math expressions should only be used when math is an exception to the regular content of the website. In these cases, the &lt;img&gt; element’s alt attribute value should communicate the math expression, unless more than 150 characters is required, in which case a long description should be used.In the example below, the image displays a recurring decimal number and the alt text is “zero point one, recurring”</p>
+		<img src="images/image14.png" class="img-reponsive" alt=":zero point one, recurring">
+		<p>CODE SNIPPET:</p>
+		<p>&lt;img src="recurring.png" alt="zero point one, recurring"&gt;</p>
+		<h3 class="">Approach 2: Use MathML </h3>
+		<p>The preferred method for capturing math expressions as semantic, accessible content is with the markup language MathML. MathML markup allows user agents to determine the structure of math expressions in a machine-readable way. </p>
+		<p>Most web browsers need plugins to render MathML correctly for presentation, such as the open-source <a href="http://www.mathjax.org/">MathJax</a> library, which provides support for display and additional <a href="https://docs.mathjax.org/en/latest/basic/accessibility.html">accessibility features</a>. JavaScript math libraries commonly support math expressions written in Tex and LaTeX and AsciiMath, not just MathML.</p>
+		<p>In the example below, MathML communicates a math expression with semantic markup and proper syntax to assistive technologies like screen readers. MathJax renders it for the screen with the correct typesetting.</p>
+		<img src="images/image15.png" class="img-reponsive" alt="">
+		<p>&lt;head&gt;</p>
+		<p>[…]</p>
+		<p>&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"&gt;&lt;/script&gt;</p>
+		<p>&lt;/head&gt;</p>
+		<p>&lt;body&gt;</p>
+		<p>     &lt;math display="block" xmlns="http://www.w3.org/1998/Math/MathML"&gt;</p>
+		<p>&lt;mrow&gt;    &lt;mi&gt;E&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mfrac&gt;&lt;mrow&gt;     &lt;mn&gt;2&lt;/mn&gt;&lt;mi&gt;π&lt;/mi&gt;&lt;mi&gt;h&lt;/mi&gt;    &lt;msup&gt;          &lt;mi&gt;c&lt;/mi&gt;          &lt;mn&gt;2&lt;/mn&gt;    &lt;/msup&gt;&lt;/mrow&gt;&lt;mrow&gt;      &lt;msup&gt;      &lt;mi&gt;λ&lt;/mi&gt;      &lt;mn&gt;5&lt;/mn&gt;      &lt;/msup&gt;         &lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;         &lt;mrow&gt;              &lt;msup&gt;              &lt;mi&gt;e&lt;/mi&gt;                  &lt;mrow&gt;                  &lt;mi&gt;h&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;λ&lt;/mi&gt;                  &lt;msub&gt;                        &lt;mi&gt;k&lt;/mi&gt;                        &lt;mi&gt;b&lt;/mi&gt;                  &lt;/msub&gt;                  &lt;mi&gt;T&lt;/mi&gt;         &lt;/mrow&gt;        &lt;/msup&gt;         &lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;/mrow&gt;</p>
+		<p>      &lt;/math&gt;</p>
+		<p>&lt;/body&gt;</p>
+		<p>Source: <a href="https://accessibility.psu.edu/math/mathmltest/">https://accessibility.psu.edu/math/mathmltest/</a></p>
+	</section>
+	<section>
+		<h2 id="wcag">Related WCAG resources</h2>
+		<h3 class="">Success Criteria</h3>
+		<ul>
+			<li>
+				<a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a>
+			</li>
+			<li>
+				<a href="https://www.w3.org/WAI/WCAG21/Understanding/images-of-text.html">1.4.5: Images of Text</a>
+			</li>
+		</ul>
+		<h3 class="">Techniques</h3>
+		<ul>
+			<li>
+				<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C22">C22: Using CSS to control visual presentation of text</a>
+			</li>
+			<li>
+				<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G94">G94: Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content</a>
+			</li>
+		</ul>
+	</section>
+			
+	<nav role="navigation" aria-label="Document">
+		<h2 class="wb-inv">Document navigation</h2>
+		<ul class="pager">
+			<li class="previous">
+				<a rel="prev" href="functional-images.html">Previous - Functional images</a>
+			</li>
+			<li class="next">
+				<a rel="next" href="animated-images.html">Next - Animated images</a>
+			</li>
+		</ul>
+	</nav>					
+
+</main>
+		
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+		
+		
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+		<section class="list-group menu list-unstyled">
+			<h3 class="wb-navcurr">
+			Module 3 –  Links and Navigation
+			</h3>
+			<ul class="list-group menu list-unstyled">
+				<li><a class="list-group-item" href="images-concepts.html">Images concepts</a></li>
+				<li><a class="list-group-item" href="informative-images.html">Informative images</a></li>
+				<li><a class="list-group-item" href="decorative-redundant-images.html">Decorative or redundant images</a></li>
+				<li><a class="list-group-item" href="functional-images.html">Functional images</a></li>
+				<li><a class="list-group-item active" aria-current="page" href="images-text.html">Images of text</a></li>
+				<li><a class="list-group-item" href="animated-images.html">Animated images</a></li>
+				<li><a class="list-group-item" href="complex-images.html">Complex images</a></li>
+				<li><a class="list-group-item" href="groups-images.html">Groups of images</a></li>
+				<li><a class="list-group-item" href="image-maps.html">Image maps</a></li>
+				<li><a class="list-group-item" href="svg-images.html">SVG images</a></li>
+				<li><a class="list-group-item" href="tips-and-tricks.html">Tips and tricks</a></li>
+				<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+			</ul>
+		</section>
+		
+		<section class="list-group menu list-unstyled">
+			<h3 class="wb-navcurr">
+			All modules
+			</h3>
+			
+			<ul class="list-group menu list-unstyled">
+				<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility Fundamentals – Disabilities, Guidelines and Laws</a></li>
+				<li><a class="list-group-item" href="../module2/index.html">Module 2  – Page Structure and Semantics</a></li>			
+				<li><a class="list-group-item" href="index.html">Module 3 – Links and Navigation</a></li>
+				<li><a class="list-group-item" href="">Module 4 – Tables</a></li>
+				<li><a class="list-group-item active" href="module05-images.html">Module 5 – Images</a></li>
+				<li><a class="list-group-item" href="">Module 6 – Forms</a></li>	
+				<li><a class="list-group-item" href="">Module 7 – Visual Design and Colours</a></li>
+				<li><a class="list-group-item" href="">Module 8 – Zoom and Responsive Design</a></li>
+				<li><a class="list-group-item" href="">	Module 9 - Audio, Video, Animation and Motion</a></li>
+			</ul>
+		</section>
+	
+	</nav>
+	
+	
+</div>
+<div id="def-preFooter2"></div>
+		<script src="../../scripts/preFooter2.min.js"></script>
+</div>	
+		
+		
+	<div id="def-footer"></div>
+	<script src="../../scripts/appFooter.min.js"></script>
+	<script src="../../scripts/refFooter.min.js"></script>
+	<script src="../../scripts/bati-itao.min.js"></script>
+</body>
+	
+</html>
