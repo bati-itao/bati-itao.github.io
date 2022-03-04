@@ -91,7 +91,7 @@
 	<section>
 		<h2 id="informative">Best practice – Informative images</h2>
 		<ul>
-			<li>Use the alt attribute on the img element</li>
+			<li>Use the <code>alt</code> attribute on the <code>&lt;img&gt;</code> element</li>
 			<li>Provide meaningful text alternatives that serve the equivalent purpose to convey the intent, purpose and meaning of the image.</li>
 			<li>Do not include words like “image of” or “graphic of” in the alt text. </li>
 			<li>Keep alternative text concise and less than 150 characters.</li>
@@ -100,17 +100,18 @@
 	<section>
 		<h2 id="decorative">Best practice – Decorative and redundant images</h2>
 		<ul>
-			<li>Use “null” alt attributes (alt=””) to hide decorative or redundant images from assistive technology.</li>
-			<li>The role=presentation attribute also hides elements, though it’s not as widely supported as alt.</li>
+			<li>Use "null" alt attributes (<code>alt=""</code>) to hide decorative or redundant images from assistive technology.</li>
+			<li>The <code>role=presentation</code> attribute also hide the image role, though it’s not as widely supported as <code>alt</code>.</li>
 			<li>Implement decorative images as CSS backgrounds if possible.</li>
-			<li>Do not leave out the alt attribute of &lt;img&gt; elements.</li>
+			<li>Do not leave out the <code>alt</code> attribute of <code>&lt;img&gt;</code> elements.</li>
 		</ul>
 	</section>
 	<section>
 		<h2 id="functional">Best practice – Functional images</h2>
+		<p><mark>Edit for clarity</mark></p>
 		<ul>
-			<li>Ensure if image does not represent different functionality or convey other information than that already provided in the link text, so a null (empty) value is applied, (alt=""), to avoid redundancy and repetition.</li>
-			<li>When Icon image conveying information within link text, provide text alternative “new window” to convey meaning of the icon.</li>
+			<li><mark>Ensure if image does not represent different functionality or convey other information than that already provided in the link text, so a null (empty) value is applied, (<code>alt=""</code>), to avoid redundancy and repetition.</mark></li>
+			<li><mark>When icon image conveying information within link text, provide text alternative “new window” to convey meaning of the icon.</mark></li>
 			<li>Provide alternative text for stand-alone icon images that have a function.</li>
 			<li>Use text alternative for images that are used in a button</li>
 		</ul>
@@ -122,7 +123,7 @@
 			<li>Text that is part of a logo or brand name is considered essential.</li>
 			<li>Use actual text styled with CSS to avoid distortion and pixelation when resized.</li>
 			<li>Images of text used as logos are exempt from accessibility requirements like minimum colour contrast and no images of text .</li>
-			<li>Use images of math expressions only when math is the exception to the website content. Provide a text alternative in the alt attribute or in a long description.  </li>
+			<li>Use images of math expressions only when math is the exception to the website content. Provide a text alternative in the <code>alt</code> attribute or in a long description.  </li>
 			<li>Use MathML with MathJax to render math expressions semantically.</li>
 		</ul>
 	</section>
@@ -143,82 +144,107 @@
 		<h2 id="complex">Best practice – Complex images</h2>
 		<p>A complex image requires both a short and a long description:</p>
 		<ul>
-			<li>A short description or title identifies the image and indicates the location of the long description. This is stored in the &lt;img&gt; element’s alt attribute and shouldn’t exceed 150 characters.</li>
+			<li>A short description or title identifies the image and indicates the location of the long description. This is stored in the <code>&lt;img&gt;</code> element’s <code>alt</code> attribute and shouldn’t exceed 150 characters.</li>
 			<li>A long description of the image contains the essential information conveyed by the image. It can consist of nothing but text or it can require structural markup – headings, paragraphs, lists, and/or tables.</li>
 		</ul>
 	</section>
 	<section>
 		<h2 id="groups">Best practice – Groups of images</h2>
 		<ul>
-			<li>When a group of images represent a single piece of information: one image holds the message in its alt attribute, the other images use a null alt attributes (alt=””), ensuring they’re ignored by assistive technology .</li>
-			<li>When a group of images represent a collection: nest each image in a figure element with a figcaption child element, and nest all the figures in a single parent figure element. Use its figcaption to describe the context.</li>
+			<li>When a group of images represent a single piece of information: one image holds the message in its <abbr>alt</abbr> attribute, the other images use a null <code>alt</code> attributes (alt=""), ensuring they’re ignored by assistive technology .</li>
+			<li>When a group of images represent a collection: nest each image in a <code>&lt;figure&gt;</code> element with a <code>&lt;figcaption&gt;</code> child element, and nest all the figures in a single parent <code>&lt;figure&gt;</code> element. Use its <code>&lt;figcaption&gt;</code> to describe the context.</li>
 		</ul>
 	</section>
 	<section>
 		<h2 id="maps">Best practice – Image maps</h2>
 		<ul>
-			<li>Describe the context in the source &lt;img&gt; element’s alt attribute. </li>
-			<li>Describe each clickable region in the &lt;area&gt; element’s alt attribute.</li>
+			<li>Describe the context in the source <code>&lt;img&gt;</code> element’s <code>alt</code> attribute. </li>
+			<li>Describe each clickable region in the <code>&lt;area&gt;</code> element’s <code>alt</code> attribute.</li>
 		</ul>
 	</section>
 	<section>
 		<h2 id="figure">Best practice – Figure and figcaption</h2>
 		<ul>
-			<li>Use &lt;figcaption&gt; element to describe contextual information that isn’t apparent from looking at the image. This includes the who, what, when, where, and/or why of an image.</li>
-			<li>Do not use the exact same words for both alt text and &lt;figcaption&gt;. Screen readers will read the information twice.</li>
-			<li>Always provide an alt text for images even if they have a &lt;figcaption&gt;. Providing an empty or null alt attribute will prevent a screen reader from announcing that an image is present.</li>
+			<li>Use <code>&lt;figcaption&gt;</code> element to describe contextual information that isn’t apparent from looking at the image. This includes the who, what, when, where, and/or why of an image.</li>
+			<li>Do not use the exact same words for both alt text and <code>&lt;figcaption&gt;</code>. Screen readers will read the information twice.</li>
+			<li>Always provide an alt text for images even if they have a <code>&lt;figcaption&gt;</code>. Providing an empty or null alt attribute will prevent a screen reader from announcing that an image is present.</li>
 		</ul>
 	</section>
 	<section>
 		<h2 id="svg">Best practice – SVG</h2>
 		<ul>
-			<li>Use the &lt;img&gt; element and reference the SVG via the src attribute.</li>
-			<li>Use the &lt;svg&gt; element to embed the SVG directly into the HTML code.</li>
-			<li>Do not embed SVG using &lt;object&gt; or &lt;iframe&gt;</li>
-			<li>For simple, uncomplicated images with basic alt text description</li>
-			<li>Use &lt;img&gt; and “src=” attribute</li>
-			<li>Add role=”image” to improve accessibility support</li>
-			<li>Provide text alternative that conveys the same intent and meaning as the image.</li>
-			<li>Use “alt=” to provide alt text (preferred)</li>
-			<li>Can also use aria-label or aria-labelledby to provide alt text</li>
-			<li>For complex images with extended alt text description</li>
-			<li>Use &lt;svg&gt; element</li>
-			<li>Add role=”image” to improve accessibility support</li>
-			<li>Provide text alternative that conveys the same intent and meaning as the image.</li>
-			<li>Use &lt;title&gt; element to provide short alt text</li>
-			<li>&lt;title&gt; must be the first child of its parent element</li>
-			<li>&lt;title&gt; text will appear as tooltip when user moves mouse pointer over it</li>
-			<li>Use &lt;desc&gt; element to provide longer text description if needed, for complex images. </li>
-			<li>Text in a &lt;desc&gt; element is not visible. </li>
-			<li>Refer to Complex Images section for more approaches on displaying long descriptions</li>
-			<li>To improve accessibility support:</li>
-			<li>Add appropriate, unique ID values to the &lt;title&gt; and &lt;desc&gt;</li>
-			<li>Use aria-labelledby to reference the ID values</li>
-			<li>Hide decorative SVG images by using aria-hidden=”true”</li>
-			<li>For text in SVG:</li>
-			<li>Avoid text within &lt;svg&gt; elements or keep text to a minimum</li>
-			<li>Add role=”image” to improve accessibility support</li>
-			<li>Provide text alternative that conveys the same intent and meaning as the image.</li>
-			<li>Use &lt;title&gt; element to provide short alt text</li>
-			<li>&lt;title&gt; must be the first child of its parent element</li>
-			<li>&lt;title&gt; text will appear as tooltip when user moves mouse pointer over it</li>
-			<li>Use &lt;text&gt; element to provide text in SVG</li>
-			<li>To ensure accessibility support:</li>
-			<li>Add appropriate, unique ID values to the &lt;title&gt; and &lt;text&gt;</li>
-			<li>Use aria-labelledby to reference the ID values</li>
-			<li>Put text outside the SVG instead of inside (preferred)</li>
+			<li>Use the <code>&lt;img&gt;</code> element and reference the SVG via the <code>src</code> attribute.</li>
+			<li>Use the <code>&lt;svg&gt;</code> element to embed the SVG directly into the HTML code.</li>
+			<li>Do not embed SVG using <code>&lt;object&gt;</code> or <code>&lt;iframe&gt;</code></li>
+			<li>For simple, uncomplicated images with basic alt text description
+				<ul>
+					<li>Use <code>&lt;img&gt;</code> and <code>src</code> attribute</li>
+					<li>Add <code>role="image"</code> to improve accessibility support</li>
+					<li>Provide text alternative that conveys the same intent and meaning as the image.</li>
+					<li>Use the <code>alt</code> attribute to provide alt text (preferred)</li>
+					<li>Can also use <code>aria-label</code> or <code>aria-labelledby</code> to provide alt text</li>
+				</ul>
+			</li>
+			<li>For complex images with extended alt text description
+					<li>Use <code>&lt;svg&gt;</code> element</li>
+					<li>Add role=image" to improve accessibility support</li>
+					<li>Provide text alternative that conveys the same intent and meaning as the image.</li>
+					<li>Use <code>&lt;title&gt;</code> element to provide short alt text
+						<ul>
+							<li><code>&lt;title&gt;</code> must be the first child of its parent element</li>
+							<li><code>&lt;title&gt;</code> text will appear as tooltip when user moves mouse pointer over it</li>
+						</ul>
+					</li>
+					<li>Use <code>&lt;desc&gt;</code> element to provide longer text description if needed, for complex images. </li>
+					<li>Text in a <code>&lt;desc&gt;</code> element is not visible. </li>
+					<li>To improve accessibility support:
+						<ul>
+							<li>Add appropriate, unique ID values to the <code>&lt;title&gt;</code> and <code>&lt;desc&gt;</code></li>
+							<li>Use <code>aria-labelledby</code> to reference the ID values</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>Hide decorative SVG images by using <code>aria-hidden="true"</code></li>
+			<li>For text in SVG:
+				<ul>
+					<li>Avoid text within <code>&lt;svg&gt;</code> elements or keep text to a minimum</li>
+					<li>Add <code>role="image"</code> to improve accessibility support</li>
+					<li>Provide text alternative that conveys the same intent and meaning as the image.</li>
+					<li>Use <code>&lt;title&gt;</code> element to provide short alt text
+						<ul>
+							<li><code>&lt;title&gt;</code> must be the first child of its parent element</li>
+							<li><code>&lt;title&gt;</code> text will appear as tooltip when user moves mouse pointer over it</li>
+						</ul>
+					</li>
+					<li>Use <code>&lt;text&gt;</code> element to provide text in SVG</li>
+					<li>To ensure accessjibility support:
+						<ul>
+							<li>Add appropriate, unique ID values to the <code>&lt;title&gt;</code> and <code>&lt;text&gt;</code></li>
+							<li>Use <code>aria-labelledby</code> to reference the ID values</li>
+						</ul>
+					</li>
+					<li>Put text outside the SVG instead of inside (preferred)</li>
+				</ul>
+			</li>
 			<li>Include a background colour behind text and other important parts of the image</li>
-			<li>For SVG animation:</li>
-			<li>Use JavaScript or CSS, not &lt;animate&gt;</li>
-			<li>Avoid SVG that flash or blink more than 3 times per second</li>
-			<li>Avoid SVG that auto-play to avoid distracting users</li>
-			<li>Allow users to play and pause SVG animations</li>
-			<li>Use animated SVG to serve a specific purpose, not distract</li>
-			<li>For interactive SVG:</li>
-			<li>Ensure interactive &lt;svg&gt; objects are keyboard accessible</li>
-			<li>Ensure interactive &lt;svg&gt; objects are touchscreen accessible</li>
-			<li>Ensure interactive &lt;svg&gt; objects convey applicable name, role and value</li>
-			<li>Ensure interactive &lt;svg&gt; objects meet all applicable WCAG 2.1 guidelines</li>
+			<li>For SVG animation:
+				<ul>
+					<li>Use JavaScript or CSS, not <code>&lt;animate&gt;</code></li>
+					<li>Avoid SVG that flash or blink more than 3 times per second</li>
+					<li>Avoid SVG that auto-play to avoid distracting users</li>
+					<li>Allow users to play and pause SVG animations</li>
+					<li>Use animated SVG to serve a specific purpose, not distract</li>
+				</ul>
+			</li>
+			<li>For interactive SVG:
+				<ul>
+					<li>Ensure interactive <code>&lt;svg&gt;</code> objects are keyboard accessible</li>
+					<li>Ensure interactive <code>&lt;svg&gt;</code> objects are touchscreen accessible</li>
+					<li>Ensure interactive <code>&lt;svg&gt;</code> objects convey applicable name, role and value</li>
+					<li>Ensure interactive <code>&lt;svg&gt;</code> objects meet all applicable WCAG 2.1 guidelines</li>
+				</ul>
+			</li>
 		</ul>
 	</section>
 	<section>
@@ -226,7 +252,7 @@
 		<ul>
 			<li>Prioritize information in text alternative. Put the most important information at the beginning.</li>
 			<li>Use punctuation in the text alternative to make information easier to understand. </li>
-			<li>Ensure there is no space character in between the quotes of null (empty) text alternative (alt=””).</li>
+			<li>Ensure there is no space character in between the quotes of null (empty) text alternative (<code>alt=""</code>).</li>
 		</ul>
 	</section>
 			
