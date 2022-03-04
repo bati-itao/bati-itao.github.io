@@ -64,7 +64,7 @@
 		
 	<h1 property="name" id="wb-cont">Groups of images</h1>
 		                
-                	<nav role="navigation"  aria-label="Table of contents">
+    <nav role="navigation"  aria-label="Table of contents">
       <div class="panel panel-default mrgn-tp-lg">
         <header class="panel-heading">
           <h2 class="panel-title">Table of contents</h2>
@@ -83,53 +83,90 @@
 	<section>
 		<h2 id="designing">Designing with groups of images</h2>
 		<p>Groups of images represent either a single piece of information, such as a star rating, or a collection of images, such as a gallery.</p>
-		<p>Follow these Best practices for groups of images:</p>
+		<p>Follow these best practices for groups of images:</p>
 		<ul>
-			<li>When a group of images represent a single piece of information: One image holds the message it its alt attribute, the other images use a null alt attributes (alt=””), ensuring assistive technology ignores the other images.</li>
-			<li>When a group of images represent a collection: Nest each image in a figure element with a figcaption child element, and nest all the figures in a single parent figure element. Use its figcaption to describe the context.</li>
+			<li>When a group of images represent a single piece of information: One image holds the message in its <code>alt</code> attribute, the other images use a null <code>alt</code> attributes (<code>alt=""</code>), ensuring assistive technology ignores the other images.</li>
+			<li>When a group of images represent a collection: Nest each image in a <code>&lt;figure&gt;</code> element with a <code>&lt;figcaption&gt;</code> child element, and nest all the figures in a single parent <code>&lt;figure&gt;</code> element. Use its <code>&lt;figcaption&gt;</code> to describe the context.</li>
 		</ul>
 	</section>
 	<section>
-		<h2 id="example1">Good example 1: A group of images representing a single piece of information</h2>
-		<p>A star rating consists of 5 star images, yet it needs to communicate just one message in its alt text – the rating out of five.  </p>
-		<p>EXAMPLE:</p>
-		<img src="images/image18.png image19.png image20.png" class="img-reponsive" alt="">
-		<p>CODE SNIPPET:</p>
-		<p>Rating:&lt;img src="star-full.jpg"  alt="3.5 out of 5 stars"&gt;</p>
-		<p>&lt;img src="star-full.jpg"  alt=""&gt;</p>
-		<p>&lt;img src="star-full.jpg"  alt=""&gt;</p>
-		<p>&lt;img src="star-half.jpg"  alt=""&gt;</p>
-		<p>&lt;img src="star-empty.jpg" alt=""&gt;</p>
+		<h2 id="example1" class="text-success">
+			<span class="glyphicon glyphicon-ok-circle"></span> Good example 1: A group of images representing a single piece of information
+		</h2>
+		<p>A star rating consists of 5 star images, yet it needs to communicate just one message in its alt text – the rating out of five.</p>
+
+		<p>Rating:
+			<img src="images/star-full.png" alt="3.5 out of 5 stars">
+			<img src="images/star-full.png" alt="">
+			<img src="images/star-full.png" alt="">
+			<img src="images/star-half.png" alt="">
+			<img src="images/star-empty.png" alt="">		
+		</p>
+		<p class="wb-inv">Code begins</p>
+<pre>
+<code class="language-html">Rating:
+&lt;img src="star-full.jpg" alt="3.5 out of 5 stars"&gt;
+&lt;img src="star-full.png" alt=""&gt;
+&lt;img src="star-full.png" alt=""&gt;
+&lt;img src="star-half.png" alt=""&gt;
+&lt;img src="star-empty.png" alt=""&gt;</code>
+</pre>
+		<p class="wb-inv">Code ends</p>		
 	</section>
+	
 	<section>
-		<h2 id="example2">Good example 2: A group of images representing a collection</h2>
+		<h2 id="example2" class="text-success">
+			<span class="glyphicon glyphicon-ok-circle"></span> Good example 2: A group of images representing a collection
+		</h2>
 		<p>A collection of images may be a gallery, in which case each image needs its own alt text and the group itself needs alt text.</p>
-		<p>In this example, the &lt;figure&gt; holds the &lt;img&gt; element and the &lt;figcaption&gt; provides a caption for each image in a collection. The &lt;figure&gt; element can be nested, with the parent providing a caption for the entire collection of images.</p>
+		<p>In this example, the <code>&lt;figure&gt;</code> holds the <code>&lt;img&gt;</code> element and the <code>&lt;figcaption&gt;</code> provides a caption for each image in a collection. The <code>&lt;figure&gt;</code> element can be nested, with the parent providing a caption for the entire collection of images.</p>
 		<p>EXAMPLE:</p>
-		<img src="images/image21.jpg" class="img-reponsive" alt="">
-		<img src="images/image22.jpg" class="img-reponsive" alt="">
-		<img src="images/image23.jpg" class="img-reponsive" alt="">
-		<p>Film photograph. Séraphin Médéric Mieusement, 1936.</p>
-		<p>CODE SNIPPET:</p>
-		<p>&lt;figure&gt;</p>
-		<p>&lt;figcaption&gt;The castle through the ages: 1423, 1756, and 1936 respectively.&lt;/figcaption&gt;</p>
-		<p>&lt;figure&gt;</p>
-		<p>&lt;img src="castle-etching.jpg" alt="The castle has one tower, and a tall wall around it."&gt;&lt;figcaption&gt;Charcoal on  wood. Anonymous, circa 1423.&lt;/figcaption&gt;</p>
-		<p>&lt;/figure&gt;</p>
-		<p>&lt;figure&gt;</p>
-		<p>&lt;img src="castle-painting.jpg" alt="The castle now has two towers and two walls."&gt;</p>
-		<p>&lt;figcaption&gt;Oil-based paint on canvas. Eloisa Faulkner, 1756.&lt;/figcaption&gt;</p>
-		<p>&lt;/figure&gt;</p>
-		<p>&lt;figure&gt;</p>
-		<p>&lt;img src="castle-fluro.jpg"alt="The castle lies in ruins, the original tower all that remains in one piece."&gt;</p>
-		<p>&lt;figcaption&gt;Film photograph. &lt;span lang="fr"&gt;Séraphin Médéric Mieusement&lt;/span&gt;, 1936.&lt;/figcaption&gt;</p>
-		<p>&lt;/figure&gt;</p>
-		<p>&lt;/figure&gt;</p>
-		<p>Examples 1 and 2 are from the Web Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a>) document: <a href="https://www.w3.org/WAI/tutorials/images/groups/">Groups of Images</a> from the <a href="https://www.w3.org/WAI/tutorials/images/">Images Concepts tutorial</a>. Eric Eggert and Shadi Abou-Zahra, eds. Copyright © 2019 W3C® (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>). Status: Draft Updated 27 July 2019.  <a href="https://www.w3.org/WAI/tutorials/images/groups/">https://www.w3.org/WAI/tutorials/images/groups/</a></p>
+
+		<figure>		
+			<figcaption>The castle through the ages: 1423, 1756, and 1936 respectively.</figcaption>
+			
+			<figure>
+				<img src="images/castle-etching.jpg" class="img-reponsive" alt="The castle has one tower, and a tall wall around it.">
+				<figcaption>Charcoal on  wood. Anonymous, circa 1423.</figcaption>
+			</figure>
+			<figure>
+				<img src="images/castle-painting.jpg" class="img-reponsive" alt="The castle now has two towers and two walls.">
+				<figcaption>Oil-based paint on canvas. Eloisa Faulkner, 1756.</figcaption>
+			</figure>
+			<figure>
+				<img src="images/castle-fluro.jpg" class="img-reponsive" alt="The castle lies in ruins, the original tower all that remains in one piece.">
+				<figcaption>Film photograph. <span lang="fr">Séraphin Médéric Mieusement</span>, 1936.</figcaption>
+			</figure>
+		</figure>
+		
+		<p class="wb-inv">Code begins</p>
+<pre>
+<code class="language-html">&lt;figure&gt;
+	&lt;figcaption&gt;The castle through the ages: 1423, 1756, and 1936 respectively.&lt;/figcaption&gt;
+	
+	&lt;figure&gt;
+		&lt;img src="castle-etching.jpg" alt="The castle has one tower, and a tall wall around it."&gt;
+		&lt;figcaption&gt;Charcoal on  wood. Anonymous, circa 1423.&lt;/figcaption&gt;
+	&lt;/figure&gt;
+	&lt;figure&gt;
+		&lt;img src="castle-painting.jpg" alt="The castle now has two towers and two walls."&gt;
+		&lt;figcaption&gt;Oil-based paint on canvas. Eloisa Faulkner, 1756.&lt;/figcaption&gt;
+	&lt;/figure&gt;
+	&lt;figure&gt;
+		&lt;img src="castle-fluro.jpg"alt="The castle lies in ruins, the original tower all that remains in one piece."&gt;
+		&lt;figcaption&gt;Film photograph. &lt;span lang="fr"&gt;Séraphin Médéric Mieusement&lt;/span&gt;, 1936.&lt;/figcaption&gt;
+	&lt;/figure&gt;
+&lt;/figure&gt;</code>
+</pre>
+		<p class="wb-inv">Code ends</p>	
+		<hr/>
+		<p class="small">Examples 1 and 2 are from the Web Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a>) document: <a href="https://www.w3.org/WAI/tutorials/images/groups/">Groups of Images</a> from the <a href="https://www.w3.org/WAI/tutorials/images/">Images Concepts tutorial</a>. Eric Eggert and Shadi Abou-Zahra, eds. Copyright © 2019 W3C® (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>). Status: Draft Updated 27 July 2019.  <a href="https://www.w3.org/WAI/tutorials/images/groups/">https://www.w3.org/WAI/tutorials/images/groups/</a></p>
 	</section>
 	<section>
-		<h2 id="wcag">Related WCAG resources</h2>
-		<h3 class="">Success Criteria</h3>
+		<h2 id="wcag" class="wb-inv">Related WCAG resources</h2>
+		<details class="mrgn-tp-lg">
+			<summary class="bg-info">Related WCAG resources</summary>
+		<h3>Success Criteria</h3>
 		<ul>
 			<li>
 				<a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a>
@@ -204,7 +241,9 @@
 	
 </div>
 <div id="def-preFooter2"></div>
-		<script src="../../scripts/preFooter2.min.js"></script>
+		<script src="../../../scripts/preFooter2.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
 </div>	
 		
 		
