@@ -81,48 +81,65 @@
 
 	<section>
 		<h2 id="designing">Designing with image maps</h2>
-		<p>An image map links geometric areas of an image. It consists of an &lt;img&gt; element and a &lt;map&gt; element. The &lt;img&gt; element uses its usemap=”IDREF” attribute to reference the id attribute value of the &lt;map&gt; element. The &lt;map&gt; elements in turn holds &lt;area&gt; elements that each define a clickable region of the image and act as links. </p>
+		<p>An image map links geometric areas of an image. It consists of an <code>&lt;img&gt;</code> element and a <code>&lt;map&gt;</code> element. The <code>&lt;img&gt;</code> element uses its <code>usemap="IDREF"</code> attribute to reference the <code>id</code> attribute value of the <code>&lt;map&gt;</code> element. The <code>&lt;map&gt;</code> elements in turn hold <code>&lt;area&gt;</code> elements that each define a clickable region of the image and act as links. </p>
 		<p>Follow these Best practices for image maps:</p>
 		<ul>
-			<li>Describe the context in the source &lt;img&gt; element’s alt attribute. </li>
-			<li>Describe each clickable region in the &lt;area&gt; element’s alt attribute.</li>
+			<li>Describe the context in the source <code>&lt;img&gt;</code> element’s <code>alt</code> attribute. </li>
+			<li>Describe each clickable region in the <code>&lt;area&gt;</code> element’s <code>alt</code> attribute.</li>
 		</ul>
 	</section>
 	<section>
-		<h2>Good example: Image Map</h2>
-		<p>EXAMPLE</p>
-		<p>Please select a shape:</p>
-		<img src="images/image24.png" class="img-reponsive" alt="">
-		<p>CODE SNIPPET</p>
-		<p>&lt;p&gt; Please select a shape: </p>
-		<p>&lt;img src="shapes.png" usemap="#shapes" alt="Four shapes are available: a red hollow box, a green circle, a blue triangle, and a yellow four-pointed star."&gt; </p>
-		<p>&lt;map name="shapes"&gt; </p>
-		<p>&lt;area shape=rect coords="50,50,100,100"&gt; &lt;!-- the hole in the red box --&gt; </p>
-		<p>&lt;area shape=rect coords="25,25,125,125" href="red.html" alt="Red box with square hole."&gt; </p>
-		<p>&lt;area shape=circle coords="200,75,50" href="green.html" alt="Green circle."&gt; </p>
-		<p>&lt;area shape=poly coords="325,25,262,125,388,125" href="blue.html" alt="Blue triangle."&gt; </p>
-		<p>&lt;area shape=poly coords="450,25,435,60,400,75,435,90,450,125,465,90,500,75,465,60" href="yellow.html" alt="Yellow star."&gt; </p>
-		<p>&lt;/map&gt; </p>
-		<p>&lt;/p&gt;</p>
-		<p>The image map example is from the WHATWG document: <a href="https://html.spec.whatwg.org/">4.8.15 Image maps</a> from the <a href="https://html.spec.whatwg.org">HTML Living Standard</a>. Status: Draft Updated 12 October 2021.  <a href="https://html.spec.whatwg.org/">https://html.spec.whatwg.org/#image-map</a></p>
+		<h2 id="example" class="text-success">
+			<span class="glyphicon glyphicon-ok-circle"></span> Good example: Image Map</h2>
+
+		<p> Please select a shape: 
+			<img src="images/shapes.png" usemap="#shapes" alt="Four shapes are available: a red hollow box, a green circle, a blue triangle, and a yellow four-pointed star."> 
+			<map name="shapes"> 
+				<area shape=rect coords="50,50,100,100"> <!-- the hole in the red box --> 
+				<area shape=rect coords="25,25,125,125" href="red.html" alt="Red box with square hole."> 
+				<area shape=circle coords="200,75,50" href="green.html" alt="Green circle."> 
+				<area shape=poly coords="325,25,262,125,388,125" href="blue.html" alt="Blue triangle."> 
+				<area shape=poly coords="450,25,435,60,400,75,435,90,450,125,465,90,500,75,465,60" href="yellow.html" alt="Yellow star."> 
+			</map> 
+		</p>
+		
+		<p class="wb-inv">Code begins</p>
+<pre>
+<code class="language-html">&lt;p&gt; Please select a shape: 
+	&lt;img src="shapes.png" usemap="#shapes" alt="Four shapes are available: a red hollow box, a green circle, a blue triangle, and a yellow four-pointed star."&gt; 
+	&lt;map name="shapes"&gt; 
+		&lt;area shape=rect coords="50,50,100,100"&gt; &lt;!-- the hole in the red box --&gt; 
+		&lt;area shape=rect coords="25,25,125,125" href="red.html" alt="Red box with square hole."&gt; 
+		&lt;area shape=circle coords="200,75,50" href="green.html" alt="Green circle."&gt; 
+		&lt;area shape=poly coords="325,25,262,125,388,125" href="blue.html" alt="Blue triangle."&gt; 
+		&lt;area shape=poly coords="450,25,435,60,400,75,435,90,450,125,465,90,500,75,465,60" href="yellow.html" alt="Yellow star."&gt; 
+	&lt;/map&gt; 
+&lt;/p&gt;</code>
+</pre>
+		<p class="wb-inv">Code ends</p>		
+		<hr/>
+		<p class="small">The image map example is from the WHATWG document: <a href="https://html.spec.whatwg.org/">4.8.15 Image maps</a> from the <a href="https://html.spec.whatwg.org">HTML Living Standard</a>. Status: Draft Updated 12 October 2021.  <a href="https://html.spec.whatwg.org/">https://html.spec.whatwg.org/#image-map</a></p>
 	</section>
 	<section>
-		<h2>Related WCAG resources</h2>
-		<h3 class="">Success Criteria</h3>
-		<ul>
-			<li>
-				<a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a>
-			</li>
-			<li>
-				<a href="https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context">2.4.4: Link Purpose (In Context)</a>
-			</li>
-		</ul>
-		<p>Techniques</p>
-		<ul>
-			<li>
-				<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H24">H24: Providing text alternatives for the area elements of image maps</a>
-			</li>
-		</ul>
+		<h2 id="wcag" class="wb-inv">Related WCAG resources</h2>
+		<details class="mrgn-tp-lg">
+			<summary class="bg-info">Related WCAG resources</summary>
+			<h3 class="">Success Criteria</h3>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context">2.4.4: Link Purpose (In Context)</a>
+				</li>
+			</ul>
+			<p>Techniques</p>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H24">H24: Providing text alternatives for the area elements of image maps</a>
+				</li>
+			</ul>
+		</details>
 	</section>
 			
 	<nav role="navigation" aria-label="Document">
