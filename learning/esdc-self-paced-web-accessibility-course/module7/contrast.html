@@ -70,9 +70,7 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#section1">S1</a></li>
-			<li><a href="#section2">S2</a></li>
-			<li><a href="#section3">S3</a></li>
+            <li><a href="#designing-with-sufficient-contrast">Designing with sufficient contrast</a></li>
 			<li><a href="#resources1">Related WCAG resources</a></li>
           </ul>
         </div>
@@ -80,35 +78,90 @@
 	</nav>
 	
 			<section>				
-				<h2 id="section1">S1</h2>
+				<h2 id="designing-with-sufficient-contrast">Designing with sufficient contrast </h2>
+				<p>If text, including images of text, lacks sufficient contrast with its background it won’t be legible to users with low vision or colour blindness. Controls and meaningful graphics also require good contrast.</p>
+				<p>To meet the WCAG Level AA Success Criterion for minimum contrast, follow these best practices:</p>
 				
+				<ul>
+					<li>Ensure small text (under 18 point (24 pixels) regular font or under 14 point (19 pixels) bold font) has a contrast ratio of at least 4.5:1 with the background.</li>
+						<li>Ensure large text (at least 18 point (24 pixels) regular font or 14 point (19 pixels) bold font) has a contrast ratio of at least 3:1 with the background.</li>
+						<li>Ensure non-text content – active user interface components (i.e., controls) and their states, and meaningful graphics – has a contrast ratio of at least 3:1 with adjacent colours.</li>
+				  </ul>
+				<p>Meeting WCAG Level AAA criteria is often difficult, but that's not the case with enhanced contrast. We should strive for it whenever possible. To meet the WCAG Level AAA Success Criterion for enhanced contrast, increase the contrast ratio of small and large text as follows:</p>
+				<ul>
+					<li>Ensure small text (under 18 point (24 pixels) regular font or under 14 point (19 pixels) bold font) has a contrast ratio of at least 7:1 with the background.</li>
+						<li>Ensure large text (at least18 point (24 pixels) regular font or 14 point (19 pixels) bold font) has a contrast ratio of at least 4.5:1 with the background.</li>
+				  </ul>
+				<p>For user interface components, the 3:1 contrast ratio with adjacent colours:</p>
+				<ul>
+					<li>Applies to the control and the control’s state information, such as whether a component is selected or focused.</li>
+						<li>Applies to the visual boundary indicating the hit area, unless the control contains text that meets the 4.5:1 contrast ratio.</li>
+						<li>Doesn’t apply if the appearance of the control and its states are controlled by the user agent and not modified by the author.</li>
+						<li>Doesn’t apply if the control is disabled.</li>
+				  </ul>
+				  <p>Check contrast manually using the <a href="https://www.tpgi.com/color-contrast-checker/">Colour Contrast Analyzer</a> (CCA).</p>
+				  <p>Automated tools check background contrast, but manual inspection is necessary when the background is a gradient, an image, an animation or video. If the background changes over time, or as the user scrolls or as the viewport changes, the contrast should persist, though brief (1 second) intervals of poor contrast won’t interfere with the user experience.</p>
+				  <p>The 3:1 contrast ratio for adjacent colours also applies to meaningful graphics, which includes informative icons, lines in line graphs, and slices in pie charts:</p>
+				  <ul>
+					  <li>Check the contrast of the graphical object against its adjacent colours.</li>
+						  <li>If there are multiple colours and/or a gradient, choose the least contrasting area to test.</li>
+						  <li>If the least-contrasting area is less than 3:1, assume that area is invisible. Is the graphical object still understandable?</li>
+						  <li>If there is enough of the graphical object to understand, it passes, else it fails.</li>
+					</ul>
+					<h3>Bad Example 1: Low contrast with background (text)</h3>
+					<p>In this example, the dark grey text (#777) on a grey background (#ccc) has a contrast ratio of 2.8:1, falling short of the required 4.5:1 ratio.</p>
+					<style type="text/css">
+						.low-contrast { 
+						background-color: #ccc; 
+						color: #777;
+						padding: 1.5em;
+						width: 8em;
+						}
+						</style>						
+					<div class="low-contrast">
+						<p>Privacy</p>
+						</div>
+						<h3>Bad Example 2: Low contrast with background (control)</h3>
+						<p>The grey border colour of the checkbox (#9D9D9D) has a contrast ratio of 2.7:1 with the white background, which is insufficient to identify the checkbox to some users.</p>
+						<img src="images/image19.png" alt="" class="img-responsive"/>
+						<p>The input fields example is the current (2021) WET implementation, so you need to override the WET stylesheet with the input border colour value from Good Example 3. This is the problem line of CSS:</p>
+						<p>The grey border of the input (#93958A) has a contrast ratio of 3:1, just meeting WCAG Success Criterion <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast">1.4.11: Non-text Contrast</a></p>
+						<img src="images/image20.png" alt="" class="img-responsive"/>
+						<p>The input fields example is the current (2021) WET implementation, so you need to override the WET stylesheet with the input border colour value from Good Example 3. This is the problem line of CSS:</p>
+						<p>.form-control { border: 1px solid #ccc; }</p>
+						<h3>Good Example 3: Sufficient contrast (control)</h3>
+						<p>The grey border of the input (#93958A) has a contrast ratio of 3:1, just meeting WCAG Success Criterion <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast">1.4.11: Non-text Contrast</a></p>
+						<img src="images/image21.png" alt="" class="img-responsive"/>
+						<h3>Bad Example 4: Low contrast with adjacent colour (graphic)</h3>
+						<p>This alert graphic consists of a red triangle-shaped icon with a white exclamation mark, set against a grey background. The triangle is usually reserved for alerts like these, so both shapes are important.</p>
+						<img src="images/image22.png" alt="" class="img-responsive"/>
+						<p>There are 2 contrast ratios to consider with this icon:</p>
+						<ul>
+							<li>The contrast ratio between the white exclamation mark and the red triangle, which is 5:1.</li>
+							<li>The contrast ratio between the red triangle and the grey background, which is 2:1.</li>
+						  </ul>
+						<p>The red triangle and the grey background lack sufficient contrast.</p>
+						<p>See more examples in Success Criterion<a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast">1.4.11: Non-text Contrast</a></p>
+						<p>Bad Example 4 is from <a href="https://webaim.org/articles/contrast/">Contrast and Colour Accessibility</a>, © WebAIM, 2021.</p>
 			</section>
-			
-			<section>				
-				<h2 id="section2">S2</h2>
-				
-			</section>
-			
-			<section>				
-				<h2 id="section3">S3</h2>
-				
-			</section>
-
-			
+		
 			<section>				
 				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
 					<ul>
-						<li><a href="https://www.link1.com">Link 1</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum">1.4.3: Contrast (Minimum)</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced">1.4.6: Contrast (Enhanced)</a> (Level AAA)</li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast">1.4.11: Non-text Contrast</a></li>
 					</ul>
 					<h3>Techniques</h3>
-					<ul>
-						<li>
-							<a href="https://www.link2.com">Link 2</a>
-						</li>						
-					</ul>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G17">G17: Ensuring that contrast of at least 7:1 exists between text (and images of text) and background behind the text</a> (Level AAA, small text)</li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G18">G18: Ensuring that contrast of at least 4.5:1 exists between text (and images of text) and background behind the text </a> (Level AA, small text; Level AAA, large text)</li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G145">G145: Ensuring that a contrast ratio of at least 3:1 exists between text (and images of text) and background behind the text</a> (Level AA, large text)</li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G195">G195: Using an author-supplied, highly visible focus indicator</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G207">G207: Ensuring that a contrast ratio of 3:1 is provided for icons</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G209">G209: Provide sufficient contrast at the boundaries between adjoining colours</a></li>	
 				</details>
 			</section>
 		
