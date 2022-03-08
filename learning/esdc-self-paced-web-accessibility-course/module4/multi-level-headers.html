@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Multi-level Headers - Module 4 – Tables</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Accessibility coaching: this is a collection of tutorials that shows how to develop a web content that is accessible to people with disabilities, and provides a better user experience for everyone.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../index.html"
+            },
+			{
+                "title": "Web accessibility course",
+                "href" : "index.html"
+            },
+			{
+                "title": "Module 4 – Tables",
+                "href" : "index.html"
+            }],
+            "lngLinks": [{
+                "lang": "fr",
+                "href": "./index-fr.html",
+                "text": "Français"
+            }],
+            "menuPath": "../../ajax/menu-en.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
+		
+	
+			<h1 property="name" id="wb-cont">Multi-level Headers</h1>
+			<section aria-label="Designing with multi-level headers">
+				
+						<nav role="navigation"  aria-label="Table of contents">
+      <div class="panel panel-default mrgn-tp-lg">
+        <header class="panel-heading">
+          <h2 class="panel-title">Table of contents</h2>
+        </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#multi-level-headers">Designing with multi-level headers</a></li>
+              <li><a href="#headers-three-deep">Good example: Table with headers three deep</a></li>
+              <li><a href="#table-simplified">Good example: Multi-level table simplified</a></li>
+			  <li><a href="#three-headers-related">Good Example: Table with three headers related to each data cell</a></li>
+             
+             
+          </ul>
+        </div>
+      </div>
+    </nav>	
+				<h2 id="multi-level-headers">Designing with multi-level headers</h2>
+				<p>A table with multi-level headers has headers stacked three deep, or column headers that repeat or change partway down a table.</p>
+				<p>To associate multi-level headers with data cells, </p>
+                <ul>
+                  <li>Give each header a unique id attribute value. </li>
+                  <li>Reference those <code>id</code> attribute values in the header attribute of data cells. </li>
+                </ul>
+              <p>Using the <code>id/headers</code> attributes technique is a last resort, as it's not currently (2021) well-supported by assistive technologies. While the &ldquo;good&rdquo; example table below is technically compliant, it performs poorly in screen readers.</p> 
+					<div class="alert alert-warning">
+   <p><strong>Important:</strong> Whenever possible, simplify the data presentation by breaking a complex table into two or more simpler tables.</p> </div>
+				<p>
+                  A table summary may be necessary. Column headers that repeat or change partway down a table can easily surprise screen readers users as they descend rows. The same is true of column-spanning row headers. In the table summary, mention their presence.</p>
+            </section>
+			<section>
+				<div class="panel panel-success">
+  <div class="panel-body">
+		
+	<h2 class="text-success mrgn-tp-0 h3" id="headers-three-deep"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Table with headers three deep</h2>
+				<p>In this example, the row headers are three deep, requiring the use of <code>id/headers</code> markup to associate the data cells with their headers. The <a href="https://wet-boew.github.io/v4.0-ci/demos/tablevalidator/tablevalidator-en.html">WET Table Validator</a> provides the <code>id/headers</code> markup. A visually-hidden table description is nested in the <code>caption</code>.</p>
+				<table class="table small">
+     <caption>
+<strong>Vehicles leased by the Government</strong>
+<span class="wb-inv">Column 1 lists executive and non-executive vehicles. Column 2 lists the country (Canada or the USA). Column 3 lists the term of lease (long-term or short term). Column 4 lists the policy requirement.</span>
+    </caption>
+     <tbody>
+     <tr>
+         <th id="tbl6">Type of Vehicle</th>
+         <th id="tbl7">Country</th>
+         <th id="tbl8">Term of Lease</th>
+         <th id="tbl9">Policy Requirement</th>
+     </tr>
+     <tr>
+         <th rowspan="4" id="tbl12" headers="tbl6">executive</th>
+         <th rowspan="2" id="tbl13" headers="tbl7 tbl12">CANADA</th>
+         <th id="tbl14" headers="tbl8 tbl12 tbl13">long-term</th>
+         <td headers="tbl9 tbl12 tbl13 tbl14">
+             <p>Comprehensive commercial insurance, including collision and third party liability;</p> <p>- self-underwrite the deductible -</p>
+         </td>
+     </tr>
+     <tr>
+         <th id="tbl25" headers="tbl8">short-term</th>
+         <td headers="tbl9 tbl12 tbl13 tbl25">
+             <p>Comprehensive commercial insurance, including collision and third party liability;</p> <p>- self-underwrite the deductible -</p>
+         </td>
+     </tr>
+     <tr>
+         <th rowspan="2" id="tbl30" headers="tbl7">U.S.</th>
+         <th id="tbl31" headers="tbl8 tbl30">long-term</th>
+         <td headers="tbl9 tbl12 tbl30 tbl31">
+             <p>Comprehensive commercial insurance, including collision and third party liability;</p> <p>- self-underwrite the deductible -</p>
+         </td>
+     </tr>
+     <tr>
+         <th id="tbl36" headers="tbl8">short-term</th>
+         <td headers="tbl9 tbl12 tbl30 tbl36">
+             <p>Purchase additional commercial insurance to cover third&nbsp;party liability and collision for the U.S. risks;</p> <p>- self-underwrite the deductibles -</p>
+         </td>
+     </tr>
+     <tr>
+         <th rowspan="4" id="tbl41" headers="tbl6">non-executive</th>
+         <th rowspan="2" id="tbl42" headers="tbl7 tbl41">CANADA
+         </th><th id="tbl43" headers="tbl8 tbl41 tbl42">long-term</th>
+         <td headers="tbl9 tbl41 tbl42 tbl43">
+             <p>Self-underwrite except if provincial legislation applies</p>
+         </td>
+     </tr>
+     <tr>
+         <th id="tbl48" headers="tbl8">short-term</th>
+         <td headers="tbl9 tbl41 tbl42 tbl48">
+             <p>Comprehensive commercial insurance, including collision and third party liability;</p> <p>- self-underwrite the deductible -</p>
+         </td>
+     </tr>
+     <tr>
+         <th rowspan="2" id="tbl53" headers="tbl7">U.S.</th>
+         <th id="tbl54" headers="tbl8 tbl53">long-term</th>
+         <td headers="tbl9 tbl41 tbl53 tbl54">
+             <p>Purchase additional commercial insurance to cover third party liability and collision for the U.S. risks;</p> <p>- self-underwrite any damage to government vehicle -</p>
+         </td>
+     </tr>
+     <tr>
+         <th id="tbl59" headers="tbl8">short-term</th>
+         <td headers="tbl9 tbl41 tbl53 tbl59">
+             <p>Utilize commercial insurance coverage (third party liability and collision for the U.S. risks) administered by Services and Specialized Acquisitions Management Sector, <abbr title="Public Works and Government Services Canada">PWGSC</abbr>;</p> <p>- self-underwrite the deductible -</p>
+         </td>
+     </tr>
+     </tbody>
+</table>
+
+				
+				
+<details class="mrgn-tp-lg">
+
+<summary class="bg-info">View code snippet - Assigning id and header attributes</summary>
+<pre><code class="language-html">&lt;tr&gt;
+	&lt;th id="tbl6"&gt;Type of Vehicle&lt;/th&gt;
+	&lt;th id="tbl7"&gt;Country&lt;/th&gt;
+	&lt;th id="tbl8"&gt;Term of Lease&lt;/th&gt;
+	&lt;th id="tbl9"&gt;Policy Requirement&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;th rowspan="4" id="tbl12" headers="tbl6"&gt;executive&lt;/th&gt;
+	&lt;th rowspan="2" id="tbl13" headers="tbl7 tbl12"&gt;CANADA&lt;/th&gt;
+	&lt;th id="tbl14" headers="tbl8 tbl12 tbl13"&gt;long-term&lt;/th&gt;
+	&lt;td headers="tbl9 tbl12 tbl13 tbl14"&gt;
+	&lt;p&gt;Comprehensive commercial insurance, including collision and third party liability;&lt;/p&gt; 
+	&lt;p&gt;- self-underwrite the deductible -&lt;/p&gt;
+	&lt;/td&gt;
+&lt;/tr&gt;</code>
+</pre>
+</details>
+<details class="mrgn-tp-lg">
+<summary class="bg-info">View Complete HTML</summary>
+				<pre><code class="language-html">&lt;table&gt;
+	&lt;caption&gt;
+		&lt;strong&gt;Vehicles leased by the Government&lt;/strong&gt;
+		&lt;span class=”wb-inv”&gt;Column 1 lists executive and non-executive vehicles. Column 2 lists the country (Canada or the USA). Column 3 lists the term of lease (long-term or short term). Column 4 lists the policy requirement.&lt;/span&gt;
+	&lt;/caption&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+		 &lt;th id="tbl6"&gt;Type of Vehicle&lt;/th&gt;
+		 &lt;th id="tbl7"&gt;Country&lt;/th&gt;
+		 &lt;th id="tbl8"&gt;Term of Lease&lt;/th&gt;
+		 &lt;th id="tbl9"&gt;Policy Requirement&lt;/th&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+		 &lt;th rowspan="4" id="tbl12" headers="tbl6"&gt;executive&lt;/th&gt;
+		 &lt;th rowspan="2" id="tbl13" headers="tbl7 tbl12"&gt;CANADA&lt;/th&gt;
+		 &lt;th id="tbl14" headers="tbl8 tbl12 tbl13"&gt;long-term&lt;/th&gt;
+		 &lt;td headers="tbl9 tbl12 tbl13 tbl14"&gt;
+			 &lt;p&gt;Comprehensive commercial insurance, including collision and third party liability;&lt;/p&gt; &lt;p&gt;- self-underwrite the deductible -&lt;/p&gt;
+		 &lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+		 &lt;th id="tbl25" headers="tbl8"&gt;short-term&lt;/th&gt;
+		 &lt;td headers="tbl9 tbl12 tbl13 tbl25"&gt;
+			 &lt;p&gt;Comprehensive commercial insurance, including collision and third party liability;&lt;/p&gt; &lt;p&gt;- self-underwrite the deductible -&lt;/p&gt;
+		 &lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+		 &lt;th rowspan="2" id="tbl30" headers="tbl7"&gt;U.S.&lt;/th&gt;
+		 &lt;th id="tbl31" headers="tbl8 tbl30"&gt;long-term&lt;/th&gt;
+		 &lt;td headers="tbl9 tbl12 tbl30 tbl31"&gt;
+			 &lt;p&gt;Comprehensive commercial insurance, including collision and third party liability;&lt;/p&gt; &lt;p&gt;- self-underwrite the deductible -&lt;/p&gt;
+		 &lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+		 &lt;th id="tbl36" headers="tbl8"&gt;short-term&lt;/th&gt;
+		 &lt;td headers="tbl9 tbl12 tbl30 tbl36"&gt;
+			 &lt;p&gt;Purchase additional commercial insurance to cover third&amp;nbsp;party liability and collision for the U.S. risks;&lt;/p&gt; &lt;p&gt;- self-underwrite the deductibles -&lt;/p&gt;
+		 &lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+		 &lt;th rowspan="4" id="tbl41" headers="tbl6"&gt;non-executive&lt;/th&gt;
+		 &lt;th rowspan="2" id="tbl42" headers="tbl7 tbl41"&gt;CANADA
+		 &lt;/th&gt;&lt;th id="tbl43" headers="tbl8 tbl41 tbl42"&gt;long-term&lt;/th&gt;
+		 &lt;td headers="tbl9 tbl41 tbl42 tbl43"&gt;
+			 &lt;p&gt;Self-underwrite except if provincial legislation applies&lt;/p&gt;
+		 &lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+		 &lt;th id="tbl48" headers="tbl8"&gt;short-term&lt;/th&gt;
+		 &lt;td headers="tbl9 tbl41 tbl42 tbl48"&gt;
+			 &lt;p&gt;Comprehensive commercial insurance, including collision and third party liability;&lt;/p&gt; &lt;p&gt;- self-underwrite the deductible -&lt;/p&gt;
+		 &lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+		 &lt;th rowspan="2" id="tbl53" headers="tbl7"&gt;U.S.&lt;/th&gt;
+		 &lt;th id="tbl54" headers="tbl8 tbl53"&gt;long-term&lt;/th&gt;
+		 &lt;td headers="tbl9 tbl41 tbl53 tbl54"&gt;
+			 &lt;p&gt;Purchase additional commercial insurance to cover third party liability and collision for the U.S. risks;&lt;/p&gt; &lt;p&gt;- self-underwrite any damage to government vehicle -&lt;/p&gt;
+		 &lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+		 &lt;th id="tbl59" headers="tbl8"&gt;short-term&lt;/th&gt;
+		 &lt;td headers="tbl9 tbl41 tbl53 tbl59"&gt;
+			 &lt;p&gt;Utilize commercial insurance coverage (third party liability and collision for the U.S. risks) administered by Services and Specialized Acquisitions Management Sector, &lt;abbr title="Public Works and Government Services Canada"&gt;PWGSC&lt;/abbr&gt;;&lt;/p&gt;&lt;p&gt;- self-underwrite the deductible -&lt;/p&gt;
+		 &lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;</code>
+</pre>
+</details>
+				  </div>
+				</div>
+			</section>
+			<section>
+			<div class="panel panel-success">
+  <div class="panel-body">
+		
+	<h2 class="text-success mrgn-tp-0 h3" id="table-simplified"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Multi-level table simplified</h2>
+				<p>The table in the previous example is overly complex, requiring the poorly-supported <code>id/headers</code> technique. A better approach is to split a complex table into two or more smaller tables. In this example, the “Type of Vehicle” (executive or non-executive) is moved from column 1 to the table caption, resulting in one table about executive vehicles and a second table about non-executive vehicles. The simpler tables consist of two levels of headers, so can be rendered using the scope attribute rather than with <code>id/headers</code> attributes. Scope is easier to author and maintain, and is better supported by user agents than the <code>id/headers</code> method.</p>
+			  
+           
+      
+			  <table class="table table-bordered table-hover small">
+       <caption><strong>Non-executive Vehicles leased by the Government</strong></caption>
+       <thead>
+         <tr>
+           <th scope="col">Country</th>
+           <th scope="col">Term of Lease</th>
+           <th scope="col">Policy Requirement</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <th rowspan="2" scope="rowgroup">CANADA</th>
+           <th scope="row">long-term</th>
+           <td>
+             <p>Self-underwrite except if provincial legislation applies</p>
+           </td>
+         </tr>
+         <tr>
+           <th scope="row">short-term</th>
+           <td>
+             <p>Comprehensive commercial insurance, including collision and third party liability;</p>
+             <p>- self-underwrite the deductible -</p>
+           </td>
+         </tr>
+       </tbody>
+       <tbody>
+         <tr>
+           <th rowspan="2" scope="rowgroup">U.S.</th>
+           <th scope="row">long-term</th>
+           <td>
+             <p>Purchase additional commercial insurance to cover third party liability and collision for the U.S. risks;</p>
+             <p>- self-underwrite any damage to government vehicle -</p>
+           </td>
+         </tr>
+         <tr>
+           <th scope="row">short-term</th>
+           <td>
+             <p>Utilize commercial insurance coverage (third party liability and collision for the U.S. risks) administered by Services and Specialized Acquisitions Management Sector, <abbr title="Public Works and Government Services Canada">PWGSC</abbr>;</p>
+             <p>- self-underwrite the deductible -</p>
+           </td>
+         </tr>
+       </tbody>
+     </table>
+				<details class="mrgn-tp-lg">
+
+<summary class="bg-info">View code</summary>
+	 <pre><code class="language-html">&lt;table&gt;
+       &lt;caption&gt;&lt;strong&gt;Non-executive Vehicles leased by the Government&lt;/strong&gt;&lt;/caption&gt;
+       &lt;thead&gt;
+         &lt;tr&gt;
+           &lt;th scope=&quot;col&quot;&gt;Country&lt;/th&gt;
+           &lt;th scope=&quot;col&quot;&gt;Term of Lease&lt;/th&gt;
+           &lt;th scope=&quot;col&quot;&gt;Policy Requirement&lt;/th&gt;
+         &lt;/tr&gt;
+       &lt;/thead&gt;
+       &lt;tbody&gt;
+         &lt;tr&gt;
+           &lt;th rowspan=&quot;2&quot; scope=&quot;rowgroup&quot;&gt;CANADA&lt;/th&gt;
+           &lt;th scope=&quot;row&quot;&gt;long-term&lt;/th&gt;
+           &lt;td&gt;
+             &lt;p&gt;Self-underwrite except if provincial legislation applies&lt;/p&gt;
+           &lt;/td&gt;
+         &lt;/tr&gt;
+         &lt;tr&gt;
+           &lt;th scope=&quot;row&quot;&gt;short-term&lt;/th&gt;
+           &lt;td&gt;
+             &lt;p&gt;Comprehensive commercial insurance, including collision and third party liability;&lt;/p&gt;
+             &lt;p&gt;- self-underwrite the deductible -&lt;/p&gt;
+           &lt;/td&gt;
+         &lt;/tr&gt;
+       &lt;/tbody&gt;
+       &lt;tbody&gt;
+         &lt;tr&gt;
+           &lt;th rowspan=&quot;2&quot; scope=&quot;rowgroup&quot;&gt;U.S.&lt;/th&gt;
+           &lt;th scope=&quot;row&quot;&gt;long-term&lt;/th&gt;
+           &lt;td&gt;
+             &lt;p&gt;Purchase additional commercial insurance to cover third party liability and collision for the U.S. risks;&lt;/p&gt;
+             &lt;p&gt;- self-underwrite any damage to government vehicle -&lt;/p&gt;
+           &lt;/td&gt;
+         &lt;/tr&gt;
+         &lt;tr&gt;
+           &lt;th scope=&quot;row&quot;&gt;short-term&lt;/th&gt;
+           &lt;td&gt;
+             &lt;p&gt;Utilize commercial insurance coverage (third party liability and collision for the U.S. risks) administered by Services and Specialized Acquisitions Management Sector, &lt;abbr title=&quot;Public Works and Government Services Canada&quot;&gt;PWGSC&lt;/abbr&gt;;&lt;/p&gt;
+             &lt;p&gt;- self-underwrite the deductible -&lt;/p&gt;
+           &lt;/td&gt;
+         &lt;/tr&gt;
+       &lt;/tbody&gt;
+
+&lt;/table&gt;</code>
+</pre>
+</details>
+				</div>
+				</div>
+</section>
+			<section>
+				<div class="panel panel-success">
+  <div class="panel-body">
+		
+	<h2 class="text-success mrgn-tp-0 h3" id="three-headers-related"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good Example: Table with three headers related to each data cell</h2>
+				<p>In this example, the table headers “Organic (1kg)” and “Non-organic (1kg)” serve as subheadings to describe the next section of the table. Using the headers attribute, all three headers are properly associated with the data cell.</p>
+				<p>Note that the empty header cell is given an id attribute value and a non-breaking space as content. The cell is referenced by top-level headers in their headers attribute. This prevents some assistive technologies from declaring the cell.</p>
+				
+			<figure> 
+<figcaption>  
+<strong id="caption">Cost of organic vs non-organic produce in Canada, the USA and the UK</strong>  
+<p id="summary">Column one lists organic produce followed by non-organic, other columns show the cost by country.</p>  
+</figcaption>  
+<table aria-labelledby="caption" aria-describedby="summary" class="table table-bordered table-hover">   
+<thead>  
+    <tr> 
+        <td id="blank">&nbsp;</td>  
+        <th id="can" headers="blank">Canada</th> 
+        <th id="usa" headers="blank">USA</th> 
+        <th id="uk" headers="blank">UK</th> 
+    </tr> 
+</thead> 
+<tbody> 
+    <tr>  
+        <th id="org" class="span" colspan="4" headers="blank">Organic</th> 
+    </tr> 
+    <tr> 
+        <th headers="org" id="o-apples">Apples</th> 
+        <td headers="org o-apples can">$3.62</td> 
+        <td headers="org o-apples usa">$4.87</td> 
+        <td headers="org o-apples uk">$2.69</td> 
+    </tr> 
+    <tr> 
+        <th headers="org" id="o-bananas">Bananas</th>  
+        <td headers="org o-bananas can"> $1.47</td> 
+        <td headers="org o-bananas usa">$1.68</td> 
+        <td headers="org o-bananas uk">$1.60</td> 
+    </tr> 
+    <tr> 
+        <th headers="org" id="o-onions">Onions</th> 
+        <td headers="org o-onions can">$2.28</td> 
+        <td headers="org o-onions usa">$2.81</td> 
+        <td headers="org o-onions uk">$1.44</td>  
+    </tr> 
+    <tr> 
+        <th id="non-org" class="span" colspan="4" headers="blank">Non-organic</th> 
+    </tr>  
+    <tr>  
+        <th id="n-apples" headers="non-org">Apples</th> 
+        <td headers="non-org n-apples can">$3.37</td> 
+        <td headers="non-org n-apples usa">$4.53</td> 
+        <td headers="non-org n-apples uk">$2.50</td> 
+    </tr>  
+    <tr> 
+        <th id="n-bananas" headers="non-org">Bananas</th> 
+        <td headers="non-org n-bananas can">$1.37</td> 
+        <td headers="non-org n-bananas usa">$1.56</td>  
+        <td headers="non-org n-bananas uk">$1.49</td>  
+    </tr>  
+    <tr>  
+        <th id="n-onions" headers="non-org">Onions</th>  
+        <td headers="non-org n-onions can">$2.12</td> 
+        <td headers="non-org n-onions usa">$2.61</td>  
+        <td headers="non-org n-onions uk"> $1.34</td>  
+    </tr>  
+</tbody>  
+</table>  
+</figure>
+
+          
+<details class="mrgn-tp-lg">
+
+<summary class="bg-info">View code snippet - Assigning id attributes to &lt;th&gt; cells </summary>
+	 <pre><code class="language-html">[…]
+&lt;td id=”blank”&gt;&amp;nbsp;&lt;/td&gt;
+&lt;th id="can" scope="col" headers=”blank”&gt;Canada&lt;/th&gt;
+&lt;th id="usa" scope="col" headers=”blank”&gt;USA&lt;/th&gt;
+&lt;th id="uk" scope="col" headers=”blank”&gt;UK&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="org" class="span" colspan="4” scope="colgroup" headers=”blank”&gt;Organic&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th headers="org" id="o-apples"&gt;Apples&lt;/th&gt;
+[…]</code>
+</pre>
+</details>
+     
+<details class="mrgn-tp-lg">
+
+<summary class="bg-info">View code snippet - Assigning header attributes to &lt;th&gt; cells </summary>
+ <pre><code class="language-html">[…]
+&lt;td headers="org o-apples can"&gt;$3.62&lt;/td&gt;
+&lt;td headers="org o-apples usa"&gt;$4.87&lt;/td&gt;
+[…]</code>
+</pre>
+</details>
+
+
+<p><strong>Complete code</strong></p>
+This example sets the table in a figure element, as described in the section “Caption &amp; Summary”. Rather than use a caption element, the figcaption holds the table title, in a <code>&lt;strong&gt;</code> element, as well as a table summary to aid comprehension. The <code>aria-labelledby</code> and <code>aria-describedby</code> attributes on the table element point to the <code>title</code> and <code>summary</code>, respectively, which makes the associations stronger and more reliable in assistive technologies.
+  
+<details class="mrgn-tp-lg">
+
+<summary class="bg-info">View code</summary>
+<pre><code class="language-html">&lt;figure&gt; 
+&lt;figcaption&gt;  
+	&lt;strong id="caption"&gt;Cost of organic vs non-organic produce in Canada, the USA and the UK&lt;/strong&gt;  
+	&lt;p id="summary"&gt;Column one lists organic produce followed by non-organic, other columns show the cost by country.&lt;/p&gt;  
+&lt;/figcaption&gt;  
+&lt;table aria-labelledby="caption" aria-describedby="summary"&gt;   
+	&lt;thead&gt;  
+	&lt;tr&gt; 
+		&lt;td id="blank"&gt;&amp;nbsp;&lt;/td&gt;  
+		&lt;th id="can" headers="blank"&gt;Canada&lt;/th&gt; 
+		&lt;th id="usa" headers="blank"&gt;USA&lt;/th&gt; 
+		&lt;th id="uk" headers="blank"&gt;UK&lt;/th&gt; 
+	&lt;/tr&gt; 
+	&lt;/thead&gt; 
+	&lt;tbody&gt; 
+		&lt;tr&gt;  
+			&lt;th id="org" class="span" colspan="4" headers="blank"&gt;Organic&lt;/th&gt; 
+		&lt;/tr&gt; 
+		&lt;tr&gt; 
+			&lt;th headers="org" id="o-apples"&gt;Apples&lt;/th&gt; 
+			&lt;td headers="org o-apples can"&gt;$3.62&lt;/td&gt; 
+			&lt;td headers="org o-apples usa"&gt;$4.87&lt;/td&gt; 
+			&lt;td headers="org o-apples uk"&gt;$2.69&lt;/td&gt; 
+		&lt;/tr&gt; 
+		&lt;tr&gt; 
+			&lt;th headers="org" id="o-bananas"&gt;Bananas&lt;/th&gt;  
+			&lt;td headers="org o-bananas can"&gt; $1.47&lt;/td&gt; 
+			&lt;td headers="org o-bananas usa"&gt;$1.68&lt;/td&gt; 
+			&lt;td headers="org o-bananas uk"&gt;$1.60&lt;/td&gt; 
+		&lt;/tr&gt; 
+		&lt;tr&gt; 
+			&lt;th headers="org" id="o-onions"&gt;Onions&lt;/th&gt; 
+			&lt;td headers="org o-onions can"&gt;$2.28&lt;/td&gt; 
+			&lt;td headers="org o-onions usa"&gt;$2.81&lt;/td&gt; 
+			&lt;td headers="org o-onions uk"&gt;$1.44&lt;/td&gt;  
+		&lt;/tr&gt; 
+		&lt;tr&gt; 
+			&lt;th id="non-org" class="span" colspan="4" headers="blank"&gt;Non-organic&lt;/th&gt; 
+		&lt;/tr&gt;  
+		&lt;tr&gt;  
+			&lt;th id="n-apples" headers="non-org"&gt;Apples&lt;/th&gt; 
+			&lt;td headers="non-org n-apples can"&gt;$3.37&lt;/td&gt; 
+			&lt;td headers="non-org n-apples usa"&gt;$4.53&lt;/td&gt; 
+			&lt;td headers="non-org n-apples uk"&gt;$2.50&lt;/td&gt; 
+		&lt;/tr&gt;  
+		&lt;tr&gt; 
+			&lt;th id="n-bananas" headers="non-org"&gt;Bananas&lt;/th&gt; 
+			&lt;td headers="non-org n-bananas can"&gt;$1.37&lt;/td&gt; 
+			&lt;td headers="non-org n-bananas usa"&gt;$1.56&lt;/td&gt;  
+			&lt;td headers="non-org n-bananas uk"&gt;$1.49&lt;/td&gt;  
+		&lt;/tr&gt;  
+		&lt;tr&gt;  
+			&lt;th id="n-onions" headers="non-org"&gt;Onions&lt;/th&gt;  
+			&lt;td headers="non-org n-onions can"&gt;$2.12&lt;/td&gt; 
+			&lt;td headers="non-org n-onions usa"&gt;$2.61&lt;/td&gt;  
+			&lt;td headers="non-org n-onions uk"&gt; $1.34&lt;/td&gt;  
+		&lt;/tr&gt;  
+	&lt;/tbody&gt;  
+&lt;/table&gt;  
+&lt;/figure&gt;</code>
+</pre>
+</details>
+
+
+				  </div>
+				</div>
+				
+		</section>
+				<h3 class="wb-inv">Related WCAG resources</h3>
+
+<details class="mrgn-tp-lg">
+
+<summary class="bg-info">Related WCAG resources</summary>
+				<h4>Success Criteria</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1: Info and Relationships</a>
+					</li>
+				</ul>
+				<h4 id="idelem4x11532">Techniques</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H51">H51: Using table markup to present tabular information</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H43">H43: Using id and headers attributes to associate data cells with header cells in data tables</a>
+					</li>
+				</ul>
+			</details>
+			</section>
+		<nav role="navigation" aria-label="Document navigation">
+	<h2 class="wb-inv">Document navigation</h2>
+	<ul class="pager">
+	 <li class="previous"> <a rel="prev" href="irregular-headers.html">Previous - Irregular headers</a> </li>
+	  <li class="next"> <a rel="next" href="multi-level-headers.html">Next - Multi-level Headers</a> </li>
+	</ul>
+  </nav>
+					
+
+</main>
+		
+		
+
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+			
+			
+
+		  <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				Module 4 –  Tables
+				</h3>
+				
+					<div class="list-group">
+						<a class="list-group-item" href="tables-concepts.html">Tables concepts</a>
+						<a class="list-group-item" href="one-header.html">One Header</a>
+						<a class="list-group-item" href="two-headers.html">Two Headers</a>
+						<a class="list-group-item" href="irregular-headers.html">Irregular Headers</a>
+						<a class="list-group-item active" href="multi-level-headers.html">Multi-level Headers</a>
+						<a class="list-group-item" href="caption-summary.html">Caption &amp; Summary</a>
+						<a class="list-group-item" href="additional-tips-and-tricks.html">Additional tips and tricks </a>
+						<a class="list-group-item" href="tables-resources.html">Table resources in the Web Experience Toolkit (WET)</a>
+						<a class="list-group-item" href="best-practice.html">Best Practice</a>
+				</div>
+			
+			</section>
+			
+			
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				All modules
+				</h3>
+				
+					<div class="list-group">
+						<a class="list-group-item" href="../module1/index.html">	Module 1 - Accessibility Fundamentals – Disabilities, Guidelines and Laws</a>
+						<a class="list-group-item " href="../module2/index.html">Module 2  – Page Structure and Semantics</a>			
+						<a class="list-group-item" href="../module3/index.html">Module 3 – Links and Navigation</a>
+						<a class="list-group-item active" href="index.html">Module 4 – Tables</a>
+						<a class="list-group-item" href="module05-images.html">Module 5 – Images</a>
+						<a class="list-group-item" href="">Module 6 – Forms</a>	
+						<a class="list-group-item" href="">Module 7 – Visual Design and Colours</a>
+						<a class="list-group-item" href="">Module 8 – Zoom and Responsive Design</a>
+						<a class="list-group-item" href="">	Module 9 - Audio, Video, Animation and Motion</a>
+			</div>
+
+
+			</section>
+		
+		</nav>
+	
+		
+
+		
+		
+	
+			
+</div>
+<div id="def-preFooter"></div>
+		<script src="../../scripts/preFooter.min.js"></script>
+</div>	
+		
+		
+	<div id="def-footer"></div>
+	<script src="../../scripts/appFooter.min.js"></script>
+	<script src="../../scripts/refFooter.min.js"></script>
+	<script src="../../scripts/bati-itao.min.js"></script>
+</body>
+	
+</html>
