@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>One header - Module 4 – Tables </title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Accessibility coaching: this is a collection of tutorials that shows how to develop a web content that is accessible to people with disabilities, and provides a better user experience for everyone.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../index.html"
+            },
+			{
+                "title": "Web accessibility course",
+                "href" : "index.html"
+            },
+			{
+                "title": "Module 4 – Tables",
+                "href" : "index.html"
+            }],
+            "lngLinks": [{
+                "lang": "fr",
+                "href": "./index-fr.html",
+                "text": "Français"
+            }],
+            "menuPath": "../../ajax/menu-en.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
+		
+	
+			<h1 property="name" id="wb-cont">One header</h1>
+		<nav role="navigation"  aria-label="Table of contents">
+      <div class="panel panel-default mrgn-tp-lg">
+        <header class="panel-heading">
+          <h2 class="panel-title">Table of contents</h2>
+        </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#one-header">Designing with one header</a></li>
+              <li><a href="#simple-header">Example 1: Table with one simple header for row</a></li>
+              <li><a href="#row-headers">Example 2: Simple table with row headers</a></li>
+             
+             
+          </ul>
+        </div>
+      </div>
+    </nav>
+		
+			<section >
+				<h2 id="one-header">Designing with one header </h2>For simple tables with either row headers or column headers, use the <code>&lt;th&gt;</code> element to mark up the first row or column.
+			  <p>Use the scope attribute to identify the cells the header defines. The scope identifies whether the header applies to a row, a column, or a group of rows or columns. Refer to the Irregular Headers section for more details on the scope attribute.</p>
+			</section>
+			<section class="panel panel-primary">
+  <header class="panel-heading">
+   <h2 class="panel-title" id="simple-header">Example 1: Table with one simple header for row</h2>
+  </header>
+  <div class="panel-body">
+  
+  
+				
+				<table class="table table-bordered table-hover">
+					<caption>This week’s meetings</caption>
+				  <thead>
+					<tr>
+				    <th scope="col">Date</th>
+				    <th scope="col">Time</th>
+				    <th scope="col">Meeting Description</th>
+			      </tr>
+					  </thead>
+					<tbody>
+				  <tr>
+				    <td>Monday</td>
+				    <td>10:00 am</td>
+				    <td>Status update </td>
+			      </tr>
+				  <tr>
+				    <td>Tuesday</td>
+				    <td>2:00 pm</td>
+				    <td>Managers   meeting</td>
+			      </tr>
+				  <tr>
+				    <td>Thursday</td>
+				    <td>4:00 pm</td>
+				    <td>Team meeting</td>
+			      </tr>
+						</tbody>
+			  </table>
+				
+				<details class="mrgn-tp-lg">
+
+<summary class="bg-info">View code</summary>
+	 <pre><code class="language-html">&lt;table class="table table-bordered table-hover"&gt; 
+  &lt;caption&gt;This week&rsquo;s meetings&lt;/caption&gt;
+  &lt;thead&gt;
+	  &lt;tr&gt; 
+		  &lt;th scope="col"&gt;Date&lt;/th&gt;
+		  &lt;th scope="col"&gt;Time&lt;/th&gt;
+		  &lt;th scope="col"&gt;Meeting Description&lt;/th&gt;        
+	  &lt;/tr&gt; 
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+	  &lt;tr&gt; 
+		  &lt;td&gt;Monday&lt;/td&gt;
+		  &lt;td&gt;10:00 am&lt;/td&gt;
+		  &lt;td&gt;Status update&lt;/td&gt;
+	  &lt;/tr&gt;
+	[…]
+  &lt;/tbody&gt;
+  &lt;/table&gt;</code>
+</pre>
+</details>
+
+</div>
+</section>
+			<section class="panel panel-primary">
+  <header class="panel-heading">
+   <h2 class="panel-title" id="row-headers">Example 2: Simple table with row headers</h2>
+  </header>
+  <div class="panel-body">
+				
+				<table class="table table-bordered table-hover">
+					<caption>This week’s meetings</caption> 
+<tbody> 
+
+				  <tr>
+				    <th scope="row">Date</th>
+				    <td>Monday</td>
+				    <td>Tuesday</td>
+				    <td>Thursday</td>
+			      </tr>
+				  <tr>
+				    <th scope="row">Time</th>
+				    <td>10:00 am</td>
+				    <td>2:00 pm</td>
+				    <td>4:00 pm</td>
+			      </tr>
+				  <tr>
+				    <th scope="row">Meeting Description</th>
+				    <td>Status update</td>
+				    <td>Managers   meeting</td>
+				    <td>Team meeting</td>
+			      </tr>
+				  </tbody>
+			  </table>
+				<details class="mrgn-tp-lg">
+
+<summary class="bg-info">View code</summary>
+	 <pre><code class="language-html">&lt;table class="table table-bordered table-hover"&gt; 
+  &lt;caption&gt;This week&rsquo;s meetings&lt;/caption&gt; 
+  &lt;tbody&gt;            
+     &lt;tr&gt;               
+        &lt;th scope="row"&gt;Date&lt;/th&gt;                         
+        &lt;td&gt;Monday&lt;/td&gt;                
+        &lt;td&gt;Tuesday&lt;/td&gt;                
+        &lt;td&gt;Thursday&lt;/td&gt; 
+     &lt;/tr&gt; 
+     &lt;tr&gt;               
+        &lt;th scope="row"&gt;Time&lt;/th&gt;
+        &lt;td&gt;10:00 am&lt;/td&gt; 
+        &lt;td&gt;2:00 pm&lt;/td&gt; 
+        &lt;td&gt;4:00 pm&lt;/td&gt;    
+     &lt;/tr&gt; 
+     &lt;tr&gt;               
+        &lt;th scope="row"&gt;Meeting Description&lt;/th&gt; 
+        &lt;td&gt;Status update&lt;/td&gt; 
+        &lt;td&gt;Managers meeting&lt;/td&gt; 
+        &lt;td&gt;Team meeting&lt;/td&gt; 
+     &lt;/tr&gt; 
+  &lt;/tbody&gt;
+  &lt;/table&gt;</code>
+</pre>
+</details>
+
+	  
+				</div>
+</section>
+			
+		<nav role="navigation" aria-label="Document navigation">
+	<h2 class="wb-inv">Document navigation</h2>
+	<ul class="pager">
+	 <li class="previous"> <a rel="prev" href="tables-concepts.html">Previous - Tables Concepts</a> </li>
+	  <li class="next"> <a rel="next" href="two-headers.html">Next - Two Headers</a> </li>
+	</ul>
+  </nav>
+					
+
+</main>
+		
+		
+
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+			
+			
+
+		  <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				Module 4 –  Tables
+				</h3>
+				
+					<div class="list-group">
+						<a class="list-group-item" href="tables-concepts.html">Tables concepts</a>
+						<a class="list-group-item active" href="one-header.html">One Header</a>
+						<a class="list-group-item" href="two-headers.html">Two Headers</a>
+						<a class="list-group-item" href="irregular-headers.html">Irregular Headers</a>
+						<a class="list-group-item" href="multi-level-headers.html">Multi-level Headers</a>
+						<a class="list-group-item" href="caption-summary.html">Caption &amp; Summary</a>
+						<a class="list-group-item" href="additional-tips-and-tricks.html">Additional tips and tricks </a>
+						<a class="list-group-item" href="tables-resources.html">Table resources in the Web Experience Toolkit (WET)</a>
+						<a class="list-group-item" href="best-practice.html">Best Practice</a>
+				</div>
+			
+			</section>
+			
+			
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				All modules
+				</h3>
+				
+					<div class="list-group">
+						<a class="list-group-item" href="../module1/index.html">	Module 1 - Accessibility Fundamentals – Disabilities, Guidelines and Laws</a>
+						<a class="list-group-item " href="../module2/index.html">Module 2  – Page Structure and Semantics</a>			
+						<a class="list-group-item" href="../module3/index.html">Module 3 – Links and Navigation</a>
+						<a class="list-group-item active" href="index.html">Module 4 – Tables</a>
+						<a class="list-group-item" href="module05-images.html">Module 5 – Images</a>
+						<a class="list-group-item" href="">Module 6 – Forms</a>	
+						<a class="list-group-item" href="">Module 7 – Visual Design and Colours</a>
+						<a class="list-group-item" href="">Module 8 – Zoom and Responsive Design</a>
+						<a class="list-group-item" href="">	Module 9 - Audio, Video, Animation and Motion</a>
+			</div>
+
+
+			</section>
+		
+		</nav>
+	
+		
+
+		
+		
+	
+			
+</div>
+<div id="def-preFooter"></div>
+  <script src="../../scripts/preFooter.min.js"></script>
+</div>	
+		
+		
+	<div id="def-footer"></div>
+	<script src="../../scripts/appFooter.min.js"></script>
+	<script src="../../scripts/refFooter.min.js"></script>
+	<script src="../../scripts/bati-itao.min.js"></script>
+</body>
+	
+</html>
