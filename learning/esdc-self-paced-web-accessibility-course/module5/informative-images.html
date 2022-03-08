@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-	<title>Self-pace training courses / IT Accessibility office</title>
+	<title>Module 5 –  Images - Informative images</title>
 	<meta content="width=device-width,initial-scale=1" name="viewport">
 	<!-- Meta data -->
 	<meta name="description"
@@ -18,6 +18,9 @@
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
 	<!-- Write closure template -->
 	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -57,218 +60,132 @@
     </script>
 <div class="container">
 <div class="row">
-	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
-		<h1 property="name" id="wb-cont">Desigining with informative images</h1>
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+		<h1 property="name" id="wb-cont">Informative images</h1>
 
-		<div class="mrgn-tp-md mrgn-bttm-lg">
-			<h2>Table of contents</h2>
-			<ul>
-				<li><a href="informative-img">Best practices for informative images</a></li>
-				<li><a href="#eg">Example: Images used to supplement other information </a></li>
-				<li><a href="#related-wcag-res">Related WCAG resources</a>
-			</li>
-			</ul>
+		<nav role="navigation"  aria-label="Table of contents">
+			<div class="panel panel-default mrgn-tp-lg">
+				<header class="panel-heading">
+				  <h2 class="panel-title">Table of contents</h2>
+				</header>
+				<div class="panel-body">
+					<ul>
+						<li><a href="#informative-img">Best practice for informative images</a></li>
+						<li><a href="#eg">Good example: Images used to supplement other information </a></li>
+						<li><a href="#wcag">Related WCAG resources</a></li>
+					</ul>
+				</div>
 			</div>
+		</nav>
 		<section>
-			<h2 id="informative-img">Best practices for informative images</h2>
-		<p>Informative images convey simple information that can be expressed in a short phrase. The text alternative should convey the meaning or essential content of the image.</p>
-		</p>
-		<p>Follow these best practices for informative images:</p>
-		<ul>
-			<li>Use the alt attribute on the img element</li>
-			<li>Provide meaningful text alternatives that serve the equivalent purpose to convey the intent, purpose and meaning of the image.</li>
-			<li>Do not include words like “image of”, “graphic of” or “photo of” in the alt text. </li>
-			<li>Keep alternative text concise and less than 150 characters. </li>
-			<li>When an image contains words that are important to understanding the content, the alt text should include those words.</li>
-		</ul>
+			<h2 id="informative-img">Best practice for informative images</h2>
+			<p>Informative images convey simple information that can be expressed in a short phrase. The text alternative should convey the meaning or essential content of the image.</p>
+			</p>
+			<p>Follow these best practices for informative images:</p>
+			<ul>
+				<li>Use the <code>alt</code> attribute on the <code>img</code> element</li>
+				<li>Provide meaningful text alternatives that serve the equivalent purpose to convey the intent, purpose and meaning of the image.</li>
+				<li>Do not include the words “image of” or “graphic of” in the alt text, since screen readers already declare an image role.</li>
+				<li>Keep alternative text concise and less than 150 characters. </li>
+				<li>When an image contains words that are important to understanding the content, the alt text should include those words.</li>
+			</ul>
 		</section>
 		<section>
-			<h2 id="eg">Example: Images used to supplement other information</h2>
+			<h2 class="text-success" id="eg">
+			<span class="glyphicon glyphicon-ok-circle"></span> Good example: Images used to supplement other information</h2>
 			<p>The following image shows a dog wearing a bell. It supplements the adjacent text that explains the purpose of this bell. A short text alternative is sufficient to describe the information that is displayed visually but is not explained in the text; in this case, the text alternative is “Dog with a bell attached to its collar”.</p>
 			<p> <strong>Note:</strong> If the text included an explanation of how the dog wears a bell, the image might be considered redundant and therefore decorative. As this isn’t mentioned in the text, the image is deemed to be informative.</p>
+			<p>Example:</p>
+			<figure>
+				<img style="float:left" src="images/dog.png" class="mrgn-rght-md" alt="Dog with a bell attached to its collar"/>
+				<figcaption>Off-duty guide dogs often wear a bell. Its ring helps the blind owner keep track of the dog's location.</figcaption>
+			</figure>
 			
-			<img style="float:left" src="../images/dog.png" class="mrgn-rght-md" alt="Dog with a bell attached to its collar"/>
-            <p >Off-duty guide dogs often wear a bell. Its ring helps the blind owner keep track of the dog’s location</p>
-			<h3>CODE SNIPPET:</h3>
-			<code>
-			&lt;p&gt; &lt;img src="dog.jpg" alt="Dog with a bell attached to its collar."&gt; Off-duty guide dogs often wear ...&lt;/p&gt;
-			</code>
+			<p class="wb-inv">Code begins</p>
+			<div style="clear: left; padding-top: 1em">
+<pre>
+<code class="language-html">&lt;figure&gt;
+	&lt;img src="dog.jpg" alt="Dog with a bell attached to its collar."&gt; 
+	&lt;figcaption&gt;Off-duty guide dogs often wear a bell. Its ring helps the blind owner keep track of the dog's location&lt;/figcaption&gt;
+&lt;/figure&gt;</code>
+</pre>
+</div>
+			<p class="wb-inv">Code ends</p>
+			<hr/>
+			<p class="small" style="clear:both">This example is from the WAI Web Accessibility Tutorials: Informative Images. Eric Eggert, Shadi Abou-Zahra, 
+			eds. Copyright © 2019 W3C® (MIT, ERCIM, Keio, Beihang). Status: Updated 27 July 2019. <a href="https://www.w3.org/WAI/tutorials/images/informative/" > Informative Images</a></p>
+		</section>
+		<section>
+			<h2 id="wcag" class="wb-inv">Related WCAG resources</h2>
+			<details class="mrgn-tp-lg">
+				<summary class="bg-info">Related WCAG resources</summary>
+				<h3>Success criteria</h3>
+				<ul>
+					<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content" >1.1.1: Non-text Content</a></li>
+					<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#images-of-text" >1.4.5 Images of Text</a></li>
+				</ul>
+				<h3>Techniques</h3>
+				<ul>
+					<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G94">G94:Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content</a></li>
+					<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H37">H37: Using alt attributes on img elements</a></li>
+				</ul>
+			</details>
+		</section>
 
-			<p class="mrgn-tp-md" style="clear:both">This example is from the WAI Web Accessibility Tutorials: Informative Images. Eric Eggert, Shadi Abou-Zahra, 
-			eds. Copyright © 2019 W3C® (MIT, ERCIM, Keio, Beihang). Status: Updated 27 July 2019. <a href="https://www.w3.org/WAI/tutorials/images/informative/" > Informative Images <i class="glyphicon glyphicon-new-window"><span class="wb-inv">Open in new window</span></i> </a></p>
-			<h2 id="related-wcag-res">Related WCAG resources</h2>
-			
-			<h3>Success criteria</h3>
-			<ul>
-				<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content" >1.1.1: Non-text Content
-					<i class="glyphicon glyphicon-new-window"><span class="wb-inv">Open in new window</span></i></a>
-							</li>
-					<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#images-of-text" >1.4.5 Images of Text
-						<i class="glyphicon glyphicon-new-window"><span class="wb-inv">Open in new window</span></i></a>
-									</li>
+		<nav role="navigation">
+			<h2 class="wb-inv">Document navigation</h2>
+			<ul class="pager">
+				<li class="previous"> <a rel="prev" href="text-alternatives.html">Previous - Text alternatives</a></li>
+			  <li class="next"> <a rel="next" href="decorative-redundant-images.html">Next - Decorative or redundant images</a> </li>
 			</ul>
+		  </nav>
+		
+	</main>
+		
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
 			
-			<h3>Techniques</h3>
-			<ul><li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G94" ><strong>G94:</strong> Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content <i class="glyphicon glyphicon-new-window"><span class="wb-inv">Open in new window</span></i></a></li>
-				<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H37" ><strong>H37:</strong> Using alt attributes on img elements</a> <i class="glyphicon glyphicon-new-window"><span class="wb-inv">Open in new window</span></i></li>
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+		<section class="list-group menu list-unstyled">
+			<h3 class="wb-navcurr">
+			Module 5 – Images
+			</h3>
+			<ul class="list-group menu list-unstyled">
+				<li><a class="list-group-item" href="text-alternatives.html">Text alternatives</a></li>
+				<li><a class="list-group-item active" aria-current="page" href="informative-images.html">Informative images</a></li>
+				<li><a class="list-group-item" href="decorative-redundant-images.html">Decorative or redundant images</a></li>
+				<li><a class="list-group-item" href="functional-images.html">Functional images</a></li>
+				<li><a class="list-group-item" href="images-text.html">Images of text</a></li>
+				<li><a class="list-group-item" href="animated-images.html">Animated images</a></li>
+				<li><a class="list-group-item" href="complex-images.html">Complex images</a></li>
+				<li><a class="list-group-item" href="groups-images.html">Groups of images</a></li>
+				<li><a class="list-group-item" href="image-maps.html">Image maps</a></li>
+				<li><a class="list-group-item" href="alt-decision-tree.html">Alt text decision tree</a></li>
+				<li><a class="list-group-item" href="figcaption.html">Figure and figcaption</a></li>
+				<li><a class="list-group-item" href="svg-images.html">SVG images</a></li>
+				<li><a class="list-group-item" href="tips-and-tricks.html">Tips and tricks</a></li>
+				<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
 			</ul>
+		</section>
 
-	</section>
-
-<nav role="navigation">
-	<h2 class="wb-inv">Document navigation</h2>
-	<ul class="pager">
-		<li class="previous"> <a rel="prev" href="images-concepts.html">Previous - Images Concepts</a></li>
-	  <li class="next"> <a rel="next" href="decorative-redundant-images.html">Next - Decorative or Redundant Images</a> </li>
-	</ul>
-  </nav>
-
-</main>
-		
-		
-
-<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
-			
-			
-
-	<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
-<section class="list-group menu list-unstyled">
-	<h3 class="wb-navcurr">
-	Module 5 – Images
-	</h3>
-	
-	<ul class=" list-group menu list-unstyled">
-		<li>
-			<a class="list-group-item" href="images-concepts.html">Images Concepts</a>
-		</li>
-		<li> <a class="list-group-item active" aria-current="page" href="informative-images.html">Informative Images</a>
-		
-		</li>
-		<li>
-			<a class="list-group-item" href="decorative-redundant-images.html">Decorative or Redundant Images</a>
-		</li>
-		<li>
-			<a class="list-group-item" href="#">Functional Images</a>
-		</li>
-		
-		<li>
-			<a class="list-group-item" href="#">Images of Text</a>
-		</li>
-		
-		<li>
-			<a class="list-group-item" href="#">Animated images</a>
-		</li>
-		<li>
-			<a class="list-group-item" href="#">Complex Images</a>
-		</li>
-		<li>
-			<a class="list-group-item" href="#">Groups of Images</a>
-		</li>
-		<li>
-			<a class="list-group-item" href="#">Image Maps</a>
-		</li>
-		<li>
-			<a class="list-group-item" href="alt-decision-tree.html">Alt text decision tree</a>
-		</li>
-		<li>
-			<a class="list-group-item" href="#">SVG Images</a>
-		</li>
-		<li>
-			<a class="list-group-item" href="#">Tips and Tricks</a>
-		</li>
-		
-		<li>
-			<a class="list-group-item" href="#">Best practice</a>
-		</li>
-								</ul>
-
-</section>
-
-
-<section class="list-group menu list-unstyled">
-	<h3 class="wb-navcurr">
-	All modules
-	</h3>
-	
-	<ul class=" list-group menu list-unstyled">
-		<li>				
-			<a class="list-group-item" href="#">	Module 1 - Accessibility Fundamentals – Disabilities, Guidelines and Laws</a>
-				
-								</li>
-		<li>
-			
-				
-			<a class="list-group-item" href="../module2/index/html">Module 2  – Page Structure and Semantics</a>
-			
-				
-		
-		</li>
-		<li>
-			
-				
-			<a class="list-group-item" href="">Module 3 – Links and Navigation</a>
-			
-				
-			
-		</li>
-		<li>
-			
-				
-			<a class="list-group-item" href="">Module 4 – Tables</a>
-			
-				
-			
-		</li>
-		<li>
-			
-				
-				<a class="list-group-item" href="index.html" active>Module 5 – Images</a>
-				
-										
-		</li>
-		<li>
-			
-				
-			<a class="list-group-item" href="">Module 6 – Forms</a>
-			
-				
-			
-		</li>
-		<li>
-			
-				
-			<a class="list-group-item" href="">Module 7 – Visual Design and Colours</a>
-			
-				
-			
-		</li>
-		<li>
-			
-				
-			<a class="list-group-item" href="">Module 8 – Zoom and Responsive Design</a>
-			
-				
-			
-		</li>
-		<li>
-			
-				
-			<a class="list-group-item" href="">	Module 9 - Audio, Video, Animation and Motion</a>
-			
-				
-			
-		</li>
-	</ul>
-			
-
-</section>
-
-</nav>
-		
-
-		
-		
-	
+		<section class="list-group menu list-unstyled">
+			<h3 class="wb-navcurr">
+			All modules
+			</h3>
+			<ul class="list-group menu list-unstyled">
+				<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
+				<li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>			
+				<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
+				<li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
+				<li><a class="list-group-item active" href="index.html">Module 5 – Images</a></li>
+				<li><a class="list-group-item" href="../module6/index.html">Module 6 – Forms</a></li>	
+				<li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual design and colours</a></li>
+				<li><a class="list-group-item" href="../module8/index.html">Module 8 – Zoom and responsive design</a></li>
+				<li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
+				<li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
+				<li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
+		</section>
+	</nav>
 			
 </div>
 <div id="def-preFooter2"></div>

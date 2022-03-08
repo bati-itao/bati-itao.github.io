@@ -18,6 +18,9 @@
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
 	<!-- Write closure template -->
 	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -58,223 +61,139 @@
 <div class="container">
 <div class="row">
 	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
-		<h1 property="name" id="wb-cont">Designing with decorative or redundant images</h1>
+		<h1 property="name" id="wb-cont">Decorative or redundant images</h1>
 
-		<div class="mrgn-tp-md mrgn-bttm-lg">
-			<h2>Table of contents</h2>
-			<ul>
-				<li><a href="#decorative-img">Decorative images</a></li>
-				<li><a href="#eg1">Example 1: Decorative image</a></li>
-				<li><a href="#eg2">Example 2: Image with redundant adjacent text alternative</a></li>
-				<li><a href="#related-wcag-res">Related WCAG resources</a>
-			</li>
-			</ul>
+		<nav role="navigation"  aria-label="Table of contents">
+			<div class="panel panel-default mrgn-tp-lg">
+				<header class="panel-heading">
+				  <h2 class="panel-title">Table of contents</h2>
+				</header>
+				<div class="panel-body">
+					<ul>
+						<li><a href="#designing">Designing with decorative or redundant images</a></li>
+						<li><a href="#eg1">Good example 1: Decorative image</a></li>
+						<li><a href="#eg2">Good example 2: Image with redundant adjacent text alternative</a></li>
+						<li><a href="#wcag">Related WCAG resources</a></li>
+					</ul>
+				</div>
 			</div>
-			<h2 >Designing with decorative or redundant images</h2>
-		<p>Decorative images do not add useful information to a page, while redundant images have content already conveyed in adjacent text. Examples of decorative and redundant images:</p>
-		</p>
-	<ul>
-<li>Images used for visual styling such as borders and spacers</li>
-<li>Images used to add ambiance or visual interest (eye-candy)</li>
-</ul>
-<p>A redundant image is adjacent to text that already communicates the information the image conveys. For example, an image of a product is an online store is directly beneath a heading of the product name. Image alt text identifying the product would be redundant.</p>
-
-<p>Follow these best practices for decorative images:</p>
-<ul>
-	<li>Use “null” alt attributes (alt=””) to hide decorative or redundant images from assistive technology.</li>
-	<li>The role=presentation attribute also hides elements, though it’s not as widely supported as alt.</li>
-	<li>Implement decorative images as CSS backgrounds if possible.</li>
-	<li>Do not leave out the alt attribute of <code>&lt;img&gt;</code> elements.</li>
-</ul>
-
-<h2 id="eg1">Example 1: Decorative image</h2>
-<p>In this example, a stock photo of office employees qualifies as decorative if it contains no information relevant to the accompanying page. A stock photo of employees of various ethnicities would be informative if the intent is to show the employer values equity, diversity and inclusivity; in that case, the alt text might be something like "At [organization name] we value diversity". But generally, stock photos are decorative.</p>
-<img src="images/decorativeimg1.png"  alt="" class="img-responsive"/>
-
-<h2 id="eg2">Example 2: Image with redundant adjacent text alternative</h2>
-<p>This image below is already sufficiently described by the adjacent text. A null (empty) alt value can be used since there is no need to repeat this information.</p>
-<img src="images/decorativeimg2.png"  alt="" class="img-responsive"/>
-<p>In those days, a circus performer could control three horses with their reins, standing on horseback.</p>
+		</nav>
+		<section>
+			<h2 id="designing">Designing with decorative or redundant images</h2>
+			<p>Decorative images do not add useful information to a page, while redundant images have content already conveyed in adjacent text. Examples of decorative and redundant images:</p>
+			<ul>
+				<li>Images used for visual styling such as borders and spacers</li>
+				<li>Images used to add ambiance or visual interest (eye-candy)</li>
+			</ul>
+			<p>A redundant image is adjacent to text that already communicates the information the image conveys. For example, an image of a product is an online store is directly beneath a heading of the product name. Image alt text identifying the product would be redundant.</p>
 			
-<h3>CODE SNIPPET:</h3>
-			
-<code>
-	&lt;p&gt;   &lt;img src="horses.jpg" alt=""&gt;  In those days, a circus performer could control three horses with their reins, standing on horseback.
-	&lt;/p&gt; </code>
+			<p>Follow these best practices for decorative images:</p>
+			<ul>
+				<li>Use "null" alt attributes (<code>alt=""</code>) to hide decorative or redundant images from assistive technology.</li>
+				<li>The <code>role=presentation</code> attribute also hides the image, though it's not as widely supported as <code>alt</code>.</li>
+				<li>Implement decorative images as CSS backgrounds if possible.</li>
+				<li>Do not leave out the <code>alt</code> attribute of <code>&lt;img&gt;</code> elements.</li>
+			</ul>
+		</section>
+		<section>
+			<h2 class="text-success" id="eg1">
+				<span class="glyphicon glyphicon-ok-circle"></span> Good example 1: Decorative image
+			</h2>
+			<p>In this example, a stock photo of office employees qualifies as decorative if it contains no information relevant to the accompanying page. A stock photo of employees of various ethnicities would be informative if the intent is to show the employer values equity, diversity and inclusivity; in that case, the alt text might be something like "At [organization name] we value diversity". But generally, stock photos are decorative.</p>
+			<img src="images/decorativeimg1.png"  alt="" class="img-responsive"/>
+		</section>
+		<section>
+			<h2 class="text-success" id="eg2">
+				<span class="glyphicon glyphicon-ok-circle"></span> Good example 2: Image with redundant adjacent text
+			</h2>
+			<p>The image below is already sufficiently described by the adjacent text. A null (empty) alt value can be used since there is no need to repeat this information.</p>
+			<figure>
+				<img src="images/decorativeimg2.png"  alt="" class="img-responsive"/>
+				<figcaption>In those days, a circus performer could control three horses with their reins, standing on horseback.</figcaption>
 				
+			</figure>
+						
+			<p class="wb-inv">Code begins</p>
+			<div style="margin-top: 1em">
+<pre>
+<code class="language-html">&lt;figure&gt;
+   &lt;img src="horses.jpg" alt=""&gt;
+   &lt;figcaption&gt;In those days, a circus performer could control three horses with their reins, standing on horseback.&lt;/figcaption&gt;
+&lt;/figure&gt;</code>
+</pre>
+			</div>
+			<p class="wb-inv">Code ends</p>
+		</section>
+		<section>
+			<h2 id="wcag" class="wb-inv">Related WCAG resources</h2>
+			<details class="mrgn-tp-lg">
+				<summary class="bg-info">Related WCAG resources</summary>
+				<h3>Success criteria</h3>
+				<ul>
+					<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a></li>
+				</ul>
+				<h3>Techniques</h3>
+				<ul>
+					<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H2">H2: Combining adjacent image and text links for the same resource</a></li>
+					<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H67">H67: Using null alt text and no title attribute on img elements for images that AT should ignore</a></li>
+				</ul>
+			</details>
+		</section>
+		<nav role="navigation">
+			<h2 class="wb-inv">Document navigation</h2>
+			<ul class="pager">
+				<li class="previous"> <a rel="prev" href="informative-images.html">Previous - Informative images</a></li>
+				<li class="next"> <a rel="next" href="functional-images.html">Next - Functional images</a> </li>
+			</ul>
+		</nav>
+	</main>
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+		<section class="list-group menu list-unstyled">
+			<h3 class="wb-navcurr">
+			Module 5 – Images
+			</h3>
+			<ul class="list-group menu list-unstyled">
+					<li><a class="list-group-item" href="text-alternatives.html">Text alternatives</a></li>
+					<li><a class="list-group-item" href="informative-images.html">Informative images</a></li>
+					<li><a class="list-group-item active" aria-current="page" href="decorative-redundant-images.html">Decorative or redundant images</a></li>
+					<li><a class="list-group-item" href="functional-images.html">Functional images</a></li>
+					<li><a class="list-group-item" href="images-text.html">Images of text</a></li>
+					<li><a class="list-group-item" href="animated-images.html">Animated images</a></li>
+					<li><a class="list-group-item" href="complex-images.html">Complex images</a></li>
+					<li><a class="list-group-item" href="groups-images.html">Groups of images</a></li>
+					<li><a class="list-group-item" href="image-maps.html">Image maps</a></li>
+					<li><a class="list-group-item" href="alt-decision-tree.html">Alt text decision tree</a></li>
+					<li><a class="list-group-item" href="figcaption.html">Figure and figcaption</a></li>
+					<li><a class="list-group-item" href="svg-images.html">SVG images</a></li>
+					<li><a class="list-group-item" href="tips-and-tricks.html">Tips and tricks</a></li>
+					<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+				</ul>
+		</section>
+
+
+		<section class="list-group menu list-unstyled">
+			<h3 class="wb-navcurr">
+			All modules
+			</h3>
 	
-
-<h2 id="related-wcag-res">Related WCAG resources</h2>
-
-<h3>Success criteria</h3>
-<ul>
-	<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content" >1.1.1: Non-text Content
-		<i class="glyphicon glyphicon-new-window"><span class="wb-inv">Open in new window</span></i></a>
-				</li>
-		</ul>
-
-<h3>Techniques</h3>
-<ul><li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H2" ><strong>H2:</strong> Combining adjacent image and text links for the same resource <i class="glyphicon glyphicon-new-window"><span class="wb-inv">Open in new window</span></i></a></li>
-	<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H67" ><strong>H67:</strong> Using null alt text and no title attribute on img elements for images that AT should ignore <i class="glyphicon glyphicon-new-window"><span class="wb-inv">Open in new window</span></i></a></li>
-</ul>
-
-
-<nav role="navigation">
-	<h2 class="wb-inv">Document navigation</h2>
-	<ul class="pager">
-		<li class="previous"> <a rel="prev" href="informative-images.html">Previous - Informative Images</a></li>
-	  <li class="next"> <a rel="next" href="functional-images.html">Next - Functional images</a> </li>
-	</ul>
-  </nav>
-
-</main>
-<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
-			
-			
-
-	<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
-<section class="list-group menu list-unstyled">
-	<h3 class="wb-navcurr">
-	Module 5 – Images
-	</h3>
-	
-	<ul class=" list-group menu list-unstyled">
-		<li>
-			<a class="list-group-item" href="images-concepts.html">Images Concepts</a>
-		</li>
-		<li> <a class="list-group-item" href="informative-images.html">Informative Images</a>
-		
-		</li>
-		<li>
-			<a class="list-group-item active" href="decorative-redundant-images.html">Decorative or Redundant Images</a>
-		</li>
-		<li>
-			<a class="list-group-item" href="#">Functional Images</a>
-		</li>
-		
-		<li>
-			<a class="list-group-item" href="#">Images of Text</a>
-		</li>
-		
-		<li>
-			<a class="list-group-item" href="#">Animated images</a>
-		</li>
-		<li>
-			<a class="list-group-item" href="#">Complex Images</a>
-		</li>
-		<li>
-			<a class="list-group-item" href="#">Groups of Images</a>
-		</li>
-		<li>
-			<a class="list-group-item" href="#">Image Maps</a>
-		</li>
-		<li>
-			<a class="list-group-item" href="alt-decision-tree.html">Alt text decision tree</a>
-		</li>
-		<li>
-			<a class="list-group-item" href="#">SVG Images</a>
-		</li>
-		<li>
-			<a class="list-group-item" href="#">Tips and Tricks</a>
-		</li>
-		
-		<li>
-			<a class="list-group-item" href="#">Best practice</a>
-		</li>
-								</ul>
-
-</section>
-
-
-<section class="list-group menu list-unstyled">
-	<h3 class="wb-navcurr">
-	All modules
-	</h3>
-	
-	<ul class=" list-group menu list-unstyled">
-		<li>				
-			<a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility Fundamentals – Disabilities, Guidelines and Laws</a>
-				
-								</li>
-		<li>
-			
-				
-			<a class="list-group-item" href="../module2/index.html">Module 2  – Page Structure and Semantics</a>
-			
-				
-		
-		</li>
-		<li>
-			
-				
-			<a class="list-group-item" href="">Module 3 – Links and Navigation</a>
-			
-				
-			
-		</li>
-		<li>
-			
-				
-			<a class="list-group-item" href="">Module 4 – Tables</a>
-			
-				
-			
-		</li>
-		<li>
-			
-				
-				<a class="list-group-item active" href="index.html">Module 5 – Images</a>
-				
-										
-		</li>
-		<li>
-			
-				
-			<a class="list-group-item" href="">Module 6 – Forms</a>
-			
-				
-			
-		</li>
-		<li>
-			
-				
-			<a class="list-group-item" href="">Module 7 – Visual Design and Colours</a>
-			
-				
-			
-		</li>
-		<li>
-			
-				
-			<a class="list-group-item" href="">Module 8 – Zoom and Responsive Design</a>
-			
-				
-			
-		</li>
-		<li>
-			
-				
-			<a class="list-group-item" href="">	Module 9 - Audio, Video, Animation and Motion</a>
-			
-				
-			
-		</li>
-	</ul>
-			
-
-</section>
-
-</nav>	
-		
-
-	
-		
-
-		
-		
-	
-			
+			<ul class="list-group menu list-unstyled">
+				<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
+				<li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>			
+				<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
+				<li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
+				<li><a class="list-group-item active" href="index.html">Module 5 – Images</a></li>
+				<li><a class="list-group-item" href="../module6/index.html">Module 6 – Forms</a></li>	
+				<li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual design and colours</a></li>
+				<li><a class="list-group-item" href="../module8/index.html">Module 8 – Zoom and responsive design</a></li>
+				<li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
+				<li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
+				<li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>	
+		</section>
+	</nav>		
 </div>
+
 <div id="def-preFooter2"></div>
 		<script src="../../../scripts/preFooter2.min.js"></script>
 <div id="def-preFooter"></div>
