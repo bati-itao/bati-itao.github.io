@@ -70,9 +70,13 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#section1">S1</a></li>
-			<li><a href="#section2">S2</a></li>
-			<li><a href="#section3">S3</a></li>
+            <li><a href="#best-practice–colour">Best practice – Colour</a></li>
+			<li><a href="#best-practice-contrast">Best practice – Contrast </a></li>
+			<li><a href="#best-practice-visual-proximity-of-labels">Best practice – Visual proximity of labels</a></li>
+			<li><a href="#best-practice-text-spacing">Best practice – Text spacing</a></li>
+			<li><a href="#best-practice-CSS-generated-content">Best practice – CSS-generated content</a></li>
+			<li><a href="#best-practice-hiding-content">Best practice – Hiding content</a></li>
+			<li><a href="#best-practice-exposing-content-on-hover-or-focus">Best practice – Exposing content on hover or focus</a></li>
 			<li><a href="#resources1">Related WCAG resources</a></li>
           </ul>
         </div>
@@ -80,38 +84,86 @@
 	</nav>
 	
 			<section>				
-				<h2 id="section1">S1</h2>
-				
+				<h2 id="best-practice–colour">Best practice – Colour</h2>
+				<ul>
+					<li>Ensure that information conveyed by colour differences is also available in text.</li>
+					<li>Include a text cue for coloured form labels.</li>
+					<li>Ensure that additional visual cues are available when text colour differences are used to convey information.</li>
+					<li>Ensure a contrast ratio of 3:1 with surrounding text and provide an additional visual cue on focus for links or controls where colour alone is used to identify them.</li>
+				  </ul>
 			</section>
 			
 			<section>				
-				<h2 id="section2">S2</h2>
-				
+				<h2 id="best-practice–contrast">Best practice – Contrast</h2>
+				<ul>
+					<li>Ensure small text (under 18 point regular font or under 14 point bold font) has a contrast ratio of at least 4.5:1 with the background.</li>
+					<li>Ensure large text (at least 18 point regular font or 14 point bold font) has a contrast ratio of at least 3:1 with the background.</li>
+					<li>Ensure active user interface components (i.e., controls), their states, and meaningful graphics have a contrast ratio of at least 3:1 with adjacent colours.</li>
+					<li>Implement enhanced contrast whenever possible, aiming for the stronger 7:1 contrast for small text and 4.5:1 contrast for large text.</li>
+				  </ul>
 			</section>
 			
 			<section>				
-				<h2 id="section3">S3</h2>
-				
+				<h2 id="best-practice-visual-proximity-of-labels">Best practice – Visual proximity of labels</h2>
+				<ul>
+					<li>Position labels for form fields immediately before the field, either:</li>
+					<ul>
+					<li>above the field (preferred by the WET Style Guide), or </li>
+					<li>to the left of the field, aligned right (preferred by the WET Style Guide when there’s a need to conserve vertical space).</li>
+					</ul>
+					<li>Position labels for radio buttons and checkboxes after the field.</li>
+				  </ul>
 			</section>
 
-			
 			<section>				
-				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
-				<details class="mrgn-tp-lg">
-					<summary class="bg-info">Related WCAG resources</summary>
-					<h3>Success criteria</h3>
-					<ul>
-						<li><a href="https://www.link1.com">Link 1</a></li>
-					</ul>
-					<h3>Techniques</h3>
-					<ul>
-						<li>
-							<a href="https://www.link2.com">Link 2</a>
-						</li>						
-					</ul>
-				</details>
+				<h2 id="best-practice-text-spacing">Best practice – Text spacing</h2>
+				<p>Your design should be flexible enough to render without any loss of content or functionality when the user modifies the text spacing, within these constraints:</p>
+				<ul>
+					<li>Line height (line spacing) to at least 1.5 times the font size;</li>
+					<li>Spacing following paragraphs to at least 2 times the font size;</li>
+					<li>Letter spacing (tracking) to at least 0.12 times the font size;</li>
+					<li>Word spacing to at least 0.16 times the font size.</li>
+				  </ul>
+				  <p>To design for text spacing override:</p>
+				<ul>
+					<li>Don’t use fixed containers in your CSS styles.</li>
+					<li>Ensure that content reflows without overlapping or clipped text.</li>
+					<li>Use relative units of font size, line height, spaces between characters, words, lines and paragraphs.</li>
+					<li>Word spacing to at least 0.16 times the font size.</li>
+				  </ul>
 			</section>
-		
+
+			<section>				
+				<h2 id="best-practice-CSS-generated-content">Best practice – CSS-generated content</h2>
+				<ul>
+					<li>Avoid CSS-generated content.</li>
+					<li>If you do use CSS-generated content:</li>
+					<ul>
+						<li>Hide it from screen readers with the aria-hidden=”true” attribute.</li>
+						<li>If the CSS-generated content is informative, provide a text alternative using aria-label or visually-hidden text.</li>
+					</ul>
+				  </ul>
+			</section>
+
+			<section>				
+				<h2 id="best-practice-hiding-content">Best practice – Hiding content</h2>
+				<p>Content can be hidden from three groups of users:</p>
+				<ul>
+					<li>From all users, by using either the CSS display:none or visibility:hidden attribute. When hiding inactive content, such as untriggered modal windows and unselected sub-menus, hide it from all users.</li>
+					<li>From users of assistive technology, by using the aria-hidden=”true” attribute to remove the element from the Accessibility API.</li>
+					<li>From sighted users, by using the WET CSS class “wb-inv” to visually hide the content.</li>
+				  </ul>
+			</section>
+
+			<section>				
+				<h2 id="best-practice-exposing-content-on-hover-or-focus">Best practice – Exposing content on hover or focus</h2>
+				<p>When exposing hidden content via pointer hover or focus, ensure the exposed content has these three properties:</p>
+				<ul>
+					<li>Dismissable -- the user can dismiss the exposed content without moving the mouse or keyboard focus, typically by pressing the Escape key.</li>
+					<li>Hoverable -- the user can hover the mouse over the exposed content.</li>
+					<li>Persistent -- the exposed content doesn’t disappear until mouse hover or keyboard focus leaves it.</li>
+				  </ul>
+			</section>
 		
 	<nav role="navigation">
 		<h2 class="wb-inv">Document navigation</h2>

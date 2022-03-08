@@ -70,9 +70,7 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#section1">S1</a></li>
-			<li><a href="#section2">S2</a></li>
-			<li><a href="#section3">S3</a></li>
+            <li><a href="#accessible-text-spacing">Accessible text spacing</a></li>
 			<li><a href="#resources1">Related WCAG resources</a></li>
           </ul>
         </div>
@@ -80,33 +78,54 @@
 	</nav>
 	
 			<section>				
-				<h2 id="section1">S1</h2>
-				
+				<h2 id="accessible-text-spacing">Accessible text spacing</h2>
+				<p>Increased space between paragraphs, lines, words, and letters helps some users with low vision to read, and helps users with dyslexia to increase their reading speed.</p>
+				<p>Your design should be flexible enough to render without any loss of content or functionality when the user modifies the text spacing, within these constraints:</p>
+				<ul>
+					<li>Line height (line spacing) to at least 1.5 times the font size;</li>
+					<li>Spacing following paragraphs to at least 2 times the font size;</li>
+					<li>Letter spacing (tracking) to at least 0.12 times the font size;</li>
+					<li>Word spacing to at least 0.16 times the font size.</li>
+				  </ul>
+				  <p>Users modify the text spacing of your design using a custom style sheet, a bookmarklet or other tool.</p>
+				  <p>Test your design with this bookmarklet: <a href="http://www.html5accessibility.com/tests/tsbookmarklet.html">http://www.html5accessibility.com/tests/tsbookmarklet.html</a> It applies the expanded spacing styles. Be on the lookout for clipped text and overlapping text, as per the Bad Examples below.</p>
+				  <p>To design for text spacing override:</p>
+				  <ul>
+					<li>Don’t use fixed containers in your CSS styles.</li>
+					<li>Ensure that content reflows without overlapping or clipped text.</li>
+					<li>Use relative units of font size, line height, spaces between characters, words, lines and paragraphs.</li>
+				</ul>
+					<h3>Bad Examples: Text Spacing</h3>
+					<p>The following images show some types of failures when authors do not take into consideration that users may override spacing.</p>
+					<h4>Text cut off</h4>
+					<p>The bottom portion of the words "Your Needs" is cut off in a heading making that text unreadable in Figure 1. It should read "We Provide a Mobile Application Service to Meet Your Needs."</p>
+					<figcaption>Figure 1 Vertical text cut off is a failure.</figcaption>
+					<img src="images/image25.png" alt="Figure 1 Vertical text cut off is a failure." class="img-responsive"/>
+					<p>In Figure 2 the last portion of text is cut off in 3 side-by-side headings. The 1st heading should read "A cog in the wheel." But it reads "A cog in the whe". Only half of the second "e" is visible and the letter "l" is completely missing. The 2nd heading should read "A penny for your thoughts". But it reads "A penny for your". The 3rd should read "Back to the drawing board." But it reads "Back to the drawi".</p>
+					<figcaption>Figure 2 Horizontal text cut off is a failure.</figcaption>
+					<img src="images/image26.png" alt="3 side-by-side headings with truncated text." class="img-responsive"/>
+					<h4>Text overlap</h4>
+					<p>In Figure 3 the last 3 words "Groups and Programs" of the heading "Technologists Seeking Input from Groups and Programs" overlap the following sentence. That sentence should read, "You are invited to share ideas and areas of interest related to the integration of technology from a group or program perspective." But the words "You are invited to share ideas and areas" are obscured and unreadable.</p>
+					<figcaption>Figure 3 Overlapping text is a failure.</figcaption>
+					<img src="images/image27.png" alt="Heading text overlaps part of paragraph text." class="img-responsive"/>
+					<p>The section “Bad examples: Text Spacing” is from WCAG 2.1 Success Criterion: <a href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing">1.4.12: Text Spacing.</a></p>
 			</section>
-			
-			<section>				
-				<h2 id="section2">S2</h2>
-				
-			</section>
-			
-			<section>				
-				<h2 id="section3">S3</h2>
-				
-			</section>
-
-			
+					
 			<section>				
 				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
 					<ul>
-						<li><a href="https://www.link1.com">Link 1</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing">1.4.12: Text Spacing</a></li>
 					</ul>
 					<h3>Techniques</h3>
 					<ul>
 						<li>
-							<a href="https://www.link2.com">Link 2</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C36">C36: Allowing for text spacing override</a>
+						</li>	
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C35">C35: Allowing for text spacing without wrapping</a>
 						</li>						
 					</ul>
 				</details>
