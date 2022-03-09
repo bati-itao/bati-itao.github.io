@@ -80,14 +80,14 @@
 
 	<section>
 		<h2>Avoiding images of text</h2>
-		<p>Images of text are more likely to distort and pixelate when resized and can be problematic for mobile users and users of low vision. In situations where images of text must be used, the text alternative must contain the same text presented in the image.</p>
-		<p>It is good design practice to use real text, formatted and styled with CSS to fit the design rather than an image of text. Actual text can be modified, resized without losing clarity to suit the reading preferences of users and is more flexible than images. </p>
-		<p>Unless the image of text is essential or customizable, images should not include informative text. Text that is part of a logo or brand name is considered essential.</p>
-		<h3 class="">Good Example: Text styled with CSS</h3>
-		<p>In this example, real text styled with CSS is used rather than an image of text. The CSS properties are solely responsible for font and text styling, spacing and layout.</p>
+		<p>Les images de texte sont plus susceptibles de se déformer et de pixéliser lorsqu’elles sont redimensionnées, et elles peuvent être problématiques pour les utilisateurs d’appareils mobiles et les utilisateurs malvoyants. Dans les situations où des images de texte doivent être utilisées, l’équivalent textuel doit contenir le même texte que celui présenté dans l’image.</p>
+		<p>Il est recommandé d’utiliser du texte réel, formaté et stylé avec des feuilles de style en cascades pour s’adapter au concept plutôt qu’une image de texte. Le texte réel peut être modifié et redimensionné sans perdre de clarté en fonction des préférences de lecture des utilisateurs, et il est plus souple à utiliser que les images.  </p>
+		<p>À moins que le texte sous forme d’image soit essentiel ou personnalisable, les images ne doivent pas comporter de texte informatif. Le texte faisant partie d’un logo ou d’un nom de marque est considéré comme essentiel.</p>
+		<h3 class="">Exemple type : Texte stylé avec des feuilles de style en cascades (CSS)</h3>
+		<p>Dans cet exemple, on utilise du texte réel stylé avec des feuilles de style en cascades plutôt qu’une image de texte. Les propriétés CSS sont entièrement responsables du style, de l’espacement et de la mise en page des polices et du texte.</p>
 		<img src="images/image26.png" class="img-responsive" alt="">
 		<p>Code snippet:</p>
-		<p>&lt;h5 class="checker"&gt;Accessibility at your fingertips&lt;/h5&gt;</p>
+		<p>&lt;h5 class="checker"&gt;L’accessibilité au bout des doigts&lt;/h5&gt;</p>
 		<p>CSS:</p>
 		<p>.checker {</p>
 		<p>  border: 2px solid black;</p>
@@ -101,32 +101,32 @@
 		<p>  font-size:50px;</p>
 		<p>  color:white;</p>
 		<p>}</p>
-		<h3 class="">Bad Example: Image of text </h3>
-		<p>Avoid images of text unless they are essential (like a logo) or customizable. In the example below, three links nest images of text.</p>
+		<h3 class="">Mauvais exemple : Image de texte </h3>
+		<p>Éviter les images de texte à moins qu’elles ne soient essentielles (comme un logo) ou personnalisables. Dans l’exemple ci-dessous, trois liens emboîtent des images de texte.</p>
 		<img src="images/image28.png" class="img-responsive" alt="">
-		<p>Screen magnification users may have difficulty reading an image of text when enlarged and pixelated, as shown in the image below.</p>
+		<p>Les utilisateurs de dispositifs de grossissement d’écran peuvent avoir de la difficulté à lire une image de texte lorsqu’elle est agrandie et pixélisée, comme le montre l’image ci-dessous.</p>
 		<img src="images/image2d.png" class="img-responsive" alt="">
 	</section>
 	<section>
-		<h2 id="math">Mathematical expressions</h2>
+		<h2 id="math">Expressions mathématiques</h2>
 
 		<h2>Designing with mathematical expressions</h2>
 		<p><mark>Heading levels are wrong</mark></p>
-		<p>HTML lacks markup for mathematical expressions as structures, and there is no simple way to produce anything essentially two-dimen­sion­al beyond superscripting or subscripting.</p>
-		<p>There are two approaches:</p>
+		<p>Le langage HTML ne comporte pas de balises pour les expressions mathématiques en tant que structures, et il n’existe aucun moyen simple de produire des éléments essentiellement bidimensionnels au-delà de la mise en indice supérieur ou de la mise en indice.</p>
+		<p>Il existe deux stratégies :</p>
 		<ul>
-			<li>Use an image with alt text or long description describing the math expression.</li>
-			<li>Tag the math expression semantically in MathML and use a JavaScript math library.</li>
+			<li>Utiliser une image avec texte de remplacement ou une longue description de l’expression mathématique.</li>
+			<li>Étiqueter l’expression mathématique sémantiquement dans MathML et utiliser une bibliothèque mathématique JavaScript.</li>
 		</ul>
-		<h3 class="">Approach 1: Use an image with alt text describing the math expression</h3>
-		<p>Images of math expressions should only be used when math is an exception to the regular content of the website. In these cases, the &lt;img&gt; element’s alt attribute value should communicate the math expression, unless more than 150 characters is required, in which case a long description should be used.In the example below, the image displays a recurring decimal number and the alt text is “zero point one, recurring”</p>
-		<img src="images/image2e.png" class="img-responsive" alt=":zero point one, recurring">
+		<h3 class="">Stratégie 1 : Utiliser une image avec texte de remplacement décrivant l’expression mathématique</h3>
+		<p>Les images d’expressions mathématiques ne doivent être utilisées que lorsque les mathématiques font exception au contenu ordinaire du site Web. Dans ce cas, la valeur de l’attribut alt de l’élément &lt;img&gt; doit communiquer l’expression mathématique, sauf si plus de 150 caractères sont requis, auquel cas il faut utiliser une description longue.Dans l’exemple ci-dessous, l’image affiche un nombre décimal récurrent et le texte de remplacement est « zéro point un, récurrent »</p>
+		<img src="images/image2e.png" class="img-responsive" alt=":zéro point un, récurrent">
 		<p>CODE SNIPPET:</p>
-		<p>&lt;img src="recurring.png" alt="zero point one, recurring"&gt;</p>
-		<h3 class="">Approach 2: Use MathML </h3>
-		<p>The preferred method for capturing math expressions as semantic, accessible content is with the markup language MathML. MathML markup allows user agents to determine the structure of math expressions in a machine-readable way. </p>
-		<p>Most web browsers need plugins to render MathML correctly for presentation, such as the open-source <a href="http://www.mathjax.org/">MathJax</a> library, which provides support for display and additional <a href="https://docs.mathjax.org/en/latest/basic/accessibility.html">accessibility features</a>. JavaScript math libraries commonly support math expressions written in Tex and LaTeX and AsciiMath, not just MathML.</p>
-		<p>In the example below, MathML communicates a math expression with semantic markup and proper syntax to assistive technologies like screen readers. MathJax renders it for the screen with the correct typesetting.</p>
+		<p>&lt;img src="recurring.png" alt="zéro point un, récurrent"&gt;</p>
+		<h3 class="">Stratégie 2 : Utiliser MathML </h3>
+		<p>La méthode privilégiée pour saisir des expressions mathématiques en tant que contenu sémantique et accessible est le langage de balisage MathML. Le balisage MathML permet aux agents utilisateurs de déterminer la structure des expressions mathématiques d’une façon lisible par machine. </p>
+		<p>La plupart des navigateurs Web ont besoin de modules d’extension pour bien rendre MathML aux fins de présentation, comme la bibliothèque  <a href="http://www.mathjax.org/">MathJax</a> de source ouverte, qui offre un soutien pour l’affichage et d’autres <a href="https://docs.mathjax.org/en/latest/basic/accessibility.html">fonctions d’accessibilité</a>. Les bibliothèques de mathématiques de JavaScript prennent généralement en charge les expressions mathématiques rédigées en Tex et LaTeX et AsciiMath, pas seulement MathML.</p>
+		<p>Dans l’exemple ci-dessous, MathML communique une expression mathématique avec un balisage sémantique et une syntaxe adaptée aux technologies d’assistance comme les lecteurs d’écran. MathJax offre un bon rendu pour l’écran avec la composition appropriée.</p>
 		<img src="images/image2f.png" class="img-responsive" alt="">
 		<p>&lt;head&gt;</p>
 		<p>[…]</p>
@@ -140,8 +140,8 @@
 		<p>Source: <a href="https://accessibility.psu.edu/math/mathmltest/">https://accessibility.psu.edu/math/mathmltest/</a></p>
 	</section>
 	<section>
-		<h2 id="wcag">Related WCAG resources</h2>
-		<h3 class="">Success Criteria</h3>
+		<h2 id="wcag">Ressources WCAG connexes</h2>
+		<h3 class="">Critères de succès</h3>
 		<ul>
 			<li>
 				<a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a>
