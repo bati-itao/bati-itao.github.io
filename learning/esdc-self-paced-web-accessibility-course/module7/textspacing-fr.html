@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-	<title>Proximité visuelle des étiquettes – Module 7 – Conception visuelle et couleurs</title>
+	<title>Espacement du texte – Module 7 – Conception visuelle et couleurs</title>
 	<meta content="width=device-width,initial-scale=1" name="viewport">
 	<!-- Meta data -->
 	<meta name="description"
@@ -51,17 +51,18 @@
             }],
             "lngLinks": [{
                 "lang": "en",
-                "href": "visual-proximity.html",
+                "href": "textspacing.html",
                 "text": "English"
             }],
             "menuPath": "../../../ajax/menu-fr.html"
         });
+
     </script>
 <div class="container">
 <div class="row">
 	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
 			
-	<h1 property="name" id="wb-cont">Proximité visuelle des étiquettes</h1>
+	<h1 property="name" id="wb-cont">Espacement du texte</h1>
 						
 	<nav role="navigation">
     <div class="panel panel-default mrgn-tp-md">
@@ -70,7 +71,7 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#positioning-labels">Positioning labels</a></li>
+            <li><a href="#accessible-text-spacing">Accessible text spacing</a></li>
 			<li><a href="#resources1">Related WCAG resources</a></li>
           </ul>
         </div>
@@ -78,31 +79,54 @@
 	</nav>
 	
 			<section>				
-				<h2 id="positioning-labels">Positioning labels</h2>
-				<p>Make your forms more understandable by positioning labels for form fields where the user expects them visually: either above the field or to the left, right-aligned. Labels for radio buttons and checkboxes are positioned after the field.</p>
-				<h2 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good Example: Label above the field</h2>	
-				<p>This layout is preferred by the <a href="https://wet-boew.github.io/wet-boew-styleguide/design/forms-en.html#labels">WET Style Guide - Form Labels.</a> Users can process the information in half the time of left-aligned labels. The labels are positioned above the form fields and left-aligned.</p>
-				<img src="images/image21.png" alt="" class="img-responsive"/>
-				<h2 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good Example: Label to the left, right-aligned</h2>	
-				<p>This layout is preferred by the WET Style Guide when there’s a need to conserve vertical space. The labels are positioned to the left of the form fields and right-aligned.</p>
-				<img src="images/image23.png" alt="" class="img-responsive"/>
-				<h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span>Bad Example: Label to the left, left-aligned</h3>
-				<p>This layout positions the labels far away from the controls. Screen magnification users may have trouble fitting both on the screen, forcing horizontal scrolling.</p>
-				<img src="images/image24.png" alt="" class="img-responsive"/>
+				<h2 id="accessible-text-spacing">Accessible text spacing</h2>
+				<p>Increased space between paragraphs, lines, words, and letters helps some users with low vision to read, and helps users with dyslexia to increase their reading speed.</p>
+				<p>Your design should be flexible enough to render without any loss of content or functionality when the user modifies the text spacing, within these constraints:</p>
+				<ul>
+					<li>Line height (line spacing) to at least 1.5 times the font size;</li>
+					<li>Spacing following paragraphs to at least 2 times the font size;</li>
+					<li>Letter spacing (tracking) to at least 0.12 times the font size;</li>
+					<li>Word spacing to at least 0.16 times the font size.</li>
+				  </ul>
+				  <p>Users modify the text spacing of your design using a custom style sheet, a bookmarklet or other tool.</p>
+				  <p>Test your design with this bookmarklet: <a href="http://www.html5accessibility.com/tests/tsbookmarklet.html">http://www.html5accessibility.com/tests/tsbookmarklet.html</a> It applies the expanded spacing styles. Be on the lookout for clipped text and overlapping text, as per the Bad Examples below.</p>
+				  <p>To design for text spacing override:</p>
+				  <ul>
+					<li>Don’t use fixed containers in your CSS styles.</li>
+					<li>Ensure that content reflows without overlapping or clipped text.</li>
+					<li>Use relative units of font size, line height, spaces between characters, words, lines and paragraphs.</li>
+				</ul>
+				<h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad Examples: Text Spacing</h3>
+					<p>The following images show some types of failures when authors do not take into consideration that users may override spacing.</p>
+					<h4>Text cut off</h4>
+					<p>The bottom portion of the words "Your Needs" is cut off in a heading making that text unreadable in Figure 1. It should read "We Provide a Mobile Application Service to Meet Your Needs."</p>
+					<figcaption>Figure 1 Vertical text cut off is a failure.</figcaption>
+					<img src="images/image25.png" alt="Figure 1 Vertical text cut off is a failure." class="img-responsive"/>
+					<p>In Figure 2 the last portion of text is cut off in 3 side-by-side headings. The 1st heading should read "A cog in the wheel." But it reads "A cog in the whe". Only half of the second "e" is visible and the letter "l" is completely missing. The 2nd heading should read "A penny for your thoughts". But it reads "A penny for your". The 3rd should read "Back to the drawing board." But it reads "Back to the drawi".</p>
+					<figcaption>Figure 2 Horizontal text cut off is a failure.</figcaption>
+					<img src="images/image26.png" alt="3 side-by-side headings with truncated text." class="img-responsive"/>
+					<h4>Text overlap</h4>
+					<p>In Figure 3 the last 3 words "Groups and Programs" of the heading "Technologists Seeking Input from Groups and Programs" overlap the following sentence. That sentence should read, "You are invited to share ideas and areas of interest related to the integration of technology from a group or program perspective." But the words "You are invited to share ideas and areas" are obscured and unreadable.</p>
+					<figcaption>Figure 3 Overlapping text is a failure.</figcaption>
+					<img src="images/image27.png" alt="Heading text overlaps part of paragraph text." class="img-responsive"/>
+					<p>The section “Bad examples: Text Spacing” is from WCAG 2.1 Success Criterion: <a href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing">1.4.12: Text Spacing.</a></p>
 			</section>
-			
+					
 			<section>				
 				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
 					<ul>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions">3.3.2: Labels or Instructions</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing">1.4.12: Text Spacing</a></li>
 					</ul>
 					<h3>Techniques</h3>
 					<ul>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G162">G162: Positioning labels to maximize predictability of relationships</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C36">C36: Allowing for text spacing override</a>
+						</li>	
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C35">C35: Allowing for text spacing without wrapping</a>
 						</li>						
 					</ul>
 				</details>
@@ -112,8 +136,8 @@
 	<nav role="navigation">
 		<h2 class="wb-inv">Navigation dans le document</h2>
 		<ul class="pager">
-			<li class="previous"><a rel="prev" href="contrast-fr.html">Précédent - Contraste</a></li>		
-			<li class="next"><a rel="next" href="textspacing-fr.html">Suivant - Espacement du texte</a></li>
+			<li class="previous"><a rel="prev" href="visual-proximity-fr.html">Précédent - Visual proximity of labels</a></li>		
+			<li class="next"><a rel="next" href="css-generated-fr.html">Suivant - CSS-generated content</a></li>
 		</ul>
 	</nav>
 	</main>
@@ -127,8 +151,8 @@
 						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
 						<li><a class="list-group-item" href="colour-fr.html">Couleur</a></li>
 						<li><a class="list-group-item" href="contrast-fr.html">Contraste</a></li>
-						<li><a class="list-group-item active" aria-current="page" href="visual-proximity-fr.html">Proximité visuelle des étiquettes</a></li>
-						<li><a class="list-group-item" href="textspacing-fr.html">Espacement du texte</a></li>
+						<li><a class="list-group-item" href="visual-proximity-fr.html">Proximité visuelle des étiquettes</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="textspacing-fr.html">Espacement du texte</a></li>
 						<li><a class="list-group-item" href="css-generated-fr.html">Contenu généré par une CSS</a></li>
 						<li><a class="list-group-item" href="hiding-content-fr.html">Masquer ou afficher un contenu</a></li>
 						<li><a class="list-group-item" href="best-practice-fr.html">Pratiques exemplaire</a></li>
