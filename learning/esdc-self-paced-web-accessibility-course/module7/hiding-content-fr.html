@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-	<title>Introduction – Module 7 – Conception visuelle et couleurs</title>
+	<title>Masquer ou afficher un contenu – Module 7 – Conception visuelle et couleurs</title>
 	<meta content="width=device-width,initial-scale=1" name="viewport">
 	<!-- Meta data -->
 	<meta name="description"
@@ -15,7 +15,7 @@
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
-	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
 	<!-- Write closure template -->
 	<script src="../../../scripts/refTop.min.js"></script>
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
@@ -51,7 +51,7 @@
             }],
             "lngLinks": [{
                 "lang": "en",
-                "href": "introduction.html",
+                "href": "hiding-content.html",
                 "text": "English"
             }],
             "menuPath": "../../../ajax/menu-fr.html"
@@ -61,7 +61,7 @@
 <div class="row">
 	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
 			
-	<h1 property="name" id="wb-cont">Introduction</h1>
+	<h1 property="name" id="wb-cont">Masquer ou afficher un contenu</h1>
 						
 	<nav role="navigation">
     <div class="panel panel-default mrgn-tp-md">
@@ -70,7 +70,8 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#about-visual-design-and-colours">About visual design and colours</a></li>
+            <li><a href="#hiding-content">Hiding content</a></li>
+			<li><a href="#exposing-hidden-content-on-hover-or-focus">Exposing hidden content on hover or focus</a></li>
 			<li><a href="#resources1">Related WCAG resources</a></li>
           </ul>
         </div>
@@ -78,23 +79,48 @@
 	</nav>
 	
 			<section>				
-				<h2 id="about-visual-design-and-colours">About visual design and colours</h2>
-				<p>This module covers topics to help make user interface design and visual design more accessible to people with disabilities. Topic includes colour, contrast, positioning labels, text spacing, CSS-generated content, hiding content, and exposing content on hover or focus.</p>
-				<p>Accessible visual design benefits everyone including people with disabilities:</p>
+				<h2 id="hiding-content">Hiding content</h2>
+				<p>Content can be hidden from three groups of users:</p>
 				<ul>
-					<li>People with partial sight and colour-blindness benefit when information conveyed by colour is available in other visual ways.</li>
-					<li>People with low vision and colour-blindness can read text that meet minimum contrast ratio.</li>
-					<li>People with dyslexia may increase space between lines, words, and letters to improve reading.</li>
-					<li>People using screen readers benefit by accessing text alternatives of CSS-generated content.</li>
-					<li>People using screen readers benefit from hiding inactive and redundant content.</li>
+					<li>From all users, by using either the CSS display:none or visibility:hidden declaration.</li>
+					<li>From users of assistive technology, by using the aria-hidden=”true” attribute to remove the element from the Accessibility API.</li>
+					<li>From sighted users, by using the WET CSS class “wb-inv” to visually hide the content.</li>
 				  </ul>
-				  <p>These visual design concerns are discussed earlier in the course:</p>
+				  <p>When hiding inactive content, such as untriggered modal windows and unselected sub-menus, hide it from all users. Developers frequently introduce a barrier by visually hiding such content offscreen via CSS positioning, leaving the content exposed to the accessibility API, where it’s encountered by screen reader users and others. If it needs to be hidden from sighted users, it needs to be hidden from screen reader users.</p>
+				  <p>Use the aria-hidden attribute with caution, and only to improve the experience for users of assistive technology by removing redundant or extraneous information. If you use aria-hidden to hide meaningful visible content you must ensure that identical or equivalent meaning and functionality is exposed to assistive technologies.</p>
+				  <p>Visually-hidden text can:</p>
 				  <ul>
-					  <li><a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/links.html#indicator">Visual focus indicator</a></li>
-					  <li><a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/links.html#links-text">Distinguishing links from text</a></li>
-					</ul>
+					<li>provide a name where ARIA labels won’t work because the element doesn’t receive focus. This is illustrated in the example of CSS-generated content in the previous section. The same approach would work with a CSS background image needing a name; for instance, a list holding logos set as CSS background images could use a visually-hidden name in each list item.</li>
+					<li>name or extend the name of elements as an alternative to ARIA labels. For example, on a page with multiple “read more” links, to distinguish each link’s purpose from the other, the preceding heading text is inserted as a visually-hidden span element into the link text.</li>
+				  </ul>
+				  <h3>How to Apply</h3>
+<p>[Teaser paragraph.]</p>
+<a href="article/how-to-apply.html">
+<span class="wb-inv">About How to Apply</span> Read more  
+</a> 
+<style type="text/css">
+.wb-inv {
+    clip: rect(1px,1px,1px,1px);
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+}
+	</style>
 			</section>
 			
+			<section>				
+				<h2 id="Exposing-hidden-content-on-hover-or-focus">Exposing hidden content on hover or focus</h2>
+				<p>When exposing hidden content via pointer hover or keyboard focus, ensure the exposed content has these three properties:</p>
+				  <ul>
+					<li>Dismissable -- the user can dismiss the exposed content without moving the mouse or keyboard focus, typically by pressing the Escape key.</li>
+					<li>Hoverable -- the user can hover the mouse over the exposed content.</li>
+					<li>Persistent -- the exposed content doesn’t disappear until mouse hover or keyboard focus leaves it.</li>
+				  </ul>
+				  <p>For more details, see Module 10 – Input Modalities -> Mouse Input -> <a href="https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus">Content on Hover or Focus</a></p>
+			</section>
+	
 			<section>				
 				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
@@ -102,12 +128,12 @@
 					<h3>Success criteria</h3>
 					<ul>
 						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html">1.4.1: Use of Colour</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum">1.4.3: Contrast (Minimum)</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast">1.4.11: Non-text Contrast</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing">1.4.12: Text Spacing</a></li>
 						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus">1.4.13: Content on Hover or Focus</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions">3.3.2: Labels or Instructions</a></li>
+					</ul>
+					<h3>Techniques</h3>
+					<ul>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G94">G94: Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR39.html">SCR39: Making content on focus or hover hoverable, dismissible, and persistent</a></li>					
 					</ul>
 				</details>
 			</section>
@@ -116,7 +142,8 @@
 	<nav role="navigation">
 		<h2 class="wb-inv">Navigation dans le document</h2>
 		<ul class="pager">
-			<li class="next"><a rel="next" href="colour-fr.html">Suivant - Colour</a></li>
+			<li class="previous"><a rel="prev" href="css-generated-fr.html">Précédent - Contenu généré par une CSS</a></li>		
+			<li class="next"><a rel="next" href="best-practice-fr.html">Suivant - Pratiques exemplaire</a></li>
 		</ul>
 	</nav>
 	</main>
@@ -127,13 +154,13 @@
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Module 7 – Conception visuelle et couleurs</h3>
 					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item active" aria-current="page" href="introduction-fr.html">Introduction</a></li>
+						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
 						<li><a class="list-group-item" href="colour-fr.html">Couleur</a></li>
 						<li><a class="list-group-item" href="contrast-fr.html">Contraste</a></li>
 						<li><a class="list-group-item" href="visual-proximity-fr.html">Proximité visuelle des étiquettes</a></li>
 						<li><a class="list-group-item" href="textspacing-fr.html">Espacement du texte</a></li>
 						<li><a class="list-group-item" href="css-generated-fr.html">Contenu généré par une CSS</a></li>
-						<li><a class="list-group-item" href="hiding-content-fr.html">Masquer ou afficher un contenu</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="hiding-content-fr.html">Masquer ou afficher un contenu</a></li>
 						<li><a class="list-group-item" href="best-practice-fr.html">Pratiques exemplaire</a></li>
 					</ul>
 			</section>

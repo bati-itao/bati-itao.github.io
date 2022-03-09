@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Pratiques exemplaire – Module 7 – Conception visuelle et couleurs</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "EDSC / Bureau de l’accessibilité des TI",
+                "href": "../../../index-fr.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Accueil",
+                "href" : "../../../index-fr.html"
+            },{
+                "title": "Apprentissage",
+                "href" : "../../index-fr.html"
+            },
+			{
+                "title": "Cours d'accessibilité Web",
+                "href" : "../index-fr.html"
+            },
+			{
+                "title": "Module 7 – Conception visuelle et couleurs",
+                "href" : "index-fr.html"
+            }],
+            "lngLinks": [{
+                "lang": "en",
+                "href": "best-practice.html",
+                "text": "English"
+            }],
+            "menuPath": "../../../ajax/menu-fr.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+			
+	<h1 property="name" id="wb-cont">Pratiques exemplaire</h1>
+						
+	<nav role="navigation">
+    <div class="panel panel-default mrgn-tp-md">
+      <header class="panel-heading">
+        <h2 class="panel-title">Table des matières</h2>
+      </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#best-practice–colour">Best practice – Colour</a></li>
+			<li><a href="#best-practice-contrast">Best practice – Contrast </a></li>
+			<li><a href="#best-practice-visual-proximity-of-labels">Best practice – Visual proximity of labels</a></li>
+			<li><a href="#best-practice-text-spacing">Best practice – Text spacing</a></li>
+			<li><a href="#best-practice-CSS-generated-content">Best practice – CSS-generated content</a></li>
+			<li><a href="#best-practice-hiding-content">Best practice – Hiding content</a></li>
+			<li><a href="#best-practice-exposing-content-on-hover-or-focus">Best practice – Exposing content on hover or focus</a></li>
+          </ul>
+        </div>
+      </div>
+	</nav>
+	
+			<section>				
+				<h2 id="best-practice–colour">Best practice – Colour</h2>
+				<ul>
+					<li>Ensure that information conveyed by colour differences is also available in text.</li>
+					<li>Include a text cue for coloured form labels.</li>
+					<li>Ensure that additional visual cues are available when text colour differences are used to convey information.</li>
+					<li>Ensure a contrast ratio of 3:1 with surrounding text and provide an additional visual cue on focus for links or controls where colour alone is used to identify them.</li>
+				  </ul>
+			</section>
+			
+			<section>				
+				<h2 id="best-practice–contrast">Best practice – Contrast</h2>
+				<ul>
+					<li>Ensure small text (under 18 point regular font or under 14 point bold font) has a contrast ratio of at least 4.5:1 with the background.</li>
+					<li>Ensure large text (at least 18 point regular font or 14 point bold font) has a contrast ratio of at least 3:1 with the background.</li>
+					<li>Ensure active user interface components (i.e., controls), their states, and meaningful graphics have a contrast ratio of at least 3:1 with adjacent colours.</li>
+					<li>Implement enhanced contrast whenever possible, aiming for the stronger 7:1 contrast for small text and 4.5:1 contrast for large text.</li>
+				  </ul>
+			</section>
+			
+			<section>				
+				<h2 id="best-practice-visual-proximity-of-labels">Best practice – Visual proximity of labels</h2>
+				<ul>
+					<li>Position labels for form fields immediately before the field, either:</li>
+					<ul>
+					<li>above the field (preferred by the WET Style Guide), or </li>
+					<li>to the left of the field, aligned right (preferred by the WET Style Guide when there’s a need to conserve vertical space).</li>
+					</ul>
+					<li>Position labels for radio buttons and checkboxes after the field.</li>
+				  </ul>
+			</section>
+
+			<section>				
+				<h2 id="best-practice-text-spacing">Best practice – Text spacing</h2>
+				<p>Your design should be flexible enough to render without any loss of content or functionality when the user modifies the text spacing, within these constraints:</p>
+				<ul>
+					<li>Line height (line spacing) to at least 1.5 times the font size;</li>
+					<li>Spacing following paragraphs to at least 2 times the font size;</li>
+					<li>Letter spacing (tracking) to at least 0.12 times the font size;</li>
+					<li>Word spacing to at least 0.16 times the font size.</li>
+				  </ul>
+				  <p>To design for text spacing override:</p>
+				<ul>
+					<li>Don’t use fixed containers in your CSS styles.</li>
+					<li>Ensure that content reflows without overlapping or clipped text.</li>
+					<li>Use relative units of font size, line height, spaces between characters, words, lines and paragraphs.</li>
+					<li>Word spacing to at least 0.16 times the font size.</li>
+				  </ul>
+			</section>
+
+			<section>				
+				<h2 id="best-practice-CSS-generated-content">Best practice – CSS-generated content</h2>
+				<ul>
+					<li>Avoid CSS-generated content.</li>
+					<li>If you do use CSS-generated content:</li>
+					<ul>
+						<li>Hide it from screen readers with the aria-hidden=”true” attribute.</li>
+						<li>If the CSS-generated content is informative, provide a text alternative using aria-label or visually-hidden text.</li>
+					</ul>
+				  </ul>
+			</section>
+
+			<section>				
+				<h2 id="best-practice-hiding-content">Best practice – Hiding content</h2>
+				<p>Content can be hidden from three groups of users:</p>
+				<ul>
+					<li>From all users, by using either the CSS display:none or visibility:hidden attribute. When hiding inactive content, such as untriggered modal windows and unselected sub-menus, hide it from all users.</li>
+					<li>From users of assistive technology, by using the aria-hidden=”true” attribute to remove the element from the Accessibility API.</li>
+					<li>From sighted users, by using the WET CSS class “wb-inv” to visually hide the content.</li>
+				  </ul>
+			</section>
+
+			<section>				
+				<h2 id="best-practice-exposing-content-on-hover-or-focus">Best practice – Exposing content on hover or focus</h2>
+				<p>When exposing hidden content via pointer hover or focus, ensure the exposed content has these three properties:</p>
+				<ul>
+					<li>Dismissable -- the user can dismiss the exposed content without moving the mouse or keyboard focus, typically by pressing the Escape key.</li>
+					<li>Hoverable -- the user can hover the mouse over the exposed content.</li>
+					<li>Persistent -- the exposed content doesn’t disappear until mouse hover or keyboard focus leaves it.</li>
+				  </ul>
+			</section>
+		
+	<nav role="navigation">
+		<h2 class="wb-inv">>Navigation dans le document</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="hiding-content-fr.html">Précédent - Masquer ou afficher un contenu</a></li>			
+		</ul>
+	</nav>
+	</main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+		<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 7 – Conception visuelle et couleurs</h3>
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
+						<li><a class="list-group-item" href="colour-fr.html">Couleur</a></li>
+						<li><a class="list-group-item" href="contrast-fr.html">Contraste</a></li>
+						<li><a class="list-group-item" href="visual-proximity-fr.html">Proximité visuelle des étiquettes</a></li>
+						<li><a class="list-group-item" href="textspacing-fr.html">Espacement du texte</a></li>
+						<li><a class="list-group-item" href="css-generated-fr.html">Contenu généré par une CSS</a></li>
+						<li><a class="list-group-item" href="hiding-content-fr.html">Masquer ou afficher un contenu</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="best-practice-fr.html">Pratiques exemplaire</a></li>
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Tous les modules</h3>
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+						<li><a class="list-group-item" href="../module2/index-fr.html">Module 2 – Structure et sémantique des pages</a></li>			
+						<li><a class="list-group-item" href="../module3/index-fr.html">Module 3 – Liens et navigation</a></li>
+						<li><a class="list-group-item" href="../module4/index-fr.html">Module 4 – Tableaux</a></li>
+						<li><a class="list-group-item" href="../module5/index-fr.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/index-fr.html">Module 6 – Formulaires</a></li>	
+						<li><a class="list-group-item active" href="index-fr.html">Module 7 – Conception visuelle coleurs</a></li>
+						<li><a class="list-group-item" href="../module8/index-fr.html">Module 8 – Zoom et conception adaptée</a></li>
+						<li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+					</ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>
