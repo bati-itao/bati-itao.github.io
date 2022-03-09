@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-	<title>Introduction – Module 7 – Conception visuelle et couleurs</title>
+	<title>Contenu généré par une CSS – Module 7 – Conception visuelle et couleurs</title>
 	<meta content="width=device-width,initial-scale=1" name="viewport">
 	<!-- Meta data -->
 	<meta name="description"
@@ -51,7 +51,7 @@
             }],
             "lngLinks": [{
                 "lang": "en",
-                "href": "introduction.html",
+                "href": "css-generated.html",
                 "text": "English"
             }],
             "menuPath": "../../../ajax/menu-fr.html"
@@ -61,7 +61,7 @@
 <div class="row">
 	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
 			
-	<h1 property="name" id="wb-cont">Introduction</h1>
+	<h1 property="name" id="wb-cont">Contenu généré par une CSS</h1>
 						
 	<nav role="navigation">
     <div class="panel panel-default mrgn-tp-md">
@@ -70,7 +70,7 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#about-visual-design-and-colours">About visual design and colours</a></li>
+            <li><a href="#designing-with-CSS-generated-content">Designing with CSS-generated content</a></li>
 			<li><a href="#resources1">Related WCAG resources</a></li>
           </ul>
         </div>
@@ -78,23 +78,37 @@
 	</nav>
 	
 			<section>				
-				<h2 id="about-visual-design-and-colours">About visual design and colours</h2>
-				<p>This module covers topics to help make user interface design and visual design more accessible to people with disabilities. Topic includes colour, contrast, positioning labels, text spacing, CSS-generated content, hiding content, and exposing content on hover or focus.</p>
-				<p>Accessible visual design benefits everyone including people with disabilities:</p>
+				<h2 id="designing-with-CSS-generated-content">Designing with CSS-generated content</h2>
+				<p>CSS can generate text through the :before and :after pseudo-classes, but the text is not in the DOM and consequently not easily accessible to assistive technology. While the NVDA and VoiceOver screen readers recognize CSS-generated content, the JAWS and Narrator screen readers don’t.</p>
+				<p>Consequently, meaningful CSS-generated content can be used on print style sheets to print the URL of links on the page, but otherwise it should be avoided.</p>
+				<p>If you do use CSS-generated content, hide it from screen readers with the aria-hidden=”true” attribute. If the CSS-generated content is informative, provide a text alternative. To provide a text alternative:</p>
 				<ul>
-					<li>People with partial sight and colour-blindness benefit when information conveyed by colour is available in other visual ways.</li>
-					<li>People with low vision and colour-blindness can read text that meet minimum contrast ratio.</li>
-					<li>People with dyslexia may increase space between lines, words, and letters to improve reading.</li>
-					<li>People using screen readers benefit by accessing text alternatives of CSS-generated content.</li>
-					<li>People using screen readers benefit from hiding inactive and redundant content.</li>
+					<li>If the content is a link or control, use the aria-label attribute.</li>
+					<li>If the content can't receive focus, use the WET .wb-inv class to visually hide the text alternative.</li>
 				  </ul>
-				  <p>These visual design concerns are discussed earlier in the course:</p>
-				  <ul>
-					  <li><a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/links.html#indicator">Visual focus indicator</a></li>
-					  <li><a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/links.html#links-text">Distinguishing links from text</a></li>
-					</ul>
+				  <h2>Example: Visually-hiding CSS-generated content and providing a text alternative</h2>
+				  <p>In this example, the Font Awesome hammer icon is used to represent a task. The span element with class “fas fa-hammer" displays the icon via a CSS pseudo-class, while its title attribute holds a tooltip for mouse users and the aria-hidden=”true” attribute hides the element from screen readers. Directly following is the visually-hidden name “Task”, which declares in screen readers.</p>
+				  <style type="text/css">
+					.fa-hammer:before { content: "\f6e3"; }
+.fa, .far, .fas {  font-family: "Font Awesome 5 Free"; }
+li.icon { list-style: none; }
+li.icon > * { margin-left: 2em; }
+.wb-inv {
+    clip: rect(1px,1px,1px,1px);
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+}
+					</style>
+				  <li class="icon">
+					<span class="fas fa-hammer" title="Task" aria-hidden="true"></span>
+					<span class="wb-inv">Task</span>
+					Complete the application
+					</li>
 			</section>
-			
+
 			<section>				
 				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
@@ -102,12 +116,15 @@
 					<h3>Success criteria</h3>
 					<ul>
 						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html">1.4.1: Use of Colour</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum">1.4.3: Contrast (Minimum)</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast">1.4.11: Non-text Contrast</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing">1.4.12: Text Spacing</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus">1.4.13: Content on Hover or Focus</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions">3.3.2: Labels or Instructions</a></li>
+					</ul>
+					<h3>Techniques</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G94">G94: Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA6">ARIA6: Using aria-label to provide labels for objects</a>
+						</li>						
 					</ul>
 				</details>
 			</section>
@@ -116,7 +133,8 @@
 	<nav role="navigation">
 		<h2 class="wb-inv">Navigation dans le document</h2>
 		<ul class="pager">
-			<li class="next"><a rel="next" href="colour-fr.html">Suivant - Colour</a></li>
+			<li class="previous"><a rel="prev" href="textspacing-fr.html">Précédent - Espacement du texte</a></li>		
+			<li class="next"><a rel="next" href="hiding-content-fr.html">Suivant - Masquer ou afficher un contenu</a></li>
 		</ul>
 	</nav>
 	</main>
@@ -127,12 +145,12 @@
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Module 7 – Conception visuelle et couleurs</h3>
 					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item active" aria-current="page" href="introduction-fr.html">Introduction</a></li>
+						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
 						<li><a class="list-group-item" href="colour-fr.html">Couleur</a></li>
 						<li><a class="list-group-item" href="contrast-fr.html">Contraste</a></li>
 						<li><a class="list-group-item" href="visual-proximity-fr.html">Proximité visuelle des étiquettes</a></li>
 						<li><a class="list-group-item" href="textspacing-fr.html">Espacement du texte</a></li>
-						<li><a class="list-group-item" href="css-generated-fr.html">Contenu généré par une CSS</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="css-generated-fr.html">Contenu généré par une CSS</a></li>
 						<li><a class="list-group-item" href="hiding-content-fr.html">Masquer ou afficher un contenu</a></li>
 						<li><a class="list-group-item" href="best-practice-fr.html">Pratiques exemplaire</a></li>
 					</ul>
