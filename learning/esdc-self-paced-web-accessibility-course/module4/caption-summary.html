@@ -77,53 +77,55 @@
 				  <li><a href="#summary-inside-caption">Good example: Nesting summary inside the &lt;caption&gt; element</a></li>
 				  <li><a href="#aria-describedby">Good example: Using aria-describedby to provide table summary</a></li>
 				  <li><a href="#figcaption">Good example: Using the &lt;figcaption&gt; element to hold the table summary</a></li>
-				 
-				 
+				  <li><a href="#wcag">Related WCAG resources</a></li>
 			  </ul>
 			</div>
 		  </div>
 		</nav>
-			<section>
-				<h2 id="overview">Caption and summary (overview)</h2>
-				<p>The <code>&lt;caption&gt;</code> element specifies the name or title of a table.</p>
-				<p>A table summary introduces the purpose of the table, outlines its basic cell structure, highlights any trends or patterns, and generally teaches the user how to use the table. </p>
-                
-            </section>
-			<section>
-				<h2 id="caption">Identifying a table using a caption</h2>
-				<p>The <code>&lt;caption&gt;</code> element is the first child of the <code>&lt;table&gt;</code> element. It serves as a name or short heading for the table content. Without a caption, screen reader users must navigate the headers across row 1 and/or down column 1, at least, just to figure out what a table is about. </p>
-				
-				<div class="panel panel-success">
-					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Caption</h3>			
-						<p>In this example &ldquo;<q>Movies Releases</q>&rdquo; tells users what information is in the table.</p>
-<table class="table table-bordered table-hover">
-<caption>Movies Releases</caption>
-<tr>
-<th>Date</th>
-<th>Movie</th>
-<th>Locations</th>
-</tr>
-<tr>
-<td>12 Feb</td>
-<td>Spiderman - The Dark Fate</td>
-<td>AMC Toronto</td>
-</tr>
-<tr>
-<td>24 Mar</td>
-<td>Avengers</td>
-<td>AMC Mississauga</td>
-</tr>
-<tr>
-<td>14 Apr</td>
-<td>Superman 4</td>
-<td>Cineplex London</td>
-</tr>
-</table>
-<details class="mrgn-tp-lg">
-
-<summary class="bg-info">View code</summary>
-	 <pre><code class="language-html">&lt;table&gt;
+		<section>
+			<h2 id="overview">Caption and summary (overview)</h2>
+			<p>The <code>&lt;caption&gt;</code> element specifies the name or title of a table.</p>
+			<p>A table summary introduces the purpose of the table, outlines its basic cell structure, highlights any trends or patterns, and generally teaches the user how to use the table. </p>  
+		</section>
+		<section>
+			<h2 id="caption">Identifying a table using a caption</h2>
+			<p>The <code>&lt;caption&gt;</code> element is the first child of the <code>&lt;table&gt;</code> element. It serves as a name or short heading for the table content. Without a caption, screen reader users must navigate the headers across row 1 and/or down column 1, at least, just to figure out what a table is about. </p>
+			
+			<div class="panel panel-success">
+				<div class="panel-body">
+					<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Caption</h3>			
+					<p>In this example &ldquo;Movies Releases&rdquo; tells users what information is in the table.</p>
+					<div class="panel panel-primary">
+						<div class="panel-body well mrgn-bttm-0">
+							<table class="table table-bordered table-hover">
+								<caption>Movies Releases</caption>
+								<tr>
+									<th>Date</th>
+									<th>Movie</th>
+									<th>Locations</th>
+								</tr>
+								<tr>
+									<td>12 Feb</td>
+									<td>Spiderman - The Dark Fate</td>
+									<td>AMC Toronto</td>
+								</tr>
+								<tr>
+									<td>24 Mar</td>
+									<td>Avengers</td>
+									<td>AMC Mississauga</td>
+								</tr>
+								<tr>
+									<td>14 Apr</td>
+									<td>Superman 4</td>
+									<td>Cineplex London</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<details class="mrgn-tp-lg">
+						<summary class="bg-info">View HTML</summary>
+						<p class="wb-inv">Code starts</p>
+<pre><code class="language-html">&lt;table&gt;
   &lt;caption&gt;Movies Releases&lt;/caption&gt;
   &lt;tr&gt;
 	&lt;th&gt;Date&lt;/th&gt;
@@ -131,7 +133,7 @@
 	&lt;th&gt;Locations&lt;/th&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-  &lt;td&gt;12 Feb&lt;/td&gt;
+    &lt;td&gt;12 Feb&lt;/td&gt;
 	&lt;td&gt;Spiderman - The Dark Fate&lt;/td&gt;
 	&lt;td&gt;AMC Toronto&lt;/td&gt;
   &lt;/tr&gt;
@@ -147,103 +149,105 @@
   &lt;/tr&gt;
 &lt;/table&gt;</code>
 </pre>
-</details>
-					</div>
+						<p class="wb-inv">Code ends</p>
+					</details>
 				</div>
-				
-			</section>
-			<section>
-			  <h2 id="summaries">Summaries for complex tables</h2>
-				<p>For complex tables, summaries should include explanatory information to introduce the purpose of the table, describe the table composition, highlight any trends and teach the user how to use the table.</p>
-				<p>Wherever possible, convert complex tables into simple tables or lists, so that less or no explanation is required. </p>
-				<p>
-			    If both caption and summary are provided for a table, then the summary should not duplicate information in the caption.</p>
-				<p>
-			    There are different ways to present complex table summaries:</p>
-				<ul>
-				  <li>Nest the summary inside the <code>&lt;caption&gt;</code> element </li>
-				  <li>Set the summary in a paragraph preceding or following the table, referenced via the <code>aria-describedby</code> attribute </li>
-				  <li>Use the <code>&lt;figure&gt;</code> element to mark up a table summary. Use the <code>aria-labelledby</code> and <code>aria-describedby</code> attributes to associate the caption and summary, respectively, with the <code>&lt;table&gt;</code> element. </li>
-			  </ul>
-			
-			</section>
-			<section>
-	<div class="panel panel-success">
-  <div class="panel-body">
+			</div>
+		</section>
 		
-	<h2 class="text-success mrgn-tp-0 h3" id="summary-inside-caption"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Nesting summary inside the <code>&lt;caption&gt;</code> element.</h2>
-				<p>In the example below, the complex table shows the number of students enrolled in two countries across four semester seasons. The <code>&lt;caption&gt;</code> element acts as a heading for the table and provides a summary that describes the structure of the table.</p>
-	  
-	  <table class="table table-bordered table-hover">
-  <caption>
-    Information on number of students enrolled
-    <div style="font-weight: normal">Column one holds the country and the programs, other columns show the semester season. Cells hold the number of students enrolled.</div>
-  </caption>
-  <thead>
-    <tr>
-      <td></td>
-      <th id="winter">Winter</th>
-      <th id="spring">Spring</th>
-      <th id="summer">Summer</th>
-      <th id="fall">Fall</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th id="usa" class="span" colspan="5">USA</th>
-    </tr>
-    <tr>
-     <th headers="usa" id="usmba1">MBA</th>
-     <td headers="usa usmba1 winter">40</td>
-     <td headers="usa usmba1 spring">80</td>
-     <td headers="usa usmba1 summer">125</td>
-     <td headers="usa usmba1 fall">93</td>
-   </tr>
-   <tr>
-     <th headers="usa" id="usms2">MS</th>
-     <td headers="usa usms2 winter">60</td>
-     <td headers="usa usms2 spring">83</td>
-     <td headers="usa usms2 summer">152</td>
-     <td headers="usa usms2 fall">132</td>
-   </tr>
-   <tr>
-     <th headers="usa" id="usdip3">Diploma</th>
-     <td headers="usa usdip3 winter">66</td>
-     <td headers="usa usdip3 spring">103</td>
-     <td headers="usa usdip3 summer">115</td>
-     <td headers="usa usdip3 fall">20</td>
-   </tr>
-   <tr>
-     <th id="can" class="span" colspan="5">Canada</th>
-   </tr>
-   <tr>
-     <th id="camba1" headers="can">MBA</th>
-     <td headers="can camba1 winter">113</td>
-     <td headers="can camba1 spring">81</td>
-     <td headers="can camba1 summer">122</td>
-     <td headers="can camba1 fall">33</td>
-   </tr>
-   <tr>
-     <th id="cams2" headers="can">MS</th>
-     <td headers="can cams2 winter">87</td>
-     <td headers="can cams2 spring">53</td>
-     <td headers="can cams2 summer">143</td>
-     <td headers="can cams2 fall">90</td>
-   </tr>
-   <tr>
-     <th id="cadip3" headers="can">Diploma</th>
-     <td headers="can cadip3 winter">39</td>
-     <td headers="can cadip3 spring">16</td>
-     <td headers="can cadip3 summer">32</td>
-     <td headers="can cadip3 fall">40</td>
-    </tr>
-  </tbody>
-</table>
-	  
-<details class="mrgn-tp-lg">
-
-<summary class="bg-info">View code</summary>
-	 <pre><code class="language-html">&lt;table&gt;
+		<section>
+			<h2 id="summaries">Summaries for complex tables</h2>
+			<p>For complex tables, summaries should include explanatory information to introduce the purpose of the table, describe the table composition, highlight any trends and teach the user how to use the table.</p>
+			<p>Wherever possible, convert complex tables into simple tables or lists, so that less or no explanation is required. </p>
+			<p>
+			If both caption and summary are provided for a table, then the summary should not duplicate information in the caption.</p>
+			<p>
+			There are different ways to present complex table summaries:</p>
+			<ul>
+			  <li>Nest the summary inside the <code>&lt;caption&gt;</code> element </li>
+			  <li>Set the summary in a paragraph preceding or following the table, referenced via the <code>aria-describedby</code> attribute </li>
+			  <li>Use the <code>&lt;figure&gt;</code> element to mark up a table summary. Use the <code>aria-labelledby</code> and <code>aria-describedby</code> attributes to associate the caption and summary, respectively, with the <code>&lt;table&gt;</code> element. </li>
+		  </ul>
+		</section>
+		
+		<section>
+			<div class="panel panel-success">
+				<div class="panel-body">
+					<h2 class="text-success mrgn-tp-0 h3" id="summary-inside-caption"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Nesting summary inside the <code>&lt;caption&gt;</code> element.</h2>
+					<p>In the example below, the complex table shows the number of students enrolled in two countries across four semester seasons. The <code>&lt;caption&gt;</code> element acts as a heading for the table and provides a summary that describes the structure of the table.</p>
+					<div class="panel panel-primary">
+						<div class="panel-body well mrgn-bttm-0">
+							<table class="table table-bordered table-hover">
+							  <caption>
+								Information on number of students enrolled
+								<div style="font-weight: normal">Column one holds the country and the programs, other columns show the semester season. Cells hold the number of students enrolled.</div>
+							  </caption>
+							  <thead>
+								<tr>
+								  <td></td>
+								  <th id="winter">Winter</th>
+								  <th id="spring">Spring</th>
+								  <th id="summer">Summer</th>
+								  <th id="fall">Fall</th>
+								</tr>
+							  </thead>
+							  <tbody>
+								<tr>
+								  <th id="usa" class="span" colspan="5">USA</th>
+								</tr>
+								<tr>
+								 <th headers="usa" id="usmba1">MBA</th>
+								 <td headers="usa usmba1 winter">40</td>
+								 <td headers="usa usmba1 spring">80</td>
+								 <td headers="usa usmba1 summer">125</td>
+								 <td headers="usa usmba1 fall">93</td>
+							   </tr>
+							   <tr>
+								 <th headers="usa" id="usms2">MS</th>
+								 <td headers="usa usms2 winter">60</td>
+								 <td headers="usa usms2 spring">83</td>
+								 <td headers="usa usms2 summer">152</td>
+								 <td headers="usa usms2 fall">132</td>
+							   </tr>
+							   <tr>
+								 <th headers="usa" id="usdip3">Diploma</th>
+								 <td headers="usa usdip3 winter">66</td>
+								 <td headers="usa usdip3 spring">103</td>
+								 <td headers="usa usdip3 summer">115</td>
+								 <td headers="usa usdip3 fall">20</td>
+							   </tr>
+							   <tr>
+								 <th id="can" class="span" colspan="5">Canada</th>
+							   </tr>
+							   <tr>
+								 <th id="camba1" headers="can">MBA</th>
+								 <td headers="can camba1 winter">113</td>
+								 <td headers="can camba1 spring">81</td>
+								 <td headers="can camba1 summer">122</td>
+								 <td headers="can camba1 fall">33</td>
+							   </tr>
+							   <tr>
+								 <th id="cams2" headers="can">MS</th>
+								 <td headers="can cams2 winter">87</td>
+								 <td headers="can cams2 spring">53</td>
+								 <td headers="can cams2 summer">143</td>
+								 <td headers="can cams2 fall">90</td>
+							   </tr>
+							   <tr>
+								 <th id="cadip3" headers="can">Diploma</th>
+								 <td headers="can cadip3 winter">39</td>
+								 <td headers="can cadip3 spring">16</td>
+								 <td headers="can cadip3 summer">32</td>
+								 <td headers="can cadip3 fall">40</td>
+								</tr>
+							  </tbody>
+							</table>
+						</div>
+					</div>
+					<details class="mrgn-tp-lg">
+						<summary class="bg-info">View HTML</summary>
+						<p class="wb-inv">Code starts</p>
+<pre><code class="language-html">&lt;table&gt;
   &lt;caption&gt;
     Information on number of students enrolled
     &lt;div style="font-weight: normal"&gt;Column one holds the country and the programs, other columns show the semester season. Cells hold the number of students enrolled.&lt;/div&gt;
@@ -309,90 +313,86 @@
   &lt;/tbody&gt;
  &lt;/table&gt;</code>
 </pre>
-</details>
-
-</div>
-</div>
-</section>
-			
-			<section>
-	<div class="panel panel-success">
-  <div class="panel-body">
-		
-	<h2 class="text-success mrgn-tp-0 h3" id="aria-describedby"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Using <code>aria-describedby</code> to provide table summary</h2>
-				<p>In this example, the summary precedes the table in a paragraph element. The table takes an <code>aria-describedby</code> attribute, which holds the <code>id</code> attribute value of the paragraph.</p>
-	 
-				<details class="mrgn-tp-lg">
-
-<summary class="bg-info">View code</summary>
-	 <pre><code class="language-html">&lt;p id=&quot;tblDesc&quot;&gt;Column one holds the country and the programs, other columns show the semester season. Cells hold the number of students enrolled &lt;/p&gt; 
-&lt;table aria-describedby=&quot;tblDesc&quot;&gt;[…]&lt;/table&gt;</code>
-</pre>
-</details>
-
-</div>
+							<p class="wb-inv">Code starts</p>
+						</details>
+					</div>
 				</div>
 			</section>
-	<section>
-	<div class="panel panel-success">
-  <div class="panel-body">
-		
-	<h2 class="text-success mrgn-tp-0 h3" id="figcaption"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using the <code>&lt;figcaption&gt;</code> element to hold the table summary</h2>
-				<p>In this example the table is wrapped in a <code>&lt;figure&gt;</code> element while the <code>&lt;figcaption&gt;</code> element contains the caption and summary text.</p>
-				<p>The table title in the <code>&lt;figcaption&gt;</code> element is explicitly associated with the table using the <code>aria-labelledby</code> attribute. </p>
-				<p>The summary paragraph in the <code>&lt;figcaption&gt;</code> element is explicitly associated with the table using the <code>aria-describedby</code> attribute.</p>
-	  <div class="panel panel-primary">
-  <div class="panel-body well mrgn-bttm-0">
-	  
-	  <figure>
-  <figcaption>
-    <strong id="studentinfo-caption">USA: Information on number of students enrolled</strong>
-	<div id="studentinfo-summary">Column one has the country and different programs, other columns show the semester type and number of students enrolled.</div>
-  </figcaption>
-  <table class="table table-bordered table-hover" aria-labelledby="studentinfo-caption" aria-describedby="studentinfo-summary">
-    <thead>
-    <tr>
-      <td></td>
-      <th id="winter" scope="col">Winter</th>
-      <th id="spring" scope="col">Spring</th>
-      <th id="summer" scope="col">Summer</th>
-      <th id="fall" scope="col">Fall</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th id="usa" class="span" colspan="5" scope="colgroup">USA</th>
-    </tr>
-    <tr>
-      <th headers="usa" id="usmba1">MBA</th>
-      <td headers="usa usmba1 winter">40</td>
-      <td headers="usa usmba1 spring">80</td>
-      <td headers="usa usmba1 summer">125</td>
-      <td headers="usa usmba1 fall">93</td>
-    </tr>
-    <tr>
-      <th headers="usa" id="usms2">MS</th>
-      <td headers="usa usms2 winter">60</td>
-      <td headers="usa usms2 spring">83</td>
-      <td headers="usa usms2 summer">152</td>
-      <td headers="usa usms2 fall">132</td>
-    </tr>
-    <tr>
-      <th headers="usa" id="usdip3"> Diploma </th>
-      <td headers="usa usdip3 winter"> 66 </td>
-      <td headers="usa usdip3 spring"> 103 </td>
-      <td headers="usa usdip3 summer"> 115 </td>
-      <td headers="usa usdip3 fall"> 20 </td>
-    </tr>
-  </tbody>
-  </table>
-</figure>
-		  </div>
-	  </div>
- <details class="mrgn-tp-lg">
-
-<summary class="bg-info">View code</summary>
-	 <pre><code class="language-html">&lt;figure&gt;
+			
+			<section>
+				<div class="panel panel-success">
+					<div class="panel-body">
+						<h2 class="text-success mrgn-tp-0 h3" id="aria-describedby"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Using <code>aria-describedby</code> to provide table summary</h2>
+						<p>In this example, the summary precedes the table in a paragraph element. The table takes an <code>aria-describedby</code> attribute, which holds the <code>id</code> attribute value of the paragraph.</p>
+						<details class="mrgn-tp-lg">
+							<summary class="bg-info">View HTML</summary>
+							<p class="wb-inv">Code starts</p>
+	<pre><code class="language-html">&lt;p id=&quot;tblDesc&quot;&gt;Column one holds the country and the programs, other columns show the semester season. Cells hold the number of students enrolled &lt;/p&gt; 
+	&lt;table aria-describedby=&quot;tblDesc&quot;&gt;[…]&lt;/table&gt;</code>
+	</pre>
+							<p class="wb-inv">Code ends</p>
+						</details>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="panel panel-success">
+					<div class="panel-body">
+						<h2 class="text-success mrgn-tp-0 h3" id="figcaption"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using the <code>&lt;figcaption&gt;</code> element to hold the table summary</h2>
+						<p>In this example the table is wrapped in a <code>&lt;figure&gt;</code> element while the <code>&lt;figcaption&gt;</code> element contains the caption and summary text.</p>
+						<p>The table title in the <code>&lt;figcaption&gt;</code> element is explicitly associated with the table using the <code>aria-labelledby</code> attribute. </p>
+						<p>The summary paragraph in the <code>&lt;figcaption&gt;</code> element is explicitly associated with the table using the <code>aria-describedby</code> attribute.</p>
+						<div class="panel panel-primary">
+							<div class="panel-body well mrgn-bttm-0">
+								<figure>
+									  <figcaption>
+										<strong id="studentinfo-caption">USA: Information on number of students enrolled</strong>
+										<div id="studentinfo-summary">Column one has the country and different programs, other columns show the semester type and number of students enrolled.</div>
+									  </figcaption>
+									  <table class="table table-bordered table-hover" aria-labelledby="studentinfo-caption" aria-describedby="studentinfo-summary">
+										<thead>
+										<tr>
+										  <td></td>
+										  <th id="winter" scope="col">Winter</th>
+										  <th id="spring" scope="col">Spring</th>
+										  <th id="summer" scope="col">Summer</th>
+										  <th id="fall" scope="col">Fall</th>
+										</tr>
+									  </thead>
+									  <tbody>
+										<tr>
+										  <th id="usa" class="span" colspan="5" scope="colgroup">USA</th>
+										</tr>
+										<tr>
+										  <th headers="usa" id="usmba1">MBA</th>
+										  <td headers="usa usmba1 winter">40</td>
+										  <td headers="usa usmba1 spring">80</td>
+										  <td headers="usa usmba1 summer">125</td>
+										  <td headers="usa usmba1 fall">93</td>
+										</tr>
+										<tr>
+										  <th headers="usa" id="usms2">MS</th>
+										  <td headers="usa usms2 winter">60</td>
+										  <td headers="usa usms2 spring">83</td>
+										  <td headers="usa usms2 summer">152</td>
+										  <td headers="usa usms2 fall">132</td>
+										</tr>
+										<tr>
+										  <th headers="usa" id="usdip3"> Diploma </th>
+										  <td headers="usa usdip3 winter"> 66 </td>
+										  <td headers="usa usdip3 spring"> 103 </td>
+										  <td headers="usa usdip3 summer"> 115 </td>
+										  <td headers="usa usdip3 fall"> 20 </td>
+										</tr>
+									  </tbody>
+									  </table>
+								</figure>
+							</div>
+						</div>
+						<details class="mrgn-tp-lg">
+							<summary class="bg-info">View HTML</summary>
+							<p class="wb-inv">Code starts</p>
+<pre><code class="language-html">&lt;figure&gt;
    &lt;figcaption&gt;
       &lt;strong id=&quot;studentinfo-caption&quot;&gt;USA: Information on number of students enrolled&lt;/strong&gt;
       &lt;div id=&quot;studentinfo-summary&quot;&gt;Column one has the country and different programs, other columns show    the semester type and number of students enrolled.&lt;/div&gt;
@@ -436,54 +436,48 @@
    &lt;/table&gt;
 &lt;/figure&gt;</code>
 </pre>
-</details>
-
-	
-
-  </div>
-		</div>
-		</section>
-				
-			<h3 class="wb-inv">Related WCAG resources</h3>
-
-<details class="mrgn-tp-lg">
-
-<summary class="bg-info">Related WCAG resources</summary>
-				<p>Success Criteria</p>
-				<ul>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1: Info and Relationships</a>
-					</li>
-				</ul>
-				<h4 id="idelem4x17089">Techniques</h4>
-				<ul>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H51">H51: Using table markup to present tabular information</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H39">H39: Using caption elements to associate data table captions with data tables</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA1">ARIA1: Using aria-describedby property to provide a descriptive, programmatically determined label</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA16">ARIA16: Using aria-labelledby to provide a name for user interface controls</a>
-					</li>
-				</ul>
-			</details>
+							<p class="wb-inv">Code ends</p>
+						</details>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2 class="wb-inv" id="wcag">Related WCAG resources</h2>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">Related WCAG resources</summary>
+					<h3>Success criteria</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1: Info and Relationships</a>
+						</li>
+					</ul>
+					<h3>Techniques</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H51">H51: Using table markup to present tabular information</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H39">H39: Using caption elements to associate data table captions with data tables</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA1">ARIA1: Using aria-describedby property to provide a descriptive, programmatically determined label</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA16">ARIA16: Using aria-labelledby to provide a name for user interface controls</a>
+						</li>
+					</ul>
+				</details>
+			</section>
 			
+			<nav role="navigation" aria-label="Document navigation">
+				<h2 class="wb-inv">Document navigation</h2>
+				<ul class="pager">
+				 <li class="previous"> <a rel="prev" href="multi-level-headers.html">Previous - Multi-level headers</a> </li>
+				  <li class="next"> <a rel="next" href="additional-tips-and-tricks.html">Next - Additional tips and tricks</a> </li>
+				</ul>
+			</nav>
+		</main>
 			
-		<nav role="navigation" aria-label="Document navigation">
-	<h2 class="wb-inv">Document navigation</h2>
-	<ul class="pager">
-	 <li class="previous"> <a rel="prev" href="multi-level-headers.html">Previous - Multi-level headers</a> </li>
-	  <li class="next"> <a rel="next" href="additional-tips-and-tricks.html">Next - Additional tips and tricks</a> </li>
-	</ul>
-  </nav>
-					
-
-</main>
-		
 		
 
 		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
