@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -68,7 +69,7 @@
         </header>
         <div class="panel-body">
           <ul>
-			  <li><a href="#avoid">Avoiding images of text<</a></li>
+			  <li><a href="#avoid">Avoiding images of text</a></li>
               <li><a href="#math">Mathematical expressions</a></li>
               <li><a href="#wcag">Related WCAG resources</a></li>
           </ul>
@@ -81,24 +82,51 @@
 		<p>Images of text are more likely to distort and pixelate when resized and can be problematic for mobile users and users of low vision. In situations where images of text must be used, the text alternative must contain the same text presented in the image.</p>
 		<p>It is good design practice to use real text, formatted and styled with CSS to fit the design rather than an image of text. Actual text can be modified, resized without losing clarity to suit the reading preferences of users and is more flexible than images. </p>
 		<p>Unless the image of text is essential or customizable, images should not include informative text. Text that is part of a logo or brand name is considered essential.</p>
-		<h3 class="">Good Example: Text styled with CSS</h3>
-		<p>In this example, real text styled with CSS is used rather than an image of text. The CSS properties are solely responsible for font and text styling, spacing and layout.</p>
-		<img src="images/image26.png" class="img-responsive" alt="">
-		<p>Code snippet:</p>
-		<p>&lt;h5 class="checker"&gt;Accessibility at your fingertips&lt;/h5&gt;</p>
-		<p>CSS:</p>
-		<p>.checker {</p>
-		<p>  border: 2px solid black;</p>
-		<p>  background: #aa061a;</p>
-		<p>  outline: #4CAF50 solid 10px;</p>
-		<p>  margin: auto;  </p>
-		<p>  padding: 20px;</p>
-		<p>  padding-top:10px;</p>
-		<p>  text-align: center;</p>
-		<p>  text-shadow: 5px 5px 5px #620915;</p>
-		<p>  font-size:50px;</p>
-		<p>  color:white;</p>
-		<p>}</p>
+		<div class="panel panel-success">
+			<div class="panel-body">
+				<h3 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Text styled with CSS</h3>
+	
+				<p>In this example, real text styled with CSS is used rather than an image of text. The CSS properties are solely responsible for font and text styling, spacing and layout.</p>
+				<!-- <img src="images/image26.png" class="img-responsive" alt=""> -->
+				
+				<div class="panel panel-primary">
+					<div class="panel-body well mrgn-bttm-0">				
+						<p class="checker">Accessibility at your fingertips</p>
+						<style type="text/css">
+.checker {						
+  border: 2px solid black;
+  background: #aa061a;
+  jmargin: auto;  
+  padding: 20px;
+  padding-top:10px;
+  text-align: center;
+  text-shadow: 5px 5px 5px #620915;
+  font-size:45px;
+  font-family: Time new roman, serif;
+  color:white;
+}						
+						</style>
+					</div>
+				</div>
+				<div style="padding-top: 1em">
+					<p class="wb-inv">Code begins</p>
+ <pre><code class="language-css">&lt;p class="checker"&gt;Accessibility at your fingertips&lt;/p&gt;
+
+.checker {
+  border: 2px solid black;
+  background: #aa061a;
+  margin: auto;  
+  padding: 20px;
+  padding-top:10px;
+  text-align: center;
+  text-shadow: 5px 5px 5px #620915;
+  font-size:45px;
+  color:white;
+}</code></pre>
+					<p class="wb-inv">Code ends</p>
+				</div>
+			</div>
+		</div>
 		<h3 class="">Bad Example: Image of text </h3>
 		<p>Avoid images of text unless they are essential (like a logo) or customizable. In the example below, three links nest images of text.</p>
 		<img src="images/image28.png" class="img-responsive" alt="">
@@ -108,55 +136,146 @@
 	<section>
 		<h2 id="math">Mathematical expressions</h2>
 
-		<h2>Designing with mathematical expressions</h2>
-		<p><mark>Heading levels are wrong</mark></p>
+		<h3>Designing with mathematical expressions</h3>
+		
 		<p>HTML lacks markup for mathematical expressions as structures, and there is no simple way to produce anything essentially two-dimen­sion­al beyond superscripting or subscripting.</p>
 		<p>There are two approaches:</p>
 		<ul>
 			<li>Use an image with alt text or long description describing the math expression.</li>
 			<li>Tag the math expression semantically in MathML and use a JavaScript math library.</li>
 		</ul>
-		<h3 class="">Approach 1: Use an image with alt text describing the math expression</h3>
+		<h4 class="">Approach 1: Use an image with alt text describing the math expression</h4>
 		<p>Images of math expressions should only be used when math is an exception to the regular content of the website. In these cases, the &lt;img&gt; element’s alt attribute value should communicate the math expression, unless more than 150 characters is required, in which case a long description should be used.In the example below, the image displays a recurring decimal number and the alt text is “zero point one, recurring”</p>
-		<img src="images/image2e.png" class="img-responsive" alt=":zero point one, recurring">
-		<p>CODE SNIPPET:</p>
-		<p>&lt;img src="recurring.png" alt="zero point one, recurring"&gt;</p>
-		<h3 class="">Approach 2: Use MathML </h3>
+		<div class="panel panel-primary">
+			<div class="panel-body well mrgn-bttm-0">
+				<img src="images/image2e.png" class="img-responsive" alt="zero point one, recurring">
+			</div>
+		</div>
+		<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;img src="recurring.png" alt="zero point one, recurring"&gt;</code></pre>
+		<p class="wb-inv">Code ends</p>
+		
+		<h4 class="">Approach 2: Use MathML </h4>
 		<p>The preferred method for capturing math expressions as semantic, accessible content is with the markup language MathML. MathML markup allows user agents to determine the structure of math expressions in a machine-readable way. </p>
 		<p>Most web browsers need plugins to render MathML correctly for presentation, such as the open-source <a href="http://www.mathjax.org/">MathJax</a> library, which provides support for display and additional <a href="https://docs.mathjax.org/en/latest/basic/accessibility.html">accessibility features</a>. JavaScript math libraries commonly support math expressions written in Tex and LaTeX and AsciiMath, not just MathML.</p>
 		<p>In the example below, MathML communicates a math expression with semantic markup and proper syntax to assistive technologies like screen readers. MathJax renders it for the screen with the correct typesetting.</p>
-		<img src="images/image2f.png" class="img-responsive" alt="">
-		<p>&lt;head&gt;</p>
-		<p>[…]</p>
-		<p>&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"&gt;&lt;/script&gt;</p>
-		<p>&lt;/head&gt;</p>
-		<p>&lt;body&gt;</p>
-		<p>     &lt;math display="block" xmlns="http://www.w3.org/1998/Math/MathML"&gt;</p>
-		<p>&lt;mrow&gt;    &lt;mi&gt;E&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mfrac&gt;&lt;mrow&gt;     &lt;mn&gt;2&lt;/mn&gt;&lt;mi&gt;π&lt;/mi&gt;&lt;mi&gt;h&lt;/mi&gt;    &lt;msup&gt;          &lt;mi&gt;c&lt;/mi&gt;          &lt;mn&gt;2&lt;/mn&gt;    &lt;/msup&gt;&lt;/mrow&gt;&lt;mrow&gt;      &lt;msup&gt;      &lt;mi&gt;λ&lt;/mi&gt;      &lt;mn&gt;5&lt;/mn&gt;      &lt;/msup&gt;         &lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;         &lt;mrow&gt;              &lt;msup&gt;              &lt;mi&gt;e&lt;/mi&gt;                  &lt;mrow&gt;                  &lt;mi&gt;h&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;λ&lt;/mi&gt;                  &lt;msub&gt;                        &lt;mi&gt;k&lt;/mi&gt;                        &lt;mi&gt;b&lt;/mi&gt;                  &lt;/msub&gt;                  &lt;mi&gt;T&lt;/mi&gt;         &lt;/mrow&gt;        &lt;/msup&gt;         &lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;/mrow&gt;</p>
-		<p>      &lt;/math&gt;</p>
-		<p>&lt;/body&gt;</p>
-		<p>Source: <a href="https://accessibility.psu.edu/math/mathmltest/">https://accessibility.psu.edu/math/mathmltest/</a></p>
+		<!-- <img src="images/image2f.png" class="img-responsive" alt=""> -->
+		
+		<div class="panel panel-primary">
+			<div class="panel-body well mrgn-bttm-0">
+			   <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+				  <mrow>
+					 <mi>E</mi><mo>=</mo>
+					 <mfrac>
+						<mrow>
+						   <mn>2</mn><mi>π</mi><mi>h</mi>
+						   <msup>
+							  <mi>c</mi>
+							  <mn>2</mn>
+						   </msup>
+						</mrow>
+						<mrow>
+						   <msup>
+							  <mi>λ</mi>
+							  <mn>5</mn>
+						   </msup>
+						   <mrow>
+							  <mo>(</mo>
+							  <mrow>
+								 <msup>
+									<mi>e</mi>
+									<mrow>              
+										<mi>h</mi><mi>c</mi><mo>−</mo><mi>λ</mi>
+										<msub>
+										   <mi>k</mi>
+										   <mi>b</mi>
+										</msub>
+										<mi>T</mi>
+									</mrow>
+								  </msup>                      
+								  <mo>−</mo><mn>1</mn>
+							   </mrow>
+							  <mo>)</mo>
+						   </mrow>
+						</mrow>
+					 </mfrac>
+				  </mrow>                                                   
+			   </math>		
+			</div>
+		</div>
+		
+		<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;head&gt;
+	[…]
+	&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;math display="block" xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+      &lt;mrow&gt;
+         &lt;mi&gt;E&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;
+         &lt;mfrac&gt;
+            &lt;mrow&gt;
+               &lt;mn&gt;2&lt;/mn&gt;&lt;mi&gt;π&lt;/mi&gt;&lt;mi&gt;h&lt;/mi&gt;
+               &lt;msup&gt;
+                  &lt;mi&gt;c&lt;/mi&gt;
+                  &lt;mn&gt;2&lt;/mn&gt;
+               &lt;/msup&gt;
+            &lt;/mrow&gt;
+            &lt;mrow&gt;
+               &lt;msup&gt;
+                  &lt;mi&gt;λ&lt;/mi&gt;
+                  &lt;mn&gt;5&lt;/mn&gt;
+               &lt;/msup&gt;
+               &lt;mrow&gt;
+                  &lt;mo&gt;(&lt;/mo&gt;
+                  &lt;mrow&gt;
+                     &lt;msup&gt;
+                        &lt;mi&gt;e&lt;/mi&gt;
+                        &lt;mrow&gt;              
+                            &lt;mi&gt;h&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;λ&lt;/mi&gt;
+                            &lt;msub&gt;
+                               &lt;mi&gt;k&lt;/mi&gt;
+                               &lt;mi&gt;b&lt;/mi&gt;
+                            &lt;/msub&gt;
+                            &lt;mi&gt;T&lt;/mi&gt;
+                        &lt;/mrow&gt;
+                      &lt;/msup&gt;                      
+                      &lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;
+                   &lt;/mrow&gt;
+                  &lt;mo&gt;)&lt;/mo&gt;
+               &lt;/mrow&gt;
+            &lt;/mrow&gt;
+         &lt;/mfrac&gt;
+      &lt;/mrow&gt;                                                   
+   &lt;/math&gt;</code></pre>
+		<p class="wb-inv">Code ends</p>		
+		
+		<hr/>
+		<p class="small">Source: <a href="https://accessibility.psu.edu/math/mathmltest/">https://accessibility.psu.edu/math/mathmltest/</a></p>
 	</section>
 	<section>
-		<h2 id="wcag">Related WCAG resources</h2>
-		<h3 class="">Success Criteria</h3>
-		<ul>
-			<li>
-				<a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a>
-			</li>
-			<li>
-				<a href="https://www.w3.org/WAI/WCAG21/Understanding/images-of-text.html">1.4.5: Images of Text</a>
-			</li>
-		</ul>
-		<h3 class="">Techniques</h3>
-		<ul>
-			<li>
-				<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C22">C22: Using CSS to control visual presentation of text</a>
-			</li>
-			<li>
-				<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G94">G94: Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content</a>
-			</li>
-		</ul>
+		<h2 class="wb-inv" id="wcag">Related WCAG resources</h2>
+		<details class="mrgn-tp-lg">
+			<summary class="bg-info">Related WCAG resources</summary>
+			<h3 class="">Success Criteria</h3>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Understanding/images-of-text.html">1.4.5: Images of Text</a>
+				</li>
+			</ul>
+			<h3 class="">Techniques</h3>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C22">C22: Using CSS to control visual presentation of text</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G94">G94: Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content</a>
+				</li>
+			</ul>
+		</details>
 	</section>
 			
 	<nav role="navigation" >
