@@ -90,12 +90,12 @@
 
 				
 				<ul>
-        <li>The enclosing sentence</li>
+					<li>The enclosing sentence</li>
 					<li>The enclosing list item</li>
 					<li>The enclosing paragraph</li>
 					<li>The enclosing table cell and table header cell</li>
 					<li>The parent list item of a nested list (example follows)</li>
-					</ul>
+				</ul>
 				
 	
 				<div class="alert alert-danger"><p>Do not use information-empty link text such as &ldquo;<q>click here</q>&rdquo; or &ldquo;<q>Read More</q>&rdquo; etc. </p></div>
@@ -109,12 +109,20 @@
 				
 				<h3>Link vs Button</h3>
 				<p>Developers frequently confuse the link and button roles, passing the confusion on to screen reader users. Users expect links to navigate (across pages or within a page), and buttons to trigger a local effect (or submit a form). A screen reader user can be disorientated when activating a button and instead navigating to a new page, or when activating a link and instead interpreting a local button effect. </p>
-				<h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad Example: Vague link text</h3>
-				<p>In this example, the link text &ldquo;<q>how much</q>&rdquo;communicates nothing useful:</p>
-				<blockquote>
-					<p>A Food Guide Serving is simply a reference amount. It helps you understand <a href="http://www.hc-sc.gc.ca/fn-an/food-guide-aliment/basics-base/quantit-eng.php">how much</a> food is recommended every day from each of the four food groups. In some cases, a Food Guide Serving may be close to what you eat, such as an apple. In other cases, such as rice or pasta, you may serve yourself more than one Food Guide Serving.</p>
-				</blockquote>
 				
+				<div class="panel panel-danger">
+					<div class="panel-body">
+						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad Example: Vague link text</h3>
+						<p>In this example, the link text &ldquo;<q>how much</q>&rdquo;communicates nothing useful:</p>
+						<div class="panel panel-primary">
+							<div class="panel-body well mrgn-bttm-0">	
+								<blockquote>
+									<p>A Food Guide Serving is simply a reference amount. It helps you understand <a href="http://www.hc-sc.gc.ca/fn-an/food-guide-aliment/basics-base/quantit-eng.php">how much</a> food is recommended every day from each of the four food groups. In some cases, a Food Guide Serving may be close to what you eat, such as an apple. In other cases, such as rice or pasta, you may serve yourself more than one Food Guide Serving.</p>
+								</blockquote>
+							</div>
+						</div>
+					</div>
+				</div>
 				<div class="panel panel-success">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Descriptive link text</h3>
@@ -137,15 +145,17 @@
 						<p>In this example, the visible link text &ldquo;<q>Access</q>&rdquo; is repeated for each resource. When there's no avoiding duplicated, visible link text, you can distinguish each instance with the <code>aria-label</code> attribute.</p>
 						<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;h1&gt;Tools and resources&lt;/h1&gt;
+
 &lt;h2&gt;Planning Accessible Virtual Events – Job Aid&lt;/h2&gt;
 &lt;p&gt;[Description of the resource]&lt;/p&gt;
 &lt;p&gt;
-	&lt;a href="[...]" aria-label="Access Planning Accessible Virtual Events – Job Aid"&gt;Access&lt;/a&gt;
+   &lt;a href="[...]" aria-label="Access Planning Accessible Virtual Events – Job Aid"&gt;Access&lt;/a&gt;
 &lt;/p&gt;
+
 &lt;h2&gt;Employees with Disabilities Network (EwDN)&lt;/h2&gt;
 &lt;p&gt;[Description of the resource]&lt;/p&gt;
 &lt;p&gt;
-	&lt;a href="[...]" aria-label="Access Employees with Disabilities Network"&gt;Access&lt;/a&gt;
+   &lt;a href="[...]" aria-label="Access Employees with Disabilities Network"&gt;Access&lt;/a&gt;
 &lt;/p&gt;</code>
 </pre>
 						<p class="wb-inv">Code ends</p>
@@ -161,15 +171,17 @@
 						</div>
 						<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;h1&gt;Tools and resources&lt;/h1&gt;
+
 &lt;h2 id="planning-virtual"&gt;Planning Accessible Virtual Events – Job Aid&lt;/h2&gt;
 &lt;p&gt;[Description of the resource]&lt;/p&gt;
 &lt;p&gt;
-	&lt;a id="linktext" href="[...]" aria-labelledby="linktext planning-virtual"&gt;Access&lt;/a&gt;
+   &lt;a id="linktext" href="[...]" aria-labelledby="linktext planning-virtual"&gt;Access&lt;/a&gt;
 &lt;/p&gt;
+
 &lt;h2 id="ewdn"&gt;Employees with Disabilities Network (EwDN)&lt;/h2&gt;
 &lt;p&gt;[Description of the resource]&lt;/p&gt;
 &lt;p&gt;
-	&lt;a href="[...]" aria-labelledby="linktext ewdn"&gt;Access&lt;/a&gt;
+   &lt;a href="[...]" aria-labelledby="linktext ewdn"&gt;Access&lt;/a&gt;
 &lt;/p&gt;</code>
 </pre>
 						<p class="wb-inv">Code ends</p>
@@ -181,30 +193,32 @@
 						<p>In this example, the duplicated link text &ldquo;<q>Access</q>&rdquo; is extended with text that’s been visually-hidden using the CSS "clip" method. The text is invisible, but it’s still in the HTML and so is encountered by assistive technology.</p>
 						<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;h1&gt;Tools and resources&lt;/h1&gt;
+
 &lt;h2&gt;Planning Accessible Virtual Events – Job Aid&lt;/h2&gt;
 &lt;p&gt;[Description of the resource]&lt;/p&gt;
 &lt;p&gt;
-	&lt;a href="[...]"&gt;
-		Access
-		&lt;span class="wb-inv"&gt;Planning Accessible Virtual Events – Job Aid&lt;/span&gt;
-	&lt;/a&gt;
+   &lt;a href="[...]"&gt;
+      Access
+      &lt;span class="wb-inv"&gt;Planning Accessible Virtual Events – Job Aid&lt;/span&gt;
+   &lt;/a&gt;
 &lt;/p&gt;
+
 &lt;h2&gt;Employees with Disabilities Network (EwDN)&lt;/h2&gt;
 &lt;p&gt;[Description of the resource]&lt;/p&gt;
 &lt;p&gt;
-	&lt;a href="[...]"&gt;
-		Access
-		&lt;span class="wb-inv"&gt;Access Employees with Disabilities Network&lt;/span&gt;
-	&lt;/a&gt;
+   &lt;a href="[...]"&gt;
+      Access
+      &lt;span class="wb-inv"&gt;Access Employees with Disabilities Network&lt;/span&gt;
+   &lt;/a&gt;
 &lt;/p&gt;</code>
 </pre>
 <pre><code class="language-css">.wb-inv {
-	clip: rect(1px,1px,1px,1px);
-	height: 1px;
-	margin: 0;
-	overflow: hidden;
-	position: absolute;
-	width: 1px;
+   clip: rect(1px,1px,1px,1px);
+   height: 1px;
+   margin: 0;
+   overflow: hidden;
+   position: absolute;
+   width: 1px;
 }</code>
 </pre>
 						<p class="wb-inv">Code ends</p>
@@ -342,16 +356,30 @@
 					<li>Always avoid styles that remove or limit the visibility of keyboard focus indicators. The browser default visual focus indicator can be removed with CSS <code>outline:0</code> or <code>outline: none</code>, which is a common barrier and anti-pattern. </li>
 					<li>It's best practice to use CSS to design a highly-visible focus indicator with strong contrast.</li>
 				</ul>
-				
-				<h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Visual focus indicator is removed</h3>
-				<p>All browsers display a visible outline around the element that currently has keyboard focus, which can be disabled using the <code>outline: 0</code> or <code>outline: none</code> CSS property. If the visual focus indicator is removed, sighted keyboard users will have no idea which link has the focus, making it difficult or impossible to navigate the web page.</p>
-				<p>A link to <a href="http://www.google.ca">Google</a></p>
-				<pre><code class="language-html">&lt;style&gt; 
+				<div class="panel panel-danger">
+					<div class="panel-body">
+						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Visual focus indicator is removed</h3>
+						<p>All browsers display a visible outline around the element that currently has keyboard focus, which can be disabled using the <code>outline: 0</code> or <code>outline: none</code> CSS property. If the visual focus indicator is removed, sighted keyboard users will have no idea which link has the focus, making it difficult or impossible to navigate the web page.</p>
+						<div class="panel panel-primary">
+							<div class="panel-body well mrgn-bttm-0">
+								<p>A link to <a href="http://www.google.ca" id="google">Google</a></p>
+								<style type="text/css">
+									a#google:focus {
+										outline:none;
+									}
+								</style>
+							</div>
+						</div>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;style&gt; 
 a:focus {
 	outline: none;
 }
 &lt;/style&gt;</code>
 </pre>
+						<p class="wb-inv">Code ends</p>
+					</div>
+				</div>
 				<div class="panel panel-success">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Canada.ca visual focus indicator</h3>
