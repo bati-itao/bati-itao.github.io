@@ -70,7 +70,7 @@
         </header>
         <div class="panel-body">
           <ul>
-			  <li><a href="#avoid">Avoiding images of text<</a></li>
+			  <li><a href="#avoid">Avoiding images of text</a></li>
               <li><a href="#math">Mathematical expressions</a></li>
               <li><a href="#wcag">Related WCAG resources</a></li>
           </ul>
@@ -83,25 +83,51 @@
 		<p>Les images de texte sont plus susceptibles de se déformer et de pixéliser lorsqu’elles sont redimensionnées, et elles peuvent être problématiques pour les utilisateurs d’appareils mobiles et les utilisateurs malvoyants. Dans les situations où des images de texte doivent être utilisées, l’équivalent textuel doit contenir le même texte que celui présenté dans l’image.</p>
 		<p>Il est recommandé d’utiliser du texte réel, formaté et stylé avec des feuilles de style en cascades pour s’adapter au concept plutôt qu’une image de texte. Le texte réel peut être modifié et redimensionné sans perdre de clarté en fonction des préférences de lecture des utilisateurs, et il est plus souple à utiliser que les images.  </p>
 		<p>À moins que le texte sous forme d’image soit essentiel ou personnalisable, les images ne doivent pas comporter de texte informatif. Le texte faisant partie d’un logo ou d’un nom de marque est considéré comme essentiel.</p>
-		<h3 class="">Exemple type : Texte stylé avec des feuilles de style en cascades (CSS)</h3>
-		<p>Dans cet exemple, on utilise du texte réel stylé avec des feuilles de style en cascades plutôt qu’une image de texte. Les propriétés CSS sont entièrement responsables du style, de l’espacement et de la mise en page des polices et du texte.</p>
-		<img src="images/image26.png" class="img-responsive" alt="">
-		<p>Code snippet:</p>
-		<p>&lt;h5 class="checker"&gt;L’accessibilité au bout des doigts&lt;/h5&gt;</p>
-		<p>CSS:</p>
-		<p>.checker {</p>
-		<p>  border: 2px solid black;</p>
-		<p>  background: #aa061a;</p>
-		<p>  outline: #4CAF50 solid 10px;</p>
-		<p>  margin: auto;  </p>
-		<p>  padding: 20px;</p>
-		<p>  padding-top:10px;</p>
-		<p>  text-align: center;</p>
-		<p>  text-shadow: 5px 5px 5px #620915;</p>
-		<p>  font-size:50px;</p>
-		<p>  color:white;</p>
-		<p>}</p>
+		<div class="panel panel-success">
+			<div class="panel-body">
+				<h3 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Exemple type : Texte stylé avec des feuilles de style en cascades (CSS)</h3>
+				
+				<p>Dans cet exemple, on utilise du texte réel stylé avec des feuilles de style en cascades plutôt qu’une image de texte. Les propriétés CSS sont entièrement responsables du style, de l’espacement et de la mise en page des polices et du texte.</p>
+				<!-- <img src="images/image26.png" class="img-responsive" alt=""> -->
 		
+				<div class="panel panel-primary">
+					<div class="panel-body well mrgn-bttm-0">				
+						<p class="checker">Accessibility at your fingertips</p>
+						<style type="text/css">
+.checker {						
+  border: 2px solid black;
+  background: #aa061a;
+  jmargin: auto;  
+  padding: 20px;
+  padding-top:10px;
+  text-align: center;
+  text-shadow: 5px 5px 5px #620915;
+  font-size:45px;
+  font-family: Time new roman, serif;
+  color:white;
+}						
+						</style>
+					</div>
+				</div>
+				<div style="padding-top: 1em">
+					<p class="wb-inv">Code begins</p>
+ <pre><code class="language-css">&lt;p class="checker"&gt;Accessibility at your fingertips&lt;/p&gt;
+
+.checker {
+  border: 2px solid black;
+  background: #aa061a;
+  margin: auto;  
+  padding: 20px;
+  padding-top:10px;
+  text-align: center;
+  text-shadow: 5px 5px 5px #620915;
+  font-size:45px;
+  color:white;
+}</code></pre>
+					<p class="wb-inv">Code ends</p>
+				</div>
+			</div>
+		</div>
 		<div class="panel panel-danger">
 			<div class="panel-body">
 				<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais exemple : Image de texte </h3>
@@ -115,33 +141,121 @@
 	<section>
 		<h2 id="math">Expressions mathématiques</h2>
 
-		<h2>Designing with mathematical expressions</h2>
-		<p><mark>Heading levels are wrong</mark></p>
+		<h3>Designing with mathematical expressions</h3>
 		<p>Le langage HTML ne comporte pas de balises pour les expressions mathématiques en tant que structures, et il n’existe aucun moyen simple de produire des éléments essentiellement bidimensionnels au-delà de la mise en indice supérieur ou de la mise en indice.</p>
 		<p>Il existe deux stratégies :</p>
 		<ul>
 			<li>Utiliser une image avec texte de remplacement ou une longue description de l’expression mathématique.</li>
-			<li>Étiqueter l’expression mathématique sémantiquement dans MathML et utiliser une bibliothèque mathématique JavaScript.</li>
+			<li>Étiqueter l’expression mathématique sémantiquement dans MathML et utiliser une bibliothèque mathématique JavaScript.</li>
 		</ul>
-		<h3 class="">Stratégie 1 : Utiliser une image avec texte de remplacement décrivant l’expression mathématique</h3>
+		<h4 class="">Stratégie 1 : Utiliser une image avec texte de remplacement décrivant l’expression mathématique</h4>
 		<p>Les images d’expressions mathématiques ne doivent être utilisées que lorsque les mathématiques font exception au contenu ordinaire du site Web. Dans ce cas, la valeur de l’attribut alt de l’élément &lt;img&gt; doit communiquer l’expression mathématique, sauf si plus de 150 caractères sont requis, auquel cas il faut utiliser une description longue.Dans l’exemple ci-dessous, l’image affiche un nombre décimal récurrent et le texte de remplacement est « zéro point un, récurrent »</p>
-		<img src="images/image2e.png" class="img-responsive" alt=":zéro point un, récurrent">
-		<p>CODE SNIPPET:</p>
-		<p>&lt;img src="recurring.png" alt="zéro point un, récurrent"&gt;</p>
-		<h3 class="">Stratégie 2 : Utiliser MathML </h3>
+		<div class="panel panel-primary">
+			<div class="panel-body well mrgn-bttm-0">
+				<img src="images/image2e.png" class="img-responsive" alt=":zéro point un, récurrent">
+			</div>
+		</div>
+		<p class="wb-inv">Code begins</p>
+		<pre><code class="language-html">&lt;img src="recurring.png" alt="zéro point un, récurrent"&gt;</code></pre>
+		<p class="wb-inv">Code ends</p>
+		
+		<h4 class="">Stratégie 2 : Utiliser MathML </h4>
 		<p>La méthode privilégiée pour saisir des expressions mathématiques en tant que contenu sémantique et accessible est le langage de balisage MathML. Le balisage MathML permet aux agents utilisateurs de déterminer la structure des expressions mathématiques d’une façon lisible par machine. </p>
 		<p>La plupart des navigateurs Web ont besoin de modules d’extension pour bien rendre MathML aux fins de présentation, comme la bibliothèque  <a href="http://www.mathjax.org/">MathJax</a> de source ouverte, qui offre un soutien pour l’affichage et d’autres <a href="https://docs.mathjax.org/en/latest/basic/accessibility.html">fonctions d’accessibilité</a>. Les bibliothèques de mathématiques de JavaScript prennent généralement en charge les expressions mathématiques rédigées en Tex et LaTeX et AsciiMath, pas seulement MathML.</p>
 		<p>Dans l’exemple ci-dessous, MathML communique une expression mathématique avec un balisage sémantique et une syntaxe adaptée aux technologies d’assistance comme les lecteurs d’écran. MathJax offre un bon rendu pour l’écran avec la composition appropriée.</p>
-		<img src="images/image2f.png" class="img-responsive" alt="">
-		<p>&lt;head&gt;</p>
-		<p>[…]</p>
-		<p>&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"&gt;&lt;/script&gt;</p>
-		<p>&lt;/head&gt;</p>
-		<p>&lt;body&gt;</p>
-		<p>     &lt;math display="block" xmlns="http://www.w3.org/1998/Math/MathML"&gt;</p>
-		<p>&lt;mrow&gt;    &lt;mi&gt;E&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mfrac&gt;&lt;mrow&gt;     &lt;mn&gt;2&lt;/mn&gt;&lt;mi&gt;π&lt;/mi&gt;&lt;mi&gt;h&lt;/mi&gt;    &lt;msup&gt;          &lt;mi&gt;c&lt;/mi&gt;          &lt;mn&gt;2&lt;/mn&gt;    &lt;/msup&gt;&lt;/mrow&gt;&lt;mrow&gt;      &lt;msup&gt;      &lt;mi&gt;λ&lt;/mi&gt;      &lt;mn&gt;5&lt;/mn&gt;      &lt;/msup&gt;         &lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;         &lt;mrow&gt;              &lt;msup&gt;              &lt;mi&gt;e&lt;/mi&gt;                  &lt;mrow&gt;                  &lt;mi&gt;h&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;λ&lt;/mi&gt;                  &lt;msub&gt;                        &lt;mi&gt;k&lt;/mi&gt;                        &lt;mi&gt;b&lt;/mi&gt;                  &lt;/msub&gt;                  &lt;mi&gt;T&lt;/mi&gt;         &lt;/mrow&gt;        &lt;/msup&gt;         &lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;/mrow&gt;</p>
-		<p>      &lt;/math&gt;</p>
-		<p>&lt;/body&gt;</p>
+		<!-- <img src="images/image2f.png" class="img-responsive" alt=""> -->
+		
+		<div class="panel panel-primary">
+			<div class="panel-body well mrgn-bttm-0">
+			   <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+				  <mrow>
+					 <mi>E</mi><mo>=</mo>
+					 <mfrac>
+						<mrow>
+						   <mn>2</mn><mi>π</mi><mi>h</mi>
+						   <msup>
+							  <mi>c</mi>
+							  <mn>2</mn>
+						   </msup>
+						</mrow>
+						<mrow>
+						   <msup>
+							  <mi>λ</mi>
+							  <mn>5</mn>
+						   </msup>
+						   <mrow>
+							  <mo>(</mo>
+							  <mrow>
+								 <msup>
+									<mi>e</mi>
+									<mrow>              
+										<mi>h</mi><mi>c</mi><mo>−</mo><mi>λ</mi>
+										<msub>
+										   <mi>k</mi>
+										   <mi>b</mi>
+										</msub>
+										<mi>T</mi>
+									</mrow>
+								  </msup>                      
+								  <mo>−</mo><mn>1</mn>
+							   </mrow>
+							  <mo>)</mo>
+						   </mrow>
+						</mrow>
+					 </mfrac>
+				  </mrow>                                                   
+			   </math>		
+			</div>
+		</div>
+		
+		<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">
+	&lt;head&gt;
+	[…]
+	&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;math display="block" xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+      &lt;mrow&gt;
+         &lt;mi&gt;E&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;
+         &lt;mfrac&gt;
+            &lt;mrow&gt;
+               &lt;mn&gt;2&lt;/mn&gt;&lt;mi&gt;π&lt;/mi&gt;&lt;mi&gt;h&lt;/mi&gt;
+               &lt;msup&gt;
+                  &lt;mi&gt;c&lt;/mi&gt;
+                  &lt;mn&gt;2&lt;/mn&gt;
+               &lt;/msup&gt;
+            &lt;/mrow&gt;
+            &lt;mrow&gt;
+               &lt;msup&gt;
+                  &lt;mi&gt;λ&lt;/mi&gt;
+                  &lt;mn&gt;5&lt;/mn&gt;
+               &lt;/msup&gt;
+               &lt;mrow&gt;
+                  &lt;mo&gt;(&lt;/mo&gt;
+                  &lt;mrow&gt;
+                     &lt;msup&gt;
+                        &lt;mi&gt;e&lt;/mi&gt;
+                        &lt;mrow&gt;              
+                            &lt;mi&gt;h&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;λ&lt;/mi&gt;
+                            &lt;msub&gt;
+                               &lt;mi&gt;k&lt;/mi&gt;
+                               &lt;mi&gt;b&lt;/mi&gt;
+                            &lt;/msub&gt;
+                            &lt;mi&gt;T&lt;/mi&gt;
+                        &lt;/mrow&gt;
+                      &lt;/msup&gt;                      
+                      &lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;
+                   &lt;/mrow&gt;
+                  &lt;mo&gt;)&lt;/mo&gt;
+               &lt;/mrow&gt;
+            &lt;/mrow&gt;
+         &lt;/mfrac&gt;
+      &lt;/mrow&gt;                                                   
+   &lt;/math&gt;</code></pre>
+		<p class="wb-inv">Code ends</p>		
+		
+		<hr/>
 		<p>Source: <a href="https://accessibility.psu.edu/math/mathmltest/">https://accessibility.psu.edu/math/mathmltest/</a></p>
 	</section>
 	<section>
