@@ -524,23 +524,26 @@
 				<p>L’utilisation d’une valeur d’attribut <code>tabindex</code> supérieure à&nbsp;0 est considérée comme un anti-pattern.</p>
 				<p>Tout <code>tabindex</code> supérieur à 0 fait passer l’élément à l'avant de l’ordre naturel des onglets. S’il y a plusieurs éléments dont le <code>tabindex</code> est supérieur à&nbsp;0, l’ordre des onglets commence à partir de la valeur la plus faible supérieure à zéro et progresse. </p>
 				<p>Les valeurs positives des <code>tabindex</code> créent souvent un flux contre-intuitif pour les utilisateurs du clavier. Si vous voulez qu’un élément se retrouve plus tôt dans l’ordre des onglets, déplacez-le à un endroit plus tôt dans le DOM au lieu de fixer une valeur positive de <code>tabindex</code></p>
-				
-				<h4 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<id="bad-example">Mauvais exemple&nbsp;: Conception de page avec valeurs positives de tabindex</h4>
-				
-				<p>L’ordre des onglets lorsque l’utilisateur clique sur la page est le suivant&nbsp;:</p>
-				<ul>
-					<li>Le champ “Going to” (<code>tabindex="1"</code>)</li>
-					<li>Le champ “Check-in” (<code>tabindex="2"</code>)</li>
-					<li>Le champ “Check-out" (<code>tabindex="3"</code>)</li>
-					<li>Un objet mystère sans fonctionnalité et sans indicateur de cible visible (<code>tabindex="4"</code>)</li>
-					<li>“More travel”, puis suit l’ordre naturel des onglets (<code>tabindex="0"</code>).</li>
-				</ul>
-				<img src="images/image7.png" class="img-responsive" alt="Screenshot showing the tab order on a page">
-				<p><mark>Alt text needs to be translated</mark></p>
-				
-				<p>Le <code>tabindex</code> positif est établi sur seulement quatre éléments de la page “Carnival”. Après avoir parcouru les valeurs tabindex positives, les utilisateurs du clavier sont renvoyés au haut de l’écran, à la première commande ciblable sur la page, au début de l’ordre naturel des onglets.</p>
-				<p>Un élément visuellement caché se trouve dans l’ordre des onglets sur la page, ce qui produit une cible «&nbsp;mystère&nbsp;» qui peut créer de la confusion. Si un élément est masqué visuellement, il ne doit pas être dans l’ordre des onglets.</p>
-				<p>Évitez d’utiliser des valeurs <code>tabindex</code> supérieures à&nbsp;0. Rédigez plutôt le document avec les éléments dans un ordre logique. S’assurer que l’ordre du code source (DOM) correspond à l’ordre visuel afin d'éviter toute confusion chez les utilisateurs de technologie d’assistance.</p>
+				<div class="panel panel-danger">
+					<div class="panel-body">	
+						<h4 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais exemple&nbsp;: Conception de page avec valeurs positives de tabindex</h4>
+						
+						<p>L’ordre des onglets lorsque l’utilisateur clique sur la page est le suivant&nbsp;:</p>
+						<ul>
+							<li>Le champ “Going to” (<code>tabindex="1"</code>)</li>
+							<li>Le champ “Check-in” (<code>tabindex="2"</code>)</li>
+							<li>Le champ “Check-out" (<code>tabindex="3"</code>)</li>
+							<li>Un objet mystère sans fonctionnalité et sans indicateur de cible visible (<code>tabindex="4"</code>)</li>
+							<li>“More travel”, puis suit l’ordre naturel des onglets (<code>tabindex="0"</code>).</li>
+						</ul>
+						<img src="images/image7.png" class="img-responsive" alt="Screenshot showing the tab order on a page">
+						<p><mark>Alt text needs to be translated</mark></p>
+						
+						<p>Le <code>tabindex</code> positif est établi sur seulement quatre éléments de la page “Carnival”. Après avoir parcouru les valeurs tabindex positives, les utilisateurs du clavier sont renvoyés au haut de l’écran, à la première commande ciblable sur la page, au début de l’ordre naturel des onglets.</p>
+						<p>Un élément visuellement caché se trouve dans l’ordre des onglets sur la page, ce qui produit une cible «&nbsp;mystère&nbsp;» qui peut créer de la confusion. Si un élément est masqué visuellement, il ne doit pas être dans l’ordre des onglets.</p>
+						<p>Évitez d’utiliser des valeurs <code>tabindex</code> supérieures à&nbsp;0. Rédigez plutôt le document avec les éléments dans un ordre logique. S’assurer que l’ordre du code source (DOM) correspond à l’ordre visuel afin d'éviter toute confusion chez les utilisateurs de technologie d’assistance.</p>
+					</div>
+				</div>
 				
 		<h3 class="wb-inv">Ressources WCAG connexes</h3>
 

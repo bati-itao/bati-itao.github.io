@@ -104,14 +104,22 @@
 				</ul>
 				<h3>Lien et bouton</h3>
 				<p>Les développeurs confondent souvent les rôles des liens et des boutons, ce qui transmet la confusion aux utilisateurs des lecteurs d’écran. Les utilisateurs s’attendent à ce que les liens naviguent (d’une page à l’autre ou à l’intérieur d’une page) et à ce que les boutons déclenchent un effet local (ou soumettent un formulaire). L’utilisateur d’un lecteur d’écran peut être désorienté lorsqu’il active un bouton et navigue plutôt vers une nouvelle page ou lorsqu’il active un lien et interprète plutôt un effet de bouton local. </p>
-				<h3 class="text-danger">
-					<span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais exemple : Texte vague du lien
-				</h3>
-				<p>Dans cet exemple, le texte du lien «&nbsp;la quantité&nbsp;» ne communique rien d’utile&nbsp;:</p>
-				<blockquote>
-					<p>Une portion du Guide alimentaire est simplement une quantité de référence. Elle vous aide à comprendre <a href="https://guide-alimentaire.canada.ca/fr/">la quantité</a> recommandée chaque jour pour les quatre groupes alimentaires. Dans certains cas, une portion du Guide alimentaire peut se rapprocher de ce que vous mangez, comme une pomme. Dans d’autres cas, comme le riz ou les pâtes, vous pouvez vous servir davantage que la portion du Guide alimentaire.</p>
-				</blockquote>
 				
+				<div class="panel panel-danger">
+					<div class="panel-body">
+						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais exemple : Texte vague du lien
+						</h3>
+						<p>Dans cet exemple, le texte du lien «&nbsp;la quantité&nbsp;» ne communique rien d’utile&nbsp;:</p>
+						
+						<div class="panel panel-primary">
+							<div class="panel-body well mrgn-bttm-0">
+								<blockquote>
+									<p>Une portion du Guide alimentaire est simplement une quantité de référence. Elle vous aide à comprendre <a href="https://guide-alimentaire.canada.ca/fr/">la quantité</a> recommandée chaque jour pour les quatre groupes alimentaires. Dans certains cas, une portion du Guide alimentaire peut se rapprocher de ce que vous mangez, comme une pomme. Dans d’autres cas, comme le riz ou les pâtes, vous pouvez vous servir davantage que la portion du Guide alimentaire.</p>
+								</blockquote>
+							</div>
+						</div>
+					</div>
+				</div>
 				<div class="panel panel-success">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0">
@@ -348,20 +356,30 @@
 					<li>Sa pratique exemplaire consiste à utiliser CSS pour concevoir un indicateur de cible très visible avec un fort contraste.</li>
 				</ul>				
 				
-				
-				<h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais exemple&nbsp;: Suppression de l’indicateur visuel de la cible</h3>
-				<p>All browsers display a visible outline around the element that currently has keyboard focus, which can be disabled using the <code>outline: 0</code> or <code>outline: none</code> CSS property. If the visual focus indicator is removed, sighted keyboard users will have no idea which link has the focus, making it difficult or impossible to navigate the web page.</p>
-				<p>Tous les navigateurs affichent un contour visible autour de l’élément qui a actuellement cible de clavier et qui peut être désactivé en utilisant la propriété CSS <code>outline: 0</code> ou <code>outline: none</code>�. Si l’indicateur visuel de la cible est supprimé, les utilisateurs du clavier voyants n’auront aucune idée du lien qui a la cible, ce qui rend difficile ou impossible la navigation dans la page Web.</p>
-				<p>Un lien vers <a href="http://www.google.ca">Google</a></p>
-				<p class="wb-inv">Code commence</p>
-				<pre><code class="language-html">&lt;style&gt; 
+				<div class="panel panel-danger">
+					<div class="panel-body">
+						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais exemple&nbsp;: Suppression de l’indicateur visuel de la cible</h3>
+						<p>Tous les navigateurs affichent un contour visible autour de l’élément qui a actuellement cible de clavier et qui peut être désactivé en utilisant la propriété CSS <code>outline: 0</code> ou <code>outline: none</code>. Si l’indicateur visuel de la cible est supprimé, les utilisateurs du clavier voyants n’auront aucune idée du lien qui a la cible, ce qui rend difficile ou impossible la navigation dans la page Web.</p>
+						<div class="panel panel-primary">
+							<div class="panel-body well mrgn-bttm-0">
+								<p>Un lien vers <a href="http://www.google.ca" id="google">Google</a></p>
+								<style type="text/css">
+									a#google:focus {
+										outline:none;
+									}
+								</style>
+							</div>
+						</div>
+						<p class="wb-inv">Code commence</p>
+<pre><code class="language-html">&lt;style&gt; 
 a:focus {
 	outline: none;
 }
 &lt;/style&gt;</code>
 </pre>
-				<p class="wb-inv">Fins du code</p>
-				
+						<p class="wb-inv">Fins du code</p>
+					</div>
+				</div>
 				<div class="panel panel-success">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Indicateur visuel de la cible du site Canada.ca</h3>
