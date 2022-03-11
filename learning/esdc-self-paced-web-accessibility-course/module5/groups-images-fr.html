@@ -70,22 +70,22 @@
         </header>
         <div class="panel-body">
           <ul>
-			  <li><a href="#designing">Designing with groups of images</a></li>
-              <li><a href="#example1">Good example 1: A group of images representing a single piece of information</a></li>
-              <li><a href="#example2">Good example 2: A group of images representing a collection</a></li>
-              <li><a href="#wcag">Related WCAG resources<</a></li>
+			  <li><a href="#designing">Concevoir avec des groupes d’images</a></li>
+              <li><a href="#example1">Bon exemple 1 : Groupe d’images représentant un élément d’information unique</a></li>
+              <li><a href="#example2">Bon exemple 2 : Un groupe d’images représentant une collection</a></li>
+              <li><a href="#wcag">Ressources WCAG connexes</a></li>
           </ul>
         </div>
       </div>
     </nav>
 
 	<section>
-		<h2 id="designing">Designing with groups of images</h2>
+		<h2 id="designing">Concevoir avec des groupes d’images</h2>
 		<p>Les groupes d’images représentent soit un élément d’information unique, comme une norme de classement par nombre d’étoiles, soit une collection d’images, comme une galerie.</p>
 		<p>Suivez les pratiques exemplaires suivantes pour ce qui a trait aux groupes d’images :</p>
 		<ul>
-			<li>Lorsqu’un groupe d’images représente un élément d’information unique : Utiliser l’attribut <code>alt</code> et du texte de remplacement pour l’une des images, et utiliser l’attribut <code>alt</code> nul (alt=””) pour les autres images afin que la technologie d’assistance ne les prenne pas en charge.</li>
-			<li>Lorsqu’un groupe d’images représente une collection : Imbriquer chaque image dans un élément de <code>&lt;figure&gt;</code> avec un élément enfant <code>&lt;figcaption&gt;</code> et imbriquer toutes les <code>&lt;figure&gt;</code> dans un élément de figure à parent unique. Utiliser l’élément <code>&lt;figcaption&gt;</code> pour décrire le contexte.</li>
+			<li>Lorsqu’un groupe d’images représente un élément d’information unique : Utiliser l’attribut <code>alt</code> et du texte de remplacement pour l’une des images, et utiliser l’attribut <code>alt</code> nul (<code>alt=""</code>) pour les autres images afin que la technologie d’assistance ne les prenne pas en charge.</li>
+			<li>Lorsqu’un groupe d’images représente une collection : Imbriquer chaque image dans un élément de <code>&lt;figure&gt;</code> avec un élément enfant <code>&lt;figcaption&gt;</code> et imbriquer toutes les <code>&lt;figure&gt;</code> dans un élément de figure à parent unique. Utiliser l’élément <code>&lt;figcaption&gt;</code> pour décrire le contexte.</li>
 		</ul>
 	</section>
 	<section>
@@ -95,18 +95,21 @@
 			<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple 1 : Groupe d’images représentant un élément d’information unique
 		</h2>
 		<p>Une norme de classement par nombre d’étoiles consiste en une image qui montre 5 étoiles, mais dont le texte de remplacement ne doit communiquer qu’un seul message, soit le nombre d’étoiles sur 5.</p>
-		<p>Exemple:</p>
-		<p>Rating:
-			<img src="images/star-full.png" alt="3.5 out of 5 stars">
-			<img src="images/star-full.png" alt="">
-			<img src="images/star-full.png" alt="">
-			<img src="images/star-half.png" alt="">
-			<img src="images/star-empty.png" alt="">		
-		</p>
+		<div class="panel panel-primary">
+			<div class="panel-body well mrgn-bttm-0">
+				<p>Rating:
+					<img src="images/star-full.png" alt="3,5&nbsp;étoiles sur 5">
+					<img src="images/star-full.png" alt="">
+					<img src="images/star-full.png" alt="">
+					<img src="images/star-half.png" alt="">
+					<img src="images/star-empty.png" alt="">		
+				</p>
+			</div>
+		</div>
 		<p class="wb-inv">Code commence</p>
 <pre>
 <code class="language-html">Rating:
-&lt;img src="star-full.jpg" alt="3.5 out of 5 stars"&gt;
+&lt;img src="star-full.png" alt="3,5&nbsp;étoiles sur 5"&gt;
 &lt;img src="star-full.png" alt=""&gt;
 &lt;img src="star-full.png" alt=""&gt;
 &lt;img src="star-half.png" alt=""&gt;
@@ -125,9 +128,9 @@
 		</h2>
 		<p>Une collection d’images peut être une galerie, auquel cas chaque image a besoin de son propre texte de remplacement, et le groupe lui-même a besoin d’un texte de remplacement.</p>
 		<p>Dans cet exemple, la <code>&lt;figure&gt;</code> contient l’élément <code>&lt;img&gt;</code>, et la <code>&lt;figcaption&gt;</code> fournit une légende pour chaque image d’une collection. L’élément <code>&lt;figure&gt;</code> peut être emboîté, le parent fournissant une légende pour toute la collection d’images.</p>
-		<p>Exemple:</p>
+		
 		<div class="panel panel-primary">
-						<div class="panel-body well mrgn-bttm-0">
+			<div class="panel-body well mrgn-bttm-0">
 
 		<figure>		
 			<figcaption>Les châteaux à travers les âges : 1423, 1756 et 1936</figcaption>
