@@ -1,227 +1,231 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
-<head>
-	<meta charset="utf-8">
-	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-	<title>Contrast – Module 7 - Visual design and colours</title>
-	<meta content="width=device-width,initial-scale=1" name="viewport">
-	<!-- Meta data -->
-	<meta name="description"
-		content="">
-	<meta name="robots" content="noindex">
-		<!-- Meta data-->
-	<!-- Load closure template scripts -->
-	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
-	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
-	<!-- Write closure template -->
-	<script src="../../../scripts/refTop.min.js"></script>
-	<link rel="stylesheet" href="../../../css/a11y-dark.css">
-	<script src="../../../scripts/highlight.min.js"></script>
-	<script>hljs.highlightAll();</script>
-</head>
-
-<body vocab="https://schema.org/" typeof="WebPage">
-	<div id="def-top">
-	</div>
-	<!-- Write closure template -->
-    <script>
-        var defTop = document.getElementById("def-top");
-        defTop.outerHTML = wet.builder.appTop({
-            "appName": [{
-                "text": "ESDC / IT Accessibility office",
-                "href": "../../../index.html"
-            }],
-           "breadcrumbs" : [{
-                "title": "Home",
-                "href" : "../../../index.html"
-            },{
-                "title": "Learning",
-                "href" : "../../index.html"
-            },
-			{
-                "title": "Web accessibility course",
-                "href" : "../index.html"
-            },
-			{
-                "title": "Module 7 – Visual design and colours",
-                "href" : "index.html"
-            }],
-            "lngLinks": [{
-                "lang": "fr",
-                "href": "contrast-fr.html",
-                "text": "Français"
-            }],
-            "menuPath": "../../../ajax/menu-en.html"
-        });
-    </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-			
-	<h1 property="name" id="wb-cont">Contrast</h1>
-						
-	<nav role="navigation">
-    <div class="panel panel-default mrgn-tp-md">
-      <header class="panel-heading">
-        <h2 class="panel-title">Table of contents</h2>
-      </header>
-        <div class="panel-body">
-          <ul>
-            <li><a href="#designing-with-sufficient-contrast">Designing with sufficient contrast</a></li>
-			<li><a href="#resources1">Related WCAG resources</a></li>
-          </ul>
-        </div>
-      </div>
-	</nav>
-	
-			<section>				
-				<h2 id="designing-with-sufficient-contrast">Designing with sufficient contrast </h2>
-				<p>If text, including images of text, lacks sufficient contrast with its background it won’t be legible to users with low vision or colour blindness. Controls and meaningful graphics also require good contrast.</p>
-				<p>To meet the WCAG Level AA Success Criterion for minimum contrast, follow these best practices:</p>
-				
-				<ul>
-					<li>Ensure small text (under 18 point (24 pixels) regular font or under 14 point (19 pixels) bold font) has a contrast ratio of at least 4.5:1 with the background.</li>
-						<li>Ensure large text (at least 18 point (24 pixels) regular font or 14 point (19 pixels) bold font) has a contrast ratio of at least 3:1 with the background.</li>
-						<li>Ensure non-text content – active user interface components (i.e., controls) and their states, and meaningful graphics – has a contrast ratio of at least 3:1 with adjacent colours.</li>
-				  </ul>
-				<p>Meeting WCAG Level AAA criteria is often difficult, but that's not the case with enhanced contrast. We should strive for it whenever possible. To meet the WCAG Level AAA Success Criterion for enhanced contrast, increase the contrast ratio of small and large text as follows:</p>
-				<ul>
-					<li>Ensure small text (under 18 point (24 pixels) regular font or under 14 point (19 pixels) bold font) has a contrast ratio of at least 7:1 with the background.</li>
-						<li>Ensure large text (at least18 point (24 pixels) regular font or 14 point (19 pixels) bold font) has a contrast ratio of at least 4.5:1 with the background.</li>
-				  </ul>
-				<p>For user interface components, the 3:1 contrast ratio with adjacent colours:</p>
-				<ul>
-					<li>Applies to the control and the control’s state information, such as whether a component is selected or focused.</li>
-						<li>Applies to the visual boundary indicating the hit area, unless the control contains text that meets the 4.5:1 contrast ratio.</li>
-						<li>Doesn’t apply if the appearance of the control and its states are controlled by the user agent and not modified by the author.</li>
-						<li>Doesn’t apply if the control is disabled.</li>
-				  </ul>
-				  <p>Check contrast manually using the <a href="https://www.tpgi.com/color-contrast-checker/">Colour Contrast Analyzer</a> (CCA).</p>
-				  <p>Automated tools check background contrast, but manual inspection is necessary when the background is a gradient, an image, an animation or video. If the background changes over time, or as the user scrolls or as the viewport changes, the contrast should persist, though brief (1 second) intervals of poor contrast won’t interfere with the user experience.</p>
-				  <p>The 3:1 contrast ratio for adjacent colours also applies to meaningful graphics, which includes informative icons, lines in line graphs, and slices in pie charts:</p>
-				  <ul>
-					  <li>Check the contrast of the graphical object against its adjacent colours.</li>
-						  <li>If there are multiple colours and/or a gradient, choose the least contrasting area to test.</li>
-						  <li>If the least-contrasting area is less than 3:1, assume that area is invisible. Is the graphical object still understandable?</li>
-						  <li>If there is enough of the graphical object to understand, it passes, else it fails.</li>
-					</ul>
-					<h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad Example 1: Low contrast with background (text)</h3>
-					<p>In this example, the dark grey text (#777) on a grey background (#ccc) has a contrast ratio of 2.8:1, falling short of the required 4.5:1 ratio.</p>
-					<style type="text/css">
-						.low-contrast { 
-						background-color: #ccc; 
-						color: #777;
-						padding: 1.5em;
-						width: 8em;
-						}
-						</style>						
-					<div class="low-contrast">
-						<p>Privacy</p>
-						</div>
-						<h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad Example 2: Low contrast with background (control)</h3>
-						<p>The grey border colour of the checkbox (#9D9D9D) has a contrast ratio of 2.7:1 with the white background, which is insufficient to identify the checkbox to some users.</p>
-						<img src="images/image19.png" alt="" class="img-responsive"/>
-						<p>The input fields example is the current (2021) WET implementation, so you need to override the WET stylesheet with the input border colour value from Good Example 3. This is the problem line of CSS:</p>
-						<p>The grey border of the input (#93958A) has a contrast ratio of 3:1, just meeting WCAG Success Criterion <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast">1.4.11: Non-text Contrast</a></p>
-						<img src="images/image20.png" alt="" class="img-responsive"/>
-						<p>The input fields example is the current (2021) WET implementation, so you need to override the WET stylesheet with the input border colour value from Good Example 3. This is the problem line of CSS:</p>
-						<p>.form-control { border: 1px solid #ccc; }</p>
-						<h2 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good Example 3: Sufficient contrast (control)</h2>	
-						<p>The grey border of the input (#93958A) has a contrast ratio of 3:1, just meeting WCAG Success Criterion <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast">1.4.11: Non-text Contrast</a></p>
-						<img src="images/image21.png" alt="" class="img-responsive"/>
-						<h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad Example 4: Low contrast with adjacent colour (graphic)</h3>
-						<p>This alert graphic consists of a red triangle-shaped icon with a white exclamation mark, set against a grey background. The triangle is usually reserved for alerts like these, so both shapes are important.</p>
-						<img src="images/image22.png" alt="" class="img-responsive"/>
-						<p>There are 2 contrast ratios to consider with this icon:</p>
-						<ul>
-							<li>The contrast ratio between the white exclamation mark and the red triangle, which is 5:1.</li>
-							<li>The contrast ratio between the red triangle and the grey background, which is 2:1.</li>
-						  </ul>
-						<p>The red triangle and the grey background lack sufficient contrast.</p>
-						<p>See more examples in Success Criterion<a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast">1.4.11: Non-text Contrast</a></p>
-						<p>Bad Example 4 is from <a href="https://webaim.org/articles/contrast/">Contrast and Colour Accessibility</a>, © WebAIM, 2021.</p>
-			</section>
-		
-			<section>				
-				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
-				<details class="mrgn-tp-lg">
-					<summary class="bg-info">Related WCAG resources</summary>
-					<h3>Success criteria</h3>
-					<ul>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum">1.4.3: Contrast (Minimum)</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced">1.4.6: Contrast (Enhanced)</a> (Level AAA)</li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast">1.4.11: Non-text Contrast</a></li>
-					</ul>
-					<h3>Techniques</h3>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G17">G17: Ensuring that contrast of at least 7:1 exists between text (and images of text) and background behind the text</a> (Level AAA, small text)</li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G18">G18: Ensuring that contrast of at least 4.5:1 exists between text (and images of text) and background behind the text </a> (Level AA, small text; Level AAA, large text)</li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G145">G145: Ensuring that a contrast ratio of at least 3:1 exists between text (and images of text) and background behind the text</a> (Level AA, large text)</li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G195">G195: Using an author-supplied, highly visible focus indicator</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G207">G207: Ensuring that a contrast ratio of 3:1 is provided for icons</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G209">G209: Provide sufficient contrast at the boundaries between adjoining colours</a></li>	
-				</details>
-			</section>
-		
-		
-	<nav role="navigation">
-		<h2 class="wb-inv">Document navigation</h2>
-		<ul class="pager">
-			<li class="previous"><a rel="prev" href="colour.html">Previous - Colour</a></li>		
-			<li class="next"><a rel="next" href="visual-proximity.html">Next - Visual proximity of labels</a></li>
-		</ul>
-	</nav>
-	</main>
-			
-
-	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
-		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
-			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Module 7 – Visual design and colours</h3>
-					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item" href="introduction.html">Introduction</a></li>
-						<li><a class="list-group-item" href="colour.html">Colour</a></li>
-						<li><a class="list-group-item active" aria-current="page" href="contrast.html">Contrast</a></li>
-						<li><a class="list-group-item" href="visual-proximity.html">Visual proximity of labels</a></li>
-						<li><a class="list-group-item" href="textspacing.html">Text spacing</a></li>
-						<li><a class="list-group-item" href="css-generated.html">CSS-generated content</a></li>
-						<li><a class="list-group-item" href="hiding-content.html">Hiding and exposing content on hover or focus</a></li>						
-						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
-					</ul>
-			</section>
-						
-			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">All modules</h3>
-					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
-						<li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>			
-						<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
-						<li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
-						<li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
-						<li><a class="list-group-item" href="../module6/index.html">Module 6 – Forms</a></li>	
-						<li><a class="list-group-item active" href="index.html">Module 7 – Visual design and colours</a></li>
-						<li><a class="list-group-item" href="../module8/index.html">Module 8 – Zoom and responsive design</a></li>
-						<li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
-						<li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
-						<li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
-					</ul>
-			</section>
-	</nav>
-</div>
-
-<div id="def-preFooter2"></div>
-		<script src="../../../scripts/preFooter2.min.js"></script>
-<div id="def-preFooter"></div>
-		<script src="../../../scripts/preFooter.min.js"></script>
-		
-</div>	
-		
-<div id="def-footer"></div>
-	<script src="../../../scripts/appFooter.min.js"></script>
-	<script src="../../../scripts/refFooter.min.js"></script>
-	<script src="../../../scripts/bati-itao.min.js"></script>
-
-</body>
-</html>
+<!--[if lt IE 9]>
+<html class="no-js lt-ie9" lang="en" dir="ltr">
+   <![endif]-->
+   <!--[if gt IE 8]><!-->
+   <html class="no-js" lang="en" dir="ltr">
+      <!--<![endif]-->
+      <head>
+         <meta charset="utf-8">
+         <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+         <title>Contrast – Module 7 - Visual design and colours</title>
+         <meta content="width=device-width,initial-scale=1" name="viewport">
+         <!-- Meta data -->
+         <meta name="description"
+            content="">
+         <meta name="robots" content="noindex">
+         <!-- Meta data-->
+         <!-- Load closure template scripts -->
+         <script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+         <script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+         <!-- Write closure template -->
+         <script src="../../../scripts/refTop.min.js"></script>
+         <link rel="stylesheet" href="../../../css/a11y-dark.css">
+         <script src="../../../scripts/highlight.min.js"></script>
+         <script>hljs.highlightAll();</script>
+      </head>
+      <body vocab="https://schema.org/" typeof="WebPage">
+         <div id="def-top">
+         </div>
+         <!-- Write closure template -->
+         <script>
+            var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.appTop({
+                "appName": [{
+                    "text": "ESDC / IT Accessibility office",
+                    "href": "../../../index.html"
+                }],
+               "breadcrumbs" : [{
+                    "title": "Home",
+                    "href" : "../../../index.html"
+                },{
+                    "title": "Learning",
+                    "href" : "../../index.html"
+                },
+            {
+                    "title": "Web accessibility course",
+                    "href" : "../index.html"
+                },
+            {
+                    "title": "Module 7 – Visual design and colours",
+                    "href" : "index.html"
+                }],
+                "lngLinks": [{
+                    "lang": "fr",
+                    "href": "contrast-fr.html",
+                    "text": "Français"
+                }],
+                "menuPath": "../../../ajax/menu-en.html"
+            });
+         </script>
+         <div class="container">
+            <div class="row">
+               <main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+                  <h1 property="name" id="wb-cont">Contrast</h1>
+                  <nav role="navigation">
+                     <div class="panel panel-default mrgn-tp-md">
+                        <header class="panel-heading">
+                           <h2 class="panel-title">Table of contents</h2>
+                        </header>
+                        <div class="panel-body">
+                           <ul>
+                              <li><a href="#designing-with-sufficient-contrast">Designing with sufficient contrast</a></li>
+                              <li><a href="#resources1">Related WCAG resources</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </nav>
+                  <section>
+                     <h2 id="designing-with-sufficient-contrast">Designing with sufficient contrast </h2>
+                     <p>If text, including images of text, lacks sufficient contrast with its background it won’t be legible to users with low vision or colour blindness. Controls and meaningful graphics also require good contrast.</p>
+                     <p>To meet the WCAG Level AA Success Criterion for minimum contrast, follow these best practices:</p>
+                     <ul>
+                        <li>Ensure small text (under 18 point (24 pixels) regular font or under 14 point (19 pixels) bold font) has a contrast ratio of at least 4.5:1 with the background.</li>
+                        <li>Ensure large text (at least 18 point (24 pixels) regular font or 14 point (19 pixels) bold font) has a contrast ratio of at least 3:1 with the background.</li>
+                        <li>Ensure non-text content – active user interface components (i.e., controls) and their states, and meaningful graphics – has a contrast ratio of at least 3:1 with adjacent colours.</li>
+                     </ul>
+                     <p>Meeting WCAG Level AAA criteria is often difficult, but that's not the case with enhanced contrast. We should strive for it whenever possible. To meet the WCAG Level AAA Success Criterion for enhanced contrast, increase the contrast ratio of small and large text as follows:</p>
+                     <ul>
+                        <li>Ensure small text (under 18 point (24 pixels) regular font or under 14 point (19 pixels) bold font) has a contrast ratio of at least 7:1 with the background.</li>
+                        <li>Ensure large text (at least18 point (24 pixels) regular font or 14 point (19 pixels) bold font) has a contrast ratio of at least 4.5:1 with the background.</li>
+                     </ul>
+                     <p>For user interface components, the 3:1 contrast ratio with adjacent colours:</p>
+                     <ul>
+                        <li>Applies to the control and the control’s state information, such as whether a component is selected or focused.</li>
+                        <li>Applies to the visual boundary indicating the hit area, unless the control contains text that meets the 4.5:1 contrast ratio.</li>
+                        <li>Doesn’t apply if the appearance of the control and its states are controlled by the user agent and not modified by the author.</li>
+                        <li>Doesn’t apply if the control is disabled.</li>
+                     </ul>
+                     <p>Check contrast manually using the <a href="https://www.tpgi.com/color-contrast-checker/">Colour Contrast Analyzer</a> (CCA).</p>
+                     <p>Automated tools check background contrast, but manual inspection is necessary when the background is a gradient, an image, an animation or video. If the background changes over time, or as the user scrolls or as the viewport changes, the contrast should persist, though brief (1 second) intervals of poor contrast won’t interfere with the user experience.</p>
+                     <p>The 3:1 contrast ratio for adjacent colours also applies to meaningful graphics, which includes informative icons, lines in line graphs, and slices in pie charts:</p>
+                     <ul>
+                        <li>Check the contrast of the graphical object against its adjacent colours.</li>
+                        <li>If there are multiple colours and/or a gradient, choose the least contrasting area to test.</li>
+                        <li>If the least-contrasting area is less than 3:1, assume that area is invisible. Is the graphical object still understandable?</li>
+                        <li>If there is enough of the graphical object to understand, it passes, else it fails.</li>
+                     </ul>
+                     <div class="panel panel-danger">
+                        <div class="panel-body">
+                           <h2 class="text-danger mrgn-tp-0 h3" id="header"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad Example 1: Low contrast with background (text)</h2>
+                           <p>In this example, the dark grey text (#777) on a grey background (#ccc) has a contrast ratio of 2.8:1, falling short of the required 4.5:1 ratio.</p>
+                           <style type="text/css">
+                              .low-contrast { 
+                              background-color: #ccc; 
+                              color: #777;
+                              padding: 1.5em;
+                              width: 8em;
+                              }
+                           </style>
+                           <div class="low-contrast">
+                              <p>Privacy</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="panel panel-danger">
+                        <div class="panel-body">
+                           <h2 class="text-danger mrgn-tp-0 h3" id="header"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad Example 2: Low contrast with background (control)</h2>
+                           <p>The grey border colour of the checkbox (#9D9D9D) has a contrast ratio of 2.7:1 with the white background, which is insufficient to identify the checkbox to some users.</p>
+                           <img src="images/image19.png" alt="" class="img-responsive"/>
+                           <p>The grey border of the input (#CCCCCC) has a contrast ratio of 1.6:11 with the white background, falling short of the 3:1 required for non-text content.</p>
+                           <p>The input fields example is the current (2021) WET implementation, so you need to override the WET stylesheet with the input border colour value from Good Example 3. This is the problem line of CSS:</p>
+                           <img src="images/image20.png" alt="" class="img-responsive"/>
+                           <p>The grey border of the input (#93958A) has a contrast ratio of 3:1, just meeting WCAG Success Criterion <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast">1.4.11: Non-text Contrast</a></p>
+                           <img src="images/image20.png" alt="" class="img-responsive"/>
+                        </div>
+                     </div>
+                     <div class="panel panel-success">
+                        <div class="panel-body">
+                           <h2 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;  Good Example 3: Sufficient contrast (control)</h2>
+                           <p>The grey border of the input (#93958A) has a contrast ratio of 3:1, just meeting WCAG Success Criterion <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast">1.4.11: Non-text Contrast</a></p>
+                           <img src="images/image21.png" alt="" class="img-responsive"/>
+                        </div>
+                     </div>
+                     <div class="panel panel-danger">
+                        <div class="panel-body">
+                           <h2 class="text-danger mrgn-tp-0 h3" id="header"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad Example 4: Low contrast with adjacent colour (graphic)</h2>
+                           <p>This alert graphic consists of a red triangle-shaped icon with a white exclamation mark, set against a grey background. The triangle is usually reserved for alerts like these, so both shapes are important.</p>
+                           <img src="images/image22.png" alt="" class="img-responsive"/>
+                           <p>There are 2 contrast ratios to consider with this icon:</p>
+                           <ul>
+                              <li>The contrast ratio between the white exclamation mark and the red triangle, which is 5:1.</li>
+                              <li>The contrast ratio between the red triangle and the grey background, which is 2:1.</li>
+                           </ul>
+                           <p>The red triangle and the grey background lack sufficient contrast.</p>
+                        </div>
+                     </div>
+                     <p>See more examples in Success Criterion <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast">1.4.11: Non-text Contrast</a></p>
+                     <p>Bad Example 4 is from <a href="https://webaim.org/articles/contrast/">Contrast and Colour Accessibility</a>, © WebAIM, 2021.</p>
+                  </section>
+                  <section>
+                     <h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
+                     <details class="mrgn-tp-lg">
+                        <summary class="bg-info">Related WCAG resources</summary>
+                        <h3>Success criteria</h3>
+                        <ul>
+                           <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum">1.4.3: Contrast (Minimum)</a></li>
+                           <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced">1.4.6: Contrast (Enhanced)</a> (Level AAA)</li>
+                           <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast">1.4.11: Non-text Contrast</a></li>
+                        </ul>
+                        <h3>Techniques</h3>
+                        <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G17">G17: Ensuring that contrast of at least 7:1 exists between text (and images of text) and background behind the text</a> (Level AAA, small text)</li>
+                        <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G18">G18: Ensuring that contrast of at least 4.5:1 exists between text (and images of text) and background behind the text </a> (Level AA, small text; Level AAA, large text)</li>
+                        <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G145">G145: Ensuring that a contrast ratio of at least 3:1 exists between text (and images of text) and background behind the text</a> (Level AA, large text)</li>
+                        <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G195">G195: Using an author-supplied, highly visible focus indicator</a></li>
+                        <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G207">G207: Ensuring that a contrast ratio of 3:1 is provided for icons</a></li>
+                        <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G209">G209: Provide sufficient contrast at the boundaries between adjoining colours</a></li>
+                     </details>
+                  </section>
+                  <nav role="navigation">
+                     <h2 class="wb-inv">Document navigation</h2>
+                     <ul class="pager">
+                        <li class="previous"><a rel="prev" href="colour.html">Previous - Colour</a></li>
+                        <li class="next"><a rel="next" href="visual-proximity.html">Next - Visual proximity of labels</a></li>
+                     </ul>
+                  </nav>
+               </main>
+               <nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">
+                  <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+                  <section class="list-group menu list-unstyled">
+                     <h3 class="wb-navcurr">Module 7 – Visual design and colours</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="introduction.html">Introduction</a></li>
+                        <li><a class="list-group-item" href="colour.html">Colour</a></li>
+                        <li><a class="list-group-item active" aria-current="page" href="contrast.html">Contrast</a></li>
+                        <li><a class="list-group-item" href="visual-proximity.html">Visual proximity of labels</a></li>
+                        <li><a class="list-group-item" href="textspacing.html">Text spacing</a></li>
+                        <li><a class="list-group-item" href="css-generated.html">CSS-generated content</a></li>
+                        <li><a class="list-group-item" href="hiding-content.html">Hiding and exposing content on hover or focus</a></li>
+                        <li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+                     </ul>
+                  </section>
+                  <section class="list-group menu list-unstyled">
+                     <h3 class="wb-navcurr">All modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
+                        <li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>
+                        <li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
+                        <li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
+                        <li><a class="list-group-item" href="../module6/index.html">Module 6 – Forms</a></li>
+                        <li><a class="list-group-item active" href="index.html">Module 7 – Visual design and colours</a></li>
+                        <li><a class="list-group-item" href="../module8/index.html">Module 8 – Zoom and responsive design</a></li>
+                        <li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
+                        <li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
+                        <li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
+                     </ul>
+                  </section>
+               </nav>
+            </div>
+            <div id="def-preFooter2"></div>
+            <script src="../../../scripts/preFooter2.min.js"></script>
+            <div id="def-preFooter"></div>
+            <script src="../../../scripts/preFooter.min.js"></script>
+         </div>
+         <div id="def-footer"></div>
+         <script src="../../../scripts/appFooter.min.js"></script>
+         <script src="../../../scripts/refFooter.min.js"></script>
+         <script src="../../../scripts/bati-itao.min.js"></script>
+      </body>
+   </html>
+   

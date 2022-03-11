@@ -1,198 +1,186 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="fr" dir="ltr">
-<!--<![endif]-->
-<head>
-	<meta charset="utf-8">
-	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-	<title>Masquer ou afficher un contenu – Module 7 – Conception visuelle et couleurs</title>
-	<meta content="width=device-width,initial-scale=1" name="viewport">
-	<!-- Meta data -->
-	<meta name="description"
-		content="">
-	<meta name="robots" content="noindex">
-		<!-- Meta data-->
-	<!-- Load closure template scripts -->
-	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
-	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
-	<!-- Write closure template -->
-	<script src="../../../scripts/refTop.min.js"></script>
-	<link rel="stylesheet" href="../../../css/a11y-dark.css">
-	<script src="../../../scripts/highlight.min.js"></script>
-	<script>hljs.highlightAll();</script>
-</head>
-
-<body vocab="https://schema.org/" typeof="WebPage">
-	<div id="def-top">
-	</div>
-	<!-- Write closure template -->
-    <script>
-        var defTop = document.getElementById("def-top");
-        defTop.outerHTML = wet.builder.appTop({
-            "appName": [{
-                "text": "EDSC / Bureau de l’accessibilité des TI",
-                "href": "../../../index-fr.html"
-            }],
-           "breadcrumbs" : [{
-                "title": "Accueil",
-                "href" : "../../../index-fr.html"
-            },{
-                "title": "Apprentissage",
-                "href" : "../../index-fr.html"
-            },
-			{
-                "title": "Cours d'accessibilité Web",
-                "href" : "../index-fr.html"
-            },
-			{
-                "title": "Module 7 – Conception visuelle et couleurs",
-                "href" : "index-fr.html"
-            }],
-            "lngLinks": [{
-                "lang": "en",
-                "href": "hiding-content.html",
-                "text": "English"
-            }],
-            "menuPath": "../../../ajax/menu-fr.html"
-        });
-    </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-			
-	<h1 property="name" id="wb-cont">Masquer ou afficher un contenu</h1>
-						
-	<nav role="navigation">
-    <div class="panel panel-default mrgn-tp-md">
-      <header class="panel-heading">
-        <h2 class="panel-title">Table des matières</h2>
-      </header>
-        <div class="panel-body">
-          <ul>
-            <li><a href="#hiding-content">Hiding content</a></li>
-			<li><a href="#exposing-hidden-content-on-hover-or-focus">Exposing hidden content on hover or focus</a></li>
-			<li><a href="#resources1">Related WCAG resources</a></li>
-          </ul>
-        </div>
-      </div>
-	</nav>
-	
-			<section>				
-				<h2 id="hiding-content">Hiding content</h2>
-				<p>Content can be hidden from three groups of users:</p>
-				<ul>
-					<li>From all users, by using either the CSS display:none or visibility:hidden declaration.</li>
-					<li>From users of assistive technology, by using the aria-hidden=”true” attribute to remove the element from the Accessibility API.</li>
-					<li>From sighted users, by using the WET CSS class “wb-inv” to visually hide the content.</li>
-				  </ul>
-				  <p>When hiding inactive content, such as untriggered modal windows and unselected sub-menus, hide it from all users. Developers frequently introduce a barrier by visually hiding such content offscreen via CSS positioning, leaving the content exposed to the accessibility API, where it’s encountered by screen reader users and others. If it needs to be hidden from sighted users, it needs to be hidden from screen reader users.</p>
-				  <p>Use the aria-hidden attribute with caution, and only to improve the experience for users of assistive technology by removing redundant or extraneous information. If you use aria-hidden to hide meaningful visible content you must ensure that identical or equivalent meaning and functionality is exposed to assistive technologies.</p>
-				  <p>Visually-hidden text can:</p>
-				  <ul>
-					<li>provide a name where ARIA labels won’t work because the element doesn’t receive focus. This is illustrated in the example of CSS-generated content in the previous section. The same approach would work with a CSS background image needing a name; for instance, a list holding logos set as CSS background images could use a visually-hidden name in each list item.</li>
-					<li>name or extend the name of elements as an alternative to ARIA labels. For example, on a page with multiple “read more” links, to distinguish each link’s purpose from the other, the preceding heading text is inserted as a visually-hidden span element into the link text.</li>
-				  </ul>
-				  <h3>How to Apply</h3>
-<p>[Teaser paragraph.]</p>
-<a href="article/how-to-apply.html">
-<span class="wb-inv">About How to Apply</span> Read more  
-</a> 
-<style type="text/css">
-.wb-inv {
-    clip: rect(1px,1px,1px,1px);
-    height: 1px;
-    margin: 0;
-    overflow: hidden;
-    position: absolute;
-    width: 1px;
-}
-	</style>
-			</section>
-			
-			<section>				
-				<h2 id="Exposing-hidden-content-on-hover-or-focus">Exposing hidden content on hover or focus</h2>
-				<p>When exposing hidden content via pointer hover or keyboard focus, ensure the exposed content has these three properties:</p>
-				  <ul>
-					<li>Dismissable -- the user can dismiss the exposed content without moving the mouse or keyboard focus, typically by pressing the Escape key.</li>
-					<li>Hoverable -- the user can hover the mouse over the exposed content.</li>
-					<li>Persistent -- the exposed content doesn’t disappear until mouse hover or keyboard focus leaves it.</li>
-				  </ul>
-				  <p>For more details, see Module 10 – Input Modalities -> Mouse Input -> <a href="https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus">Content on Hover or Focus</a></p>
-			</section>
-	
-			<section>				
-				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
-				<details class="mrgn-tp-lg">
-					<summary class="bg-info">Related WCAG resources</summary>
-					<h3>Success criteria</h3>
-					<ul>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus">1.4.13: Content on Hover or Focus</a></li>
-					</ul>
-					<h3>Techniques</h3>
-					<ul>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G94">G94: Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR39.html">SCR39: Making content on focus or hover hoverable, dismissible, and persistent</a></li>					
-					</ul>
-				</details>
-			</section>
-		
-		
-	<nav role="navigation">
-		<h2 class="wb-inv">Navigation dans le document</h2>
-		<ul class="pager">
-			<li class="previous"><a rel="prev" href="css-generated-fr.html">Précédent - Contenu généré par une CSS</a></li>		
-			<li class="next"><a rel="next" href="best-practice-fr.html">Suivant - Pratiques exemplaire</a></li>
-		</ul>
-	</nav>
-	</main>
-			
-
-	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
-		<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
-			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Module 7 – Conception visuelle et couleurs</h3>
-					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
-						<li><a class="list-group-item" href="colour-fr.html">Couleur</a></li>
-						<li><a class="list-group-item" href="contrast-fr.html">Contraste</a></li>
-						<li><a class="list-group-item" href="visual-proximity-fr.html">Proximité visuelle des étiquettes</a></li>
-						<li><a class="list-group-item" href="textspacing-fr.html">Espacement du texte</a></li>
-						<li><a class="list-group-item" href="css-generated-fr.html">Contenu généré par une CSS</a></li>
-						<li><a class="list-group-item active" aria-current="page" href="hiding-content-fr.html">Masquer ou afficher un contenu</a></li>
-						<li><a class="list-group-item" href="best-practice-fr.html">Pratiques exemplaire</a></li>
-					</ul>
-			</section>
-						
-			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Tous les modules</h3>
-					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
-						<li><a class="list-group-item" href="../module2/index-fr.html">Module 2 – Structure et sémantique des pages</a></li>			
-						<li><a class="list-group-item" href="../module3/index-fr.html">Module 3 – Liens et navigation</a></li>
-						<li><a class="list-group-item" href="../module4/index-fr.html">Module 4 – Tableaux</a></li>
-						<li><a class="list-group-item" href="../module5/index-fr.html">Module 5 – Images</a></li>
-						<li><a class="list-group-item" href="../module6/index-fr.html">Module 6 – Formulaires</a></li>	
-						<li><a class="list-group-item active" href="index-fr.html">Module 7 – Conception visuelle coleurs</a></li>
-						<li><a class="list-group-item" href="../module8/index-fr.html">Module 8 – Zoom et conception adaptée</a></li>
-						<li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
-					</ul>
-			</section>
-	</nav>
-</div>
-
-<div id="def-preFooter2"></div>
-		<script src="../../../scripts/preFooter2.min.js"></script>
-<div id="def-preFooter"></div>
-		<script src="../../../scripts/preFooter.min.js"></script>
-		
-</div>	
-		
-<div id="def-footer"></div>
-	<script src="../../../scripts/appFooter-fr.min.js"></script>
-	<script src="../../../scripts/refFooter.min.js"></script>
-	<script src="../../../scripts/bati-itao.min.js"></script>
-
-</body>
-</html>
+<!--[if lt IE 9]>
+<html class="no-js lt-ie9" lang="en" dir="ltr">
+   <![endif]-->
+   <!--[if gt IE 8]><!-->
+   <html class="no-js" lang="fr" dir="ltr">
+      <!--<![endif]-->
+      <head>
+         <meta charset="utf-8">
+         <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+         <title>Masquer ou afficher un contenu – Module 7 – Conception visuelle et couleurs</title>
+         <meta content="width=device-width,initial-scale=1" name="viewport">
+         <!-- Meta data -->
+         <meta name="description"
+            content="">
+         <meta name="robots" content="noindex">
+         <!-- Meta data-->
+         <!-- Load closure template scripts -->
+         <script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+         <script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+         <!-- Write closure template -->
+         <script src="../../../scripts/refTop.min.js"></script>
+         <link rel="stylesheet" href="../../../css/a11y-dark.css">
+         <script src="../../../scripts/highlight.min.js"></script>
+         <script>hljs.highlightAll();</script>
+      </head>
+      <body vocab="https://schema.org/" typeof="WebPage">
+         <div id="def-top">
+         </div>
+         <!-- Write closure template -->
+         <script>
+            var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.appTop({
+                "appName": [{
+                    "text": "EDSC / Bureau de l’accessibilité des TI",
+                    "href": "../../../index-fr.html"
+                }],
+               "breadcrumbs" : [{
+                    "title": "Accueil",
+                    "href" : "../../../index-fr.html"
+                },{
+                    "title": "Apprentissage",
+                    "href" : "../../index-fr.html"
+                },
+            {
+                    "title": "Cours d'accessibilité Web",
+                    "href" : "../index-fr.html"
+                },
+            {
+                    "title": "Module 7 – Conception visuelle et couleurs",
+                    "href" : "index-fr.html"
+                }],
+                "lngLinks": [{
+                    "lang": "en",
+                    "href": "hiding-content.html",
+                    "text": "English"
+                }],
+                "menuPath": "../../../ajax/menu-fr.html"
+            });
+         </script>
+         <div class="container">
+            <div class="row">
+               <main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+                  <h1 property="name" id="wb-cont">Masquer ou afficher un contenu</h1>
+                  <nav role="navigation">
+                     <div class="panel panel-default mrgn-tp-md">
+                        <header class="panel-heading">
+                           <h2 class="panel-title">Table des matières</h2>
+                        </header>
+                        <div class="panel-body">
+                           <ul>
+                              <li><a href="#masquer-un-contenu">Masquer un contenu</a></li>
+                              <li><a href="#afficher-le-contenu-lorsqu-on-le-survole-ou-qu-on-le-selectionne">Afficher le contenu lorsqu’on le survole ou qu’on le sélectionne</a></li>
+                              <li><a href="#resources1">Ressources liées aux WCAG</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </nav>
+                  <section>
+                     <h2 id="masquer-un-contenu">Masquer un contenu</h2>
+                     <p>Il peut l’être pour trois groupes d’utilisateurs :</p>
+                     <ul>
+                        <li>pour tous, en utilisant la déclaration « display:none » ou « visibility:hidden » de CSS;</li>
+                        <li>pour les utilisateurs d’une technologie d’aide, au moyen de l’attribut « aria-hidden=”true” » pour supprimer l’élément de l’API d’accessibilité;</li>
+                        <li>pour les utilisateurs voyants, par l’entremise de la classe « wb-inv » de CSS de la BOEW pour masquer le contenu.</li>
+                     </ul>
+                     <p>Lorsque vous masquez du contenu inactif, comme les fenêtres modales non déclenchées et les sous-menus non sélectionnés, vous devez le masquer pour tous les utilisateurs. Les développeurs introduisent fréquemment un obstacle en dissimulant visuellement ce contenu hors écran par l’entremise du positionnement CSS, ce qui laisse le contenu affiché à l’API d’accessibilité, où les utilisateurs des lecteurs d’écran et d’autres personnes le voient. S’il faut le masquer pour les utilisateurs voyants, il doit également l’être pour les utilisateurs de lecteurs d’écran.</p>
+                     <p>Utilisez l’attribut « aria-hidden » avec prudence et uniquement pour améliorer l’expérience des utilisateurs de technologies d’aide en éliminant l’information redondante ou superflue. Si vous utilisez « aria-hidden » pour masquer un contenu visible important, vous devez vous assurer que la signification et les fonctionnalités identiques ou équivalentes sont exposées aux technologies d’aide.</p>
+                     <p>Le texte masqué visuellement peut :</p>
+                     <ul>
+                        <li>fournir un nom où les étiquettes ARIA ne fonctionnent pas parce que l’élément n’est pas sélectionné. Ce cas est illustré dans l’exemple du contenu généré par une CSS à la section précédente. La même approche s’appliquerait à une image d’arrière-plan en CSS ayant besoin d’un nom; par exemple, une liste contenant des logos définis comme images d’arrière-plan de CSS pourrait utiliser un nom masqué visuellement dans chaque élément de liste;</li>
+                        <li>nommer ou préciser le nom des éléments comme solution de rechange aux étiquettes ARIA. Par exemple, sur une page comportant plusieurs liens « En savoir plus », pour distinguer la fonction de chacun d’eux, le texte du titre qui précède est inséré comme élément « span » masqué dans le texte du lien.</li>
+                     </ul>
+                     <h3>Comment présenter une demande</h3>
+                     <p>[Paragraphe d’accroche.]</p>
+                     <a href="article/how-to-apply.html">
+                     <span class="wb-inv">Comment faire une demande</span>  En savoir plus  
+                     </a> 
+                     <style type="text/css">
+                        .wb-inv {
+                        clip: rect(1px,1px,1px,1px);
+                        height: 1px;
+                        margin: 0;
+                        overflow: hidden;
+                        position: absolute;
+                        width: 1px;
+                        }
+                     </style>
+                  </section>
+                  <section>
+                     <h2 id="afficher-le-contenu-lorsqu-on-le-survole-ou-qu-on-le-selectionne">Afficher le contenu lorsqu’on le survole ou qu’on le sélectionne</h2>
+                     <p>Lorsque vous affichez du contenu masqué avec le pointeur ou le clavier, assurez-vous que le contenu affiché possède les trois propriétés suivantes :</p>
+                     <ul>
+                        <li>Peut être ignoré – l’utilisateur peut ignorer le contenu affiché sans déplacer le pointeur de la souris ou annuler la sélection avec le clavier, habituellement en appuyant sur la touche Escape.</li>
+                        <li>Peut être survolé – l’utilisateur peut placer le pointeur de la souris sur le contenu affiché.</li>
+                        <li>Persistant – le contenu affiché ne disparaît pas tant que le pointeur ne l’a pas dépassé ou que la sélection avec le clavier n’est pas annulée.</li>
+                     </ul>
+                     <p>Pour en savoir plus, consultez le module 10 – Input Modalities -> Mouse Input -> <a hreflang="en" href="https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus">Content on Hover or Focus</a></p>
+                  </section>
+                  <section>
+                     <h2 id="resources1" class="wb-inv">Ressources liées aux WCAG</h2>
+                     <details class="mrgn-tp-lg">
+                        <summary class="bg-info">Ressources liées aux WCAG</summary>
+                        <h3>Critères de succès</h3>
+                        <ul>
+                           <li><a hreflang="en" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a> (en anglais seulement)</li>
+                           <li><a hreflang="en" href="https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus">1.4.13: Content on Hover or Focus</a> (en anglais seulement)</li>
+                        </ul>
+                        <h3>Techniques</h3>
+                        <ul>
+                           <li><a hreflang="en" href="https://www.w3.org/WAI/WCAG21/Techniques/general/G94">G94: Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content</a> (en anglais seulement)</li>
+                           <li><a hreflang="en" href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR39.html">SCR39: Making content on focus or hover hoverable, dismissible, and persistent</a> (en anglais seulement)</li>
+                        </ul>
+                     </details>
+                  </section>
+                  <nav role="navigation">
+                     <h2 class="wb-inv">Navigation dans le document</h2>
+                     <ul class="pager">
+                        <li class="previous"><a rel="prev" href="css-generated-fr.html">Précédent - Contenu généré par une CSS</a></li>
+                        <li class="next"><a rel="next" href="best-practice-fr.html">Suivant - Pratiques exemplaire</a></li>
+                     </ul>
+                  </nav>
+               </main>
+               <nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">
+                  <h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
+                  <section class="list-group menu list-unstyled">
+                     <h3 class="wb-navcurr">Module 7 – Conception visuelle et couleurs</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
+                        <li><a class="list-group-item" href="colour-fr.html">Couleur</a></li>
+                        <li><a class="list-group-item" href="contrast-fr.html">Contraste</a></li>
+                        <li><a class="list-group-item" href="visual-proximity-fr.html">Proximité visuelle des étiquettes</a></li>
+                        <li><a class="list-group-item" href="textspacing-fr.html">Espacement du texte</a></li>
+                        <li><a class="list-group-item" href="css-generated-fr.html">Contenu généré par une CSS</a></li>
+                        <li><a class="list-group-item active" aria-current="page" href="hiding-content-fr.html">Masquer ou afficher un contenu</a></li>
+                        <li><a class="list-group-item" href="best-practice-fr.html">Pratiques exemplaire</a></li>
+                     </ul>
+                  </section>
+                  <section class="list-group menu list-unstyled">
+                     <h3 class="wb-navcurr">Tous les modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/index-fr.html">Module 2 – Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/index-fr.html">Module 3 – Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/index-fr.html">Module 4 – Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/index-fr.html">Module 5 – Images</a></li>
+                        <li><a class="list-group-item" href="../module6/index-fr.html">Module 6 – Formulaires</a></li>
+                        <li><a class="list-group-item active" href="index-fr.html">Module 7 – Conception visuelle coleurs</a></li>
+                        <li><a class="list-group-item" href="../module8/index-fr.html">Module 8 – Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+                     </ul>
+                  </section>
+               </nav>
+            </div>
+            <div id="def-preFooter2"></div>
+            <script src="../../../scripts/preFooter2.min.js"></script>
+            <div id="def-preFooter"></div>
+            <script src="../../../scripts/preFooter.min.js"></script>
+         </div>
+         <div id="def-footer"></div>
+         <script src="../../../scripts/appFooter-fr.min.js"></script>
+         <script src="../../../scripts/refFooter.min.js"></script>
+         <script src="../../../scripts/bati-itao.min.js"></script>
+      </body>
+   </html>
+   
