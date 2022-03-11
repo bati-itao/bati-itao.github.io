@@ -91,7 +91,11 @@
 					<h3 class="text-success mrgn-tp-0">
 			<span class="glyphicon glyphicon-ok-circle"></span> Good example: Linked image</h3>
 		<p>In the example below, the Canada.ca logo in the banner links to the Canada.ca homepage. The <code>&lt;img&gt;</code> element is nested in the link. The alt text “Government of Canada home page” provides the link text.</p>
-		<img src="images/image1f.png" class="img-responsive" alt="Government of Canada home page">
+		<div class="panel panel-primary">
+			<div class="panel-body mrgn-bttm-0">
+				<img src="images/image1f.png" class="img-responsive" alt="Government of Canada home page">
+			</div>
+		</div>
 		<p class="wb-inv">Code begins</p>
 <pre>
 <code class="language-html">&lt;a href="https://www.canada.ca/en.html"&gt;
@@ -106,9 +110,13 @@
 					<h3 class="text-success mrgn-tp-0">
 			<span class="glyphicon glyphicon-ok-circle"></span> Good example: Icon with meaningful alt text nested in link text</h3>
 		<p>In this example, an icon with the meaningful alt text “Opens in new window” is nested inside the link along with the link text “W3C Homepage”.  Screen reader users experience the link as “W3C homepage, opens in new window.”</p>
-		<p>Example:</p>
-		<a href="https://www.w3.org/" target="_blank">W3C Homepage <img src="images/image1d.png" class="" alt="Opens in new window">
-		</a>
+		<div class="panel panel-primary">
+			<div class="panel-body well mrgn-bttm-0">
+				<a href="https://www.w3.org/" target="_blank">W3C Homepage 
+					<img src="images/image1d.png" class="" alt="Opens in new window">
+				</a>
+			</div>
+		</div>
 		<p class="wb-inv">Code begins</p>
 		<div style="padding-top: 1em">
 <pre>
@@ -127,9 +135,11 @@
 					<h3 class="text-success mrgn-tp-0">
 			<span class="glyphicon glyphicon-ok-circle"></span> Good example: Functional icon</h3>
 		<p>In this example, a clickable icon representing a printer denotes print functionality. Its text alternative is “Print this page”, rather than the literal “Printer”, because the purpose is to activate the print dialog.</p>
-		<p>Example:</p>
-		<img src="images/image22.png" class="img-responsive" alt="Print this page">
-		
+		<div class="panel panel-primary">
+			<div class="panel-body mrgn-bttm-0">
+				<img src="images/image22.png" class="img-responsive" alt="Print this page">
+			</div>
+		</div>
 		<p class="wb-inv">Code begins</p>
 		<div style="padding-top: 1em">
 <pre>
@@ -147,12 +157,13 @@
 			<span class="glyphicon glyphicon-ok-circle"></span> Good example: Image used in a button
 		</h3>
 		<p>The following image is used to give the button a distinct style. In this case, it is the button to initiate a search request and the nested icon is a magnifying lens. The text alternative for the image is “search” to convey the purpose of the button, rather than the literal “magnifying lens”.</p>
-		<p>Example:</p>
-
-		<label for="search">Search</label>
-		<input type="search" name="search"></input>
-		<input type="image" src="images/searchbutton.png" alt="Search" style="width: 1.5em">
-	
+		<div class="panel panel-primary">
+			<div class="panel-body well mrgn-bttm-0">
+				<label for="search">Search</label>
+				<input type="search" name="search"></input>
+				<input type="image" src="images/searchbutton.png" alt="Search" style="width: 1.5em">
+			</div>
+		</div>
 		
 		<p class="wb-inv">Code begins</p>
 		<div style="padding-top: 1em">
@@ -168,11 +179,14 @@
 					<h3 class="text-success mrgn-tp-0">
 			<span class="glyphicon glyphicon-ok-circle"></span> Good example: Redundant image within link text</h3>
 		<p>In this example, the Company XYZ logo accompanies a text link that leads to the Company XYZ home page. The image does not represent different functionality or convey other information than that already provided in the link text. In effect the image is a simple visual assist to the link text. A null (empty) alt value is applied, (<code>alt=""</code>), to avoid redundancy and repetition.</p>
-		<p>Example:</p>
-		<a href="https://www.CompanyXYZ.ca/">
-			<img src="images/image2b.png" class="img-responsive" alt="">
-			Company XYZ home page
-		</a>
+		<div class="panel panel-primary">
+			<div class="panel-body mrgn-bttm-0">
+				<a href="https://www.CompanyXYZ.ca/">
+					<img src="images/image2b.png" class="img-responsive" alt="">
+					Company XYZ home page
+				</a>
+			</div>
+		</div>
 		<p class="wb-inv">Code begins</p>
 		<div style="padding-top: 1em">
 <pre>
@@ -195,8 +209,10 @@
 					<h3 class="text-success mrgn-tp-0">
 			<span class="glyphicon glyphicon-ok-circle"></span> Good example: Naming a functional image using the <code>aria-label</code> attribute</h3>
 		<p>In this example, an <code>aria-label</code> attribute names the button, rather than the child <code>&lt;img&gt;</code> element's <code>alt</code> attribute. The <code>alt</code> attribute is set to null (empty): <code>alt=""</code>.</p>
-		<img src="images/image1e.png" class="img-responsive" alt="">
-		
+				
+		<button aria-label="Next">
+			<img src="images/image1e.png" class="img-responsive" alt="">
+		</button>
 		<p class="wb-inv">Code begins</p>
 		<div style="padding-top: 1em">
 <pre>
@@ -290,8 +306,6 @@
 		<p class="wb-inv">Code ends</p>
 		</div>
 	</div>
-		<hr/>
-		<p class="small">The examples of the functional images are from the Web Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a>) document: <a href="https://www.w3.org/WAI/tutorials/images/functional/">Functional Images</a> from the <a href="https://www.w3.org/WAI/tutorials/images/">Images Concepts</a> tutorial of the <a href="https://www.w3.org/WAI/tutorials/">Web Accessibility Tutorials</a>. <a href="https://www.w3.org/People/yatil/">Eric Eggert</a> and <a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra,</a> eds. Copyright  © 2019 W3C® (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>). Updated 27 July 2019 (first published September 2014). <a href="https://www.w3.org/WAI/tutorials/images/functional/">https://www.w3.org/WAI/tutorials/images/functional/</a></p>
 	</section>
 	<section>
 		<h2 id="wcag" class="wb-inv">Related WCAG resources</h2>
