@@ -81,21 +81,21 @@
 
 	<section>
 		<h2 id="designing">Designing with groups of images</h2>
-		<p>Groups of images represent either a single piece of information, such as a star rating, or a collection of images, such as a gallery.</p>
-		<p>Follow these best practices for groups of images:</p>
+		<p>Les groupes d’images représentent soit un élément d’information unique, comme une norme de classement par nombre d’étoiles, soit une collection d’images, comme une galerie.</p>
+		<p>Suivez les pratiques exemplaires suivantes pour ce qui a trait aux groupes d’images :</p>
 		<ul>
-			<li>When a group of images represent a single piece of information: One image holds the message in its <code>alt</code> attribute, the other images use a null <code>alt</code> attributes (<code>alt=""</code>), ensuring assistive technology ignores the other images.</li>
-			<li>When a group of images represent a collection: Nest each image in a <code>&lt;figure&gt;</code> element with a <code>&lt;figcaption&gt;</code> child element, and nest all the figures in a single parent <code>&lt;figure&gt;</code> element. Use its <code>&lt;figcaption&gt;</code> to describe the context.</li>
+			<li>Lorsqu’un groupe d’images représente un élément d’information unique : Utiliser l’attribut <code>alt</code> et du texte de remplacement pour l’une des images, et utiliser l’attribut <code>alt</code> nul (alt=””) pour les autres images afin que la technologie d’assistance ne les prenne pas en charge.</li>
+			<li>Lorsqu’un groupe d’images représente une collection : Imbriquer chaque image dans un élément de <code>&lt;figure&gt;</code> avec un élément enfant <code>&lt;figcaption&gt;</code> et imbriquer toutes les <code>&lt;figure&gt;</code> dans un élément de figure à parent unique. Utiliser l’élément <code>&lt;figcaption&gt;</code> pour décrire le contexte.</li>
 		</ul>
 	</section>
 	<section>
 		<div class="panel panel-success">
 			<div class="panel-body">
 		<h2 id="example1" class="text-success mrgn-tp-0">
-			<span class="glyphicon glyphicon-ok-circle"></span> Good example 1: A group of images representing a single piece of information
+			<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple 1 : Groupe d’images représentant un élément d’information unique
 		</h2>
-		<p>A star rating consists of 5 star images, yet it needs to communicate just one message in its alt text – the rating out of five.</p>
-
+		<p>Une norme de classement par nombre d’étoiles consiste en une image qui montre 5 étoiles, mais dont le texte de remplacement ne doit communiquer qu’un seul message, soit le nombre d’étoiles sur 5.</p>
+		<p>Exemple:</p>
 		<p>Rating:
 			<img src="images/star-full.png" alt="3.5 out of 5 stars">
 			<img src="images/star-full.png" alt="">
@@ -121,27 +121,28 @@
 		<div class="panel panel-success">
 			<div class="panel-body">
 		<h2 id="example2" class="text-success mrgn-tp-0">
-			<span class="glyphicon glyphicon-ok-circle"></span> Good example 2: A group of images representing a collection
+			<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple 2 : Un groupe d’images représentant une collection
 		</h2>
-		<p>A collection of images may be a gallery, in which case each image needs its own alt text and the group itself needs alt text.</p>
-		<p>In this example, the <code>&lt;figure&gt;</code> holds the <code>&lt;img&gt;</code> element and the <code>&lt;figcaption&gt;</code> provides a caption for each image in a collection. The <code>&lt;figure&gt;</code> element can be nested, with the parent providing a caption for the entire collection of images.</p>
+		<p>Une collection d’images peut être une galerie, auquel cas chaque image a besoin de son propre texte de remplacement, et le groupe lui-même a besoin d’un texte de remplacement.</p>
+		<p>Dans cet exemple, la <code>&lt;figure&gt;</code> contient l’élément <code>&lt;img&gt;</code>, et la <code>&lt;figcaption&gt;</code> fournit une légende pour chaque image d’une collection. L’élément <code>&lt;figure&gt;</code> peut être emboîté, le parent fournissant une légende pour toute la collection d’images.</p>
+		<p>Exemple:</p>
 		<div class="panel panel-primary">
 						<div class="panel-body well mrgn-bttm-0">
 
 		<figure>		
-			<figcaption>The castle through the ages: 1423, 1756, and 1936 respectively.</figcaption>
+			<figcaption>Les châteaux à travers les âges : 1423, 1756 et 1936</figcaption>
 			
 			<figure>
 				<img src="images/castle-etching.jpg" class="img-responsive" alt="The castle has one tower, and a tall wall around it.">
-				<figcaption>Charcoal on  wood. Anonymous, circa 1423.</figcaption>
+				<figcaption>Charbon sur bois. Anonyme, vers 1423.</figcaption>
 			</figure>
 			<figure>
 				<img src="images/castle-painting.jpg" class="img-responsive" alt="The castle now has two towers and two walls.">
-				<figcaption>Oil-based paint on canvas. Eloisa Faulkner, 1756.</figcaption>
+				<figcaption>Peinture à base d’huile sur toile. Eloisa Faulkner, 1756.</figcaption>
 			</figure>
 			<figure>
 				<img src="images/castle-fluro.jpg" class="img-responsive" alt="The castle lies in ruins, the original tower all that remains in one piece.">
-				<figcaption>Film photograph. <span lang="fr">Séraphin Médéric Mieusement</span>, 1936.</figcaption>
+				<figcaption>Photographie analogique. <span lang="fr">Séraphin Médéric Mieusement</span>, 1936.</figcaption>
 			</figure>
 		</figure>
 			</div>
@@ -150,19 +151,19 @@
 		<p class="wb-inv">Code commence</p>
 <pre>
 <code class="language-html">&lt;figure&gt;
-   &lt;figcaption&gt;The castle through the ages: 1423, 1756, and 1936 respectively.&lt;/figcaption&gt;
+   &lt;figcaption&gt;Les châteaux à travers les âges : 1423, 1756 et 1936.&lt;/figcaption&gt;
    
    &lt;figure&gt;
-      &lt;img src="castle-etching.jpg" alt="The castle has one tower, and a tall wall around it."&gt;
-      &lt;figcaption&gt;Charcoal on  wood. Anonymous, circa 1423.&lt;/figcaption&gt;
+      &lt;img src="castle-etching.jpg" alt="Le château comporte une tour et un grand mur d’enceinte."&gt;
+      &lt;figcaption&gt;Charbon sur bois. Anonyme, vers 1423.&lt;/figcaption&gt;
    &lt;/figure&gt;
    &lt;figure&gt;
-      &lt;img src="castle-painting.jpg" alt="The castle now has two towers and two walls."&gt;
-      &lt;figcaption&gt;Oil-based paint on canvas. Eloisa Faulkner, 1756.&lt;/figcaption&gt;
+      &lt;img src="castle-painting.jpg" alt="Le château compte maintenant deux tours et deux murs."&gt;
+      &lt;figcaption&gt;Peinture à base d’huile sur toile. Eloisa Faulkner, 1756.&lt;/figcaption&gt;
    &lt;/figure&gt;
    &lt;figure&gt;
-      &lt;img src="castle-fluro.jpg"alt="The castle lies in ruins, the original tower all that remains in one piece."&gt;
-      &lt;figcaption&gt;Film photograph. &lt;span lang="fr"&gt;Séraphin Médéric Mieusement&lt;/span&gt;, 1936.&lt;/figcaption&gt;
+      &lt;img src="castle-fluro.jpg"alt="Le château est en ruines; la tour d’origine est le seul élément entier qui reste."&gt;
+      &lt;figcaption&gt;Photographie analogique.. &lt;span lang="fr"&gt;Séraphin Médéric Mieusement&lt;/span&gt;, 1936.&lt;/figcaption&gt;
    &lt;/figure&gt;
 &lt;/figure&gt;</code>
 </pre>
@@ -170,13 +171,13 @@
 			</div>
 		</div>
 		<hr/>
-		<p class="small">Examples 1 and 2 are from the Web Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a>) document: <a href="https://www.w3.org/WAI/tutorials/images/groups/">Groups of Images</a> from the <a href="https://www.w3.org/WAI/tutorials/images/">Images Concepts tutorial</a>. Eric Eggert and Shadi Abou-Zahra, eds. Copyright © 2019 W3C® (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>). Status: Draft Updated 27 July 2019.  <a href="https://www.w3.org/WAI/tutorials/images/groups/">https://www.w3.org/WAI/tutorials/images/groups/</a></p>
+		<p class="small">Les exemples 1 et 2 sont tirés du document de l’Initiative d’accessibilité du Web (<a href="https://www.w3.org/WAI/">IAT</a>) : <a href="https://www.w3.org/WAI/tutorials/images/groups/">Groupes d’images</a> du <a href="https://www.w3.org/WAI/tutorials/images/">tutoriel Concepts visant les images</a>. Eric Eggert et Shadi Abou-Zahra, eds. Copyright © 2019 W3C® (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>). Statut : Ébauche mise à jour le 27 juillet 2019. <a href="https://www.w3.org/WAI/tutorials/images/groups/">https://www.w3.org/WAI/tutorials/images/groups/</a></p>
 	</section>
 	<section>
-		<h2 id="wcag" class="wb-inv">Related WCAG resources</h2>
+		<h2 id="wcag" class="wb-inv">Ressources WCAG connexes</h2>
 		<details class="mrgn-tp-lg">
-			<summary class="bg-info">Related WCAG resources</summary>
-		<h3>Success Criteria</h3>
+			<summary class="bg-info">Ressources WCAG connexes</summary>
+		<h3>Critères de succès</h3>
 		<ul>
 			<li>
 				<a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a>
