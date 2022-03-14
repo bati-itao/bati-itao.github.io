@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/custom-table.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -51,10 +52,10 @@
             }],
             "lngLinks": [{
                 "lang": "fr",
-                "href": "labelling-controls-fr.html",
+                "href": "labelling-fr.html",
                 "text": "Français"
             }],
-            "menuPath": "../../../ajax/menu-en.html"
+            "menuPath": "../../ajax/menu-en.html"
         });
     </script>
 <div class="container">
@@ -70,45 +71,363 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#section1">S1</a></li>
-			<li><a href="#section2">S2</a></li>
-			<li><a href="#section3">S3</a></li>
-			<li><a href="#resources1">Related WCAG resources</a></li>
+            <li><a href="#labeling-controls">Best practices for labeling controls</a></li>
+			<li><a href="#labels-attributes">Good example: Associating labels explicitly using for/id attributes</a></li>
+			<li><a href="#hiding-label-element">Good example: Visually hiding the label element</a></li>
+			  <li><a href="#aria-label">Good example: Using aria-label</a></li>
+			<li><a href="#aria-labelledby">Good example: Using aria-labelledby to concatenate a label from several sources</a></li>
+			  <li><a href="#aria-labelledby-concatenate">Good example: Using aria-labelledby to concatenate a label from several sources</a></li>
+			  <li><a href="#labelling-buttons">Good example: Labelling buttons</a></li>
+			  <li><a href="#labelling-image-button">Labelling image button using aria-label attribute</a></li>
+
+			  <li><a href="#wcag-resources">Related WCAG resources</a></li>
           </ul>
         </div>
       </div>
 	</nav>
 	
 			<section>				
-				<h2 id="section1">S1</h2>
+				<h2 id="labeling-controls">Best practices for labeling controls</h2>
+			  <p>Form controls include text fields, file-select fields, checkboxes, radio buttons, and drop-down lists.</p>
+				<p> Follow these best practices for labeling controls: </p>
+				<ul>
+				  <li>Provide labels to describe the purpose of the form control. </li>
+				  <li>Use the &lt;label&gt; element. </li>
+				  <li>Match exactly the <code>for</code> attribute of the label with the <code>id</code> attribute of the form control to explicitly associate them. </li>
+				  <li>Elements that use explicitly associated labels are: 
+				    <ul>
+				      <li>input type=&quot;text&quot; </li>
+				      <li>input type=&quot;checkbox&quot; </li>
+				      <li>input type=&quot;radio&quot; </li>
+				      <li>input type=&quot;file&quot; (file-select fields) </li>
+				      <li>input type=&quot;password&quot; </li>
+				      <li>textarea </li>
+				      <li>Select (drop-down lists) </li>
+			        </ul>
+			      </li>
+				  <li>Do not use the &lt;label&gt; element for the following elements. 
+				    <ul>
+				      <li>Submit and Reset buttons (input type=&quot;submit&quot; or input type=&quot;reset&quot;) 
+				        <ul>
+				          <li>Label provided by the value attribute </li>
+			            </ul>
+				      </li>
+				      <li>Image buttons (input type=&quot;image&quot;) 
+				        <ul>
+				          <li>Label provided by the alt attribute</li>
+			            </ul>
+				      </li>
+				      <li>Hidden input fields (input type=&quot;hidden&quot;) </li>
+				      <li>Buttons (button elements or &lt;input type=&quot;button&quot;&gt;) 
+				        <ul>
+				          <li>Label provided by the element content itself (button) or the value, aria-label, or aria-labelledby attribute</li>
+			            </ul>
+				      </li>
+			        </ul>
+				  </li>
+				  <li>Use ARIA labels (aria-labelledby and aria-label attributes) when it is not possible to use &lt;label&gt; </li>
+                  <li>When using ARIA labels, include any visible text in the control label. </li>
+                  <li>Use the aria-labelledby attribute to retrieve a label from the context, drawing on one or more elements in the context. </li>
+                  <li>Avoid using the title attribute to identify form controls. It is not widely supported by AT.</li>
+                  <li>Keep label text short and concise. </li>
+                  <li>Use unique label text on a page. </li>
+                  <li>Position labels visually to the right of radio buttons and checkboxes.</li>
+                  <li>Position labels visually directly above their form fields (preferred by WET) or to the left (WET alternative, when there&rsquo;s a need to conserve vertical space). </li>
+				</ul>
+				
+			     
 				
 			</section>
 			
-			<section>				
-				<h2 id="section2">S2</h2>
-				
+			<section>
+				<div class="panel panel-success">
+					<div class="panel-body">
+		
+					  <h2 class="text-success mrgn-tp-0 h3" id="labels-attributes"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Associating labels explicitly using for/id attributes</h2>
+						<p>Use the &lt;label&gt; element to associate text with form elements explicitly, whenever possible. The &ldquo;for&rdquo; attribute of the label must exactly match the &ldquo;id&rdquo; of the form control. Prioritize using the HTML &lt;label&gt; element to associate form controls before using ARIA.</p>
+						<div class="panel panel-default well well-sm col-md-7">
+							<div class="panel-body mrgn-bttm-0">
+	
+								<div class="form-group">
+								<label for="firstname">First name:</label> 
+<input type="text" name="firstname" id="firstname">
+</div>
+								<div class="form-group">
+<input type="checkbox" name="married" id="married"> 
+<label for="married">Married</label>
+									 </div>
+		</div>
+					  </div>
+						<div class="clearfix"></div>		
+								
+					<details class="mrgn-tp-sm">
+							<summary class="bg-info">View HTML </summary>
+							<p class="wb-inv">Code begins</p>
+							
+							<pre><code class="language-html">&lt;label for="firstname"&gt;First name:&lt;/label&gt;
+&lt;input type="text" name="firstname" id="firstname"&gt;
+&lt;br&gt;
+&lt;input type="checkbox" name="married" id="married"&gt;
+&lt;label for="married"&gt;Married&lt;/label&gt;</code>
+</pre>
+<p class="wb-inv">Code ends</p>
+						</details>	
+          
+					</div>
+				</div>
 			</section>
 			
-			<section>				
-				<h2 id="section3">S3</h2>
-				
+			<section>
+				<div class="panel panel-success">
+				  <div class="panel-body">
+		
+					  <h2 class="text-success mrgn-tp-0 h3" id="hiding-label-element"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Visually hiding the label element</h2>
+						<p>Visually hide the label element to avoid redundancy for users who can identify the purpose visually. In this example, The WET class .wb-inv effectively hides the label “Search” from sighted users but the element is still in the HTML and is encountered by assistive technology users.</p>
+						<div class="panel panel-default well well-sm col-md-7">
+							<div class="panel-body mrgn-bttm-0">
+								
+							<label for="search" class="wb-inv">Search</label> 
+<input type="text" name="search" id="search"> 
+<button type="submit">Search</button>
+</div>
+					  </div>
+		<div class="clearfix"></div>
+					<details class="mrgn-tp-sm">
+							<summary class="bg-info">View HTML </summary>
+							<p class="wb-inv">Code begins</p>
+							<pre><code class="language-html">&lt;label for="search" class="wb-inv"&gt;Search&lt;/label&gt; 
+&lt;input type="text" name="search" id="search"&gt; 
+&lt;button type="submit"&gt;Search&lt;/button&gt;</code>
+</pre>
+CSS:
+<pre><code class="language-css">.wb-inv {
+    clip: rect(1px,1px,1px,1px);
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+}</code>
+</pre>
+<p class="wb-inv">Code ends</p>
+					  </details>					 
+										 
+					<p class="mrgn-tp-md">Use the WET class .wb-inv to visually-hide an element, as per the WET style guide: <a href="https://wet-boew.github.io/wet-boew-styleguide/design/visible-en.html">https://wet-boew.github.io/wet-boew-styleguide/design/visible-en.html</a></p>
+</div>
+				</div>
 			</section>
 			
+	<div class="panel panel-success">
+	    <div class="panel-body">
+		
+		  <h2 class="text-success mrgn-tp-0 h3" id="aria-label"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Using aria-label</h2>
+		    <p>Use an aria-label attribute to name form inputs and other controls directly with non-visual text. This approach should only be used when the label of the control is clear from the surrounding content. The information in aria-label is not displayed visually.
+</p>
+					  <p>In this example, a search input field needs no visual label since the submit button right beside it is labelled “Search”. Since non-sighted users encounter content linearly, one element at a time, we name the control with the aria-label attribute. </p>
+			<div class="panel panel-default col-md-7">
+							<div class="panel-body well well-lg mrgn-bttm-0">
+			<input type="text" name="search" aria-label="Search"> 
+<button type="submit">Search</button>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+					<details class="mrgn-tp-sm">
+							<summary class="bg-info">View HTML </summary>
+							<p class="wb-inv">Code begins</p>
+							<pre><code class="language-html">&lt;input type="text" name="search" aria-label="Search"&gt; 
+&lt;button type="submit"&gt;Search&lt;/button&gt;</code>
+</pre>
+<p class="wb-inv">Code ends</p>
+					  </details>
+
+        </div>
+		</div>
+		<section>
+			<div class="panel panel-success">
+	    <div class="panel-body">
+		
+		  <h2 class="text-success mrgn-tp-0 h3" id="aria-labelledby"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Using aria-labelledby to concatenate a label from several sources</h2>
+			<p>A &lt;label&gt; can only point to one form control. With aria-labelledby, one element can help label multiple form controls, and one form control can be labelled by multiple elements.</p>
+			<p>Use an aria-labelledby attribute to identify form inputs and other controls with names retrieved from surrounding elements. This approach should only be used when the label of the control is clear from the surrounding content.</p>
+			<p>
+			  In this example, each service is accompanied by an &ldquo;Add to cart&rdquo; button. An aria-labelledby attribute distinguishes the buttons from one another by concatenating a name out of the button itself and the preceding heading (e.g., &ldquo;Add to cart Service 1&rdquo;). The aria-labelledby attribute holds the id attribute values of the elements with the descriptive names. As this example illustrates, the aria-labelledby attribute can construct a name partially from its own native element name.</p>
+			<div class="panel panel-default well well-sm col-md-7">
+							<div class="panel-body mrgn-bttm-0">
+			<h3  class="mrgn-tp-0" id="option1">Service 1</h3>
+<button type="submit" class="btn btn-primary btn-lg" id="add1" aria-labelledby="add1 option1">Add to cart</button>
+<h3 id="option2">Service 2</h3>
+<button type="submit" class="btn btn-primary btn-lg" id="add2" aria-labelledby="add2 option2">Add to cart</button>
+<h3 id="option3">Service 3</h3>
+<button type="submit" class="btn btn-primary btn-lg" id="add3" aria-labelledby="add3 option3">Add to cart</button>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+					<details class="mrgn-tp-sm">
+							<summary class="bg-info">View HTML </summary>
+							<p class="wb-inv">Code begins</p>
+							<pre><code class="language-html">&lt;h3 id=”option1”&gt;Service 1&lt;/h3&gt;
+&lt;button type=”submit” id=”add1” aria-labelledby=”add1 option1”&gt;Add to cart&lt;/button&gt;
+&lt;h3 id=”option2”&gt;Service 2&lt;/h3&gt;
+&lt;button type=”submit” id=”add2” aria-labelledby=”add2 option2”&gt;Add to cart&lt;/button&gt;
+&lt;h3 id=”option3”&gt;Service 3&lt;/h3&gt;
+&lt;button type=”submit” id=”add3” aria-labelledby=”add3 option3”&gt;Add to cart&lt;/button&gt;</code>
+</pre>
+<p class="wb-inv">Code ends</p>
+					  </details>
+
+        </div>
+			</div>
+		
+		</section>
+		<div class="panel panel-success">
+	    <div class="panel-body">
+		
+		  <h2 class="text-success mrgn-tp-0 h3" id="aria-labelledby-concatenate"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Using aria-labelledby to concatenate a label from several sources</h2>
+			<p>In the example below, the text inputs use aria-labelledby to reference the row header and column header cells.</p>
+			<div class="panel panel-primary">
+							<div class="panel-body well mrgn-bttm-0">
+					<table class="table">	
+<tr>
+<th scope="col">Name</th>
+<th id="officenum" scope="col">Office Number</th>
+<th id="phonelabel" scope="col">Phone</th>
+</tr>
+<tr>
+<th id="cyndi" scope="row">Cyndi</th>	
+<td><input type="text" size="4" name="office1" aria-labelledby="cyndi officenum"></td>
+<td><input type="text" size="12" name="phone1" aria-labelledby="cyndi phonelabel"></td>
+</tr>
+<tr>
+<th id="jared" scope="row">Jared</th>
+<td><input type="text" size="4" name="office2" aria-labelledby="jared officenum"></td>
+<td><input type="text" size="12" name="phone2" aria-labelledby="jared phonelabel"></td>
+</tr>
+<tr>
+<th id="jon" scope="row">Jonathan</th>
+<td><input type="text" size="4" name="office3" aria-labelledby="jon officenum"></td>
+<td><input type="text" size="12" name="phone3" aria-labelledby="jon phonelabel"></td>
+</tr>
+</table>
 			
+								
+				</div>
+			</div>
+			<div class="clearfix"></div>
+					<details class="mrgn-tp-sm">
+							<summary class="bg-info">View HTML </summary>
+							<p class="wb-inv">Code begins</p>
+							<pre><code class="language-html">&lt;table&gt;	
+&lt;tr&gt;
+&lt;th scope="col"&gt;Name&lt;/th&gt;
+&lt;th id="officenum" scope="col"&gt;Office Number&lt;/th&gt;
+&lt;th id="phonelabel" scope="col"&gt;Phone&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="cyndi" scope="row"&gt;Cyndi&lt;/th&gt;	
+&lt;td&gt;&lt;input type="text" size="4" name="office1" aria-labelledby="cyndi officenum"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="text" size="12" name="phone1" aria-labelledby="cyndi phonelabel"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="jared" scope="row"&gt;Jared&lt;/th&gt;
+&lt;td&gt;&lt;input type="text" size="4" name="office2" aria-labelledby="jared officenum"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="text" size="12" name="phone2" aria-labelledby="jared phonelabel"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="jon" scope="row"&gt;Jonathan&lt;/th&gt;
+&lt;td&gt;&lt;input type="text" size="4" name="office3" aria-labelledby="jon officenum"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="text" size="12" name="phone3" aria-labelledby="jon phonelabel"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</code>
+</pre>
+<p class="wb-inv">Code ends</p>
+					  </details>
+</div>
+		</div>
+		
+		
+		
+		
+			<section>
+				<div class="panel panel-success">
+	    <div class="panel-body">
+		
+		  <h2 class="text-success mrgn-tp-0 h3" id="labelling-buttons"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Labelling buttons</h2>
+			<p>The &lt;button&gt; element creates a clickable button. Within the button element content, you can put text and tags like &lt;i&gt;, &lt;b&gt;, &lt;strong&gt;, &lt;br&gt;, &lt;img&gt;, etc. <br>
+			  You can also use the &lt;input&gt; element to create buttons. The label is set in the value attribute of the element. If &lt;input type=&rdquo;image&rdquo;&gt; is used, the label is set in the alt attribute.</p>
+			
+			
+			
+			<details class="mrgn-tp-sm">
+							<summary class="bg-info">View HTML </summary>
+							<p class="wb-inv">Code begins</p>
+							<pre><code class="language-html">&lt;button type="submit"&gt;Submit&lt;/button&gt; 
+&lt;button type="button"&gt;Cancel&lt;/button&gt; 
+&lt;button&gt;Activate&lt;/button&gt;
+
+&lt;input type="submit" value="Submit"&gt; 
+&lt;input type="button" value="Cancel"&gt;
+&lt;input type="image" src="searchbutton.jpg" alt="Search"&gt;</code>
+</pre>
+<p class="wb-inv">Code ends</p>
+					  </details>
+</div>
+				</div>
+			
+			</section>
+		
+		<section>
+						<div class="panel panel-success">
+	    <div class="panel-body">
+		
+		  <h2 class="text-success mrgn-tp-0 h3" id="labelling-image-button"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;  Good example: Labelling image button using aria-label attribute</h2>
+			<p>In this example, an aria-label attribute names the button, rather than the child &lt;img&gt; element&rsquo;s alt attribute. The alt attribute is set to null (empty): alt="".</p>
+		
+			<button aria-label="Next">
+<img src="images/next.png" alt="">
+</button>
+	<details class="mrgn-tp-sm">
+							<summary class="bg-info">View HTML </summary>
+							<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;button aria-label=”Next”&gt;
+	&lt;img src=”images/next.png” alt=””&gt;
+&lt;/button&gt;</code>
+</pre>
+<p class="wb-inv">Code ends</p>
+					  </details>
+</div>
+			</div>
+		
+		</section>
+		
 			<section>				
-				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
+				<h2 id="wcag-resources" class="wb-inv">Related WCAG resources</h2>
+				
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
 					<ul>
-						<li><a href="https://www.link1.com">Link 1</a></li>
-					</ul>
+                  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a></li>
+                  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1 Info and Relationships</a></li>
+                  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels">2.4.6 Headings and Labels</a></li>
+                  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions">3.3.2 Labels or Instructions</a></li>
+                  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value">4.1.2 Name, Role, Value</a></li>
+                </ul>
 					<h3>Techniques</h3>
-					<ul>
-						<li>
-							<a href="https://www.link2.com">Link 2</a>
-						</li>						
-					</ul>
+					                <ul>
+                  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G131">G131: Providing descriptive labels</a></li>
+                  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G162">G162: Positioning labels to maximize predictability of relationships</a></li>
+                  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G167">G167: Using an adjacent button to label the purpose of a field</a></li>
+                  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H44">H44: Using label elements to associate text labels with form controls</a></li>
+                  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H65">H65: Using the title attribute to identify form controls when the label element cannot be used</a></li>
+                  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H93">H93: Ensuring that id attributes are unique on a Web page</a></li>
+                  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA6">ARIA6: Using aria-label to provide labels for objects</a></li>
+                  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA9">ARIA9: Using aria-labelledby to concatenate a label from several text nodes</a></li>
+                  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA16">ARIA16: Using aria-labelledby to provide a name for user interface controls</a></li>
+                </ul>
+					<h3>Failures </h3>
+                <ul>
+                  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F68">F68: Failure of Success Criterion 4.1.2 due to a user interface control not having a programmatically determined name</a></li>
+                </ul>
 				</details>
 			</section>
 		
@@ -124,7 +443,7 @@
 			
 
 	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
-		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+	  <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Module 6 - Forms</h3>
 					<ul class="list-group menu list-unstyled">
@@ -132,12 +451,12 @@
 						<li><a class="list-group-item" href="forms-concepts.html">Forms concepts</a></li>
 						<li><a class="list-group-item active" aria-current="page" href="labelling-controls.html">Labelling controls</a></li>
 						<li><a class="list-group-item" href="grouping-controls.html">Grouping controls</a></li>
-						<li><a class="list-group-item" href="form-instructions.html">Form instructions</a></li>
-						<li><a class="list-group-item" href="identifying-input.html">Identifying input purpose</a></li>
-						<li><a class="list-group-item" href="validating-input.html">Validating input</a></li>
-						<li><a class="list-group-item" href="user-notifications.html">User notifications</a></li>
-						<li><a class="list-group-item" href="multi-step-forms.html">Multi-step forms</a></li>
-						<li><a class="list-group-item" href="custom-controls.html">Custom controls</a></li>
+						<li><a class="list-group-item" href="instructions.html">Form instructions</a></li>
+						<li><a class="list-group-item" href="identifying.html">Identifying input purpose</a></li>
+						<li><a class="list-group-item" href="validating.html">Validating input</a></li>
+						<li><a class="list-group-item" href="user.html">User notifications</a></li>
+						<li><a class="list-group-item" href="multi.html">Multi-step forms</a></li>
+						<li><a class="list-group-item" href="custom.html">Custom controls</a></li>
 						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
 						
 					</ul>
@@ -163,9 +482,9 @@
 </div>
 
 <div id="def-preFooter2"></div>
-		<script src="../../../scripts/preFooter2.min.js"></script>
+  <script src="../../../scripts/preFooter2.min.js"></script>
 <div id="def-preFooter"></div>
-		<script src="../../../scripts/preFooter.min.js"></script>
+  <script src="../../../scripts/preFooter.min.js"></script>
 		
 </div>	
 		
