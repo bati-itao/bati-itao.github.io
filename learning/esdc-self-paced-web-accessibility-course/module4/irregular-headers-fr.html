@@ -70,31 +70,32 @@
 				</header>
 				<div class="panel-body">
 					<ul>
-						<li><a href="#irregular-headers">Designing with En-têtes irréguliers</a></li>
-						<li><a href="#scope-attribute">The scope attribute</a></li>
-						<li><a href="#group-defining">The group-defining elements</a></li>
-						<li><a href="#headers">Good example: Table with column and row-spanning headers</a></li>
-						<li><a href="#wcag">Related WCAG resources</a></li>
+						<li><a href="#irregular-headers">Concevoir avec des en-têtes irréguliers</a></li>
+						<li><a href="#scope-attribute">Attribut scope</a></li>
+						<li><a href="#group-defining">Éléments définissant le groupe</a></li>
+						<li><a href="#headers">Bon exemple&nbsp;: Tableau avec en-têtes recouvrant des colonnes et des rangées</a></li>
+						<li><a href="#wcag">Ressources WCAG connexes</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 		
 		<section>
-			<h2 id="irregular-headers">Designing with En-têtes irréguliers</h2>
-			<p>A table is irregular when one or more of its headers span multiple columns or rows.</p>
-			<p>HTML introduces attributes and elements dedicated to representing the relationships between these row- or column-spanning headers and the data cells they define.</p>
+			<h2 id="irregular-headers">Concevoir avec des en-têtes irréguliers</h2>		
+			<p>Un tableau est irrégulier lorsqu’un ou plusieurs de ses en-têtes englobent plusieurs colonnes ou rangées.</p>
+			<p>HTML introduit des attributs et des éléments destinés à représenter les relations entre ces en-têtes couvrant des rangées ou des colonnes et les cellules de données qu’ils définissent.</p>
 		</section>
 		<section>
-			<h2 id="scope-attribute">The scope attribute</h2>
-			<p>When a header spans multiple columns, add the <code>scope="colgroup"</code> attribute to the <code>th</code> element. See header A in the example table below.</p>
-			<p>When a header spans multiple rows, add the <code>scope="rowgroup"</code> attribute to the <code>th</code> element. See header B in the example table below.</p>
-			<p>For solo column headers, add the <code>scope="col"</code> attribute to the th element. See headers A1, A2, A3 in the example table below.</p>
-			<p>For solo row headers, add the <code>scope="row"</code> attribute to the th element. See headers B1, B2 in the example table below.</p>
+			<h2 id="scope-attribute">Attribut scope</h2>
+		
+			<p>Lorsqu’un en-tête couvre plusieurs colonnes, ajouter l’attribut <code>scope="colgroup"</code> à l’élément <code>&lt;th&gt;</code>. Voir l’en-tête <strong>A</strong> dans le tableau ci-dessous.</p>
+			<p>Lorsqu’un en-tête s’étend sur plusieurs rangées, ajouter l’attribut <code>scope="rowgroup"</code> à l’élément th. Voir l’en-tête <strong>B</strong> dans le tableau ci-dessous.</p>
+			<p>Pour les en-têtes de colonne solo, ajouter l’attribut <code>scope="col"</code> à l’élément <code>&lt;th&gt;</code>. Voir les en-têtes&nbsp;<strong>A1</strong>, <strong>A2</strong>, <strong>A3</strong> dans le tableau ci-dessous.</p>
+			<p>Pour les en-têtes de rangée solo, ajouter l’attribut <code>scope="row"</code> à l’élément <code>&lt;th&gt;</code>. Voir les en-têtes&nbsp;<strong>B1</strong> et <strong>B2</strong> dans le tableau ci-dessous.</p>
 			<div class="panel panel-primary">
 				<div class="panel-body well mrgn-bttm-0">
 					<table class="table table-bordered">
-					 <caption>Table with a column-spanning header and a row-spanning header</caption>
+					 <caption>Tableau comportant un en-tête de colonne et un en-tête de rangée</caption>
 							  <tr class="bg-primary">
 								<td colspan="2" rowspan="2">&nbsp;</td>
 								<th colspan="3">A</th>
@@ -120,6 +121,7 @@
 					</table>
 				</div>
 			</div>
+			<p>Le support du lecteur d’écran pour l’attribut <code>scope="rowgroup"</code> est pire que le support pour l’attribut <code>scope="colgroup"</code>. Lorsque cela est possible, concevoir des tableaux qui utilisent <code>scope="colgroup"</code> et éviter <code>scope="rowgroup"</code>.</p>
 	 		<details class="mrgn-tp-lg">
 				<summary class="bg-info">View HTML</summary>
 				<p class="wb=inv">Code begins</p>
@@ -155,27 +157,30 @@
 		</section>
 			
 		<section>
-			<h2 id="group-defining">The group-defining elements</h2>
-			<p>Irregular tables also define their solo columns and spanning columns with the <code>&lt;col&gt;</code> and <code>&lt;colgroup&gt;</code> elements, respectively. These elements are the first children of the table element and are listed in the order the columns appear in the table. The span attribute of the <code>&lt;colgroup&gt;</code> element holds the number of columns spanned. </p>
-			<p>Irregular tables define row groups using the <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code> and <code>&lt;tfoot&gt;</code> elements. <code>&lt;tbody&gt;</code> defines a new row group of rows with each use, while <code>&lt;thead&gt;</code> and <code>&lt;tfoot&gt;</code> do as well but can only be used once per table.</p>
+			<h2 id="group-defining">Éléments définissant le groupe</h2>		
+			<p>Les tableaux irréguliers définissent également leurs colonnes individuelles et colonnes recouvrantes avec, respectivement, les éléments <code>&lt;col&gt;</code> et <code>&lt;colgroup&gt;</code>. Ces éléments sont les premiers enfants de l’élément du tableau et sont énumérés dans l’ordre dans lequel les colonnes apparaissent dans le tableau. L’attribut <code>span</code> de l’élément <code>&lt;colgroup&gt;</code> contient le nombre de colonnes recouvertes. </p>
+				<p>Les tableaux irréguliers définissent des groupes de rangées en utilisant les éléments &<code>lt;thead&gt;</code>, <code>&lt;tbody&gt;</code> et <code>&lt;tfoot&gt;</code>. L’élément &lt;tbody&gt; définit un nouveau groupe de rangées pour chaque utilisation, alors que <code>&lt;thead&gt;</code> et <code>&lt;tfoot&gt;</code> le font aussi, mais ne peuvent être utilisés qu’une seule fois par tableau.</p>
 		</section>
 		<section>
 			<div class="panel panel-success">
 				<div class="panel-body">
-					<h2 class="text-success mrgn-tp-0 h3" id="headers"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Table with column and row-spanning headers</h2>
+					<h2 class="text-success mrgn-tp-0 h3" id="headers"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple&nbsp;: Tableau avec en-têtes recouvrant des colonnes et des rangées</h2>
 					<p>In this example, <mark><ins>"Country" and "Onwership" are solo columns, each identified with a <code>&lt;col&gt;</code> element. "Scenario" spans columns, identified with a <code>&lt;colgroup span="3"&gt;</code> element.</ins></mark> The "Canada" and "USA" headers and their respective rows are each nested in a <code>&lt;tbody&gt;</code> element. <del>he "Scenario" header is identified with a <code>&lt;colgroup span="3"&gt;</code> element.</del></p>
+					
+					<p>Dans cet exemple, les en-têtes «&nbsp;Canada&nbsp;» et «&nbsp;USA&nbsp;» et leurs rangées respectives sont emboîtés dans un élément <code>&lt;tbody&gt;</code>.</p>
+					
 					<div class="panel panel-primary">
 						<div class="panel-body well mrgn-bttm-0">
 							<table class="table table-bordered">
 								<col> 
 								<col> 
 								<colgroup span="3"></colgroup> 
-								<caption>Ownership scenarios, Canada vs USA</caption> 
+								<caption>Scénarios de propriété, Canada c. États-Unis</caption> 
 								<thead> 
 									<tr class="bg-success"> 
-										<th scope="col" rowspan="2">Country</th> 
-										<th scope="col" rowspan="2">Ownership</th> 
-										<th scope="colgroup" colspan="3">Scenario</th> 
+										<th scope="col" rowspan="2">Pays</th> 
+										<th scope="col" rowspan="2">Propriété</th> 
+										<th scope="colgroup" colspan="3">Scénario</th> 
 									</tr> 
 									<tr class="bg-success"> 
 										<th scope="col">A</th> 
@@ -186,31 +191,31 @@
 								<tbody>  
 									<tr> 
 										<th scope="rowgroup" rowspan="2" class="bg-success">Canada</th> 
-										<th scope="row" class="bg-success">Purchase</th> 
-										<td>likely</td> 
-										<td>very unlikely</td> 
-										<td>n/a</td> 
+										<th scope="row" class="bg-success">Achat</th> 
+										<td>probable</td> 
+										<td>très improbable</td> 
+										<td>S.&nbsp;O.</td> 
 									</tr> 
 									<tr> 
-										<th scope="row" class="bg-success">Rent</th> 
-										<td>unlikely</td> 
-										<td>very unlikely</td> 
-										<td>very unlikely</td> 
+										<th scope="row" class="bg-success">Location</th> 
+										<td>improbable</td> 
+										<td>très improbable</td> 
+										<td>très improbable</td> 
 									</tr> 
 								</tbody> 
 								<tbody> 
 									<tr> 
-										<th scope="rowgroup" rowspan="2" class="bg-success">USA</th> 
-										<th scope="row" class="bg-success">Purchase</th> 
-										<td>unlikely</td> 
-										<td>very unlikely</td> 
-											<td>very unlikely</td> 
+										<th scope="rowgroup" rowspan="2" class="bg-success">É.-U.</th> 
+										<th scope="row" class="bg-success">Achat</th> 
+										<td>improbable</td> 
+										<td>très improbable</td> 
+										<td>très improbable</td> 
 									</tr> 
 									<tr> 
-										<th scope="row" class="bg-success">Rent</th> 
-										<td>likely</td> 
-										<td>very likely</td> 
-										<td>n/a</td> 
+										<th scope="row" class="bg-success">Location</th> 
+										<td>probable</td> 
+										<td>très probable</td> 
+										<td>S.&nbsp;O</td> 
 									</tr> 
 								</tbody> 
 							</table>
@@ -218,67 +223,70 @@
 					</div>
 					<details class="mrgn-tp-lg">
 		
-						<summary class="bg-info">View HTML</summary>
-						<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;table class=&quot;table table-bordered&quot;&gt;
+						<summary class="bg-info">Voir le HTML</summary>
+						<p class="wb-inv">Code commence</p>
+<pre><code class="language-html">&lt;table class="table table-bordered"&gt;
    &lt;col&gt; 
    &lt;col&gt; 
    &lt;colgroup span="3"&gt;&lt;/colgroup&gt; 
-   &lt;caption&gt;Ownership scenarios, Canada vs USA&lt;/caption&gt; 	          
+   &lt;caption&gt;Scénarios de propriété, Canada c. États-Unis&lt;/caption&gt; 
    &lt;thead&gt; 
-      &lt;tr class=&quot;bg-success&quot;&gt; 
-         &lt;th scope=&quot;col&quot; rowspan=&quot;2&quot;&gt;Country&lt;/th&gt; 
-         &lt;th scope=&quot;col&quot; rowspan=&quot;2&quot;&gt;Ownership&lt;/th&gt; 
-         &lt;th scope=&quot;colgroup&quot; colspan=&quot;3&quot;&gt;Scenario&lt;/th&gt; 
+      &lt;tr class="bg-success"&gt; 
+         &lt;th scope="col" rowspan="2"&gt;Pays&lt;/th&gt; 
+         &lt;th scope="col" rowspan="2"&gt;Propriété&lt;/th&gt; 
+         &lt;th scope="colgroup" colspan="3"&gt;Scénario&lt;/th&gt; 
       &lt;/tr&gt; 
-      &lt;tr class=&quot;bg-success&quot;&gt; 
-         &lt;th scope=&quot;col&quot;&gt;A&lt;/th&gt; 
-         &lt;th scope=&quot;col&quot;&gt;B&lt;/th&gt; 
-         &lt;th scope=&quot;col&quot;&gt;C&lt;/th&gt; 
-      &lt;/tr&gt;    
+      &lt;tr class="bg-success"&gt; 
+         &lt;th scope="col"&gt;A&lt;/th&gt; 
+         &lt;th scope="col"&gt;B&lt;/th&gt; 
+         &lt;th scope="col"&gt;C&lt;/th&gt; 
+      &lt;/tr&gt; 
    &lt;/thead&gt; 
-   &lt;tbody&gt; 
+   &lt;tbody&gt;  
       &lt;tr&gt; 
-         &lt;th scope=&quot;rowgroup&quot; rowspan=&quot;2&quot; class=&quot;bg-success&quot;&gt;Canada&lt;/th&gt; 
-         &lt;th scope=&quot;row&quot; class=&quot;bg-success&quot;&gt;Purchase&lt;/th&gt; 
-         &lt;td&gt;likely&lt;/td&gt; 
-         &lt;td&gt;very unlikely&lt;/td&gt; 
-         &lt;td&gt;n/a&lt;/td&gt; 
+         &lt;th scope="rowgroup" rowspan="2" class="bg-success"&gt;Canada&lt;/th&gt; 
+         &lt;th scope="row" class="bg-success"&gt;Achat&lt;/th&gt; 
+         &lt;td&gt;probable&lt;/td&gt; 
+         &lt;td&gt;très improbable&lt;/td&gt; 
+         &lt;td&gt;S.&nbsp;O.&lt;/td&gt; 
       &lt;/tr&gt; 
       &lt;tr&gt; 
-         &lt;th scope=&quot;row&quot; class=&quot;bg-success&quot;&gt;Rent&lt;/th&gt; 
-         &lt;td&gt;unlikely&lt;/td&gt; 
-         &lt;td&gt;very unlikely&lt;/td&gt; 
-         &lt;td&gt;very unlikely&lt;/td&gt; 
+         &lt;th scope="row" class="bg-success"&gt;Location&lt;/th&gt; 
+         &lt;td&gt;improbable&lt;/td&gt; 
+         &lt;td&gt;très improbable&lt;/td&gt; 
+         &lt;td&gt;très improbable&lt;/td&gt; 
       &lt;/tr&gt; 
    &lt;/tbody&gt; 
    &lt;tbody&gt; 
       &lt;tr&gt; 
-         &lt;th scope=&quot;rowgroup&quot; rowspan=&quot;2&quot; class=&quot;bg-success&quot;&gt;USA&lt;/th&gt; 
-         &lt;th scope=&quot;row&quot; class=&quot;bg-success&quot;&gt;Purchase&lt;/th&gt; 
-         &lt;td&gt;unlikely&lt;/td&gt; 
-         &lt;td&gt;very unlikely&lt;/td&gt; 
-         &lt;td&gt;very unlikely&lt;/td&gt; 
+         &lt;th scope="rowgroup" rowspan="2" class="bg-success"&gt;É.-U.&lt;/th&gt; 
+         &lt;th scope="row" class="bg-success"&gt;Achat&lt;/th&gt; 
+         &lt;td&gt;improbable&lt;/td&gt; 
+         &lt;td&gt;très improbable&lt;/td&gt; 
+         &lt;td&gt;très improbable&lt;/td&gt; 
       &lt;/tr&gt; 
       &lt;tr&gt; 
-         &lt;th scope=&quot;row&quot; class=&quot;bg-success&quot;&gt;Rent&lt;/th&gt; 
-         &lt;td&gt;likely&lt;/td&gt; 
-         &lt;td&gt;very likely&lt;/td&gt; 
-         &lt;td&gt;n/a&lt;/td&gt; 
+         &lt;th scope="row" class="bg-success"&gt;Location&lt;/th&gt; 
+         &lt;td&gt;probable&lt;/td&gt; 
+         &lt;td&gt;très probable&lt;/td&gt; 
+         &lt;td&gt;S.&nbsp;O&lt;/td&gt; 
       &lt;/tr&gt; 
    &lt;/tbody&gt; 
 &lt;/table&gt;</code>
 </pre>
-						<p class="wb-inv">Code ends</p>
+
+
+
+						<p class="wb-inv">Fins du code</p>
 					</details>
 			  	</div>
 			</div>
 		</section>
 		<section>
-			<h2 class="wb-inv" id="wcag">Related WCAG resources</h2>
+			<h2 class="wb-inv" id="wcag">Ressources WCAG connexes</h2>
 			<details class="mrgn-tp-lg">
-				<summary class="bg-info">Related WCAG resources</summary>
-				<h3>Success Criteria</h3>
+				<summary class="bg-info">Ressources WCAG connexes</summary>
+				<h3>Critères de réussite</h3>
 				<ul>
 					<li>
 						<a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1: Info and Relationships</a>
@@ -322,7 +330,7 @@
 					<ul class="list-group menu list-unstyled">
 						<li><a class="list-group-item" href="tables-concepts-fr.html">Concept des tableaux</a></li>
 						<li><a class="list-group-item" href="one-header-fr.html">Un seul en-tête</a></li>
-						<li><a class="list-group-item" href="two-headers-fr.html">Un seul en-tête</a></li>
+						<li><a class="list-group-item" href="two-headers-fr.html">Deux en-têtes</a></li>
 						<li><a class="list-group-item active" href="irregular-headers-fr.html">En-têtes irréguliers</a></li>
 						<li><a class="list-group-item" href="multi-level-headers-fr.html">En-têtes à plusieurs niveaux</a></li>
 						<li><a class="list-group-item" href="caption-summary-fr.html">Légende et sommaire</a></li>
