@@ -61,7 +61,6 @@
 <div class="row">
 	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
 		
-	
 			<h1 property="name" id="wb-cont">En-têtes à plusieurs niveaux</h1>
 			<nav role="navigation" aria-labelledby="nav-table">
 			  <div class="panel panel-default mrgn-tp-lg">
@@ -70,101 +69,111 @@
 				</header>
 				<div class="panel-body">
 				  <ul>
-					<li><a href="#multi-level-headers">Designing with En-têtes à plusieurs niveaux</a></li>
-					<li><a href="#headers-three-deep">Good example: Table with headers three deep</a></li>
-					<li><a href="#table-simplified">Good example: Multi-level table simplified</a></li>
-					<li><a href="#three-headers-related">Good example: Table with three headers related to each data cell</a></li>
-					<li><a href="#wcag">Related WCAG resources</a></li>
+					<li><a href="#multi-level-headers">Concevoir avec des en-têtes à plusieurs niveaux</a></li>
+					<li><a href="#headers-three-deep">Bon exemple&nbsp;: Tableau avec trois en-têtes empilés</a></li>
+					<li><a href="#table-simplified">Bon exemple&nbsp;: Tableau à plusieurs niveaux simplifié</a></li>
+					<li><a href="#three-headers-related">Bon exemple&nbsp;: Tableau avec trois en-têtes liés à chaque cellule de données</a></li>
+					<li><a href="#wcag">Ressources WCAG connexes</a></li>
 				  </ul>
 				</div>
 			  </div>
 			</nav>
 			<section>
-				<h2 id="multi-level-headers">Designing with En-têtes à plusieurs niveaux</h2>
-				<p>A table with En-têtes à plusieurs niveaux has headers stacked three deep, or column headers that repeat or change partway down a table.</p>
-				<p>To associate En-têtes à plusieurs niveaux with data cells, </p>
-                <ul>
-                  <li>Give each header a unique <code>id</code> attribute value. </li>
-                  <li>Reference those <code>id</code> attribute values in the <code>headers</code> attribute of data cells. </li>
-                </ul>
-				<p>Using the <code>id/headers</code> attributes technique is a last resort, as it's not currently (2021) well-supported by assistive technologies. While the &ldquo;good&rdquo; example table below is technically compliant, it performs poorly in screen readers.</p> 
-				<div class="alert alert-warning">
-				   <p><strong>Important:</strong> Whenever possible, simplify the data presentation by breaking a complex table into two or more simpler tables.</p> 
-				 </div>
-				<p>A table summary may be necessary. Column headers that repeat or change partway down a table can easily surprise screen readers users as they descend rows. The same is true of column-spanning row headers. In the table summary, mention their presence.</p>
+				<h2 id="multi-level-headers">Concevoir avec des en-têtes à plusieurs niveaux</h2>
+				<p>Un tableau comportant des en-têtes à plusieurs niveaux comporte trois en-têtes empilés, ou des en-têtes de colonne qui se répètent ou changent au milieu d’un tableau.</p>
+			<p>Pour associer des en-têtes à plusieurs niveaux avec des cellules de données&nbsp;: </p>
+			<ul>
+				<li>Donner à chaque en-tête une valeur d’attribut <code>id</code> unique.</li>
+				<li>Faire référence à ces valeurs d’attribut <code>id</code> dans l’attribut header des cellules de données.</li>
+			</ul>
+			<p>L’utilisation de la technique des attributs <code>id/header</code> est une solution de dernier recours, car elle n’est pas bien prise en charge par les technologies d’assistance à l’heure actuelle (2021). Bien que le «&nbsp;bon&nbsp;» tableau ci-dessous soit techniquement conforme, il donne de mauvais résultats avec les lecteurs d’écran.</p>
+			
+			<div class="alert alert-warning">
+				   <p><strong>Important&nbsp;:</strong> Dans la mesure du possible, simplifiez la présentation des données en divisant un tableau complexe en au moins deux tableaux plus simples.</p>
+			</div>
+			<p>Il se peut qu’un sommaire de tableau soit nécessaire. Les en-têtes de colonne qui se répètent ou changent à mi-chemin d’un tableau peuvent facilement dérouter les utilisateurs de lecteurs d’écran lorsqu’ils descendent dans les rangées. Il en va de même pour les en-têtes de rangée couvrant une colonne. Dans le sommaire du tableau, mentionner leur présence.</p>
+			
             </section>
 			<section>
 				<div class="panel panel-success">
 					<div class="panel-body">
 		
-						<h2 class="text-success mrgn-tp-0 h3" id="headers-three-deep"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Table with headers three deep</h2>
-						<p>In this example, the row headers are three deep, requiring the use of <code>id/headers</code> markup to associate the data cells with their headers. The <a href="https://wet-boew.github.io/v4.0-ci/demos/tablevalidator/tablevalidator-en.html">WET Table Validator</a> provides the <code>id/headers</code> markup. A visually-hidden table description is nested in the <code>&lt;caption&gt;</code> element.</p>
+						<h2 class="text-success mrgn-tp-0 h3" id="headers-three-deep"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Tableau avec trois en-têtes empilés</h2>
+						<p>Dans cet exemple, les en-têtes de rangée sont empilés par trois, ce qui nécessite l’utilisation d’un balisage <code>id/header</code> pour associer les cellules de données à leurs en-têtes. Le <a href="https://wet-boew.github.io/v4.0-ci/demos/tablevalidator/tablevalidator-en.html">validateur de tableau BOEW</a> fournit le balisage <code>id/header</code>. Une description de tableau visuellement masquée est imbriquée dans la légende.</p>
 						<div class="panel panel-primary">
 							<div class="panel-body well mrgn-bttm-0">
 								<table class="table small">
 									<caption>
-										Vehicles leased by the Government
-										<span class="wb-inv">Column 1 lists executive and non-executive vehicles. Column 2 lists the country (Canada or the USA). Column 3 lists the term of lease (long-term or short term). Column 4 lists the policy requirement.</span>
+										éhicules loués par le gouvernement
+										<span class="wb-inv">La colonne&nbsp;1 énumère les véhicules de fonction et les véhicules ne rentrant pas dans la catégorie des véhicules de fonction. La colonne&nbsp;2 indique le pays (le Canada ou les États-Unis). La colonne&nbsp;3 indique la durée du bail (long terme ou court terme). La colonne&nbsp;4 énumère les exigences liées à la politique.</span>
 									</caption>
 									 <tbody>
 										 <tr>
-											 <th id="tbl6">Type of Vehicle</th>
-											 <th id="tbl7">Country</th>
-											 <th id="tbl8">Term of Lease</th>
-											 <th id="tbl9">Policy Requirement</th>
+											 <th id="tbl6">Type de véhicule</th>
+											 <th id="tbl7">Pays</th>
+											 <th id="tbl8">Durée du bail</th>
+											 <th id="tbl9">Exigences liées à la politique</th>
 										 </tr>
 										 <tr>
-											 <th rowspan="4" id="tbl12" headers="tbl6">executive</th>
+											 <th rowspan="4" id="tbl12" headers="tbl6">de fonction</th>
 											 <th rowspan="2" id="tbl13" headers="tbl7 tbl12">CANADA</th>
-											 <th id="tbl14" headers="tbl8 tbl12 tbl13">long-term</th>
+											 <th id="tbl14" headers="tbl8 tbl12 tbl13">long terme</th>
 											 <td headers="tbl9 tbl12 tbl13 tbl14">
-												 <p>Comprehensive commercial insurance, including collision and third party liability;</p> <p>- self-underwrite the deductible -</p>
+												 <p>Assurance commerciale complète, y compris la garantie collision et la responsabilité civile'</p> 
+												 <p>- s’auto-assurer pour la franchise -</p>
 											 </td>
 										 </tr>
 										 <tr>
-											 <th id="tbl25" headers="tbl8">short-term</th>
+											 <th id="tbl25" headers="tbl8">court terme</th>
 											 <td headers="tbl9 tbl12 tbl13 tbl25">
-												 <p>Comprehensive commercial insurance, including collision and third party liability;</p> <p>- self-underwrite the deductible -</p>
+												 <p>ssurance commerciale complète, y compris la garantie collision et la responsabilité civile;</p> 
+												 <p>- s’auto-assurer pour la franchise -</p>
 											 </td>
 										 </tr>
 										 <tr>
 											 <th rowspan="2" id="tbl30" headers="tbl7">U.S.</th>
 											 <th id="tbl31" headers="tbl8 tbl30">long-term</th>
 											 <td headers="tbl9 tbl12 tbl30 tbl31">
-												 <p>Comprehensive commercial insurance, including collision and third party liability;</p> <p>- self-underwrite the deductible -</p>
+												 <p>Assurance commerciale complète, y compris la garantie collision et la responsabilité civile;</p> 
+												 <p>- s’auto-assurer pour la franchise -</p>
 											 </td>
 										 </tr>
 										 <tr>
-											 <th id="tbl36" headers="tbl8">short-term</th>
+											 <th id="tbl36" headers="tbl8">court terme</th>
 											 <td headers="tbl9 tbl12 tbl30 tbl36">
-												 <p>Purchase additional commercial insurance to cover third&nbsp;party liability and collision for the U.S. risks;</p> <p>- self-underwrite the deductibles -</p>
+												 <p>Acheter une assurance commerciale supplémentaire pour couvrir la responsabilité civile et la garantie collision pour les risques aux É.-U.;</p> 
+												 <p>- s’auto-assurer pour la franchise -</p>
 											 </td>
 										 </tr>
 										 <tr>
-											 <th rowspan="4" id="tbl41" headers="tbl6">non-executive</th>
+											 <th rowspan="4" id="tbl41" headers="tbl6">autre que de fonction</th>
 											 <th rowspan="2" id="tbl42" headers="tbl7 tbl41">CANADA
-											 </th><th id="tbl43" headers="tbl8 tbl41 tbl42">long-term</th>
+											 </th>
+											 <th id="tbl43" headers="tbl8 tbl41 tbl42">long erme</th>
 											 <td headers="tbl9 tbl41 tbl42 tbl43">
-												 <p>Self-underwrite except if provincial legislation applies</p>
+												 <p>Auto-assurance sauf si une loi provinciale s’applique</p>
 											 </td>
 										 </tr>
 										 <tr>
-											 <th id="tbl48" headers="tbl8">short-term</th>
+											 <th id="tbl48" headers="tbl8">court terme</th>
 											 <td headers="tbl9 tbl41 tbl42 tbl48">
-												 <p>Comprehensive commercial insurance, including collision and third party liability;</p> <p>- self-underwrite the deductible -</p>
+												 <p>Assurance commerciale complète, y compris la garantie collision et la responsabilité civile;</p> 
+												 <p>- s’auto-assurer pour la franchise -</p>
 											 </td>
 										 </tr>
 										 <tr>
-											 <th rowspan="2" id="tbl53" headers="tbl7">U.S.</th>
-											 <th id="tbl54" headers="tbl8 tbl53">long-term</th>
+											 <th rowspan="2" id="tbl53" headers="tbl7">É.-U.</th>
+											 <th id="tbl54" headers="tbl8 tbl53">long terme</th>
 											 <td headers="tbl9 tbl41 tbl53 tbl54">
-												 <p>Purchase additional commercial insurance to cover third party liability and collision for the U.S. risks;</p> <p>- self-underwrite any damage to government vehicle -</p>
+												 <p>Acheter une assurance commerciale supplémentaire pour couvrir la responsabilité civile et la garantie collision pour les risques aux É.-U;</p> 
+												 <p>- s’auto-assurer pour les dommages pouvant toucher un véhicule du gouvernement -</p>
 											 </td>
 										 </tr>
 										 <tr>
-											 <th id="tbl59" headers="tbl8">short-term</th>
+											 <th id="tbl59" headers="tbl8">court terme/th>
 											 <td headers="tbl9 tbl41 tbl53 tbl59">
-												 <p>Utilize commercial insurance coverage (third party liability and collision for the U.S. risks) administered by Services and Specialized Acquisitions Management Sector, <abbr title="Public Works and Government Services Canada">PWGSC</abbr>;</p> <p>- self-underwrite the deductible -</p>
+												 <p>tiliser la couverture d’assurance commerciale (responsabilité civile et collision pour les risques américains) administrée par le Secteur de la gestion des services et des acquisitions spécialisées. <abbr title="Travaux publics et Services gouvernementaux Canada">TPSGC</abbr>;</p> 
+												 <p>- s’auto-assurer pour la franchise -</p>
 											 </td>
 										 </tr>
 									 </tbody>
@@ -172,106 +181,108 @@
 							</div>
 						</div>
 						<details class="mrgn-tp-lg">
-							<summary class="bg-info">View HTML snippet - Assigning id and headers attributes</summary>
-							<p class="wb-inv">Code begins</p>
+							<summary class="bg-info">Voir un extrait HTML - Attribuer les attributs id et headers</summary>
+							<p class="wb-inv">Code commence</p>
 <pre><code class="language-html">&lt;tr&gt;
-   &lt;th id="tbl6"&gt;Type of Vehicle&lt;/th&gt;
-   &lt;th id="tbl7"&gt;Country&lt;/th&gt;
-   &lt;th id="tbl8"&gt;Term of Lease&lt;/th&gt;
-   &lt;th id="tbl9"&gt;Policy Requirement&lt;/th&gt;
+   &lt;th id="tbl6"&gt;Type de véhicule&lt;/th&gt;
+   &lt;th id="tbl7"&gt;Pays&lt;/th&gt;
+   &lt;th id="tbl8"&gt;Durée du bail&lt;/th&gt;
+   &lt;th id="tbl9"&gt;Exigences liées à la politique&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-   &lt;th rowspan="4" id="tbl12" headers="tbl6"&gt;executive&lt;/th&gt;
+   &lt;th rowspan="4" id="tbl12" headers="tbl6"&gt;de fonction&lt;/th&gt;
    &lt;th rowspan="2" id="tbl13" headers="tbl7 tbl12"&gt;CANADA&lt;/th&gt;
-   &lt;th id="tbl14" headers="tbl8 tbl12 tbl13"&gt;long-term&lt;/th&gt;
+   &lt;th id="tbl14" headers="tbl8 tbl12 tbl13"&gt;long terme&lt;/th&gt;
    &lt;td headers="tbl9 tbl12 tbl13 tbl14"&gt;
-      &lt;p&gt;Comprehensive commercial insurance, including collision and third party liability;&lt;/p&gt; 
-      &lt;p&gt;- self-underwrite the deductible -&lt;/p&gt;
+      &lt;p&gt;Assurance commerciale complète, y compris la garantie collision et la responsabilité civile'&lt;/p&gt; 
+      &lt;p&gt;- s’auto-assurer pour la franchise -&lt;/p&gt;
    &lt;/td&gt;
 &lt;/tr&gt;</code>
-</pre>
-							<p class="wb-inv">Code ends</p>
+</pre>      
+   					
+							<p class="wb-inv">Fins du code</p>
 						</details>
 						<details class="mrgn-tp-lg">
-							<summary class="bg-info">View complete HTML</summary>
-							<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;table&gt;
+							<summary class="bg-info">Voir le HTML complet</summary>
+							<p class="wb-inv">Code commence</p>
+<pre><code class="language-html">&lt;table class="table small"&gt;
    &lt;caption&gt;
-      Vehicles leased by the Government
-      &lt;span class="wb-inv"&gt;Column 1 lists executive and non-executive vehicles. Column 2 lists the country (Canada or the USA). Column 3 lists the term of lease (long-term or short term). Column 4 lists the policy requirement.&lt;/span&gt;
+      éhicules loués par le gouvernement
+      &lt;span class="wb-inv"&gt;La colonne&nbsp;1 énumère les véhicules de fonction et les véhicules ne rentrant pas dans la catégorie des véhicules de fonction. La colonne&nbsp;2 indique le pays (le Canada ou les États-Unis). La colonne&nbsp;3 indique la durée du bail (long terme ou court terme). La colonne&nbsp;4 énumère les exigences liées à la politique.&lt;/span&gt;
    &lt;/caption&gt;
    &lt;tbody&gt;
       &lt;tr&gt;
-       &lt;th id="tbl6"&gt;Type of Vehicle&lt;/th&gt;
-       &lt;th id="tbl7"&gt;Country&lt;/th&gt;
-       &lt;th id="tbl8"&gt;Term of Lease&lt;/th&gt;
-       &lt;th id="tbl9"&gt;Policy Requirement&lt;/th&gt;
+         &lt;th id="tbl6"&gt;Type de véhicule&lt;/th&gt;
+         &lt;th id="tbl7"&gt;Pays&lt;/th&gt;
+         &lt;th id="tbl8"&gt;Durée du bail&lt;/th&gt;
+         &lt;th id="tbl9"&gt;Exigences liées à la politique&lt;/th&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-       &lt;th rowspan="4" id="tbl12" headers="tbl6"&gt;executive&lt;/th&gt;
-       &lt;th rowspan="2" id="tbl13" headers="tbl7 tbl12"&gt;CANADA&lt;/th&gt;
-       &lt;th id="tbl14" headers="tbl8 tbl12 tbl13"&gt;long-term&lt;/th&gt;
-       &lt;td headers="tbl9 tbl12 tbl13 tbl14"&gt;
-          &lt;p&gt;Comprehensive commercial insurance, including collision and third party liability;&lt;/p&gt; 
-          &lt;p&gt;- self-underwrite the deductible -&lt;/p&gt;
-       &lt;/td&gt;
+         &lt;th rowspan="4" id="tbl12" headers="tbl6"&gt;de fonction&lt;/th&gt;
+         &lt;th rowspan="2" id="tbl13" headers="tbl7 tbl12"&gt;CANADA&lt;/th&gt;
+         &lt;th id="tbl14" headers="tbl8 tbl12 tbl13"&gt;long terme&lt;/th&gt;
+         &lt;td headers="tbl9 tbl12 tbl13 tbl14"&gt;
+            &lt;p&gt;Assurance commerciale complète, y compris la garantie collision et la responsabilité civile'&lt;/p&gt; 
+            &lt;p&gt;- s’auto-assurer pour la franchise -&lt;/p&gt;
+         &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-       &lt;th id="tbl25" headers="tbl8"&gt;short-term&lt;/th&gt;
-       &lt;td headers="tbl9 tbl12 tbl13 tbl25"&gt;
-          &lt;p&gt;Comprehensive commercial insurance, including collision and third party liability;&lt;/p&gt; 
-          &lt;p&gt;- self-underwrite the deductible -&lt;/p&gt;
-       &lt;/td&gt;
+         &lt;th id="tbl25" headers="tbl8"&gt;court terme&lt;/th&gt;
+         &lt;td headers="tbl9 tbl12 tbl13 tbl25"&gt;
+            &lt;p&gt;ssurance commerciale complète, y compris la garantie collision et la responsabilité civile;&lt;/p&gt; 
+            &lt;p&gt;- s’auto-assurer pour la franchise -&lt;/p&gt;
+         &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-       &lt;th rowspan="2" id="tbl30" headers="tbl7"&gt;U.S.&lt;/th&gt;
-       &lt;th id="tbl31" headers="tbl8 tbl30"&gt;long-term&lt;/th&gt;
-       &lt;td headers="tbl9 tbl12 tbl30 tbl31"&gt;
-          &lt;p&gt;Comprehensive commercial insurance, including collision and third party liability;&lt;/p&gt; 
-          &lt;p&gt;- self-underwrite the deductible -&lt;/p&gt;
-       &lt;/td&gt;
+         &lt;th rowspan="2" id="tbl30" headers="tbl7"&gt;U.S.&lt;/th&gt;
+         &lt;th id="tbl31" headers="tbl8 tbl30"&gt;long-term&lt;/th&gt;
+         &lt;td headers="tbl9 tbl12 tbl30 tbl31"&gt;
+            &lt;p&gt;Assurance commerciale complète, y compris la garantie collision et la responsabilité civile;&lt;/p&gt; 
+            &lt;p&gt;- s’auto-assurer pour la franchise -&lt;/p&gt;
+         &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-       &lt;th id="tbl36" headers="tbl8"&gt;short-term&lt;/th&gt;
-       &lt;td headers="tbl9 tbl12 tbl30 tbl36"&gt;
-          &lt;p&gt;Purchase additional commercial insurance to cover third&amp;nbsp;party liability and collision for the U.S. risks;&lt;/p&gt; 
-          &lt;p&gt;- self-underwrite the deductibles -&lt;/p&gt;
-       &lt;/td&gt;
+         &lt;th id="tbl36" headers="tbl8"&gt;court terme&lt;/th&gt;
+         &lt;td headers="tbl9 tbl12 tbl30 tbl36"&gt;
+            &lt;p&gt;Acheter une assurance commerciale supplémentaire pour couvrir la responsabilité civile et la garantie collision pour les risques aux É.-U.;&lt;/p&gt; 
+            &lt;p&gt;- s’auto-assurer pour la franchise -&lt;/p&gt;
+         &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-       &lt;th rowspan="4" id="tbl41" headers="tbl6"&gt;non-executive&lt;/th&gt;
-       &lt;th rowspan="2" id="tbl42" headers="tbl7 tbl41"&gt;CANADA
-       &lt;/th&gt;&lt;th id="tbl43" headers="tbl8 tbl41 tbl42"&gt;long-term&lt;/th&gt;
-       &lt;td headers="tbl9 tbl41 tbl42 tbl43"&gt;
-          &lt;p&gt;Self-underwrite except if provincial legislation applies&lt;/p&gt;
-       &lt;/td&gt;
+         &lt;th rowspan="4" id="tbl41" headers="tbl6"&gt;autre que de fonction&lt;/th&gt;
+         &lt;th rowspan="2" id="tbl42" headers="tbl7 tbl41"&gt;CANADA
+         &lt;/th&gt;
+         &lt;th id="tbl43" headers="tbl8 tbl41 tbl42"&gt;long erme&lt;/th&gt;
+         &lt;td headers="tbl9 tbl41 tbl42 tbl43"&gt;
+            &lt;p&gt;Auto-assurance sauf si une loi provinciale s’applique&lt;/p&gt;
+         &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-       &lt;th id="tbl48" headers="tbl8"&gt;short-term&lt;/th&gt;
-       &lt;td headers="tbl9 tbl41 tbl42 tbl48"&gt;
-          &lt;p&gt;Comprehensive commercial insurance, including collision and third party liability;&lt;/p&gt; 
-          &lt;p&gt;- self-underwrite the deductible -&lt;/p&gt;
-       &lt;/td&gt;
+         &lt;th id="tbl48" headers="tbl8"&gt;court terme&lt;/th&gt;
+         &lt;td headers="tbl9 tbl41 tbl42 tbl48"&gt;
+            &lt;p&gt;Assurance commerciale complète, y compris la garantie collision et la responsabilité civile;&lt;/p&gt; 
+            &lt;p&gt;- s’auto-assurer pour la franchise -&lt;/p&gt;
+         &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-       &lt;th rowspan="2" id="tbl53" headers="tbl7"&gt;U.S.&lt;/th&gt;
-       &lt;th id="tbl54" headers="tbl8 tbl53"&gt;long-term&lt;/th&gt;
-       &lt;td headers="tbl9 tbl41 tbl53 tbl54"&gt;
-          &lt;p&gt;Purchase additional commercial insurance to cover third party liability and collision for the U.S. risks;&lt;/p&gt; 
-          &lt;p&gt;- self-underwrite any damage to government vehicle -&lt;/p&gt;
-       &lt;/td&gt;
+         &lt;th rowspan="2" id="tbl53" headers="tbl7"&gt;É.-U.&lt;/th&gt;
+         &lt;th id="tbl54" headers="tbl8 tbl53"&gt;long terme&lt;/th&gt;
+         &lt;td headers="tbl9 tbl41 tbl53 tbl54"&gt;
+            &lt;p&gt;Acheter une assurance commerciale supplémentaire pour couvrir la responsabilité civile et la garantie collision pour les risques aux É.-U;&lt;/p&gt; 
+            &lt;p&gt;- s’auto-assurer pour les dommages pouvant toucher un véhicule du gouvernement -&lt;/p&gt;
+         &lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-       &lt;th id="tbl59" headers="tbl8"&gt;short-term&lt;/th&gt;
-       &lt;td headers="tbl9 tbl41 tbl53 tbl59"&gt;
-          &lt;p&gt;Utilize commercial insurance coverage (third party liability and collision for the U.S. risks) administered by Services and Specialized Acquisitions Management Sector, &lt;abbr title="Public Works and Government Services Canada"&gt;PWGSC&lt;/abbr&gt;;&lt;/p&gt;
-          &lt;p&gt;- self-underwrite the deductible -&lt;/p&gt;
-       &lt;/td&gt;
+         &lt;th id="tbl59" headers="tbl8"&gt;court terme/th&gt;
+         &lt;td headers="tbl9 tbl41 tbl53 tbl59"&gt;
+            &lt;p&gt;tiliser la couverture d’assurance commerciale (responsabilité civile et collision pour les risques américains) administrée par le Secteur de la gestion des services et des acquisitions spécialisées. &lt;abbr title="Travaux publics et Services gouvernementaux Canada"&gt;TPSGC&lt;/abbr&gt;;&lt;/p&gt; 
+            &lt;p&gt;- s’auto-assurer pour la franchise -&lt;/p&gt;
+         &lt;/td&gt;
       &lt;/tr&gt;
    &lt;/tbody&gt;
 &lt;/table&gt;</code>
 </pre>
-							<p class="wb-inv">Code ends</p>
+							<p class="wb-inv">Fins du code</p>
 						</details>
 					</div>
 				</div>
@@ -279,49 +290,50 @@
 			<section>
 				<div class="panel panel-success">
 					<div class="panel-body">
-						<h2 class="text-success mrgn-tp-0 h3" id="table-simplified"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Multi-level table simplified</h2>
-						<p>The table in the previous example is overly complex, requiring the poorly-supported <code>id/headers</code> technique. A better approach is to split a complex table into two or more smaller tables. In this example, the “Type of Vehicle" (executive or non-executive) is moved from column 1 to the table caption, resulting in one table about executive vehicles and a second table about non-executive vehicles. The simpler tables consist of two levels of headers, so can be rendered using the <code>scope</code> attribute rather than with <code>id/headers</code> attributes. Scope is easier to author and maintain, and is better supported by user agents than the <code>id/headers</code> method.</p>		  
+						<h2 class="text-success mrgn-tp-0 h3" id="table-simplified"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple&nbsp;: Tableau à plusieurs niveaux simplifié</h2>	  
+						<p>Le tableau de l’exemple précédent est trop complexe et nécessite une technique <code>id/header</code> difficilement prise en charge. Une meilleure approche consiste à diviser un tableau complexe en au moins deux tableaux plus petits. Dans cet exemple, le «&nbsp;Type de véhicule&nbsp;» (de fonction ou non) est déplacé de la colonne&nbsp;1 à la légende du tableau, ce qui aboutit à un tableau pour les véhicules de fonction et un deuxième tableau pour les véhicules qui ne sont pas des véhicules de fonction. Les tableaux plus simples sont composés de deux niveaux d’en-têtes; ils peuvent donc être rendus en utilisant l’attribut <code>scope</code> plutôt qu’en utilisant les attributs <code>id/header</code>. L'attribut <code>scope</code> est plus facile à rédiger et à tenir à jour, et elle est mieux prise en charge par les agents utilisateurs que la méthode <code>id/header</code>.</p>
 						<div class="panel panel-primary">
 							<div class="panel-body well mrgn-bttm-0">
 								<table class="table table-bordered table-hover small">
-								   <caption>Non-executive Vehicles leased by the Government</caption>
+								   <!-- <caption>Non-executive Vehicles leased by the Government</caption> -->
+								   <caption><mark>Véhicules non fonction loués par le gouvernement</mark></caption>
 								   <thead>
 									 <tr>
-									   <th scope="col">Country</th>
-									   <th scope="col">Term of Lease</th>
-									   <th scope="col">Policy Requirement</th>
+									   <th scope="col">Pays</th>
+									   <th scope="col">Durée du bail</th>
+									   <th scope="col">Exigences liées à la politique</th>
 									 </tr>
 								   </thead>
 								   <tbody>
 									 <tr>
 									   <th rowspan="2" scope="rowgroup">CANADA</th>
-									   <th scope="row">long-term</th>
+									   <th scope="row">long terme</th>
 									   <td>
-										 <p>Self-underwrite except if provincial legislation applies</p>
+										 <p>Assurance commerciale complète, y compris la garantie collision et la responsabilité civile;</p>
 									   </td>
 									 </tr>
 									 <tr>
-									   <th scope="row">short-term</th>
+									   <th scope="row">court terme</th>
 									   <td>
-										 <p>Comprehensive commercial insurance, including collision and third party liability;</p>
-										 <p>- self-underwrite the deductible -</p>
+										 <p>Assurance commerciale complète, y compris la garantie collision et la responsabilité civile;</p>
+										 <p>- s’auto-assurer pour la franchise -</p>
 									   </td>
 									 </tr>
 								   </tbody>
 								   <tbody>
 									 <tr>
-									   <th rowspan="2" scope="rowgroup">U.S.</th>
-									   <th scope="row">long-term</th>
+									   <th rowspan="2" scope="rowgroup">É.-U.</th>
+									   <th scope="row">long terme</th>
 									   <td>
-										 <p>Purchase additional commercial insurance to cover third party liability and collision for the U.S. risks;</p>
-										 <p>- self-underwrite any damage to government vehicle -</p>
+										 <p>Acheter une assurance commerciale supplémentaire pour couvrir la responsabilité civile et la garantie collision pour les risques aux É.-U.;</p>
+										 <p>- s’auto-assurer pour la franchise </p>
 									   </td>
 									 </tr>
 									 <tr>
-									   <th scope="row">short-term</th>
+									   <th scope="row">court terme</th>
 									   <td>
-										 <p>Utilize commercial insurance coverage (third party liability and collision for the U.S. risks) administered by Services and Specialized Acquisitions Management Sector, <abbr title="Public Works and Government Services Canada">PWGSC</abbr>;</p>
-										 <p>- self-underwrite the deductible -</p>
+										 <p>Utiliser la couverture d’assurance commerciale (responsabilité civile et collision pour les risques américains) administrée par le Secteur de la gestion des services et des acquisitions spécialisées. <abbr title="Travaux publics et Services gouvernementaux Canada"></abbr>TPSGC</abbr></p>
+										 <p>- s’auto-assurer pour la franchise -</p>
 									   </td>
 									 </tr>
 								   </tbody>
@@ -329,53 +341,55 @@
 							</div>
 						</div>
 						<details class="mrgn-tp-lg">
-							<summary class="bg-info">View HTML</summary>
-							<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;table&gt;
-   &lt;caption&gt;Non-executive Vehicles leased by the Government&lt;/caption&gt;
+							<summary class="bg-info">Voir le HTML</summary>
+							<p class="wb-inv">Code commence</p>
+							
+<pre><code class="language-html">&lt;table class="table table-bordered table-hover small"&gt;
+   &lt;!-- &lt;caption&gt;Non-executive Vehicles leased by the Government&lt;/caption&gt; --&gt;
+   &lt;caption&gt;&lt;mark&gt;Véhicules non fonction loués par le gouvernement&lt;/mark&gt;&lt;/caption&gt;
    &lt;thead&gt;
-       &lt;tr&gt;
-            &lt;th scope=&quot;col&quot;&gt;Country&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Term of Lease&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Policy Requirement&lt;/th&gt;
-       &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope="col"&gt;Pays&lt;/th&gt;
+      &lt;th scope="col"&gt;Durée du bail&lt;/th&gt;
+      &lt;th scope="col"&gt;Exigences liées à la politique&lt;/th&gt;
+    &lt;/tr&gt;
    &lt;/thead&gt;
    &lt;tbody&gt;
-       &lt;tr&gt;
-            &lt;th rowspan=&quot;2&quot; scope=&quot;rowgroup&quot;&gt;CANADA&lt;/th&gt;
-            &lt;th scope=&quot;row&quot;&gt;long-term&lt;/th&gt;
-            &lt;td&gt;
-                &lt;p&gt;Self-underwrite except if provincial legislation applies&lt;/p&gt;
-            &lt;/td&gt;
-       &lt;/tr&gt;
-       &lt;tr&gt;
-            &lt;th scope=&quot;row&quot;&gt;short-term&lt;/th&gt;
-            &lt;td&gt;
-                &lt;p&gt;Comprehensive commercial insurance, including collision and third party liability;&lt;/p&gt;
-                &lt;p&gt;- self-underwrite the deductible -&lt;/p&gt;
-            &lt;/td&gt;
-       &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th rowspan="2" scope="rowgroup"&gt;CANADA&lt;/th&gt;
+      &lt;th scope="row"&gt;long terme&lt;/th&gt;
+      &lt;td&gt;
+       &lt;p&gt;Assurance commerciale complète, y compris la garantie collision et la responsabilité civile;&lt;/p&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope="row"&gt;court terme&lt;/th&gt;
+      &lt;td&gt;
+       &lt;p&gt;Assurance commerciale complète, y compris la garantie collision et la responsabilité civile;&lt;/p&gt;
+       &lt;p&gt;- s’auto-assurer pour la franchise -&lt;/p&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
    &lt;/tbody&gt;
    &lt;tbody&gt;
-       &lt;tr&gt;
-            &lt;th rowspan=&quot;2&quot; scope=&quot;rowgroup&quot;&gt;U.S.&lt;/th&gt;
-            &lt;th scope=&quot;row&quot;&gt;long-term&lt;/th&gt;
-            &lt;td&gt;
-                &lt;p&gt;Purchase additional commercial insurance to cover third party liability and collision for the U.S. risks;&lt;/p&gt;
-                &lt;p&gt;- self-underwrite any damage to government vehicle -&lt;/p&gt;
-            &lt;/td&gt;
-       &lt;/tr&gt;
-       &lt;tr&gt;
-            &lt;th scope=&quot;row&quot;&gt;short-term&lt;/th&gt;
-            &lt;td&gt;
-                &lt;p&gt;Utilize commercial insurance coverage (third party liability and collision for the U.S. risks) administered by Services and Specialized Acquisitions Management Sector, &lt;abbr title=&quot;Public Works and Government Services Canada&quot;&gt;PWGSC&lt;/abbr&gt;;&lt;/p&gt;
-                &lt;p&gt;- self-underwrite the deductible -&lt;/p&gt;
-            &lt;/td&gt;
-       &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th rowspan="2" scope="rowgroup"&gt;É.-U.&lt;/th&gt;
+      &lt;th scope="row"&gt;long terme&lt;/th&gt;
+      &lt;td&gt;
+       &lt;p&gt;Acheter une assurance commerciale supplémentaire pour couvrir la responsabilité civile et la garantie collision pour les risques aux É.-U.;&lt;/p&gt;
+       &lt;p&gt;- s’auto-assurer pour la franchise &lt;/p&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope="row"&gt;court terme&lt;/th&gt;
+      &lt;td&gt;
+       &lt;p&gt;Utiliser la couverture d’assurance commerciale (responsabilité civile et collision pour les risques américains) administrée par le Secteur de la gestion des services et des acquisitions spécialisées. &lt;abbr title="Travaux publics et Services gouvernementaux Canada"&gt;&lt;/abbr&gt;TPSGC&lt;/abbr&gt;&lt;/p&gt;
+       &lt;p&gt;- s’auto-assurer pour la franchise -&lt;/p&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
    &lt;/tbody&gt;
 &lt;/table&gt;</code>
 </pre>
-							<p class="wb-inv">Code ends</p>
+							<p class="wb-inv">Fins du code</p>
 						</details>
 					</div>
 				</div>
@@ -383,24 +397,26 @@
 			<section>
 				<div class="panel panel-success">
 					<div class="panel-body">
-						<h2 class="text-success mrgn-tp-0 h3" id="three-headers-related"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Table with three headers related to each data cell</h2>
-						<p>In this example, the table headers “Organic (1kg)" and “Non-organic (1kg)" serve as subheadings to describe the next section of the table. Using the <code>headers</code> attribute, all three headers are properly associated with the data cell.</p>
-						<p>This example sets the table in a <code>&lt;figure&gt;</code> element, as described in the section "Légende et sommaire". Rather than use a caption element, the figcaption holds the table title, in a <code>&lt;strong&gt;</code> element, as well as a table summary to aid comprehension. The <code>aria-labelledby</code> and <code>aria-describedby</code> attributes on the table element point to the title and summary, respectively, which makes the associations stronger and more reliable in assistive technologies.</p>
-						<p>Note that the empty header cell is given an <code>id</code> attribute value and a non-breaking space as content. The cell is referenced by top-level headers in their <code>headers</code> attribute. This prevents some assistive technologies from declaring the cell.</p>
+						<h2 class="text-success mrgn-tp-0 h3" id="three-headers-related"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple&nbsp;: Tableau avec trois en-têtes liés à chaque cellule de données</h2>
+						<p>Dans cet exemple, les en-têtes du tableau «&nbsp;Biologique (1&nbsp;kg)&nbsp;» et «&nbsp;Non biologique (1&nbsp;kg)&nbsp;» servent de sous-titres pour décrire la section suivante du tableau. En utilisant l’attribut <code>header</code>, les trois en-têtes sont correctement associés à la cellule de données.</p>
+						<p><mark>This example sets the table in a <code>&lt;figure&gt;</code> element, as described in the section "Légende et sommaire". Rather than use a caption element, the figcaption holds the table title, in a <code>&lt;strong&gt;</code> element, as well as a table summary to aid comprehension. The <code>aria-labelledby</code> and <code>aria-describedby</code> attributes on the table element point to the title and summary, respectively, which makes the associations stronger and more reliable in assistive technologies.</mark></p>
+						<p>À noter que la cellule d’en-tête vide reçoit une valeur d’attribut <code>id</code> et un espace insécable comme contenu. La cellule est référencée par des en-têtes de haut niveau dans leur attribut <code>header</code>. Cela empêche certaines technologies d’assistance de lire le contenu de la cellule.</p>
+						
+						
 						<div class="panel panel-primary">
 							<div class="panel-body well mrgn-bttm-0">
 								<figure> 
 									<figcaption>  
-										<strong id="caption">Cost of organic vs non-organic produce in Canada, the USA and the UK</strong>  
-										<p id="summary">Column one lists organic produce followed by non-organic, other columns show the cost by country.</p>  
+										<strong id="caption">Coût des produits biologiques et non biologiques, par pays</strong>  
+										<p id="summary">La première colonne énumère des produits biologiques suivis par des produits non biologiques; les autres colonnes présentent le coût des produits par pays.</p>  
 									</figcaption>  
 									<table aria-labelledby="caption" aria-describedby="summary" class="table table-bordered table-hover">   
 										<thead>  
 											<tr> 
 												<td id="blank">&nbsp;</td>  
 												<th id="can" headers="blank">Canada</th> 
-												<th id="usa" headers="blank">USA</th> 
-												<th id="uk" headers="blank">UK</th> 
+												<th id="usa" headers="blank">É.-U.</th> 
+												<th id="uk" headers="blank">R.-U.</th> 
 											</tr> 
 										</thead> 
 										<tbody> 
@@ -408,19 +424,19 @@
 												<th id="org" class="span" colspan="4" headers="blank">Organic (1kg)</th> 
 											</tr> 
 											<tr> 
-												<th headers="org" id="o-apples">Apples</th> 
+												<th headers="org" id="o-apples">Pommes</th> 
 												<td headers="org o-apples can">$3.62</td> 
 												<td headers="org o-apples usa">$4.87</td> 
 												<td headers="org o-apples uk">$2.69</td> 
 											</tr> 
 											<tr> 
-												<th headers="org" id="o-bananas">Bananas</th>  
+												<th headers="org" id="o-bananas">Bananes</th>  
 												<td headers="org o-bananas can"> $1.47</td> 
 												<td headers="org o-bananas usa">$1.68</td> 
 												<td headers="org o-bananas uk">$1.60</td> 
 											</tr> 
 											<tr> 
-												<th headers="org" id="o-onions">Onions</th> 
+												<th headers="org" id="o-onions">Oignons</th> 
 												<td headers="org o-onions can">$2.28</td> 
 												<td headers="org o-onions usa">$2.81</td> 
 												<td headers="org o-onions uk">$1.44</td>  
@@ -429,19 +445,19 @@
 												<th id="non-org" class="span" colspan="4" headers="blank">Non-organic (1kg)</th> 
 											</tr>  
 											<tr>  
-												<th id="n-apples" headers="non-org">Apples</th> 
+												<th id="n-apples" headers="non-org">Pommes</th> 
 												<td headers="non-org n-apples can">$3.37</td> 
 												<td headers="non-org n-apples usa">$4.53</td> 
 												<td headers="non-org n-apples uk">$2.50</td> 
 											</tr>  
 											<tr> 
-												<th id="n-bananas" headers="non-org">Bananas</th> 
+												<th id="n-bananas" headers="non-org">Bananes</th> 
 												<td headers="non-org n-bananas can">$1.37</td> 
 												<td headers="non-org n-bananas usa">$1.56</td>  
 												<td headers="non-org n-bananas uk">$1.49</td>  
 											</tr>  
 											<tr>  
-												<th id="n-onions" headers="non-org">Onions</th>  
+												<th id="n-onions" headers="non-org">Oignons</th>  
 												<td headers="non-org n-onions can">$2.12</td> 
 												<td headers="non-org n-onions usa">$2.61</td>  
 												<td headers="non-org n-onions uk"> $1.34</td>  
@@ -452,109 +468,112 @@
 							</div>
 						</div>
 						<details class="mrgn-tp-lg">
-						
-							<summary class="bg-info">View HTML snippet - Assigning <code>id</code> attributes to <code>&lt;th&gt;</code> cells</summary>
-							<p class="wb-inv">Code begins</p>
+							<summary class="bg-info">Extrait de HTML - Attribution des attributs <code>id</code> aux cellules <code>&lt;th&gt;</code></summary>
+							<p class="wb-inv">Code commence</p>
 <pre><code class="language-html">[…]
-   &lt;td id="blank"&gt;&amp;nbsp;&lt;/td&gt;
-   &lt;th id="can" scope="col" headers="blank"&gt;Canada&lt;/th&gt;
-   &lt;th id="usa" scope="col" headers="blank"&gt;USA&lt;/th&gt;
-   &lt;th id="uk" scope="col" headers="blank"&gt;UK&lt;/th&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-   &lt;th id="org" class="span" colspan="4" scope="colgroup" headers="blank"&gt;Organic (1kg)&lt;/th&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-   &lt;th headers="org" id="o-apples"&gt;Apples&lt;/th&gt;
+    &lt;tr&gt; 
+      &lt;td id="blank"&gt;&nbsp;&lt;/td&gt;  
+      &lt;th id="can" headers="blank"&gt;Canada&lt;/th&gt; 
+      &lt;th id="usa" headers="blank"&gt;É.-U.&lt;/th&gt; 
+      &lt;th id="uk" headers="blank"&gt;R.-U.&lt;/th&gt; 
+    &lt;/tr&gt; 
+  &lt;/thead&gt; 
+  &lt;tbody&gt; 
+    &lt;tr&gt;  
+      &lt;th id="org" class="span" colspan="4" headers="blank"&gt;Organic (1kg)&lt;/th&gt; 
+    &lt;/tr&gt; 
+    &lt;tr&gt; 
+      &lt;th headers="org" id="o-apples"&gt;Pommes&lt;/th&gt; 
 […]</code>
 </pre>
+							<p class="wb-inv">Fins du code</p>
 						</details>
      
 						<details class="mrgn-tp-lg">
-							<summary class="bg-info">View HTML snippet - Assigning <code>headers</code> attributes to <code>&lt;td&gt;</code> cells</summary>
-							<p class="wb-inv">Code begins</p>
+							<summary class="bg-info">Extrait de HTML - Assignation de l’attribut <code>header</code> aux cellules <code>&lt;td&gt;</code></summary>
+							<p class="wb-inv">Code comments</p>
  <pre><code class="language-html">[…]
-&lt;td headers="org o-apples can"&gt;$3.62&lt;/td&gt;
+&lt;td headers="org o-apples can"&gt;$3.62&lt;/td&gt; 
 &lt;td headers="org o-apples usa"&gt;$4.87&lt;/td&gt;
 […]</code>
 </pre>
-							<p class="wb-inv">Code ends</p>
+							<p class="wb-inv">Fins du code</p>
 						</details>
 
 						<details class="mrgn-tp-lg">
-							<summary class="bg-info">View complete HTML</summary>
-							<p class="wb-in">Code begins</p>
+							<summary class="bg-info">Voir HTML complet</summary>
+							<p class="wb-inv">Code commence</p>
 <pre><code class="language-html">&lt;figure&gt; 
-&lt;figcaption&gt;  
-	&lt;strong id="caption"&gt;Cost of organic vs non-organic produce in Canada, the USA and the UK&lt;/strong&gt;  
-	&lt;p id="summary"&gt;Column one lists organic produce followed by non-organic, other columns show the cost by country.&lt;/p&gt;  
-&lt;/figcaption&gt;  
-&lt;table aria-labelledby="caption" aria-describedby="summary"&gt;   
-	&lt;thead&gt;  
-	&lt;tr&gt; 
-		&lt;td id="blank"&gt;&amp;nbsp;&lt;/td&gt;  
-		&lt;th id="can" headers="blank"&gt;Canada&lt;/th&gt; 
-		&lt;th id="usa" headers="blank"&gt;USA&lt;/th&gt; 
-		&lt;th id="uk" headers="blank"&gt;UK&lt;/th&gt; 
-	&lt;/tr&gt; 
-	&lt;/thead&gt; 
-	&lt;tbody&gt; 
-		&lt;tr&gt;  
-			&lt;th id="org" class="span" colspan="4" headers="blank"&gt;Organic&lt;/th&gt; 
-		&lt;/tr&gt; 
-		&lt;tr&gt; 
-			&lt;th headers="org" id="o-apples"&gt;Apples&lt;/th&gt; 
-			&lt;td headers="org o-apples can"&gt;$3.62&lt;/td&gt; 
-			&lt;td headers="org o-apples usa"&gt;$4.87&lt;/td&gt; 
-			&lt;td headers="org o-apples uk"&gt;$2.69&lt;/td&gt; 
-		&lt;/tr&gt; 
-		&lt;tr&gt; 
-			&lt;th headers="org" id="o-bananas"&gt;Bananas&lt;/th&gt;  
-			&lt;td headers="org o-bananas can"&gt; $1.47&lt;/td&gt; 
-			&lt;td headers="org o-bananas usa"&gt;$1.68&lt;/td&gt; 
-			&lt;td headers="org o-bananas uk"&gt;$1.60&lt;/td&gt; 
-		&lt;/tr&gt; 
-		&lt;tr&gt; 
-			&lt;th headers="org" id="o-onions"&gt;Onions&lt;/th&gt; 
-			&lt;td headers="org o-onions can"&gt;$2.28&lt;/td&gt; 
-			&lt;td headers="org o-onions usa"&gt;$2.81&lt;/td&gt; 
-			&lt;td headers="org o-onions uk"&gt;$1.44&lt;/td&gt;  
-		&lt;/tr&gt; 
-		&lt;tr&gt; 
-			&lt;th id="non-org" class="span" colspan="4" headers="blank"&gt;Non-organic&lt;/th&gt; 
-		&lt;/tr&gt;  
-		&lt;tr&gt;  
-			&lt;th id="n-apples" headers="non-org"&gt;Apples&lt;/th&gt; 
-			&lt;td headers="non-org n-apples can"&gt;$3.37&lt;/td&gt; 
-			&lt;td headers="non-org n-apples usa"&gt;$4.53&lt;/td&gt; 
-			&lt;td headers="non-org n-apples uk"&gt;$2.50&lt;/td&gt; 
-		&lt;/tr&gt;  
-		&lt;tr&gt; 
-			&lt;th id="n-bananas" headers="non-org"&gt;Bananas&lt;/th&gt; 
-			&lt;td headers="non-org n-bananas can"&gt;$1.37&lt;/td&gt; 
-			&lt;td headers="non-org n-bananas usa"&gt;$1.56&lt;/td&gt;  
-			&lt;td headers="non-org n-bananas uk"&gt;$1.49&lt;/td&gt;  
-		&lt;/tr&gt;  
-		&lt;tr&gt;  
-			&lt;th id="n-onions" headers="non-org"&gt;Onions&lt;/th&gt;  
-			&lt;td headers="non-org n-onions can"&gt;$2.12&lt;/td&gt; 
-			&lt;td headers="non-org n-onions usa"&gt;$2.61&lt;/td&gt;  
-			&lt;td headers="non-org n-onions uk"&gt; $1.34&lt;/td&gt;  
-		&lt;/tr&gt;  
-	&lt;/tbody&gt;  
-&lt;/table&gt;  
+   &lt;figcaption&gt;  
+      &lt;strong id="caption"&gt;Coût des produits biologiques et non biologiques, par pays&lt;/strong&gt;  
+      &lt;p id="summary"&gt;La première colonne énumère des produits biologiques suivis par des produits non biologiques; les autres colonnes présentent le coût des produits par pays.&lt;/p&gt;  
+   &lt;/figcaption&gt;  
+   &lt;table aria-labelledby="caption" aria-describedby="summary" class="table table-bordered table-hover"&gt;   
+      &lt;thead&gt;  
+         &lt;tr&gt; 
+            &lt;td id="blank"&gt;&nbsp;&lt;/td&gt;  
+            &lt;th id="can" headers="blank"&gt;Canada&lt;/th&gt; 
+            &lt;th id="usa" headers="blank"&gt;É.-U.&lt;/th&gt; 
+            &lt;th id="uk" headers="blank"&gt;R.-U.&lt;/th&gt; 
+         &lt;/tr&gt; 
+      &lt;/thead&gt; 
+      &lt;tbody&gt; 
+         &lt;tr&gt;  
+            &lt;th id="org" class="span" colspan="4" headers="blank"&gt;Organic (1kg)&lt;/th&gt; 
+         &lt;/tr&gt; 
+         &lt;tr&gt; 
+            &lt;th headers="org" id="o-apples"&gt;Pommes&lt;/th&gt; 
+            &lt;td headers="org o-apples can"&gt;$3.62&lt;/td&gt; 
+            &lt;td headers="org o-apples usa"&gt;$4.87&lt;/td&gt; 
+            &lt;td headers="org o-apples uk"&gt;$2.69&lt;/td&gt; 
+         &lt;/tr&gt; 
+         &lt;tr&gt; 
+            &lt;th headers="org" id="o-bananas"&gt;Bananes&lt;/th&gt;  
+            &lt;td headers="org o-bananas can"&gt; $1.47&lt;/td&gt; 
+            &lt;td headers="org o-bananas usa"&gt;$1.68&lt;/td&gt; 
+            &lt;td headers="org o-bananas uk"&gt;$1.60&lt;/td&gt; 
+         &lt;/tr&gt; 
+         &lt;tr&gt; 
+            &lt;th headers="org" id="o-onions"&gt;Oignons&lt;/th&gt; 
+            &lt;td headers="org o-onions can"&gt;$2.28&lt;/td&gt; 
+            &lt;td headers="org o-onions usa"&gt;$2.81&lt;/td&gt; 
+            &lt;td headers="org o-onions uk"&gt;$1.44&lt;/td&gt;  
+         &lt;/tr&gt; 
+         &lt;tr&gt; 
+            &lt;th id="non-org" class="span" colspan="4" headers="blank"&gt;Non-organic (1kg)&lt;/th&gt; 
+         &lt;/tr&gt;  
+         &lt;tr&gt;  
+            &lt;th id="n-apples" headers="non-org"&gt;Pommes&lt;/th&gt; 
+            &lt;td headers="non-org n-apples can"&gt;$3.37&lt;/td&gt; 
+            &lt;td headers="non-org n-apples usa"&gt;$4.53&lt;/td&gt; 
+            &lt;td headers="non-org n-apples uk"&gt;$2.50&lt;/td&gt; 
+         &lt;/tr&gt;  
+         &lt;tr&gt; 
+            &lt;th id="n-bananas" headers="non-org"&gt;Bananes&lt;/th&gt; 
+            &lt;td headers="non-org n-bananas can"&gt;$1.37&lt;/td&gt; 
+            &lt;td headers="non-org n-bananas usa"&gt;$1.56&lt;/td&gt;  
+            &lt;td headers="non-org n-bananas uk"&gt;$1.49&lt;/td&gt;  
+         &lt;/tr&gt;  
+         &lt;tr&gt;  
+            &lt;th id="n-onions" headers="non-org"&gt;Oignons&lt;/th&gt;  
+            &lt;td headers="non-org n-onions can"&gt;$2.12&lt;/td&gt; 
+            &lt;td headers="non-org n-onions usa"&gt;$2.61&lt;/td&gt;  
+            &lt;td headers="non-org n-onions uk"&gt; $1.34&lt;/td&gt;  
+         &lt;/tr&gt;  
+      &lt;/tbody&gt;  
+   &lt;/table&gt;  
 &lt;/figure&gt;</code>
 </pre>
-							<p class="wb-in">Code ends</p>
+							<p class="wb-inv">Fins du code</p>
 						</details>
 					</div>
 				</div>
 		</section>
 		<section>
-			<h2 class="wb-inv" id="wcag">Related WCAG resources</h2>
+			<h2 class="wb-inv" id="wcag">Ressources WCAG connexes</h2>
 			<details class="mrgn-tp-lg">
-				<summary class="bg-info">Related WCAG resources</summary>
-				<h3>Success Criteria</h3>
+				<summary class="bg-info">Ressources WCAG connexes</summary>
+				<h3>Critères de réussite</h3>
 				<ul>
 					<li>
 						<a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1: Info and Relationships</a>
