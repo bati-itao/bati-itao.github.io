@@ -85,36 +85,25 @@
 			<h2 id="">CSS media queries</h2>
 			<p>The technique leverages CSS “media queries”, which run tests to determine users’ screen size then serve distinct layouts to different screen widths. A typical strategy targets the three broad categories of device display: large screens, tablets and phones. The HTML and CSS of the page’s components are tailored to avoid introducing horizontal scrolling, as described in later sections.</p>
 			<p>The points at which a media query is introduced, and the layout changed, are known as “breakpoints”.  This is the syntax: </p>
+			<p class="wb-inv">Code begins</p>
+			<pre>
+				<code class="language-css">
 			<p>@media media type and (condition: breakpoint) {</p>
 			<p>// CSS rules</p>
 			<p>}</p>
-			<table class="table table-bordered table-hover">
-				<caption>Media types available for media queries include:</caption>
-			  <thead>
-				<tr>
-				<th scope="col">Media types</th>
-				<th scope="col">Media queries</th>
-			  	</tr>
-				</thead>
-				<tbody>
-				  <tr>
-					<td>all</td>
-					<td>for all devices</td>
-				  </tr>
-				  <tr>
-					<td>print</td>
-					<td>for printers</td>
-				  </tr>
-				  <tr>
-					<td>screen</td>
-					<td>for computer screens, including tablets, phones, etc.</td>
-				  </tr>
-				  <tr>
-					<td>speech</td>
-					<td>for screen readers</td>
-				  </tr>
-				</tbody>
-			</table>
+			</pre>
+			<p class="wb-inv">Code ends</p>
+				<p>Media types available for media queries include:</p>
+				<dl>
+					<dt>all</dt>
+					<dd>for all devices</dd>
+					<dt>print</dt>
+					<dd>for printers</dd>
+					<dt>screen</dt>
+					<dd>for computer screens, including tablets, phones, etc.</dd>
+					<dt>speech</dt>
+					<dd>for screen readers</dd>
+				  </dl>
 		</section>
 		<section>
 			<h2 id="">Breakpoints</h2>
@@ -126,9 +115,9 @@
 			<p class="wb-inv">Code begins</p>
 			<pre>
 				<code class="language-css">
-			<p>@media screen and (max-width: 480px) {</p>
-			<p>. button { background-color: red; }</p>
-			<p>}</p>
+			@media screen and (max-width: 480px) {
+			. button { background-color: red; }
+			}
 			</code>
 			</pre>
 			<p class="wb-inv">Code ends</p>
@@ -137,16 +126,15 @@
 			<h3 class="">Government of Canada breakpoints</h3>
 			<p>The Government of Canada Treasury Board Secretariat <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/web-mobile-presence.html">Technical specifications for the Web and mobile presence</a> specifies two breakpoints for large and small screens at 768 pixels. </p>
 			<p>These media queries target the “screen” type, so their rules are not applied to print output. </p>
-			<p>CSS</p>
 			<p class="wb-inv">Code begins</p>
 			<pre>
 				<code class="language-css">
-			<p>@media screen and (min-width: 768px) {</p>
-			<p>/* styles for large screen device */</p>
-			<p>}</p>
-			<p>@media screen and (max-width: 767px) { </p>
-			<p>/* styles for small screen device */</p>
-			<p>}</p>
+			@media screen and (min-width: 768px) {
+			/* styles for large screen device */
+			}
+			@media screen and (max-width: 767px) { 
+			/* styles for small screen device */
+			}
 			</code>
 			</pre>
 			<p class="wb-inv">Code ends</p>
@@ -182,12 +170,12 @@
 			<p class="wb-inv">Code begins</p>
 			<pre>
 				<code class="language-html">
-			<p>&lt;!DOCTYPE html&gt;</p>
-			<p>&lt;html lang=”en”&gt;</p>
-			<p>     &lt;head&gt;</p>
-			<p>       […]</p>
-			<p>       &lt;meta name=”viewport” content=”width=device-width, initial-scale=1”&gt;</p>
-			<p>    &lt;/head&gt;</p>
+			&lt;!DOCTYPE html&gt;<
+			&lt;html lang=”en”&gt;
+			     &lt;head&gt;
+			       […]
+			       &lt;meta name=”viewport” content=”width=device-width, initial-scale=1”&gt;</p>
+			    &lt;/head&gt;
 			</code>
 			</pre>
 			<p class="wb-inv">Code ends</p>
@@ -224,65 +212,65 @@
 			<details class="mrgn-tp-lg">
 				<summary class="bg-info">View CSS</summary>
 				<p class="wb-inv">Code begins</p>
-			<pre><code class="language-html">
-			<p>    article {</p>
-			<p>        margin: 0 auto;</p>
-			<p>    }</p>
-			<p>    header { </p>
-			<p>        margin: 0 auto;</p>
-			<p>        text-align: center; </p>
-			<p>    } </p>
-			<p>    .columns {</p>
-			<p>        display: flex;</p>
-			<p>        flex-wrap: wrap;</p>
-			<p>    }</p>
-			<p>    section {</p>
-			<p>        background-color: white;</p>
-			<p>        color: black;</p>
-			<p>        border: 1px solid black;</p>
-			<p>        padding: 1%;</p>
-			<p>        margin:1%; </p>
-			<p>    }</p>
-			<p>    h2 {</p>
-			<p>        margin: 0;</p>
-			<p>    }</p>
-			<p>    section img {</p>
-			<p>        width: 100px;</p>
-			<p>        float: left;</p>
-			<p>    }</p>
-			<p>@media (min-width:960px) {</p>
-			<p>    article { </p>
-			<p>        width:960px; </p>
-			<p>    } </p>
-			<p>    #a { </p>
-			<p>        flex: 2;  </p>
-			<p>    } </p>
-			<p>    #b { </p>
-			<p>        flex: 1;  </p>
-			<p>    } </p>
-			<p>    #c {  </p>
-			<p>        flex: 1;</p>
-			<p>    }</p>
-			<p>}</p>
-			<p>@media (min-width:481px) and (max-width:959px) { </p>
-			<p>    article {  </p>
-			<p>        width:100%;</p>
-			<p>    }  </p>
-			<p>    #a, #b, #c { </p>
-			<p>        flex:100%; </p>
-			<p>    }  </p>
-			<p>} </p>
-			<p>@media (max-width:480px){ </p>
-			<p>    article { </p>
-			<p>        width:100%; </p>
-			<p>    } </p>
-			<p>    section img { </p>
-			<p>        float: none; </p>
-			<p>    } </p>
-			<p>    #a, #b, #c {  </p>
-			<p>        flex:100%;  </p>
-			<p>    } </p>
-			<p>}</p>
+			<pre><code class="language-css">
+			article {
+			        margin: 0 auto;
+			    }
+			    header { 
+			        margin: 0 auto;
+			        text-align: center; 
+			    } 
+			    .columns {
+			        display: flex;
+			        flex-wrap: wrap;
+			    }
+			    section {
+			        background-color: white;
+			        color: black;
+			        border: 1px solid black;
+			        padding: 1%;
+			        margin:1%; 
+			    }
+			    h2 {
+			        margin: 0;
+			    }
+			    section img {
+			        width: 100px;
+			        float: left;
+			    }
+			@media (min-width:960px) {
+			    article { 
+			        width:960px; 
+			    } 
+			    #a { 
+			        flex: 2;  
+			    } 
+			    #b { 
+			        flex: 1;  
+			    } 
+			    #c {  
+			        flex: 1;
+			    }
+			}
+			@media (min-width:481px) and (max-width:959px) { 
+			    article {  
+			        width:100%;
+			    }  
+			    #a, #b, #c { 
+			        flex:100%; 
+			    }  
+			} 
+			@media (max-width:480px){ 
+			    article { 
+			        width:100%; 
+			    } 
+			    section img { 
+			        float: none; 
+			    } 
+			    #a, #b, #c {  
+			        flex:100%;  
+			    } 
+			}
 			</code>
 			</pre>
 			<p class="wb-inv">Code ends</p>	
