@@ -70,9 +70,11 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#section1">S1</a></li>
-			<li><a href="#section2">S2</a></li>
-			<li><a href="#section3">S3</a></li>
+            <li><a href="#resp-images">Designing responsive images</a></li>
+			<li><a href="#css-width">Technique 1 – Style the image with CSS width: 100%</a></li>
+			<li><a href="#css-max-width">Technique 2 – Style the image with CSS max-width: 100%</a></li>
+			<li><a href="#css-src-att">Technique 3 – Serve different sizes of the image to different screen sizes using the srcset attribute</a></li>
+			<li><a href="#css-pic-element">Technique 4 – Serve different images to different screen sizes using the picture element.</a></li>
 			<li><a href="#resources1">Related WCAG resources</a></li>
           </ul>
         </div>
@@ -80,35 +82,219 @@
 	</nav>
 	
 			<section>				
-				<h2 id="section1">S1</h2>
-				
+				<h2 id="resp-images">Designing responsive images</h2>
+				<p>An image that’s wider than its container will overflow, which can introduce horizontal scrolling. </p>
+				<p>To prevent this, images can be made responsive in one of four ways:</p>
+				<ul>
+					<li>Technique 1 – Style the image with CSS width: 100%</li>
+					<li>Technique 2 – Style the image with CSS max-width: 100%</li>
+					<li>Technique 3 – Serve different sizes of the image to different screen sizes using the srcset attribute</li>
+					<li>Technique 4 – Serve different images to different screen sizes using the picture element.</li>
+				</ul>
 			</section>
 			
 			<section>				
-				<h2 id="section2">S2</h2>
-				
+				<h2 id="css-width">Technique 1: Style the image with CSS width: 100%</h2>
+				<p>If the image width is set to a percentage and the height property is set to “auto”, the image scales up or down to match the dimensions of its container. Typically, the image width is set to 100%.</p>
+				<p>Resize the browser window to see the image scale. </p>
+				<img src="images/image12.png" class="img-responsive" alt="">
+				<div class="panel panel-success">
+				<div class="panel-body">
+					<p class="wb-inv">Code begins</p>
+					
+				<pre>
+					<code class="language-css">
+				.sidebar {
+				   width: 50%;
+				}
+				.sidebar-img {  width: 100%;  height: auto;}
+					</code>
+				</pre>
+				<pre>
+					<code class="language-html">
+				&lt;div class=”sidebar”&gt;
+				&lt;img src=”deer.jpg” class=”sidebar-img” alt=”Deer pasturing in a small meadow in a forest.”&gt;
+				&lt;/div&gt;
+					</code>
+				</pre>
+				<p class="wb-inv">Code ends</p>
+					</div>
+				</div>
 			</section>
 			
 			<section>				
-				<h2 id="section3">S3</h2>
-				
+				<h2 id="css-max-width">Technique 2 – Style the image with CSS max-width: 100%</h2>
+				<p>If the max-width property is set to 100%, the image will scale down, but never scale up to be larger than its original size. </p>
+				<p>Resize the browser window to see the image scale.</p>
+				<img src="images/image12.png" class="img-responsive" alt="">
+
+				<div class="panel panel-success">
+					<div class="panel-body">
+						<p class="wb-inv">Code begins</p>
+						
+					<pre>
+						<code class="language-css">
+				.sidebar {
+				    width: 50%;
+				}
+				.sidebar-img-max {  
+					max-width: 100%;  
+					height: auto;}
+					</code>
+				</pre>
+				<pre>
+					<code class="language-html">
+				&lt;div class=”sidebar”&gt;
+				&lt;img src=”deer-320.jpg” class=”sidebar-img-max” alt=”Deer pasturing in a small meadow in a forest.”&gt;
+				&lt;/div&gt;
+					</code>
+				</pre>
+					<p class="wb-inv">Code ends</p>
+					</div>
+				</div>
+			</section>
+
+			<section>	
+				<div class="panel panel-success">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0">			
+				<h2 id="css-src-att">Technique 3 – Serve different sizes of the image to different screen sizes using the srcset attribute.</h2>
+				<p>This technique serves different sizes of an image, larger or smaller, depending on the device. While it’s possible to serve different pictures altogether with this technique, since all variations share one alt attribute there’s little choice: the variations must represent the same thing.</p>
+				<p>The srcset attribute holds a comma-separated list of differently sized versions of the same image, each list item consisting of the filename and the image’s true width (the w unit is equivalent to pixels). </p>
+				<p>The sizes attribute holds a comma-separated list of different sizes of slots for images at different screen widths. A media condition tests the screen width. The last slot width has no media condition; it’s the default that’s chosen when none of the media conditions is true. This example has a 160-pixel wide slot for small screens, and a 320-pixel wide slot for the rest.</p>
+				<p>The src attribute holds the default image file name.</p>
+				<p>The alt attribute holds the alternative text.</p>
+				<p>With these attributes in place, the browser will:</p>
+				<ul>
+					<li>Check the device width.</li>
+					<li>Determine which media condition in the sizes list is the first one to be true.</li>
+					<li>Check the slot size given to that media query.</li>
+					<li>Load the image referenced in the srcset list that has the same size as the slot or, if there isn't one, the first image that is bigger than the chosen slot size.</li>
+				</ul>
+				<p>Resize the browser window to see the image scale.</p>
+				<div class="panel panel-success">
+					<div class="panel-body">
+						<p class="wb-inv">Code begins</p>
+						
+					<pre>
+						<code class="language-css">
+				&lt;img srcset=”deer-160.jpg 160w,
+				             deer-320.jpg 320w”
+				     sizes=”(max-width: 600px) 160w,
+				            320px”
+				     src=”deer-320.jpg”
+				     alt=”A deer pasturing in a small meadow in a forest.”&gt;
+					</code>
+				</pre>
+					<p class="wb-inv">Code ends</p>
+					</div>
+				</div>
+					 <img src="images/image12.png" class="img-responsive" alt="">
+				<h3 class="">Resource: Responsive Image Generator</h3>
+				<p>The <a href="http://www.responsivebreakpoints.com/">Responsive Image Generator</a> is an online tool that allows you to upload an image and generate various image dimensions for responsive breakpoints.</p>
+				<img src="images/image13.png" class="img-responsive" alt=":Screenshot of the Responsive Image Generator online tool showing responsive breakpoints and image dimensions">
+			
+				</code>
+				</pre>
+						<p class="wb-inv">Code ends</p>	
+					</div>
+				</div>
+					</details>
 			</section>
 			
-			
+			<section>		
+				<div class="panel panel-success">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0">		
+				<h2 id="css-pic-element">Technique 4 – Serve different images to different screen sizes using the picture element.</h2>
+				<p>A small object of interest in a large image is hard to discern if that same image is shrunk to fit a mobile device. Cropping removes unneeded outer areas of an image to reframe closer to the object of interest. The  &lt;picture&gt; element is commonly used in responsive design for “Art Direction,” where different crops of the same image, often at different aspect ratios, are served to different screen sizes. </p>
+				<p>The &lt;picture&gt; element contains two tags: one or more &lt;source&gt; tags and one &lt;img&gt;  tag.</p>
+				<p>The browser looks for the first &lt;source&gt; element with a media query matching the current viewport, then displays the image specified in the srcset attribute. </p>
+				<p>The &lt;img&gt; element serves as a fallback if none of the source tags matches. It also provides the alt text for all variations of the image.</p>
+				<p>With this technique you could serve different pictures altogether and offer multiple resolutions of each one: &lt;source&gt; can take a srcset attribute with multiple images referenced, as well as a sizes attribute. However, as with Technique 3, srcset, all variations share one alt attribute, so there’s little choice: the variations must represent the same thing. </p>
+				
+				<div class="panel panel-success">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good Example: Using the Art Direction </h3>
+				<p>In this example, a crop of the photo is served to small devices. </p>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">View HTML</summary>						
+					<p class="wb-inv">Code begins</p>
+				<pre>
+					<code class="language-html">
+					
+				The &lt;source&gt; elements include a media condition. The first condition that returns true is displayed: if the viewport width is 799px wide or less, the first &lt;source&gt; element's image is displayed; if the viewport width is 800px or more, the second &lt;source&gt; element’s image is displayed.
+				&lt;picture&gt;  <
+				&lt;source media="(max-width: 799px)" srcset="deer-crop200w.jpg"&gt;  
+				&lt;source media="(min-width: 800px)" srcset="deer-500w.jpg"&gt;  
+				&lt;img src="deer-500w.jpg” alt="A deer pasturing in a small meadow in a forest.”&gt;
+				&lt;/picture&gt;
+				
+					</code>
+				</pre>
+				</details>
+				<h4>Cropped image served to small devices</h4>
+				<img src="images/image14.jpg" class="img-responsive" alt="In the cropped image, the dear occupies more than a third of the image's width.">
+				<h4>Original image served to large devices</h4>
+				<img src="images/image15.jpg" class="img-responsive" alt="In the uncropped original image, the deer occupies about a fifth of the image's width.">
+				
+				<div class="panel panel-danger">
+					<div class="panel-body">
+						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span> Bad example: Non-responsive image</h3>
+				<p>In the screenshot below, a 1,600-pixel wide image lacking any responsive markup displays at its native width. Since it’s wider than the viewport, it forces a horizontal scrollbar to appear. </p>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">View HTML</summary>						
+					<p class="wb-inv">Code begins</p>
+				<pre>
+					<code class="language-html">
+				&lt;img src=”nature.png” alt=”Monarch butterflies fly below pine trees”&gt;
+				</code>
+				</pre>
+				</details>
+				<img src="images/image16.png" class="img-responsive" alt="">
+				<p>Image from cntravaler.com</p>
+				</div>
+				</div>
+
+			</section>
+
 			<section>				
 				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
 					<ul>
-						<li><a href="https://www.link1.com">Link 1</a></li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html">1.4.10 : Reflow</a>
+						</li>					
 					</ul>
 					<h3>Techniques</h3>
 					<ul>
 						<li>
-							<a href="https://www.link2.com">Link 2</a>
-						</li>						
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C32">C32: Using media queries and grid CSS to reflow columns</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C31">C31: Using CSS Flexbox to reflow content</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C33">C33: Allowing for Reflow with Long URLs and Strings of Text</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C38">C38: Using CSS width, max-width and flexbox to fit labels and inputs</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR34">SCR34: Calculating size and position in a way that scales with text size</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G206">G206: Providing options within the content to switch to a layout that does not require the user to scroll horizontally to read a line of text</a>
+						</li>					
 					</ul>
+					<h3 class="">Failures</h3>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F102">F102: Failure of Success Criterion 1.4.10 due to content disappearing and not being available when content has reflowed</a>
+					</li>
+				</ul>
 				</details>
 			</section>
 		
