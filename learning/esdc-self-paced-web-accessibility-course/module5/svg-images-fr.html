@@ -93,8 +93,7 @@
 			<li>Les SVG prennent en charge le balisage et les caractéristiques d’accessibilité.</li>
 		</ul>
 		<p>Cette image illustre la différence entre les images bitmap et les images vectorielles. L’image bitmap, appelée image tramée, est composée d’un ensemble fixe de pixels, tandis que l’image vectorielle est composée d’un ensemble fixe de formes. Dans cette image, la mise à l’échelle de l’image bitmap révèle les pixels tandis que la mise à l’échelle de l’image vectorielle préserve les formes :</p>
-		<div class="panel panel-success">
-			<div class="panel-body">
+		
 		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 915 585" role="image" aria-labelledby="svg-title">
 			<title id="svg-title">Illustration de la différence entre les images bitmap et vectorielles. La mise à l’échelle de l’image bitmap révèle des pixels tandis que la mise à l’échelle de l’image vectorielle préserve les formes.</title>
 			<defs>
@@ -136,14 +135,13 @@
 			<use xlink:href="#VectorLarge" transform="matrix(.17 0 0 .17 392 313)"/>
 			<use xlink:href="#RasterLarge" transform="matrix(.173 0 0 .173 -8.25 314)" height="100%" width="100%" y="0" x="0"/>
 		</svg>
+
 		<hr/>
-		</div>
-		</div>
 		<p class="small">Contributeurs de Wikipédia. (4 novembre 2021) Graphiques vectoriels adaptables. Wikipédia. Récupéré le 17 novembre 2021 sur le site <a href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics">https://en.wikipedia.org/wiki/Scalable_Vector_Graphics</a></p>
 		<p>Il existe deux façons d’ajouter des SVG à une page accessible :</p>
 		<ul>
-			<li>Utiliser l’élément<code>&lt;img&gt;</code> et faire référence au fichier SVG au moyen de  <code>src</code> l’attribut.</li>
-			<li>Utiliser l’élément<code>&lt;svg&gt;</code> pour intégrer le SVG directement dans le code HTML.</li>
+			<li>Utiliser l’élément <code>&lt;img&gt;</code> et faire référence au fichier SVG au moyen de l’attribut <code>src</code>.</li>
+			<li>Utiliser l’élément <code>&lt;svg&gt;</code> pour intégrer le SVG directement dans le code HTML.</li>
 		</ul>
 		<p>La troisième façon d’ajouter le SVG à une page et de l’imbriquer dans un élément <code>&lt;iframe&gt;</code> ou <code>&lt;embed&gt;</code> est mal prise en charge par les technologies d’assistance.</p>
 		<ul>
@@ -151,38 +149,35 @@
 		</ul>
 	</section>
 	<section>
-		<div class="panel panel-success">
-			<div class="panel-body">
-		<h2 class="text-success mrgn-tp-0" id="technique1">Technique 1 : Utiliser l’élément img pour faire référence au SVG au moyen de l’attribut src</h2>
+		<h2 id="technique1">Technique 1 : Utiliser l’élément img pour faire référence au SVG au moyen de l’attribut src</h2>
 		<ul>
 			<li>À utiliser pour les images simples et non compliquées avec texte de remplacement descriptif de base.</li>
-			<li>Utiliser l’élément <code>&lt;img&gt;</code> et l <code>src</code> ’attribut.</li>
+			<li>Utiliser l’élément <code>&lt;img&gt;</code> et l’attribut <code>src</code>.</li>
 			<li>Ajouter  <code>role="image"</code> l’attribut pour améliorer le soutien à l’accessibilité.</li>
 			<li>Fournir un équivalent textuel qui communique la même intention et le même sens que l’image.</li>
-			<li>Utiliser <code>alt</code> l’attribut alt pour fournir du texte de remplacement (préférable).</li>
-			<li>Peut également utiliser une étiquette <code>aria-label</code> ou <code>aria-labelledby</code>pour fournir du texte de remplacement.</li>
+			<li>Utiliser l’attribut <code>alt</code> pour fournir du texte de remplacement (préférable).</li>
+			<li>Peut également utiliser une étiquette <code>aria-label</code> ou <code>aria-labelledby</code> pour fournir du texte de remplacement.</li>
 		</ul>
-		<p>Exemple:</p>
-		<p>
-			<img src="images/Canada_Stop_sign.svg" class="img-responsive" alt="Stop sign" style="width:200px">
-		</p>
+		<div class="panel panel-primary">
+			<div class="panel-body mrgn-bttm-0">
+				<p>
+					<img src="images/Canada_Stop_sign.svg" class="img-responsive" alt="Stop sign" style="width:200px">
+				</p>
+			</div>
+		</div>
 		<p class="wb-inv">Code commence</p>
 <pre>
 <code class="language-html">&lt;img src="stop.svg" role="image" alt="Panneau d’arrêt" class="img-responsive" style="width:200px"&gt;</code>
 </pre>
 		<p class="wb-inv">Fins du code</p>
-		</div>
-	</div>
 	</section>
 	<section>
-		<div class="panel panel-success">
-			<div class="panel-body">
-		<h2 class="text-success mrgn-tp-0" id="technique2">Technique 2 : Utiliser l’élément &lt;svg&gt; pour intégrer le SVG directement (en ligne) dans le code HTML</h2>
+		<h2 id="technique2">Technique 2 : Utiliser l’élément &lt;svg&gt; pour intégrer le SVG directement (en ligne) dans le code HTML</h2>
 		<ul>
 			<li>À utiliser pour des images simples et plus complexes.</li>
 			<li>Le SVG en ligne peut être animé et manipulé par CSS et JavaScript.</li>
 			<li>Utiliser <code>&lt;svg&gt;</code> l’élément.</li>
-			<li>Ajouter <code>role=”image”</code> pour améliorer le soutien à l’accessibilité.</li>
+			<li>Ajouter <code>role="image"</code> pour améliorer le soutien à l’accessibilité.</li>
 			<li>Fournir un équivalent textuel qui communique la même intention et le même sens que l’image.</li>
 			<li>Utiliser <code>&lt;title&gt;</code> pour fournir un court texte de remplacement.
 				<ul>
@@ -196,18 +191,20 @@
 			<li>Pour améliorer le soutien à l’accessibilité :
 				<ul>
 					<li>Ajouter des valeurs uniques d’attribut id aux éléments <code>&lt;title&gt;</code> et <code>&lt;desc&gt;</code>.</li>
-					<li>oAjouter un attribut <code>aria-labelledby</code> à l’élément SVG faisant référence aux valeurs de l’attribut id.</li>
+					<li>Ajouter un attribut <code>aria-labelledby</code> à l’élément SVG faisant référence aux valeurs de l’attribut <code>id</code>.</li>
 				</ul>
 			</li>
 		</ul>
-		<p>Exemple:</p>
-		<svg role="img" aria-labelledby="uniqueTitleID uniqueDescID" xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 200 200">
-			<title id="uniqueTitleID">carré rouge</title>
-			<desc id="uniqueDescID">Image SVG d’un carré rouge avec bordure noire</desc>
-			<path fill="red" stroke="#000" stroke-width="2.5" d="M168 168H32V32h136z"/>
-		</svg>
+		<div class="panel panel-primary">
+			<div class="panel-body mrgn-bttm-0">
+				<svg role="img" aria-labelledby="uniqueTitleID uniqueDescID" xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 200 200">
+					<title id="uniqueTitleID">carré rouge</title>
+					<desc id="uniqueDescID">Image SVG d’un carré rouge avec bordure noire</desc>
+					<path fill="red" stroke="#000" stroke-width="2.5" d="M168 168H32V32h136z"/>
+				</svg>
+			</div>
+		</div>
 
-		<p>Code:</p>
 		<p class="wb-inv">Code commence</p>
 <pre>
 <code class="language-svg">&lt;svg role="img" aria-labelledby="uniqueTitleID uniqueDescID" width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"&gt;
@@ -219,25 +216,20 @@
 		<p class="wb-inv">Fins du code</p>
 		<hr/>
 		<p class="small">Source de l’image: <a href="https://commons.wikimedia.org/wiki/File:Red_square.svg">https://commons.wikimedia.org/wiki/File:Red_square.svg</a></p>
-	</div>
-	</div>
+
 	</section>
 	<section>
-		<div class="panel panel-success">
-			<div class="panel-body">
-		<h2 class="text-success mrgn-tp-0" id="decorative-svg">SVG décoratif</h2>
+		<h2 id="decorative-svg">SVG décoratif</h2>
 		<p>Les images SVG décoratives n’ajoutent pas de renseignements utiles à une page. Exemples : images utilisées pour le style (bordures) ou pour l’ambiance ou l’intérêt visuel (plaisir des yeux).  </p>
 		<ul>
 			<li>Masquer les images SVG décoratives en utilisant l’attribut <code>aria-hidden="true"</code>.</li>
 		</ul>
-		<p>Exemple:</p>
 		<p class="wb-inv">Code commence</p>
 <pre>
 <code class="language-html">&lt;img src="sample.svg" aria-hidden="true"&gt;</code>
 </pre>
 		<p class="wb-inv">Fins du code</p>
-		</div>
-		</div>
+
 	</section>
 	<section>
 		<h2 id="text-svg">Texte dans SVG</h2>
@@ -245,7 +237,7 @@
 		<p>Suivez les pratiques exemplaires suivantes :</p>
 		<ul>
 			<li>Éviter d’inclure du texte dans les éléments <code>&lt;svg&gt;</code> ou limiter le texte au minimum. Placer le texte à l’extérieur du SVG (préférable) plutôt qu’à l’intérieur.</li>
-			<li>Ajouter <code>role=”image”</code> pour améliorer le soutien à l’accessibilité.</li>
+			<li>Ajouter <code>role="image"</code> pour améliorer le soutien à l’accessibilité.</li>
 			<li>Fournir un équivalent textuel qui communique la même intention et le même sens que l’image.</li>
 			<li>Utiliser l’élément <code>&lt;title&gt;</code> pour fournir un court texte de remplacement.
 				<ul>
@@ -257,27 +249,28 @@
 			<li>Pour assurer le support du lecteur d’écran :
 				<ul>
 					<li>Ajoutez des valeurs d’identification uniques aux <code>&lt;title&gt;</code> et <code>&lt;text&gt;</code>.</li>
-					<li>Utiliser <code>aria-labelledby</code> pour faire référence aux valeurs d’ID.</li>
+					<li>Utiliser <code>aria-labelledby</code> pour faire référence aux valeurs d’<code>id</code>.</li>
 				</ul>
 			</li>
 		</ul>
-		<p>Exemple:</p>
 		
-		<img src="images/image30.png" class="img-responsive" alt="">
+		<div class="panel panel-primary">
+			<div class="panel-body mrgn-bttm-0">
+		<!-- <img src="images/image30.png" class="img-responsive" alt=""> -->
 		
-<svg width="200" height="100" role="img" aria-labelledby="uniqueTitleID2 uniqueTextID2">
-	<title id="uniqueTitleID2">Un rectangle bordé de rouge avec texte à l’intérieur</title>  
-	<rect x="0" y="0" width="200" height="100" stroke="red" stroke-width="3px" fill="white"/>  
-	<text id="uniqueTextID2" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">Bonjour le monde!</text>     
-</svg>
-		
-		<p>Code:</p>
+				<svg width="200" height="100" role="img" aria-labelledby="uniqueTitleID2 uniqueTextID2">
+					<title id="uniqueTitleID2">Un rectangle bordé de rouge avec texte à l’intérieur</title>  
+					<rect x="0" y="0" width="200" height="100" stroke="red" stroke-width="3px" fill="white"/>  
+					<text id="uniqueTextID2" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">Bonjour le monde!</text>     
+				</svg>
+			</div>
+		</div>
 <p class="wb-inv">Code commence</p>
 <pre>
 <code class="language-svg">&lt;svg width="200" height="100" role="img" aria-labelledby="uniqueTitleID2 uniqueTextID2"&gt;
-	&lt;title id="uniqueTitleID2"&gt;A rectangle with red border with text inside&lt;/title&gt;  
+	&lt;title id="uniqueTitleID2"&gt;Un rectangle bordé de rouge avec texte à l’intérieur&lt;/title&gt;  
 	&lt;rect x="0" y="0" width="200" height="100" stroke="red" stroke-width="3px" fill="white"/&gt;  
-	&lt;text id="uniqueTextID2" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"&gt;Hello World!&lt;/text&gt;     
+	&lt;text id="uniqueTextID2" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"&gt;Bonjour le monde!&lt;/text&gt;     
 &lt;/svg&gt;</code>
 </pre>
 		<p class="wb-inv">Fins du code</p>
@@ -325,7 +318,7 @@
 		<h2 class="wb-inv">Navigation dans le document</h2>
 		<ul class="pager">
 			<li class="previous">
-				<a rel="prev" href="alt-decision-tree-fr.html">Précédent - Alt decision tree</a>
+				<a rel="prev" href="alt-decision-tree-fr.html">Précédent - Arbre d�cisionnel en texte de remplacement</a>
 			</li>
 			<li class="next">
 				<a rel="next" href="tips-and-tricks-fr.html">Suivant - Conseils et astuces supplémentaires</a>
