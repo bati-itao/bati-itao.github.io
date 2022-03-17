@@ -80,32 +80,65 @@
                      <h2 id="hiding-content">Hiding content</h2>
                      <p>Content can be hidden from three groups of users:</p>
                      <ul>
-                        <li>From all users, by using either the CSS display:none or visibility:hidden declaration.</li>
-                        <li>From users of assistive technology, by using the aria-hidden=”true” attribute to remove the element from the Accessibility API.</li>
-                        <li>From sighted users, by using the WET CSS class “wb-inv” to visually hide the content.</li>
+                        <li>From all users, by using either the CSS <code>display:none</code> or <code>visibility:hidden</code> declaration.</li>
+                        <li>From users of assistive technology, by using the <code>aria-hidden="true"</code> attribute to remove the element from the Accessibility API.</li>
+                        <li>From sighted users, by using the WET CSS class <code>"wb-inv"</code> to visually hide the content.</li>
                      </ul>
                      <p>When hiding inactive content, such as untriggered modal windows and unselected sub-menus, hide it from all users. Developers frequently introduce a barrier by visually hiding such content offscreen via CSS positioning, leaving the content exposed to the accessibility API, where it’s encountered by screen reader users and others. If it needs to be hidden from sighted users, it needs to be hidden from screen reader users.</p>
-                     <p>Use the aria-hidden attribute with caution, and only to improve the experience for users of assistive technology by removing redundant or extraneous information. If you use aria-hidden to hide meaningful visible content you must ensure that identical or equivalent meaning and functionality is exposed to assistive technologies.</p>
+                     <p>Use the <code>aria-hidden</code> attribute with caution, and only to improve the experience for users of assistive technology by removing redundant or extraneous information. If you use <code>aria-hidden</code> to hide meaningful visible content you must ensure that identical or equivalent meaning and functionality is exposed to assistive technologies.</p>
                      <p>Visually-hidden text can:</p>
                      <ul>
                         <li>provide a name where ARIA labels won’t work because the element doesn’t receive focus. This is illustrated in the example of CSS-generated content in the previous section. The same approach would work with a CSS background image needing a name; for instance, a list holding logos set as CSS background images could use a visually-hidden name in each list item.</li>
                         <li>name or extend the name of elements as an alternative to ARIA labels. For example, on a page with multiple “read more” links, to distinguish each link’s purpose from the other, the preceding heading text is inserted as a visually-hidden span element into the link text.</li>
                      </ul>
-                     <h3>How to Apply</h3>
-                     <p>[Teaser paragraph.]</p>
-                     <a href="article/how-to-apply.html">
-                     <span class="wb-inv">About How to Apply</span> Read more  
-                     </a> 
-                     <style type="text/css">
-                        .wb-inv {
-                        clip: rect(1px,1px,1px,1px);
-                        height: 1px;
-                        margin: 0;
-                        overflow: hidden;
-                        position: absolute;
-                        width: 1px;
-                        }
-                     </style>
+                     <div class="panel panel-success">
+						<div class="panel-body">
+							<h3 class="text-success mrgn-tp-0">
+								<span class="glyphicon glyphicon-ok-circle"></span> Good example: Visually-hidden text
+							</h3>
+							 <div class="panel panel-primary">
+								<div class="panel-body well mrgn-bttm-0">
+									 <h4 class="mrgn-tp-0">How to Apply</h4>
+									 <p>[Teaser paragraph.]</p>
+									 <a href="article/how-to-apply.html">
+										 <span class="wb-inv">About How to Apply</span> 
+										 Read more  
+									 </a> 
+									 <style type="text/css">
+										.wb-inv {
+										clip: rect(1px,1px,1px,1px);
+										height: 1px;
+										margin: 0;
+										overflow: hidden;
+										position: absolute;
+										width: 1px;
+										}
+									 </style>
+								</div>
+							</div>
+							
+							<p class="wb-inv">Code begins</p>
+<pre>
+<code class="language-html">&lt;h4 class="mrgn-tp-0"&gt;How to Apply&lt;/h4&gt;
+&lt;p&gt;[Teaser paragraph.]&lt;/p&gt;
+&lt;a href="article/how-to-apply.html"&gt;
+   &lt;span class="wb-inv"&gt;About How to Apply&lt;/span&gt; 
+   Read more  
+&lt;/a&gt; 
+&lt;style type="text/css"&gt;
+.wb-inv {
+   clip: rect(1px,1px,1px,1px);
+   height: 1px;
+   margin: 0;
+   overflow: hidden;
+   position: absolute;
+   width: 1px;
+}
+&lt;/style&gt;</code>
+</pre>
+							<p class="wb-inv">Code ends</p>
+						</div>
+					</div>
                   </section>
                   <section>
                      <h2 id="Exposing-hidden-content-on-hover-or-focus">Exposing hidden content on hover or focus</h2>
@@ -115,7 +148,7 @@
                         <li>Hoverable -- the user can hover the mouse over the exposed content.</li>
                         <li>Persistent -- the exposed content doesn’t disappear until mouse hover or keyboard focus leaves it.</li>
                      </ul>
-                     <p>For more details, see Module 10 – Input Modalities -> Mouse Input -> <a href="https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus">Content on Hover or Focus</a></p>
+                     <p>For more details, see Module 10 – Input Modalities -> Mouse Input -> <mark><a href="">Content on Hover or Focus</a></mark></p>
                   </section>
                   <section>
                      <h2 id="resources1" class="wb-inv">Related WCAG resources</h2>

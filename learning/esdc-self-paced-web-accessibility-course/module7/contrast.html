@@ -80,14 +80,14 @@
                      <p>If text, including images of text, lacks sufficient contrast with its background it won’t be legible to users with low vision or colour blindness. Controls and meaningful graphics also require good contrast.</p>
                      <p>To meet the WCAG Level AA Success Criterion for minimum contrast, follow these best practices:</p>
                      <ul>
-                        <li>Ensure small text (under 18 point (24 pixels) regular font or under 14 point (19 pixels) bold font) has a contrast ratio of at least 4.5:1 with the background.</li>
-                        <li>Ensure large text (at least 18 point (24 pixels) regular font or 14 point (19 pixels) bold font) has a contrast ratio of at least 3:1 with the background.</li>
+                        <li>Ensure small text (under 18 point [24 pixels] regular font or under 14 point [19 pixels] bold font) has a contrast ratio of at least 4.5:1 with the background.</li>
+                        <li>Ensure large text (at least 18 point [24 pixels] regular font or 14 point [19 pixels] bold font) has a contrast ratio of at least 3:1 with the background.</li>
                         <li>Ensure non-text content – active user interface components (i.e., controls) and their states, and meaningful graphics – has a contrast ratio of at least 3:1 with adjacent colours.</li>
                      </ul>
                      <p>Meeting WCAG Level AAA criteria is often difficult, but that's not the case with enhanced contrast. We should strive for it whenever possible. To meet the WCAG Level AAA Success Criterion for enhanced contrast, increase the contrast ratio of small and large text as follows:</p>
                      <ul>
-                        <li>Ensure small text (under 18 point (24 pixels) regular font or under 14 point (19 pixels) bold font) has a contrast ratio of at least 7:1 with the background.</li>
-                        <li>Ensure large text (at least18 point (24 pixels) regular font or 14 point (19 pixels) bold font) has a contrast ratio of at least 4.5:1 with the background.</li>
+                        <li>Ensure small text (under 18 point [24 pixels] regular font or under 14 point [19 pixels] bold font) has a contrast ratio of at least 7:1 with the background.</li>
+                        <li>Ensure large text (at least18 point [24 pixels] regular font or 14 point [19 pixels] bold font) has a contrast ratio of at least 4.5:1 with the background.</li>
                      </ul>
                      <p>For user interface components, the 3:1 contrast ratio with adjacent colours:</p>
                      <ul>
@@ -107,55 +107,80 @@
                      </ul>
                      <div class="panel panel-danger">
                         <div class="panel-body">
-                           <h2 class="text-danger mrgn-tp-0 h3" id="header"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad Example 1: Low contrast with background (text)</h2>
+                           <h2 class="text-danger mrgn-tp-0 h3" id="header"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad example: Low contrast with background (text)</h2>
                            <p>In this example, the dark grey text (#777) on a grey background (#ccc) has a contrast ratio of 2.8:1, falling short of the required 4.5:1 ratio.</p>
-                           <style type="text/css">
-                              .low-contrast { 
-                              background-color: #ccc; 
-                              color: #777;
-                              padding: 1.5em;
-                              width: 8em;
-                              }
-                           </style>
-                           <div class="low-contrast">
-                              <p>Privacy</p>
-                           </div>
+                           <div class="panel panel-primary">
+								<div class="panel-body mrgn-bttm-0">
+								   <style type="text/css">
+									  .low-contrast { 
+									  background-color: #ccc; 
+									  color: #777;
+									  padding: 1.5em;
+									  width: 8em;
+									  }
+								   </style>
+								   <div class="low-contrast">
+									  <p>Privacy</p>
+								   </div>
+								</div>
+							</div>
                         </div>
                      </div>
                      <div class="panel panel-danger">
                         <div class="panel-body">
-                           <h2 class="text-danger mrgn-tp-0 h3" id="header"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad Example 2: Low contrast with background (control)</h2>
+                           <h2 class="text-danger mrgn-tp-0 h3" id="header"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad example: Low contrast with background (control)</h2>
                            <p>The grey border colour of the checkbox (#9D9D9D) has a contrast ratio of 2.7:1 with the white background, which is insufficient to identify the checkbox to some users.</p>
-                           <img src="images/image19.png" alt="" class="img-responsive"/>
+                           <div class="panel panel-primary">
+								<div class="panel-body mrgn-bttm-0">
+								   <img src="images/image19.png" alt="" class="img-responsive"/>
+								</div>
+							</div>
                            <p>The grey border of the input (#CCCCCC) has a contrast ratio of 1.6:11 with the white background, falling short of the 3:1 required for non-text content.</p>
-                           <p>The input fields example is the current (2021) WET implementation, so you need to override the WET stylesheet with the input border colour value from Good Example 3. This is the problem line of CSS:</p>
-                           <img src="images/image20.png" alt="" class="img-responsive"/>
-                           <p>The grey border of the input (#93958A) has a contrast ratio of 3:1, just meeting WCAG Success Criterion <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast">1.4.11: Non-text Contrast</a></p>
-                           <img src="images/image20.png" alt="" class="img-responsive"/>
+                           <div class="panel panel-primary">
+								<div class="panel-body mrgn-bttm-0">
+								   <img src="images/image20.png" alt="" class="img-responsive"/>
+								</div>
+							</div>
+                           
+                           <p>The input fields example is the current (2021) WET implementation, so you need to override the WET stylesheet with the input border colour value from Good example: Sufficient contrast (control). This is the problem line of CSS:</p>
+                           <p class="wb-inv">Code begins</p>
+						
+<pre><code class="language-css">.form-control { border: 1px solid #ccc; }</code></pre>
+
+							<p class="wb-inv">Code ends</p>
                         </div>
                      </div>
                      <div class="panel panel-success">
                         <div class="panel-body">
-                           <h2 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;  Good Example 3: Sufficient contrast (control)</h2>
+                           <h2 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;  Good example: Sufficient contrast (control)</h2>
                            <p>The grey border of the input (#93958A) has a contrast ratio of 3:1, just meeting WCAG Success Criterion <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast">1.4.11: Non-text Contrast</a></p>
-                           <img src="images/image21.png" alt="" class="img-responsive"/>
+                           <div class="panel panel-primary">
+								<div class="panel-body mrgn-bttm-0">
+								   <img src="images/image21.png" alt="" class="img-responsive"/>
+								</div>
+							</div>
                         </div>
                      </div>
                      <div class="panel panel-danger">
                         <div class="panel-body">
-                           <h2 class="text-danger mrgn-tp-0 h3" id="header"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad Example 4: Low contrast with adjacent colour (graphic)</h2>
+                           <h2 class="text-danger mrgn-tp-0 h3" id="header"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad example: Low contrast with adjacent colour (graphic)</h2>
                            <p>This alert graphic consists of a red triangle-shaped icon with a white exclamation mark, set against a grey background. The triangle is usually reserved for alerts like these, so both shapes are important.</p>
-                           <img src="images/image22.png" alt="" class="img-responsive"/>
                            <p>There are 2 contrast ratios to consider with this icon:</p>
                            <ul>
                               <li>The contrast ratio between the white exclamation mark and the red triangle, which is 5:1.</li>
                               <li>The contrast ratio between the red triangle and the grey background, which is 2:1.</li>
                            </ul>
                            <p>The red triangle and the grey background lack sufficient contrast.</p>
+                            <div class="panel panel-primary">
+								<div class="panel-body mrgn-bttm-0">
+								   <img src="images/image22.png" alt="" class="img-responsive"/>
+								</div>
+							</div>
                         </div>
                      </div>
                      <p>See more examples in Success Criterion <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast">1.4.11: Non-text Contrast</a></p>
-                     <p>Bad Example 4 is from <a href="https://webaim.org/articles/contrast/">Contrast and Colour Accessibility</a>, © WebAIM, 2021.</p>
+                     <hr/>
+                     <p class="small">"Bad example: Low contrast with adjacent colour (graphic)" is from <a href="https://webaim.org/articles/contrast/">Contrast and Colour Accessibility</a>, © WebAIM, 2021.</p>
                   </section>
                   <section>
                      <h2 id="resources1" class="wb-inv">Related WCAG resources</h2>

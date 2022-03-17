@@ -70,46 +70,85 @@
                         <div class="panel-body">
                            <ul>
                               <li><a href="#contenu-genere-par-une-CSS">Contenu généré par une CSS</a></li>
-                              <li><a href="#resources1">Ressources liées aux WCAG</a></li>
+                              <li><a href="#example">Bon exemple : Masquer visuellement le contenu généré par une CSS et fournir un équivalent textuel</a></li>
+                              <li><a href="#resources1">Ressources WCAG connexes</a></li>
                            </ul>
                         </div>
                      </div>
                   </nav>
                   <section>
                      <h2 id="contenu-genere-par-une-CSS">Conception avec du contenu généré par une CSS</h2>
-                     <p>Une CSS peut générer du texte au moyen des pseudo-classes « :before » et « :after », mais le texte ne figure pas dans le modèle DOM et n’est donc pas facilement accessible aux technologies d’assistance. Bien que les lecteurs d’écran NVDA et VoiceOver reconnaissent le contenu produit par une CSS, ce n’est pas le cas des lecteurs d’écran JAWS et Narrator.</p>
+                     <p>Une CSS peut générer du texte au moyen des pseudo-classes « <code>:before</code> » et « <code>:after</code> », mais le texte ne figure pas dans le modèle DOM et n’est donc pas facilement accessible aux technologies d’assistance. Bien que les lecteurs d’écran NVDA et VoiceOver reconnaissent le contenu produit par une CSS, ce n’est pas le cas des lecteurs d’écran JAWS et Narrator.</p>
                      <p>Par conséquent, on peut utiliser un contenu important généré par une CSS sur des feuilles de style d’impression pour imprimer l’adresse URL des liens sur la page, mais autrement il faut l’éviter.</p>
                      <p>Si vous utilisez du contenu produit par une CSS, masquez-le pour les lecteurs d’écran au moyen de l’attribut aria-hidden=”true”. Si le contenu généré par une CSS est informatif, fournissez un équivalent textuel. Pour ce faire :</p>
                      <ul>
-                        <li>Si le contenu est un lien ou une commande, utilisez l’attribut « aria-label ».</li>
-                        <li>Si le contenu ne peut être ciblé, utilisez la classe « .wb-inv » de la BOEW pour masquer visuellement l’équivalent textuel.</li>
+                        <li>Si le contenu est un lien ou une commande, utilisez l’attribut « <code>aria-label</code> ».</li>
+                        <li>Si le contenu ne peut être ciblé, utilisez la classe « <code>.wb-inv</code> » de la BOEW pour masquer visuellement l’équivalent textuel.</li>
                      </ul>
-                     <h2>Exemple : Masquer visuellement le contenu généré par une CSS et fournir un équivalent textuel</h2>
-                     <p>Dans cet exemple, l’icône de marteau Font Awesome est utilisée pour représenter une tâche. L’élément « span » avec la classe « fas fa-hammer » affiche l’icône par l’entremise d’une pseudo-classe de CSS, tandis que son attribut « title » contient une infobulle pour les utilisateurs de souris et que l’attribut « aria-hidden=”true » cache l’élément aux lecteurs d’écran. Lle nom « Task », masqué visuellement, est indiqué juste après et est visible pour les lecteurs d’écran.</p>
-                     <style type="text/css">
-                        .fa-hammer:before { content: "\f6e3"; }
-                        .fa, .far, .fas {  font-family: "Font Awesome 5 Free"; }
-                        li.icon { list-style: none; }
-                        li.icon > * { margin-left: 2em; }
-                        .wb-inv {
-                        clip: rect(1px,1px,1px,1px);
-                        height: 1px;
-                        margin: 0;
-                        overflow: hidden;
-                        position: absolute;
-                        width: 1px;
-                        }
-                     </style>
-                     <li class="icon">
-                        <span class="fas fa-hammer" title="Task" aria-hidden="true"></span>
-                        <span class="wb-inv">Task</span>
-                        Remplir la demande
-                     </li>
+                     <div class="panel panel-success">
+						<div class="panel-body">
+							<h2 class="text-success mrgn-tp-0" id="example"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple : Masquer visuellement le contenu généré par une CSS et fournir un équivalent textuel</h2>
+							 <p>Dans cet exemple, l’icône de marteau Font Awesome est utilisée pour représenter une tâche. L’élément <code>&lt;span&gt;</code> avec la classe <code>fas fa-hammer</code> affiche l’icône par l’entremise d’une pseudo-classe de CSS, tandis que son attribut <code>title</code> contient une infobulle pour les utilisateurs de souris et que l’attribut <code>aria-hidden="true"</code> cache l’élément aux lecteurs d’écran. Lle nom « Tâche », masqué visuellement, est indiqué juste après et est visible pour les lecteurs d’écran.</p>
+							<div class="panel panel-primary">
+								<div class="panel-body well mrgn-bttm-0">
+									 <style type="text/css">
+										.fa-hammer:before { content: "\f6e3"; }
+										.fa, .far, .fas {  font-family: "Font Awesome 5 Free"; }
+										li.icon { list-style: none; }
+										li.icon > * { margin-left: 2em; }
+										.wb-inv {
+										clip: rect(1px,1px,1px,1px);
+										height: 1px;
+										margin: 0;
+										overflow: hidden;
+										position: absolute;
+										width: 1px;
+										}
+									 </style>
+									 <ul>
+										 <li class="icon">
+											<span class="fas fa-hammer" title="Tâche" aria-hidden="true"></span>
+											<span class="wb-inv">Tâche</span>
+											Remplir la demande
+										 </li>
+									 </ul>
+								</div>
+							</div>
+							<p class="wb-inv">Code commence</p>
+<pre><code class="language-css">&lt;style type="text/css"&gt;
+	.fa-hammer:before { content: "\f6e3"; }
+	.fa, .far, .fas {  font-family: "Font Awesome 5 Free"; }
+	li.icon { list-style: none; }
+	li.icon > * { margin-left: 2em; }
+	.wb-inv {
+	   clip: rect(1px,1px,1px,1px);
+	   height: 1px;
+	   margin: 0;
+	   overflow: hidden;
+	   position: absolute;
+	   width: 1px;
+	}
+&lt;/style&gt;</code>
+</pre>
+
+							<p class="wb-inv">Fins du code</p>
+							<p class="wb-inv">Code commence</p>
+<pre><code class="language-html">&lt;ul&gt;
+   &lt;li class="icon"&gt;
+      &lt;span class="fas fa-hammer" title="Tâche" aria-hidden="true"&gt;&lt;/span&gt;
+      &lt;span class="wb-inv"&gt;Tâche&lt;/span&gt;
+      Remplir la demande
+    &lt;/li&gt;
+ &lt;/ul&gt;</code>
+</pre>
+							<p class="wb-inv">Fins du code</p>
+						</div>
+					</div>							 
                   </section>
                   <section>
-                     <h2 id="resources1" class="wb-inv">Ressources liées aux WCAG</h2>
+                     <h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
                      <details class="mrgn-tp-lg">
-                        <summary class="bg-info">Ressources liées aux WCAG</summary>
+                        <summary class="bg-info">Ressources WCAG connexes</summary>
                         <h3>Critères de succès</h3>
                         <ul>
                            <li><a href="en" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a> (en anglais seulement)</li>
@@ -157,7 +196,7 @@
                         <li><a class="list-group-item" href="../module4/index-fr.html">Module 4 – Tableaux</a></li>
                         <li><a class="list-group-item" href="../module5/index-fr.html">Module 5 – Images</a></li>
                         <li><a class="list-group-item" href="../module6/index-fr.html">Module 6 – Formulaires</a></li>
-                        <li><a class="list-group-item active" href="index-fr.html">Module 7 – Conception visuelle coleurs</a></li>
+                        <li><a class="list-group-item active" href="index-fr.html">Module 7 – Conception visuelle et coleurs</a></li>
                         <li><a class="list-group-item" href="../module8/index-fr.html">Module 8 – Zoom et conception adaptée</a></li>
                         <li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
                      </ul>

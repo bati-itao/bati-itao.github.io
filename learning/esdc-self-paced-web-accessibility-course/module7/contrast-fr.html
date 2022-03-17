@@ -70,7 +70,7 @@
                         <div class="panel-body">
                            <ul>
                               <li><a href="#conception-avec-un-contraste-suffisant">Conception avec un contraste suffisant</a></li>
-                              <li><a href="#resources1">Ressources liées aux WCAG</a></li>
+                              <li><a href="#resources1">Ressources WCAG connexes</a></li>
                            </ul>
                         </div>
                      </div>
@@ -107,58 +107,81 @@
                      </ul>
                      <div class="panel panel-danger">
                         <div class="panel-body">
-                           <h2 class="text-danger mrgn-tp-0 h3" id="header"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Mauvais exemple 1 : Faible contraste par rapport au fond (texte)</h2>
+                           <h2 class="text-danger mrgn-tp-0 h3" id="header"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Mauvais exemple : Faible contraste par rapport au fond (texte)</h2>
                            <p>Dans cet exemple, le texte gris foncé (# 777) sur un fond gris (#ccc) a un rapport de contraste de 2,8:1, ce qui est inférieur au rapport requis de 4,5:1.</p>
-                           <style type="text/css">
-                              .low-contrast { 
-                              background-color: #ccc; 
-                              color: #777;
-                              padding: 1.5em;
-                              width: 8em;
-                              }
-                           </style>
-                           <div class="low-contrast">
-                              <p>Protection des renseignements personnels</p>
-                           </div>
+                           <div class="panel panel-primary">
+								<div class="panel-body mrgn-bttm-0">
+								   <style type="text/css">
+									  .low-contrast { 
+									  background-color: #ccc; 
+									  color: #777;
+									  padding: 1.5em;
+									  }
+								   </style>
+								   <div class="low-contrast">
+									  <p>Protection des renseignements personnels</p>
+								   </div>
+								</div>
+							</div>
                         </div>
                      </div>
                      <div class="panel panel-danger">
                         <div class="panel-body">
-                           <h2 class="text-danger mrgn-tp-0 h3" id="header"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Mauvais exemple 2 : Faible contraste avec l’arrière-plan (contrôle)</h2>
+                           <h2 class="text-danger mrgn-tp-0 h3" id="header"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Mauvais exemple : Faible contraste avec l’arrière-plan (contrôle)</h2>
                            <p>La couleur grise de la case à cocher (#9D9D9D) a un rapport de contraste de 2,7:1 par rapport au fond blanc, ce qui est insuffisant pour permettre à certains utilisateurs de distinguer la case à cocher.</p>
-                           <img src="images/image19.png" alt="" class="img-responsive"/>
+                           <div class="panel panel-primary">
+								<div class="panel-body mrgn-bttm-0">
+								   <img src="images/image19.png" alt="" class="img-responsive"/>
+								</div>
+							</div>
                            <p>La bordure grise de l’entrée (#CCCCCC) a un rapport de contraste de 1,6:1 par rapport au fond blanc, ce qui est inférieur au rapport de 3:1 requis pour le contenu non textuel.</p>
-                           <img src="images/image20.png" alt="" class="img-responsive"/>
-                           <p>L’exemple des champs d’entrée est la mise en œuvre actuelle de la BOEW (2021). Vous devez donc remplacer la feuille de style de la BOEW par la couleur d’entrée indiquée dans le bon exemple 3. Voici le problème du CSS :</p>
+                           <div class="panel panel-primary">
+								<div class="panel-body mrgn-bttm-0">
+								   <img src="images/image20.png" alt="" class="img-responsive"/>
+								</div>
+							</div>
+                           <p>L’exemple des champs d’entrée est la mise en œuvre actuelle de la BOEW (2021). Vous devez donc remplacer la feuille de style de la BOEW par la couleur d’entrée indiquée dans "Bon exemple : Contraste suffisant (contrôle)". Voici le problème du CSS :</p>
+							<p class="wb-inv">Code commence</p>
+<pre><code class="language-css">.form-control { border: 1px solid #ccc; }</code></pre>
+							<p class="wb-inv">Fins du code</p>
                         </div>
                      </div>
                      <div class="panel panel-success">
                         <div class="panel-body">
-                           <h2 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;  Bon exemple 3 : Contraste suffisant (contrôle)</h2>
+                           <h2 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;  Bon exemple : Contraste suffisant (contrôle)</h2>
                            <p>La bordure grise de la saisie (#93958A) a un rapport de contraste de 3:1, qui satisfait tout juste au critère de succès des WCAG <a href="en" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast">1.4.11: Non-text Contrast</a> (en anglais seulement)</p>
-                           <img src="images/image20.png" alt="" class="img-responsive"/>
+                           <div class="panel panel-primary">
+								<div class="panel-body mrgn-bttm-0">
+								   <img src="images/image21.png" alt="" class="img-responsive"/>
+								</div>
+							</div>
                         </div>
                      </div>
                      <div class="panel panel-danger">
                         <div class="panel-body">
-                           <h2 class="text-danger mrgn-tp-0 h3" id="header"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Mauvais exemple 4 : Faible contraste avec une couleur adjacente (graphique)</h2>
+                           <h2 class="text-danger mrgn-tp-0 h3" id="header"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Mauvais exemple : Faible contraste avec une couleur adjacente (graphique)</h2>
                            <p>Ce graphique d’alerte est composé d’une icône en forme de triangle rouge avec un point d’exclamation blanc sur fond gris. Le triangle est habituellement réservé aux alertes comme celles-ci, donc les deux formes sont importantes.</p>
-                           <img src="images/image22.png" alt="" class="img-responsive"/>
                            <p>Il y a deux rapports de contraste à considérer avec cette icône:</p>
                            <ul>
                               <li>Le rapport de contraste entre le point d’exclamation blanc et le triangle rouge, qui est de 5:1.</li>
                               <li>Le rapport de contraste entre le triangle rouge et le fond gris, qui est de 2:1.</li>
                            </ul>
                            <p>Le triangle rouge et le fond gris ne présentent pas de contraste suffisant.</p>
+							<div class="panel panel-primary">
+								<div class="panel-body mrgn-bttm-0">
+									<img src="images/image22.png" alt="" class="img-responsive"/>
+								</div>
+							</div>
                         </div>
                      </div>
                      <p>Voir d’autres exemples dans le critère de succès  <a hreflang="en" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast">1.4.11: Non-text Contrast</a> (en anglais seulement)</p>
-                     <p>Le mauvais exemple 4 est tiré de <a  hreflang="en" href="https://webaim.org/articles/contrast/">Contrast and Colour Accessibility</a>, © WebAIM, 2021.</p>
+                     <hr/>
+                     <p class="small">Le mauvais exemple "Faible contraste avec une couleur adjacente (graphique)" est tiré de <a  hreflang="en" href="https://webaim.org/articles/contrast/">Contrast and Colour Accessibility</a>, © WebAIM, 2021.</p>
                   </section>
                   <section>
-                     <h2 id="resources1" class="wb-inv">Ressources liées aux WCAG</h2>
+                     <h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
                      <details class="mrgn-tp-lg">
-                        <summary class="bg-info">Ressources liées aux WCAG</summary>
+                        <summary class="bg-info">Ressources WCAG connexes</summary>
                         <h3>Critères de succès</h3>
                         <ul>
                            <li><a hreflang="en" href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum">1.4.3: Contrast (Minimum)</a> (en anglais seulement)</li>
@@ -206,7 +229,7 @@
                         <li><a class="list-group-item" href="../module4/index-fr.html">Module 4 – Tableaux</a></li>
                         <li><a class="list-group-item" href="../module5/index-fr.html">Module 5 – Images</a></li>
                         <li><a class="list-group-item" href="../module6/index-fr.html">Module 6 – Formulaires</a></li>
-                        <li><a class="list-group-item active" href="index-fr.html">Module 7 – Conception visuelle coleurs</a></li>
+                        <li><a class="list-group-item active" href="index-fr.html">Module 7 – Conception visuelle et coleurs</a></li>
                         <li><a class="list-group-item" href="../module8/index-fr.html">Module 8 – Zoom et conception adaptée</a></li>
                         <li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
                      </ul>

@@ -69,19 +69,19 @@
                         </header>
                         <div class="panel-body">
                            <ul>
-                              <li><a href="#best-practice–colour">Best practice – Colour</a></li>
-                              <li><a href="#best-practice-contrast">Best practice – Contrast </a></li>
-                              <li><a href="#best-practice-visual-proximity-of-labels">Best practice – Visual proximity of labels</a></li>
-                              <li><a href="#best-practice-text-spacing">Best practice – Text spacing</a></li>
-                              <li><a href="#best-practice-CSS-generated-content">Best practice – CSS-generated content</a></li>
-                              <li><a href="#best-practice-hiding-content">Best practice – Hiding content</a></li>
-                              <li><a href="#best-practice-exposing-content-on-hover-or-focus">Best practice – Exposing content on hover or focus</a></li>
+                              <li><a href="#colour">Best practice – Colour</a></li>
+                              <li><a href="#contrast">Best practice – Contrast </a></li>
+                              <li><a href="#visual-proximity-of-labels">Best practice – Visual proximity of labels</a></li>
+                              <li><a href="#text-spacing">Best practice – Text spacing</a></li>
+                              <li><a href="#CSS-generated-content">Best practice – CSS-generated content</a></li>
+                              <li><a href="#hiding-content">Best practice – Hiding content</a></li>
+                              <li><a href="#exposing-content-on-hover-or-focus">Best practice – Exposing content on hover or focus</a></li>
                            </ul>
                         </div>
                      </div>
                   </nav>
                   <section>
-                     <h2 id="best-practice–colour">Best practice – Colour</h2>
+                     <h2 id="colour">Best practice – Colour</h2>
                      <ul>
                         <li>Ensure that information conveyed by colour differences is also available in text.</li>
                         <li>Include a text cue for coloured form labels.</li>
@@ -90,7 +90,7 @@
                      </ul>
                   </section>
                   <section>
-                     <h2 id="best-practice–contrast">Best practice – Contrast</h2>
+                     <h2 id="contrast">Best practice – Contrast</h2>
                      <ul>
                         <li>Ensure small text (under 18 point regular font or under 14 point bold font) has a contrast ratio of at least 4.5:1 with the background.</li>
                         <li>Ensure large text (at least 18 point regular font or 14 point bold font) has a contrast ratio of at least 3:1 with the background.</li>
@@ -99,7 +99,7 @@
                      </ul>
                   </section>
                   <section>
-                     <h2 id="best-practice-visual-proximity-of-labels">Best practice – Visual proximity of labels</h2>
+                     <h2 id="visual-proximity-of-labels">Best practice – Visual proximity of labels</h2>
                      <ul>
                         <li>Position labels for form fields immediately before the field, either:</li>
                         <ul>
@@ -110,7 +110,7 @@
                      </ul>
                   </section>
                   <section>
-                     <h2 id="best-practice-text-spacing">Best practice – Text spacing</h2>
+                     <h2 id="text-spacing">Best practice – Text spacing</h2>
                      <p>Your design should be flexible enough to render without any loss of content or functionality when the user modifies the text spacing, within these constraints:</p>
                      <ul>
                         <li>Line height (line spacing) to at least 1.5 times the font size;</li>
@@ -126,27 +126,32 @@
                      </ul>
                   </section>
                   <section>
-                     <h2 id="best-practice-CSS-generated-content">Best practice – CSS-generated content</h2>
+                     <h2 id="CSS-generated-content">Best practice – CSS-generated content</h2>
                      <ul>
                         <li>Avoid CSS-generated content.</li>
                         <li>If you do use CSS-generated content:</li>
                         <ul>
-                           <li>Hide it from screen readers with the aria-hidden=”true” attribute.</li>
-                           <li>If the CSS-generated content is informative, provide a text alternative using aria-label or visually-hidden text.</li>
+                           <li>Hide it from screen readers with the <code>aria-hidden="true"</code> attribute.</li>
+                           <li>If the CSS-generated content is informative, provide a text alternative:
+								 <ul>
+									<li>If the content is a link or control, use the <code>aria-label</code> attribute.</li>
+									<li>If the content can't receive focus, use the WET <code>.wb-inv</code> class to visually hide the text alternative.</li>
+								 </ul>
+							</li>
                         </ul>
                      </ul>
                   </section>
                   <section>
-                     <h2 id="best-practice-hiding-content">Best practice – Hiding content</h2>
+                     <h2 id="hiding-content">Best practice – Hiding content</h2>
                      <p>Content can be hidden from three groups of users:</p>
                      <ul>
-                        <li>From all users, by using either the CSS display:none or visibility:hidden attribute. When hiding inactive content, such as untriggered modal windows and unselected sub-menus, hide it from all users.</li>
-                        <li>From users of assistive technology, by using the aria-hidden=”true” attribute to remove the element from the Accessibility API.</li>
-                        <li>From sighted users, by using the WET CSS class “wb-inv” to visually hide the content.</li>
+                        <li>From all users, by using either the CSS <code>display:none</code> or <code>visibility:hidden</code> attribute. When hiding inactive content, such as untriggered modal windows and unselected sub-menus, hide it from all users.</li>
+                        <li>From users of assistive technology, by using the <code>aria-hidden="true"</code> attribute to remove the element from the Accessibility API.</li>
+                        <li>From sighted users, by using the WET CSS class <code>.wb-inv</code> to visually hide the content.</li>
                      </ul>
                   </section>
                   <section>
-                     <h2 id="best-practice-exposing-content-on-hover-or-focus">Best practice – Exposing content on hover or focus</h2>
+                     <h2 id="exposing-content-on-hover-or-focus">Best practice – Exposing content on hover or focus</h2>
                      <p>When exposing hidden content via pointer hover or focus, ensure the exposed content has these three properties:</p>
                      <ul>
                         <li>Dismissable -- the user can dismiss the exposed content without moving the mouse or keyboard focus, typically by pressing the Escape key.</li>
