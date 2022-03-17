@@ -69,19 +69,19 @@
                         </header>
                         <div class="panel-body">
                            <ul>
-                              <li><a href="#pratiques-exemplaires-couleur">Pratiques exemplaires – Couleur</a></li>
-                              <li><a href="#pratique-exemplaire-contraste">Pratique exemplaire – Contraste</a></li>
-                              <li><a href="#pratique-exemplaire-proximite-visuelle-des-etiquettes">Pratique exemplaire – Proximité visuelle des étiquettes</a></li>
-                              <li><a href="#pratique-exemplaire-espacement-des-textes">Pratique exemplaire – Espacement des textes</a></li>
-                              <li><a href="#pratique-exemplaire-contenu-produit-par-une-CSS">Pratique exemplaire – Contenu produit par une CSS</a></li>
-                              <li><a href="#pratiques-exemplaires-masquer-un-contenu">Pratiques exemplaires – Masquer un contenu</a></li>
-                              <li><a href="#pratique-exemplaire-affichage-d-un-contenu">Pratique exemplaire – Affichage d’un contenu lorsqu’on le survole avec le pointeur ou qu’on le sélectionne avec le clavier</a></li>
+                              <li><a href="#couleur">Pratiques exemplaires – Couleur</a></li>
+                              <li><a href="#contraste">Pratique exemplaire – Contraste</a></li>
+                              <li><a href="#proximite-visuelle-des-etiquettes">Pratique exemplaire – Proximité visuelle des étiquettes</a></li>
+                              <li><a href="#espacement-des-textes">Pratique exemplaire – Espacement des textes</a></li>
+                              <li><a href="#contenu-produit-par-une-CSS">Pratique exemplaire – Contenu produit par une CSS</a></li>
+                              <li><a href="#masquer-un-contenu">Pratiques exemplaires – Masquer un contenu</a></li>
+                              <li><a href="#affichage-d-un-contenu">Pratique exemplaire – Affichage d’un contenu lorsqu’on le survole avec le pointeur ou qu’on le sélectionne avec le clavier</a></li>
                            </ul>
                         </div>
                      </div>
                   </nav>
                   <section>
-                     <h2 id="pratiques-exemplaires-couleur">Pratiques exemplaires – Couleur</h2>
+                     <h2 id="couleur">Pratiques exemplaires – Couleur</h2>
                      <ul>
                         <li>Assurez-vous que l’information véhiculée par les différences de couleur est également disponible en texte.</li>
                         <li>Incluez un indice textuel pour les étiquettes de formulaire en couleur.</li>
@@ -90,7 +90,7 @@
                      </ul>
                   </section>
                   <section>
-                     <h2 id="pratique-exemplaire-espacement-des-textes">Pratique exemplaire – Contraste</h2>
+                     <h2 id="espacement-des-textes">Pratique exemplaire – Contraste</h2>
                      <ul>
                         <li>Assurez-vous que le rapport de contraste du texte en petits caractères (police ordinaire de moins de 18 points ou caractères gras de moins de 14 points) est d’au moins 4,5:1 par rapport à l’arrière-plan.</li>
                         <li>Assurez-vous que le rapport de contraste du texte en gros caractères (police standard d’au moins 18 points ou caractères gras de 14 points) est d’au moins 3:1 par rapport à l’arrière-plan.</li>
@@ -99,7 +99,7 @@
                      </ul>
                   </section>
                   <section>
-                     <h2 id="pratique-exemplaire-proximite-visuelle-des-etiquettes">Pratique exemplaire – Proximité visuelle des étiquettes</h2>
+                     <h2 id="proximite-visuelle-des-etiquettes">Pratique exemplaire – Proximité visuelle des étiquettes</h2>
                      <ul>
                         <li>Placez les étiquettes relatives aux champs du formulaire immédiatement avant ceux-ci:</li>
                         <ul>
@@ -110,7 +110,7 @@
                      </ul>
                   </section>
                   <section>
-                     <h2 id="pratique-exemplaire-espacement-des-textes">Pratique exemplaire – Espacement des textes</h2>
+                     <h2 id="espacement-des-textes">Pratique exemplaire – Espacement des textes</h2>
                      <p>Votre conception doit être suffisamment souple pour conserver son contenu et sa fonctionnalité lorsque l’utilisateur modifie l’espacement des textes, en tenant compte de ces contraintes:</p>
                      <ul>
                         <li>hauteur de ligne (espacement des lignes) à au moins 1,5 fois la taille de la police;</li>
@@ -126,27 +126,32 @@
                      </ul>
                   </section>
                   <section>
-                     <h2 id="pratique-exemplaire-contenu-produit-par-une-CSS">Pratique exemplaire – Contenu produit par une CSS</h2>
+                     <h2 id="contenu-produit-par-une-CSS">Pratique exemplaire – Contenu produit par une CSS</h2>
                      <ul>
                         <li>Évitez le contenu généré par une CSS.</li>
                         <li>Si vous utilisez ce type de contenu:</li>
                         <ul>
-                           <li>Masquez-le pour les lecteurs d’écran avec l’attribut « aria-hidden=”true” ».</li>
-                           <li>Si le contenu généré par une CSS est informatif, fournissez un équivalent textuel en utilisant une étiquette Aria ou un texte masqué visuellement.</li>
+                           <li>Masquez-le pour les lecteurs d’écran avec l’attribut « <code>aria-hidden="true"</code> ».</li>
+                           <li>Si le contenu généré par une CSS est informatif, fournissez un équivalent textuel. Pour ce faire :
+								 <ul>
+									<li>Si le contenu est un lien ou une commande, utilisez l’attribut « <code>aria-label</code> ».</li>
+									<li>Si le contenu ne peut être ciblé, utilisez la classe « <code>.wb-inv</code> » de la BOEW pour masquer visuellement l’équivalent textuel.</li>
+								 </ul>
+							</li>
                         </ul>
                      </ul>
                   </section>
                   <section>
-                     <h2 id="pratiques-exemplaires-masquer-un-contenu">Pratiques exemplaires – Masquer un contenu</h2>
+                     <h2 id="masquer-un-contenu">Pratiques exemplaires – Masquer un contenu</h2>
                      <p>Il peut l’être pour trois groupes d’utilisateurs:</p>
                      <ul>
-                        <li>Pour tous les utilisateurs, en utilisant l’attribut « display:none » ou « visibility:hidden » de la CSS. Lorsque vous masquez du contenu inactif, comme les fenêtres modales non déclenchées et les sous-menus non sélectionnés, vous devez le masquer pour tous les utilisateurs.</li>
-                        <li>Pour les utilisateurs d’une technologie d’aide, au moyen de l’attribut « aria-hidden=”true” » pour supprimer l’élément de l’API d’accessibilité; </li>
-                        <li>Pour les utilisateurs voyants, par l’entremise de la classe « wb-inv » de CSS de la BOEW pour masquer le contenu.</li>
+                        <li>Pour tous les utilisateurs, en utilisant l’attribut « <code>display:none</code> » ou « <code>visibility:hidden</code> » de la CSS. Lorsque vous masquez du contenu inactif, comme les fenêtres modales non déclenchées et les sous-menus non sélectionnés, vous devez le masquer pour tous les utilisateurs.</li>
+                        <li>Pour les utilisateurs d’une technologie d’aide, au moyen de l’attribut « <code>aria-hidden="true"</code> » pour supprimer l’élément de l’API d’accessibilité; </li>
+                        <li>Pour les utilisateurs voyants, par l’entremise de la classe <code>.wb-inv</code> de CSS de la BOEW pour masquer le contenu.</li>
                      </ul>
                   </section>
                   <section>
-                     <h2 id="pratique-exemplaire-affichage-d-un-contenu">Pratique exemplaire – Affichage d’un contenu lorsqu’on le survole avec le pointeur ou qu’on le sélectionne avec le clavier</h2>
+                     <h2 id="affichage-d-un-contenu">Pratique exemplaire – Affichage d’un contenu lorsqu’on le survole avec le pointeur ou qu’on le sélectionne avec le clavier</h2>
                      <p>Lorsque vous affichez un contenu masqué à l’aide du pointeur, assurez-vous que ce contenu satisfait aux trois critères suivants:</p>
                      <ul>
                         <li>Peut être ignoré – l’utilisateur peut ignorer le contenu affiché sans déplacer le pointeur de la souris ou annuler la sélection avec le clavier, habituellement en appuyant sur la touche Escape.</li>
@@ -185,7 +190,7 @@
                         <li><a class="list-group-item" href="../module4/index-fr.html">Module 4 – Tableaux</a></li>
                         <li><a class="list-group-item" href="../module5/index-fr.html">Module 5 – Images</a></li>
                         <li><a class="list-group-item" href="../module6/index-fr.html">Module 6 – Formulaires</a></li>
-                        <li><a class="list-group-item active" href="index-fr.html">Module 7 – Conception visuelle coleurs</a></li>
+                        <li><a class="list-group-item active" href="index-fr.html">Module 7 – Conception visuelle et coleurs</a></li>
                         <li><a class="list-group-item" href="../module8/index-fr.html">Module 8 – Zoom et conception adaptée</a></li>
                         <li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
                      </ul>
