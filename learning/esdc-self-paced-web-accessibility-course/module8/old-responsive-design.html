@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Responsive design – Module 8 - Zoom and responsive design</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../../index.html"
+            },
+			{
+                "title": "Web accessibility course",
+                "href" : "../index.html"
+            },
+			{
+                "title": "Module 8 - Zoom and responsive design",
+                "href" : "index.html"
+            }],
+            "lngLinks": [{
+                "lang": "fr",
+                "href": "colour-fr.html",
+                "text": "Français"
+            }],
+            "menuPath": "../../ajax/menu-en.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+			
+		<h1 property="name" id="wb-cont">Responsive design</h1>
+		<nav role="navigation" aria-label="Table of contents">
+			<div class="panel panel-default mrgn-tp-lg">
+				<header class="panel-heading">
+					<h2 class="panel-title">Table of contents</h2>
+				</header>
+				<div class="panel-body">
+					<ul>
+						<li><a href="#overview">Functional images (overview)</a></li>
+						<li><a href="#approach1">Approach 1: Providing an accessible name using the &lt;img&gt; element’s alt attribute</a></li>
+						<li><a href="#approach2">Approach 2: Providing an accessible name using either the aria-label or aria-labelledby attribute</a></li>
+						<li><a href="#wcag">Related WCAG resources</a></li>
+					</ul>
+				  </div>
+			</div>
+		</nav>
+		<section>
+			<h2 id="overview">Responsive design (overview)</h2>
+			<p>Responsive web design uses HTML and CSS to automatically resize, hide, shrink, or enlarge a website, ensuring the design looks good and the information and functionality are preserved across devices of all screen size.</p>
+		</section>
+		<section>
+			<h2 id="">CSS media queries</h2>
+			<p>The technique leverages CSS “media queries”, which run tests to determine users’ screen size then serve distinct layouts to different screen widths. A typical strategy targets the three broad categories of device display: large screens, tablets and phones. The HTML and CSS of the page’s components are tailored to avoid introducing horizontal scrolling, as described in later sections.</p>
+			<p>The points at which a media query is introduced, and the layout changed, are known as “breakpoints”.  This is the syntax: </p>
+			<p class="wb-inv">Code begins</p>
+			<pre>
+				<code class="language-css">
+			<p>@media media type and (condition: breakpoint) {</p>
+			<p>// CSS rules</p>
+			<p>}</p>
+				</code>
+			</pre>
+			<p class="wb-inv">Code ends</p>
+				<p>Media types available for media queries include:</p>
+				<dl>
+					<dt>all</dt>
+					<dd>for all devices</dd>
+					<dt>print</dt>
+					<dd>for printers</dd>
+					<dt>screen</dt>
+					<dd>for computer screens, including tablets, phones, etc.</dd>
+					<dt>speech</dt>
+					<dd>for screen readers</dd>
+				  </dl>
+		</section>
+		<section>
+			<h2 id="">Breakpoints</h2>
+			<div class="panel panel-success">
+				<div class="panel-body">
+					<h3 class="text-success mrgn-tp-0">
+				<span class="glyphicon glyphicon-ok-circle"></span>Example: Single Breakpoint</h3>
+			<p>In this example , the media type is “screen” and the breakpoint is 480px. If the width of a device is 480px or smaller the button class is applied.</p>
+			<p class="wb-inv">Code begins</p>
+			<pre>
+				<code class="language-css">
+			@media screen and (max-width: 480px) {
+			. button { background-color: red; }
+			}
+			</code>
+			</pre>
+			<p class="wb-inv">Code ends</p>
+				</div>
+			</div>
+			<h3 class="">Government of Canada breakpoints</h3>
+			<p>The Government of Canada Treasury Board Secretariat <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/web-mobile-presence.html">Technical specifications for the Web and mobile presence</a> specifies two breakpoints for large and small screens at 768 pixels. </p>
+			<p>These media queries target the “screen” type, so their rules are not applied to print output. </p>
+			<p class="wb-inv">Code begins</p>
+			<pre>
+				<code class="language-css">
+			@media screen and (min-width: 768px) {
+			/* styles for large screen device */
+			}
+			@media screen and (max-width: 767px) { 
+			/* styles for small screen device */
+			}
+			</code>
+			</pre>
+			<p class="wb-inv">Code ends</p>
+			<h3 class="">WET breakpoints</h3>
+			<p>The Web Experience Toolkit boasts a mobile friendly responsive design. It implements the Bootstrap 3 breakpoints:</p>
+			<ul>
+				<li>Extra extra small – below 480px</li>
+				<li>Extra small - between 480px to 768px (CSS: col-xs-)</li>
+				<li>Small – between 768px to 992px (CSS: col-sm-) – Mobile size</li>
+				<li>Medium – between 992px to 1200px (CSS: col-md-) – Tablet size</li>
+				<li>Large – between  1200px to 1600px (CSS: col-lg-) – Desktop size</li>
+				<li>Extra large –  larger than 1600px</li>
+			</ul>
+			<h3 class="">Common breakpoints</h3>
+			<h4>Small (phones)</h4>
+			<ul>
+				<li>320px – 480px: Mobile devices</li>
+			</ul>
+			<h4>Medium (tablets)</h4>
+			<ul>
+				<li>481px – 768px: iPads, Tablets</li>
+			</ul>
+			<h4>Large (desktops)</h4>
+			<ul>
+				<li>769px – 1024px: Small screens, laptops</li>
+				<li>1025px – 1200px: Desktops, large screens</li>
+				<li>1201px and more – Extra-large screens</li>
+			</ul>
+		</section>
+		<section>
+			<h2 id="">Set the viewport</h2>
+			<p>Pages optimized for a variety of devices must include a &lt;meta&gt; element in the &lt;head&gt; of the document, specifying a couple of properties of the viewport. A meta viewport tag instructs the browser on how to control the page’s dimensions and scaling. A page is not responsive on mobile devices without it. </p>
+			<p class="wb-inv">Code begins</p>
+			<pre>
+				<code class="language-html">
+			&lt;!DOCTYPE html&gt;<
+			&lt;html lang=”en”&gt;
+			     &lt;head&gt;
+			       […]
+			       &lt;meta name=”viewport” content=”width=device-width, initial-scale=1”&gt;</p>
+			    &lt;/head&gt;
+			</code>
+			</pre>
+			<p class="wb-inv">Code ends</p>
+			<p>The “width=device-width" parameter instructs the page to match the device’s screen width. This allows the page to reflow content to match different screen sizes.</p>
+			<p>The “initial-scale” parameter sets the default zoom level of the page. Setting it to “initial-scale=1” instructs browsers to establish a 1:1 relationship between CSS pixels and viewport pixels. This property is needed in large part to address a resizing and content-clipping bug in some devices triggered by using “width=device-width" and viewing the page in landscape orientation. </p>
+			<p>Mobile pages must support the pinch-to-zoom feature to enable users to enlarge small text and controls and to compensate for poor contrast. Developers often disable the pinch-to-zoom feature by setting two parameters on the meta viewport element: “user-scalable=no” and “maximum-scale=1.0”. To enable the pinch-to-zoom feature, set “user-scalable=1” and “maximum-scale=2.0”. That’s a 200% value, the minimum zoom required to meet WCAG. You can enable greater zoom by setting maximum-scale to a higher value, or by removing the maximum-scale parameter to remove the zoom limit entirely. </p>
+			<div class="panel panel-success">
+				<div class="panel-body">
+					<h3 class="text-success mrgn-tp-0">
+				<span class="glyphicon glyphicon-ok-circle"></span> Good example: Pinch-to-zoom set to 200% magnification</h3>
+			<p>In this example, the page is configured to allow a maximum 200% zoom via the maximum-scale property. 200% is the minimum zoom value required by WCAG.</p>
+			<h4>HTML</h4>
+			<p>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0; user-scalable=1" &gt;</p>
+
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="panel panel-success">
+				<div class="panel-body">
+					<h3 class="text-success mrgn-tp-0">
+				<span class="glyphicon glyphicon-ok-circle"></span>Good Example: Reflow content </h3>
+			<p>See this example in action at [destination URL]. Narrow your browser window to trigger the responsive layouts.</p>
+			<h3 class="">Desktop: @media (min-width:960px)</h3>
+			<img src="images/image3.png" class="img-responsive" alt="">
+			<h3 class="">Tablet: @media (min-width:481px) and (max-width:959px)</h3>
+			<img src="images/image4.png" class="img-responsive" alt="">
+			<h3 class="">Phone: @media (max-width:480px)</h3>
+			<p>Note that the float is removed from the images.</p>
+			<img src="images/image5.png" class="img-responsive" alt="">
+			<p>Developer: Here’s the image:</p>
+			<img src="images/image6.png" class="img-responsive" alt="">
+			
+			<details class="mrgn-tp-lg">
+				<summary class="bg-info">View CSS</summary>
+				<p class="wb-inv">Code begins</p>
+			<pre><code class="language-css">
+			article {
+			        margin: 0 auto;
+			    }
+			    header { 
+			        margin: 0 auto;
+			        text-align: center; 
+			    } 
+			    .columns {
+			        display: flex;
+			        flex-wrap: wrap;
+			    }
+			    section {
+			        background-color: white;
+			        color: black;
+			        border: 1px solid black;
+			        padding: 1%;
+			        margin:1%; 
+			    }
+			    h2 {
+			        margin: 0;
+			    }
+			    section img {
+			        width: 100px;
+			        float: left;
+			    }
+			@media (min-width:960px) {
+			    article { 
+			        width:960px; 
+			    } 
+			    #a { 
+			        flex: 2;  
+			    } 
+			    #b { 
+			        flex: 1;  
+			    } 
+			    #c {  
+			        flex: 1;
+			    }
+			}
+			@media (min-width:481px) and (max-width:959px) { 
+			    article {  
+			        width:100%;
+			    }  
+			    #a, #b, #c { 
+			        flex:100%; 
+			    }  
+			} 
+			@media (max-width:480px){ 
+			    article { 
+			        width:100%; 
+			    } 
+			    section img { 
+			        float: none; 
+			    } 
+			    #a, #b, #c {  
+			        flex:100%;  
+			    } 
+			}
+			</code>
+			</pre>
+			<p class="wb-inv">Code ends</p>	
+			</details>
+			<details class="mrgn-tp-lg">
+				<summary class="bg-info">View HTML</summary>
+				<p class="wb-inv">Code begins</p>
+			<pre><code class="language-html">
+			   &lt;article&gt;<
+			        &lt;header&gt; 
+			            &lt;h1&gt;Responsive Tips...&lt;/h1&gt; 
+			        &lt;/header&gt; 
+			        &lt;div class="columns"&gt;
+			            &lt;section id="a"&gt; 
+			                &lt;h2&gt;One Size Doesn't Fit All! &lt;/h2&gt; 
+			                &lt;img src="images/a11yicon.jpg" alt="Accessibility icon"&gt;
+			                &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at lectus eros. Integer pretium, tellus eu tristique iaculis, sapien diam vulputate enim, in luctus sapien tortor ac lectus. Pellentesque dignissim ipsum nisi, vitae tincidunt tortor gravida cursus. Nunc malesuada, urna quis mollis iaculis, augue sem commodo risus, ac fringilla ante felis eu justo.&lt;/p&gt;  
+			            &lt;/section&gt; 
+			            &lt;section id="b"&gt; 
+			                &lt;h2&gt;One Speed Doesn't Work for Everyone! &lt;/h2&gt; 
+			                &lt;img src="images/a11yicon.jpg" alt="Accessibility icon"&gt;
+			                &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at lectus eros. Integer pretium, tellus eu tristique iaculis, sapien diam vulputate enim, in luctus sapien tortor ac lectus. Pellentesque dignissim ipsum nisi, vitae tincidunt tortor gravida cursus. Nunc malesuada, urna quis mollis iaculis, augue sem commodo risus, ac fringilla ante felis eu justo.&lt;/p&gt;  
+			            &lt;/section&gt;
+			            &lt;section id="c"&gt; 
+			                &lt;h2&gt;Assistive Technologies... &lt;/h2&gt; 
+			                &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at lectus eros. Integer pretium, tellus eu tristique iaculis, sapien diam vulputate enim, in luctus sapien tortor ac lectus. Pellentesque dignissim ipsum nisi, vitae tincidunt tortor gravida cursus. Nunc malesuada, urna quis mollis iaculis, augue sem commodo risus, ac fringilla ante felis eu justo.&lt;/p&gt; 
+			            &lt;/section&gt; 
+			        &lt;/div&gt;
+			    &lt;/article&gt;  
+			</code>
+			</pre>
+			<p class="wb-inv">Code ends</p>	
+			</div>
+			</div>
+			</details>
+			</section>
+		<section>
+			<h2 id="">Viewport emulators</h2>
+			<p>You can test breakpoints using viewport emulators to accurately represent your media query and style, bearing in mind that emulators don't represent the functionality or the features of the browser.</p>
+			<p>You can also test breakpoints using the online service <a href="http://www.viewportemulator.com">Viewport Emulator</a>, as per the example below.</p>
+			<div class="panel panel-success">
+				<div class="panel-body">
+					<h3 class="text-success mrgn-tp-0">
+				<span class="glyphicon glyphicon-ok-circle"></span> Good example: Checking the IT Accessibility Office using the Viewport Emulator</h3>
+			<p>In this example, the <a href="https://bati-itao.github.io/index.html">IT Accessibility Office</a> is tested using the <a href="http://www.viewportemulator.com">online Viewport Emulator</a>.</p>
+			<img src="images/image7.png" class="img-responsive" alt="The mobile layout includes all content and functionality of the desktop layout.">
+			</div>
+			</div>
+		</section>
+		<section>
+			<div class="panel panel-success">
+				<div class="panel-body">
+					<h3 class="text-success mrgn-tp-0">
+				<span class="glyphicon glyphicon-ok-circle"></span> Good example: Checking the IT Accessibility Office using the Chrome emulator</h3>
+			<p>Chrome mobile emulator can be accessed through its developer tools options by using keyboard shortcuts: Command + Option + I (Mac) OR Ctrl + Shift + I (Windows).</p>
+			<img src="images/image8.png" class="img-responsive" alt="The mobile layout includes all content and functionality of the desktop layout.">
+		</section>
+		<section>
+			<h2 id="">Benefits of responsive design to low vision users</h2>
+			<p>Many users with low vision can’t magnify small screens well enough to read them. Instead, they read sites on large devices and magnify the screen. As the user magnifies, the browser window grows smaller relative to the size of the content, eventually triggering CSS breakpoints for smaller screen layouts. On a large device, a small screen layout optimized to display as a single column can take up the entire width of the large screen, enabling quite large text.</p>
+		</section>
+		<section>
+			<h2 id="">Related WCAG resources</h2>
+			<h3 class="">Success criteria</h3>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow">1.4.10: Reflow</a>
+				</li>
+			</ul>
+			<h3 class="">Techniques</h3>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C32">C32: Using media queries and grid CSS to reflow columns</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C31">C31: Using CSS Flexbox to reflow content</a>
+				</li>
+			</ul>
+		</section>
+		
+		
+	<nav role="navigation">
+		<h2 class="wb-inv">Document navigation</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="introduction.html">Previous - Zoom</a></li>		
+			<li class="next"><a rel="next" href="responsive-forms.html">Next - Responsive forms</a></li>
+		</ul>
+	</nav>
+	</main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 8 - Zoom and responsive design</h3>
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="introduction.html">Introduction</a></li>
+						<li><a class="list-group-item" href="zoom.html">Zoom</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="responsive-design.html">Responsive design</a></li>
+						<li><a class="list-group-item" href="responsive-forms.html">Responsive forms</a></li>
+						<li><a class="list-group-item" href="responsive-images.html">Responsive images</a></li>
+						<li><a class="list-group-item" href="responsive-text.html">Responsive text</a></li>
+						<li><a class="list-group-item" href="responsive-objects.html">Responsive objects and plugins</a></li>
+						<li><a class="list-group-item" href="responsive-tables.html">Responsive tables</a></li>
+						<li><a class="list-group-item" href="responsive-ui.html">Responsive UI components</a></li>
+						<li><a class="list-group-item" href="responsive-video.html">Responsive video</a></li>
+						<li><a class="list-group-item" href="orientation.html">Orientation</a></li>
+						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">All modules</h3>
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/index.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item active" href="index.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
+					</ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>

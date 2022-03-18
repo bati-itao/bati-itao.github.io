@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Zoom – Module 8 - Zoom and responsive design</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../../index.html"
+            },
+			{
+                "title": "Web accessibility course",
+                "href" : "../index.html"
+            },
+			{
+                "title": "Module 8 - Zoom and responsive design",
+                "href" : "index.html"
+            }],
+            "lngLinks": [{
+                "lang": "fr",
+                "href": "colour-fr.html",
+                "text": "Français"
+            }],
+            "menuPath": "../../ajax/menu-en.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+			
+	<h1 property="name" id="wb-cont">Zoom</h1>
+						
+	<nav role="navigation">
+    <div class="panel panel-default mrgn-tp-md">
+      <header class="panel-heading">
+        <h2 class="panel-title">Table of contents</h2>
+      </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#reflow-content">Reflow content</a></li>
+			<li><a href="#resize-text">Resize text</a></li>
+			<li><a href="#resources1">Related WCAG resources</a></li>
+          </ul>
+        </div>
+      </div>
+	</nav>
+	
+	<section>
+		<h2 id="reflow-content">Reflow content</h2>
+		<p>Some users with low vision need to greatly enlarge text and read it in a single column. When these users zoom the browser to scale content to 400%, WCAG requires that content reflows into one column so that scrolling in more than one direction is not necessary. The relevant success criterion reads as follows:</p>
+		<p>Success Criterion 1.4.10 Reflow (Level AA): Content can be presented without loss of information or functionality, and without requiring scrolling in two dimensions for:</p>
+		<ul>
+			<li>Vertical scrolling content at a width equivalent to 320 CSS pixels.</li>
+			<li>Horizontal scrolling content at a height equivalent to 256 CSS pixels.</li>
+		</ul>
+		<p>Except for parts of the content which require two-dimensional layout for usage or meaning.</p>
+		<p>320 CSS pixels is equivalent to a starting viewport width of 1280 CSS pixels wide at 400% zoom. For web content which is designed to scroll horizontally (e.g., with vertical text), 256 CSS pixels is equivalent to a starting viewport height of 1024 CSS pixels at 400% zoom.</p>
+		<p>You can test this success criterion by adjusting your browser window:</p>
+		<ul>
+			<li>to 320 pixels wide by 256 pixels high, or </li>
+			<li>to 1280 pixels wide by 1024 pixels high then zooming the content to 400%. </li>
+		</ul>
+		<p>Content should appear in a single column with no horizontal scrolling and no loss of information or functionality. You can also use the Firefox (Control + Shift + M) or Chrome (Control + Shift + I) built-in mobile emulator to display different viewport sizes.</p>
+		<p>You meet this success criterion by implementing a responsive design, as described in the next section. With responsive design, you increasingly simplify the UI for ever smaller screen sizes, primarily using HTML and CSS but with some JavaScript for widgets that show/hide content. For instance, a hamburger button on mobile toggling a menu that’s on full display on the desktop provides equivalent info and functionality.</p>
+		<p>Avoiding horizontal scrolling to reveal parts of lines cut off by the viewport is important, because such scrolling significantly increases the effort required to read. It is also important that content is not hidden off-screen.</p>
+		<p>Bear these Best practices in mind when designing content to reflow in a single column:</p>
+		<ul>
+			<li>The main content fills the viewport.</li>
+			<li>Horizontal scrolling doesn’t happen.</li>
+			<li>Avoid using multiple columns. The short line length is hard to read.</li>
+			<li>Avoid using CSS floats. They also create short line length, unless the floated element is very small.</li>
+			<li>Avoid using CSS fixed widths and minimum widths. They tend to cause horizontal scrolling.</li>
+		</ul>
+		<p>Sometimes it’s not possible to prevent horizontal scrolling. The success criterion exempts large data tables that can’t be simplified, and toolbars with a lot of buttons.</p>
+		<p>Note that not all low vision users benefit from magnification. A user with tunnel vision may be able to read paragraph text just fine while benefiting from other design considerations, such as placing form controls close to their labels.</p>
+		<div class="panel panel-success">
+			<div class="panel-body">
+				<h3 class="text-success mrgn-tp-0">
+			<span class="glyphicon glyphicon-ok-circle"></span>Good Example: Reflow content</h3>
+		<p>In this example, when the page is narrowed to 320 pixels the horizontal navigation bar collapses to a vertical stack in a single column. Narrow the browser window to trigger the single column layout.</p>
+		<h4>Desktop view</h4>
+		<img src="images/image1.png" class="img-responsive" alt="In desktop view, the four main menu items display horizontally.">
+		<h4>Mobile emulator view at width of 320 pixels</h4>
+		<img src="images/image2.png" class="img-responsive" alt="In mobile view, the four main menu items are stacked atop one another vertically.">
+		<p class="wb-inv">Code ends</p>	
+		</div>
+		</div>
+			</details>
+			<details class="mrgn-tp-lg">
+				<summary class="bg-info">CSS</summary>
+				<p class="wb-inv">Code begins</p>
+				<div style="padding-top: 1em">
+			<pre>
+		<code class="language-css">
+		<p>h1 { </p>
+		<p>    font-size: 1.5rem; </p>
+		<p>}</p>
+		<p>#navbar { </p>
+		<p>    list-style: none;</p>
+		<p>    margin: 0;</p>
+		<p>    padding: 0; </p>
+		<p>    background-color: #F3F2F1;</p>
+		<p>}</p>
+		<p>#navbar a {</p>
+		<p>    display: block;</p>
+		<p>    color: white;</p>
+		<p>    background-color: #0e6591;</p>
+		<p>    border-radius: 1px 5px 5px 1px;  </p>
+		<p>    padding: 5px;</p>
+		<p>    text-decoration: none;</p>
+		<p>}</p>
+		<p>#navbar a:hover,</p>
+		<p>#navbar a:focus,</p>
+		<p>#navbar [aria-current] { </p>
+		<p>    color: #000000; </p>
+		<p>    background-color: #56d5f5;</p>
+		<p>}</p>
+		<p>#navbar a:hover,</p>
+		<p>#navbar a:focus {</p>
+		<p>    text-decoration: underline;</p>
+		<p>}</p>
+		<p>/* MEDIA QUERY 1 - For viewports 960px and wider */ </p>
+		<p>@media (min-width: 960px) { </p>
+		<p>    main, </p>
+		<p>    nav {  </p>
+		<p>        width: 950px;   </p>
+		<p>        margin: auto;  </p>
+		<p>    } </p>
+		<p>    main {</p>
+		<p>        clear: left;</p>
+		<p>        overflow: auto;</p>
+		<p>        margin-top: 1rem;</p>
+		<p>    }             </p>
+		<p>    #navbar {  </p>
+		<p>    }  </p>
+		<p>    #navbar li {  </p>
+		<p>        margin-right: 1em; </p>
+		<p>        float: left;</p>
+		<p>    } </p>
+		<p>    #navbar a {  </p>
+		<p>        padding-right: 0.5em;</p>
+		<p>    }   </p>
+		<p>}</p>
+		<p>/* END MEDIA QUERY 1 */ </p>
+		<p>/* MEDIA QUERY 2 - For viewports 959px and narrower */ </p>
+		<p>@media (max-width: 959px) { </p>
+		<p>    main,</p>
+		<p>    nav { </p>
+		<p>        width: 100%;</p>
+		<p>    }</p>
+		<p>    #navbar a {   </p>
+		<p>        width: 66%; </p>
+		<p>        margin-bottom: 5px;            </p>
+		<p>    } </p>
+		<p>    #navbar a:hover,</p>
+		<p>    #navbar a:focus {   </p>
+		<p>        border-radius: 5px 25px 25px 5px; </p>
+		<p>    }   </p>
+		<p>}  </p>
+		<p>/* END MEDIA QUERY 2 */</p>
+	</code>
+	</pre>
+	</div>
+	</details>
+	<details class="mrgn-tp-lg">
+		<summary class="bg-info">HTML</summary>
+		<p class="wb-inv">Code begins</p>
+		<div style="padding-top: 1em">
+	<pre>
+	<code class="language-html">
+		
+		&lt;head&gt;
+		&lt;!-- Loads the fontawesome icons --&gt;
+		&lt;script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-a11y="true"&gt;&lt;/script&gt;
+		&lt;/head&gt;
+		[…]<
+		&lt;nav&gt;
+		    &lt;ul id="navbar"&gt; 
+		&lt;li&gt;
+		&lt;a href="#" aria-current="page"&gt;
+		&lt;i class="fa fa-fw fa-home"&gt;&lt;/i&gt; Home
+		&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+		&lt;a href="#"&gt;
+		&lt;i class="fa fa-fw fa-search"&gt;&lt;/i&gt; Search
+		&lt;/a&gt;
+		&lt;/li&gt; 
+		&lt;li&gt;
+		&lt;a href="#"&gt;
+		&lt;i class="fa fa-fw fa-envelope"&gt;&lt;/i&gt; Contact
+		&lt;/a&gt;
+		&lt;/li&gt;   
+		&lt;li&gt;
+		&lt;a href="#"&gt;
+		&lt;i class="fa fa-fw fa-user"&gt;&lt;/i&gt; Login
+		&lt;/a&gt;
+		&lt;/li&gt;
+		    &lt;/ul&gt;  
+		&lt;/nav&gt;
+		&lt;main&gt;
+		    &lt;h1&gt;Lorem ipsum dolor sit amet&lt;/h1&gt;
+		    &lt;p&gt;
+		    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		   &lt;/p&gt;
+		&lt;/main&gt;
+		</code>
+		</pre>
+		</div>
+		<p class="wb-inv">Code ends</p>
+		</details>
+		<h3 class="">Related WCAG resources</h3>
+		<h4>Success criteria</h4>
+		<ul>
+			<li>
+				<a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow">1.4.10: Reflow</a>
+			</li>
+		</ul>
+		<h4>Techniques</h4>
+		<ul>
+			<li>
+				<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C32">C32: Using media queries and grid CSS to reflow columns</a>
+			</li>
+			<li>
+				<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C31">C31: Using CSS Flexbox to reflow content</a>
+			</li>
+		</ul>
+		<h3 id="resize-text">Resize text</h3>
+		<p>Some users with low vision configure their browser’s default text size to be considerably larger.</p>
+		<p>As per WCAG 2.1 Success Criterion 1.4.4: Resize text, when the design’s text size increases by 200%, ensure there is no overlap or clipping of content, no loss of information or functionality. </p>
+		<p>This criterion used to require testing your design with the text size (alone) increased to 200%. However, the related WCAG Failure F69 (linked below) was revised to allow testing with basic zoom:</p>
+		<p>The Working Group has discovered many misunderstandings about how to test this failure. We are planning to revise this failure in a future update. Until then, if the content passes the success criterion using any of the listed sufficient techniques, then it does not meet this failure.</p>
+		<p>One of the Techniques sufficient to meeting 1.4.4: Resize text is simply using HTML5, for which all modern browsers support zoom (see WCAG Technique G142, linked below). The default browser zoom is not text-only zoom, but it is sufficient to meet the Success Criterion. However, mobile designs must still enable pinch-to-zoom, as described in the section Responsive design &gt; Set the viewport, below.</p>
+		<h3 id="resources1">Related WCAG resources</h3>
+		<h4>Success criteria</h4>
+		<ul>
+			<li>
+				<a href="https://www.w3.org/WAI/WCAG21/Understanding/resize-text">1.4.4: Resize text</a>
+			</li>
+		</ul>
+		<h4>Techniques</h4>
+		<ul>
+			<li>
+				<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G142">G142: Using a technology that has commonly-available user agents that support zoom</a>
+			</li>
+			<li>
+				<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C28">C28: Specifying the size of text containers using em units</a>
+			</li>
+			<li>
+				<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G179">G179: Ensuring that there is no loss of content or functionality when the text resizes and text containers do not change their width</a>
+			</li>
+		</ul>
+		<h4>Failures</h4>
+		<ul>
+			<li>
+				<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F69">F69: Failure of Success Criterion 1.4.4 when resizing visually rendered text up to 200 percent causes the text, image or controls to be clipped, truncated or obscured</a>
+			</li>
+		</ul>
+		<h4>Test Rules</h4>
+		<ul>
+			<li>
+				<a href="https://www.w3.org/WAI/standards-guidelines/act/rules/meta-viewport-b4f0c3/">meta viewport allows for zoom</a>
+			</li>
+		</ul>
+	</section>
+		
+		
+	<nav role="navigation">
+		<h2 class="wb-inv">Document navigation</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="introduction.html">Previous - Introduction</a></li>		
+			<li class="next"><a rel="next" href="responsive-design.html">Next - Responsive design</a></li>
+		</ul>
+	</nav>
+	</main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 8 - Zoom and responsive design</h3>
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="introduction.html">Introduction</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="zoom.html">Zoom</a></li>
+						<li><a class="list-group-item" href="responsive-design.html">Responsive design</a></li>
+						<li><a class="list-group-item" href="responsive-forms.html">Responsive forms</a></li>
+						<li><a class="list-group-item" href="responsive-images.html">Responsive images</a></li>
+						<li><a class="list-group-item" href="responsive-text.html">Responsive text</a></li>
+						<li><a class="list-group-item" href="responsive-objects.html">Responsive objects and plugins</a></li>
+						<li><a class="list-group-item" href="responsive-tables.html">Responsive tables</a></li>
+						<li><a class="list-group-item" href="responsive-ui.html">Responsive UI components</a></li>
+						<li><a class="list-group-item" href="responsive-video.html">Responsive video</a></li>
+						<li><a class="list-group-item" href="orientation.html">Orientation</a></li>
+						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">All modules</h3>
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/index.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item active" href="index.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
+					</ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>
