@@ -70,9 +70,9 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#section1">S1</a></li>
-			<li><a href="#section2">S2</a></li>
-			<li><a href="#section3">S3</a></li>
+            <li><a href="#orientation">Designing for orientation</a></li>
+			<li><a href="#screen-orientation">Bad example: Screen Orientation Lock</a></li>
+			<li><a href="#resp-orientation">Good example: Responsive screen orientation</a></li>
 			<li><a href="#resources1">Related WCAG resources</a></li>
           </ul>
         </div>
@@ -80,18 +80,53 @@
 	</nav>
 	
 			<section>				
-				<h2 id="section1">S1</h2>
+				<h2 id="orientation">Designing for orientation</h2>
+				<p>As per WCAG 2.1 Success Criterion 1.3.4: Orientation, content does not restrict its view and operation to a single display orientation, such as portrait or landscape, unless a specific display orientation is essential.</p>
+				<p>Enable users to view your content in the orientation (portrait or landscape) they prefer. It’s possible to restrict the orientation, but this can create problems. For instance, some users have their mobile devices mounted in a fixed orientation (e.g., on the arm of a power wheelchair).</p>
+				<p>The success criterion allows the orientation to be restricted/locked if it’s essential to the application, such as a landscape orientation when representing piano keys or taking a photo of a cheque.</p>
 				
 			</section>
 			
-			<section>				
-				<h2 id="section2">S2</h2>
+			<section>	
+				<div class="panel panel-danger">
+					<div class="panel-body">
+						<h3 id="screen-orientation" class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Screen Orientation Lock</h3>
+				<p>In this example, the content is prevented from displaying in landscape mode by a CSS media query that detects landscape orientation and a transform style rule that rotates the content 90 degrees (with supporting styles).</p>
+				<p>Source: <a href="https://css-tricks.com/snippets/css/orientation-lock/">https://css-tricks.com/snippets/css/orientation-lock/</a></p>
 				
+				<details class="mrgn-tp-sm">
+					<summary class="bg-info">View CSS </summary>
+					<p class="wb-inv">Code begins</p>
+				<pre>
+						<code class="language-css">
+				@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) { 
+				html { 
+				transform: rotate(-90deg); 
+				transform-origin: left top; 
+				width: 100vh; 
+				overflow-x: hidden; 
+				position: absolute; 
+				top: 100%; 
+				left: 0;
+				}
+				}
+					</code>
+				</pre>
+				<p class="wb-inv">Code ends</p>
+			</details>
+			</div>
+			</div>
 			</section>
 			
-			<section>				
-				<h2 id="section3">S3</h2>
-				
+			<section>	
+				<div class="panel panel-success">
+					<div class="panel-body">
+						<h3 id="resp-orientation" class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Responsive screen orientation</h3>
+				<p>In this example, the page displaying the Government of Canada’s <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=23601">Standard on Web Accessibility</a> has no code touching screen orientation. The page rotates by default in mobile devices.</p>
+				<img src="images/image26.png" class="img-responsive" alt="Screen orientation in portrait, with all text legible.">
+				<img src="images/image27.png" class="img-responsive" alt="Screen orientation in landscape, with all text legible.">
+				</div>
+				</div>
 			</section>
 			
 			
@@ -101,13 +136,15 @@
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
 					<ul>
-						<li><a href="https://www.link1.com">Link 1</a></li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/orientation">1.3.4: Orientation</a>
+						</li>
 					</ul>
-					<h3>Techniques</h3>
+					<h3>Failures</h3>
 					<ul>
 						<li>
-							<a href="https://www.link2.com">Link 2</a>
-						</li>						
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F97">F97: Failure due to locking the orientation to landscape or portrait view</a>
+						</li>
 					</ul>
 				</details>
 			</section>
