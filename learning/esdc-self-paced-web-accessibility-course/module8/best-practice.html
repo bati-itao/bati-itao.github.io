@@ -78,7 +78,7 @@
 			<li><a href="#bp-objects">Best practice: Responsive objects and plugins</a></li>
 			<li><a href="#bp-tables">Best practice: Responsive tables</a></li>
 			<li><a href="#bp-uicomp">Best practice: Responsive UI components</a></li>
-			<li><a href="#bp-videos">Best practice: Responsive Videos</a></li>
+			<li><a href="#bp-videos">Best practice: Responsive videos</a></li>
 			<li><a href="#bp-orientation">Best practice: Orientation</a></li>
           </ul>
         </div>
@@ -106,21 +106,17 @@
 		<h3 id="bp-design">Best practice: Responsive design</h3>
 		<ul>
 			<li>Use CSS “media queries” to determine user's screen size and serve distinct layouts to different screen widths at breakpoints.</li>
-			<li>Set the viewport via the meta element in the head:</li>
-		</ul>
-		<p>HTML:</p>
-		<p class="wb-inv">Code begins</p>
-		<pre>
-		<code class="language-html">
-		&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0; user-scalable=1"&gt;
-		</code>
-		</pre>
-		<p class="wb-inv">Code ends</p>	
-		<ul>
-			<li>width=device-width instructs the page to match the device's width, allowing the page to reflow content to match different screen sizes.</li>
-			<li>initial-scale=1.0 sets the default zoom level of the page.</li>
-			<li>maximum-scale=2.0 sets a maximum of 200% zoom on pinch-to-zoom on mobile.</li>
-			<li>user-scalable=1 enables the user to pinch-to-zoom on mobile.</li>
+			<li>Set the viewport via the <code>&lt;meta&gt;</code> element in the head:
+				<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0; user-scalable=1"&gt;</code></pre>
+				<p class="wb-inv">Code ends</p>	
+				<ul>
+					<li><code>width=device-width</code> instructs the page to match the device's width, allowing the page to reflow content to match different screen sizes.</li>
+					<li><code>initial-scale=1.0</code> sets the default zoom level of the page.</li>
+					<li><code>maximum-scale=2.0</code> sets a maximum of 200% zoom on pinch-to-zoom on mobile.</li>
+					<li><code>user-scalable=1</code> enables the user to pinch-to-zoom on mobile.</li>
+				</ul>
+			</li>
 			<li>Test breakpoints using viewport emulators.</li>
 			<li>Users with low vision often zoom to trigger mobile layouts on large displays, enabling quite large text.</li>
 		</ul>
@@ -130,20 +126,23 @@
 		<p>As the viewport changes size, ensure:</p>
 		<ul>
 			<li>form fields do not overflow, and </li>
-			<li>form fields and labels are not separated by wide areas of whitespace:</li>
-			<li>In the default desktop view, labels are positioned to the left of the control, flush right. (This layout is preferred when there’s a need to conserve vertical space.) </li>
-			<li>In the small screen view, labels are positioned directly above the control, to maximize screen area for each.</li>
-			<li>Labels are not positioned to the left, flush left.</li>
+			<li>form fields and labels are not separated by wide areas of whitespace:
+				<ul>
+					<li>In the default desktop view, labels are positioned to the left of the control, flush right. (This layout is preferred when there’s a need to conserve vertical space.) </li>
+					<li>In the small screen view, labels are positioned directly above the control, to maximize screen area for each.</li>
+					<li><mark><del>Labels are not positioned to the left, flush left.</del></mark></li>
+				</ul>
+			</li>
 		</ul>
 	</section>
 	<section>
 		<h3 id="bp-images">Best practice: Responsive images</h3>
 		<p>images can be made responsive in one of four ways:</p>
 		<ul>
-			<li>Technique 1 – Style the image with CSS width: 100%</li>
-			<li>Technique 2 – Style the image with CSS max-width: 100%</li>
-			<li>Technique 3 – Serve different sizes of the image to different screen sizes using the srcset attribute</li>
-			<li>Technique 4 – Serve different images to different screen sizes using the picture element.</li>
+			<li>Technique 1 – Style the image with CSS <code>width: 100%</code></li>
+			<li>Technique 2 – Style the image with CSS <code>max-width: 100%</code></li>
+			<li>Technique 3 – Serve different sizes of the image to different screen sizes using the <code>srcset</code> attribute</li>
+			<li>Technique 4 – Serve different images to different screen sizes using the <code>&lt;picture&gt;</code> element.</li>
 		</ul>
 	</section>
 	<section>
@@ -157,16 +156,16 @@
 		<h3 id="bp-objects">Best practice: Responsive objects and plugins</h3>
 		<ul>
 			<li>Objects and plugins can resize as the viewport size changes so they do not overflow the viewport. </li>
-			<li>Set CSS max-width=”100%” on the container.</li>
-			<li>Use the &lt;img&gt; element to embed a picture, &lt;iframe&gt; element to embed HTML, and &lt;video&gt; and &lt;audio&gt; elements to embed media content.</li>
+			<li>Set CSS <code>max-width="100%"</code> on the container.</li>
+			<li>Use the <code>&lt;img&gt;</code> element to embed a picture, <code>&lt;iframe&gt;</code> element to embed HTML, and <code>&lt;video&gt;</code> and <code>&lt;audio&gt;</code> elements to embed media content.</li>
 		</ul>
 	</section>
 	<section>
 		<h3 id="bp-tables">Best practice: Responsive tables</h3>
 		<ul>
 			<li>Responsive tables resize as the viewport size changes to ensure they do not require horizontal scrolling.</li>
-			<li>For tables with a few columns, give each column a percentage width and give the table a max-width of 100%. </li>
-			<li>Large tables require transforming and reorganizing the table into one column. Note that the Government of Canada does not require responsive tables.</li>
+			<li>For tables with a few columns, give each column a percentage width and give the table a <code>max-width</code> of 100%. </li>
+			<li>Large tables require transforming and reorganizing the table into one column. <strong>Note that the Government of Canada does not require responsive tables.</strong></li>
 		</ul>
 	</section>
 	<section>
@@ -174,11 +173,11 @@
 		<p>Page UI Components reorder and resize to maintain readability.</p>
 	</section>
 	<section>
-		<h3 id="bp-videos">Best practice: Responsive Videos</h3>
+		<h3 id="bp-videos">Best practice: Responsive videos</h3>
 		<p>Videos resize as the viewport size changes so they do not overflow the viewport. Either:</p>
 		<ul>
-			<li>set the max-width:100% property on the video’s container element, or</li>
-			<li>set the width: 100% property on the video element.</li>
+			<li>set the CSS <code>max-width:100%</code> property on the video’s container element, or</li>
+			<li>set the CSS <code>width: 100%</code> property on the video element.</li>
 		</ul>
 		<p>Static sizing can break page layouts.</p>
 	</section>
