@@ -199,7 +199,7 @@
 						</ul>
 					</li>
 				</ul>
-				<p>HTML</p>
+				
 				<p class="wb-inv">Code begins</p>
 				<pre><code class="language-html">&lt;body&gt;
 	&lt;a id="skip-nav" class="show-with-focus" href="#main-content"&gt;Skip To Content &lt;/a&gt;
@@ -207,10 +207,6 @@
 	&lt;main id="main-content" tabindex="-1"&gt;Main Content Goes Here&lt;/main&gt;
 &lt;/body&gt;</code>
 </pre>
-				<p class="wb-inv">Code ends</p>
-				
-				<p>CSS</p>
-				<p class="wb-inv">Code begins</p>
 				
 <pre><code class="language-css">.show-with-focus {
 	position: absolute;
@@ -235,8 +231,12 @@
 				<div class="panel panel-success">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Skip to main content</h3>
-						<img src="images/image2.png" class="img-responsive" alt=" &#34;Screenshot of the ESDC IT Accessibility office showing a &#34;Skip to main content&#34; link at the top of the page.">
-						<img src="images/image3.png" class="img-responsive" alt=" &#34;Screenshot of the source code. The skip link is one item in a list, in a nav element with the label &#34;Skip links&#34;&#34;">
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body mrgn-bttm-0">
+								<img src="images/image2.png" class="img-responsive" alt=" &#34;Screenshot of the ESDC IT Accessibility office showing a &#34;Skip to main content&#34; link at the top of the page.">
+								<img src="images/image3.png" class="img-responsive" alt=" &#34;Screenshot of the source code. The skip link is one item in a list, in a nav element with the label &#34;Skip links&#34;&#34;">
+							</div>
+						</div>
 					</div>
 				</div>
 				<h3 class="wb-inv">Related WCAG resources</h3>
@@ -282,8 +282,12 @@
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Table of contents</h3>
 						<p>In this example, a screenshot of a table of contents shows heading text as links. Headings of levels 1, 2 and 3 are included.</p>
-						<img src="images/image4.png" class="img-responsive" alt="Screenshot of a table of contents shows heading text as links.">
-						<p><mark>Alt text is missing</mark></p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body mrgn-bttm-0">
+								<img src="images/image4.png" class="img-responsive" alt="Screenshot of a table of contents shows heading text as links.">
+								<p><mark>Alt text is missing</mark></p>
+							</div>
+						</div>
 					</div>
 				</div>
 			<h3 class="wb-inv">Related WCAG resources</h3>
@@ -384,6 +388,20 @@
 							<li>The <code>click</code> event handles mouse and touch input.</li>
 							<li>The <code>keydown</code> event handles Enter key input.</li>
 						</ul>
+						<div class="panel panel-primary mrgn-tp-lg">
+							<div class="panel-body well mrgn-bttm-0">
+								<a href="http://www.bing.com" class="link">Bing</a> 
+								<a href="http://www.duckduckgo.com" class="link">DuckDuckGo</a> 
+								<span 
+									tabindex="0" 
+									role="link" 
+									class="link"
+									onclick="goToLink(event, 'http://www.google.ca/')" 
+									onkeydown="goToLink(event, 'http://www.google.ca/')">
+										Google
+								</span>
+							</div>
+						</div>
 						<details class="mrgn-tp-lg">
 							<summary class="bg-info">View HTML</summary>						
 							<p class="wb-inv">Code begins</p>
@@ -460,20 +478,7 @@
 		}
 	}
 </script>
-					<div class="panel panel-primary">
-						<div class="panel-body well mrgn-bttm-0">
-							<a href="http://www.bing.com" class="link">Bing</a> 
-							<a href="http://www.duckduckgo.com" class="link">DuckDuckGo</a> 
-							<span 
-								tabindex="0" 
-								role="link" 
-								class="link"
-								onclick="goToLink(event, 'http://www.google.ca/')" 
-								onkeydown="goToLink(event, 'http://www.google.ca/')">
-									Google
-							</span>
-						</div>
-					</div>
+
 				</div>
 			</div>
 				<hr/>
@@ -485,16 +490,6 @@
 					<div class="panel-body">
 						<h4 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Element with tabindex="-1" receives focus by script</h4>
 						<p>In this example, clicking the button sets focus on the <code>div</code> element. </p>
-						
-						<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;button type="button" onclick="document.getElementById('target').focus();"&gt;
-Click on me to focus the DIV
-&lt;/button&gt;
-&lt;div id="target" tabindex="-1"&gt;
-I am a div
-&lt;/div&gt;</code>
-</pre>
-						<p class="wb-inv">Code ends</p>
 						<div class="panel panel-primary">
 							<div class="panel-body well mrgn-bttm-0">				
 								<button type="button" onclick="document.getElementById('target').focus();">
@@ -505,6 +500,16 @@ I am a div
 								</div>
 							</div>
 						</div>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;button type="button" onclick="document.getElementById('target').focus();"&gt;
+   Click on me to focus the DIV
+&lt;/button&gt;
+&lt;div id="target" tabindex="-1"&gt;
+   I am a div
+&lt;/div&gt;</code>
+</pre>
+						<p class="wb-inv">Code ends</p>
+
 					</div>
 				</div>
 				<h3>Element with tabindex &gt; "0"</h3>
@@ -513,7 +518,7 @@ I am a div
 				<p>Positive <code>tabindex</code> values often create counter-intuitive flow for keyboard users. If you want an element to come sooner in the tab order, move it to an earlier spot in the DOM rather than set a positive <code>tabindex</code> value.</p>
 				<div class="panel panel-danger">
 					<div class="panel-body">
-						<h4 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad Example: Page design with positive tab index values</h4>
+						<h4 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Page design with positive tab index values</h4>
 						<p>The tab order when user tabs the page is as follows:</p>
 						<ul>
 							<li>The "Going to" field (<code>tabindex="1"</code>)</li>
@@ -522,7 +527,12 @@ I am a div
 							<li>A mystery object that has no functionality, and no visible focus indicator (<code>tabindex="4"</code>)</li>
 							<li>"More travel" and then follows the natural tab order (<code>tabindex="0"</code>).</li>
 						</ul>
-						<img src="images/image7.png" class="img-responsive" alt="Screenshot showing the tab order on a page">
+						<div class="panel panel-primary">
+							<div class="panel-body mrgn-bttm-0">				
+								<img src="images/image7.png" class="img-responsive" alt="Screenshot showing the tab order on a page">
+							</div>
+						</div>
+						
 						<p>The positive <code>tabindex</code> is set on just four items in the "Carnival" page. After navigating through the positive <code>tabindex</code> values, keyboard users are sent back to the top, to the first focusable control on the page at the beginning of the natural tab order.</p>
 						<p>A visually hidden item is in the tab order on the page, creating a "mystery" focus that can lead to confusion. If something is visually hidden, it must not be in the tab order.</p>
 						<p>Avoid using <code>tabindex</code> values greater than 0. Instead, write the document with the elements in a logical sequence. Ensure the source code (DOM) order matches the visual order to avoid confusion for assistive technology users.</p>
