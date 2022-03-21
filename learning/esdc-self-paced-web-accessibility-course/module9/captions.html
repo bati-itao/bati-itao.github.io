@@ -141,7 +141,8 @@
 				<p>However, CART services can also be provided remotely for events like web casts.</p>
 				<p>When CART is provided remotely, the CART writer attends the meeting from an off-site location to listen and transcribe. The text is streamed to a secure website for viewing. Multiple users can simultaneously login to the secure website to display the text on their computers, tablets or mobile devices.</p>
 				<p>The live captioned text can be saved and edited for use as a captions file for any posted video recordings.</p>
-				<p>Live automated captions are also available in Microsoft Teams meetings. Teams can detect what is said in a meeting, and present real-time automated captions. To use live captions in a meeting, go to your meeting controls and select the More options button … &gt; Turn on live captions. See automated captions section below.</p>
+				<p>Live automated captions are also available in Microsoft Teams meetings. Teams can detect what is said in a meeting, and present real-time automated captions. To use live captions in a meeting, go to your meeting controls and select the More options button … &gt; Turn on live captions. </p>
+				<p>See automated captions section below.</p>
 				<img src="images/image1.png" class="img-responsive" alt=":Screenshot of MS Teams meeting’s call controls to show the option to turn on live captions">
 				<p>Alt text: “Screenshot of MS Teams meeting’s call controls to show the option to turn on live captions"</p>
 				<div class="panel panel-danger">
@@ -166,7 +167,9 @@
 				<p>The WET media player is described below in the section Media Player Accessibility. </p>
 				<img src="images/image3.png" class="img-responsive" alt="">
 				
-				<p class="wb-inv">Code begins</p>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">View HTML</summary>
+					<p class="wb=inv">Code begins</p>
 				<pre>
 					<code class="language-html">
 				&lt;figure class="wb-mltmd"&gt;
@@ -184,9 +187,11 @@
 				&lt;/details&gt;
 				&lt;/figcaption&gt;
 				&lt;/figure&gt;
-				</code>
+					</code>
 				</pre>
-				<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Code ends</p>
+					</details>
+			
 				</div>
 				</div>
 				<div class="panel panel-success">
@@ -194,7 +199,9 @@
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Captions for pre-recorded video with audio (TTML)</h3>
 				<p>In addition to inline HTML5 captions, the WET media player supports Timed Text Markup Language (TTML) caption file formats (XML). </p>
 				<p>Use the &lt;track&gt; element to specify text tracks for &lt;audio&gt; or &lt;video&gt; elements.</p>
-				<p class="wb-inv">Code begins</p>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">View HTML</summary>
+					<p class="wb=inv">Code begins</p>
 				<pre>
 					<code class="language-html">
 				
@@ -221,6 +228,7 @@
 					</code>
 				</pre>
 				<p class="wb-inv">Code ends</p>
+				</details>
 				</div>
 				</div>
 				<img src="images/image4.png" class="img-responsive" alt="">
@@ -251,13 +259,13 @@
 			</section>
 
 			<section>
-				<h2 id="#auto-captions">Automatic captions</h2>
+				<h2 id="auto-captions">Automatic captions</h2>
 				<p>Automatic captions typically provide about 60-70% accuracy, which fails WCAG 2.1: if the "captions" do not include all the dialogue (either verbatim or in essence) as well as all important sounds then the captions are not real captions.</p>
 				<p>However, automatic captions can be used as a starting point for developing accurate captions and transcripts.</p>
 			</section>
 			
 			<section>
-				<h2 id="#styling-captions">Presenting and styling captions</h2>
+				<h2 id="styling-captions">Presenting and styling captions</h2>
 				<p>Requirements for presenting and styling captions consist mostly of community best practice rather than WCAG Success Criteria or Techniques. Only the 3:1 contrast ratio is required to meet a WCAG Success Criterion. </p>
 				<p>This is a shortlist of requirements. The <a href="https://dcmp.org/learn/captioningkey/">Captioning Key</a> website offers more best practice for presenting and styling captions.</p>
 				<ul>
@@ -277,7 +285,7 @@
 			</section>
 
 			<section>
-				<h2 id="#custom-captions">Customizing captions</h2>
+				<h2 id="custom-captions">Customizing captions</h2>
 				<p>Users can customize the visual appearance of captions in the operating system. Some media players also support customization. </p>
 				<div class="panel panel-success">
 					<div class="panel-body">
@@ -296,7 +304,7 @@
 			</section>
 			
 			<section>
-				<h2 id="#file-formats">Caption file formats</h2>
+				<h2 id="file-formats">Caption file formats</h2>
 				<p>There are many caption file formats. These three are supported by the WET media player and the MS Stream video player, between them:</p>
 				<ul>
 					<li>HTML5 data: a custom solution used by the WET media player that combines captions and descriptive transcript in one source. See Good Example: Captions for pre-recorded video with audio, above.</li>
@@ -494,42 +502,57 @@
 				<p>src="/videos/tracks/compliance.vtt" /&gt;</p>
 				<p>&lt;/video&gt;</p>
 				<h3 class="">Attributes</h3>
-				<p>default</p>
-				<p>Indicates that the tracks should be enabled, unless the user has indicated in preferences that another track is more appropriate.</p>
-				<p>kind</p>
-				<p>Indicates how the text track is going to be used. Possible values are:</p>
-				<ul>
-					<li>subtitles</li>
-					<li>Textual translation of content.</li>
-					<li>captions</li>
-					<li>Textual version of the audio content for users who are deaf.</li>
-					<li>descriptions</li>
-					<li>Textual description of the visual content for users who are blind.</li>
-					<li>chapters</li>
-					<li>Used when the user is navigating the media resource.</li>
-					<li>metadata</li>
-					<li>Tracks used by scripts. Not visible to users.</li>
-				</ul>
-				<p>label</p>
-				<p>Indicates the title of the text track. The title is user readable and listed by the browser with all available text tracks.</p>
-				<p>src</p>
-				<p>Indicates the address of the timed text file.</p>
-				<p>srclang</p>
-				<p>Indicates the language of the track text data as a valid <a href="https://r12a.github.io/app-subtags/">BCP 47</a> language tag, e.g.,</p>
-				<ul>
-					<li>English: en</li>
-					<li>French: fr</li>
-				</ul>
-			
+				<dl>
+					<dt>default</dt>
+					<dd>Indicates that the tracks should be enabled, unless the user has indicated in preferences that another track is more appropriate.</dd>
+					<dt>kind</dt>
+					<dd>Indicates how the text track is going to be used. Possible values are:</dd>
+					<li>subtitles
+						<ul>
+						  <li>Textual translation of content.</li>
+						</ul>
+					</li>
+					<li>captions
+						<ul>
+							<li>Textual version of the audio content for users who are deaf.</li>
+						</ul>
+					</li>
+					<li>descriptions
+						<ul>
+							<li>Textual description of the visual content for users who are blind.</li>
+						</ul>
+					</li>
+					<li>chapters
+						<ul>
+							<li>Used when the user is navigating the media resource.</li>
+						</ul>
+					</li>
+					<li>metadata
+						<ul>
+							<li>Tracks used by scripts. Not visible to users.</li>
+						</ul>
+					</li>
+					  </li>
+					<dt>label</dt>
+					<dd>Indicates the title of the text track. The title is user readable and listed by the browser with all available text tracks.</dd>
+					<dt>src</dt>
+					<dd>Indicates the address of the timed text file.</dd>
+					<dt>srclang</dt>
+					<dd>Indicates the language of the track text data as a valid <a href="https://r12a.github.io/app-subtags/">BCP 47</a> language tag, e.g.,</dd>
+					<ul>
+						<li>English: en</li>
+						<li>French: fr</li>
+					</ul>
+				  </dl>	
 
 			<section>
-				<h2 id="#captions-include">What is included in captions?</h2>
+				<h2 id="captions-include">What is included in captions?</h2>
 				<p>For what to include in captions, see the section Transcribing Audio to text.</p>
 
 			</section>
 
 			<section>
-				<h2 id="#youtube-captions">Adding captions on YouTube platform</h2>
+				<h2 id="youtube-captions">Adding captions on YouTube platform</h2>
 				<p>You can add captions to YouTube videos by uploading a caption file:</p>
 				<ul>
 					<li>Sign into YouTube Studio.</li>
@@ -547,7 +570,7 @@
 			</section>
 
 			<section>
-				<h2 id="#microsoft-captions">Adding captions on Microsoft Stream platform</h2>
+				<h2 id="microsoft-captions">Adding captions on Microsoft Stream platform</h2>
 				<p>You can add captions to MS Stream videos by uploading a caption file:</p>
 				<ul>
 					<li>In Stream, find the video you want to edit.</li>
