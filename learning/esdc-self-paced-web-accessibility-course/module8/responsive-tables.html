@@ -73,7 +73,6 @@
             <li><a href="#resp-tables">Designing responsive tables</a></li>
 			<li><a href="#reflow-table">Good example: Reflow table to single column</a></li>
 			<li><a href="#overflow-table">Good example: Overflowing table with focusable horizontal scrollbar</a></li>
-			<li><a href="#resources1">Related WCAG resources</a></li>
           </ul>
         </div>
       </div>
@@ -83,156 +82,250 @@
 				<h2 id="resp-tables">Designing responsive tables</h2>
 				<p>Responsive tables resize as the viewport size changes to ensure they do not require horizontal scrolling. For tables with a few columns, this can be accomplished by giving each column a percentage width and giving the table a max-width of 100%. Larger tables require transforming and reorganizing the table into one column. Note that the Government of Canada does not require responsive tables: neither the Canada.ca design system nor WET include any functionality to transform and reorganize tables, as the example below does.</p>
 				<p>If the screen is too small to display the full table a horizontal scroll bar is displayed.</p>
-			</section>
-			
-			<section>	
+
 				<div class="panel panel-success">
 					<div class="panel-body">
 						<h3 id="reflow-table" class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Reflow table to single column</h3>
-				<p>In the example below the table reflows to one column if the width of the browser is less than 768 pixels, maintaining readability without the need for horizontal scrolling. </p>
-				<p>The technique stacks the table cells atop one another, hides the headers at the top of the column and reproduces them to the left of the cell as visual row headers. The problem with this technique is the row headers are created with CSS generated content, drawing on the value in a custom data-label attribute: </p>
-				
-				<p class="wb-inv">Code begins</p>
+						<p>In the example below the table reflows to one column if the width of the browser is less than 768 pixels, maintaining readability without the need for horizontal scrolling. </p>
+						<p>The technique stacks the table cells atop one another, hides the headers at the top of the column and reproduces them to the left of the cell as visual row headers. The problem with this technique is the row headers are created with CSS generated content, drawing on the value in a custom data-label attribute: </p>
 						
-				<pre>
-					<code class="language-html">
-					&lt;td data-label="Account"&gt;Mastercard - 5555&lt;/td&gt;
-					</code>
-				</pre>
-				<pre>
-					<code class="language-css">
-					@media screen and (max-width: 767px)
-					table td::before {
-					content: attr(data-label);
-					float: left;
-					font-weight: bold;
-					text-transform: uppercase;
-					}
-					</code>
-				</pre>
-				<p>Unfortunately, CSS-generated content is not yet declared by the JAWS and Narrator screen readers. Once they do, this technique will be viable.</p>
-				<p>Resize the browser window to see the effect.</p>
-				<img src="images/image18.png image17.png" class="img-responsive" alt="">
+						<p class="wb-inv">Code begins</p>
+	
+<pre><code class="language-html">&lt;td data-label="Account"&gt;Mastercard - 5555&lt;/td&gt;</code></pre>
+<pre><code class="language-css">@media screen and (max-width: 767px) {
+   table td::before {
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+   }
+}</code></pre>
+						<p class="wb-inv">Code ends</p>
+						
+						<p>Unfortunately, CSS-generated content is not yet declared by the JAWS and Narrator screen readers. Once they do, this technique will be viable.</p>
+						<p>Resize the browser window to see the effect.</p>
 
-				<details class="mrgn-tp-sm">
-					<summary class="bg-info">View CSS </summary>
-					<p class="wb-inv">Code begins</p>
-				<pre>
-						<code class="language-css">
-				table { 
-				border: 1px solid #ccc; 
-				border-collapse: collapse; 
-				margin: 0; 
-				padding: 0;
-				width: 100%;
-				table-layout: fixed; 
-				} 
-				table caption { 
-				font-size: 1.2em; 
-				margin: .5em 0 .75em;
-				} 
-				table tr { 
-				background-color: #f8f8f8; 
-				} 
-				table th, 
-				table td {
-				padding: .625em; 
-				text-align: center; 
-				border: 1px solid #CCC;
-				} 
-				table thead th {
-				letter-spacing: .1em;
-				text-transform: uppercase; 
-				} 
-				@media screen and (max-width: 767px) { 
-				table { 
-				border: 0; 
-				} 
-				table caption { 
-				font-size: 1.2em; 
-				} 
-				table thead { 
-				border: none;
-				clip: rect(0 0 0 0); 
-				height: 1px; 
-				margin: -1px; 
-				overflow: hidden; 
-				padding: 0;
-				position: absolute; 
-				width: 1px;
-				} 
-				table tr { 
-				border-bottom: 3px solid #ddd;
-				display: block;
-				margin-bottom: 1em;
-				}
-				table td, table tbody th { 
-				border-bottom: 1px solid #ddd; 
-				display: block; 
-				text-align: right; 
-				width:95%;
-				} 
-				table td::before, 
-				table tbody th::before { 
-				content: attr(data-label); 
-				float: left; 
-				font-weight: bold; 
-				text-transform: uppercase; 
-				}
-				table td:last-child { 
-				border-bottom: 0; 
-				} 
-				}
-				</code>
-				</pre>
-				<p class="wb-inv">Code ends</p>
-				</details>	
-				<details class="mrgn-tp-sm">
-					<summary class="bg-info">View HTML </summary>
-					<p class="wb-inv">Code begins</p>
-				<pre>
-					<code class="language-html">
-				&lt;table&gt;
-				&lt;caption&gt;Account Summary&lt;/caption&gt;
-				&lt;thead&gt;
-				&lt;tr&gt;
-				&lt;th scope="col"&gt;Accounts&lt;/th&gt;
-				&lt;th scope="col"&gt;Due Date&lt;/th&gt;
-				&lt;th scope="col"&gt;Balance&lt;/th&gt;
-				&lt;th scope="col"&gt;Statement Date&lt;/th&gt;
-				&lt;/tr&gt;
-				&lt;/thead&gt;
-				&lt;tbody&gt; 
-				&lt;tr&gt; 
-				&lt;th scope=”row” data-label="Account"&gt;Mastercard - 5555&lt;/th&gt; 
-				&lt;td data-label="Due Date"&gt;04/01/2021&lt;/td&gt; 
-				&lt;td data-label="Amount"&gt;$5,390&lt;/td&gt; 
-				&lt;td data-label="Period"&gt;03/01/2021 - 03/31/2021&lt;/td&gt; 
-				&lt;/tr&gt; 
-				&lt;tr&gt; 
-				    &lt;th scope="row" data-label="Account"&gt;Visa - 5155&lt;/th&gt; 
-				    &lt;td data-label="Due Date"&gt;03/01/2020&lt;/td&gt; 
-				    &lt;td data-label="Amount"&gt;$2,013&lt;/td&gt; 
-				    &lt;td data-label="Period"&gt;02/01/2020 - 02/29/2020&lt;/td&gt; 
-				&lt;/tr&gt; 
-				&lt;tr&gt; 
-				    &lt;th scope="row" data-label="Account"&gt;AMEX - 9010&lt;/th&gt; 
-				    &lt;td data-label="Due Date"&gt;03/01/2020&lt;/td&gt; 
-				    &lt;td data-label="Amount"&gt;$3,251&lt;/td&gt; 
-				    &lt;td data-label="Period"&gt;02/01/2020 - 02/29/2020&lt;/td&gt; 
-				&lt;/tr&gt; 
-				&lt;tr&gt; 
-				    &lt;th scope="row" data-label="Acount"&gt;Capital One - 8800&lt;/th&gt; 
-				    &lt;td data-label="Due Date"&gt;02/01/2021&lt;/td&gt; 
-				    &lt;td data-label="Amount"&gt;$4,842&lt;/td&gt; 
-				    &lt;td data-label="Period"&gt;01/01/2021 - 01/31/2021&lt;/td&gt; 
-				&lt;/tr&gt; 
-				&lt;/tbody&gt;
-				&lt;/table&gt;
-				</code>
-				</pre>
-				<p class="wb-inv">Code ends</p>
-				</details>	
+						<div class="panel panel-primary">
+							<div class="panel-body mrgn-bttm-0">
+ 
+								<!-- <table class="example table table-bordered table-hover"> -->
+								<table class="example table table-hover">
+									<caption>Account Summary</caption>
+									<thead>
+										<tr>
+											<th scope="col">Accounts</th>
+											<th scope="col">Due Date</th>
+											<th scope="col">Balance</th>
+											<th scope="col">Statement Date</th>
+										</tr>
+									</thead>
+									<tbody> 
+										<tr> 
+											<th scope="row" data-label="Account">Mastercard - 5555</th> 
+											<td data-label="Due Date">04/01/2021</td> 
+											<td data-label="Amount">$5,390</td> 
+											<td data-label="Period">03/01/2021 - 03/31/2021</td> 
+										</tr> 
+										<tr> 
+											<th scope="row" data-label="Account">Visa - 5155</th> 
+											<td data-label="Due Date">03/01/2020</td> 
+											<td data-label="Amount">$2,013</td> 
+											<td data-label="Period">02/01/2020 - 02/29/2020</td> 
+										</tr> 
+										<tr> 
+											<th scope="row" data-label="Account">AMEX - 9010</th> 
+											<td data-label="Due Date">03/01/2020</td> 
+											<td data-label="Amount">$3,251</td> 
+											<td data-label="Period">02/01/2020 - 02/29/2020</td> 
+										</tr> 
+										<tr> 
+											<th scope="row" data-label="Acount">Capital One - 8800</th> 
+											<td data-label="Due Date">02/01/2021</td> 
+											<td data-label="Amount">$4,842</td> 
+											<td data-label="Period">01/01/2021 - 01/31/2021</td> 
+										</tr> 
+									</tbody>
+								</table>
+<style type="text/css">
+table.example { 
+   border: 1px solid #777; 
+   border-collapse: collapse; 
+   margin: 0; 
+   padding: 0;
+   width: 100%;
+   table-layout: fixed; 
+} 
+table.example caption { 
+   font-size: 1.2em; 
+   margin: .5em 0 .75em;
+} 
+table.example th, 
+table.example td,
+table.example>thead>tr>th {
+   padding: .625em; 
+   text-align: center; 
+   border: 1px solid #777;
+} 
+table.example>thead>tr>th {
+   border-bottom: 3px solid #777;
+} 
+table.example thead th {
+   letter-spacing: .1em;
+   text-transform: uppercase; 
+} 
+@media screen and (max-width: 767px) { 
+   table.example { 
+      border: 0; 
+   } 
+   table.example caption { 
+      font-size: 1.2em; 
+   } 
+   table.example thead { 
+      border: none;
+      clip: rect(0 0 0 0); 
+      height: 1px; 
+      margin: -1px; 
+      overflow: hidden; 
+      padding: 0;
+      position: absolute; 
+      width: 1px;
+   } 
+   table.example tr { 
+      border-bottom: 3px solid #777;
+      display: block;
+      margin-bottom: 1em;
+   }
+   table.example td, table.example tbody th { 
+      border-bottom: 1px solid #777; 
+      display: block; 
+      text-align: right; 
+      width:95%;
+   } 
+   table.example td::before, 
+   table.example tbody th::before { 
+      content: attr(data-label); 
+      float: left; 
+      font-weight: bold; 
+      text-transform: uppercase; 
+   }
+   table.example td:last-child { 
+      border-bottom: 0; 
+   } 
+}
+</style>					
+							</div>
+						</div>
+						
+						<details class="mrgn-tp-sm">
+							<summary class="bg-info">View CSS </summary>
+							<p class="wb-inv">Code begins</p>
+<pre><code class="language-css">table { 
+   border: 1px solid #ccc; 
+   border-collapse: collapse; 
+   margin: 0; 
+   padding: 0;
+   width: 100%;
+   table-layout: fixed; 
+} 
+table caption { 
+   font-size: 1.2em; 
+   margin: .5em 0 .75em;
+} 
+table th, 
+table td {
+   padding: .625em; 
+   text-align: center; 
+   border: 1px solid #CCC;
+} 
+table thead th {
+   letter-spacing: .1em;
+   text-transform: uppercase; 
+} 
+@media screen and (max-width: 767px) { 
+   table { 
+      border: 0; 
+   } 
+   table caption { 
+      font-size: 1.2em; 
+   } 
+   table thead { 
+      border: none;
+      clip: rect(0 0 0 0); 
+      height: 1px; 
+      margin: -1px; 
+      overflow: hidden; 
+      padding: 0;
+      position: absolute; 
+      width: 1px;
+   } 
+   table tr { 
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: 1em;
+   }
+   table td, table tbody th { 
+      border-bottom: 1px solid #ddd; 
+      display: block; 
+      text-align: right; 
+      width:95%;
+   } 
+   table td::before, 
+   table tbody th::before { 
+      content: attr(data-label); 
+      float: left; 
+      font-weight: bold; 
+      text-transform: uppercase; 
+   }
+   table td:last-child { 
+      border-bottom: 0; 
+   } 
+}</code></pre>
+							<p class="wb-inv">Code ends</p>
+						</details>	
+						<details class="mrgn-tp-sm">
+							<summary class="bg-info">View HTML </summary>
+							<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;table&gt;
+   &lt;caption&gt;Account Summary&lt;/caption&gt;
+   &lt;thead&gt;
+      &lt;tr&gt;
+         &lt;th scope="col"&gt;Accounts&lt;/th&gt;
+         &lt;th scope="col"&gt;Due Date&lt;/th&gt;
+         &lt;th scope="col"&gt;Balance&lt;/th&gt;
+         &lt;th scope="col"&gt;Statement Date&lt;/th&gt;
+      &lt;/tr&gt;
+   &lt;/thead&gt;
+   &lt;tbody&gt; 
+      &lt;tr&gt; 
+         &lt;th scope="row" data-label="Account"&gt;Mastercard - 5555&lt;/th&gt; 
+         &lt;td data-label="Due Date"&gt;04/01/2021&lt;/td&gt; 
+         &lt;td data-label="Amount"&gt;$5,390&lt;/td&gt; 
+         &lt;td data-label="Period"&gt;03/01/2021 - 03/31/2021&lt;/td&gt; 
+      &lt;/tr&gt; 
+      &lt;tr&gt; 
+         &lt;th scope="row" data-label="Account"&gt;Visa - 5155&lt;/th&gt; 
+         &lt;td data-label="Due Date"&gt;03/01/2020&lt;/td&gt; 
+         &lt;td data-label="Amount"&gt;$2,013&lt;/td&gt; 
+         &lt;td data-label="Period"&gt;02/01/2020 - 02/29/2020&lt;/td&gt; 
+      &lt;/tr&gt; 
+      &lt;tr&gt; 
+         &lt;th scope="row" data-label="Account"&gt;AMEX - 9010&lt;/th&gt; 
+         &lt;td data-label="Due Date"&gt;03/01/2020&lt;/td&gt; 
+         &lt;td data-label="Amount"&gt;$3,251&lt;/td&gt; 
+         &lt;td data-label="Period"&gt;02/01/2020 - 02/29/2020&lt;/td&gt; 
+      &lt;/tr&gt; 
+      &lt;tr&gt; 
+         &lt;th scope="row" data-label="Acount"&gt;Capital One - 8800&lt;/th&gt; 
+         &lt;td data-label="Due Date"&gt;02/01/2021&lt;/td&gt; 
+         &lt;td data-label="Amount"&gt;$4,842&lt;/td&gt; 
+         &lt;td data-label="Period"&gt;01/01/2021 - 01/31/2021&lt;/td&gt; 
+      &lt;/tr&gt; 
+   &lt;/tbody&gt;
+&lt;/table&gt;</code>
+</pre>
+								<p class="wb-inv">Code ends</p>
+							</details>	
+					
 					</div>
 				</div>
 			</section>
@@ -242,99 +335,130 @@
 				<div class="panel panel-success">
 					<div class="panel-body">
 						<h3 id="overflow-table" class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Overflowing table with focusable horizontal scrollbar</h3>
-				<p>In this example, a large table forces a horizontal scrollbar on the parent div element, generated by the CSS declaration “overflow-x: auto”. The div also takes the tabindex=”0” attribute, to ensure the scrollbar receives keyboard focus (as per the W3C-WAI ACT rule <a href="https://www.w3.org/WAI/standards-guidelines/act/rules/scrollable-element-keyboard-accessible-0ssw9k/">Scrollable element is keyboard accessible</a>).</p>
-				<p>It’s always preferable to break large tables into multiple smaller tables.</p>
-				<pre>
-					<code class="language-html">
-					&lt;div style=”overflow-x:auto;” tabindex=”0”&gt;
-					&lt;table&gt;[…]&lt;/table&gt;
-					&lt;/div&gt;
-					</code>
-				</pre>
-				<img src="images/image19.png" class="img-responsive" alt=":Screenshot of large table ">
-				<img src="images/image20.png" class="img-responsive" alt=":Screenshot of large table with horizontal scrollbar after resize">
-				
-				<details class="mrgn-tp-sm">
-					<summary class="bg-info">View HTML </summary>
-					<p class="wb-inv">Code begins</p>
-				<pre>
-					<code class="language-html">
-				&lt;div style="overflow-x:auto;"&gt;
-				         &lt;table&gt;
-				             &lt;tr&gt;
-				                &lt;th&gt;Sprint #&lt;/th&gt;
-				                &lt;th&gt;Closed&lt;/th&gt;
-				                &lt;th&gt;In Progress&lt;/th&gt;
-				                &lt;th&gt;New&lt;/th&gt;
-				                &lt;th&gt;To Retest&lt;/th&gt;
-				                &lt;th&gt;Reopened&lt;/th&gt;
-				                &lt;th&gt;By Severity&lt;/th&gt;
-				                &lt;th&gt;By Priority&lt;/th&gt;
-				                &lt;th&gt;By Sprint&lt;/th&gt;
-				                &lt;th&gt;By Release&lt;/th&gt;
-				               &lt;/tr&gt;
-				               &lt;tr&gt;
-				                 &lt;td&gt;101&lt;/td&gt;
-				                 &lt;td&gt;234&lt;/td&gt;
-				                 &lt;td&gt;55&lt;/td&gt;
-				                 &lt;td&gt;75&lt;/td&gt;
-				                 &lt;td&gt;121&lt;/td&gt;
-				                  &lt;td&gt;33&lt;/td&gt;
-				                  &lt;td&gt;566&lt;/td&gt;
-				                  &lt;td&gt;343&lt;/td&gt;
-				                  &lt;td&gt;577&lt;/td&gt;
-				                  &lt;td&gt;976&lt;/td&gt;
-				                &lt;/tr&gt;
-				                &lt;tr&gt;<
-				                 &lt;td&gt;102&lt;/td&gt;
-				                 &lt;td&gt;344&lt;/td&gt;
-				                 &lt;td&gt;33&lt;/td&gt;
-				                 &lt;td&gt;65&lt;/td&gt;
-				                 &lt;td&gt;887&lt;/td&gt;
-				                 &lt;td&gt;66&lt;/td&gt;
-				                 &lt;td&gt;564&lt;/td&gt;
-				                  &lt;td&gt;344&lt;/td&gt;
-				                  &lt;td&gt;76&lt;/td&gt;
-				                  &lt;td&gt;543&lt;/td&gt;
-				               &lt;/tr&gt;
-				               &lt;tr&gt;
-				                &lt;td&gt;103&lt;/td&gt;
-				                &lt;td&gt;290&lt;/td&gt;
-				                &lt;td&gt;32&lt;/td&gt;
-				                &lt;td&gt;77&lt;/td&gt;
-				                &lt;td&gt;93&lt;/td&gt;
-				                &lt;td&gt;82&lt;/td&gt;
-				                &lt;td&gt;138&lt;/td&gt;
-				                &lt;td&gt;532&lt;/td&gt;
-				                &lt;td&gt;293&lt;/td&gt;
-				                &lt;td&gt;202&lt;/td&gt;
-				               &lt;/tr&gt;
-				             &lt;/table&gt;
-							</code>
-						</pre>
+						<p>In this example, a large table forces a horizontal scrollbar on the parent <code>&lt;div&gt;</code> element, generated by the CSS declaration <code>overflow-x: auto</code>. The div also takes the <code>tabindex="0"</code> attribute, to ensure the scrollbar receives keyboard focus (as per the W3C-WAI ACT rule <a href="https://www.w3.org/WAI/standards-guidelines/act/rules/scrollable-element-keyboard-accessible-0ssw9k/">Scrollable element is keyboard accessible</a>).</p>
+						<p>It’s always preferable to break large tables into multiple smaller tables.</p>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;div style="overflow-x:auto;" tabindex="0"&gt;
+   &lt;table&gt;[…]&lt;/table&gt;
+&lt;/div&gt;</code></pre>
+				<p class="wb-inv">Code ends</p>
+<div style="overflow-x:auto;" tabindex="0">
+ <table class="table table-bordered">
+    <tr>
+       <th>Sprint #</th>
+       <th>Closed</th>
+       <th>In progress</th>
+       <th>New</th>
+       <th>To retest</th>
+       <th>Reopened</th>
+       <th>By severity</th>
+       <th>By priority</th>
+       <th>By sprint</th>
+       <th>By release</th>
+    </tr>
+    <tr>
+       <td>101</td>
+       <td>234</td>
+       <td>55</td>
+       <td>75</td>
+       <td>121</td>
+       <td>33</td>
+       <td>566</td>
+       <td>343</td>
+       <td>577</td>
+       <td>976</td>
+    </tr>
+    <tr>
+       <td>102</td>
+       <td>344</td>
+       <td>33</td>
+       <td>65</td>
+       <td>887</td>
+       <td>66</td>
+       <td>564</td>
+       <td>344</td>
+       <td>76</td>
+       <td>543</td>
+    </tr>
+    <tr>
+      <td>103</td>
+      <td>290</td>
+      <td>32</td>
+      <td>77</td>
+      <td>93</td>
+      <td>82</td>
+      <td>138</td>
+      <td>532</td>
+      <td>293</td>
+      <td>202</td>
+    </tr>
+ </table>
+<div>			
+						<!-- 
+						<img src="images/image19.png" class="img-responsive" alt=":Screenshot of large table ">
+						<img src="images/image20.png" class="img-responsive" alt=":Screenshot of large table with horizontal scrollbar after resize">
+						-->
+						
+						<details class="mrgn-tp-sm">
+							<summary class="bg-info">View HTML </summary>
+							<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;div style="overflow-x:auto;" tabindex="0"&gt;
+ &lt;table&gt;
+    &lt;tr&gt;
+       &lt;th&gt;Sprint #&lt;/th&gt;
+       &lt;th&gt;Closed&lt;/th&gt;
+       &lt;th&gt;In progress&lt;/th&gt;
+       &lt;th&gt;New&lt;/th&gt;
+       &lt;th&gt;To retest&lt;/th&gt;
+       &lt;th&gt;Reopened&lt;/th&gt;
+       &lt;th&gt;By severity&lt;/th&gt;
+       &lt;th&gt;By priority&lt;/th&gt;
+       &lt;th&gt;By sprint&lt;/th&gt;
+       &lt;th&gt;By release&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+       &lt;td&gt;101&lt;/td&gt;
+       &lt;td&gt;234&lt;/td&gt;
+       &lt;td&gt;55&lt;/td&gt;
+       &lt;td&gt;75&lt;/td&gt;
+       &lt;td&gt;121&lt;/td&gt;
+       &lt;td&gt;33&lt;/td&gt;
+       &lt;td&gt;566&lt;/td&gt;
+       &lt;td&gt;343&lt;/td&gt;
+       &lt;td&gt;577&lt;/td&gt;
+       &lt;td&gt;976&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+       &lt;td&gt;102&lt;/td&gt;
+       &lt;td&gt;344&lt;/td&gt;
+       &lt;td&gt;33&lt;/td&gt;
+       &lt;td&gt;65&lt;/td&gt;
+       &lt;td&gt;887&lt;/td&gt;
+       &lt;td&gt;66&lt;/td&gt;
+       &lt;td&gt;564&lt;/td&gt;
+       &lt;td&gt;344&lt;/td&gt;
+       &lt;td&gt;76&lt;/td&gt;
+       &lt;td&gt;543&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;103&lt;/td&gt;
+      &lt;td&gt;290&lt;/td&gt;
+      &lt;td&gt;32&lt;/td&gt;
+      &lt;td&gt;77&lt;/td&gt;
+      &lt;td&gt;93&lt;/td&gt;
+      &lt;td&gt;82&lt;/td&gt;
+      &lt;td&gt;138&lt;/td&gt;
+      &lt;td&gt;532&lt;/td&gt;
+      &lt;td&gt;293&lt;/td&gt;
+      &lt;td&gt;202&lt;/td&gt;
+    &lt;/tr&gt;
+ &lt;/table&gt;
+&lt;div&gt;</code></pre>
 						<p class="wb-inv">Code ends</p>
 						</details>	
 							</div>
 						</div>
 
-			</section>
-			
-			
-			<section>				
-				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
-				<details class="mrgn-tp-lg">
-					<summary class="bg-info">Related WCAG resources</summary>
-					<h3>Success criteria</h3>
-					<ul>
-						<li><a href="https://www.link1.com">Link 1</a></li>
-					</ul>
-					<h3>Techniques</h3>
-					<ul>
-						<li>
-							<a href="https://www.link2.com">Link 2</a>
-						</li>						
-					</ul>
-				</details>
 			</section>
 		
 		
