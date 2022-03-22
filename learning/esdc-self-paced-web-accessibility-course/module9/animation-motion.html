@@ -70,43 +70,109 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#section1">S1</a></li>
-			<li><a href="#section2">S2</a></li>
-			<li><a href="#section3">S3</a></li>
+            <li><a href="#animation-from-interactions">Animation from interactions</a></li>
+			<li><a href="#parallax">Parallax</a></li>
+			<li><a href="#background-videos-or-animations">Background videos or animations</a></li>
 			<li><a href="#resources1">Related WCAG resources</a></li>
           </ul>
         </div>
       </div>
 	</nav>
+
+	<section>
+		<h2 id="animation-from-interactions">Animation from interactions</h2>
+		<p>People with vestibular (inner ear) disorders need control over movement triggered by interactions. Movement can trigger vestibular disorder reactions, including distraction, dizziness, headaches and nausea.</p>
+		<p>WCAG requires (at Level AAA) that motion animation triggered by interaction can be disabled unless the animation is essential to the functionality or the information being conveyed. </p>
+		<p>Moving new content into the viewport is essential for scrolling. The user controls the essential scrolling movement, so it is allowed. </p>
+		<p>If scrolling a page causes elements to move (other than the essential movement associated with scrolling), it’s problematic. </p>
+		<p>“Parallax scrolling” is also problematic. It occurs when scrolling backgrounds move at a different rate to foregrounds.</p>
+		<p>WCAG recommends choosing one of three alternatives for reducing the chances of triggering a vestibular disorder:</p>
+		<ul>
+			<li>Avoid using unnecessary animation. </li>
+			<li>Provide a control for users to turn off non-essential animations from user interaction (site wide)</li>
+			<li>Take advantage of the reduced motion feature in the user-agent or operating system with the CSS ‘prefers-reduced-motion' media query:</li>
+		</ul>
+		<p>@media (prefers-reduced-motion: reduce) {</p>
+		<p> /* CSS to disable motion goes here */</p>
+		<p>}</p>
+		<div class="panel panel-success mrgn-tp-lg">
+			<div class="panel-body">
+				<h3 class="text-success mrgn-tp-0">
+				<span class="glyphicon glyphicon-ok-circle"></span> Good example: Combining operating system reduced motion feature with CSS media query</h3>
+			
+		<p>CSS offers a ‘prefers-reduced-motion' media query that respects user settings for motion.</p>
+		<p>This example demonstrates a :hover and :focus jiggling motion on a button. It’s disabled when both: </p>
+		<ul>
+			<li>the 'prefers-reduced-motion' CSS Media Query is set to 'reduce', and </li>
+			<li>the user-agent or operating system has the reduced motion feature set.</li>
+		</ul>
+		<p>Example: Motion triggered by user interaction</p>
+		<p>CSS</p>
+		<p>button:focus, button:hover {</p>
+		<p>animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;</p>
+		<p>}</p>
+		<p>@media (prefers-reduced-motion: reduce) {</p>
+		<p>button:focus, button:hover {</p>
+		<p>animation: none;</p>
+		<p>}</p>
+		<p>}</p>
+		<p>Note that Windows 10 has the option to turn off “Show animations in Windows”</p>
+		<img src="images/image18.png" class="img-responsive" alt=":Screenshot of Windows 10 Ease of Access settings, with the option turned off for &#34;Show animations in Windows&#34;">
+		<p>Figure: The Show animations in Windows option is turned off in the Windows 10 Ease of Access settings, under Display &gt; Simplify and personalise Windows.</p>
+				</div>
+			</div>	
+		
+	</section>
+	<section>
+		<h2 id="parallax">Parallax</h2>
+		<p>Parallax scrolling occurs when backgrounds move at a different rate to foregrounds. It involves extra non-essential animations when the user scrolls. Decorative elements move horizontally when the essential page content is scrolled vertically. For some people, this can trigger vestibular disorders including dizziness, nausea and headaches.</p>
+		<ul>
+			<li>Avoid parallax scrolling or provide a control for user to turn it off. </li>
+			<li>Keyboard users must be able to access the hidden area of a parallax scrolling area and use all of the features of the web page.</li>
+			<li>If in CSS the hidden content is set to display: none, keyboard users may not be able to access the hidden parts of the content.</li>
+			<li>The text must be readable against the background and must pass the WCAG contrast guidelines of 4.5 to 1 for small text or 3:1 for large or bold text.</li>
+		</ul>
+		<div class="panel panel-danger mrgn-tp-lg">
+			<div class="panel-body">
+				<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Using Parallax scrolling.
+				</h3>
+				<img src="images/image19.png" class="img-responsive" alt="">
+		<p>Source URL:<a href="https://techbing.com/training/parallax.html">https://techbing.com/training/parallax.html</a></p>
+			</div>
+		</div>
+	</section>
+	<section>
+		<h2 id="background-videos-or-animations">Background videos or animations</h2>
+		<p>Background videos or animations provide extra information and enhancement to web content. If any critical information is conveyed in the background video, then the video must be fully accessible, with captions and a descriptive transcript</p>
+		<ul>
+			<li>Do not have any content start playing automatically when the page loads.</li>
+			<li>Allow users control over the start and stop of moving content or audio content. </li>
+			<li>WCAG AA allows videos to autoplay for up to 5 seconds, but if content plays longer than 5 seconds, a mechanism must be provided to pause, stop, or hide the content.</li>
+		</ul>
 	
-			<section>				
-				<h2 id="section1">S1</h2>
+		<div class="panel panel-success mrgn-tp-lg">
+			<div class="panel-body">
+				<h3 class="text-success mrgn-tp-0">
+				<span class="glyphicon glyphicon-ok-circle"></span> Good example: Background video with play / pause feature</h3>
+				<img src="images/image20.jpg" class="img-responsive" alt="">
+				</div>
+			</div>	
+	</section>
 				
-			</section>
-			
-			<section>				
-				<h2 id="section2">S2</h2>
-				
-			</section>
-			
-			<section>				
-				<h2 id="section3">S3</h2>
-				
-			</section>
-			
-			
 			<section>				
 				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
 					<ul>
-						<li><a href="https://www.link1.com">Link 1</a></li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions.html">2.3.3: Animation from Interactions</a>
+						</li>
 					</ul>
 					<h3>Techniques</h3>
 					<ul>
 						<li>
-							<a href="https://www.link2.com">Link 2</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C39">C39: Using the CSS reduce-motion query to prevent motion</a>
 						</li>						
 					</ul>
 				</details>
