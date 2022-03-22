@@ -232,39 +232,50 @@
 						<p>In this example, a crop of the photo is served to small devices. </p>
 						<p>The <code>&lt;source&gt;</code> elements include a media condition. The first condition that returns true is displayed: if the viewport width is 799px wide or less, the first <code>&lt;source&gt;</code> element's image is displayed; if the viewport width is 800px or more, the second <code>&lt;source&gt;</code> element’s image is displayed.</p>
 						
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">Example begins</p>
+									<picture>
+										<source media="(max-width: 799px)" srcset="images/deer-crop200w.jpg">
+										<source media="(min-width: 800px)" srcset="images/deer-320.jpg">
+										<img src="deer-500w.jpg" alt="A deer pasturing in a small meadow in a forest."></img>	
+									</picture>					
+								<p class="wb-inv">Example ends</p>
+							</div>
+						</div>
 						<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;picture&gt;  
    &lt;source media="(max-width: 799px)" srcset="deer-crop200w.jpg"&gt;  
-   &lt;source media="(min-width: 800px)" srcset="deer-500w.jpg"&gt;  
+   &lt;source media="(min-width: 800px)" srcset="deer-320.jpg"&gt;  
    &lt;img src="deer-500w.jpg" alt="A deer pasturing in a small meadow in a forest."&gt;
 &lt;/picture&gt;</code></pre>
 						<p class="wb-inv">Code ends</p>	
 
-				<h4>Cropped image served to small devices</h4>
-				<img src="images/image14.jpg" class="img-responsive" alt="In the cropped image, the dear occupies more than a third of the image's width.">
-				<h4>Original image served to large devices</h4>
-				<img src="images/image15.jpg" class="img-responsive" alt="In the uncropped original image, the deer occupies about a fifth of the image's width.">
-			
-				<p class="wb-inv">Code ends</p>	
-				</div>
+						<h4>Cropped image served to small devices</h4>
+						<img src="images/deer-crop200w.jpg" class="img-responsive" alt="In the cropped image, the dear occupies more than a third of the image's width.">
+						<h4>Original image served to large devices</h4>
+						<img src="images/deer-320.jpg" class="img-responsive" alt="In the uncropped original image, the deer occupies about a fifth of the image's width.">
+					</div>
 				</div>
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span> Bad example: Non-responsive image</h3>
-				<p>In the screenshot below, a 1,600-pixel wide image lacking any responsive markup displays at its native width. Since it’s wider than the viewport, it forces a horizontal scrollbar to appear. </p>
-				<details class="mrgn-tp-lg">
-					<summary class="bg-info">View HTML</summary>						
-					<p class="wb-inv">Code begins</p>
-				<pre>
-					<code class="language-html">
-				&lt;img src="nature.png" alt="Monarch butterflies fly below pine trees"&gt;
-				</code>
-				</pre>
-				<p class="wb-inv">Code ends</p>	
-				</details>
-				<img src="images/image16.png" class="img-responsive" alt="">
-				<hr/>
-				<p class="small">Image from <a href="href://www.cntravaler.com">cntravaler.com</a></p>
+						<p>In the screenshot below, a 1,600-pixel wide image lacking any responsive markup displays at its native width. Since it’s wider than the viewport, it forces a horizontal scrollbar to appear. </p>
+						
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">Example begins</p>
+								<img src="images/butterflies.png" class="img-responsive" alt="Monarch butterflies fly below pine trees">
+								<p class="wb-inv">Example ends</p>
+							</div>
+						</div>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;img src="butterflies.png" alt="Monarch butterflies fly below pine trees"&gt;</code></pre>
+						<p class="wb-inv">Code ends</p>		
+						<hr/>
+						<p class="small">Image from <a href="href://www.cntravaler.com">cntravaler.com</a></p>
+					</div>
+				</div>
 			</section>
 
 			<section>				
