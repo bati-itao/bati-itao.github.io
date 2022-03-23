@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Formulaires adaptés - Module 8 - Zoom et conception adaptée</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Accessibility guidelines related to responsive forms. Describes how to design forms to work with different viewport sizes.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.appTop({
+                "appName": [{
+                    "text": "EDSC / Bureau de l’accessibilité des TI",
+                    "href": "../../../index-fr.html"
+                }],
+               "breadcrumbs" : [{
+                    "title": "Accueil",
+                    "href" : "../../../index-fr.html"
+                },{
+                    "title": "Apprentissage",
+                    "href" : "../../index-fr.html"
+                },
+            {
+                    "title": "Cours d'accessibilité Web",
+                    "href" : "../index-fr.html"
+                },
+            {
+                    "title": "Module 8 - Zoom et conception adaptée",
+                    "href" : "index-fr.html"
+                }],
+				"lngLinks": [{
+                "lang": "en",
+                "href": "responsive-forms.html",
+                "text": "English"
+            }],
+            "menuPath": "../../../ajax/menu-en.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+			
+	<h1 property="name" id="wb-cont">Formulaires adaptés</h1>
+						
+	<nav role="navigation">
+    <div class="panel panel-default mrgn-tp-md">
+      <header class="panel-heading">
+        <h2 class="panel-title">Table of contents</h2>
+      </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#section1">Designing responsive forms</a></li>
+			<li><a href="#resources1">Related WCAG resources</a></li>
+          </ul>
+        </div>
+      </div>
+	</nav>
+	
+			<section>				
+				<h2 id="section1">Designing responsive forms</h2>
+				<p>As the viewport changes size, ensure:</p>
+				<ul>
+					<li>form fields do not overflow, and </li>
+					<li>form fields and labels are not separated by wide areas of whitespace. This is a barrier for users with tunnel vision and for users of screen magnification.</li>
+				</ul>	
+			
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0">
+						<span class="glyphicon glyphicon-ok-circle"></span> Good example: Responsive form</h3>
+				
+						<p>In this example, a CSS breakpoint at 768px pixels introduces styles for large screens. The essential differences: </p>
+						<ul>
+							<li>In the small screen view, labels are positioned directly above the control, to maximize screen area for each. </li>
+							<li>In the desktop view, labels are positioned to the left of the control, flush right, to maximize vertical space.</li>
+						</ul>
+						<p>Narrow your browser screen to under 768px see the small screen (default) styles.</p>
+						<p>This example uses WET form HTML (with the addition of a <code>.forms-group</code> class wrapper to the <code>&lt;fieldset&gt;</code> element) but different and simplified CSS to foreground the responsive rules.</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">Example begins</p>
+							
+								<form action="#" method="get" id="validation-example"> 
+									<div class="form-group">
+										<label for="title1" class="required">
+											<span class="field-name">Title</span> 
+											<strong class="required">(required)</strong>
+										</label>
+										<select class="form-control" id="title1" name="title1" autocomplete="honorific-prefix" required="required">
+											<option label="Select a title"></option>
+											<option value="dr">Dr.</option>
+											<option value="esq">Esq.</option>
+											<option value="mr">Mr.</option>
+											<option value="ms">Ms.</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="fname1" class="required">
+											<span class="field-name">First name</span> 
+											<strong class="required">(required)</strong>
+										</label>
+										<input class="form-control" id="fname1" name="fname1" type="text" autocomplete="given-name" required="required" data-rule-minlength="2">
+									</div>
+									<div class="form-group">
+										<label for="lname1" class="required">
+											<span class="field-name">Last name</span> 
+											<strong class="required">(required)</strong>
+										</label>
+										<input class="form-control" id="lname1" name="lname1" type="text" autocomplete="family-name" required="required" data-rule-minlength="2">
+									</div>
+									<div class="form-group">
+										<label for="email1">
+											<span class="field-name">Email address</span> 
+											(yourname@domain.com)
+										</label>
+										<input class="form-control" id="email1" name="email1" type="email" autocomplete="email">
+									</div>
+									<div class="form-group">
+										<fieldset class="chkbxrdio-grp">
+											<legend class="required">
+												<span class="field-name">Favourite pets</span> 
+												<strong class="required">(required)</strong>
+											</legend>
+											<div class="checkbox">
+												<label for="animal1">
+													<input type="checkbox" name="animal" value="1" id="animal1">
+													Dog
+												</label>
+											</div>
+											<div class="checkbox">
+												<label for="animal2">
+													<input type="checkbox" name="animal" value="2" id="animal2"> 
+													Cat
+												</label>
+											</div>
+											<div class="checkbox">
+												<label for="animal3">
+													<input type="checkbox" name="animal" value="3" id="animal3">
+													Fish
+												</label>
+											</div>
+											<div class="checkbox">
+												<label for="animal4">
+													<input type="checkbox" name="animal" value="4" id="animal4"> 
+													Other
+												</label>
+											</div>
+										</fieldset> 
+									</div>
+									<input type="submit" value="Submit" class="btn btn-default"> 
+									<input type="reset" value="Reset page to defaults" class="btn btn-link btn-sm show p-0 mrgn-tp-md">
+								</form> 
+
+<style type="text/css">
+.form-group { 
+	margin-bottom: 1em;
+}
+strong.required {
+	color: #e31c3d;
+}
+.form-group fieldset {
+	max-width: 28em;
+}
+.form-control {
+	display: block;
+}
+@media screen and (min-width: 768px) {
+	.form-group,
+	.checkbox { 
+		clear: left;
+	} 
+	.form-group label,
+	.form-group legend {
+		float: left;
+		width: 18em;
+		text-align: right;
+	}
+	.form-group fieldset label {
+		float: none;
+		width: auto;
+		text-align: left;
+		margin-left: 19em;
+	}
+	.form-control {
+		position: relative;
+		display: inline-block;
+		margin-left: 1em;
+	}
+	.btn {
+		margin-left: 5em;
+	}
+}
+</style>
+								<p class="wb-inv">End of example</p>
+							</div>
+						</div>
+						<details class="mrgn-tp-lg">
+							<summary class="bg-info">View HTML</summary>
+							<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;form action="#" method="get" id="validation-example"&gt; 
+   &lt;div class="form-group"&gt;
+      &lt;label for="title1" class="required"&gt;
+         &lt;span class="field-name"&gt;Title&lt;/span&gt; 
+         &lt;strong class="required"&gt;(required)&lt;/strong&gt;
+      &lt;/label&gt;
+      &lt;select class="form-control" id="title1" name="title1" autocomplete="honorific-prefix" required="required"&gt;
+          &lt;option label="Select a title"&gt;&lt;/option&gt;
+          &lt;option value="dr"&gt;Dr.&lt;/option&gt;
+          &lt;option value="esq"&gt;Esq.&lt;/option&gt;
+          &lt;option value="mr"&gt;Mr.&lt;/option&gt;
+          &lt;option value="ms"&gt;Ms.&lt;/option&gt;
+      &lt;/select&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+     &lt;label for="fname1" class="required"&gt;
+         &lt;span class="field-name"&gt;First name&lt;/span&gt; 
+         &lt;strong class="required"&gt;(required)&lt;/strong&gt;
+     &lt;/label&gt;
+     &lt;input class="form-control" id="fname1" name="fname1" type="text" autocomplete="given-name" required="required" data-rule-minlength="2"&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+     &lt;label for="lname1" class="required"&gt;
+         &lt;span class="field-name"&gt;Last name&lt;/span&gt; 
+         &lt;strong class="required"&gt;(required)&lt;/strong&gt;
+     &lt;/label&gt;
+     &lt;input class="form-control" id="lname1" name="lname1" type="text" autocomplete="family-name" required="required" data-rule-minlength="2"&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+     &lt;label for="email1"&gt;
+         &lt;span class="field-name"&gt;Email address&lt;/span&gt; 
+         (yourname@domain.com)
+      &lt;/label&gt;
+     &lt;input class="form-control" id="email1" name="email1" type="email" autocomplete="email"&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+      &lt;fieldset class="chkbxrdio-grp"&gt;
+         &lt;legend class="required"&gt;
+            &lt;span class="field-name"&gt;Favourite pets&lt;/span&gt; 
+            &lt;strong class="required"&gt;(required)&lt;/strong&gt;
+         &lt;/legend&gt;
+         &lt;div class="checkbox"&gt;
+            &lt;label for="animal1"&gt;
+               &lt;input type="checkbox" name="animal" value="1" id="animal1"&gt;
+               Dog
+            &lt;/label&gt;
+         &lt;/div&gt;
+         &lt;div class="checkbox"&gt;
+            &lt;label for="animal2"&gt;
+               &lt;input type="checkbox" name="animal" value="2" id="animal2"&gt; 
+               Cat
+            &lt;/label&gt;
+         &lt;/div&gt;
+         &lt;div class="checkbox"&gt;
+            &lt;label for="animal3"&gt;
+               &lt;input type="checkbox" name="animal" value="3" id="animal3"&gt;
+               Fish
+            &lt;/label&gt;
+         &lt;/div&gt;
+         &lt;div class="checkbox"&gt;
+            &lt;label for="animal4"&gt;
+               &lt;input type="checkbox" name="animal" value="4" id="animal4"&gt; 
+               Other
+            &lt;/label&gt;
+         &lt;/div&gt;
+      &lt;/fieldset&gt; 
+   &lt;/div&gt;
+   &lt;input type="submit" value="Submit" class="btn btn-default"&gt; 
+   &lt;input type="reset" value="Reset page to defaults" class="btn btn-link btn-sm show p-0 mrgn-tp-md"&gt; 
+&lt;/form&gt;</code></pre>
+							<p class="wb-inv">Code ends</p>	
+					
+						</details>
+		
+						<details class="mrgn-tp-lg">
+							<summary class="bg-info">View CSS</summary>
+							<p class="wb-inv">Code begins</p>
+<pre><code class="language-css">.form-group { 
+   margin-bottom: 1em;
+}
+strong.required {
+   color: #e31c3d;
+}
+.form-group fieldset {
+   max-width: 28em;
+}
+.form-control {
+   display: block;
+}
+@media screen and (min-width: 768px) {
+   .form-group,
+   .checkbox { 
+      clear: left;
+   } 
+   .form-group label,
+   .form-group legend {
+      float: left;
+      width: 18em;
+      text-align: right;
+   }
+   .form-group fieldset label {
+      float: none;
+      width: auto;
+      text-align: left;
+      margin-left: 19em;
+   }
+   .form-control {
+      position: relative;
+      display: inline-block;
+      margin-left: 1em;
+   }
+   .btn {
+      margin-left: 5em;
+   }
+}</code>
+</pre>
+							<p class="wb-inv">Code ends</p>	
+						
+						</details>
+					</div>
+				</div>
+					
+			
+				<div class="panel panel-danger mrgn-tp-lg">
+					<div class="panel-body">
+						<h4 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span> Bad example: Non-responsive form</h4>
+						<p>In this example, the labels are positioned to the left of the form fields and aligned left, while the form fields are floated right, creating a large gap between label and form fields. The gap is a barrier for users with tunnel vision or users with low vision who greatly magnify the screen.</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body mrgn-bttm-0">
+								<p class="wb-inv">Example begins</p>
+								<img src="images/image11.png" class="img-responsive" alt="Example of non-responsive form. The labels are positioned left and aligned left, while the form fields are floated right, creating a large gap between label and form fields.">
+								<p class="wb-inv">Example ends</p>
+							</div>
+						</div>
+					</div>
+				</div>			
+				
+			</section>
+			
+			
+			
+			<section>				
+				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">Related WCAG resources</summary>
+					<h3>Success criteria</h3>
+					<ul>
+						<li><a href="https://www.link1.com">Link 1</a></li>
+					</ul>
+					<h3>Techniques</h3>
+					<ul>
+						<li>
+							<a href="https://www.link2.com">Link 2</a>
+						</li>						
+					</ul>
+				</details>
+			</section>
+		
+		
+	<nav role="navigation">
+		<h2 class="wb-inv">Navigation dans le document</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="responsive-design-fr.html">Précédent - Conception adaptée</a></li>
+			<li class="next"><a rel="next" href="responsive-images-fr.html">Suivant - Images adaptées</a></li>
+		</ul>
+	</nav>
+	</main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 8 - Zoom et conception adaptée</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
+						<li><a class="list-group-item" href="zoom-fr.html">Zoom</a></li>
+						<li><a class="list-group-item" href="responsive-design-fr.html">Conception adaptée</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="responsive-forms-fr.html">Formulaires adaptés</a></li>
+						<li><a class="list-group-item" href="responsive-images-fr.html">Images adaptées</a></li>
+						<li><a class="list-group-item" href="responsive-text-fr.html">Texte adapté</a></li>
+						<li><a class="list-group-item" href="responsive-objects-fr.html">Objets et modules d’extension adaptés</a></li>
+						<li><a class="list-group-item" href="responsive-tables-fr.html">Tableaux adaptés</a></li>
+						<li><a class="list-group-item" href="responsive-ui-fr.html">Composantes d’interface utilisateur adaptées</a></li>
+						<li><a class="list-group-item" href="responsive-video-fr.html">Vidéo adaptée</a></li>
+						<li><a class="list-group-item" href="orientation-fr.html">Orientation</a></li>
+						<li><a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Tous les modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/index-fr.html">Module 2 – Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/index-fr.html">Module 3 – Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/index-fr.html">Module 4 – Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/index-fr.html">Module 5 – Images</a></li>
+                        <li><a class="list-group-item" href="../module6/index-fr.html">Module 6 – Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/index-fr.html">Module 7 – Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item active" href="index-fr.html">Module 8 – Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+                     </ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>
