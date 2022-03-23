@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Orientation - Module 8 - Zoom et conception adaptée</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Accessibility guidelines related to orientation. Describes the requirement for enabling users to view content in portrait or landscape orientation.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.appTop({
+                "appName": [{
+                    "text": "EDSC / Bureau de l’accessibilité des TI",
+                    "href": "../../../index-fr.html"
+                }],
+               "breadcrumbs" : [{
+                    "title": "Accueil",
+                    "href" : "../../../index-fr.html"
+                },{
+                    "title": "Apprentissage",
+                    "href" : "../../index-fr.html"
+                },
+            {
+                    "title": "Cours d'accessibilité Web",
+                    "href" : "../index-fr.html"
+                },
+            {
+                    "title": "Module 8 - Zoom et conception adaptée",
+                    "href" : "index-fr.html"
+                }],
+            "lngLinks": [{
+                "lang": "en",
+                "href": "orientation.html",
+                "text": "English"
+            }],
+            "menuPath": "../../../ajax/menu-en.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+			
+	<h1 property="name" id="wb-cont">Orientation</h1>
+						
+	<nav role="navigation">
+    <div class="panel panel-default mrgn-tp-md">
+      <header class="panel-heading">
+        <h2 class="panel-title">Table of contents</h2>
+      </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#orientation">Designing for orientation</a></li>
+			<li><a href="#screen-orientation">Bad example: Screen Orientation Lock</a></li>
+			<li><a href="#resp-orientation">Good example: Responsive screen orientation</a></li>
+			<li><a href="#resources1">Related WCAG resources</a></li>
+          </ul>
+        </div>
+      </div>
+	</nav>
+	
+			<section>				
+				<h2 id="orientation">Designing for orientation</h2>
+				<p>As per WCAG 2.1 Success Criterion 1.3.4: Orientation, content does not restrict its view and operation to a single display orientation, such as portrait or landscape, unless a specific display orientation is essential.</p>
+				<p>Enable users to view your content in the orientation (portrait or landscape) they prefer. It’s possible to restrict the orientation, but this can create problems. For instance, some users have their mobile devices mounted in a fixed orientation (e.g., on the arm of a power wheelchair).</p>
+				<p>The success criterion allows the orientation to be restricted/locked if it’s essential to the application, such as a landscape orientation when representing piano keys or taking a photo of a cheque.</p>
+				
+			</section>
+			
+			<section>	
+				<div class="panel panel-danger mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 id="screen-orientation" class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Screen Orientation Lock</h3>
+				<p>In this example, the content is prevented from displaying in landscape mode by a CSS media query that detects landscape orientation and a transform style rule that rotates the content 90 degrees (with supporting styles).</p>
+
+					<p class="wb-inv">Code begins</p>
+<pre><code class="language-css">@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) { 
+   html { 
+      transform: rotate(-90deg); 
+      transform-origin: left top; 
+      width: 100vh; 
+      overflow-x: hidden; 
+      position: absolute; 
+      top: 100%; 
+      left: 0;
+   }
+}</code>
+</pre>
+				<p class="wb-inv">Code ends</p>
+
+			<hr/>
+			<p class="small">Source: <a href="https://css-tricks.com/snippets/css/orientation-lock/">https://css-tricks.com/snippets/css/orientation-lock/</a></p>
+			</div>
+			</div>
+			</section>
+			
+			<section>	
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 id="resp-orientation" class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Responsive screen orientation</h3>
+						<p>In this example, the page displaying the Government of Canada’s <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=23601">Standard on Web Accessibility</a> has no code touching screen orientation. The page rotates by default in mobile devices.</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body mrgn-bttm-0">
+								<img src="images/image26.png" class="img-responsive" alt="Screen orientation in portrait, with all text legible.">
+								<img src="images/image27.png" class="img-responsive" alt="Screen orientation in landscape, with all text legible.">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			
+			<section>				
+				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">Related WCAG resources</summary>
+					<h3>Success criteria</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/orientation">1.3.4: Orientation</a>
+						</li>
+					</ul>
+					<h3>Failures</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F97">F97: Failure due to locking the orientation to landscape or portrait view</a>
+						</li>
+					</ul>
+				</details>
+			</section>
+		
+		
+	<nav role="navigation">
+		<h2 class="wb-inv">Navigation dans le document</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="responsive-video-fr.html">Précédent - Vidéo adaptée</a></li>
+			<li class="next"><a rel="next" href="best-practice-fr.html">Suivant - Pratique exemplaire</a></li>
+		</ul>
+	</nav>
+	</main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 8 - Zoom et conception adaptée</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
+						<li><a class="list-group-item" href="zoom-fr.html">Zoom</a></li>
+						<li><a class="list-group-item" href="responsive-design-fr.html">Conception adaptée</a></li>
+						<li><a class="list-group-item" href="responsive-forms-fr.html">Formulaires adaptés</a></li>
+						<li><a class="list-group-item" href="responsive-images-fr.html">Images adaptées</a></li>
+						<li><a class="list-group-item" href="responsive-text-fr.html">Texte adapté</a></li>
+						<li><a class="list-group-item" href="responsive-objects-fr.html">Objets et modules d’extension adaptés</a></li>
+						<li><a class="list-group-item" href="responsive-tables-fr.html">Tableaux adaptés</a></li>
+						<li><a class="list-group-item" href="responsive-ui-fr.html">Composantes d’interface utilisateur adaptées</a></li>
+						<li><a class="list-group-item" href="responsive-video-fr.html">Vidéo adaptée</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="orientation-fr.html">Orientation</a></li>
+						<li><a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Tous les modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/index-fr.html">Module 2 – Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/index-fr.html">Module 3 – Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/index-fr.html">Module 4 – Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/index-fr.html">Module 5 – Images</a></li>
+                        <li><a class="list-group-item" href="../module6/index-fr.html">Module 6 – Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/index-fr.html">Module 7 – Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item active" href="index-fr.html">Module 8 – Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+                     </ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>

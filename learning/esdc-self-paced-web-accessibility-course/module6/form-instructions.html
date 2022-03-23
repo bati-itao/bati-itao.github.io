@@ -61,7 +61,7 @@
 <div class="row">
 	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
 			
-	<h1 property="name" id="wb-cont">Heading title</h1>
+	<h1 property="name" id="wb-cont">Form instructions</h1>
 						
 	<nav role="navigation">
     <div class="panel panel-default mrgn-tp-md">
@@ -73,178 +73,211 @@
             <li><a href="#form-instructions">Form instructions (overview)</a></li>
 			<li><a href="#overall-instructions">Overall instructions</a></li>
 			<li><a href="#inline-instructions">In-line instructions</a></li>
-			<li><a href="#instructions-for-groups">Instructions for Groups or Sections are programmatically associated with the group</a></li>
+			<li><a href="#instructions-for-groups">Instructions for groups<del> or sections are programmatically associated with the group</del></a></li>
 			<li><a href="#resources">Related WCAG resources</a></li>
           </ul>
         </div>
       </div>
 	</nav>
-	
-			<section>				
+
+			<section>						
 				<h2 id="form-instructions">Form instructions (overview)</h2>
 				<p>Form instructions help users understand how to complete the form and use individual form controls. Indicate any required input, data formats, and other relevant information.</p>
 			</section>
 			
 			<section>				
 				<h2 id="overall-instructions">Overall instructions</h2>
-				<p>Provide form instructions above the form prior to the starting &lt;form&gt; tag. Indicate any required and optional input, allowed data formats, timing limitations and any overall instructions that apply to the entire form. </p>
-				<p>Note: Screen reader users could easily miss overall form instructions nested in a &lt;form&gt; element. Screen readers enter “forms mode” once inside a form, disabling text-browsing keyboard shortcuts to enable the screen reader user to type directly into input and textarea fields. Keyboard navigation is limited to just the focusable elements (form inputs, links and other controls) via the Tab key. Text that isn’t programmatically associated with a focusable element -- serving as a label or description -- is easily missed.</p>
+				<p>Provide form instructions above the form prior to the starting <code>&lt;form&gt;</code> tag. Indicate any required and optional input, allowed data formats, timing limitations and any overall instructions that apply to the entire form. </p>
+				<div class="alert alert-warning">
+					<p><strong>Note:</strong> Screen reader users could easily miss overall form instructions nested in a <code>&lt;form&gt;</code> element. Screen readers enter “forms mode” once inside a form, disabling text-browsing keyboard shortcuts to enable the screen reader user to type directly into <code>input</code> and <code>textarea</code> fields. Keyboard navigation is limited to just the focusable elements (form inputs, links and other controls) via the Tab key. Text that isn’t programmatically associated with a focusable element &ndash; serving as a label or description &ndash; is easily missed.</p>
+				</div>
 				<p>Form instructions can indicate how required fields are marked, expected format, and where to find extra help. Here are some examples:</p>
 				<ul>
-				<li>All fields marked “required” must be completed.</li>
-				<li>Dates should all be typed in the format yyyy/mm/dd, (as in 2022/01/05).</li>
-				<li>Extra help can be found immediately after each field.</li>
+					<li>All fields marked “required” must be completed.</li>
+					<li>Dates should all be typed in the format yyyy/mm/dd, (as in 2022/01/05).</li>
+					<li>Extra help can be found immediately after each field.</li>
 				</ul>
 			</section>
 			
 			<section>				
 				<h2 id="inline-instructions">In-line instructions</h2>
-				<p>
-				In-line instructions are provided within or outside the label of the form control. Short instructions can fit in the label along with the control’s name. Long instructions should be outside the label, associated with the control via the aria-describedby attribute. Prioritize using semantic HTML &lt;label&gt; instead of ARIA to provide instructions within labels. Match the “for” attribute of the label with the “id” attribute of the form control.
+				<p>In-line instructions are provided within or outside the label of the form control. Short instructions can fit in the label along with the control’s name. Long instructions should be outside the label, associated with the control via the <code>aria-describedby</code> attribute. <mark><del>Prioritize using semantic HTML <code>&lt;label&gt;</code> instead of ARIA to provide instructions within labels. Match the <code>for</code> attribute of the label with the <code>id</code> attribute of the form control.</del></mark>
 				</p>
 				<h3>Providing instructions within labels</h3>
-				<p>Providing instructions within labels is well-supported by user agents, though it should be reserved for shorter instructions. Match the “for” attribute of the label with the “id” attribute of the form control.
-				The required format for the “Date of Birth” is indicated by “YYYY/MM/DD” within the same label:</p>
-				<p>Example:</p>
-				<div class="panel panel-default well well-sm">
-				<label for="dob">Date of Birth (YYYY/MM/DD): </label> 
-				<input type="date" name="dob" id="dob">
-				</div>
-	<details class="mrgn-tp-sm">
-							<summary class="bg-info">View HTML </summary>
-							<p class="wb-inv">Code begins</p><pre><code class="language-html">&lt;label for="dob"&gt;Date of Birth (YYYY/MM/DD): &lt;/label&gt; 
+				<p>Providing instructions within labels is well-supported by user agents, though it should be reserved for shorter instructions. Match the <code>for</code> attribute of the label with the <code>id</code> attribute of the form control.</p>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+					  <h4 class="text-success mrgn-tp-0 h3" id="providing-form-instructions"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing instructions within a label</h4>
+					  
+						<p>The required format for the “Date of Birth” is indicated by “YYYY/MM/DD” within the same label:</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<label for="dob">Date of Birth (YYYY/MM/DD): </label> 
+								<input type="date" name="dob" id="dob">
+							</div>
+						</div>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;label for="dob"&gt;Date of Birth (YYYY/MM/DD): &lt;/label&gt; 
 &lt;input type="date" name="dob" id="dob"&gt;</code>
 </pre>
-<p class="wb-inv">Code ends</p>
-						</details>	
+						<p class="wb-inv">Code ends</p>
+					</div>
+				</div>
 				<h3>Providing instructions outside labels</h3>
-				<p>Use ARIA to provide instructions outside of labels. 
-Associate any descriptive text in the form with the relevant form element using the aria-labelledby or aria-describedby attribute. </p>
-<div class="panel panel-success mrgn-tp-lg">
-	    <div class="panel-body">
-		
-		  <h2 class="text-success mrgn-tp-0 h3" id="providing-form-instructions"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good Example: Providing form instructions using aria-labelledby</h2>
-			<p>One approach to providing instructions outside of labels uses the aria-labelledby attribute on the control. The aria-labelledby attribute references the id attribute values of the label element and the element holding the description. This approach guarantees the additional description is communicated to assistive tech, but should only be used with short descriptions.
-</p><p>A &lt;label&gt; element is associated with its control using matching “for” and “id” attribute values.
-</p>
-<div class="panel panel-default well well-sm">
-<label id="expLabel" for="expire">Expiration date:</label>
-<span>
-<input type="text" name="expire" id="expire" aria-labelledby="expLabel expDesc">
-<span id="expDesc">MM/YYYY</span>
-</span>
-</div>
+				<p>Use ARIA to provide instructions outside of labels. Associate any descriptive text in the form with the relevant form element using the <code>aria-labelledby</code> or <code>aria-describedby</code> attribute. </p>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+					
+						<h4 class="text-success mrgn-tp-0 h3" id="providing-form-instructions"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing form instructions using aria-labelledby</h4>
+						<p>One approach to providing instructions outside of labels uses the <code>aria-labelledby</code> attribute on the control. The <code>aria-labelledby</code> attribute references the <code>id</code> attribute values of the <code>&lt;label&gt;</code> element and the element holding the description. This approach guarantees the additional description is communicated to assistive tech, but should only be used with short descriptions.</p>
+						<p>A <code>&lt;label&gt;</code> element is associated with its control using matching <code>for</code> and <code>id</code> attribute values.</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<label id="expLabel" for="expire">Expiration date:</label>
+								<span>
+									<input type="text" name="expire" id="expire" aria-labelledby="expLabel expDesc">
+									<span id="expDesc">MM/YYYY</span>
+								</span>
+							</div>
+						</div>
 
-			<details class="mrgn-tp-sm">
-							<summary class="bg-info">View HTML </summary>
-							<p class="wb-inv">Code begins</p>
-							<pre><code class="language-html">&lt;label id="expLabel" for="expire"&gt;Expiration date:&lt;/label&gt;
+						<p class="wb-inv">Code begins</p>
+						<pre><code class="language-html">&lt;label id="expLabel" for="expire"&gt;Expiration date:&lt;/label&gt;
 &lt;span&gt;
-	&lt;input type="text" name="expire" id="expire" aria-labelledby="expLabel expDesc"&gt;
-	&lt;span id="expDesc"&gt;MM/YYYY&lt;/span&gt;
-&lt;/span&gt;</code>
-</pre>
-<p class="wb-inv">Code ends</p>
-					  </details>
-</div>
+   &lt;input type="text" name="expire" id="expire" aria-labelledby="expLabel expDesc"&gt;
+   &lt;span id="expDesc"&gt;MM/YYYY&lt;/span&gt;
+&lt;/span&gt;</code></pre>
+						<p class="wb-inv">Code ends</p>
+
+					</div>
 				</div>
 				
-<div class="panel panel-success mrgn-tp-lg">
-	    <div class="panel-body">
-		
-		  <h2 class="text-success mrgn-tp-0 h3" id="providing-form-instructions-aria"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good Example: Providing form instructions with aria-describedby</h2>
-			<p>The more common approach to providing instructions outside of labels is to use the aria-describedby attribute. The attribute is set on the control and points to the id attribute value of the element containing the description.</p>
-<div class="panel panel-default well well-sm">
-<label id="passLabel" for="password1">Password:</label>
-<span>
-<input type="text" name="password1" id="password1" aria-labelledby="passLabel" aria-describedby="passDesc">
-<br>
-<span id="passDesc">Must contain at least 8 characters, one uppercase letter and one special character</span>
-</span>
-</div>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h4 class="text-success mrgn-tp-0 h3" id="providing-form-instructions-aria"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing form instructions with aria-describedby</h4>
+						<p>The more common approach to providing instructions outside of labels is to use the <code>aria-describedby</code> attribute. The attribute is set on the control and points to the <code>id</code> attribute value of the element containing the description.</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<label id="passLabel" for="password1">Password:</label>
+								<span>
+									<input type="text" name="password1" id="password1" aria-labelledby="passLabel" aria-describedby="passDesc">
+									<br>
+									<span id="passDesc">Must contain at least 8 characters, one uppercase letter and one special character</span>
+								</span>
+							</div>
+						</div>
 
-			<details class="mrgn-tp-sm">
-							<summary class="bg-info">View HTML </summary>
-							<p class="wb-inv">Code begins</p>
-							<pre><code class="language-html">&lt;label id="passLabel" for="password1"&gt;Password:&lt;/label&gt;
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;label id="passLabel" for="password1"&gt;Password:&lt;/label&gt;
 &lt;span&gt;
-&lt;input type="text" name="password1" id="password1" aria-labelledby="passLabel" aria-describedby="passDesc"&gt;
-&lt;br&gt;
-&lt;span id="passDesc"&gt;Must contain at least 8 characters, one uppercase letter and one special character&lt;/span&gt;
+   &lt;input type="text" name="password1" id="password1" aria-labelledby="passLabel" aria-describedby="passDesc"&gt;
+   &lt;br&gt;
+   &lt;span id="passDesc"&gt;Must contain at least 8 characters, one uppercase letter and one special character&lt;/span&gt;
 &lt;/span&gt;</code>
 </pre>
-<p class="wb-inv">Code ends</p>
-					  </details>
-</div>
+						<p class="wb-inv">Code ends</p>
+											
+					</div>
 				</div>
 				
 				<H3>Placeholder text</H3>
 				<p>Placeholder text provides instructions or an example of the required data format inside form fields that have not yet been edited by the user. Most browsers’ default placeholder text lacks sufficient contrast. Also, placeholder text disappears from form fields when users start entering text. If the placeholder text contains instructional information or examples that disappear, it makes it more difficult for users to check their responses before submitting the form.</p>
 				<p>Placeholder text is not a replacement for labels. Assistive technologies such as screen readers do not treat placeholder text as labels. </p>
-				
-		<div class="panel panel-default well well-sm">		
-				<div><label for="search">Search:</label> 
-<input type="text" name="search" id="search" placeholder="e.g. Accessibility Courses">
-</div>
-<div><label for="email">Email: </label> 
-<input type="text" name="email" id="email" placeholder="jane.doe@gmail.com">
-</div>
-</div>
-	<details class="mrgn-tp-sm">
-							<summary class="bg-info">View HTML </summary>
-							<p class="wb-inv">Code begins</p><pre><code class="language-html">&lt;div&gt;
-	&lt;label for="search"&gt;Search:&lt;/label&gt; 
-	&lt;input type="text" name="search" id="search" placeholder="e.g. Accessibility Courses"&gt;
+				<div class="panel panel-primary mrgn-tp-md">
+					<div class="panel-body well mrgn-bttm-0">	
+						<div>
+							<label for="search">Search:</label> 
+							<input type="text" name="search" id="search" placeholder="e.g. Accessibility Courses">
+						</div>
+						<div>
+							<label for="email">Email: </label> 
+							<input type="text" name="email" id="email" placeholder="jane.doe@gmail.com">
+						</div>
+						<style type="text/css">
+							::-webkit-input-placeholder { 
+							   color: #767676 !important; 
+							   opacity: 1;
+							}
+							:-moz-placeholder { 
+							   /* Firefox 18- */ 
+							   color: #767676  !important;
+							   opacity: 1;
+							}
+							::-moz-placeholder {  
+							   /* Firefox 19+ */ 
+							   color: #767676 !important 
+							   opacity: 1;
+							}
+							:-ms-input-placeholder { 
+							   color: #767676  !important; 
+							   opacity: 1;
+							}						
+													
+						</style>
+					</div>
+				</div>
+
+				<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;div&gt;
+   &lt;label for="search"&gt;Search:&lt;/label&gt; 
+   &lt;input type="text" name="search" id="search" placeholder="e.g. Accessibility Courses"&gt;
 &lt;/div&gt;
 &lt;div&gt;
-	&lt;label for="email"&gt;Email: &lt;/label&gt; 
-	&lt;input type="text" name="email" id="email" placeholder="jane.doe@gmail.com"&gt;
-&lt;/div&gt;</code>
-</pre>
-<p class="wb-inv">Code ends</p>
-						</details>
+   &lt;label for="email"&gt;Email: &lt;/label&gt; 
+   &lt;input type="text" name="email" id="email" placeholder="jane.doe@gmail.com"&gt;
+&lt;/div&gt;</code></pre>
+				<p class="wb-inv">Code ends</p>
+
+
 						
-					<h3>Styling the placeholder</h3>
-					<p>In many browsers, the default placeholder attribute colour fails a contrast check, making it difficult for many people to see. The colour of placeholder can be styled using CSS.</p>
-					<p>The code snippet below sets the foreground color to a medium gray (hex #767676) against a white background, which just meets the minimum 4.5:1 contrast ratio requirement.</p>
-<style>::-webkit-input-placeholder { 
-color: #767676 !important; 
-opacity: 1;
-}
-:-moz-placeholder { 
-/* Firefox 18- */ 
-color: #767676  !important;
-opacity: 1;
-}
-::-moz-placeholder {  
-/* Firefox 19+ */ 
-color: #767676 !important 
-opacity: 1;
-}
-:-ms-input-placeholder { 
-color: #767676  !important; 
-opacity: 1;
-}
-</style>
-<div>
-<label for="search">Search Courses:</label>  
-<input type="text" name="search" id="search" placeholder="e.g. Accessibility Courses">
-</div>
-<div>
-<label for="fname">First Name: </label>  
-<input type="text" name="fname" id="fname" placeholder="First Name">
-</div>
-<div>
-<label for="lname">Last Name: </label>  
-<input type="text" name="lname" id="lname" placeholder="Last Name"
-</div>
-<div>
-<label for="email">Email: </label>  
-<input type="text" name="email" id="email" placeholder="jane.doe@gmail.com"> 
-</div>
-	<details class="mrgn-tp-sm">
-							<summary class="bg-info">View HTML </summary>
-							<p class="wb-inv">Code begins</p><pre><code class="language-html">&lt;div&gt;
+				<h3>Styling the placeholder</h3>
+				<p>In many browsers, the default <code>placeholder</code> attribute colour fails a contrast check, making it difficult for many people to see. The colour of the placeholder can be styled using CSS.</p>
+				<p>The example below sets the foreground color to a medium gray (hex #767676) against a white background, which just meets the minimum 4.5:1 contrast ratio requirement.</p>
+				<div class="panel panel-primary mrgn-tp-md mrgn-bttm-lg">
+					<div class="panel-body well mrgn-bttm-0">
+						<div>
+							<label for="search">Search Courses:</label>  
+							<input type="text" name="search" id="search" placeholder="e.g. Accessibility Courses">
+						</div>
+						<div>
+							<label for="fname">First Name: </label>  
+							<input type="text" name="fname" id="fname" placeholder="First Name">
+						</div>
+						<div>
+							<label for="lname">Last Name: </label>  
+							<input type="text" name="lname" id="lname" placeholder="Last Name"
+						</div>
+						<div>
+							<label for="email">Email: </label>  
+							<input type="text" name="email" id="email" placeholder="jane.doe@gmail.com"> 
+						</div>
+						<style type="text/css">
+							::-webkit-input-placeholder { 
+							   color: #767676 !important; 
+							   opacity: 1;
+							}
+							:-moz-placeholder { 
+							   /* Firefox 18- */ 
+							   color: #767676  !important;
+							   opacity: 1;
+							}
+							::-moz-placeholder {  
+							   /* Firefox 19+ */ 
+							   color: #767676 !important 
+							   opacity: 1;
+							}
+							:-ms-input-placeholder { 
+							   color: #767676  !important; 
+							   opacity: 1;
+							}						
+						</style>
+					</div>
+				</div>
+					
+					<details class="mrgn-tp-sm">
+						<summary class="bg-info">View HTML </summary>
+<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;div&gt;
 &lt;label for="search"&gt;Search Courses:&lt;/label&gt;  
 &lt;input type="text" name="search" id="search" placeholder="e.g. Accessibility Courses"&gt;
 &lt;/div&gt;
@@ -265,27 +298,26 @@ opacity: 1;
 						</details>	
 	<details class="mrgn-tp-sm">
 							<summary class="bg-info">View CSS </summary>
-							<p class="wb-inv">Code begins</p><pre><code class="language-css">::-webkit-input-placeholder { 
-color: #767676; 
-opacity: 1;
+							<p class="wb-inv">Code begins</p>
+<pre><code class="language-css">::-webkit-input-placeholder { 
+   color: #767676 !important; 
+   opacity: 1;
 }
 :-moz-placeholder { 
-/* Firefox 18- */ 
-color: #767676;
-opacity: 1;
+   /* Firefox 18- */ 
+   color: #767676  !important;
+   opacity: 1;
 }
 ::-moz-placeholder {  
-/* Firefox 19+ */ 
-color: #767676; 
-opacity: 1;
+   /* Firefox 19+ */ 
+   color: #767676 !important 
+   opacity: 1;
 }
 :-ms-input-placeholder { 
-color: #767676; 
-opacity: 1;
-}
-</code>
-</pre>
-<p class="wb-inv">Code ends</p>
+   color: #767676  !important; 
+   opacity: 1;
+}</code></pre>
+						<p class="wb-inv">Code ends</p>
 						</details>	
 
 
@@ -293,147 +325,146 @@ opacity: 1;
 			
 			</section>
 			<section>				
-				<h2 id="instructions-for-groups">Instructions for Groups or Sections are programmatically associated with the group</h2>
-				<p>In “focus mode”, when tabbing through the form, screen reader users will not hear regular text added to the form. Non-focusable text will be skipped unless it is programmatically associated with a form control as label or description.</p>
-		<div class="panel panel-success mrgn-tp-lg">
-	    <div class="panel-body">
+				<h2 id="instructions-for-groups">Instructions for groups<mark><del> or Sections are programmatically associated with the group</del></mark></h2>
+				<p>In “focus mode”, when tabbing through the form, screen reader users <mark><del>will not hear regular text added to the form</del><ins> set focus on form controls and hear their labels and descriptions. Text in a</ins> non-focusable <ins>element is </ins><del>text will be</del></mark> skipped unless it is programmatically associated with a form control as label or description.</p>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0 h3" id="providing-form-instructions-aria"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Group instructions in a &lt;legend&gt;</h3>
+						<p>In this example, the word “Required” is set within the <code>&lt;legend&gt;</code> to indicate that everything within the related fieldset is required. Depending on the configuration, some screen readers read out the legend either with every form element, once, or, rarely, not at all. Keep legends short and self-explanatory.</p>
+						<div class="panel panel-default well well-sm">
+							<fieldset>
+								<legend>
+									User Login Information (Required)
+								</legend>
+								<label for="username">Username:</label>
+								<input type="text" id="username" required>
+								<label for="password">Password:</label>
+								<input type="password" id="password" required>
+								<label for="email">Email:</label>
+								<input type="email" id="email" required>
+								<label for="phone">Phone:</label>
+								<input type="tel" id="phone" required>
+							</fieldset>
+						</div>
 		
-		  <h2 class="text-success mrgn-tp-0 h3" id="providing-form-instructions-aria"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good Example: Group Instructions in a &lt;legend&gt;</h2>
-			<p>In this example, the word “Required” is set within the &lt;legend&gt; to indicate that everything within the related fieldset is required. Depending on the configuration, some screen readers read out the legend either with every form element, once, or, rarely, not at all. Keep legends short and self-explanatory.</p>
-			<div class="panel panel-default well well-sm"><fieldset>
-			<legend> 
-			User Login Information (Required)
-			</legend>
-			<label for="username">Username:</label>
-			<input type="text" id="username" required></p>
-			<label for="password">Password:</label>
-			<input type="password" id="password" required></p>
-			<label for="email">Email:</label>
-			<input type="email" id="email" required></p>
-			<label for="phone">Phone:</label>
-			<input type="tel" id="phone" required></p>
-			</fieldset>
-
-			</div>
-
-			<details class="mrgn-tp-sm">
+						<details class="mrgn-tp-sm">
 							<summary class="bg-info">View HTML </summary>
 							<p class="wb-inv">Code begins</p>
-							<pre><code class="language-html">&lt;fieldset&gt;
-&lt;legend&gt; 
-	User Login Information (Required)
-&lt;/legend&gt;
-&lt;label for="username"&gt;Username:&lt;/label&gt;
-	&lt;input type="text" id="username" required&gt;&lt;/p&gt;
-	&lt;label for="password"&gt;Password:&lt;/label&gt;
-	&lt;input type="password" id="password" required&gt;&lt;/p&gt;
-	&lt;label for="email"&gt;Email:&lt;/label&gt;
-	&lt;input type="email" id="email" required&gt;&lt;/p&gt;
-	&lt;label for="phone"&gt;Phone:&lt;/label&gt;
-	&lt;input type="tel" id="phone" required&gt;&lt;/p&gt;
+<pre><code class="language-html">&lt;fieldset&gt;
+   &lt;legend&gt; 
+      User Login Information (Required)
+   &lt;/legend&gt;
+   &lt;label for="username"&gt;Username:&lt;/label&gt;
+   &lt;input type="text" id="username" required&gt;&lt;/p&gt;
+   
+   &lt;label for="password"&gt;Password:&lt;/label&gt;
+   &lt;input type="password" id="password" required&gt;&lt;/p&gt;
+   
+   &lt;label for="email"&gt;Email:&lt;/label&gt;
+   &lt;input type="email" id="email" required&gt;&lt;/p&gt;
+   
+   &lt;label for="phone"&gt;Phone:&lt;/label&gt;
+   &lt;input type="tel" id="phone" required&gt;&lt;/p&gt;
 &lt;/fieldset&gt;</code>
 </pre>
-<p class="wb-inv">Code ends</p>
-					  </details>
-</div>
-</div>
-	<div class="panel panel-success mrgn-tp-lg">
-	    <div class="panel-body">
+							<p class="wb-inv">Code ends</p>
+						</details>
+					</div>
+				</div>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
 		
-		  <h2 class="text-success mrgn-tp-0 h3" id="providing-form-instructions-aria"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good Example: Instructions associated using aria-describedby</h2>
-			<p>In this example, the paragraph “Passwords must match” is associated with the two password input fields using the aria-describedby attribute.</p>
-			<div class="panel panel-default well well-sm">
-			<fieldset>
-			<legend>Create a User Account</legend>
-			<p>
-			<label for="username">Username:</label>
-			<input type="text" id="username">
-			</p>
-			<p id="passmatch">Passwords much match</p>
-			<p>
-			<label for="password">Password:</label>
-			<input type="password" id="password" aria-describedby="passmatch">
-			</p>
-			<p>
-			<label for="retype">Re-type Password:</label>
-			<input type="password" id="retype" aria-describedby="passmatch">
-			</p>
-			<p>
-			<label for="email">Email:</label>
-			<input type="email" id="email">
-			</p>
-			<p>
-			<label for="phone">Phone:</label>
-			<input type="tel" id="phone">
-			</p>
-			</fieldset>
-
-			</div>
-
-			<details class="mrgn-tp-sm">
-			<summary class="bg-info">View HTML </summary>
-			<p class="wb-inv">Code begins</p>
+						<h2 class="text-success mrgn-tp-0 h3" id="providing-form-instructions-aria"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Instructions associated using aria-describedby</h2>
+						<p>In this example, the paragraph “Passwords must match” is associated with the two password input fields using the aria-describedby attribute.</p>
+						<div class="panel panel-default well well-sm">
+							<fieldset>
+								<legend>Create a User Account</legend>
+								<p>
+									<label for="username">Username:</label>
+									<input type="text" id="username">
+								</p>
+								<p id="passmatch">Passwords much match</p>
+								<p>
+									<label for="password">Password:</label>
+									<input type="password" id="password" aria-describedby="passmatch">
+								</p>
+								<p>
+									<label for="retype">Re-type Password:</label>
+									<input type="password" id="retype" aria-describedby="passmatch">
+								</p>
+								<p>
+									<label for="email">Email:</label>
+									<input type="email" id="email">
+								</p>
+								<p>
+									<label for="phone">Phone:</label>
+									<input type="tel" id="phone">
+								</p>
+							</fieldset>
+						</div>
+			
+						<details class="mrgn-tp-sm">
+							<summary class="bg-info">View HTML </summary>
+							<p class="wb-inv">Code begins</p>
 			<pre><code class="language-html">&lt;fieldset&gt;
-&lt;legend&gt;Create a User Account&lt;/legend&gt;
-&lt;p&gt;
-&lt;label for="username"&gt;Username:&lt;/label&gt;
-&lt;input type="text" id="username"&gt;
-&lt;/p&gt;
-&lt;p id="passmatch"&gt;Passwords much match&lt;/p&gt;
-&lt;p&gt;
-&lt;label for="password"&gt;Password:&lt;/label&gt;
-&lt;input type="password" id="password" aria-describedby="passmatch"&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;label for="retype"&gt;Re-type Password:&lt;/label&gt;
-&lt;input type="password" id="retype" aria-describedby="passmatch"&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;label for="email"&gt;Email:&lt;/label&gt;
-&lt;input type="email" id="email"&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;label for="phone"&gt;Phone:&lt;/label&gt;
-&lt;input type="tel" id="phone"&gt;
-&lt;/p&gt;
-&lt;/fieldset&gt;</code>
-				</pre>
-				<p class="wb-inv">Code ends</p>
-									  </details>
-				</div>		</div>
-<div class="panel panel-danger mrgn-tp-lg">
-			<div class="panel-body">
-				<h4 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad Example: Instructions in a paragraph not associated with a control</h4>
-					<p>When instructions are in a &lt;p&gt; element not associated via aria-describedby, they’re easily missed by users navigating the form in the screen reader’s “forms mode”. </p>
-			<div class="panel panel-default well well-sm">
-			<fieldset>
-				<legend> 
-				Create a User Account
-				</legend>
-				<p>
-				<label for="username">Username:</label>
-				<input type="text" id="username">
-				</p>
-				<p>Passwords much match</p>
-				<p>
-				<label for="password">Password:</label>
-				<input type="password" id="password">
-				</p>
-				<p>
-				<label for="retype">Re-type Password:</label>
-				<input type="password" id="retype">
-				</p>
-				<p>
-				<label for="email">Email:</label>
-				<input type="email" id="email">
-				</p>
-				<p>
-				<label for="phone">Phone:</label>
-				<input type="tel" id="phone">
-				</p>
-			</fieldset>
-
-
+	&lt;legend&gt;Create a User Account&lt;/legend&gt;
+	&lt;p&gt;
+		&lt;label for="username"&gt;Username:&lt;/label&gt;
+		&lt;input type="text" id="username"&gt;
+	&lt;/p&gt;
+	&lt;p id="passmatch"&gt;Passwords much match&lt;/p&gt;
+	&lt;p&gt;
+		&lt;label for="password"&gt;Password:&lt;/label&gt;
+		&lt;input type="password" id="password" aria-describedby="passmatch"&gt;
+	&lt;/p&gt;
+	&lt;p&gt;
+		&lt;label for="retype"&gt;Re-type Password:&lt;/label&gt;
+		&lt;input type="password" id="retype" aria-describedby="passmatch"&gt;
+	&lt;/p&gt;
+	&lt;p&gt;
+		&lt;label for="email"&gt;Email:&lt;/label&gt;
+		&lt;input type="email" id="email"&gt;
+	&lt;/p&gt;
+	&lt;p&gt;
+		&lt;label for="phone"&gt;Phone:&lt;/label&gt;
+		&lt;input type="tel" id="phone"&gt;
+	&lt;/p&gt;
+&lt;/fieldset&gt;</code></pre>
+							<p class="wb-inv">Code ends</p>
+						</details>
+					</div>		
+				</div>
+			<div class="panel panel-danger mrgn-tp-lg">
+				<div class="panel-body">
+					<h4 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Instructions in a paragraph not associated with a control</h4>
+						<p>When instructions are in a &lt;p&gt; element not associated via aria-describedby, they’re easily missed by users navigating the form in the screen reader’s “forms mode”. </p>
+				<div class="panel panel-default well well-sm">
+					<fieldset>
+						<legend> 
+						Create a User Account
+						</legend>
+						<p>
+						<label for="username">Username:</label>
+						<input type="text" id="username">
+						</p>
+						<p>Passwords much match</p>
+						<p>
+						<label for="password">Password:</label>
+						<input type="password" id="password">
+						</p>
+						<p>
+						<label for="retype">Re-type Password:</label>
+						<input type="password" id="retype">
+						</p>
+						<p>
+						<label for="email">Email:</label>
+						<input type="email" id="email">
+						</p>
+						<p>
+						<label for="phone">Phone:</label>
+						<input type="tel" id="phone">
+						</p>
+					</fieldset>
 			</div>
 
 			<details class="mrgn-tp-sm">
@@ -474,7 +505,7 @@ Create a User Account
 					<div class="panel panel-success mrgn-tp-lg">
 	    <div class="panel-body">
 		
-		  <h2 class="text-success mrgn-tp-0 h3" id="providing-form-instructions-aria"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good Example: Shared instructions associated with multiple form fields</h2>
+		  <h2 class="text-success mrgn-tp-0 h3" id="providing-form-instructions-aria"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Shared instructions associated with multiple form fields</h2>
 			<p>In some situations, shared instructions can be associated with multiple form fields.</p>
 			<div class="panel panel-default well well-sm">
 			<fieldset>
@@ -535,7 +566,7 @@ Create a User Account
 
 <div class="panel panel-danger mrgn-tp-lg">
 			<div class="panel-body">
-				<h4 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad Example: Instructions for groups are not programmatically determinable</h4>
+				<h4 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Instructions for groups are not programmatically determinable</h4>
 					<p>In this example, the instruction “Choose accounts below to complete your funds transfer” is an image of text lacking a text alternative. Also, the instruction is not associated with the fieldset.</p>
 			<div class="panel panel-default well well-sm">
 			<form action="/action.php method="get">
@@ -601,8 +632,8 @@ Create a User Account
 <div class="panel panel-success mrgn-tp-lg">
 	    <div class="panel-body">
 		
-		  <h2 class="text-success mrgn-tp-0 h3" id="providing-form-instructions-aria"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good Example: Provide instructions in plain text before the form</h2>
-			<p>In this example, general form instructions precede the opening <form> tag, where screen reader users can easily access them. If the plain text instructions were inside the &lt;form&gt; element, users could easily miss them since navigation inside a form is limited to focusable elements (aka ”forms mode”).</p>
+		  <h2 class="text-success mrgn-tp-0 h3" id="providing-form-instructions-aria"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Provide instructions in plain text before the form</h2>
+			<p>In this example, general form instructions precede the opening &gt;form&gt; tag, where screen reader users can easily access them. If the plain text instructions were inside the &lt;form&gt; element, users could easily miss them since navigation inside a form is limited to focusable elements (aka ”forms mode”).</p>
 			<div class="panel panel-default well well-sm">
 			<p>
 			<strong>Choose the source and destination accounts below to complete your funds transfer:</strong>
@@ -772,6 +803,7 @@ Create a User Account
 			</section>
 	</nav>
 </div>
+
 
 <div id="def-preFooter2"></div>
 		<script src="../../../scripts/preFooter2.min.js"></script>

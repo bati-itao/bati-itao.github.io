@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Pratique exemplaire - Module 8 - Zoom et conception adaptée</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Summary of best practices in Module 8 – Conception adaptée and zoom">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.appTop({
+                "appName": [{
+                    "text": "EDSC / Bureau de l’accessibilité des TI",
+                    "href": "../../../index-fr.html"
+                }],
+               "breadcrumbs" : [{
+                    "title": "Accueil",
+                    "href" : "../../../index-fr.html"
+                },{
+                    "title": "Apprentissage",
+                    "href" : "../../index-fr.html"
+                },
+            {
+                    "title": "Cours d'accessibilité Web",
+                    "href" : "../index-fr.html"
+                },
+            {
+                    "title": "Module 8 - Zoom et conception adaptée",
+                    "href" : "index-fr.html"
+                }],
+            "lngLinks": [{
+                "lang": "en",
+                "href": "best-practice.html",
+                "text": "English"
+            }],
+            "menuPath": "../../../ajax/menu-en.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+			
+	<h1 property="name" id="wb-cont">Pratique exemplaire</h1>
+						
+	<nav role="navigation">
+    <div class="panel panel-default mrgn-tp-md">
+      <header class="panel-heading">
+        <h2 class="panel-title">Table of contents</h2>
+      </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#bp-zoom">Pratique exemplaire: Zoom</a></li>
+			<li><a href="#bp-design">Pratique exemplaire: Conception adaptée</a></li>
+			<li><a href="#bp-forms">Pratique exemplaire: Formulaires adaptés</a></li>
+			<li><a href="#bp-images">Pratique exemplaire: Images adaptées</a></li>
+			<li><a href="#bp-text">Pratique exemplaire: Texte adapté</a></li>
+			<li><a href="#bp-objects">Pratique exemplaire: Objets et modules d’extension adaptés</a></li>
+			<li><a href="#bp-tables">Pratique exemplaire: Tableaux adaptés</a></li>
+			<li><a href="#bp-uicomp">Pratique exemplaire: Composantes d’interface utilisateur adaptées</a></li>
+			<li><a href="#bp-videos">Pratique exemplaire: Vidéo adaptées</a></li>
+			<li><a href="#bp-orientation">Pratique exemplaire: Orientation</a></li>
+          </ul>
+        </div>
+      </div>
+	</nav>
+	
+	<section>
+		<h3 id="bp-zoom">Pratique exemplaire: Zoom</h3>
+		<p>Content should appear in a single column with no horizontal scrolling and no loss of information or functionality when adjusting your browser window:</p>
+		<ul>
+			<li>to 320 pixels wide by 256 pixels high, or </li>
+			<li>to 1280 pixels wide by 1024 pixels high then zooming the content to 400%. </li>
+		</ul>
+		<p>Implement a responsive design.</p>
+		<p>When designing content to reflow in a single column:</p>
+		<ul>
+			<li>The main content fills the viewport.</li>
+			<li>Horizontal scrolling doesn’t happen.</li>
+			<li>Avoid using multiple columns. The short line length is hard to read.</li>
+			<li>Avoid using CSS floats. They also create short line length, unless the floated element is very small.</li>
+			<li>Avoid using CSS fixed widths and minimum widths. They tend to cause horizontal scrolling.</li>
+		</ul>
+	</section>
+	<section>
+		<h3 id="bp-design">Pratique exemplaire: Conception adaptée</h3>
+		<ul>
+			<li>Use CSS “media queries” to determine user's screen size and serve distinct layouts to different screen widths at breakpoints.</li>
+			<li>Set the viewport via the <code>&lt;meta&gt;</code> element in the head:
+				<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0; user-scalable=1"&gt;</code></pre>
+				<p class="wb-inv">Code ends</p>	
+				<ul>
+					<li><code>width=device-width</code> instructs the page to match the device's width, allowing the page to reflow content to match different screen sizes.</li>
+					<li><code>initial-scale=1.0</code> sets the default zoom level of the page.</li>
+					<li><code>maximum-scale=2.0</code> sets a maximum of 200% zoom on pinch-to-zoom on mobile.</li>
+					<li><code>user-scalable=1</code> enables the user to pinch-to-zoom on mobile.</li>
+				</ul>
+			</li>
+			<li>Test breakpoints using viewport emulators.</li>
+			<li>Users with low vision often zoom to trigger mobile layouts on large displays, enabling quite large text.</li>
+		</ul>
+	</section>
+	<section>
+		<h3 id="bp-forms">Pratique exemplaire: Formulaires adaptés</h3>
+		<p>As the viewport changes size, ensure:</p>
+		<ul>
+			<li>form fields do not overflow, and </li>
+			<li>form fields and labels are not separated by wide areas of whitespace:
+				<ul>
+					<li>In the default desktop view, labels are positioned to the left of the control, flush right. (This layout is preferred when there’s a need to conserve vertical space.) </li>
+					<li>In the small screen view, labels are positioned directly above the control, to maximize screen area for each.</li>
+					<li><mark><del>Labels are not positioned to the left, flush left.</del></mark></li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<section>
+		<h3 id="bp-images">Pratique exemplaire: Images adaptées</h3>
+		<p>images can be made responsive in one of four ways:</p>
+		<ul>
+			<li>Technique 1 – Style the image with CSS <code>width: 100%</code></li>
+			<li>Technique 2 – Style the image with CSS <code>max-width: 100%</code></li>
+			<li>Technique 3 – Serve different sizes of the image to different screen sizes using the <code>srcset</code> attribute</li>
+			<li>Technique 4 – Serve different images to different screen sizes using the <code>&lt;picture&gt;</code> element.</li>
+		</ul>
+	</section>
+	<section>
+		<h3 id="bp-text">Pratique exemplaire: Texte adapté</h3>
+		<ul>
+			<li>Text containers should resize as the viewport size changes to prevent text from overflowing the viewport. </li>
+			<li>Avoid static, fixed container sizes.</li>
+		</ul>
+	</section>
+	<section>
+		<h3 id="bp-objects">Pratique exemplaire: Objets et modules d’extension adaptés</h3>
+		<ul>
+			<li>Objects and plugins can resize as the viewport size changes so they do not overflow the viewport. </li>
+			<li>Set CSS <code>max-width="100%"</code> on the container.</li>
+			<li>Use the <code>&lt;img&gt;</code> element to embed a picture, <code>&lt;iframe&gt;</code> element to embed HTML, and <code>&lt;video&gt;</code> and <code>&lt;audio&gt;</code> elements to embed media content.</li>
+		</ul>
+	</section>
+	<section>
+		<h3 id="bp-tables">Pratique exemplaire: Tableaux adaptés</h3>
+		<ul>
+			<li>Tableaux adaptés resize as the viewport size changes to ensure they do not require horizontal scrolling.</li>
+			<li>For tables with a few columns, give each column a percentage width and give the table a <code>max-width</code> of 100%. </li>
+			<li>Large tables require transforming and reorganizing the table into one column. <strong>Note that the Government of Canada does not require responsive tables.</strong></li>
+		</ul>
+	</section>
+	<section>
+		<h3 id="bp-uicomp">Pratique exemplaire: Composantes d’interface utilisateur adaptées</h3>
+		<p>Page UI Components reorder and resize to maintain readability.</p>
+	</section>
+	<section>
+		<h3 id="bp-videos">Pratique exemplaire: Vidéo adaptées</h3>
+		<p>Videos resize as the viewport size changes so they do not overflow the viewport. Either:</p>
+		<ul>
+			<li>set the CSS <code>max-width:100%</code> property on the video’s container element, or</li>
+			<li>set the CSS <code>width: 100%</code> property on the video element.</li>
+		</ul>
+		<p>Static sizing can break page layouts.</p>
+	</section>
+	<section>
+		<h3 id="bp-orientation">Pratique exemplaire: Orientation</h3>
+		<ul>
+			<li>Enable users to view your content in the orientation (portrait or landscape) they prefer. </li>
+			<li>Do not restrict the page orientation.</li>
+		</ul>
+	</section>
+		
+	<nav role="navigation">
+		<h2 class="wb-inv">Navigation dans le document</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="orientation-fr.html">Précédent - Orientation</a></li>
+		</ul>
+	</nav>
+	</main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 8 - Zoom et conception adaptée</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
+						<li><a class="list-group-item" href="zoom-fr.html">Zoom</a></li>
+						<li><a class="list-group-item" href="responsive-design-fr.html">Conception adaptée</a></li>
+						<li><a class="list-group-item" href="responsive-forms-fr.html">Formulaires adaptés</a></li>
+						<li><a class="list-group-item" href="responsive-images-fr.html">Images adaptées</a></li>
+						<li><a class="list-group-item" href="responsive-text-fr.html">Texte adapté</a></li>
+						<li><a class="list-group-item" href="responsive-objects-fr.html">Objets et modules d’extension adaptés</a></li>
+						<li><a class="list-group-item" href="responsive-tables-fr.html">Tableaux adaptés</a></li>
+						<li><a class="list-group-item" href="responsive-ui-fr.html">Composantes d’interface utilisateur adaptées</a></li>
+						<li><a class="list-group-item" href="responsive-video-fr.html">Vidéo adaptée</a></li>
+						<li><a class="list-group-item" href="orientation-fr.html">Orientation</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="best-practice-fr.html">Pratique exemplaire</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Tous les modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/index-fr.html">Module 2 – Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/index-fr.html">Module 3 – Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/index-fr.html">Module 4 – Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/index-fr.html">Module 5 – Images</a></li>
+                        <li><a class="list-group-item" href="../module6/index-fr.html">Module 6 – Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/index-fr.html">Module 7 – Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item active" href="index-fr.html">Module 8 – Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+                     </ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>
