@@ -78,7 +78,7 @@
 			<li><a href="#aria-labelledby">Good example: Using aria-labelledby to concatenate a label from several sources</a></li>
 			  <li><a href="#aria-labelledby-concatenate">Good example: Using aria-labelledby to concatenate a label from several sources</a></li>
 			  <li><a href="#labelling-buttons">Good example: Labelling buttons</a></li>
-			  <li><a href="#labelling-image-button">Labelling image button using aria-label attribute</a></li>
+			  <li><a href="#labelling-image-button">Good example: Labelling image button using aria-label attribute</a></li>
 
 			  <li><a href="#wcag-resources">Related WCAG resources</a></li>
           </ul>
@@ -92,43 +92,43 @@
 				<p> Follow these best practices for labeling controls: </p>
 				<ul>
 				  <li>Provide labels to describe the purpose of the form control. </li>
-				  <li>Use the &lt;label&gt; element. </li>
+				  <li>Use the <code>&lt;label&gt;</code> element. </li>
 				  <li>Match exactly the <code>for</code> attribute of the label with the <code>id</code> attribute of the form control to explicitly associate them. </li>
 				  <li>Elements that use explicitly associated labels are: 
 				    <ul>
-				      <li>input type=&quot;text&quot; </li>
-				      <li>input type=&quot;checkbox&quot; </li>
-				      <li>input type=&quot;radio&quot; </li>
-				      <li>input type=&quot;file&quot; (file-select fields) </li>
-				      <li>input type=&quot;password&quot; </li>
-				      <li>textarea </li>
-				      <li>Select (drop-down lists) </li>
+				      <li><code>&lt;input type=&quot;text&quot;&gt;</code></li>
+				      <li><code>&lt;input type=&quot;checkbox&quot;&gt;</code></li>
+				      <li><code>&lt;input type=&quot;radio&quot;&gt;</code></li>
+				      <li><code>&lt;input type=&quot;file&quot;&gt;</code> (file-select fields)</li>
+				      <li><code>&lt;input type=&quot;password&quot;&gt;</code></li>
+				      <li><code>&lt;textarea&gt;</code></li>
+				      <li><code>&lt;select&gt;</code> (drop-down lists)</li>
 			        </ul>
 			      </li>
-				  <li>Do not use the &lt;label&gt; element for the following elements. 
+				  <li>Do not use the <code>&lt;label&gt;</code> element for the following elements. 
 				    <ul>
-				      <li>Submit and Reset buttons (input type=&quot;submit&quot; or input type=&quot;reset&quot;) 
+				      <li>Submit and Reset buttons (<code>&lt;input type=&quot;submit&quot;&gt;</code> or <code>&lt;input type=&quot;reset&quot;&gt;</code>) 
 				        <ul>
-				          <li>Label provided by the value attribute </li>
+				          <li>Label provided by the <code>value</code> attribute. </li>
 			            </ul>
 				      </li>
-				      <li>Image buttons (input type=&quot;image&quot;) 
+				      <li>Image buttons (<code>&lt;input type=&quot;image&quot;&gt;</code>) 
 				        <ul>
-				          <li>Label provided by the alt attribute</li>
+				          <li>Label provided by the <code>alt</code> attribute.</li>
 			            </ul>
 				      </li>
-				      <li>Hidden input fields (input type=&quot;hidden&quot;) </li>
-				      <li>Buttons (button elements or &lt;input type=&quot;button&quot;&gt;) 
+				      <li>Hidden input fields (<code>&lt;input type=&quot;hidden&quot;&gt;</code>) </li>
+				      <li>Buttons (<code>&lt;button&gt;</code> elements or <code>&lt;input type=&quot;button&quot;&gt;</code>) 
 				        <ul>
-				          <li>Label provided by the element content itself (button) or the value, aria-label, or aria-labelledby attribute</li>
+				          <li>Label provided by the element content itself (<code>&lt;button&gt;</code><mark><ins>label text&lt;button&gt;</ins></mark>) or the <code>value</code>, <code>aria-label</code>, or <code>aria-labelledby</code> attribute.</li>
 			            </ul>
 				      </li>
 			        </ul>
 				  </li>
-				  <li>Use ARIA labels (aria-labelledby and aria-label attributes) when it is not possible to use &lt;label&gt; </li>
+				  <li>Use ARIA labels (<code>aria-labelledby</code> and <code>aria-label</code> attributes) when it is not possible to use <code>&lt;label&gt;</code> </li>
                   <li>When using ARIA labels, include any visible text in the control label. </li>
-                  <li>Use the aria-labelledby attribute to retrieve a label from the context, drawing on one or more elements in the context. </li>
-                  <li>Avoid using the title attribute to identify form controls. It is not widely supported by AT.</li>
+                  <li>Use the <code>aria-labelledby</code> attribute to retrieve a label from the context, drawing on one or more elements in the context. </li>
+                  <li>Avoid using the <code>title</code> attribute to identify form controls. It is not widely supported by AT.</li>
                   <li>Keep label text short and concise. </li>
                   <li>Use unique label text on a page. </li>
                   <li>Position labels visually to the right of radio buttons and checkboxes.</li>
@@ -144,34 +144,30 @@
 					<div class="panel-body">
 		
 					  <h2 class="text-success mrgn-tp-0 h3" id="labels-attributes"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Associating labels explicitly using for/id attributes</h2>
-						<p>Use the &lt;label&gt; element to associate text with form elements explicitly, whenever possible. The &ldquo;for&rdquo; attribute of the label must exactly match the &ldquo;id&rdquo; of the form control. Prioritize using the HTML &lt;label&gt; element to associate form controls before using ARIA.</p>
+						<p>Use the <code>&lt;label&gt;</code> element to associate text with form elements explicitly, whenever possible. The <code>for</code> attribute of the label must exactly match the <code>id</code> attribute of the form control. Prioritize using the HTML <code>&lt;label&gt;</code> element to associate form controls before using ARIA.</p>
 						<div class="panel panel-default well well-sm col-md-7">
 							<div class="panel-body mrgn-bttm-0">
 	
 								<div class="form-group">
-								<label for="firstname">First name:</label> 
-<input type="text" name="firstname" id="firstname">
-</div>
+									<label for="firstname">First name:</label> 
+									<input type="text" name="firstname" id="firstname">
+								</div>
 								<div class="form-group">
-<input type="checkbox" name="married" id="married"> 
-<label for="married">Married</label>
-									 </div>
-		</div>
-					  </div>
+									<input type="checkbox" name="married" id="married"> 
+									<label for="married">Married</label>
+								</div>
+							</div>
+						</div>
 						<div class="clearfix"></div>		
 								
-					<details class="mrgn-tp-sm">
-							<summary class="bg-info">View HTML </summary>
-							<p class="wb-inv">Code begins</p>
-							
-							<pre><code class="language-html">&lt;label for="firstname"&gt;First name:&lt;/label&gt;
+						<p class="wb-inv">Code begins</p>
+						
+						<pre><code class="language-html">&lt;label for="firstname"&gt;First name:&lt;/label&gt;
 &lt;input type="text" name="firstname" id="firstname"&gt;
 &lt;br&gt;
 &lt;input type="checkbox" name="married" id="married"&gt;
-&lt;label for="married"&gt;Married&lt;/label&gt;</code>
-</pre>
-<p class="wb-inv">Code ends</p>
-						</details>	
+&lt;label for="married"&gt;Married&lt;/label&gt;</code></pre>
+						<p class="wb-inv">Code ends</p>
           
 					</div>
 				</div>
@@ -182,24 +178,22 @@
 				  <div class="panel-body">
 		
 					  <h2 class="text-success mrgn-tp-0 h3" id="hiding-label-element"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Visually hiding the label element</h2>
-						<p>Visually hide the label element to avoid redundancy for users who can identify the purpose visually. In this example, The WET class .wb-inv effectively hides the label “Search” from sighted users but the element is still in the HTML and is encountered by assistive technology users.</p>
+						<p>Visually hide the label element to avoid redundancy for users who can identify the purpose visually. In this example, The WET class <code>.wb-inv</code> effectively hides the label “Search” from sighted users but the element is still in the HTML and is encountered by assistive technology users.</p>
 						<div class="panel panel-default well well-sm col-md-7">
 							<div class="panel-body mrgn-bttm-0">
-								
-							<label for="search" class="wb-inv">Search</label> 
-<input type="text" name="search" id="search"> 
-<button type="submit">Search</button>
-</div>
+								<label for="search" class="wb-inv">Search</label> 
+								<input type="text" name="search" id="search"> 
+								<button type="submit">Search</button>
+							</div>
 					  </div>
-		<div class="clearfix"></div>
-					<details class="mrgn-tp-sm">
-							<summary class="bg-info">View HTML </summary>
-							<p class="wb-inv">Code begins</p>
-							<pre><code class="language-html">&lt;label for="search" class="wb-inv"&gt;Search&lt;/label&gt; 
+					<div class="clearfix"></div>
+
+					<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;label for="search" class="wb-inv"&gt;Search&lt;/label&gt; 
 &lt;input type="text" name="search" id="search"&gt; 
 &lt;button type="submit"&gt;Search&lt;/button&gt;</code>
 </pre>
-CSS:
+
 <pre><code class="language-css">.wb-inv {
     clip: rect(1px,1px,1px,1px);
     height: 1px;
@@ -210,9 +204,9 @@ CSS:
 }</code>
 </pre>
 <p class="wb-inv">Code ends</p>
-					  </details>					 
+					 				 
 										 
-					<p class="mrgn-tp-md">Use the WET class .wb-inv to visually-hide an element, as per the WET style guide: <a href="https://wet-boew.github.io/wet-boew-styleguide/design/visible-en.html">https://wet-boew.github.io/wet-boew-styleguide/design/visible-en.html</a></p>
+					<p class="mrgn-tp-md">Use the WET class <code>.wb-inv</code> to visually-hide an element, as per the WET style guide: <a href="https://wet-boew.github.io/wet-boew-styleguide/design/visible-en.html">https://wet-boew.github.io/wet-boew-styleguide/design/visible-en.html</a></p>
 </div>
 				</div>
 			</section>
