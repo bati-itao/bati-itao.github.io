@@ -106,18 +106,24 @@
 			<li>the 'prefers-reduced-motion' CSS Media Query is set to 'reduce', and </li>
 			<li>the user-agent or operating system has the reduced motion feature set.</li>
 		</ul>
-		<p>Example: Motion triggered by user interaction</p>
-		<p>CSS</p>
-		<p>button:focus, button:hover {</p>
-		<p>animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;</p>
-		<p>}</p>
-		<p>@media (prefers-reduced-motion: reduce) {</p>
-		<p>button:focus, button:hover {</p>
-		<p>animation: none;</p>
-		<p>}</p>
-		<p>}</p>
+		<p><a href="https://www.w3.org/WAI/WCAG21/working-examples/css-reduced-motion-query/">Example: Motion triggered by user interaction</a></p>
+
+		<p class="wb-inv">Code begins</p>
+						
+<pre><code class="language-css">
+		
+		button:focus, button:hover {
+		animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+		}
+		@media (prefers-reduced-motion: reduce) {
+		button:focus, button:hover {
+		animation: none;
+		}
+	}
+</code>
+</pre>
 		<p>Note that Windows 10 has the option to turn off “Show animations in Windows”</p>
-		<img src="images/image18.png" class="img-responsive" alt=":Screenshot of Windows 10 Ease of Access settings, with the option turned off for &#34;Show animations in Windows&#34;">
+		<img src="images/image18.png" class="img-responsive" alt="Screenshot of Windows 10 Ease of Access settings, with the option turned off for &#34;Show animations in Windows&#34;">
 		<p>Figure: The Show animations in Windows option is turned off in the Windows 10 Ease of Access settings, under Display &gt; Simplify and personalise Windows.</p>
 				</div>
 			</div>	
@@ -129,14 +135,14 @@
 		<ul>
 			<li>Avoid parallax scrolling or provide a control for user to turn it off. </li>
 			<li>Keyboard users must be able to access the hidden area of a parallax scrolling area and use all of the features of the web page.</li>
-			<li>If in CSS the hidden content is set to display: none, keyboard users may not be able to access the hidden parts of the content.</li>
+			<li>If in CSS the hidden content is set to <b>display: none</b>, keyboard users may not be able to access the hidden parts of the content.</li>
 			<li>The text must be readable against the background and must pass the WCAG contrast guidelines of 4.5 to 1 for small text or 3:1 for large or bold text.</li>
 		</ul>
 		<div class="panel panel-danger mrgn-tp-lg">
 			<div class="panel-body">
 				<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Using Parallax scrolling.
 				</h3>
-				<img src="images/image19.png" class="img-responsive" alt="">
+				<img src="images/image19.png" class="img-responsive" alt="using parallax scrolling">
 		<p>Source URL:<a href="https://techbing.com/training/parallax.html">https://techbing.com/training/parallax.html</a></p>
 			</div>
 		</div>
