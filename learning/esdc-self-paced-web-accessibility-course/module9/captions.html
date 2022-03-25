@@ -62,7 +62,8 @@
 	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
 			
 	<h1 property="name" id="wb-cont">Captions</h1>
-						
+	<p><mark>French: sections are reordered</mark></p>
+	
 	<nav role="navigation" aria-labelledby="nav-table">
     <div class="panel panel-default mrgn-tp-md">
       <header class="panel-heading">
@@ -73,16 +74,16 @@
             <li><a href="#captions-overview">Captions (overview)</a></li>
 			<li><a href="#caps-subtitles">Captions vs subtitles</a></li>
 			<li><a href="#need-captions">Do you need captions?</a></li>
-			<li><a href="#live-captions">Live captions</a></li>
-			<li><a href="#pre-recordedvideo">Captions for pre-recorded video with audio</a></li>
-			<li><a href="#auto-captions">Automatic captions</a></li>
-			<li><a href="#styling-captions">Presenting and styling captions</a></li>
-			<li><a href="#custom-captions">Customizing captions</a></li>
-			<li><a href="#file-formats">Caption file formats</a></li>
-			<li><a href="#track-element">Using the &lt;track&gt; element</a></li>
 			<li><a href="#captions-include">What is included in captions?</a></li>
+			<li><a href="#live-captions">Live captions</a></li>
+			<li><a href="#auto-captions">Automatic captions</a></li>
+			<li><a href="#file-formats">Caption file formats</a></li>		
+			<li><a href="#pre-recordedvideo">Examples of captions for pre-recorded video with audio</a></li>
+			<li><a href="#track-element">Using the &lt;track&gt; element</a></li>
 			<li><a href="#youtube-captions">Adding captions on YouTube platform</a></li>
 			<li><a href="#microsoft-captions">Adding captions on Microsoft Stream platform</a></li>
+			<li><a href="#styling-captions">Presenting and styling captions</a></li>
+			<li><a href="#custom-captions">Customizing captions</a></li>
 			<li><a href="#resources1">Related WCAG resources</a></li>
           </ul>
         </div>
@@ -130,6 +131,11 @@
 				</ul>
 			</section>
 			
+			<section>
+				<h2 id="captions-include">What is included in captions?</h2>
+				<p>For what to include in captions, see the <mark><del>section</del> <ins>page</ins></mark> <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module9/transcribing-audio.html">Transcribing Audio to text</a>.</p>
+			</section>
+
 			<section>				
 				<h2 id="live-captions">Live captions</h2>
 				<p>Communication Access Realtime Translation (CART) is the live, word-for-word transcription of speech to text so that individuals can read what is being said in group settings. A professional CART writer transcribes the spoken word into written English or French text using a stenotype machine, laptop and real-time software. The text is then displayed on a secure website, laptop computer or projected onto a large screen.</p>
@@ -158,9 +164,226 @@
 					</div>
 				</div>
 			</section>
+			
+			<section>
+				<h2 id="auto-captions">Automatic captions</h2>
+				<p>Automatic captions typically provide about 60-70% accuracy, which fails WCAG 2.1: if the "captions" do not include all the dialogue (either verbatim or in essence) as well as all important sounds then the captions are not real captions.</p>
+				<p>However, automatic captions can be used as a starting point for developing accurate captions and transcripts.</p>
+			</section>
+
+			<section>
+				<h2 id="file-formats">Caption file formats</h2>
+				<p>There are many caption file formats. These three are supported by the WET media player and the MS Stream video player, between them:</p>
+				<ul>
+					<li><strong>HTML5 data</strong>: a custom solution used by the WET media player that combines captions and descriptive transcript in one source. See <a href="#pre-recordedvideo"> Good example: Captions <mark><del>for pre-recorded video with audio</del> using inline HTML</mark></a>, below.</li>
+					<li><strong>TTML</strong>: supported by the WET media player. <mark>See <a href="#example-ttml">Good example: Captions using TTML</a>, below.</mark></li>
+					<li><strong>WebVTT</strong>: supported by Microsoft Stream (the only format it supports). WebVTT is also the standard format recommended by the HTML5 specification. <mark>See <a href="#example-vtt">Good example: WebVTT caption file format</a>, below.</mark></li>
+				</ul>
+				<p>You can use this free <a href="https://gotranscript.com/subtitle-converter">online subtitle converter</a> to convert different caption file formats.</p>
+				<p>Basic file formats require only time codes. Advanced file formats provide more control over the styling and positioning of your captions. </p>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">Basic file formats</summary>
+					<p>The basic file types have no styling.</p>
+					<table class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th scope="col">
+									<p>Format name</p>
+								</th>
+								<th scope="col">
+									<p>File extension</p>
+								</th>
+								<th scope="col">
+									<p>More info</p>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">
+									<p>
+										<a href="http://en.wikipedia.org/wiki/SubRip">SubRip</a>
+									</p>
+								</th>
+								<td>
+									<p>.srt</p>
+								</td>
+								<td>
+									<p>Only basic versions of these files are supported. No style info (markup) is recognized. The file must be in plain UTF-8.</p>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<p>
+										<a href="http://en.wikipedia.org/wiki/SubViewer">SubViewer</a>
+									</p>
+								</th>
+								<td>
+									<p>.sbv or .sub</p>
+								</td>
+								<td>
+									<p>Only basic versions of these files are supported. No style info (markup) is recognized. The file must be in plain UTF-8.</p>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<p>
+										<a href="http://www.mplayerhq.hu/DOCS/tech/mpsub.sub">MPsub</a> (MPlayer subtitle)</p>
+								</th>
+								<td>
+									<p>.mpsub</p>
+								</td>
+								<td>
+									<p>"FORMAT=" parameter is supported.</p>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<p>
+										<a href="http://en.wikipedia.org/wiki/LRC_(file_format)">LRC</a>
+									</p>
+								</th>
+								<td>
+									<p>.lrc</p>
+								</td>
+								<td>
+									<p>No style info (markup) is recognized</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</details>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">Advanced file formats</summary>
+					<p>Use these file formats if you want to have more control over the styling (markup) or positioning of your captions.</p>
+					<table class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th scope="col">
+									<p>Format name</p>
+								</th>
+								<th scope="col">
+									<p>File extension</p>
+								</th>
+								<th scope="col">
+									<p>More info</p>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">
+									<p>SAMI (Synchronized Accessible Media Interchange)</p>
+								</th>
+								<td>
+									<p>.smi or .sami</p>
+								</td>
+								<td>
+									<p>Only timecodes, text, and simple markup (<code>&lt;b&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;u&gt;</code>, and the <code>color</code> attribute within a <code>&lt;font&gt;</code>) are supported. Positioning is not supported.</p>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<p>RealText</p>
+								</th>
+								<td>
+									<p>.rt</p>
+								</td>
+								<td>
+									<p>Only timecodes, text, and simple markup (<code>&lt;b&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;u&gt;</code>, and the <code>color</code> attribute within a <code>&lt;font&gt;</code>) are supported. Positioning is not supported.</p>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<p>
+										<a href="http://dev.w3.org/html5/webvtt/">WebVTT</a>
+									</p>
+								</th>
+								<td>
+									<p>.vtt</p>
+								</td>
+								<td>
+									<p>In initial implementation. Positioning is supported, but styling is limited to <code>&lt;b&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;u&gt;</code> since CSS class names are not yet standardized.</p>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<p>
+										<a href="http://www.w3.org/TR/ttaf1-dfxp/">TTML</a> (Timed-Text Markup Language)</p>
+								</th>
+								<td>
+									<p>.ttml</p>
+								</td>
+								<td>
+									<p>In partial implementation. SMPTE-TT extensions supported for <a href="http://en.wikipedia.org/wiki/EIA-608">CEA-608</a> features. iTunes Timed Text (iTT) file format is supported; iTT is a subset of <a href="http://www.w3.org/TR/2010/CR-ttaf1-dfxp-20100223/">TTML, Version 1.0</a>. Styling and positioning aresupported.</p>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<p>
+										<a href="http://www.w3.org/TR/ttaf1-dfxp/">DFXP</a> (Distribution Format Exchange Profile)</p>
+								</td>
+								<td>
+									<p>.ttml or .dfxp</p>
+								</td>
+								<td>
+									<p>These files types are interpreted as TTML files.</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</details>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0" id="example-vtt"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: WebVTT caption file format</h3>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p>WEBVTT</p>
+								<p>00:02.500 --&gt; 00:06.340</p>
+								<p>&lt;v Eric&gt;Hi, my name is Eric, and I'm a Service Canada employee.</p>
+								<p>00:06.340 --&gt; 00:08.210</p>
+								<p>&lt;v Eric&gt;You may have heard the old saying that,</p>
+								<p>00:08.21 --&gt; 00:10.040</p>
+								<p>&lt;v Eric&gt;when you're out of work, finding a job is your </p>
+								<p>00:10.040 --&gt; 00:11.75</p>
+								<p>&lt;v Eric&gt;full-time occupation.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-success">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: TTML caption file format</h3>
+						<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-md"><code class="language-xml">&lt;tt xmlns="http://www.w3.org/2006/10/ttaf1" xmlns:tts="http://www.w3.org/2006/10/ttaf1#style" xml:lang="en"&gt;
+   &lt;head&gt;
+      &lt;styling&gt;
+         &lt;style id="defaultSpeaker" tts:fontSize="12" tts:fontFamily="Arial" tts:fontWeight="normal" tts:fontStyle="normal" tts:textDecoration="none" tts:color="white" tts:backgroundColor="black" tts:textAlign="center"/&gt;
+         &lt;style id="defaultCaption" tts:fontSize="12" tts:fontFamily="Arial" tts:fontWeight="normal" tts:fontStyle="normal" tts:textDecoration="none" tts:color="white" tts:backgroundColor="black" tts:textAlign="center"/&gt;
+      &lt;/styling&gt;
+   &lt;/head&gt;
+   &lt;body style="defaultCaption" id="thebody" xml:id="b1"&gt;
+      &lt;div begin="1.40s" dur="3.33s"&gt;
+         Hi, my name is Eric, and I'm a Service Canada employee.
+      &lt;/div&gt;
+      &lt;div begin="4.73s" dur="2.73s"&gt;
+         Each and every day, Canadians are improving their job
+      &lt;/div&gt;
+      &lt;div begin="7.46s" dur="2.14s"&gt;
+         skills or changing their career paths.
+      &lt;/div&gt;
+      &lt;div begin="9.60s" dur="1.66s"&gt;
+         Are you thinking about taking that step?
+      &lt;/div&gt;
+      […]
+   &lt;/body&gt;
+&lt;/tt&gt;</code></pre>
+					</div>
+				</div>
+			</section>
 
 			<section>				
-				<h2 id="pre-recordedvideo">Captions for pre-recorded video with audio</h2>
+				<h2 id="pre-recordedvideo">Examples of captions for pre-recorded video with audio</h2>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0" id="example-inline"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Captions <mark><del>for pre-recorded video with audio (</del><ins>using </ins>inline HTML<del>)</del></mark></h3>
@@ -169,7 +392,7 @@
 							<li><code>&lt;p&gt;</code> elements holding descriptive transcript take the <code>class="wet-boew-vd"</code> attribute.</li>
 							<li><code>&lt;span&gt;</code> elements holding captions take the <code>class="wd-tmtxt"</code>, <code>data-begin</code> and <code>data-dur</code> attributes. JavaScript identifies captions by these attributes and displays the captions dynamically in a <code>&lt;div&gt;</code> element directly below the video.</li>
 						</ul>
-						<p>The WET Media Player is described in the section <a href="media-player.html">Media Player Accessibility</a>. </p>
+						<p>The WET Media Player is described <mark><del>in the section</del><ins>on the page</ins></mark> <a href="media-player.html">Media Player Accessibility</a>. </p>
 						<figure class="wb-mltmd">
 							<video poster="https://wet-boew.github.io/v4.0-ci/demos/multimedia/demo/video1-en.jpg" title="Looking for a Job">
 							  <source type="video/mp4" src="https://wet-boew.github.io/wet-boew-attachments/videos/video1-en.mp4" />
@@ -251,18 +474,30 @@
       &lt;details id="inline-captions"&gt;
          &lt;summary&gt;Looking for a Job - HTML5 Transcript/Captions&lt;/summary&gt;
          &lt;p class="wet-boew-vd"&gt;
-            &lt;strong&gt;(Animated pen draws a red line that leads into the text Looking for A Job)&lt;/strong&gt;
+            &lt;strong&gt;
+               (Animated pen draws a red line that leads into the text Looking for A Job)
+            &lt;/strong&gt;
          &lt;/p&gt;
          &lt;p class="wet-boew-vd"&gt;
-            &lt;strong&gt;(Cut to a medium shot of the Host. LINE DRAWING GRAPHIC: Stick person appears and waves.)&lt;/strong&gt;
+            &lt;strong&gt;
+               (Cut to a medium shot of the Host. LINE DRAWING GRAPHIC: Stick person appears and waves.)
+            &lt;/strong&gt;
          &lt;/p&gt;
          &lt;p&gt;
-            &lt;span class="wb-tmtxt" data-begin="2.50s" data-dur="3.84s"&gt;Hi, my name is Eric, and I'm a Service Canada employee.&lt;/span&gt;
+            &lt;span class="wb-tmtxt" data-begin="2.50s" data-dur="3.84s"&gt;
+               Hi, my name is Eric, and I'm a Service Canada employee.
+            &lt;/span&gt;
          &lt;/p&gt;
          &lt;p&gt;
-            &lt;span class="wb-tmtxt" data-begin="6.34s" data-dur="1.87s"&gt;You may have heard the old saying that, &lt;/span&gt;
-            &lt;span class="wb-tmtxt" data-begin="8.21s" data-dur="1.84s"&gt;when you&#39;re out of work, finding a job is your &lt;/span&gt;
-            &lt;span class="wb-tmtxt" data-begin="10.04s" data-dur="1.70s"&gt;full-time occupation.&lt;/span&gt;
+            &lt;span class="wb-tmtxt" data-begin="6.34s" data-dur="1.87s"&gt;
+               You may have heard the old saying that, 
+            &lt;/span&gt;
+            &lt;span class="wb-tmtxt" data-begin="8.21s" data-dur="1.84s"&gt;
+               when you&#39;re out of work, finding a job is your 
+            &lt;/span&gt;
+            &lt;span class="wb-tmtxt" data-begin="10.04s" data-dur="1.70s"&gt;
+               full-time occupation.
+            &lt;/span&gt;
          &lt;/p&gt;
          […]
       &lt;/details&gt;
@@ -375,264 +610,6 @@
 			</section>
 
 			<section>
-				<h2 id="auto-captions">Automatic captions</h2>
-				<p>Automatic captions typically provide about 60-70% accuracy, which fails WCAG 2.1: if the "captions" do not include all the dialogue (either verbatim or in essence) as well as all important sounds then the captions are not real captions.</p>
-				<p>However, automatic captions can be used as a starting point for developing accurate captions and transcripts.</p>
-			</section>
-			
-			<section>
-				<h2 id="styling-captions">Presenting and styling captions</h2>
-				<p>Requirements for presenting and styling captions consist mostly of community best practice rather than WCAG Success Criteria or Techniques. Only the 3:1 contrast ratio is required to meet a WCAG Success Criterion. </p>
-				<p>This is a shortlist of requirements. The <a href="https://dcmp.org/learn/captioningkey/">Captioning Key</a> website offers more best practice for presenting and styling captions.</p>
-				<ul>
-					<li>Captions are synchronized with the audio.</li>
-					<li>Captions are typed in mixed case letters.</li>
-					<li>Captions use no more than three lines at a time.</li>
-					<li>Put a new sentence on a new line.</li>
-					<li>Maximum number of characters per line is 32 characters.</li>
-					<li>Insert caption line breaks at logical points rather than in the middle of a phrase.</li>
-					<li>Default colors are white text on a black background.</li>
-					<li>Default color contrast ratio between font color and background color is a minimum of 3:1 (font size at least 18 points).</li>
-					<li>Default font size is at least 22pt.</li>
-					<li>Position captions to not obscure on-screen text, people’s faces and other important visual information.</li>
-					<li>Ensure a minimum of 1.5 seconds gap in between captions.</li>
-					<li>Remove captions from long silent intervals. Captions have a maximum duration of 6 seconds.</li>
-				</ul>
-			</section>
-
-			<section>
-				<h2 id="custom-captions">Customizing captions</h2>
-				<p>Users can customize the visual appearance of captions in the operating system. Some media players also support customization. </p>
-				<div class="panel panel-success">
-					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Captions styling in Windows</h3>
-						<div class="panel panel-primary mrgn-tp-md">
-							<div class="panel-body well mrgn-bttm-0">
-								<img src="images/image6.png" class="img-responsive" alt="captions styling in windows used under setting to customize the visual appearcne of captions in the operating system">
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="panel panel-success">
-					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Captions styling in MAC</h3>
-						<div class="panel panel-primary mrgn-tp-md">
-							<div class="panel-body well mrgn-bttm-0">
-								<img src="images/image7.png" class="img-responsive" alt="captions styling in MAC used under Accessibility to customize the visual appearance of subtitles and captions in the operating system">
-							</div>
-						</div>
-					</div>
-				</div>
-			
-			</section>
-			
-			<section>
-				<h2 id="file-formats">Caption file formats</h2>
-				<p>There are many caption file formats. These three are supported by the WET media player and the MS Stream video player, between them:</p>
-				<ul>
-					<li>HTML5 data: a custom solution used by the WET media player that combines captions and descriptive transcript in one source. See <a href="#pre-recordedvideo"> Good example: Captions <mark><del>for pre-recorded video with audio</del> using inline HTML</mark></a>, above.</li>
-					<li>TTML: supported by the WET media player. <mark>See <a href="#example-ttml">Good example: Captions using TTML</a>, above.</mark></li>
-					<li>WebVTT: supported by Microsoft Stream (the only format it supports). WebVTT is also the standard format recommended by the HTML5 specification. <mark>See <a href="#example-vtt">Good example: WebVTT caption file format</a>, below.</mark></li>
-				</ul>
-				<p>You can use this free <a href="https://gotranscript.com/subtitle-converter">online subtitle converter</a> to convert different caption file formats.</p>
-				<p>Basic file formats require only time codes. These advanced file formats provide more control over the styling and positioning of your captions. </p>
-				<h3>Basic file formats</h3>
-				<p>The basic file types have no styling.</p>
-				<table class="table table-bordered table-hover">
-					<thead>
-						<tr>
-							<th scope="col">
-								<p>Format name</p>
-							</th>
-							<th scope="col">
-								<p>File extension</p>
-							</th>
-							<th scope="col">
-								<p>More info</p>
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th scope="row">
-								<p>
-									<a href="http://en.wikipedia.org/wiki/SubRip">SubRip</a>
-								</p>
-							</th>
-							<td>
-								<p>.srt</p>
-							</td>
-							<td>
-								<p>Only basic versions of these files are supported. No style info (markup) is recognized. The file must be in plain UTF-8.</p>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">
-								<p>
-									<a href="http://en.wikipedia.org/wiki/SubViewer">SubViewer</a>
-								</p>
-							</th>
-							<td>
-								<p>.sbv or .sub</p>
-							</td>
-							<td>
-								<p>Only basic versions of these files are supported. No style info (markup) is recognized. The file must be in plain UTF-8.</p>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">
-								<p>
-									<a href="http://www.mplayerhq.hu/DOCS/tech/mpsub.sub">MPsub</a> (MPlayer subtitle)</p>
-							</th>
-							<td>
-								<p>.mpsub</p>
-							</td>
-							<td>
-								<p>"FORMAT=" parameter is supported.</p>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">
-								<p>
-									<a href="http://en.wikipedia.org/wiki/LRC_(file_format)">LRC</a>
-								</p>
-							</th>
-							<td>
-								<p>.lrc</p>
-							</td>
-							<td>
-								<p>No style info (markup) is recognized</p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<h3>Advanced file formats</h3>
-				<p>Use these file formats if you want to have more control over the styling (markup) or positioning of your captions.</p>
-				<table class="table table-bordered table-hover">
-					<thead>
-						<tr>
-							<th scope="col">
-								<p>Format name</p>
-							</th>
-							<th scope="col">
-								<p>File extension</p>
-							</th>
-							<th scope="col">
-								<p>More info</p>
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th scope="row">
-								<p>SAMI (Synchronized Accessible Media Interchange)</p>
-							</th>
-							<td>
-								<p>.smi or .sami</p>
-							</td>
-							<td>
-								<p>Only timecodes, text, and simple markup (&lt;b&gt;, &lt;i&gt;, &lt;u&gt;, and thecolor= attribute within a &lt;font&gt;) are supported. Positioning is not supported.</p>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">
-								<p>RealText</p>
-							</th>
-							<td>
-								<p>.rt</p>
-							</td>
-							<td>
-								<p>Only timecodes, text, and simple markup (<code>&lt;b&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;u&gt;</code>, and the <code>color</code> attribute within a <code>&lt;font&gt;</code>) are supported. Positioning is not supported.</p>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">
-								<p>
-									<a href="http://dev.w3.org/html5/webvtt/">WebVTT</a>
-								</p>
-							</th>
-							<td>
-								<p>.vtt</p>
-							</td>
-							<td>
-								<p>In initial implementation. Positioning is supported, but styling is limited to <code>&lt;b&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;u&gt;</code> since CSS class names are not yet standardized.</p>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">
-								<p>
-									<a href="http://www.w3.org/TR/ttaf1-dfxp/">TTML</a> (Timed-Text Markup Language)</p>
-							</th>
-							<td>
-								<p>.ttml</p>
-							</td>
-							<td>
-								<p>In partial implementation. SMPTE-TT extensions supported for <a href="http://en.wikipedia.org/wiki/EIA-608">CEA-608</a> features. iTunes Timed Text (iTT) file format is supported; iTT is a subset of <a href="http://www.w3.org/TR/2010/CR-ttaf1-dfxp-20100223/">TTML, Version 1.0</a>. Styling and positioning aresupported.</p>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">
-								<p>
-									<a href="http://www.w3.org/TR/ttaf1-dfxp/">DFXP</a> (Distribution Format Exchange Profile)</p>
-							</td>
-							<td>
-								<p>.ttml or .dfxp</p>
-							</td>
-							<td>
-								<p>These files types are interpreted as TTML files.</p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<div class="panel panel-success">
-					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0" id="example-vtt"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: WebVTT caption file format</h3>
-						<div class="panel panel-primary mrgn-tp-md">
-							<div class="panel-body well mrgn-bttm-0">
-								<p>WEBVTT</p>
-								<p>00:02.500 --&gt; 00:06.340</p>
-								<p>&lt;v Eric&gt;Hi, my name is Eric, and I'm a Service Canada employee.</p>
-								<p>00:06.340 --&gt; 00:08.210</p>
-								<p>&lt;v Eric&gt;You may have heard the old saying that,</p>
-								<p>00:08.21 --&gt; 00:10.040</p>
-								<p>&lt;v Eric&gt;when you're out of work, finding a job is your </p>
-								<p>00:10.040 --&gt; 00:11.75</p>
-								<p>&lt;v Eric&gt;full-time occupation.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="panel panel-success">
-					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: TTML caption file format</h3>
-						<p class="wb-inv">Code begins</p>
-<pre class="mrgn-tp-md"><code class="language-xml">&lt;tt xmlns="http://www.w3.org/2006/10/ttaf1" xmlns:tts="http://www.w3.org/2006/10/ttaf1#style" xml:lang="en"&gt;
-   &lt;head&gt;
-      &lt;styling&gt;
-         &lt;style id="defaultSpeaker" tts:fontSize="12" tts:fontFamily="Arial" tts:fontWeight="normal" tts:fontStyle="normal" tts:textDecoration="none" tts:color="white" tts:backgroundColor="black" tts:textAlign="center"/&gt;
-         &lt;style id="defaultCaption" tts:fontSize="12" tts:fontFamily="Arial" tts:fontWeight="normal" tts:fontStyle="normal" tts:textDecoration="none" tts:color="white" tts:backgroundColor="black" tts:textAlign="center"/&gt;
-      &lt;/styling&gt;
-   &lt;/head&gt;
-   &lt;body style="defaultCaption" id="thebody" xml:id="b1"&gt;
-      &lt;div begin="1.40s" dur="3.33s"&gt;
-         Hi, my name is Eric, and I'm a Service Canada employee.
-      &lt;/div&gt;
-      &lt;div begin="4.73s" dur="2.73s"&gt;
-         Each and every day, Canadians are improving their job
-      &lt;/div&gt;
-      &lt;div begin="7.46s" dur="2.14s"&gt;
-         skills or changing their career paths.
-      &lt;/div&gt;
-      &lt;div begin="9.60s" dur="1.66s"&gt;
-         Are you thinking about taking that step?
-      &lt;/div&gt;
-      […]
-   &lt;/body&gt;
-&lt;/tt&gt;</code></pre>
-					</div>
-				</div>
-			</section>
-			<section>
 				<h2 id="track-element">Using the &lt;track&gt; element</h2>
 				<p>The <code>&lt;track&gt;</code> element lets you specify timed text tracks for an <code>&lt;audio&gt;</code> or <code>&lt;video&gt;</code> element.</p>
 				<p class="wb-inv">Code begins</p>
@@ -683,13 +660,8 @@
 						</ul>
 					</dd>
 				  </dl>	
-
-			<section>
-				<h2 id="captions-include">What is included in captions?</h2>
-				<p>For what to include in captions, see the section <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module9/transcribing-audio.html">Transcribing Audio to text</a>.</p>
-
 			</section>
-
+			
 			<section>
 				<h2 id="youtube-captions">Adding captions on YouTube platform</h2>
 				<p>You can add captions to YouTube videos by uploading a caption file:</p>
@@ -722,7 +694,52 @@
 				</ul>
 				
 			</section>
+			
+			<section>
+				<h2 id="styling-captions">Presenting and styling captions</h2>
+				<p>Requirements for presenting and styling captions consist mostly of community best practice rather than WCAG Success Criteria or Techniques. Only the 3:1 contrast ratio is required to meet a WCAG Success Criterion. </p>
+				<p>This is a shortlist of requirements. The <a href="https://dcmp.org/learn/captioningkey/">Captioning Key</a> website offers more best practice for presenting and styling captions.</p>
+				<ul>
+					<li>Captions are synchronized with the audio.</li>
+					<li>Captions are typed in mixed case letters.</li>
+					<li>Captions use no more than three lines at a time.</li>
+					<li>Put a new sentence on a new line.</li>
+					<li>Maximum number of characters per line is 32 characters.</li>
+					<li>Insert caption line breaks at logical points rather than in the middle of a phrase.</li>
+					<li>Default colors are white text on a black background.</li>
+					<li>Default color contrast ratio between font color and background color is a minimum of 3:1 (font size at least 18 points).</li>
+					<li>Default font size is at least 22pt.</li>
+					<li>Position captions to not obscure on-screen text, people’s faces and other important visual information.</li>
+					<li>Ensure a minimum of 1.5 seconds gap in between captions.</li>
+					<li>Remove captions from long silent intervals. Captions have a maximum duration of 6 seconds.</li>
+				</ul>
+			</section>
 
+			<section>
+				<h2 id="custom-captions">Customizing captions</h2>
+				<p>Users can customize the visual appearance of captions in the operating system. Some media players also support customization. </p>
+				<div class="panel panel-success">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Captions styling in Windows</h3>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<img src="images/image6.png" class="img-responsive" alt="captions styling in windows used under setting to customize the visual appearcne of captions in the operating system">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-success">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Captions styling in MAC</h3>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<img src="images/image7.png" class="img-responsive" alt="captions styling in MAC used under Accessibility to customize the visual appearance of subtitles and captions in the operating system">
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			</section>
 			
 			<section>				
 				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
