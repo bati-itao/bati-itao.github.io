@@ -144,7 +144,7 @@
 				<p>When CART is provided remotely, the CART writer attends the meeting from an off-site location to listen and transcribe. The text is streamed to a secure website for viewing. Multiple users can simultaneously login to the secure website to display the text on their computers, tablets or mobile devices.</p>
 				<p>The live captioned text can be saved and edited for use as a captions file for any posted video recordings.</p>
 				<p>Live automated captions are also available in Microsoft Teams meetings. Teams can detect what is said in a meeting, and present real-time automated captions. To use live captions in a meeting, go to your meeting controls and select the <strong>More options</strong> button … &gt; <strong>Turn on live captions</strong>. </p>
-				<p>See <a href="#auto-captions">automated captions</a> section below.</p>
+				<p>See the <a href="#auto-captions">Automated captions</a> section, below.</p>
 				<div class="panel panel-primary mrgn-tp-md">
 					<div class="panel-body well mrgn-bttm-0">
 						<img src="images/meeting-policies-live-captions.png" class="img-responsive" alt="Screenshot of MS Teams meeting’s call controls to show the option to turn on live captions">
@@ -167,8 +167,9 @@
 			
 			<section>
 				<h2 id="auto-captions">Automatic captions</h2>
-				<p>Automatic captions typically provide about 60-70% accuracy, which fails WCAG 2.1: if the "captions" do not include all the dialogue (either verbatim or in essence) as well as all important sounds then the captions are not real captions.</p>
-				<p>However, automatic captions can be used as a starting point for developing accurate captions and transcripts.</p>
+				<p><a href="https://www.edaud.org/journal/2021/1-article-21.pdf">2021 research into the accuracy of contemporary automated text-to-speech captioning</a> concluded the rate is greater than 90%, with Google and Microsoft producing accuracy rates greater than 95%.</p>
+				<p><mark><ins>However, even 95% captioning accuracy fails WCAG 2.1</ins> <del>Automatic captions typically provide about 60-70% accuracy, which fails WCAG 2.1</del></mark>: if the "captions" do not include all the dialogue (either verbatim or in essence) as well as all important sounds then the captions are not real captions.</p>
+				<p>However, automatic captions can be used as a starting point for developing accurate captions and transcripts <mark>for pre-recorded media</mark>.</p>
 			</section>
 
 			<section>
@@ -613,13 +614,15 @@
 				<h2 id="track-element">Using the &lt;track&gt; element</h2>
 				<p>The <code>&lt;track&gt;</code> element lets you specify timed text tracks for an <code>&lt;audio&gt;</code> or <code>&lt;video&gt;</code> element.</p>
 				<p class="wb-inv">Code begins</p>
-<pre class="mrgn-tp-md"><code class="language-html">&lt;video controls src="/videos/compliance.mp4"&gt;
+<pre class="mrgn-tp-md"><code class="language-html">&lt;video controls&gt;
+   &lt;source src="/videos/compliance.mp4" type="video/mp4"&gt;
    &lt;track 
       default
       kind="captions"
       srclang="en"
       src="/videos/tracks/compliance.vtt"/&gt;
 &lt;/video&gt;</code></pre>
+
 				<p class="wb-inv">Code ends</p>
 				<h3>Attributes</h3>
 				<dl>
