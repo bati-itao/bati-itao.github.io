@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Pratique exemplaire - Module 9 - Audio, vidéo, animations et mouvement</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Summary of best practices in Module 9 - Audio, Video, Animations and Motion">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.appTop({
+                "appName": [{
+                    "text": "EDSC / Bureau de l’accessibilité des TI",
+                    "href": "../../../index-fr.html"
+                }],
+               "breadcrumbs" : [{
+                    "title": "Accueil",
+                    "href" : "../../../index-fr.html"
+                },{
+                    "title": "Apprentissage",
+                    "href" : "../../index-fr.html"
+                },
+            {
+                    "title": "Cours d'accessibilité Web",
+                    "href" : "../index-fr.html"
+                },
+            {
+                    "title": "Module 9 - Audio, vidéo, animations et mouvement",
+                    "href" : "index-fr.html"
+                }],
+            "lngLinks": [{
+                "lang": "en",
+                "href": "best-practice.html",
+                "text": "English"
+            }],
+            "menuPath": "../../../ajax/menu-fr.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+			
+	<h1 property="name" id="wb-cont">Pratique exemplaire</h1>
+						
+	<nav role="navigation" aria-labelledby="nav-table">
+    <div class="panel panel-default mrgn-tp-md">
+      <header class="panel-heading">
+        <h2 id="nav-table" class="panel-title">Table des matières</h2>
+      </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#captions">Pratique exemplaire: Sous-titres</a></li>
+			<li><a href="#transcripts">Pratique exemplaire: Transcriptions</a></li>
+			<li><a href="#transcribing-audio-to-text">Pratique exemplaire: Transcription de l’audio en texte</a></li>
+			<li><a href="#description-of-visual-information">Pratique exemplaire: Description de l’information visuelle</a></li>
+			<li><a href="#media-player-accessibility">Pratique exemplaire: Accessibilité du lecteur multimédia</a></li>
+			<li><a href="#flashing-content">Pratique exemplaire: Contenu clignotant</a></li>
+			<li><a href="#animation-and-motion">Pratique exemplaire: Animations et mouvements</a></li>
+			<li><a href="#play-stop-hide">Pratique exemplaire: Mettre en pause, arrêter ou masquer</a></li>
+          </ul>
+        </div>
+      </div>
+	</nav>
+	
+	<section>
+		<h2 id="captions">Pratique exemplaire: Sous-titres</h2>
+		<ul>
+			<li>Provide captions for pre-recorded and live video with audio</li>
+			<li>Use <code>&lt;track&gt;</code> element to specify timed text tracks for &lt;audio&gt; or &lt;video&gt; elements. </li>
+			<li>Sous-titres are synchronized with the audio.</li>
+			<li>Sous-titres are typed in mixed case letters.</li>
+			<li>Sous-titres use no more than three lines at a time.</li>
+			<li>Put a new sentence on a new line.</li>
+			<li>Maximum number of characters per line is 32 characters.</li>
+			<li>Insert caption line breaks at logical points rather than in the middle of a phrase.</li>
+			<li>Default colors are white text on a black background.</li>
+			<li>Default color contrast ratio between font color and background color is a minimum of 3:1 (font size at least 18 points).</li>
+			<li>Default font size is at least 22pt.</li>
+			<li>Position captions to not obscure on-screen text, people’s faces and other important visual information.</li>
+			<li>Ensure a minimum of 1.5 seconds gap in between captions.</li>
+			<li>Remove captions from long silent intervals. Sous-titres have a maximum duration of 6 seconds.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="transcripts">Pratique exemplaire: Transcriptions</h2>
+		<ul>
+			<li>Basic transcripts are a text version of the speech and non-speech audio information. </li>
+			<li>Descriptive transcripts also include text description of the visual information.</li>
+			<li>Provide descriptive transcripts for pre-recorded video with audio</li>
+			<li>Provide descriptive transcripts or audio description for pre-recorded video-only</li>
+			<li>Provide basic transcript for pre-recorded audio-only</li>
+			<li>Provide basic transcript or captions for live audio-only</li>
+			<li>Interactive transcripts enable a user to click a phrase anywhere in the transcript to navigate to that exact point in the video (or audio). Interactive transcripts are built from timed text files specified in the &lt;track&gt; element.</li>
+			<li>Position the transcript or a link to it directly below or adjacent to the media player.</li>
+			<li>If the transcript is on another page, provide a link back to the audio or video file.</li>
+			<li>Provide the transcript in HTML for maximum accessibility to people and to search engines.</li>
+			<li>If working with a captions file, combine several lines into sensible paragraphs.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="transcribing-audio-to-text">Pratique exemplaire: Transcription de l’audio en texte</h2>
+		<ul>
+			<li>Transcription best practice is nearly identical for captions and transcripts.</li>
+			<li>When transcribing, the goal is accuracy:
+				<ul>
+					<li>Never paraphrase or omit words (and do not censor).</li>
+					<li>Never substitute words.</li>
+					<li>Never rearrange the order of speech.</li>
+					<li>Never correct or edit a speaker’s grammar.</li>
+					<li>Never provide clarifying information in the captions (you may in the transcript).</li>
+				</ul>
+			</li>
+			<li>Transcribe all speech and non-speech sounds (laughs, groans, sighs, screams, car backfiring, footsteps approaching, distant roaring)</li>
+			<li>Identify the speakers. Use the full name the first time and single name otherwise. If a speaker is not identified, use Speaker + number (e.g, Speaker 1, Speaker 2) or use a role/title without a number (e.g., interviewer, Doctor)</li>
+			<li>Exclude non-relevant speech and non-relevant background noise.</li>
+			<li>Do not reveal intentionally held information before the appropriate time.</li>
+			<li>Include relevant information about the speech, e.g., (whispering), (mouthing).</li>
+			<li>Put non-speech sounds in parenthesis, italics, lowercase, and with a space before and after, e.g., ( <i>chatter in distance</i> )</li>
+			<li>Use punctuation to convey emphasis.</li>
+			<li>For interrupted speech, use a dash at the end of the line.</li>
+			<li>Use all capital letters only to indicate yelling.</li>
+			<li>When the speech is unintelligible or inaudible, transcribe [inaudible]</li>
+			<li>Indicate large silences as (silence).</li>
+			<li>Include background music if it’s important to understand the content:
+			<li>Identify music with the uppercase label MUSIC (or a verb implying music), followed by a colon and the title in quotation marks followed by the artist.</li>
+			<li>Transcribe important lyrics with musical notes to either side, e.g.,
+				<blockquote class="mrgn-bttm-sm">
+					<p>♪ A long, long time ago ♪</p>
+				</blockquote>
+			</li>
+			<li>Describe music that’s not part of the action but sets the mood, e.g., 
+				<blockquote>
+					<p>♪ scary music ♪</p>
+				</blockquote>
+			</li>
+			<li>Best practices unique to transcripts:</li>
+			<li>For descriptive transcripts, include all relevant audio information as well as description of all relevant visual information.</li>
+			<li>If your transcript is generated from timed text files ensure descriptions fit into gaps in the main audio, or use a player that can pause the video during the description.</li>
+			<li>Transcriptions include onscreen text in videos. Sous-titres do not include onscreen text.</li>
+			<li>Ensure transcripts identify the source of sounds, rather than just describing them. </li>
+			<li>In some cases, such as legal depositions, the transcript must be verbatim, including ums, ahs, and indicating pauses.</li>
+			<li>Headings, topics and links can make the transcript more usable.</li>
+			<li>Include timestamps only when useful.</li>
+			<li>Add a timestamp to inaudible audio.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="description-of-visual-information">Pratique exemplaire: Description de l’information visuelle</h2>
+		<ul>
+			<li>Provide audio description for pre-recorded video with audio.</li>
+			<li>Provide audio description or a descriptive transcript for video-only</li>
+			<li>Design new videos with integrated descriptions (script includes all relevant visual information) to avoid the need for audio description</li>
+			<li>Make sure the important visual elements are described appropriately and objectively to understand what the video is communicating.</li>
+			<li>Write description of visual information in present tense, using an active voice and a third-person narrative style.</li>
+			<li>Make sure to include all text, e.g., title text at the beginning, links and email addresses, speaker’s names, and text in a presentation.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="media-player-accessibility">Pratique exemplaire: Accessibilité du lecteur multimédia</h2>
+		<p>The ideal media player provides built-in support for captions, audio descriptions, and transcripts.  </p>
+		<p>Keyboard accessibility:</p>
+		<ul>
+			<li>All controls can receive focus via the tab key.</li>
+			<li>Controls have a visible keyboard focus indicator. </li>
+			<li>The tab order of controls matches the visual order, left to right.</li>
+			<li>All controls are operable by keyboard.</li>
+			<li>Text, controls, and backgrounds have sufficient contrast between colors.</li>
+		</ul>
+		<p>Screen reader accessibility:</p>
+		<ul>
+			<li>Each control presents to screen readers its name and role, and value if one or more is set.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="flashing-content">Pratique exemplaire: Contenu clignotant</h2>
+		<p>Ensure flashing content:</p>
+		<ul>
+			<li>Does not flash more than 3 times per second.</li>
+			<li>Is not larger than 21,824 sq pixels.</li>
+			<li>Does not have high contrast. </li>
+		</ul>
+		<p>Assess flashing content using a tool such as the <a href="http://trace.umd.edu/peat">Photosensitive Epilepsy Analysis Tool (PEAT).</a></p>
+	</section>
+	<section>
+		<h2 id="animation-and-motion">Pratique exemplaire: Animations et mouvements</h2>
+		<ul>
+			<li>Allow users to turn off motion animations.</li>
+			<li>Avoid using unnecessary animations.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="play-stop-hide">Pratique exemplaire: Mettre en pause, arrêter ou masquer</h2>
+		<ul>
+			<li>For any moving, blinking and scrolling information that starts automatically, lasts more than five seconds, and is presented in parallel with other content, provide the user a way to pause, stop or hide it. </li>
+			<li>For auto-updating information, provide a way for the user to pause, stop or hide the content. Or, provide a way for the user to control the frequency of the update. </li>
+			<li>A keyboard accessible “pause button” or other mechanisms can be used to pause the content.</li>
+			<li>Avoid unnecessary moving, blinking, scrolling or auto-updating content.</li>
+		</ul>
+	</section>
+		
+		
+	<nav role="navigation" aria-labelledby="nav-document">
+		<h2 id="nav-document" class="wb-inv">Navigation dans le document</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="pause-stop-hide-fr.html">Précédent - Mettre en pause, arrêter ou masquer</a></li>
+		</ul>
+	</nav>
+	</main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation" aria-labelledby="wb-sec-h">	
+		<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 9 - Audio, vidéo, animations et mouvement</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
+						<li><a class="list-group-item" href="policy-matrix-fr.html">Matrice des politiques sur le multimédia</a></li>
+						<li><a class="list-group-item" href="captions-fr.html">Sous-titres</a></li>
+						<li><a class="list-group-item" href="transcripts-fr.html">Transcriptions</a></li>
+						<li><a class="list-group-item" href="transcribing-audio-fr.html">Transcription de l’audio en texte</a></li>
+						<li><a class="list-group-item" href="description-visual-fr.html">Description de l’information visuelle</a></li>
+						<li><a class="list-group-item" href="sign-language-fr.html">Langue des signes</a></li>
+						<li><a class="list-group-item" href="media-player-fr.html">Accessibilité du lecteur multimédia</a></li>
+						<li><a class="list-group-item" href="flashing-content-fr.html">Contenu clignotant</a></li>
+						<li><a class="list-group-item" href="animation-motion-fr.html">Animations et mouvements</a></li>
+						<li><a class="list-group-item" href="pause-stop-hide-fr.html">Mettre en pause, arrêter ou masquer</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="best-practice-fr.html">Pratique exemplaire</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Tous les modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/index-fr.html">Module 2 - Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/index-fr.html">Module 3 - Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/index-fr.html">Module 4 - Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/index-fr.html">Module 5 - Images</a></li>
+                        <li><a class="list-group-item" href="../module6/index-fr.html">Module 6 - Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/index-fr.html">Module 7 - Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item" href="../module8/index-fr.html">Module 8 - Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item active" href="index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+                     </ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>

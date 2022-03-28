@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Sous-titres - Module 9 - Audio, vidéo, animations et mouvement</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Accessibility guidelines related to captions. Sous-titres are a text version of the speech and other audio information needed to understand the content.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.appTop({
+                "appName": [{
+                    "text": "EDSC / Bureau de l’accessibilité des TI",
+                    "href": "../../../index-fr.html"
+                }],
+               "breadcrumbs" : [{
+                    "title": "Accueil",
+                    "href" : "../../../index-fr.html"
+                },{
+                    "title": "Apprentissage",
+                    "href" : "../../index-fr.html"
+                },
+            {
+                    "title": "Cours d'accessibilité Web",
+                    "href" : "../index-fr.html"
+                },
+            {
+                    "title": "Module 9 - Audio, vidéo, animations et mouvement",
+                    "href" : "index-fr.html"
+                }],
+            "lngLinks": [{
+                "lang": "en",
+                "href": "captions.html",
+                "text": "English"
+            }],
+            "menuPath": "../../../ajax/menu-fr.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+			
+	<h1 property="name" id="wb-cont">Sous-titres</h1>
+	<p><mark>French: sections are reordered</mark></p>
+	
+	<nav role="navigation" aria-labelledby="nav-table">
+    <div class="panel panel-default mrgn-tp-md">
+      <header class="panel-heading">
+        <h2 id="nav-table" class="panel-title">Table des matières</h2>
+      </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#captions-overview">Sous-titres (overview)</a></li>
+			<li><a href="#caps-subtitles">Sous-titres vs subtitles</a></li>
+			<li><a href="#need-captions">Do you need captions?</a></li>
+			<li><a href="#captions-include">What is included in captions?</a></li>
+			<li><a href="#live-captions">Live captions</a></li>
+			<li><a href="#auto-captions">Automatic captions</a></li>
+			<li><a href="#file-formats">Caption file formats</a></li>		
+			<li><a href="#pre-recordedvideo">Examples of captions for pre-recorded video with audio</a></li>
+			<li><a href="#track-element">Using the &lt;track&gt; element</a></li>
+			<li><a href="#youtube-captions">Adding captions on YouTube platform</a></li>
+			<li><a href="#microsoft-captions">Adding captions on Microsoft Stream platform</a></li>
+			<li><a href="#styling-captions">Presenting and styling captions</a></li>
+			<li><a href="#custom-captions">Customizing captions</a></li>
+			<li><a href="#resources1">Related WCAG resources</a></li>
+          </ul>
+        </div>
+      </div>
+	</nav>
+	
+			<section>				
+				<h2 id="captions-overview">Sous-titres (overview)</h2>
+				<p>Sous-titres are a text version of the speech and other audio information needed to understand the content. They are synchronized with the audio and usually shown in a media player when users turn them on. Sous-titres benefit users who are deaf, users who are hard of hearing and users who have difficulty processing auditory information. Sous-titres are also used by people without disabilities in a variety of situations:</p>
+				<ul>
+					<li>In loud environments where users cannot hear the audio.</li>
+					<li>In quiet environments where users cannot turn on sounds.</li>
+					<li>By users who understand the written language better than the spoken language.</li>
+					<li>By users learning to read a new language.</li>
+					<li>To better understand content with redundant audio and text, helping users focus and retain information.</li>
+					<li>To help locate the document via search. Closed captions are indexed by search engines, making the page more findable.</li>
+				</ul>
+				<p>Sous-titres are usually shown in a media player when users turn them on, called “closed captions”. They can also be “open captions”, which are always displayed and can’t be turned off (or customized).</p>
+				
+			</section>
+			
+			<section>				
+				<h2 id="caps-subtitles">Sous-titres vs subtitles</h2>
+				<p>The terms “captions” and “subtitles” are used differently in different parts of the world. For our purposes:</p>
+				<ul>
+					<li>Sous-titres convey spoken dialogue and other audio information needed to understand the content, including sound effects, music, laughter, speaker identification and location. They’re usually in the same language as the spoken audio, but translations can be offered on separate captions tracks.</li>
+					<li>Subtitles convey only the spoken dialogue, aimed at hearing people who have difficulty understanding the language of the video. They’re often a translation to a different language. </li>
+				</ul>
+				<p>Subtitles and captions are both implemented with a <code>&lt;track&gt;</code> element (of <code>kind</code> “captions” or “subtitles”) referencing a timed text file (see <a href="#track-element">Using the &lt;track&gt; element</a>, below).</p>
+				
+			</section>
+			
+			<section>				
+				<h2 id="need-captions">Do you need captions?</h2>
+				<p>For pre-recorded media:</p>
+				<ul>
+					<li>Video with audio requires captions. </li>
+					<li>Video-only content has no audio information needing captions (not applicable).</li>
+					<li>Audio-only content does not require captions; it does require a transcript.</li>
+				</ul>
+				<p>For live media broadcasts on the web:</p>
+				<ul>
+					<li>Video with audio requires captions.</li>
+					<li>Audio-only content requires captions or a transcript.</li>
+				</ul>
+			</section>
+			
+			<section>
+				<h2 id="captions-include">What is included in captions?</h2>
+				<p>For what to include in captions, see the <mark><del>section</del> <ins>page</ins></mark> <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module9/transcribing-audio-fr.html">Transcribing Audio to text</a>.</p>
+			</section>
+
+			<section>				
+				<h2 id="live-captions">Live captions</h2>
+				<p>Communication Access Realtime Translation (CART) is the live, word-for-word transcription of speech to text so that individuals can read what is being said in group settings. A professional CART writer transcribes the spoken word into written English or French text using a stenotype machine, laptop and real-time software. The text is then displayed on a secure website, laptop computer or projected onto a large screen.</p>
+				<p>CART services are typically provided on-site at live training, meetings, events, conventions and conferences. </p>
+				<p>However, CART services can also be provided remotely for events like web casts.</p>
+				<p>When CART is provided remotely, the CART writer attends the meeting from an off-site location to listen and transcribe. The text is streamed to a secure website for viewing. Multiple users can simultaneously login to the secure website to display the text on their computers, tablets or mobile devices.</p>
+				<p>The live captioned text can be saved and edited for use as a captions file for any posted video recordings.</p>
+				<p>Live automated captions are also available in Microsoft Teams meetings. Teams can detect what is said in a meeting, and present real-time automated captions. To use live captions in a meeting, go to your meeting controls and select the <strong>More options</strong> button … &gt; <strong>Turn on live captions</strong>. </p>
+				<p>See the <a href="#auto-captions">Automated captions</a> section, below.</p>
+				<div class="panel panel-primary mrgn-tp-md">
+					<div class="panel-body well mrgn-bttm-0">
+						<img src="images/meeting-policies-live-captions.png" class="img-responsive" alt="Screenshot of MS Teams meeting’s call controls to show the option to turn on live captions">
+					</div>
+				</div>
+				<hr/>
+				<p class="small"><mark>MS Teams screenshot from Iowa Unversity, <a href="https://its.uiowa.edu/support/article/118491">Closed Captioning in Microsoft Teams</mark></a>.</p>
+				<div class="panel panel-danger">
+					<div class="panel-body">
+						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad example: Live announcement without captions</h3>
+						<p>This example illustrates the inconvenience with regards to live announcements and challenges it could lead to for people who have difficulty hearing. This live flight announcement video does not have live captions to give the deaf audience the equivalent information.</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<img src="images/image2.png" class="img-responsive" alt="Screenshot of a live flight announcement video with no captions">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<section>
+				<h2 id="auto-captions">Automatic captions</h2>
+				<p><a href="https://www.edaud.org/journal/2021/1-article-21.pdf">2021 research into the accuracy of contemporary automated text-to-speech captioning</a> concluded the rate is greater than 90%, with Google and Microsoft producing accuracy rates greater than 95%.</p>
+				<p><mark><ins>However, even 95% captioning accuracy fails WCAG 2.1</ins> <del>Automatic captions typically provide about 60-70% accuracy, which fails WCAG 2.1</del></mark>: if the "captions" do not include all the dialogue (either verbatim or in essence) as well as all important sounds then the captions are not real captions.</p>
+				<p>However, automatic captions can be used as a starting point for developing accurate captions and transcripts <mark>for pre-recorded media</mark>.</p>
+			</section>
+
+			<section>
+				<h2 id="file-formats">Caption file formats</h2>
+				<p>There are many caption file formats. These three are supported by the WET media player and the MS Stream video player, between them:</p>
+				<ul>
+					<li><strong>HTML5 data</strong>: a custom solution used by the WET media player that combines captions and descriptive transcript in one source. See <a href="#pre-recordedvideo"> Good example: Sous-titres <mark><del>for pre-recorded video with audio</del> using inline HTML</mark></a>, below.</li>
+					<li><strong>TTML</strong>: supported by the WET media player. <mark>See <a href="#example-ttml">Good example: Sous-titres using TTML</a>, below.</mark></li>
+					<li><strong>WebVTT</strong>: supported by Microsoft Stream (the only format it supports). WebVTT is also the standard format recommended by the HTML5 specification. <mark>See <a href="#example-vtt">Good example: WebVTT caption file format</a>, below.</mark></li>
+				</ul>
+				<p>You can use this free <a href="https://gotranscript.com/subtitle-converter">online subtitle converter</a> to convert different caption file formats.</p>
+				<p>Basic file formats require only time codes. Advanced file formats provide more control over the styling and positioning of your captions. </p>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">Basic file formats</summary>
+					<p>The basic file types have no styling.</p>
+					<table class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th scope="col">
+									<p>Format name</p>
+								</th>
+								<th scope="col">
+									<p>File extension</p>
+								</th>
+								<th scope="col">
+									<p>More info</p>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">
+									<p>
+										<a href="http://en.wikipedia.org/wiki/SubRip">SubRip</a>
+									</p>
+								</th>
+								<td>
+									<p>.srt</p>
+								</td>
+								<td>
+									<p>Only basic versions of these files are supported. No style info (markup) is recognized. The file must be in plain UTF-8.</p>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<p>
+										<a href="http://en.wikipedia.org/wiki/SubViewer">SubViewer</a>
+									</p>
+								</th>
+								<td>
+									<p>.sbv or .sub</p>
+								</td>
+								<td>
+									<p>Only basic versions of these files are supported. No style info (markup) is recognized. The file must be in plain UTF-8.</p>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<p>
+										<a href="http://www.mplayerhq.hu/DOCS/tech/mpsub.sub">MPsub</a> (MPlayer subtitle)</p>
+								</th>
+								<td>
+									<p>.mpsub</p>
+								</td>
+								<td>
+									<p>"FORMAT=" parameter is supported.</p>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<p>
+										<a href="http://en.wikipedia.org/wiki/LRC_(file_format)">LRC</a>
+									</p>
+								</th>
+								<td>
+									<p>.lrc</p>
+								</td>
+								<td>
+									<p>No style info (markup) is recognized</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</details>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">Advanced file formats</summary>
+					<p>Use these file formats if you want to have more control over the styling (markup) or positioning of your captions.</p>
+					<table class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th scope="col">
+									<p>Format name</p>
+								</th>
+								<th scope="col">
+									<p>File extension</p>
+								</th>
+								<th scope="col">
+									<p>More info</p>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">
+									<p>SAMI (Synchronized Accessible Media Interchange)</p>
+								</th>
+								<td>
+									<p>.smi or .sami</p>
+								</td>
+								<td>
+									<p>Only timecodes, text, and simple markup (<code>&lt;b&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;u&gt;</code>, and the <code>color</code> attribute within a <code>&lt;font&gt;</code>) are supported. Positioning is not supported.</p>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<p>RealText</p>
+								</th>
+								<td>
+									<p>.rt</p>
+								</td>
+								<td>
+									<p>Only timecodes, text, and simple markup (<code>&lt;b&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;u&gt;</code>, and the <code>color</code> attribute within a <code>&lt;font&gt;</code>) are supported. Positioning is not supported.</p>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<p>
+										<a href="http://dev.w3.org/html5/webvtt/">WebVTT</a>
+									</p>
+								</th>
+								<td>
+									<p>.vtt</p>
+								</td>
+								<td>
+									<p>In initial implementation. Positioning is supported, but styling is limited to <code>&lt;b&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;u&gt;</code> since CSS class names are not yet standardized.</p>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<p>
+										<a href="http://www.w3.org/TR/ttaf1-dfxp/">TTML</a> (Timed-Text Markup Language)</p>
+								</th>
+								<td>
+									<p>.ttml</p>
+								</td>
+								<td>
+									<p>In partial implementation. SMPTE-TT extensions supported for <a href="http://en.wikipedia.org/wiki/EIA-608">CEA-608</a> features. iTunes Timed Text (iTT) file format is supported; iTT is a subset of <a href="http://www.w3.org/TR/2010/CR-ttaf1-dfxp-20100223/">TTML, Version 1.0</a>. Styling and positioning aresupported.</p>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									<p>
+										<a href="http://www.w3.org/TR/ttaf1-dfxp/">DFXP</a> (Distribution Format Exchange Profile)</p>
+								</td>
+								<td>
+									<p>.ttml or .dfxp</p>
+								</td>
+								<td>
+									<p>These files types are interpreted as TTML files.</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</details>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0" id="example-vtt"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: WebVTT caption file format</h3>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p>WEBVTT</p>
+								<p>00:02.500 --&gt; 00:06.340</p>
+								<p>&lt;v Eric&gt;Hi, my name is Eric, and I'm a Service Canada employee.</p>
+								<p>00:06.340 --&gt; 00:08.210</p>
+								<p>&lt;v Eric&gt;You may have heard the old saying that,</p>
+								<p>00:08.21 --&gt; 00:10.040</p>
+								<p>&lt;v Eric&gt;when you're out of work, finding a job is your </p>
+								<p>00:10.040 --&gt; 00:11.75</p>
+								<p>&lt;v Eric&gt;full-time occupation.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-success">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: TTML caption file format</h3>
+						<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-md"><code class="language-xml">&lt;tt xmlns="http://www.w3.org/2006/10/ttaf1" xmlns:tts="http://www.w3.org/2006/10/ttaf1#style" xml:lang="en"&gt;
+   &lt;head&gt;
+      &lt;styling&gt;
+         &lt;style id="defaultSpeaker" tts:fontSize="12" tts:fontFamily="Arial" tts:fontWeight="normal" tts:fontStyle="normal" tts:textDecoration="none" tts:color="white" tts:backgroundColor="black" tts:textAlign="center"/&gt;
+         &lt;style id="defaultCaption" tts:fontSize="12" tts:fontFamily="Arial" tts:fontWeight="normal" tts:fontStyle="normal" tts:textDecoration="none" tts:color="white" tts:backgroundColor="black" tts:textAlign="center"/&gt;
+      &lt;/styling&gt;
+   &lt;/head&gt;
+   &lt;body style="defaultCaption" id="thebody" xml:id="b1"&gt;
+      &lt;div begin="1.40s" dur="3.33s"&gt;
+         Hi, my name is Eric, and I'm a Service Canada employee.
+      &lt;/div&gt;
+      &lt;div begin="4.73s" dur="2.73s"&gt;
+         Each and every day, Canadians are improving their job
+      &lt;/div&gt;
+      &lt;div begin="7.46s" dur="2.14s"&gt;
+         skills or changing their career paths.
+      &lt;/div&gt;
+      &lt;div begin="9.60s" dur="1.66s"&gt;
+         Are you thinking about taking that step?
+      &lt;/div&gt;
+      […]
+   &lt;/body&gt;
+&lt;/tt&gt;</code></pre>
+					</div>
+				</div>
+			</section>
+
+			<section>				
+				<h2 id="pre-recordedvideo">Examples of captions for pre-recorded video with audio</h2>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0" id="example-inline"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Sous-titres <mark><del>for pre-recorded video with audio (</del><ins>using </ins>inline HTML<del>)</del></mark></h3>
+						<p>The WET Media Player can weave captions and descriptive transcript together inline in the HTML, in the <code>&lt;figcaption&gt;</code> element:</p>
+						<ul>
+							<li><code>&lt;p&gt;</code> elements holding descriptive transcript take the <code>class="wet-boew-vd"</code> attribute.</li>
+							<li><code>&lt;span&gt;</code> elements holding captions take the <code>class="wd-tmtxt"</code>, <code>data-begin</code> and <code>data-dur</code> attributes. JavaScript identifies captions by these attributes and displays the captions dynamically in a <code>&lt;div&gt;</code> element directly below the video.</li>
+						</ul>
+						<p>The WET Media Player is described <mark><del>in the section</del><ins>on the page</ins></mark> <a href="media-player-fr.html">Media Player Accessibility</a>. </p>
+						<figure class="wb-mltmd">
+							<video poster="https://wet-boew.github.io/v4.0-ci/demos/multimedia/demo/video1-en.jpg" title="Looking for a Job">
+							  <source type="video/mp4" src="https://wet-boew.github.io/wet-boew-attachments/videos/video1-en.mp4" />
+							  <track src="#inline-captions" kind="captions" data-type="text/html" srclang="en" label="English" />
+							</video>
+							<figcaption>
+								<details id="inline-captions">
+									<summary>Looking for a Job - HTML5 Transcript/Sous-titres</summary>
+									<p class="wet-boew-vd"><strong>(Animated pen draws a red line that leads into the text Looking for A Job)</strong></p>
+									<p class="wet-boew-vd"><strong>(Cut to a medium shot of the Host. LINE DRAWING GRAPHIC: Stick person appears and waves.)</strong></p>
+									<p><span class="wb-tmtxt" data-begin="2.50s" data-dur="3.84s">Hi, my name is Eric, and I'm a Service Canada employee.</span></p>
+									<p><span class="wb-tmtxt" data-begin="6.34s" data-dur="1.87s">You may have heard the old saying that, </span>
+									<span class="wb-tmtxt" data-begin="8.21s" data-dur="1.84s">when you&#39;re out of work, finding a job is your </span>
+									<span class="wb-tmtxt" data-begin="10.04s" data-dur="1.70s">full-time occupation.</span></p>
+									<p class="wet-boew-vd"><strong>(LINE DRAWING GRAPHIC: Stick person walks to right side of screen. Screenshot of job bank website appears in animated computer screen.)</strong></p>
+									<p><span class="wb-tmtxt" data-begin="11.75s" data-dur="2.40s">Well, there&#39;s a lot of truth to that:</span></p>
+									<p><span class="wb-tmtxt" data-begin="14.15s" data-dur="2.57s">finding a job does take time &hellip; and effort.</span></p>
+									<p class="wet-boew-vd"><strong>(LINE DRAWING GRAPHIC: Stick person rests head against computer screen in discouragement. But then perks-up.)</strong></p>
+									<p><span class="wb-tmtxt" data-begin="16.72s" data-dur="1.40s">But don&#39;t get discouraged.</span></p>
+									<p><span class="wb-tmtxt" data-begin="18.12s" data-dur="1.90s">There are a number of online tools and programs available </span>
+									<span class="wb-tmtxt" data-begin="20.02s" data-dur="1.94s">to help you find a job.</span></p>
+									<p class="wet-boew-vd"><strong>(Close-up of the Host.)</strong></p>
+									<p><span class="wb-tmtxt" data-begin="21.96s" data-dur="2.30s">No matter what you&#39;re looking for there are many Web sites </span>
+									<span class="wb-tmtxt" data-begin="24.26s" data-dur="2.37s">where employers post job notices looking for people </span>
+									<span class="wb-tmtxt" data-begin="26.63s" data-dur="1.90s">to fill vacant positions.</span></p>
+									<p class="wet-boew-vd"><strong>(Job Bank website reappears.)</strong></p>
+									<p><span class="wb-tmtxt" data-begin="28.53s" data-dur="2.34s">One of these sites is called Job Bank.</span></p>
+									<p><span class="wb-tmtxt" data-begin="30.86s" data-dur="2.17s">It&#39;s updated every day, and lists job opportunities </span>
+									<span class="wb-tmtxt" data-begin="33.03s" data-dur="2.17s">that are available across the country.</span></p>
+									<p class="wet-boew-vd"><strong>(Close-up of the screen. Stick person's profile. Words "Updated Daily" and "48 Hours" appear on screen.)</strong></p>
+									<p><span class="wb-tmtxt" data-begin="35.20s" data-dur="2.30s">Since the job ads on Job Bank are updated daily, </span>
+									<span class="wb-tmtxt" data-begin="37.50s" data-dur="2.20s">you should check them regularly.</span></p>
+									<p><span class="wb-tmtxt" data-begin="39.71s" data-dur="3.57s">And, you can search for jobs posted in the last 48 hours.</span></p>
+									<p class="wet-boew-vd"><strong>(Words "Advertise your Skills" and "Email your matches" appear on screen.)</strong></p>
+									<p><span class="wb-tmtxt" data-begin="43.28s" data-dur="2.40s">On Job Bank you can also advertise your skills, </span>
+									<span class="wb-tmtxt" data-begin="45.68s" data-dur="2.57s">and even ask them to send you e-mails when jobs </span>
+									<span class="wb-tmtxt" data-begin="48.25s" data-dur="2.34s">that match your search criteria are posted.</span></p>
+									<p class="wet-boew-vd"><strong>(Close-up of the Host. LINE DRAWING GRAPHIC: of the Parliament Building. The web address jobs.gc.ca appears in large letters on the front lawn, stick person points to words.)</strong></p>
+									<p><span class="wb-tmtxt" data-begin="50.58s" data-dur="1.80s">If you&#39;re thinking about working in the public sector, </span>
+									<span class="wb-tmtxt" data-begin="52.39s" data-dur="2.70s">jobs.gc.ca is the official Web site </span>
+									<span class="wb-tmtxt" data-begin="55.09s" data-dur="2.90s">for Government of Canada listings open to the public.</span></p>
+									<p><span class="wb-tmtxt" data-begin="57.99s" data-dur="1.57s">Keep in mind, that some departments, </span>
+									<span class="wb-tmtxt" data-begin="59.56s" data-dur="2.50s">like the Canada Revenue Agency and Parks Canada, </span>
+									<span class="wb-tmtxt" data-begin="62.06s" data-dur="2.34s">post jobs on their own sites too.</span></p>
+									<p class="wet-boew-vd"><strong>(Medium shot of the Host. LINE DRAWING GRAPHIC: stick person points to Job Bank web page, where words "User ID" and "Password" are highlighted.)</strong></p>
+									<p><span class="wb-tmtxt" data-begin="64.40s" data-dur="2.44s">When you apply for jobs, potential employers might ask </span>
+									<span class="wb-tmtxt" data-begin="66.83s" data-dur="2.34s">you to send them your r&eacute;sum&eacute; and a covering letter.</span></p>
+									<p><span class="wb-tmtxt" data-begin="69.17s" data-dur="2.17s">Of course, you&#39;ll want to make a good first impression </span>
+									<span class="wb-tmtxt" data-begin="71.34s" data-dur="2.04s">on any potential employer.</span></p>
+									<p class="wet-boew-vd"><strong>(The text R&eacute;sum&eacute; Builder appears across stick person's screen.)</strong></p>
+									<p><span class="wb-tmtxt" data-begin="73.37s" data-dur="1.57s">Here we can help too!</span></p>
+									<p><span class="wb-tmtxt" data-begin="74.94s" data-dur="1.67s">Check out our online R&eacute;sum&eacute; Builder </span>
+									<span class="wb-tmtxt" data-begin="76.61s" data-dur="1.84s">on the Job Bank Web site.</span></p>
+									<p><span class="wb-tmtxt" data-begin="78.45s" data-dur="2.04s">It can show you how to create a first-class r&eacute;sum&eacute;</span>
+									<span class="wb-tmtxt" data-begin="80.48s" data-dur="2.64s">by giving you tips and different layout options.</span></p>
+									<p class="wet-boew-vd"><strong>(Medium shot of the Host. LINE DRAWING GRAPHIC: one stick person talks to another stick person behind a desk labelled Career Counsellor.)</strong></p>
+									<p><span class="wb-tmtxt" data-begin="83.12s" data-dur="2.24s">And if you&#39;re not sure which jobs you&#39;d like to apply for, </span>
+									<span class="wb-tmtxt" data-begin="85.35s" data-dur="2.54s">check out our Career Navigator tool to explore </span>
+									<span class="wb-tmtxt" data-begin="87.89s" data-dur="2.44s">occupations that you might be interested in.</span></p>
+									<p><span class="wb-tmtxt" data-begin="90.32s" data-dur="2.90s">As well, career counsellors are usually available through </span>
+									<span class="wb-tmtxt" data-begin="93.23s" data-dur="2.44s">your provincial or territorial government to help out.</span></p>
+									<p class="wet-boew-vd"><strong>(Close-up of the Host. LINE DRAWING GRAPHIC: Stick person take a bow. Service Canada logo appears.)</strong></p>
+									<p><span class="wb-tmtxt" data-begin="95.66s" data-dur="3.00s">At Service Canada, we&#39;re people serving people.</span></p>
+									<p class="wet-boew-vd"><strong>(Dip to black.)</strong></p>
+								</details>
+							</figcaption>
+						</figure>
+						
+						<details class="mrgn-tp-lg">
+							<summary class="bg-info">View HTML</summary>
+							<p class="wb-inv">Code begins</p>
+							
+<pre><code class="language-html">&lt;figure class="wb-mltmd"&gt;
+   &lt;video poster="demo/video1-en.jpg" title="Looking for a Job"&gt;
+      &lt;source type="video/mp4" src="https://wet-boew.github.io/wet-boew-attachments/videos/video1-en.mp4" /&gt;
+      &lt;track src="#inline-captions" kind="captions" data-type="text/html" srclang="en" label="English" /&gt;
+   &lt;/video&gt;
+   &lt;figcaption&gt;
+      &lt;details id="inline-captions"&gt;
+         &lt;summary&gt;Looking for a Job - HTML5 Transcript/Sous-titres&lt;/summary&gt;
+         &lt;p class="wet-boew-vd"&gt;
+            &lt;strong&gt;
+               (Animated pen draws a red line that leads into the text Looking for A Job)
+            &lt;/strong&gt;
+         &lt;/p&gt;
+         &lt;p class="wet-boew-vd"&gt;
+            &lt;strong&gt;
+               (Cut to a medium shot of the Host. LINE DRAWING GRAPHIC: Stick person appears and waves.)
+            &lt;/strong&gt;
+         &lt;/p&gt;
+         &lt;p&gt;
+            &lt;span class="wb-tmtxt" data-begin="2.50s" data-dur="3.84s"&gt;
+               Hi, my name is Eric, and I'm a Service Canada employee.
+            &lt;/span&gt;
+         &lt;/p&gt;
+         &lt;p&gt;
+            &lt;span class="wb-tmtxt" data-begin="6.34s" data-dur="1.87s"&gt;
+               You may have heard the old saying that, 
+            &lt;/span&gt;
+            &lt;span class="wb-tmtxt" data-begin="8.21s" data-dur="1.84s"&gt;
+               when you&#39;re out of work, finding a job is your 
+            &lt;/span&gt;
+            &lt;span class="wb-tmtxt" data-begin="10.04s" data-dur="1.70s"&gt;
+               full-time occupation.
+            &lt;/span&gt;
+         &lt;/p&gt;
+         […]
+      &lt;/details&gt;
+   &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+							<p class="wb-inv">Code ends</p>
+						</details>
+					</div>
+				</div>
+				<div class="panel panel-success">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0" id="example-ttml"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Sous-titres<mark><del>for pre-recorded video with audio (</del><ins>using </ins>TTML<del>)</del></mark></h3>
+						<p>In addition to inline HTML5 captions, the WET media player supports Timed Text Markup Language (TTML) caption file format (in XML). </p>
+						<p>Use the <code>&lt;track&gt;</code> element to specify text tracks for <code>&lt;audio&gt;</code> or <code>&lt;video&gt;</code> elements.</p>
+						
+						<figure class="wb-mltmd">
+						
+							<figcaption>
+								<p><mark><strong>Video: Personal Protective Equipment - Higher Risk Exposure</strong></mark></p>
+								<p><mark><a href="https://www.canada.ca/en/health-canada/services/video/personal-protective-equipment-higher-risk-exposure.html#trans">Transcript (opens in new tab)</a></mark></p>
+							</figcaption>
+							<video poster="https://www.canada.ca/content/dam/canada/health-canada/migration/healthy-canadians/alt/videos/ppe-high-risk-epi-risque-eleve.jpg" title="Personal Protective Equipment - Higher Risk Exposure" id="wb-auto-4-md">
+							  <source type="video/mp4" src="https://www.canada.ca/content/dam/hc-sc/migration/hc-sc/ahc-asc/alt_formats/video/media/video/ppe-high-risk-epi-risque-eleve-eng.mp4" />
+							  <track src="https://www.canada.ca/content/dam/canada/health-canada/migration/healthy-canadians/alt/videos/ppe-high-risk-epi-risque-eleve-eng.xml" kind="captions" data-type="text/html" srclang="en" label="English" />
+							</video>
+						</figure>
+				
+
+						<details class="mrgn-tp-lg">
+							<summary class="bg-info">View HTML</summary>
+							<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-lg"><code class="language-html">&lt;video poster="[&hellip;]/ppe-high-risk-epi-risque-eleve.jpg" title="Personal Protective Equipment - Higher Risk Exposure"&gt;
+   &lt;source src="[&hellip;]/ppe-high-risk-epi-risque-eleve-eng.mp4" type="video/mp4"/&gt;
+   &lt;track data-type="text/xml" kind="captions" label="English" src="[&hellip;]/ppe-high-risk-epi-risque-eleve-eng.xml" srclang="en"/&gt;
+ &lt;/video&gt;</pre></code>
+							<p class="wb-inv">Code ends</p>
+						</details>
+						<details class="mrgn-tp-lg">
+							<summary class="bg-info">View TTML</summary>
+							<p><mark><a href="https://www.canada.ca/content/dam/canada/health-canada/migration/healthy-canadians/alt/videos/ppe-high-risk-epi-risque-eleve-eng.xml">Complete file: ppe-high-risk-epi-risque-eleve-eng.xml</a></mark></p>
+							<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-lg"><code class="language-xml">&lt;tt xmlns="http://www.w3.org/2006/04/ttaf1" xmlns:tts="http://www.w3.org/2006/04/ttaf1#styling" xml:lang="en"&gt;
+   &lt;head&gt;
+      &lt;styling&gt;
+         &lt;style id="defaultSpeaker"  tts:fontSize="12px" 
+                                     tts:fontFamily="SansSerif" 
+                                     tts:fontWeight="normal" 
+                                     tts:fontStyle="normal" 
+                                     tts:textDecoration="none" 
+                                     tts:color="white" 
+                                     tts:backgroundColor="black" 
+                                     tts:textAlign="left"/&gt;
+         &lt;style id="defaultCaption"  tts:fontSize="12px" 
+                                     tts:fontFamily="SansSerif" 
+                                     tts:fontWeight="normal" 
+                                     tts:fontStyle="normal" 
+                                     tts:textDecoration="none" 
+                                     tts:color="white" 
+                                     tts:backgroundColor="black" 
+                                     tts:textAlign="left"/&gt;
+      &lt;/styling&gt;
+   &lt;/head&gt;
+   &lt;body id="thebody" style="defaultCaption"&gt;
+      &lt;div begin="00:00:02.76" end="00:00:05.10"&gt;
+         Use of Personal Protective Equipment when Caring for a
+      &lt;/div&gt;
+      &lt;div begin="00:00:05.10" end="00:00:08.86"&gt;
+         Person Under Investigation for Ebola Virus Disease in
+      &lt;/div&gt;
+      &lt;div begin="00:00:08.86" end="00:00:12.66"&gt;
+         a First Nations or other Community Health Facility.
+      &lt;/div&gt;
+      &lt;div begin="00:00:13.60" end="00:00:17.23"&gt;
+         This training video is based on advice from the Public Health
+      &lt;/div&gt;
+      &lt;div begin="00:00:17.23" end="00:00:20.60"&gt;
+         Agency of Canada's Infection Prevention and
+      &lt;/div&gt;
+      &lt;div begin="00:00:20.60" end="00:00:22.86"&gt;
+         Control Expert Working Group.
+      &lt;/div&gt;
+      […]
+   &lt;/body&gt;
+&lt;/tt&gt;</code></pre>
+							<p class="wb-inv">Code ends</p>
+						</details>
+
+						<hr/>
+						<p class="small">Source: Health Canada video, <a href="https://www.canada.ca/en/health-canada/services/video/personal-protective-equipment-higher-risk-exposure.html">Personal protective equipment against potential Ebola virus exposure: higher risk</a>	</p>
+					</div>
+				</div>
+
+				<div class="panel panel-success">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Sous-titres <mark><del>for pre-recorded video with audio (</del><ins>using</ins> YouTube <del>source)</del></mark></h3>
+						<p>The YouTube player has built-in accessibility support for users who are deaf or hard of hearing. The majority of videos in the Canada.ca <a href="https://www.canada.ca/en/services/health/video.html">health-related video gallery</a> use YouTube as the source for the video. Sous-titres can be added and edited directly using the YouTube platform.</p>
+						<p>Use the <code>&lt;iframe&gt;</code> element to specify the source to the YouTube video.</p>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/kQuDwArlYJM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;div class="iframe-container"&gt;
+   &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/kQuDwArlYJM?cc_load_policy=1&amp;hl=en&amp;cc_lang_pref=en" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;</code></pre>
+
+						<p class="wb-inv">Code ends</p>
+						<hr/>
+						<p class="small">Source:<a href="https://health.canada.ca/en/public-health/services/video/covid-19-vaccines-kids-make-memories-again-pediatric.html">https://health.canada.ca/en/public-health/services/video/covid-19-vaccines-kids-make-memories-again-pediatric.html</a></p>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<h2 id="track-element">Using the &lt;track&gt; element</h2>
+				<p>The <code>&lt;track&gt;</code> element lets you specify timed text tracks for an <code>&lt;audio&gt;</code> or <code>&lt;video&gt;</code> element.</p>
+				<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;video controls&gt;
+   &lt;source src="/videos/compliance.mp4" type="video/mp4"&gt;
+   &lt;track 
+      default
+      kind="captions"
+      srclang="en"
+      src="/videos/tracks/compliance.vtt"/&gt;
+&lt;/video&gt;</code></pre>
+
+				<p class="wb-inv">Code ends</p>
+				<h3>Attributes</h3>
+				<dl>
+					<dt>default</dt>
+					<dd>Indicates that the tracks should be enabled, unless the user has indicated in preferences that another track is more appropriate.</dd>
+					
+					<dt>kind</dt>
+					<dd>Indicates how the text track is going to be used. Possible values are:
+						<dl class="mrgn-tp-md mrgn-lft-lg">
+							<dt>subtitles</dt>
+							<dd>Textual translation of content.</dd>
+							
+							<dt>captions</dt>
+							<dd>Textual version of the audio content for users who are deaf.</dd>
+							
+							<dt>descriptions</dt>
+							<dd>Textual description of the visual content for users who are blind.</dd>
+							
+							<dt>chapters</dt>
+							<dd>Used when the user is navigating the media resource.</dd>
+							
+							<dt>metadata</dt>
+							<dd>Tracks used by scripts. Not visible to users.</dd>
+						</dl>
+					</dd>
+
+					<dt>label</dt>
+					<dd>Indicates the title of the text track. The title is user readable and listed by the browser with all available text tracks.</dd>
+					
+					<dt>src</dt>
+					<dd>Indicates the address of the timed text file.</dd>
+					
+					<dt>srclang</dt>
+					<dd>Indicates the language of the track text data as a valid <a href="https://r12a.github.io/app-subtags/">BCP 47</a> language tag, e.g.,
+						<ul>
+							<li>English: en</li>
+							<li>French: fr</li>
+						</ul>
+					</dd>
+				  </dl>	
+			</section>
+			
+			<section>
+				<h2 id="youtube-captions">Adding captions on YouTube platform</h2>
+				<p>You can add captions to YouTube videos by uploading a caption file:</p>
+				<ul>
+					<li>Sign into YouTube Studio.</li>
+					<li>From the left menu, select <strong>Subtitles</strong>.</li>
+					<li>Click the video that you'd like to edit.</li>
+					<li>Click <strong>Add Language</strong> and select your language.</li>
+					<li>Under subtitles, click <strong>Add</strong>.</li>
+					<li>Select <strong>Upload file</strong>.</li>
+					<li>Choose between <strong>With timing</strong> or <strong>Without timing</strong>, then select <strong>Continue</strong>.</li>
+					<li>Choose a file to upload.</li>
+					<li>Select <strong>Save</strong>.</li>
+				</ul>
+				<p>Youtube supports numerous subtitle and closed caption file formats including SRT, SBV, SUB, MPSUB, LRC, CAP, SAMT, RT, VTT, TTML and DFXP. </p>
+				<p>YouTube also allows you to auto-sync transcripts, type captions manually, and automatically create captions using their speech recognition technology.</p>
+			</section>
+
+			<section>
+				<h2 id="microsoft-captions">Adding captions on Microsoft Stream platform</h2>
+				<p>You can add captions to MS Stream videos by uploading a caption file:</p>
+				<ul>
+					<li>In Stream, find the video you want to edit.</li>
+					<li>Click on the pencil icon to Update video details
+						<p><img src="images/image8.png" class="img-responsive" alt="Screenshot from the MS Stream My Videos page showing the pencil button to Update video details"></p>
+					</li>
+					<li>In the <strong>Options</strong> panel, click <strong>Upload a caption file</strong>. Only the VTT file format is supported.
+						<p><img src="images/image9.png" class="img-responsive" alt="Screenshot from the MS Stream Update Video Details page showing the Options panel"></p>
+					</li>
+				</ul>
+				
+			</section>
+			
+			<section>
+				<h2 id="styling-captions">Presenting and styling captions</h2>
+				<p>Requirements for presenting and styling captions consist mostly of community best practice rather than WCAG Success Criteria or Techniques. Only the 3:1 contrast ratio is required to meet a WCAG Success Criterion. </p>
+				<p>This is a shortlist of requirements. The <a href="https://dcmp.org/learn/captioningkey/">Captioning Key</a> website offers more best practice for presenting and styling captions.</p>
+				<ul>
+					<li>Sous-titres are synchronized with the audio.</li>
+					<li>Sous-titres are typed in mixed case letters.</li>
+					<li>Sous-titres use no more than three lines at a time.</li>
+					<li>Put a new sentence on a new line.</li>
+					<li>Maximum number of characters per line is 32 characters.</li>
+					<li>Insert caption line breaks at logical points rather than in the middle of a phrase.</li>
+					<li>Default colors are white text on a black background.</li>
+					<li>Default color contrast ratio between font color and background color is a minimum of 3:1 (font size at least 18 points).</li>
+					<li>Default font size is at least 22pt.</li>
+					<li>Position captions to not obscure on-screen text, people’s faces and other important visual information.</li>
+					<li>Ensure a minimum of 1.5 seconds gap in between captions.</li>
+					<li>Remove captions from long silent intervals. Sous-titres have a maximum duration of 6 seconds.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2 id="custom-captions">Customizing captions</h2>
+				<p>Users can customize the visual appearance of captions in the operating system. Some media players also support customization. </p>
+				<div class="panel panel-success">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Sous-titres styling in Windows</h3>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<img src="images/image6.png" class="img-responsive" alt="captions styling in windows used under setting to customize the visual appearcne of captions in the operating system">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-success">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Sous-titres styling in MAC</h3>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<img src="images/image7.png" class="img-responsive" alt="captions styling in MAC used under Accessibility to customize the visual appearance of subtitles and captions in the operating system">
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			</section>
+			
+			<section>				
+				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">Related WCAG resources</summary>
+					<h3>Success criteria</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/captions-prerecorded">1.2.2: Sous-titres (Prerecorded)</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/captions-live">1.2.4: Sous-titres (Live)</a>
+						</li>
+					</ul>
+					<h3>Techniques</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G93">G93: Providing open (always visible) captions</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G87">G87: Providing closed captions</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H95">H95: Using the track element to provide captions</a>
+						</li>
+					</ul>
+					<h3>Failures</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F8">F8: Failure of Success Criterion 1.2.2 due to captions omitting some dialogue or important sound effects</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F75">F75: Failure of Success Criterion 1.2.2 by providing synchronized media without captions when the synchronized media presents more information than is presented on the page</a>
+						</li>
+					</ul>
+				</details>
+			</section>
+		
+		
+	<nav role="navigation" aria-labelledby="nav-document">
+		<h2 id="nav-document" class="wb-inv">Navigation dans le document</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="policy-matrix-fr.html">Précédent - Matrice des politiques sur le multimédia</a></li>
+			<li class="next"><a rel="next" href="transcripts-fr.html">Suivant - Transcriptions</a></li>
+		</ul>
+	</nav>
+	</main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation" aria-labelledby="wb-sec-h">	
+		<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 9 - Audio, vidéo, animations et mouvement</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
+						<li><a class="list-group-item" href="policy-matrix-fr.html">Matrice des politiques sur le multimédia</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="captions-fr.html">Sous-titres</a></li>
+						<li><a class="list-group-item" href="transcripts-fr.html">Transcriptions</a></li>
+						<li><a class="list-group-item" href="transcribing-audio-fr.html">Transcription de l’audio en texte</a></li>
+						<li><a class="list-group-item" href="description-visual-fr.html">Description de l’information visuelle</a></li>
+						<li><a class="list-group-item" href="sign-language-fr.html">Langue des signes</a></li>
+						<li><a class="list-group-item" href="media-player-fr.html">Accessibilité du lecteur multimédia</a></li>
+						<li><a class="list-group-item" href="flashing-content-fr.html">Contenu clignotant</a></li>
+						<li><a class="list-group-item" href="animation-motion-fr.html">Animations et mouvements</a></li>
+						<li><a class="list-group-item" href="pause-stop-hide-fr.html">Mettre en pause, arrêter ou masquer</a></li>
+						<li><a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Tous les modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/index-fr.html">Module 2 - Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/index-fr.html">Module 3 - Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/index-fr.html">Module 4 - Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/index-fr.html">Module 5 - Images</a></li>
+                        <li><a class="list-group-item" href="../module6/index-fr.html">Module 6 - Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/index-fr.html">Module 7 - Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item" href="../module8/index-fr.html">Module 8 - Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item active" href="index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+                     </ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>
