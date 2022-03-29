@@ -95,7 +95,7 @@
 			
 			<section>				
 				<h2 id="css-width">Technique 1: Style the image with CSS width: 100%</h2>
-				<p>If the image <code>width</code> is set <mark>via CSS</mark> to a percentage and the <code>height</code> property is set to <code>"auto"</code>, the image scales up or down to match the dimensions of its container. Typically, the image <code>width</code> is set to <code>100%</code>.</p>
+				<p>If the image <code>width</code> is set via CSS to a percentage and the <code>height</code> property is set to <code>"auto"</code>, the image scales up or down to match the dimensions of its container. Typically, the image <code>width</code> is set to <code>100%</code>.</p>
 				<p>Resize the browser window to see the image scale. </p>
 				<div class="panel panel-primary mrgn-tp-md">
 					<div class="panel-body well mrgn-bttm-0">
@@ -186,7 +186,7 @@
 				<p>With these attributes in place, the browser will:</p>
 				<ul>
 					<li>Check the device width.</li>
-					<li>Determine which media condition in the sizes list is the first one to be true.</li>
+					<li>Determine which media condition in the <code>sizes</code> list is the first one to be true.</li>
 					<li>Check the slot size given to that media query.</li>
 					<li>Load the image referenced in the <code>srcset</code> list that has the same size as the slot or, if there isn't one, the first image that is bigger than the chosen slot size.</li>
 				</ul>
@@ -224,13 +224,14 @@
 				<p>The <code>&lt;picture&gt;</code> element contains two tags: one or more <code>&lt;source&gt;</code> tags and one <code>&lt;img&gt;</code> tag.</p>
 				<p>The browser looks for the first <code>&lt;source&gt;</code> element with a media query matching the current viewport, then displays the image specified in the <code>srcset</code> attribute. </p>
 				<p>The <code>&lt;img&gt;</code> element serves as a fallback if none of the <code>&lt;source&gt;</code> tags matches. It also provides the alt text for all variations of the image.</p>
-				<p>With this technique you could serve different pictures altogether and offer multiple resolutions of each one: <code>&lt;source&gt;</code> can take a <code>srcset</code> attribute with multiple images referenced, as well as a <code>sizes</code> attribute. However, as with Technique 3, <code>srcset</code>, all variations share one <code>alt</code> attribute; <mark><ins> unless you use JavaScript to serve different <code>alt</code> attribute values, </ins></mark><del> so</del> there’s little choice: the variations must represent the same thing. </p>
+				<p>With this technique you could serve different pictures altogether and offer multiple resolutions of each one: <code>&lt;source&gt;</code> can take a <code>srcset</code> attribute with multiple images referenced, as well as a <code>sizes</code> attribute. However, as with Technique 3, <code>srcset</code>, all variations share one <code>alt</code> attribute; unless you use JavaScript to serve different <code>alt</code> attribute values, there’s little choice: the variations must represent the same thing. </p>
 				
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using the Art Direction </h3>
 						<p>In this example, a crop of the photo is served to small devices. </p>
 						<p>The <code>&lt;source&gt;</code> elements include a media condition. The first condition that returns true is displayed: if the viewport width is 799px wide or less, the first <code>&lt;source&gt;</code> element's image is displayed; if the viewport width is 800px or more, the second <code>&lt;source&gt;</code> element’s image is displayed.</p>
+						<p>Resize the browser window to see the image scale.</p>
 						
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
