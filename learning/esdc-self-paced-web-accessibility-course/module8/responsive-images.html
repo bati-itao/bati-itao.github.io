@@ -178,9 +178,9 @@
 
 			<section>	
 				<h2 id="css-src-att">Technique 3 – Serve different sizes of the image to different screen sizes using the srcset attribute.</h2>
-				<p>This technique serves different sizes of an image, larger or smaller, depending on the device. While it’s possible to serve different pictures altogether with this technique, since all variations share one <code>alt</code> attribute <mark><ins>the different <code>alt</code> values would have to be managed with JavaScript, using <a href="https://www.w3schools.com/howto/howto_js_media_queries.asp" title="W3 Schools">media queries with JavaScript</a>. Otherwise, </ins></mark> there’s little choice: the variations must represent the same thing.</p>
+				<p>This technique serves different sizes of an image, larger or smaller, depending on the device. While it’s possible to serve different pictures altogether with this technique, since all variations share one <code>alt</code> attribute the different <code>alt</code> values would have to be managed with JavaScript, using <a href="https://www.w3schools.com/howto/howto_js_media_queries.asp" title="W3 Schools">media queries with JavaScript</a>. Otherwise, there’s little choice: the variations must represent the same thing.</p>
 				<p>The <code>srcset</code> attribute holds a comma-separated list of differently sized versions of the same image, each list item consisting of the filename and the image’s true width (the <code>w</code> unit is equivalent to pixels). </p>
-				<p>The <code>sizes</code> attribute holds a comma-separated list of different sizes of slots for images at different screen widths. A media condition tests the screen width. The last slot width has no media condition; it’s the default that’s chosen when none of the media conditions is true. This example has a 160-pixel wide slot for small screens, and a 320-pixel wide slot for the rest.</p>
+				<p>The <code>sizes</code> attribute holds a comma-separated list of different sizes of slots for images at different screen widths. The slot width is often expressed using the viewport width (vw) unit, but absolute and relative units can also be used. Each vw unit represents 1% of the viewport width. A media condition tests the screen width. The last slot width has no media condition; it’s the default that’s chosen when none of the media conditions is true. This example has a 50vw wide slot (50% of viewport width) for screens under 900 pixels wide, and a 700-pixel wide slot for the rest.</p>
 				<p>The <code>src</code> attribute holds the default image file name.</p>
 				<p>The <code>alt</code> attribute holds the alternative text.</p>
 				<p>With these attributes in place, the browser will:</p>
@@ -190,8 +190,7 @@
 					<li>Check the slot size given to that media query.</li>
 					<li>Load the image referenced in the <code>srcset</code> list that has the same size as the slot or, if there isn't one, the first image that is bigger than the chosen slot size.</li>
 				</ul>
-				<p>><mark><del>Resize the browser window to see the image scale.</del> <ins>To see the image scale, narrow the browser window, clear the browser cache (if the 700px-wide image is already downloaded, it must be cleared), and refresh the browser window.</ins></mark>
-				</ins></p>
+				<p>To see the image scale, narrow the browser window, clear the browser cache (if the 700px-wide image is already downloaded, it must be cleared), and refresh the browser window.</mark></p>
 				
 				<div class="panel panel-primary mrgn-tp-md">
 					<div class="panel-body well mrgn-bttm-0">
