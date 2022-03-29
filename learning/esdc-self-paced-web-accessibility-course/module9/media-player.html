@@ -89,7 +89,7 @@
 		<ul>
 			<li>All controls can receive focus via the tab key:</li>
 			<li>If using a native HTML button, it receives focus automatically.</li>
-			<li>If using a custom button (with a div or a span element), it needs the tabindex=”0” attribute. </li>
+			<li>If using a custom button (with a <code>&lt;div&gt;</code> or a <code>&lt;span&gt;</code> element), it needs the <code>tabindex="0"</code> attribute <mark>and a JavaScript key press event</mark>.</li>
 			<li>Controls have a visible keyboard focus indicator. </li>
 			<li>The tab order of controls matches the visual order, left to right.</li>
 			<li>Controls are operable by keyboard:</li>
@@ -104,19 +104,22 @@
 		<h2 id="screen-reader-accessibility">Screen reader accessibility</h2>
 		<p>Each control presents to screen readers its name and role, and value if one or more is set.</p>
 		<ul>
-			<li>Name: the control’s label, e.g., “Play”, “Pause” and “Volume”. The name is either the child node of the button (&lt;button&gt;Play&lt;/button&gt;) or is set via the aria-label or aria-labelledby attribute.</li>
-			<li>Role: the control's functional purpose, e.g., “Button”, “Slider”. A native button element declares its role automatically as “button”. Custom controls will use the role=”button” attribute, for the most part. The exception is the volume control, which will need the role=”slider” attribute.</li>
-			<li>Value: the attributes or current state of an element, e.g, “50%” for volume. The volume slider has a percentage value that, when changed, needs to be declared by screen readers. Refer to Module 12 &gt; Sliders for details on how to accomplish this.</li>
+			<li><strong><dfn>Name:</dfn></strong> the control’s label, e.g., “Play”, “Pause” and “Volume”. The name is either the child node of the button (<code>&lt;button&gt;Play&lt;/button&gt;</code>) or is set via the <code>aria-label</code> or <code>aria-labelledby</code> attribute.</li>
+			<li><strong><dfn>Role:</dfn></strong>  the control's functional purpose, e.g., “Button”, “Slider”. A native button element declares its role automatically as “button”. Custom controls will use the <code>role="button"</code> attribute, for the most part. The exception is the volume control, which will need the <code>role="slider"</code> attribute.</li>
+			<li><strong><dfn>Value:</dfn></strong>  the attributes or current state of an element, e.g, “50%” for volume. The volume slider has a percentage value that, when changed, <mark><del>needs to be</del> <ins>is</ins></mark> declared by screen readers. Refer to <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module12/index.html"> Module 12</a> &gt; Sliders for details on how to accomplish this.</li>
 		</ul>
 	</section>
 	<section>
 		<h2 id="support-for-captions-audio-descriptions-transcripts">Support for captions, audio descriptions and transcripts</h2>
 		<p>The ideal media player provides built-in support for captions, audio descriptions, and transcripts.</p>
 		<p>Some media players add all accessibility features to a menu accessed via the closed caption button. Preferably, the player provides a separate button for each feature, with the standardized icon:</p>
-		<img src="images/image14.png" class="img-responsive" alt="Closed caption icon">
-		<img src="images/image15.png" class="img-responsive" alt="Transcript icon">
-		<img src="images/image16.png" class="img-responsive" alt="Audio description icon">
-		<img src="images/image17.png" class="img-responsive" alt="Sign language icon">
+		<ul class="lst-none">
+			<li><img src="images/image14.png" alt=""><span class="mrgn-lft-md">Closed caption icon</span></li>
+			<li><img src="images/image15.png" alt=""><span class="mrgn-lft-md">Transcript icon</span></li>
+			<li><img src="images/image16.png" alt=""><span class="mrgn-lft-md">Audio description icon</span></li>
+			<li><img src="images/image17.png" alt=""><span class="mrgn-lft-md">Sign language icon</span></li>
+		</ul>
+
 		<p>There are workarounds if the media player does not support easy integration of the accessibility features:</p>
 		<ul>
 			<li>Provide open captions, burned into the video, rather than closed captions (the user cannot customize their appearance).</li>

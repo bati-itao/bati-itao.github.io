@@ -54,7 +54,7 @@
                 "href": "best-practice.html",
                 "text": "English"
             }],
-            "menuPath": "../../../ajax/menu-en.html"
+            "menuPath": "../../../ajax/menu-fr.html"
         });
     </script>
 <div class="container">
@@ -63,11 +63,11 @@
 			
 	<h1 property="name" id="wb-cont">Pratique exemplaire</h1>
 						
-	<nav role="navigation">
-    <div class="panel panel-default mrgn-tp-md">
-      <header class="panel-heading">
-        <h2 class="panel-title">Table of contents</h2>
-      </header>
+	<nav role="navigation" aria-label="Table des matières">
+		<div class="panel panel-default mrgn-tp-md">
+			<header class="panel-heading">
+				<h2 class="panel-title">Table des matières</h2>
+			</header>
         <div class="panel-body">
           <ul>
             <li><a href="#bp-zoom">Pratique exemplaire: Zoom</a></li>
@@ -86,106 +86,105 @@
 	</nav>
 	
 	<section>
-		<h3 id="bp-zoom">Pratique exemplaire: Zoom</h3>
-		<p>Content should appear in a single column with no horizontal scrolling and no loss of information or functionality when adjusting your browser window:</p>
+		<h2 id="bp-zoom">Pratique exemplaire: Zoom</h2>
+		<p>Le contenu devrait apparaître dans une seule colonne sans défilement horizontal et sans perte d’information ou de fonctionnalité lors du réglage de la fenêtre de votre navigateur&nbsp;:</p>
 		<ul>
-			<li>to 320 pixels wide by 256 pixels high, or </li>
-			<li>to 1280 pixels wide by 1024 pixels high then zooming the content to 400%. </li>
+			<li>à 320&nbsp;pixels de largeur sur 256&nbsp;pixels de hauteur, ou </li>
+			<li>à 1280&nbsp;pixels de largeur sur 1024&nbsp;pixels de hauteur, puis zoomer le contenu à 400&nbsp;%. </li>
 		</ul>
-		<p>Implement a responsive design.</p>
-		<p>When designing content to reflow in a single column:</p>
+		<p>Mettre en œuvre une conception adaptative.</p>
+		<p>Lorsque vous concevez du contenu à reformater dans une seule colonne&nbsp;:</p>
 		<ul>
-			<li>The main content fills the viewport.</li>
-			<li>Horizontal scrolling doesn’t happen.</li>
-			<li>Avoid using multiple columns. The short line length is hard to read.</li>
-			<li>Avoid using CSS floats. They also create short line length, unless the floated element is very small.</li>
-			<li>Avoid using CSS fixed widths and minimum widths. They tend to cause horizontal scrolling.</li>
+			<li>Le contenu principal remplit la zone d’affichage.</li>
+			<li>Le défilement horizontal ne se fait pas.</li>
+			<li>Éviter d’utiliser plusieurs colonnes. La longueur de ligne courte est difficile à lire.</li>
+			<li>Éviter d’utiliser des flotteurs CSS. Ils créent également une longueur de ligne courte, sauf si l’élément flotté est très petit.</li>
+			<li>Éviter d’utiliser des largeurs fixes et minimales CSS. Elles ont tendance à provoquer un défilement horizontal.</li>
 		</ul>
 	</section>
 	<section>
-		<h3 id="bp-design">Pratique exemplaire: Conception adaptée</h3>
+		<h2 id="bp-design">Pratique exemplaire: Conception adaptée</h2>
 		<ul>
-			<li>Use CSS “media queries” to determine user's screen size and serve distinct layouts to different screen widths at breakpoints.</li>
-			<li>Set the viewport via the <code>&lt;meta&gt;</code> element in the head:
-				<p class="wb-inv">Code begins</p>
+			<li>Utiliser les «&nbsp;requêtes média&nbsp;» CSS pour déterminer la taille de l’écran de l’utilisateur et servir des configurations distinctes selon différentes largeurs d’écran aux points d’interruption.</li>
+			<li>Régler la zone d’affichage à l’aide du méta-élément dans l’en-tête&nbsp;:
+				<p class="wb-inv">Code commend</p>
 <pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0; user-scalable=1"&gt;</code></pre>
-				<p class="wb-inv">Code ends</p>	
+				<p class="wb-inv">Fins du code</p>	
 				<ul>
-					<li><code>width=device-width</code> instructs the page to match the device's width, allowing the page to reflow content to match different screen sizes.</li>
-					<li><code>initial-scale=1.0</code> sets the default zoom level of the page.</li>
-					<li><code>maximum-scale=2.0</code> sets a maximum of 200% zoom on pinch-to-zoom on mobile.</li>
-					<li><code>user-scalable=1</code> enables the user to pinch-to-zoom on mobile.</li>
+					<li><code>width=device-width</code> indique que la page correspond à la largeur de l’appareil, ce qui permet à la page de recharger le contenu pour qu’il corresponde à différentes tailles d’écran.</li>
+					<li><code>initial-scale=1.0</code> établit le niveau de zoom par défaut de la page.</li>
+					<li><code>maximum-scale=2.0</code> établit un zoom maximal de 200&nbsp;% sur le zoom par pincement pour l’appareil mobile.</li>
+					<li><code>user-scalable=1</code> permet à l’utilisateur de zoomer par pincement sur son mobile.</li>
 				</ul>
 			</li>
-			<li>Test breakpoints using viewport emulators.</li>
-			<li>Users with low vision often zoom to trigger mobile layouts on large displays, enabling quite large text.</li>
+			<li>Tester les points d’interruption à l’aide d’émulateurs de zone d’affichage.</li>
+			<li>Les utilisateurs malvoyants font souvent un zoom pour déclencher des configurations mobiles sur de grands affichages, ce qui donne du texte assez volumineux.</li>
 		</ul>
 	</section>
 	<section>
-		<h3 id="bp-forms">Pratique exemplaire: Formulaires adaptés</h3>
-		<p>As the viewport changes size, ensure:</p>
+		<h2 id="bp-forms">Pratique exemplaire: Formulaires adaptés</h2>
+		<p>À mesure que la taille de la zone d’affichage change, assurez-vous que&nbsp;:</p>
 		<ul>
-			<li>form fields do not overflow, and </li>
-			<li>form fields and labels are not separated by wide areas of whitespace:
+			<li>les champs de formulaire ne débordent pas, et </li>
+			<li>les champs de formulaire et les étiquettes ne sont pas séparés par de larges zones d’espace blanc&nbsp;:
 				<ul>
-					<li>In the default desktop view, labels are positioned to the left of the control, flush right. (This layout is preferred when there’s a need to conserve vertical space.) </li>
-					<li>In the small screen view, labels are positioned directly above the control, to maximize screen area for each.</li>
-					<li><mark><del>Labels are not positioned to the left, flush left.</del></mark></li>
+					<li>Dans le mode bureau par défaut, les étiquettes sont positionnées à gauche de la commande et sont alignées à droite. (Cette disposition est préférable lorsqu’il est nécessaire de conserver un espace vertical.) </li>
+					<li>En mode petit écran, les étiquettes sont positionnées directement au-dessus de la commande afin de maximiser la zone de l’écran pour chaque étiquette.</li>
 				</ul>
 			</li>
 		</ul>
 	</section>
 	<section>
-		<h3 id="bp-images">Pratique exemplaire: Images adaptées</h3>
-		<p>images can be made responsive in one of four ways:</p>
-		<ul>
-			<li>Technique 1 – Style the image with CSS <code>width: 100%</code></li>
-			<li>Technique 2 – Style the image with CSS <code>max-width: 100%</code></li>
-			<li>Technique 3 – Serve different sizes of the image to different screen sizes using the <code>srcset</code> attribute</li>
-			<li>Technique 4 – Serve different images to different screen sizes using the <code>&lt;picture&gt;</code> element.</li>
+		<h2 id="bp-images">Pratique exemplaire: Images adaptées</h2>
+		<p>les images peuvent être adaptées de quatre façons&nbsp;:</p>
+		<ul>		
+			<li>Technique&nbsp;1 – Styliser l’image avec la CSS&nbsp;: <code>width: 100&%</code></li>
+			<li>Technique&nbsp;2 – Styliser l’image avec la CSS&nbsp;: <code>max-width: 100%</code></li>
+			<li>Technique&nbsp;3 – Servir différentes tailles d’image à différentes tailles d’écran en utilisant l’attribut <code>srcset</code></li>
+			<li>Technique&nbsp;4 – Servir différentes images à différentes tailles d’écran en utilisant l’élément <code>picture</code>.</li>
 		</ul>
 	</section>
 	<section>
-		<h3 id="bp-text">Pratique exemplaire: Texte adapté</h3>
+		<h2 id="bp-text">Pratique exemplaire: Texte adapté</h2>
 		<ul>
-			<li>Text containers should resize as the viewport size changes to prevent text from overflowing the viewport. </li>
-			<li>Avoid static, fixed container sizes.</li>
+			<li>Les conteneurs de texte doivent être redimensionnés à mesure que la taille de la zone d’affichage change pour empêcher le texte de déborder. </li>
+			<li>Éviter les conteneurs fixes et statiques.</li>
 		</ul>
 	</section>
 	<section>
-		<h3 id="bp-objects">Pratique exemplaire: Objets et modules d’extension adaptés</h3>
-		<ul>
-			<li>Objects and plugins can resize as the viewport size changes so they do not overflow the viewport. </li>
-			<li>Set CSS <code>max-width="100%"</code> on the container.</li>
-			<li>Use the <code>&lt;img&gt;</code> element to embed a picture, <code>&lt;iframe&gt;</code> element to embed HTML, and <code>&lt;video&gt;</code> and <code>&lt;audio&gt;</code> elements to embed media content.</li>
+		<h2 id="bp-objects">Pratique exemplaire: Objets et modules d’extension adaptés</h2>
+		<ul>			
+			<li>Les objets et les modules d’extension peuvent être redimensionnés à mesure que la taille de la zone d’affichage change afin qu’ils ne débordent pas la zone d’affichage. </li>
+			<li>Régler CSS <code>max-width="100%"</code> sur le conteneur.</li>
+			<li>Utilisez l’élément <code>&lt;img&gt;</code> pour intégrer une image, l’élément <code>&lt;iframe&gt;</code> pour intégrer HTML et les éléments <code>&lt;video&gt;</code> et <code>&lt;audio&gt;</code> pour intégrer le contenu média.</li>
 		</ul>
 	</section>
 	<section>
-		<h3 id="bp-tables">Pratique exemplaire: Tableaux adaptés</h3>
-		<ul>
-			<li>Tableaux adaptés resize as the viewport size changes to ensure they do not require horizontal scrolling.</li>
-			<li>For tables with a few columns, give each column a percentage width and give the table a <code>max-width</code> of 100%. </li>
-			<li>Large tables require transforming and reorganizing the table into one column. <strong>Note that the Government of Canada does not require responsive tables.</strong></li>
+		<h2 id="bp-tables">Pratique exemplaire: Tableaux adaptés</h2>
+		<ul>			
+			<li>Les tableaux adaptés sont redimensionnés à mesure que la taille de la zone d’affichage change pour s’assurer qu’ils ne nécessitent pas de défilement horizontal.</li>
+			<li>Pour les tableaux comportant quelques colonnes, donnez un pourcentage de largeur à chaque colonne et donnez au tableau une <code>max-width</code> de 100&nbsp;%. </li>
+			<li>Les grands tableaux doivent être transformés et réorganisés en une seule colonne. <strong>Veuillez noter que le gouvernement du Canada n’exige pas de tableaux adaptés.</strong></li>
 		</ul>
 	</section>
 	<section>
-		<h3 id="bp-uicomp">Pratique exemplaire: Composantes d’interface utilisateur adaptées</h3>
-		<p>Page UI Components reorder and resize to maintain readability.</p>
+		<h2 id="bp-uicomp">Pratique exemplaire: Composantes d’interface utilisateur adaptées</h2>
+		<p>Réorganiser et redimensionner les composantes de l’interface utilisateur pour maintenir la lisibilité.</p>
 	</section>
 	<section>
-		<h3 id="bp-videos">Pratique exemplaire: Vidéo adaptées</h3>
-		<p>Videos resize as the viewport size changes so they do not overflow the viewport. Either:</p>
+		<h2 id="bp-videos">Pratique exemplaire: Vidéo adaptées</h2>		
+		<p>Les vidéos sont redimensionnées à mesure que la taille de la zone d’affichage change afin qu’elles ne débordent pas de la zone d’affichage. Soit en&nbsp;:</p>
 		<ul>
-			<li>set the CSS <code>max-width:100%</code> property on the video’s container element, or</li>
-			<li>set the CSS <code>width: 100%</code> property on the video element.</li>
+			<li>réglant la propriété CSS <code>max-width: 100%</code> sur l’élément conteneur de la vidéo, ou en</li>
+			<li>réglant la propriété CSS <code>width: 100%</code> sur l’élément <code>&lt;video&gt;</code></li>
 		</ul>
-		<p>Static sizing can break page layouts.</p>
+		<p>Les dimensionnements statiques peuvent rompre les configurations de la page.</p>
 	</section>
 	<section>
-		<h3 id="bp-orientation">Pratique exemplaire: Orientation</h3>
+		<h2 id="bp-orientation">Pratique exemplaire: Orientation</h2>
 		<ul>
-			<li>Enable users to view your content in the orientation (portrait or landscape) they prefer. </li>
-			<li>Do not restrict the page orientation.</li>
+			<li>Permettre aux utilisateurs de visualiser votre contenu dans l’orientation (portrait ou paysage) qu’ils préfèrent. </li>
+			<li>Ne pas limiter l’orientation de la page.</li>
 		</ul>
 	</section>
 		
@@ -201,7 +200,7 @@
 	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
 		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Module 8 - Zoom et conception adaptée</h3>
+				<h2 class="wb-navcurr">Module 8 - Zoom et conception adaptée</h2>
 					<ul class="list-group menu list-unstyled">
 												
 						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
@@ -221,7 +220,7 @@
 			</section>
 						
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Tous les modules</h3>
+				<h2 class="wb-navcurr">Tous les modules</h2>
                      <ul class="list-group menu list-unstyled">
                         <li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
                         <li><a class="list-group-item" href="../module2/index-fr.html">Module 2 – Structure et sémantique des pages</a></li>

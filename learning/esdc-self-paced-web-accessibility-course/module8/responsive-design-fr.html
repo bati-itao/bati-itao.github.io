@@ -54,7 +54,7 @@
                 "href": "responsive-design.html",
                 "text": "English"
             }],
-            "menuPath": "../../../ajax/menu-en.html"
+            "menuPath": "../../../ajax/menu-fr.html"
         });
     </script>
 <div class="container">
@@ -70,13 +70,13 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#section1">Conception adaptée (overview)</a></li>
-			<li><a href="#section2">CSS media queries</a></li>
-			<li><a href="#section3">Breakpoints</a></li>
-			<li><a href="#section4">Set the viewport</a></li>
-			<li><a href="#section5">Good example: Reflow content</a></li>
-			<li><a href="#section6">Viewport emulators</a></li>
-			<li><a href="#section7">Benefits to low vision users</a></li>
+            <li><a href="#section1">Conception adaptée (aperçu)</a></li>
+			<li><a href="#section2">Requêtes média CSS</a></li>
+			<li><a href="#section3">Points d’interruption</a></li>
+			<li><a href="#section4">Configurer la zone d’affichage</a></li>
+			<li><a href="#section5">Bon exemple&nbsp;: Reformater le contenu</a></li>
+			<li><a href="#section6">Émulateurs de zone d’affichage</a></li>
+			<li><a href="#section7">Avantages d’une conception adaptative pour les utilisateurs malvoyants</a></li>
 			<li><a href="#resources1">Related WCAG resources</a></li>
           </ul>
         </div>
@@ -84,40 +84,40 @@
 	</nav>
 	
 			<section>				
-				<h2 id="section1">Conception adaptée (overview)</h2>
-				<p>Responsive web design uses HTML and CSS to automatically resize, hide, shrink, or enlarge a website, ensuring the design looks good and the information and functionality are preserved across devices of all screen size.</p>
+				<h2 id="section1">Conception adaptée (aperçu)</h2>
+				<p>La conception Web adaptée utilise HTML et CSS pour redimensionner, masquer, réduire ou agrandir automatiquement un site Web, en s’assurant que la conception est bonne et que l’information et la fonctionnalité sont préservées pour tous les appareils de toutes tailles d’écran.</p>
 			</section>
 			
 			<section>				
-				<h2 id="section2">CSS media queries</h2>
-				<p>The technique leverages CSS “media queries”, which run tests to determine users’ screen size then serve distinct layouts to different screen widths. A typical strategy targets the three broad categories of device display: large screens, tablets and phones. The HTML and CSS of the page’s components are tailored to avoid introducing horizontal scrolling, as described in later sections.</p>
-				<p>The points at which a media query is introduced, and the layout changed, are known as “breakpoints”.  This is the syntax: </p>
+				<h2 id="section2">Requêtes média CSS</h2>
+				<p>La technique s’appuie sur les «&nbsp;requêtes média&nbsp;» CSS, qui effectue des tests pour déterminer la taille de l’écran des utilisateurs, puis servent des configurations distinctes à différentes largeurs d’écran. Une stratégie typique cible les trois grandes catégories d’affichage des appareils&nbsp;: grands écrans, tablettes et téléphones. Les versions HTML et CSS des composantes de la page sont adaptées pour éviter le défilement horizontal, comme il est décrit dans les sections suivantes.</p>
+				<p>Les points auxquels une requête média est présentée et la configuration est modifiée sont appelés «&nbsp;points d’interruption&nbsp;». Voici la syntaxe&nbsp;: </p>
 				<p class="wb-inv">Code begins</p>
 <pre><code class="language-css">@media media type and (condition: breakpoint) {
    // CSS rules
 }</code></pre>
 				<p class="wb-inv">Code ends</p>
-				<p>Media types available for media queries include:</p>
+				<p>Les types de médias disponibles pour les requêtes média comprennent&nbsp;:</p>
 				<dl>
 					<dt>all</dt>
-					<dd>for all devices</dd>
+					<dd>pour tous les appareils</dd>
 					<dt>print</dt>
-					<dd>for printers</dd>
+					<dd>pour les imprimantes</dd>
 					<dt>screen</dt>
-					<dd>for computer screens, including tablets, phones, etc.</dd>
+					<dd>pour les écrans d’ordinateur, y compris les tablettes, les téléphones, etc.</dd>
 					<dt>speech</dt>
-					<dd>for screen readers</dd>
+					<dd>pour les lecteurs d’écran</dd>
 				  </dl>
 			</section>
 			
 			<section>				
-				<h2 id="section3">Breakpoints</h2>
+				<h2 id="section3">Points d’interruption</h2>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0">
-							<span class="glyphicon glyphicon-ok-circle"></span> Good example: Single breakpoint
+							<span class="glyphicon glyphicon-ok-circle"></span> Exemple&nbsp;: Point d’interruption unique
 						</h3>
-						<p>In this example , the media type is “screen” and the breakpoint is 480px. If the width of a device is 480px or smaller the <code>.button</code> class is applied.</p>
+						<p>Dans cet exemple, le type de média est «&nbsp;écran&nbsp;» et le point d’interruption est 480&nbsp;pixels. Si la largeur d’un appareil est de 480&nbsp;pixels ou moins, la classe de <code>.button</code> est appliquée.</p>
 						<p class="wb-inv">Code begins</p>
 <pre><code class="language-css">@media screen and (max-width: 480px) {
    .button { background-color: red; }
@@ -125,9 +125,9 @@
 						<p class="wb-inv">Code ends</p>
 					</div>
 				</div>
-				<h3>Government of Canada breakpoints</h3>
-				<p>The Government of Canada Treasury Board Secretariat <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/web-mobile-presence.html">Technical specifications for the Web and mobile presence</a> specifies two breakpoints for large and small screens at 768 pixels. </p>
-				<p>These media queries target the “screen” type, so their rules are not applied to print output. </p>
+				<h3>Points d’interruption du gouvernement du Canada</h3>
+				<p>Les spécifications techniques relatives à la présence Web et mobile du <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/web-mobile-presence.html">Secrétariat du Conseil du Trésor du gouvernement du Canada</a> précisent deux points d’interruption pour les grands et petits écrans à 768&nbsp;pixels. </p>
+				<p>Ces requêtes média ciblent le type «&nbsp;écran&nbsp;», de sorte que leurs règles ne sont pas appliquées à la sortie d’impression. </p>
 				<p class="wb-inv">Code begins</p>
 <pre><code class="language-css">@media screen and (min-width: 768px) {
    /* styles for large screen device */
@@ -136,36 +136,36 @@
    /* styles for small screen device */
 }</code></pre>
 				<p class="wb-inv">Code ends</p>
-				<h3>WET breakpoints</h3>
-				<p>The Web Experience Toolkit boasts a mobile friendly responsive design. It implements the Bootstrap 3 breakpoints:</p>
+				<h3>Points d’interruption de la BOEW</h3>
+				<p>La Boîte à outils de l’expérience Web offre une conception adaptée aux appareils mobiles. Elle met en œuvre les points d’interruption de Bootstrap&nbsp;3&nbsp;:</p>
 				<ul>
-					<li>Extra extra small – below 480px</li>
-					<li>Extra small - between 480px to 768px (CSS: col-xs-)</li>
-					<li>Small – between 768px to 992px (CSS: col-sm-) – Mobile size</li>
-					<li>Medium – between 992px to 1200px (CSS: col-md-) – Tablet size</li>
-					<li>Large – between  1200px to 1600px (CSS: col-lg-) – Desktop size</li>
-					<li>Extra large –  larger than 1600px</li>
+					<li>Très très petit – inférieur à 480&nbsp;pixels</li>
+					<li>Très petit - entre 480&nbsp;pixels et 768&nbsp;pixels (CSS&nbsp;: col-xs-)</li>
+					<li>Petit – entre 768&nbsp;pixels et 992&nbsp;pixels (CSS&nbsp;: col-sm-) – Taille mobile</li>
+					<li>Moyen – entre 992&nbsp;pixels et 1&nbsp;200&nbsp;pixels (CSS&nbsp;: col-md-) – Format tablette</li>
+					<li>Grand – entre 1&nbsp;200&nbsp;pixels et 1&nbsp;600&nbsp;pixels (CSS&nbsp;: col-lg-) – Format ordinateur de bureau</li>
+					<li>Très grand – supérieur à 1&nbsp;600&nbsp;pixels</li>
 				</ul>
-				<h3>Common breakpoints</h3>
-				<h4>Small (phones)</h4>
+				<h3>Points d’interruption courants</h3>
+				<h4>Petit (téléphones)</h4>
 				<ul>
-					<li>320px – 480px: Mobile devices</li>
+					<li>320&nbsp;pixels à 480&nbsp;pixels&nbsp;: Appareils mobiles</li>
 				</ul>
-				<h4>Medium (tablets)</h4>
+				<h4>Moyen (tablettes)</h4>
 				<ul>
-					<li>481px – 768px: iPads, Tablets</li>
+					<li>481&nbsp;pixels à 768&nbsp;pixels&nbsp;: ipads, tablettes</li>
 				</ul>
-				<h4>Large (desktops)</h4>
+				<h4>Grands (ordinateurs de bureau)</h4>
 				<ul>
-					<li>769px – 1024px: Small screens, laptops</li>
-					<li>1025px – 1200px: Desktops, large screens</li>
-					<li>1201px and more – Extra-large screens</li>
-				</ul>				
+					<li>769&nbsp;pixels à 1024&nbsp;pixels&nbsp;: Petits écrans, ordinateurs portables</li>
+					<li>1&nbsp;025&nbsp;pixels à 1&nbsp;200&nbsp;pixels&nbsp;: Ordinateurs de bureau, grands écrans</li>
+					<li>1&nbsp;201&nbsp;pixels et plus – Très grands écrans</li>
+				</ul>			
 			</section>
 			
 			<section>				
-				<h2 id="section4">Set the viewport</h2>
-					<p>Pages optimized for a variety of devices must include a <code>&lt;meta&gt;</code> element in the <code>&lt;head&gt;</code> of the document, specifying a couple of properties of the viewport. A <code>meta</code> viewport tag instructs the browser on how to control the page’s dimensions and scaling. A page is not responsive on mobile devices without it. </p>
+				<h2 id="section4">Configurer la zone d’affichage</h2>
+					<p>Les pages optimisées pour une variété d’appareils doivent inclure un élément  <code>&lt;meta&gt;</code> dans le <code>&lt;head&gt;</code> du document, précisant quelques propriétés de la zone d’affichage. Une balise <code>meta</code> de zone d’affichage indique au navigateur comment contrôler les dimensions et la mise à l’échelle de la page. Sans cette balise, une page n’est pas adaptée sur les appareils mobiles. </p>
 					<p class="wb-inv">Code begins</p>
 					
 <pre><code class="language-html">&lt;html lang="en"&gt;
@@ -175,14 +175,14 @@
    &lt;/head&gt;</code></pre>
    
 					<p class="wb-inv">Code ends</p>
-					<p>The <code>width=device-width</code> parameter instructs the page to match the device’s screen width. This allows the page to reflow content to match different screen sizes.</p>
-					<p>The <code>initial-scale</code> parameter sets the default zoom level of the page. Setting it to <code>initial-scale=1</code> instructs browsers to establish a 1:1 relationship between CSS pixels and viewport pixels. This property is needed in large part to address a resizing and content-clipping bug in some devices triggered by using <code>width=device-width</code> and viewing the page in landscape orientation. </p>
-					<p>Mobile pages must support the pinch-to-zoom feature to enable users to enlarge small text and controls and to compensate for poor contrast. Developers often disable the pinch-to-zoom feature by setting two parameters on the <code>meta</code> viewport element: <code>user-scalable=no</code> and <code>maximum-scale=1.0</code>. To enable the pinch-to-zoom feature, set <code>user-scalable=1</code> and <code>maximum-scale=2.0</code>. That’s a 200% value, the minimum zoom required to meet WCAG. You can enable greater zoom by setting maximum-scale to a higher value, or by removing the maximum-scale parameter to remove the zoom limit entirely. </p>
+					<p>Le paramètre <code>width=device-width</code> indique que la page correspond à la largeur d’écran de l’appareil. Cela permet à la page de reformater le contenu pour qu’il corresponde à différentes tailles d’écran.</p>
+					<p>Le paramètre <code>initial-scale</code> définit le niveau de zoom par défaut de la page. Le réglage  <code>initial-scale=1</code> demande aux navigateurs d’établir une relation&nbsp;1:1 entre les pixels CSS et les pixels de la zone d’affichage. Cette propriété est en grande partie nécessaire pour contrer un bogue de redimensionnement et de coupure de contenu dans certains appareils déclenché par l’utilisation de <code>width=device-width</code> et la visualisation de la page en mode paysage. </p>
+					<p>Les pages mobiles doivent prendre en charge la fonction «&nbsp;zoom par pincement&nbsp;» afin de permettre aux utilisateurs d’agrandir les petits textes et les commandes et de compenser le faible contraste. Les développeurs désactivent souvent la fonction zoom par pincement en réglant deux paramètres sur l’élément <code>meta</code> de la zone d’affichage&nbsp;: <code>user-scalable=no</code> et <code>maximum-scale=1.0</code>. Pour activer la fonction zoom par pincement, réglez <code>user-scalable=1</code> et <code>maximum-scale=2.0</code>. Il s’agit d’une valeur de 200&nbsp;%, soit le zoom minimum requis pour respecter les WCAG. Vous pouvez activer un zoom plus important en réglant l’échelle maximale à une valeur plus élevée ou en supprimant le paramètre de l’échelle maximale pour supprimer entièrement la limite de zoom. </p>
 					<div class="panel panel-success mrgn-tp-lg">
 						<div class="panel-body">
 							<h3 class="text-success mrgn-tp-0">
-							<span class="glyphicon glyphicon-ok-circle"></span> Good example: Pinch-to-zoom set to 200% magnification</h3>
-							<p>In this example, the page is configured to allow a maximum 200% zoom via the maximum-scale property. 200% is the minimum zoom value required by WCAG.</p>
+							<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Réglage du zoom par pincement à un grossissement de 200&nbsp;%</h3>
+							<p>Dans cet exemple, la page est configurée pour permettre un zoom maximal de 200&nbsp;% au moyen de la propriété d’échelle maximale. 200&nbsp;% est la valeur minimale de zoom exigée par les WCAG.</p>
 							<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0; user-scalable=1"&gt;</code></pre>
 							<p class="wb-inv">Code ends</p>
@@ -191,26 +191,27 @@
 			</section>
 			
 			<section>				
-				<h2 id="section5">Good example: Reflow content</h2>
+				<h2 id="section5">Bon exemple&nbsp;: Reformater le contenu</h2>
 				
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0">
-							<span class="glyphicon glyphicon-ok-circle"></span> Good example: Reflow content
+							<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Reformater le contenu
 						</h3>
-						<p><mark>See this example in action at [destination URL]</mark>. Narrow your browser window to trigger the responsive layouts.</p>
+						<p><mark>Voir cet exemple en action à [URL de destination]</mark>. Rétrécir la fenêtre de votre navigateur pour déclencher les configurations adaptées.</p>
 						<details class="mrgn-tp-lg">
 							<summary class="bg-info"><mark><ins>View screenshots of the responsive layout</ins></mark></summary>
-							<h3>Desktop: @media (min-width:960px)</h3>
-							<img src="images/image3.png" class="img-responsive" alt="Content is displayed in three columns, with text wrapping around floating images.">
+							<h3>Ordinateur de bureau&nbsp;: @media (min-width:960px)</h3>
+							<img src="images/image3.png" class="img-responsive" alt="La configuration du bureau affiche le contenu sur trois colonnes. Les flotteurs sont utilisés sur deux icônes d’accessibilité.">
 							<p><mark>Alt text: Content is displayed in three columns, with text wrapping around floating images.</mark></p>
-							<h3>Tablet: @media (min-width:481px) and (max-width:959px)</h3>
-							<img src="images/image4.png" class="img-responsive" alt="Content is stacked in one column, with text wrapping around floating images.">
+							<img src="images/image4.png" class="img-responsive" alt="La configuration de la tablette affiche le contenu dans une seule colonne. Les flotteurs sont utilisés sur deux icônes d’accessibilité.">
 							<p><mark>Alt text: Content is stacked in one column, with text wrapping around floating images.</mark></p>
-							<h3>Phone: @media (max-width:480px)</h3>
-							<p>Note that the float is removed from the images.</p>
-							<img src="images/image5.png" class="img-responsive" alt="Content is stacked in one column with no floats.">
+							<h3 class="">Téléphone: @media (max-width:480px)</h3>
+							<p>Notez que le flotteur est retiré des images.</p>
+							<img src="images/image5.png" class="img-responsive" alt="La configuration du téléphone affiche le contenu dans une seule colonne. Les icônes ne flottent plus.">
 							<p><mark>Alt text: Content is stacked in one column with no floats.</mark></p>
+							<p>Developer: Here’s the image:</p>
+							<img src="images/image6.png" class="img-responsive" alt="">
 						</details>
 					
 						<details class="mrgn-tp-lg">
@@ -310,19 +311,19 @@ section img {
 			
 			
 			<section>				
-				<h2 id="section6">Viewport emulators</h2>
+				<h2 id="section6">Émulateurs de zone d’affichage</h2>
 				
-				<p>You can test breakpoints using viewport emulators to accurately represent your media query and style, bearing in mind that emulators don't represent the functionality or the features of the browser.</p>
-				<p>You can also test breakpoints using the online service <a href="http://www.viewportemulator.com">Viewport Emulator</a>, as per the example below.</p>
+				<p>Vous pouvez tester les points d’interruption à l’aide d’émulateurs de zone d’affichage pour représenter correctement votre requête média et votre style, en gardant à l’esprit que les émulateurs ne représentent pas la fonctionnalité ou les caractéristiques du navigateur.</p>
+				<p>Vous pouvez également tester les points d’interruption à l’aide du service en ligne <a href="http://www.viewportemulator.com">Viewport Emulator</a>, comme dans l’exemple ci-dessous.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0">
-						<span class="glyphicon glyphicon-ok-circle"></span> Good example: Checking the IT Accessibility Office using the Viewport Emulator</h3>
-						<p>In this example, the <a href="https://bati-itao.github.io/index.html">IT Accessibility Office</a> is tested using the <a href="http://www.viewportemulator.com">online Viewport Emulator</a>.</p>
+						<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Vérification du Bureau de l’accessibilité des TI à l’aide de l’émulateur de zone d’affichage</h3>
+						<p>Dans cet exemple, le <a href="https://bati-itao.github.io/index.html">Bureau de l’accessibilité des TI</a> est testé au moyen de l’é <a href="http://www.viewportemulator.com">mulateur de zone d’affichage en ligne</a>.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 								<p class="wb-inv">Example begins</p>
-								<img src="images/image7.png" class="img-responsive" alt="The mobile layout includes all content and functionality of the desktop layout.">
+								<img src="images/image7.png" class="img-responsive" alt="La configuration mobile comprend tout le contenu et la fonctionnalité de la configuration du bureau.">
 								<p class="wb-inv">Example ends</p>
 							</div>
 						</div>
@@ -332,12 +333,12 @@ section img {
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0">
-						<span class="glyphicon glyphicon-ok-circle"></span> Good example: Checking the IT Accessibility Office using the Chrome emulator</h3>
-						<p>Chrome mobile emulator can be accessed through its developer tools options by using keyboard shortcuts: Command + Option + I (Mac) OR Ctrl + Shift + I (Windows).</p>
+						<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Vérification du Bureau de l’accessibilité des TI à l’aide de l’émulateur Chrome</h3>
+						<p>Il est possible d’accéder à l’émulateur mobile Chrome à partir de ses options d’outils de développement en utilisant des raccourcis clavier&nbsp;: Commande + Option + I (Mac) OU Ctrl + Shift + I (Windows).</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 								<p class="wb-inv">Example begins</p>
-								<img src="images/image8.png" class="img-responsive" alt="The mobile layout includes all content and functionality of the desktop layout.">
+								<img src="images/image8.png" class="img-responsive" alt="La configuration mobile comprend tout le contenu et la fonctionnalité de la configuration du bureau.">
 								<p class="wb-inv">Example ends</p>
 							</div>
 						</div>
@@ -346,15 +347,15 @@ section img {
 				
 			</section>
 			<section>				
-				<h2 id="section7">Benefits to low vision users</h2>
-				<p>Many users with low vision can’t magnify small screens well enough to read them. Instead, they read sites on large devices and magnify the screen. As the user magnifies, the browser window grows smaller relative to the size of the content, eventually triggering CSS breakpoints for smaller screen layouts. On a large device, a small screen layout optimized to display as a single column can take up the entire width of the large screen, enabling quite large text.</p>
+				<h2 id="section7">Avantages d’une conception adaptative pour les utilisateurs malvoyants</h2>
+				<p>De nombreux utilisateurs malvoyants ne peuvent pas agrandir suffisamment les petits écrans pour les lire. Ils lisent plutôt des sites sûrs de gros appareils et agrandissent l’écran. Au fur et à mesure que l’utilisateur agrandit, la fenêtre du navigateur devient plus petite par rapport à la taille du contenu, ce qui déclenche des points d’interruption CSS pour des configurations d’écran plus petites. Sur un grand appareil, une configuration de petit écran optimisée pour afficher en une seule colonne peut prendre toute la largeur du grand écran, ce qui permet un texte assez volumineux.</p>
 			</section>
 			
 			<section>				
-				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
+				<h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
 				<details class="mrgn-tp-lg">
-					<summary class="bg-info">Related WCAG resources</summary>
-					<h3>Success criteria</h3>
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+					<h3>Critères de succès</h3>
 					<ul>
 						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow">1.4.10: Reflow</a></li>
 					</ul>

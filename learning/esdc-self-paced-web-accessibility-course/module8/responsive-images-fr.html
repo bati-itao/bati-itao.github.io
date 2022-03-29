@@ -54,7 +54,7 @@
                 "href": "responsive-images.html",
                 "text": "English"
             }],
-            "menuPath": "../../../ajax/menu-en.html"
+            "menuPath": "../../../ajax/menu-fr.html"
         });
     </script>
 <div class="container">
@@ -66,15 +66,15 @@
 	<nav role="navigation">
     <div class="panel panel-default mrgn-tp-md">
       <header class="panel-heading">
-        <h2 class="panel-title">Table of contents</h2>
+        <h2 class="panel-title">Table des matières</h2>
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#resp-images">Designing responsive images</a></li>
-			<li><a href="#css-width">Technique 1 – Style the image with CSS width: 100%</a></li>
-			<li><a href="#css-max-width">Technique 2 – Style the image with CSS max-width: 100%</a></li>
-			<li><a href="#css-src-att">Technique 3 – Serve different sizes of the image to different screen sizes using the srcset attribute</a></li>
-			<li><a href="#css-pic-element">Technique 4 – Serve different images to different screen sizes using the picture element.</a></li>
+            <li><a href="#concevoir-images">Concevoir des images adaptées</a></li>
+			<li><a href="#css-width">Technique&nbsp;1&nbsp;: Styliser l’image avec la largeur CSS&nbsp;: 100&nbsp;%</a></li>
+			<li><a href="#css-max-width">Technique&nbsp;2&nbsp;: Styliser l’image avec la largeur CSS maximale&nbsp;: 100&nbsp;%</a></li>
+			<li><a href="#css-src-att">Technique&nbsp;3&nbsp;: Servir différentes tailles d’image à différentes tailles d’écran en utilisant l’attribut srcset</a></li>
+			<li><a href="#css-pic-element">Technique&nbsp;4&nbsp;: Servir différentes images à différentes tailles d’écran en utilisant l’élément image</a></li>
 			<li><a href="#resources1">Related WCAG resources</a></li>
           </ul>
         </div>
@@ -82,21 +82,21 @@
 	</nav>
 	
 			<section>				
-				<h2 id="resp-images">Designing responsive images</h2>
-				<p>An image that’s wider than its container will overflow, which can introduce horizontal scrolling. </p>
-				<p>To prevent this, images can be made responsive in one of four ways:</p>
+				<h2 id="concevoir-images">Concevoir des images adaptées</h2>
+				<p>Une image qui est plus large que son conteneur débordera, ce qui peut introduire un défilement horizontal. </p>
+				<p>Pour éviter cela, les images peuvent être adaptées de l’une des quatre façons suivantes&nbsp;:</p>
 				<ul>
-					<li>Technique 1 – Style the image with CSS <code>width: 100%</code></li>
-					<li>Technique 2 – Style the image with CSS <code>max-width: 100%</code></li>
-					<li>Technique 3 – Serve different sizes of the image to different screen sizes using the <code>srcset</code> attribute</li>
-					<li>Technique 4 – Serve different images to different screen sizes using the <code>&lt;picture&gt;</code> element.</li>
+					<li>Technique&nbsp;1 – Styliser l’image avec la largeur CSS<code>&nbsp;à 100&nbsp;%</code></li>
+					<li>Technique&nbsp;2 – Styliser l’image avec la largeur CSS<code> maximale&nbsp;à 100&nbsp;%</code></li>
+					<li>Technique&nbsp;3 – Servir différentes tailles d’image à différentes tailles d’écran en utilisant l’attribut <code>srcset</code></li>
+					<li>Technique&nbsp;4 – Servir différentes images à différentes tailles d’écran en utilisant l’élément <code>image.</code></li>
 				</ul>
 			</section>
 			
 			<section>				
 				<h2 id="css-width">Technique 1: Style the image with CSS width: 100%</h2>
-				<p>If the image <code>width</code> is set <mark>via CSS</mark> to a percentage and the <code>height</code> property is set to <code>"auto"</code>, the image scales up or down to match the dimensions of its container. Typically, the image <code>width</code> is set to <code>100%</code>.</p>
-				<p>Resize the browser window to see the image scale. </p>
+				<p>Si la <code>largeur </code>de l’image est réglée à un pourcentage et que la propriété de <code>hauteur </code>est réglée à <code>"«&nbsp;auto&nbsp;»</code>, l’image s’adapte aux dimensions de son conteneur. Habituellement, la <code>largeur </code>de l’image est réglée à <code>100&nbsp;%</code>.</p>
+				<p>Redimensionner la fenêtre du navigateur pour voir l’échelle d’image. </p>
 				<div class="panel panel-primary mrgn-tp-md">
 					<div class="panel-body well mrgn-bttm-0">
 						<p class="wb-inv">Example begins</p>
@@ -136,10 +136,9 @@
 			</section>
 			
 			<section>	
-				<h2 id="css-max-width">Technique 2 – Style the image with CSS max-width: 100%</h2>
-				<p>If the <mark>CSS</mark> <code>max-width</code> property is set to <code>100%</code>, the image will scale down, but never scale up to be larger than its original size. </p>
-				<p>Resize the browser window to see the image scale.</p>
-				
+				<h2 id="css-max-width">Technique&nbsp;2&nbsp;: Styliser l’image avec la largeur CSS maximale&nbsp;: 100&nbsp;% </h2>
+				<p>Si la <mark>propriété</mark> <code>largeur</code> maximale est réglée à <code>100&nbsp;%</code>, l’image sera réduite, mais jamais augmentée pour être plus grande que sa taille originale. </p>
+				<p>Redimensionner la fenêtre du navigateur pour voir l’échelle de l’image.</p>
 				<div class="panel panel-primary mrgn-tp-md">
 					<div class="panel-body well mrgn-bttm-0">
 						<p class="wb-inv">Example begins</p>
@@ -177,20 +176,21 @@
 			</section>
 
 			<section>	
-				<h2 id="css-src-att">Technique 3 – Serve different sizes of the image to different screen sizes using the srcset attribute.</h2>
-				<p>This technique serves different sizes of an image, larger or smaller, depending on the device. While it’s possible to serve different pictures altogether with this technique, since all variations share one <code>alt</code> attribute <mark><ins>the different <code>alt</code> values would have to be managed with JavaScript, using <a href="https://www.w3schools.com/howto/howto_js_media_queries.asp" title="W3 Schools">media queries with JavaScript</a>. Otherwise, </ins></mark> there’s little choice: the variations must represent the same thing.</p>
-				<p>The <code>srcset</code> attribute holds a comma-separated list of differently sized versions of the same image, each list item consisting of the filename and the image’s true width (the <code>w</code> unit is equivalent to pixels). </p>
-				<p>The <code>sizes</code> attribute holds a comma-separated list of different sizes of slots for images at different screen widths. A media condition tests the screen width. The last slot width has no media condition; it’s the default that’s chosen when none of the media conditions is true. This example has a 160-pixel wide slot for small screens, and a 320-pixel wide slot for the rest.</p>
-				<p>The <code>src</code> attribute holds the default image file name.</p>
-				<p>The <code>alt</code> attribute holds the alternative text.</p>
-				<p>With these attributes in place, the browser will:</p>
+				<h2 id="css-src-att">Technique&nbsp;3&nbsp;: Servir différentes tailles d’image à différentes tailles d’écran en utilisant l’attribut srcset</h2>
+				<p>Cette technique sert différentes tailles d’images, plus grande ou plus petite, selon l’appareil. Bien qu’il soit possible de servir des images différentes avec cette technique, puisque toutes les variations partagent un attribut alt, il y a peu de choix&nbsp;: les variations doivent représenter la même chose.</p>
+				<p>L’attribut <code>srcset</code> contient une liste séparée par des virgules de versions différentes d’une même image, chaque élément de liste comprenant le nom du fichier et la largeur réelle de l’image (l’unité w équivaut aux pixels). </p>
+				<p>L’attribut <code>sizes</code> contient une liste séparée par des virgules de tailles différentes de créneaux pour les images à différentes largeurs d’écran. Une condition média vérifie la largeur de l’écran. La dernière largeur de créneau n’a aucune condition média; c’est la valeur par défaut qui est choisie lorsqu’aucune condition média n’est vraie. Cet exemple comporte un créneau de 160&nbsp;pixels de largeur pour les petits écrans, et un créneau de 320&nbsp;pixels de largeur pour le reste.</p>
+				<p>L’attribut <code>src</code> contient le nom du fichier image par défaut.</p>
+				<p>L’attribut <code>alt</code> contient le texte de remplacement.</p>
+				<p>Une fois ces attributs en place, le navigateur&nbsp;:</p>
 				<ul>
-					<li>Check the device width.</li>
-					<li>Determine which media condition in the sizes list is the first one to be true.</li>
-					<li>Check the slot size given to that media query.</li>
-					<li>Load the image referenced in the <code>srcset</code> list that has the same size as the slot or, if there isn't one, the first image that is bigger than the chosen slot size.</li>
+					<li>Vérifiera la largeur de l’appareil.</li>
+					<li>Déterminera quelle condition média dans la liste des tailles est la première à être vraie.</li>
+					<li>Vérifiera la taille du créneau donné à cette requête média.</li>
+					<li>Chargera l’image mentionnée dans la liste <code>srcset </code>qui a la même taille que le créneau ou, s’il n’y en a pas, la première image qui est plus grande que la taille du créneau choisi.</li>
 				</ul>
-				<p>Resize the browser window to see the image scale.</p>
+				<p>Redimensionner la fenêtre du navigateur pour voir l’échelle d’image.</p>
+
 				<mark>This example doesn't work. The deer-160.jpg never loads.</mark>
 				<div class="panel panel-primary mrgn-tp-md">
 					<div class="panel-body well mrgn-bttm-0">
@@ -208,30 +208,36 @@
    sizes="(max-width: 600px) 160w,
           320px"
    src="deer-320.jpg"
-   alt="A deer pasturing in a small meadow in a forest."&gt;</code></pre>
+   alt="Un cerf qui pâture dans un petit pré dans une forêt.”&gt;</code></pre>
 				<p class="wb-inv">Code ends</p>	
 					
 					 
-				<h3 class="">Resource: Responsive Image Generator</h3>
-				<p>The <a href="http://www.responsivebreakpoints.com/">Responsive Image Generator</a> is an online tool that allows you to upload an image and generate various image dimensions for responsive breakpoints.</p>
-				<img src="images/image13.png" class="img-responsive" alt="Screenshot of the Responsive Image Generator online tool showing responsive breakpoints and image dimensions">
+				<h3 class="">Ressource&nbsp;: Générateur d’image adaptée</h3>
+				<p>The <a href="http://www.responsivebreakpoints.com/">Responsive Image Generator (générateur d’image adaptée)</a> est un outil en ligne qui vous permet de téléverser une image et de générer diverses dimensions d’images pour les points d’interruption adaptés.</p>
+				<img src="images/image13.png" class="img-responsive" alt="Capture d’écran de l’outil en ligne Responsive Image Generator montrant les points d’interruption et les dimensions de l’image.">
 
 			</section>
 			
 			<section>			
-				<h2 id="css-pic-element">Technique 4 – Serve different images to different screen sizes using the picture element.</h2>
+				<h2 id="css-pic-element">Technique&nbsp;4&nbsp;: Servir différentes images à différentes tailles d’écran en utilisant l’élément image</h2>
 				<p>A small object of interest in a large image is hard to discern if that same image is shrunk to fit a mobile device. Cropping removes unneeded outer areas of an image to reframe closer to the object of interest. The  <code>&lt;picture&gt;</code> element is commonly used in responsive design for “Art Direction," where different crops of the same image, often at different aspect ratios, are served to different screen sizes. </p>
 				<p>The <code>&lt;picture&gt;</code> element contains two tags: one or more <code>&lt;source&gt;</code> tags and one <code>&lt;img&gt;</code> tag.</p>
 				<p>The browser looks for the first <code>&lt;source&gt;</code> element with a media query matching the current viewport, then displays the image specified in the <code>srcset</code> attribute. </p>
 				<p>The <code>&lt;img&gt;</code> element serves as a fallback if none of the <code>&lt;source&gt;</code> tags matches. It also provides the alt text for all variations of the image.</p>
 				<p>With this technique you could serve different pictures altogether and offer multiple resolutions of each one: <code>&lt;source&gt;</code> can take a <code>srcset</code> attribute with multiple images referenced, as well as a <code>sizes</code> attribute. However, as with Technique 3, <code>srcset</code>, all variations share one <code>alt</code> attribute; <mark><ins> unless you use JavaScript to serve different <code>alt</code> attribute values, </ins></mark><del> so</del> there’s little choice: the variations must represent the same thing. </p>
 				
+				<p>Un petit objet d’intérêt dans une grande image est difficile à discerner si cette même image est rétrécie pour convenir à un appareil mobile. Le cadrage enlève les zones extérieures inutiles d’une image pour se rapprocher de l’objet d’intérêt. L’élément <code>&lt;picture&gt; </code>est couramment utilisé dans la conception adaptative pour «&nbsp;Direction artistique&nbsp;», où différents cadrages d’une même image, souvent à différents rapports de forme, sont servis à différentes tailles d’écran. </p>
+				<p>L’élément <code>&lt;image&gt; contient deux balises&nbsp;: une ou plusieurs balises <code>&lt;source&gt; </code>et une balise <code>&lt;img&gt;</code>.</p>
+				<p>Le navigateur recherche le premier élément <code>&lt;source&gt;</code> avec une requête média correspondant à la zone d’affichage actuel, puis affiche l’image spécifiée dans l’attribut srcset. </p>
+				<p>L’élément <code>&lt;img&gt; sert de solution de rechange si aucune des balises source ne correspond. Il fournit également le texte de remplacement pour toutes les variantes de l’image.</p>
+				<p>Avec cette technique, vous pourriez servir des images différentes et proposer plusieurs résolutions pour chacune&nbsp;: <code>&lt;source&gt;</code> peut prendre un attribut <code>srcset</code> avec de nombreuses images référencées, ainsi qu’un attribut de tailles. Toutefois, comme pour la Technique&nbsp;3,<code> srcset</code>, toutes <mark><ins>les variations ont un attribut <code>alt</code>; </ins></mark>il y a donc peu de choix&nbsp;: les variations doivent représenter la même chose. </p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using the Art Direction </h3>
-						<p>In this example, a crop of the photo is served to small devices. </p>
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Utilisation de la direction artistique </h3>
+						<p>Dans cet exemple, un cadrage de la photo est servi aux petits appareils. </p>
 						<p>The <code>&lt;source&gt;</code> elements include a media condition. The first condition that returns true is displayed: if the viewport width is 799px wide or less, the first <code>&lt;source&gt;</code> element's image is displayed; if the viewport width is 800px or more, the second <code>&lt;source&gt;</code> element’s image is displayed.</p>
-						
+						<p>Les éléments <code>&lt;source&gt;</code> comprennent une condition média. La première condition qui s’avère est affichée&nbsp;: si la largeur de zone d’écran est de 799&nbsp;pixels moins, l’image du premier élément <code>&lt;source&gt;</code> est affichée; si la largeur de la zone d’affichage est de 800&nbsp;pixels ou plus, l’image du deuxième élément <code>&lt;source&gt; </code>est affichée.</p>
+
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 								<p class="wb-inv">Example begins</p>
@@ -252,15 +258,15 @@
 						<p class="wb-inv">Code ends</p>	
 
 						<h4>Cropped image served to small devices</h4>
-						<img src="images/deer-crop200w.jpg" class="img-responsive" alt="In the cropped image, the dear occupies more than a third of the image's width.">
+						<img src="images/deer-crop200w.jpg" class="img-responsive" alt="Dans l’image cadrée, le cerf occupe plus d’un tiers de la largeur de l’image.">
 						<h4>Original image served to large devices</h4>
-						<img src="images/deer-320.jpg" class="img-responsive" alt="In the uncropped original image, the deer occupies about a fifth of the image's width.">
+						<img src="images/deer-320.jpg" class="img-responsive" alt="Dans l’image originale non cadrée, le cerf occupe environ un cinquième de la largeur de l’image.">
 					</div>
 				</div>
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span> Bad example: Non-responsive image</h3>
-						<p>In the screenshot below, a 1,600-pixel wide image lacking any responsive markup displays at its native width. Since it’s wider than the viewport, it forces a horizontal scrollbar to appear. </p>
+						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span> Mauvais exemple&nbsp;: Image non adaptée</h3>
+						<p>Dans la capture d’écran ci-dessous, une image d’une largeur de 1&nbsp;600&nbsp;pixels, dépourvue de tout balisage réactif, s’affiche dans sa largeur originale. Comme elle est plus large que la fenêtre d’affichage, une barre de défilement horizontale doit apparaître. HTML </p>
 						
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
@@ -273,7 +279,7 @@
 <pre><code class="language-html">&lt;img src="butterflies.png" alt="Monarch butterflies fly below pine trees"&gt;</code></pre>
 						<p class="wb-inv">Code ends</p>		
 						<hr/>
-						<p class="small">Image from <a href="href://www.cntravaler.com">cntravaler.com</a></p>
+						<p class="small">Image de <a href="href://www.cntravaler.com">cntravaler.com</a></p>
 					</div>
 				</div>
 			</section>
