@@ -10,7 +10,7 @@
 	<meta content="width=device-width,initial-scale=1" name="viewport">
 	<!-- Meta data -->
 	<meta name="description"
-		content="Accessibility guidelines related to identifying input purpose. Describes how to define semantics of input fields with the autocomplete attribute.">
+		content="">
 	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
@@ -60,7 +60,7 @@
 <div class="container">
 <div class="row">
 	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-	<h1 property="name" id="wb-cont">Input Purpose</h1>
+	<h1 property="name" id="wb-cont">Identifying input purpose</h1>
 						
 	<nav role="navigation">
     <div class="panel panel-default mrgn-tp-md">
@@ -69,99 +69,88 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#identifying">Identifying input purpose</a></li>
+            
 			<li><a href="#autocomplete-attributes">Good example: Using the autocomplete attribute</a></li>
 			  <li><a href="#wcag-resources">Related WCAG resources</a></li>
           </ul>
         </div>
       </div>
 	</nav>
-	
-			<section>				
-				<h2 id="identifying">Identifying input purpose</h2>
+				
+				
 				<p>When a form input field collects personal information such as the user’s name, phone number,
 				email and street addresses, you must programmatically define its semantics with the autocomplete attribute. 
 				The attribute takes one of 53 potential values from WCAG’s list of <a href="https://www.w3.org/TR/WCAG21/#input-purposes">Input Purposes for User Interface Components</a>. 
 				The values are granular; for instance, regarding the user’s name, it’s possible to identify an input’s purpose as full name, 
 				given name, family name, or nickname.</p>
 				<p>Assistive technologies leverage the autocomplete attribute value to automatically complete forms, drawing on past user input stored in the browser. This saves the user from having to type the information. Assistive technologies also leverage the autocomplete value to pair input fields with icons, for users who prefer using images for communication.</p>
-			</section>
+		
 			
 			<section>
-				<div class="panel panel-success">
+				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 		
 					  <h2 class="text-success mrgn-tp-0 h3" id="autocomplete-attributes"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Using the autocomplete attribute</h2>
 						<p>This is a simple form that collects contact information from the user.</p>
-						<div class="panel panel-default well well-sm col-md-12">
-						<form class="form-horizontal" role="form" method="get" action="#">
-						  <div class="form-group">
-							<label for="fname" class="col-sm-2 control-label">First Name</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="fname" autocomplete="given-name"/>
-							</div>
-						  </div>
-						 <div class="form-group">
-							<label for="lname" class="col-sm-2 control-label">Last Name</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="lname" autocomplete="family-name" />
-							</div>
-						  </div>
-						   <div class="form-group">
-							<label for="jobtitle" class="col-sm-2 control-label">Job Title</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="jobtitle" autocomplete="job-title" />
-							</div>
-						  </div>
-						   <div class="form-group">
-							<label for="org" class="col-sm-2 control-label">Organization</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="org" autocomplete="organization" />
-							</div>
-						  </div>
-						   <div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10">
-								<button type="submit" class="btn btn-default">Continue</button>
-							</div>
-						  </div>
-						</form>
-							</div>
-						<div class="clearfix"></div>		
-								
+										
+<div class="panel panel-primary mrgn-tp-md">
+				<div class="panel-body well mrgn-bttm-0">	
+				<form class="form-horizontal" role="form" method="post" action="step1"> 
+<div class="form-group">
+<label for="fname" class="col-sm-2 control-label">First Name</label>
+	<div class="col-sm-10">
+<input id="fname" type="text" class="form-control" autocomplete="given-name" […] >  
+</div></div>
+  <div class="form-group"> 
+<label for="lname" class="col-sm-2 control-label">Last Name</label> 
+	  <div class="col-sm-10">
+<input id="lname" type="text" class="form-control"  autocomplete="family-name" […] >    
+</div></div>
+  <div class="form-group">
+<label for="jobtitle" class="col-sm-2 control-label">Job Title</label> 
+	  <div class="col-sm-10">
+<input type="text" id="jobtitle" class="form-control"  autocomplete="organization-title"> </div>
+	  </div>
+<div class="form-group">
+	
+<label for="org" class="col-sm-2 control-label">Organization</label>
+	<div class="col-sm-10">
+<input type="text" id="org" class="form-control"  autocomplete="organization">
+</div>
+	  </div>
+  <div class="form-group">
+	<div class="col-sm-offset-2 col-sm-10">
+<input type="submit" value="Continue"> 
+	  </div>
+					</div>
+</form>
+
+	</div>
+						</div>
 					<details class="mrgn-tp-sm">
 							<summary class="bg-info">View HTML </summary>
 							<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;form class="form-horizontal" role="form" method="get" action="#"&gt;
-  &lt;div class="form-group"&gt;
-	&lt;label for="fname" class="col-sm-2 control-label"&gt;First Name&lt;/label&gt;
-	&lt;div class="col-sm-10"&gt;
-		&lt;input type="text" class="form-control" id="fname" autocomplete="given-name"/&gt;
+<pre><code class="language-html">&lt;form method="post" action="step1"&gt;  
+	&lt;div&gt; 
+		&lt;label for="fname"&gt;First Name&lt;/label&gt;
+		&lt;input id="fname" type="text" autocomplete="given-name" […] &gt;  
 	&lt;/div&gt;
-  &lt;/div&gt;
- &lt;div class="form-group"&gt;
-	&lt;label for="lname" class="col-sm-2 control-label"&gt;Last Name&lt;/label&gt;
-	&lt;div class="col-sm-10"&gt;
-		&lt;input type="text" class="form-control" id="lname" autocomplete="family-name" /&gt;
+	&lt;div&gt;  
+		&lt;label for="lname"&gt;Last Name&lt;/label&gt;  
+		&lt;input id="lname" type="text" autocomplete="family-name" […] &gt;    
 	&lt;/div&gt;
-  &lt;/div&gt;
-   &lt;div class="form-group"&gt;
-	&lt;label for="jobtitle" class="col-sm-2 control-label"&gt;Job Title&lt;/label&gt;
-	&lt;div class="col-sm-10"&gt;
-		&lt;input type="text" class="form-control" id="jobtitle" autocomplete="job-title" /&gt;
+	&lt;div&gt;
+		&lt;label for="jobtitle"&gt;Job Title&lt;/label&gt;  
+		&lt;input type="text" id="jobtitle" autocomplete="organization-title"&gt; &lt;/div&gt;
+	&lt;div&gt;
+		&lt;label for="org"&gt;Organization&lt;/label&gt;
+		&lt;input type="text" id="org" autocomplete="organization"&gt;
+	&lt;/div&gt;  
+	&lt;div&gt;  
+		&lt;input type="submit" value="Continue"&gt; 
 	&lt;/div&gt;
-  &lt;/div&gt;
-   &lt;div class="form-group"&gt;
-	&lt;label for="org" class="col-sm-2 control-label"&gt;Organization&lt;/label&gt;
-	&lt;div class="col-sm-10"&gt;
-		&lt;input type="text" class="form-control" id="org" autocomplete="organization" /&gt;
-	&lt;/div&gt;
-  &lt;/div&gt;
-   &lt;div class="form-group"&gt;
-	&lt;div class="col-sm-offset-2 col-sm-10"&gt;
-		&lt;button type="submit" class="btn btn-default"&gt;Continue&lt;/button&gt;
-	&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/form&gt;</code>
+&lt;/form&gt;
+</code>
 </pre>
 <p class="wb-inv">Code ends</p>
 						</details>	
