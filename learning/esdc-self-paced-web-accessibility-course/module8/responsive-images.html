@@ -190,23 +190,28 @@
 					<li>Check the slot size given to that media query.</li>
 					<li>Load the image referenced in the <code>srcset</code> list that has the same size as the slot or, if there isn't one, the first image that is bigger than the chosen slot size.</li>
 				</ul>
-				<p>Resize the browser window to see the image scale.</p>
-				<mark>This example doesn't work. The deer-160.jpg never loads.</mark>
+				<p>><mark><del>Resize the browser window to see the image scale.</del> <ins>To see the image scale, narrow the browser window, clear the browser cache (if the 700px-wide image is already downloaded, it must be cleared), and refresh the browser window.</ins></mark>
+				</ins></p>
+				
 				<div class="panel panel-primary mrgn-tp-md">
 					<div class="panel-body well mrgn-bttm-0">
 						<p class="wb-inv">Example begins</p>
 						<div id="technique-3">
-							<img srcset="images/deer-160.jpg 160w, images/deer-320.jpg 320w" sizes="(max-width: 600px) 160w, 320px" src="images/deer-320.jpg" alt="A deer pasturing in a small meadow in a forest.">
+							<!-- <img srcset="images/deer-160-labelled.jpg 160w, images/deer-320-labelled.jpg 320w" sizes="(max-width: 600px) 80vw, 40vw" src="images/deer-320.jpg" alt="A deer pasturing in a small meadow in a forest.">-->
+							<img srcset="images/deer-320-labelled.jpg 320w, images/deer-700-labelled.jpg 700w" 
+							     sizes="(max-width: 900px) 50vw, 700px" 
+							     src="images/deer-320.jpg" 
+							     alt="A deer pasturing in a small meadow in a forest.">
 						</div>
 						<p class="wb-inv">Example ends</p>
 					</div>
 				</div>
 				
 				<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;img srcset="deer-160.jpg 160w,
-             deer-320.jpg 320w"
-   sizes="(max-width: 600px) 160w,
-          320px"
+<pre><code class="language-html">&lt;img srcset="deer-320-labelled.jpg 320w,
+             deer-700-labelled.jpg 700w"
+   sizes="(max-width: 900px) 50vw,
+          700px"
    src="deer-320.jpg"
    alt="A deer pasturing in a small meadow in a forest."&gt;</code></pre>
 				<p class="wb-inv">Code ends</p>	
