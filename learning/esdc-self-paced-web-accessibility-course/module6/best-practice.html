@@ -70,47 +70,144 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#section1">S1</a></li>
-			<li><a href="#section2">S2</a></li>
-			<li><a href="#section3">S3</a></li>
-			<li><a href="#resources1">Related WCAG resources</a></li>
+            <li><a href="#labelling-controls">Best practice – Labelling controls</a></li>
+			<li><a href="#grouping-controls">Best practice – Grouping controls</a></li>
+			<li><a href="#form-instruction">Best practice – Form instruction</a></li>
+			<li><a href="#validating-input">Best practice – Validating input</a></li>
+			<li><a href="#multi-step">Best practice – Multi-step forms</a></li>
+			<li><a href="#custom-control">Best practice – Custom controls</a></li>
           </ul>
         </div>
       </div>
 	</nav>
 	
 			<section>				
-				<h2 id="section1">S1</h2>
-				
-			</section>
-			
-			<section>				
-				<h2 id="section2">S2</h2>
-				
-			</section>
-			
-			<section>				
-				<h2 id="section3">S3</h2>
-				
-			</section>
-			
-			
-			<section>				
-				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
-				<details class="mrgn-tp-lg">
-					<summary class="bg-info">Related WCAG resources</summary>
-					<h3>Success criteria</h3>
-					<ul>
-						<li><a href="https://www.link1.com">Link 1</a></li>
+				<h2 id="labelling-controls">Best practice – Labelling cControls</h2>
+				<p>Provide labels to describe the purpose of the form control.<p>
+				<ul>
+					<li>Use the &lt;label&gt; element to explicitly associate a form control with a label</li>
+					<li>Match exactly the “for” attribute of the label with the “id” attribute of the form control</li>
+					<li>Elements that use explicitly associated labels are:</li>
+					<ul><li>input type="text"</li>
+					<li>input type="checkbox"</li>
+					<li>input type="radio"</li>
+					<li>input type="file" (file-select fields)</li>
+					<li>input type="password"</li>
+					<li>textarea</li>
+					<li>Select (drop-down lists)</li>
 					</ul>
-					<h3>Techniques</h3>
-					<ul>
-						<li>
-							<a href="https://www.link2.com">Link 2</a>
-						</li>						
+					<li>Do not use the &lt;label&gt; element for the following elements. </li>
+					<ul><li>Submit and Reset buttons (input type="submit" or input type="reset")</li>
+						<ul><li>Label provided by the value attribute</li>
+						</ul>
+						<li>Image buttons (input type="image")</li>
+						<ul>
+							<li>Label provided by the alt attribute</li>
+						</ul>
+						<li>Hidden input fields (input type="hidden")</li>
+						<li>Buttons (button elements or &t;input type="button"&gt;)</li>
+						<ul>
+							<li>Label provided by the element content itself (button) or the value, aria-label, or aria-labelledby attribute</li>
 					</ul>
-				</details>
+					</ul>
+					<li>Use ARIA labels (aria-labelledby and aria-label attributes) when it is not possible to use &lt;label&gt;</li>
+					<li>When using ARIA labels, include any visible text in the control label.</li>
+					<li>Use the aria-labelledby attribute to retrieve a label from the context or to concatenate a label out of one or more elements in the context.</li>
+					<li>Avoid using the title attribute to identify form controls. It is not widely supported by AT.</li>
+					<li>Keep label text short and concise.</li>
+					<li>Use unique label text on a page.</li>
+					<li>Position labels visually to the right of radio buttons and checkboxes.</li>
+					<li>Position labels visually directly above their form fields (preferred by WET) or to the left (WET alternative, when there’s a need to conserve vertical space). </li>
+				</ul>
 			</section>
+			
+			<section>				
+				<h2 id="grouping-controls">Best practice – Grouping controls</h2>
+				<ul><li>Use &lt;fieldset&gt; element to group related controls in a form. </li>
+					<li>Use the &lt;legend&gt; element to name the &lt;fieldset&gt; element</li>
+					<li>Make the legend as short as possible as some assistive technology declares the legend together with the label every time.</li>
+					<li>Make the individual labels self-explanatory as some assistive technology does not declare the &lt;legend&gt;. Do not repeat the legend in every label.</li>
+					<li>Use &lt;optgroup> element for &lt;select&gt; elements with groups of options</li>
+					<li>Use ARIA role=”group” and aria-labelledby attributes to group and label related form elements when you can't use native HTML &lt;fieldset&gt; and &lt;legend&gt; elements.</li>
+					<li>Use &lt;label&gt; wherever possible for universal browser and screen reader support.</li>
+				</ul>
+			</section>
+			
+			<section>				
+				<h2 id="form-instruction">Best practice – Form instruction</h2>
+			<ul>			
+				<li>Provide overall instructions that apply to the entire form and provide them before the &lt;form&gt;  element. This ensures screen reader users encounter the information before switching to “Forms Mode.”</li>
+				<li>Use aria-labelledby or aria-describedby to provide instructions outside of labels. </li>
+				<li>Identify the type of form input field (e.g., type= “email”) so that browsers and assistive technology can provide input helpers, such as custom keyboards, autofill and icon labels.</li>
+				<li>Indicate any required input, data formats, and other relevant information.</li>
+				<li>Ensure placeholder attribute text meets a minimum contrast ratio of 4.5:1.</li>
+			</ul>
+			</section>
+			
+				
+			<section>				
+			<h2 id="validating-input">Best practice – Validating input</h2>
+			<ul>	
+				<li>Validate user data using validation attributes on HTML5 form elements.</li>
+				<li>Common validation attributes include required, type, pattern, min and max attributes.</li>
+				<li>Validate data on client-side and server-side to ensure security.</li>
+				<li>Identify required form fields both visually in the label and semantically.</li>
+				<li>Use HTML5 input types to validate different types of data, including email, URL, number, telephone, date and range.</li>
+				<li>Validate patterned input using the pattern attribute to specify a regular expression for matching</li>
+				<li>Validate length of entries using minlength, maxlength, min and max attributes</li>
+				<li>Be accommodating as possible of different input formats</li>
+				<li>Enable your users to check and correct their input to reduce errors.</li>
+				<li>Require user confirmation for irreversible actions.</li>
+				<li>Provide undo functionality to ensure submissions are reversible.</li>
+			</ul>
+								
+			</section>
+			
+				
+			<section>				
+				<h2 id="user-notifications">Best practice – User notifications</h2>
+				<ul>	
+					<li>Upon form submission, notify the user of success or of any errors.</li>
+					<li>Ensure error messages are clear and concise and provide simple instructions for resolving the error. </li>
+					<li>Provide feedback in the main heading, in the title element, as a list of errors before the form, as well as in-line, programmatically associated with the form control.</li>
+					<li>Errors listed before the form should:</li>
+					<ul>			
+						<li>Reference the label of the corresponding form control.</li>
+						<li>Provide a concise, easy to understand description of the error.</li>
+						<li>Indicate how to correct mistakes, and remind users of any format requirements;</li>
+						<li>Include an in-page link to the corresponding form control for easy access.</li>
+					</ul>
+				</ul>
+					
+
+			</section>
+			
+				
+			<section>				
+				<h2 id="multi-step">Best practice – Multi-step forms</h2>
+				<ul>
+					<li>Split the form up according to its logical groups of controls (e.g., contact information and questionnaire).</li>
+					<li>Validate the current step before exposing the next.</li>
+					<li>Label optional steps and enable users to skip them. </li>
+					<li>Ensure keyboard focus moves smoothly from step to step, backwards and forwards. At a new step, set the focus preferably on the next relevant form element, or relevant heading or container (a heading or container would need the tabindex=”-1” attribute to programmatically receive focus).</li>
+					<li>Avoid a time limit to fill out the form. If a limit is required, enable the user to adjust or extend it.</li>
+					<li>If the steps are across pages, repeat overall instructions on every page.</li>
+					<li>Indicate progress in the form (“Step x of y”).</li>
+				</ul>
+			</section>
+			
+			<section>				
+				<h2 id="custom-control">Best practice – Custom controls</h2>
+				<ul>
+					<li>Whenever possible, use native HTML form elements rather than custom controls.</li>
+					<li>Model the behaviour after native HTML form elements.</li>
+					<li>Add appropriate ARIA name, role, and values if necessary.</li>
+					<li>Communicate updates and state changes via ARIA live messages when they can’t be communicated through HTML or ARIA methods</li>
+				</ul>
+
+			</section>
+			
+			
 		
 		
 	<nav role="navigation">
