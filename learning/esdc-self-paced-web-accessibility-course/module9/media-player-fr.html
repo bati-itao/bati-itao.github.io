@@ -88,16 +88,22 @@
 		<h2 id="keyboard-accessibility">Accessibilité par le clavier</h2>
 		<ul>
 					
-			<li>Toutes les commandes peuvent être focalisées au moyen de la touche de tabulation&nbsp;:</li>
-			<li>Si vous utilisez un bouton HTML natif, la commande sera focalisée automatiquement.</li>
-			<li>Si vous utilisez un bouton personnalisé (comportant un élément <code>&lt;div&gt;</code> ou <code>&lt;span&gt;</code>), vous devez utiliser l’attribut <code>tabindex="0"</code>. </li>
+			<li>Toutes les commandes peuvent être focalisées au moyen de la touche de tabulation&nbsp;:
+				<ul>
+					<li>Si vous utilisez un bouton HTML natif, la commande sera focalisée automatiquement.</li>
+					<li>Si vous utilisez un bouton personnalisé (comportant un élément <code>&lt;div&gt;</code> ou <code>&lt;span&gt;</code>), vous devez utiliser l’attribut <code>tabindex="0"</code>.</li>
+				</ul>
+			</li>
 			<li>Les commandes comportent un indicateur visible de focus du clavier. </li>
 			<li>L’ordre des commandes activées par la touche de tabulation correspond à l’ordre visuel, de gauche à droite.</li>
-			<li>Les commandes peuvent être activées par le clavier&nbsp;:</li>
-			<li>Les commandes Lecture/Pause sont activées par la touche Entrée ou la barre d’espacement.</li>
-			<li>Le contrôle du volume est activé par les touches fléchées, généralement la flèche haut et la flèche du bas.</li>
-			<li>Les commandes Avancer/Reculer sont activées par les touches fléchées, généralement la flèche gauche et la flèche droite.</li>
-			<li>D’autres commandes comme Sous-titres et Plein écran sont activées par la touche Entrée ou la barre d’espacement.</li>
+			<li>Les commandes peuvent être activées par le clavier&nbsp;:
+				<ul>
+					<li>Les commandes Lecture/Pause sont activées par la touche Entrée ou la barre d’espacement.</li>
+					<li>Le contrôle du volume est activé par les touches fléchées, généralement la flèche haut et la flèche du bas.</li>
+					<li>Les commandes Avancer/Reculer sont activées par les touches fléchées, généralement la flèche gauche et la flèche droite.</li>
+					<li>D’autres commandes comme Sous-titres et Plein écran sont activées par la touche Entrée ou la barre d’espacement.</li>
+				</ul>
+			</li>
 			<li>Le texte, les commandes et les arrière-plans présentent un contraste suffisant entre les couleurs.</li>
 
 		</ul>
@@ -106,11 +112,9 @@
 		<h2 id="screen-reader-accessibility">Accessibilité des lecteurs d’écran</h2>
 		<p>Chaque commande présente aux lecteurs d’écran son nom, son rôle et sa valeur (si une ou plusieurs sont définies).</p>
 		<ul>
-			<li><strong><dfn>Name:</dfn></strong> l’étiquette de la commande, p.&nbsp;ex. «&nbsp;Lecture&nbsp;», «&nbsp;Pause&nbsp;» ou «&nbsp;Volume&nbsp;». Le nom est extrait soit du nœud enfant du bouton  (<code>&lt;button&gt;Lecture&lt;/button&gt;</code>) soit de <code>l’attribut </code> <code>aria-label</code> ou <code>aria-labelledby</code> .</li>
-			<li><strong><dfn>Rôle:</dfn></strong>  la fonctionnalité contrôlée par la commande, p.&nbsp;ex. «&nbsp;Bouton&nbsp;», «&nbsp;Curseur&nbsp;». Un élément de bouton natif déclare automatiquement son rôle comme «&nbsp;Bouton&nbsp;». Une commande personnalisée utilise généralement l’attribut <code>rôle="bouton"</code>. La commande de volume est une exception&nbsp;: elle nécessite l’attribut <code>role="slider"</code>.</li>
-			<li><strong><dfn>Value:</dfn></strong>  les attributs ou l’état actuel d’un élément, p.&nbsp;ex. «&nbsp;50&nbsp;%&nbsp;» pour le volume. Le curseur de volume comporte une valeur en pourcentage qui, <mark><del>une fois modifiée</del> <ins>doit</ins></mark> être déclaré par les lecteurs d’écran. Consultez <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module12/index.html"> le Module&nbsp;12 &gt;</a>  Curseurs pour en savoir plus sur la façon de procéder.</li>
-			<li>Value: les attributs ou l’état actuel d’un élément, p.&nbsp;ex. «&nbsp;50&nbsp;%&nbsp;» pour le volume. Le curseur de volume comporte une valeur en pourcentage qui, une fois modifiée, doit être déclaré par les lecteurs d’écran. Consultez le Module&nbsp;12 &gt; Curseurs pour en savoir plus sur la façon de procéder.</li>
-
+			<li><strong><dfn>Name:</dfn></strong> l’étiquette de la commande, p.&nbsp;ex. «&nbsp;Lecture&nbsp;», «&nbsp;Pause&nbsp;» ou «&nbsp;Volume&nbsp;». Le nom est extrait soit du nœud enfant du bouton  (<code>&lt;button&gt;</code>Lecture<code>&lt;/button&gt;</code>) soit de l’attribut <code>aria-label</code> ou <code>aria-labelledby</code>.</li>
+			<li><strong><dfn>Rôle:</dfn></strong>  la fonctionnalité contrôlée par la commande, p.&nbsp;ex. «&nbsp;Bouton&nbsp;», «&nbsp;Curseur&nbsp;». Un élément <code>&lt;button&gt;</code> natif déclare automatiquement son rôle comme «&nbsp;Bouton&nbsp;». Une commande personnalisée utilise généralement l’attribut <code>role="bouton"</code>. La commande de volume est une exception&nbsp;: elle utilise l’attribut <code>role="slider"</code>.</li>
+			<li><strong><dfn>Value:</dfn></strong>  les attributs ou l’état actuel d’un élément, p.&nbsp;ex. «&nbsp;50&nbsp;%&nbsp;» pour le volume. Le curseur de volume comporte une valeur en pourcentage qui, une fois modifiée, est déclaré par les lecteurs d’écran. Consultez le <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module12/index.html"> Module&nbsp;12</a> &gt; Curseurs pour en savoir plus sur la façon de procéder.</li>
 		</ul>
 	</section>
 	<section>
@@ -119,10 +123,10 @@
 		<p>Certains lecteurs multimédias ajoutent toutes les fonctionnalités d’accessibilité à un menu accessible au moyen du bouton de sous-titrage codé. De préférence, le lecteur fournit un bouton distinct pour chaque fonction, avec son icône normalisée&nbsp;:</p>
 
 		<ul class="lst-none">
-			<li><img src="images/image14.png" alt=""><span class="mrgn-lft-md">Closed caption icon</span></li>
-			<li><img src="images/image15.png" alt=""><span class="mrgn-lft-md">Transcript icon</span></li>
-			<li><img src="images/image16.png" alt=""><span class="mrgn-lft-md">Audio description icon</span></li>
-			<li><img src="images/image17.png" alt=""><span class="mrgn-lft-md">Langue des signes icon</span></li>
+			<li><img src="images/image14.png" alt=""><span class="mrgn-lft-md">ic&ocirc;ne pour sous-titres</span></li>
+			<li><img src="images/image15.png" alt=""><span class="mrgn-lft-md">ic&ocirc;ne pour transcription</span></li>
+			<li><img src="images/image16.png" alt=""><span class="mrgn-lft-md">ic&ocirc;ne pour audio description</span></li>
+			<li><img src="images/image17.png" alt=""><span class="mrgn-lft-md">ic&ocirc;ne pour langue des signes</span></li>
 		</ul>
 
 		<p>Il existe des solutions de rechange si le lecteur multimédia ne permet pas l’intégration aisée des fonctions d’accessibilité&nbsp;:</p>
