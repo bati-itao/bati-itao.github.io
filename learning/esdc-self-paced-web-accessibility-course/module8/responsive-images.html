@@ -137,7 +137,7 @@
 			
 			<section>	
 				<h2 id="css-max-width">Technique 2 – Style the image with CSS max-width: 100%</h2>
-				<p>If the <mark>CSS</mark> <code>max-width</code> property is set to <code>100%</code>, the image will scale down, but never scale up to be larger than its original size. </p>
+				<p>If the CSS <code>max-width</code> property is set to <code>100%</code>, the image will scale down, but never scale up to be larger than its original size. </p>
 				<p>Resize the browser window to see the image scale.</p>
 				
 				<div class="panel panel-primary mrgn-tp-md">
@@ -178,7 +178,7 @@
 
 			<section>	
 				<h2 id="css-src-att">Technique 3 – Serve different sizes of the image to different screen sizes using the srcset attribute.</h2>
-				<p>This technique serves different sizes of an image, larger or smaller, depending on the device. While it’s possible to serve different pictures altogether with this technique, since all variations share one <code>alt</code> attribute the different <code>alt</code> values would have to be managed with JavaScript, using <a href="https://www.w3schools.com/howto/howto_js_media_queries.asp" title="W3 Schools">media queries with JavaScript</a>. Otherwise, there’s little choice: the variations must represent the same thing.</p>
+				<p>This technique serves different sizes of an image, larger or smaller, depending on the device.</p>
 				<p>The <code>srcset</code> attribute holds a comma-separated list of differently sized versions of the same image, each list item consisting of the filename and the image’s true width (the <code>w</code> unit is equivalent to pixels). </p>
 				<p>The <code>sizes</code> attribute holds a comma-separated list of different sizes of slots for images at different screen widths. The slot width is often expressed using the viewport width (vw) unit, but absolute and relative units can also be used. Each vw unit represents 1% of the viewport width. A media condition tests the screen width. The last slot width has no media condition; it’s the default that’s chosen when none of the media conditions is true. This example has a 50vw wide slot (50% of viewport width) for screens under 900 pixels wide, and a 700-pixel wide slot for the rest.</p>
 				<p>The <code>src</code> attribute holds the default image file name.</p>
@@ -228,8 +228,7 @@
 				<p>The <code>&lt;picture&gt;</code> element contains two tags: one or more <code>&lt;source&gt;</code> tags and one <code>&lt;img&gt;</code> tag.</p>
 				<p>The browser looks for the first <code>&lt;source&gt;</code> element with a media query matching the current viewport, then displays the image specified in the <code>srcset</code> attribute. </p>
 				<p>The <code>&lt;img&gt;</code> element serves as a fallback if none of the <code>&lt;source&gt;</code> tags matches. It also provides the alt text for all variations of the image.</p>
-				<p>With this technique you could serve different pictures altogether and offer multiple resolutions of each one: <code>&lt;source&gt;</code> can take a <code>srcset</code> attribute with multiple images referenced, as well as a <code>sizes</code> attribute. However, as with Technique 3, <code>srcset</code>, all variations share one <code>alt</code> attribute; unless you use JavaScript to serve different <code>alt</code> attribute values, there’s little choice: the variations must represent the same thing. </p>
-				
+				<p>With this technique you could serve different pictures altogether and offer multiple resolutions of each one: <code>&lt;source&gt;</code> can take a <code>srcset</code> attribute with multiple images referenced, as well as a <code>sizes</code> attribute. However, since all variations share one <code>alt</code> attribute, the different <code>alt</code> values would have to be managed  using <a href="https://www.w3schools.com/howto/howto_js_media_queries.asp">media queries with JavaScript</a>. Otherwise, there’s little choice: the variations must represent the same thing.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using the Art Direction </h3>
@@ -342,14 +341,17 @@
 												
 						<li><a class="list-group-item" href="introduction.html">Introduction</a></li>
 						<li><a class="list-group-item" href="zoom.html">Zoom</a></li>
-						<li><a class="list-group-item" href="responsive-design.html">Responsive design</a></li>
-						<li><a class="list-group-item" href="responsive-forms.html">Responsive forms</a></li>
-						<li><a class="list-group-item active" aria-current="page" href="responsive-images.html">Responsive images</a></li>
-						<li><a class="list-group-item" href="responsive-text.html">Responsive text</a></li>
-						<li><a class="list-group-item" href="responsive-objects.html">Responsive objects and plugins</a></li>
-						<li><a class="list-group-item" href="responsive-tables.html">Responsive tables</a></li>
-						<li><a class="list-group-item" href="responsive-ui.html">Responsive UI components</a></li>
-						<li><a class="list-group-item" href="responsive-video.html">Responsive video</a></li>
+						<li><a class="list-group-item" href="responsive-design.html">Responsive design</a>
+							<ul class="list-group menu list-unstyled">
+								<li><a class="list-group-item" href="responsive-forms.html">Responsive forms</a></li>
+								<li><a class="list-group-item active" aria-current="page" href="responsive-images.html">Responsive images</a></li>
+								<li><a class="list-group-item" href="responsive-text.html">Responsive text</a></li>
+								<li><a class="list-group-item" href="responsive-objects.html">Responsive objects and plugins</a></li>
+								<li><a class="list-group-item" href="responsive-tables.html">Responsive tables</a></li>
+								<li><a class="list-group-item" href="responsive-ui.html">Responsive UI components</a></li>
+								<li><a class="list-group-item" href="responsive-video.html">Responsive video</a></li>
+							</ul>
+						</li>
 						<li><a class="list-group-item" href="orientation.html">Orientation</a></li>
 						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
 						
