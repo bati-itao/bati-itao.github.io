@@ -70,47 +70,46 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#animation-from-interactions">Animation from interactions</a></li>
-			<li><a href="#parallax">Parallax</a></li>
-			<li><a href="#background-videos-or-animations">Background videos or animations</a></li>
-			<li><a href="#resources1">Related WCAG resources</a></li>
+            <li><a href="#animation-provenant-d’interactions">Animation provenant d’interactions</a></li>
+			<li><a href="#parallaxe">Parallaxe</a></li>
+			<li><a href="#vidéos-ou-animations-en-arrière-plan">Vidéos ou animations en arrière-plan</a></li>
+			<li><a href="#resources1">Ressources WCAG connexes</a></li>
           </ul>
         </div>
       </div>
 	</nav>
 
 	<section>
-		<h2 id="animation-from-interactions">Animation from interactions</h2>
-		<p>People with vestibular (inner ear) disorders need control over movement triggered by interactions. Movement can trigger vestibular disorder reactions, including distraction, dizziness, headaches and nausea.</p>
-		<p>WCAG requires (at Level AAA) that motion animation triggered by interaction can be disabled unless the animation is essential to the functionality or the information being conveyed. </p>
-		<p>Moving new content into the viewport is essential for scrolling. The user controls the essential scrolling movement, so it is allowed. </p>
-		<p>If scrolling a page causes elements to move (other than the essential movement associated with scrolling), it’s problematic. </p>
-		<p>“<dfn>Parallax scrolling</dfn>” is also problematic. It occurs when scrolling backgrounds move at a different rate to foregrounds.</p>
-		<p>WCAG recommends choosing one of three alternatives for reducing the chances of triggering a vestibular disorder:</p>
+		<h2 id="animation-provenant-d’interactions">Animation provenant d’interactions</h2>
+		<p>Les personnes atteintes de troubles vestibulaires (de l’oreille interne) ont besoin de contrôle sur les mouvements déclenchés par des interactions. Les mouvements peuvent déclencher des réactions de troubles vestibulaires, notamment des distractions, des étourdissements, des maux de tête et des nausées.</p>
+		<p>Les directives WCAG exigent (au niveau&nbsp;AAA) que toute les animations de mouvement déclenchent  une interaction puisse être désactivée à moins que l’animation soit essentielle à la fonctionnalité ou à l’information transmise. </p>
+		<p>Il est essentiel de déplacer tout nouveau contenu dans la clôture pour le faire défiler. Comme c’est l’utilisateur qui contrôle le mouvement de défilement essentiel, cette approche est permise. </p>
+		<p>Si le défilement d’une page entraîne le déplacement d’éléments (autre que le mouvement essentiel associé au défilement), cela posera problème. </p>
+		<p>Le «&nbsp;<dfn>défilement par parallaxe</dfn>&nbsp;» pose également problème. Il se produit lorsque l’arrière-plan se déplace à une vitesse différente de celle de l’avant-plan.</p>
+		<p>Les Directives WCAG recommandent de choisir l’une des trois solutions de rechange pour réduire les risques de déclencher un trouble vestibulaire&nbsp;:</p>
 		<ul>
-			<li>Avoid using unnecessary animation. </li>
-			<li>Provide a control for users to turn off non-essential animations from user interaction (site wide)</li>
-			<li>Take advantage of the reduced motion feature in the user-agent or operating system with the CSS <code>prefers-reduced-motion</code> media query:</li>
-		</ul>
-		<p class="wb-inv">Code begins</p>
-<pre><code class="language-css">@media (prefers-reduced-motion: reduce) {
-   /* CSS to disable motion goes here */
+			<li>Éviter d’utiliser une animation inutile;</li>
+			<li>Offrir une commande permettant aux utilisateurs de désactiver les animations non essentielles des interactions avec l’utilisateur (à l’échelle du site);</li>
+			<li>Tirer profit de la fonction de mouvement réduit intégrée au système utilisateur-agent ou au système d’exploitation avec la requête média CSS <code>«&nbsp;prefers-reduced-motion&nbsp;»&nbsp;</code>:
+				<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-sm"><code class="language-css">@media (prefers-reduced-motion: reduce) {
+   /* la commande CSS pour désactiver le mouvement est insérée ici */
 }</code></pre>
-		<p class="wb-inv">Code ends</p>
-
+				<p class="wb-inv">Code ends</p>
+			</li>
+		</ul>
 		<div class="panel panel-success mrgn-tp-lg">
 			<div class="panel-body">
 				<h3 class="text-success mrgn-tp-0">
-					<span class="glyphicon glyphicon-ok-circle"></span> Good example: Combining operating system reduced motion feature with CSS media query
-				</h3>
-			
-				<p>CSS offers a <code>prefers-reduced-motion</code> media query that respects user settings for motion.</p>
-				<p>This example demonstrates a <code>:hover</code> and <code>:focus</code> jiggling motion on a button. It’s disabled when both: </p>
+					<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Combinaison de la fonction de mouvement réduit du système d’exploitation et d’une requête média CSS
+				</h3>			
+				<p>CSS offre une requête média <code>prefers-reduced-motion</code> qui respecte les paramètres de mouvement spécifiés par l’utilisateur.</p>
+				<p>Cet exemple illustre un mouvement de tressautement <code>:hover</code> et <code>:focus</code> sur un bouton. Le mouvement est désactivé lorsque&nbsp;: </p>
 				<ul>
-					<li>the <code>prefers-reduced-motion</code> CSS Media Query is set to <code>reduce</code>, and </li>
-					<li>the user-agent or operating system has the reduced motion feature set.</li>
+					<li>la requête CSS média <code>prefers-reduced-motion</code> est fixée à <code>reduce</code> </li>
+					<li>l’agent utilisateur ou le système d’exploitation intègre les fonctionnalités de mouvement réduit.</li>
 				</ul>
-				<p>Example: <a href="https://www.w3.org/WAI/WCAG21/working-examples/css-reduced-motion-query/">Motion triggered by user interaction</a></p>
+				<p>Exemple&nbsp;: <a href="https://www.w3.org/WAI/WCAG21/working-examples/css-reduced-motion-query/">Mouvement déclenché par une interaction de l’utilisateur</a></p>
 		
 				<p class="wb-inv">Code begins</p>
 						
@@ -123,67 +122,68 @@
    }
 }</code></pre>
 				<p class="wb-inv">Code ends</p>
-				<p>Note that Windows 10 has the option to turn off “Show animations in Windows”:</p>
+				<p>Veuillez noter que Windows&nbsp;10 permet de désactiver l’affichage des animations.</p>
 				<div class="panel panel-primary">
 					<div class="panel-body mrgn-bttm-0">				
 						<figure>
 							<img src="images/image18.png" class="img-responsive" alt="Screenshot of Windows 10 Ease of Access settings, with the option turned off for Show animations in Windows">
-							<figcaption class="mrgn-tp-md">The <strong>Show animations in Windows</strong> option is turned off in the Windows 10 <strong>Ease of Access</strong> settings, under <strong>Display</strong> &gt; <strong>Simplify and personalise Windows</strong>.</figcaption>
+							<figcaption class="mrgn-tp-md">L’option <strong>Show animations in Windows</strong> est désactivée dans les paramètres <strong>Ease of Access</strong> de Windows&nbsp;10 sous <strong>Display</strong> &gt; <strong>Simplify and personalise Windows</strong>.</figcaption>
 						</figure>
+					<p>Alt text: <mark>Screenshot of Windows 10 Ease of Access settings, with the option turned off for Show animations in Windows</mark></p>
 				</div>
 			</div>	
 		
 	</section>
 	<section>
-		<h2 id="parallax">Parallax</h2>
-		<p>Parallax scrolling occurs when backgrounds move at a different rate to foregrounds. It involves extra non-essential animations when the user scrolls. Decorative elements move horizontally when the essential page content is scrolled vertically. For some people, this can trigger vestibular disorders including dizziness, nausea and headaches.</p>
+		<h2 id="parallax">Parallaxe</h2>
+		<p>Le défilement en parallaxe se produit lorsque l’arrière-plan se déplace à une vitesse différente de celle de l’avant-plan. Il est lié à des animations non essentielles additionnelles qui apparaissent lorsque l’utilisateur fait défiler l’écran. Des éléments décoratifs se déplacent horizontalement tandis que le contenu essentiel de la page défile verticalement. Pour certaines personnes, ce mouvement peut déclencher des troubles vestibulaires comme des étourdissements, des nausées et des maux de tête.</p>
 		<ul>
-			<li>Avoid parallax scrolling or provide a control for user to turn it off. </li>
-			<li>Keyboard users must be able to access the hidden area of a parallax scrolling area and use all of the features of the web page.</li>
-			<li>If in CSS the hidden content is set to <code>display: none</code>, keyboard users may not be able to access the hidden parts of the content.</li>
-			<li>The text must be readable against the background and must pass the WCAG contrast guidelines of 4.5 to 1 for small text or 3:1 for large or bold text.</li>
+			<li>Évitez le défilement en parallaxe ou ajoutez une commande pour le désactiver. </li>
+			<li>Les utilisateurs de clavier doivent pouvoir accéder à la zone cachée d’une zone de défilement en parallaxe et utiliser toutes les fonctionnalités de la page Web.</li>
+			<li>Si dans CSS le contenu caché est réglé à <code>display: none</code>, les utilisateurs de clavier pourraient ne pas avoir accès aux éléments cachés du contenu.</li>
+			<li>Le texte doit être lisible devant l’arrière-plan et doit être conforme aux directives WCAG en matière de contraste, soit 4.5:1 pour le texte de petite taille et 3:1 pour le texte de grande taille ou en caractères gras.</li>
 		</ul>
 		<div class="panel panel-danger mrgn-tp-lg">
 			<div class="panel-body">
-				<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Using Parallax scrolling.
+				<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais exemple&nbsp;: Utilisation du défilement en parallaxe.
 				</h3>
 				<p><mark>Create external page that shows parallax scrolling. Use this example and reference source. Consult with coaches on this.</mark></p>
 				<p><mark><a href="https://techbing.com/training/parallax.html">Example to use</a></mark></p>
 				<p><mark><a href="ttps://media.dequeuniversity.com/courses/generic/web-multimedia-animations-and-motion/2.0/en/html/parallax/bad1.html">Reference: Deque example</a></mark></p>
 				<img src="images/image19.png" class="img-responsive" alt="using parallax scrolling">
 				<hr/>
-				<p class="small">Source URL:<a href="https://techbing.com/training/parallax.html">https://techbing.com/training/parallax.html</a></p>
+				<p class="small">URL source&nbsp;:<a href="https://techbing.com/training/parallax.html">https://techbing.com/training/parallax.html</a></p>
 			</div>
 		</div>
 	</section>
 	<section>
-		<h2 id="background-videos-or-animations">Background videos or animations</h2>
-		<p>Background videos or animations provide extra information and enhancement to web content. If any critical information is conveyed in the background video, then the video must be fully accessible, with captions and a descriptive transcript</p>
+		<h2 id="vidéos-ou-animations-en-arrière-plan">Vidéos ou animations en arrière-plan</h2>
+		<p>Les vidéos et les animations en arrière-plan présentent des informations supplémentaires et améliorent le contenu Web. Si des informations essentielles sont communiquées dans une vidéo en arrière-plan, la vidéo doit être entièrement accessible, avec des sous-titres et une transcription descriptive.</p>
 		<ul>
-			<li>Do not have any content start playing automatically when the page loads.</li>
-			<li>Allow users control over the start and stop of moving content or audio content. </li>
-			<li>WCAG AA allows videos to autoplay for up to 5 seconds, but if content plays longer than 5 seconds, a mechanism must be provided to pause, stop, or hide the content.</li>
+			<li>Assurez-vous qu’aucun contenu ne commence à jouer automatiquement au chargement de la page.</li>
+			<li>Permettez aux utilisateurs de contrôler la lecture et l’arrêt du contenu en mouvement ou du contenu audio. </li>
+			<li>Les Directives WCAG de niveau&nbsp;AA permettent la lecture automatique des vidéos pendant un maximum de 5&nbsp;secondes, mais si un contenu doit être joué pendant plus de 5&nbsp;secondes, un mécanisme doit être intégré pour mettre en pause, arrêter ou masquer le contenu.</li>
 		</ul>
 	
 		<div class="panel panel-success mrgn-tp-lg">
 			<div class="panel-body">
 				<h3 class="text-success mrgn-tp-0">
-				<span class="glyphicon glyphicon-ok-circle"></span> Good example: Background video with play / pause feature</h3>
+				<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Vidéo en arrière-plan avec fonction de lecture/pause</h3>
 				<div class="panel panel-primary mrgn-tp-lg">
 					<div class="panel-body well mrgn-bttm-0">
 						<img src="images/image20.jpg" class="img-responsive" alt="A video has a pause button in the bottom right corner.">
 					</div>
 				</div>
-				<p>Need French alt text: <mark>A video has a pause button in the bottom right corner.</mark></p>
+				<p>Alt text: <mark>A video has a pause button in the bottom right corner.</mark></p>
 			</div>
 		</div>	
 	</section>
 				
 			<section>				
-				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
+				<h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
 				<details class="mrgn-tp-lg">
-					<summary class="bg-info">Related WCAG resources</summary>
-					<h3>Success criteria</h3>
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+					<h3>Critères de succès</h3>
 					<ul>
 						<li>
 							<a href="https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions.html">2.3.3: Animation from Interactions</a>

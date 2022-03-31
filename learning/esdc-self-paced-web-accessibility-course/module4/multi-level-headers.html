@@ -283,7 +283,7 @@
 				<div class="panel panel-success  mrgn-tp-lg">
 					<div class="panel-body">
 						<h2 class="text-success mrgn-tp-0 h3" id="table-simplified"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Multi-level table simplified</h2>
-						<p>The table in the previous example is overly complex, requiring the poorly-supported <code>id/headers</code> technique. A better approach is to split a complex table into two or more smaller tables. In this example, the “Type of Vehicle" (executive or non-executive) is moved from column 1 to the table caption, resulting in one table about executive vehicles and a second table about non-executive vehicles. The simpler tables consist of two levels of headers, so can be rendered using the <code>scope</code> attribute rather than with <code>id/headers</code> attributes. Scope is easier to author and maintain, and is better supported by user agents than the <code>id/headers</code> method.</p>		  
+						<p>The table in the previous example is overly complex, requiring the poorly-supported <code>id/headers</code> technique. A better approach is to split a complex table into two or more smaller tables. In this example, the “Type of Vehicle" (executive or non-executive) is moved from column 1 to the table <code>&lt;caption&gt;</code>, resulting in one table about executive vehicles and a second table about non-executive vehicles. The simpler tables consist of two levels of headers, so can be rendered using the <code>scope</code> attribute rather than with <code>id/headers</code> attributes. The <code>scope</code> method is easier to author and maintain, and is better supported by user agents than the <code>id/headers</code> method.</p>		  
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 								<p class="wb-inv">Example begins</p>
@@ -390,7 +390,7 @@
 					<div class="panel-body">
 						<h2 class="text-success mrgn-tp-0 h3" id="three-headers-related"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Table with three headers related to each data cell</h2>
 						<p>In this example, the table headers “Organic (1kg)" and “Non-organic (1kg)" serve as subheadings to describe the next section of the table. Using the <code>headers</code> attribute, all three headers are properly associated with the data cell.</p>
-						<p>This example sets the table in a <code>&lt;figure&gt;</code> element, as described in the section "Caption &amp; Summary". Rather than use a caption element, the figcaption holds the table title, in a <code>&lt;strong&gt;</code> element, as well as a table summary to aid comprehension. The <code>aria-labelledby</code> and <code>aria-describedby</code> attributes on the table element point to the title and summary, respectively, which makes the associations stronger and more reliable in assistive technologies.</p>
+						<p>This example sets the table in a <code>&lt;figure&gt;</code> element, as described in the section <a href="caption-summary.html">Caption &amp; summary</a>. Rather than use a <code>&lt;caption&gt;</code> element, the <code>&lt;figcaption&gt;</code> holds the table title, in a <code>&lt;strong&gt;</code> element, as well as a table summary to aid comprehension. The <code>aria-labelledby</code> and <code>aria-describedby</code> attributes on the <code>&lt;table&gt;</code> element point to the title and summary, respectively, which makes the associations stronger and more reliable in assistive technologies.</p>
 						<p>Note that the empty header cell is given an <code>id</code> attribute value and a non-breaking space as content. The cell is referenced by top-level headers in their <code>headers</code> attribute. This prevents some assistive technologies from declaring the cell.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
@@ -460,25 +460,34 @@
 						</div>
 						<details class="mrgn-tp-lg">
 						
-							<summary class="bg-info">View HTML snippet - Assigning <code>id</code> attributes to <code>&lt;th&gt;</code> cells</summary>
+							<summary class="bg-info">View HTML snippet - Assigning id attributes to &lt;th&gt; cells</summary>
 							<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">[…]
-   &lt;td id="blank"&gt;&amp;nbsp;&lt;/td&gt;
-   &lt;th id="can" scope="col" headers="blank"&gt;Canada&lt;/th&gt;
-   &lt;th id="usa" scope="col" headers="blank"&gt;USA&lt;/th&gt;
-   &lt;th id="uk" scope="col" headers="blank"&gt;UK&lt;/th&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-   &lt;th id="org" class="span" colspan="4" scope="colgroup" headers="blank"&gt;Organic (1kg)&lt;/th&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-   &lt;th headers="org" id="o-apples"&gt;Apples&lt;/th&gt;
-[…]</code>
-</pre>
+<pre><code class="language-html">&lt;thead&gt;
+   &lt;tr&gt;
+      &lt;td id="blank"&gt;&amp;nbsp;&lt;/td&gt;
+      &lt;th id="can" scope="col" headers="blank"&gt;Canada&lt;/th&gt;
+      &lt;th id="usa" scope="col" headers="blank"&gt;USA&lt;/th&gt;
+      &lt;th id="uk" scope="col" headers="blank"&gt;UK&lt;/th&gt;
+   &lt;/tr&gt;
+&lt;thead&gt;
+&lt;tbody&gt;
+   &lt;tr&gt;
+      &lt;th id="org" class="span" colspan="4" scope="colgroup" headers="blank"&gt;
+         Organic (1kg)
+      &lt;/th&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;th id="o-apples" headers="org"&gt;
+         Apples
+      &lt;/th&gt;
+      […]
+   &lt;/tr&gt;
+   […]
+&lt;/tbody&gt;</code></pre>
 						</details>
      
 						<details class="mrgn-tp-lg">
-							<summary class="bg-info">View HTML snippet - Assigning <code>headers</code> attributes to <code>&lt;td&gt;</code> cells</summary>
+							<summary class="bg-info">View HTML snippet - Assigning headers attributes to &lt;td&gt; cells</summary>
 							<p class="wb-inv">Code begins</p>
  <pre><code class="language-html">[…]
 &lt;td headers="org o-apples can"&gt;$3.62&lt;/td&gt;
@@ -490,69 +499,69 @@
 
 						<details class="mrgn-tp-lg">
 							<summary class="bg-info">View complete HTML</summary>
-							<p class="wb-in">Code begins</p>
+							<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;figure&gt; 
-&lt;figcaption&gt;  
-	&lt;strong id="caption"&gt;Cost of organic vs non-organic produce in Canada, the USA and the UK&lt;/strong&gt;  
-	&lt;p id="summary"&gt;Column one lists organic produce followed by non-organic, other columns show the cost by country.&lt;/p&gt;  
-&lt;/figcaption&gt;  
-&lt;table aria-labelledby="caption" aria-describedby="summary"&gt;   
-	&lt;thead&gt;  
-	&lt;tr&gt; 
-		&lt;td id="blank"&gt;&amp;nbsp;&lt;/td&gt;  
-		&lt;th id="can" headers="blank"&gt;Canada&lt;/th&gt; 
-		&lt;th id="usa" headers="blank"&gt;USA&lt;/th&gt; 
-		&lt;th id="uk" headers="blank"&gt;UK&lt;/th&gt; 
-	&lt;/tr&gt; 
-	&lt;/thead&gt; 
-	&lt;tbody&gt; 
-		&lt;tr&gt;  
-			&lt;th id="org" class="span" colspan="4" headers="blank"&gt;Organic&lt;/th&gt; 
-		&lt;/tr&gt; 
-		&lt;tr&gt; 
-			&lt;th headers="org" id="o-apples"&gt;Apples&lt;/th&gt; 
-			&lt;td headers="org o-apples can"&gt;$3.62&lt;/td&gt; 
-			&lt;td headers="org o-apples usa"&gt;$4.87&lt;/td&gt; 
-			&lt;td headers="org o-apples uk"&gt;$2.69&lt;/td&gt; 
-		&lt;/tr&gt; 
-		&lt;tr&gt; 
-			&lt;th headers="org" id="o-bananas"&gt;Bananas&lt;/th&gt;  
-			&lt;td headers="org o-bananas can"&gt; $1.47&lt;/td&gt; 
-			&lt;td headers="org o-bananas usa"&gt;$1.68&lt;/td&gt; 
-			&lt;td headers="org o-bananas uk"&gt;$1.60&lt;/td&gt; 
-		&lt;/tr&gt; 
-		&lt;tr&gt; 
-			&lt;th headers="org" id="o-onions"&gt;Onions&lt;/th&gt; 
-			&lt;td headers="org o-onions can"&gt;$2.28&lt;/td&gt; 
-			&lt;td headers="org o-onions usa"&gt;$2.81&lt;/td&gt; 
-			&lt;td headers="org o-onions uk"&gt;$1.44&lt;/td&gt;  
-		&lt;/tr&gt; 
-		&lt;tr&gt; 
-			&lt;th id="non-org" class="span" colspan="4" headers="blank"&gt;Non-organic&lt;/th&gt; 
-		&lt;/tr&gt;  
-		&lt;tr&gt;  
-			&lt;th id="n-apples" headers="non-org"&gt;Apples&lt;/th&gt; 
-			&lt;td headers="non-org n-apples can"&gt;$3.37&lt;/td&gt; 
-			&lt;td headers="non-org n-apples usa"&gt;$4.53&lt;/td&gt; 
-			&lt;td headers="non-org n-apples uk"&gt;$2.50&lt;/td&gt; 
-		&lt;/tr&gt;  
-		&lt;tr&gt; 
-			&lt;th id="n-bananas" headers="non-org"&gt;Bananas&lt;/th&gt; 
-			&lt;td headers="non-org n-bananas can"&gt;$1.37&lt;/td&gt; 
-			&lt;td headers="non-org n-bananas usa"&gt;$1.56&lt;/td&gt;  
-			&lt;td headers="non-org n-bananas uk"&gt;$1.49&lt;/td&gt;  
-		&lt;/tr&gt;  
-		&lt;tr&gt;  
-			&lt;th id="n-onions" headers="non-org"&gt;Onions&lt;/th&gt;  
-			&lt;td headers="non-org n-onions can"&gt;$2.12&lt;/td&gt; 
-			&lt;td headers="non-org n-onions usa"&gt;$2.61&lt;/td&gt;  
-			&lt;td headers="non-org n-onions uk"&gt; $1.34&lt;/td&gt;  
-		&lt;/tr&gt;  
-	&lt;/tbody&gt;  
-&lt;/table&gt;  
+   &lt;figcaption&gt;  
+      &lt;strong id="caption"&gt;Cost of organic vs non-organic produce in Canada, the USA and the UK&lt;/strong&gt;  
+      &lt;p id="summary"&gt;Column one lists organic produce followed by non-organic, other columns show the cost by country.&lt;/p&gt;  
+   &lt;/figcaption&gt;  
+   &lt;table aria-labelledby="caption" aria-describedby="summary"&gt;   
+      &lt;thead&gt;  
+        &lt;tr&gt; 
+          &lt;td id="blank"&gt;&amp;nbsp;&lt;/td&gt;  
+          &lt;th headers="blank" id="can"&gt;Canada&lt;/th&gt; 
+          &lt;th headers="blank" id="usa"&gt;USA&lt;/th&gt; 
+          &lt;th headers="blank" id="uk"&gt;UK&lt;/th&gt; 
+        &lt;/tr&gt; 
+      &lt;/thead&gt; 
+      &lt;tbody&gt; 
+         &lt;tr&gt;  
+            &lt;th headers="blank" id="org" class="span" colspan="4"&gt;Organic&lt;/th&gt; 
+         &lt;/tr&gt; 
+         &lt;tr&gt; 
+            &lt;th headers="org" id="o-apples"&gt;Apples&lt;/th&gt; 
+            &lt;td headers="org o-apples can"&gt;$3.62&lt;/td&gt; 
+            &lt;td headers="org o-apples usa"&gt;$4.87&lt;/td&gt; 
+            &lt;td headers="org o-apples uk"&gt;$2.69&lt;/td&gt; 
+         &lt;/tr&gt; 
+         &lt;tr&gt; 
+            &lt;th headers="org" id="o-bananas"&gt;Bananas&lt;/th&gt;  
+            &lt;td headers="org o-bananas can"&gt; $1.47&lt;/td&gt; 
+            &lt;td headers="org o-bananas usa"&gt;$1.68&lt;/td&gt; 
+            &lt;td headers="org o-bananas uk"&gt;$1.60&lt;/td&gt; 
+         &lt;/tr&gt; 
+         &lt;tr&gt; 
+            &lt;th headers="org" id="o-onions"&gt;Onions&lt;/th&gt; 
+            &lt;td headers="org o-onions can"&gt;$2.28&lt;/td&gt; 
+            &lt;td headers="org o-onions usa"&gt;$2.81&lt;/td&gt; 
+            &lt;td headers="org o-onions uk"&gt;$1.44&lt;/td&gt;  
+         &lt;/tr&gt; 
+         &lt;tr&gt; 
+            &lt;th headers="blank" id="non-org" class="span" colspan="4"&gt;Non-organic&lt;/th&gt; 
+         &lt;/tr&gt;  
+         &lt;tr&gt;  
+            &lt;th id="n-apples" headers="non-org"&gt;Apples&lt;/th&gt; 
+            &lt;td headers="non-org n-apples can"&gt;$3.37&lt;/td&gt; 
+            &lt;td headers="non-org n-apples usa"&gt;$4.53&lt;/td&gt; 
+            &lt;td headers="non-org n-apples uk"&gt;$2.50&lt;/td&gt; 
+         &lt;/tr&gt;  
+         &lt;tr&gt; 
+            &lt;th id="n-bananas" headers="non-org"&gt;Bananas&lt;/th&gt; 
+            &lt;td headers="non-org n-bananas can"&gt;$1.37&lt;/td&gt; 
+            &lt;td headers="non-org n-bananas usa"&gt;$1.56&lt;/td&gt;  
+            &lt;td headers="non-org n-bananas uk"&gt;$1.49&lt;/td&gt;  
+         &lt;/tr&gt;  
+         &lt;tr&gt;  
+            &lt;th id="n-onions" headers="non-org"&gt;Onions&lt;/th&gt;  
+            &lt;td headers="non-org n-onions can"&gt;$2.12&lt;/td&gt; 
+            &lt;td headers="non-org n-onions usa"&gt;$2.61&lt;/td&gt;  
+            &lt;td headers="non-org n-onions uk"&gt; $1.34&lt;/td&gt;  
+         &lt;/tr&gt;  
+      &lt;/tbody&gt;  
+   &lt;/table&gt;  
 &lt;/figure&gt;</code>
 </pre>
-							<p class="wb-in">Code ends</p>
+							<p class="wb-inv">Code ends</p>
 						</details>
 					</div>
 				</div>
@@ -629,7 +638,7 @@
 						<li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>			
 						<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
 						<li><a class="list-group-item active" href="index.html">Module 4 – Tables</a></li>
-						<li><a class="list-group-item" href="../module4/index.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
 						<li><a class="list-group-item" href="../module6/index.html">Module 6 – Forms</a></li>	
 						<li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual design and colours</a></li>
 						<li><a class="list-group-item" href="../module8/index.html">Module 8 – Zoom and responsive design</a></li>
