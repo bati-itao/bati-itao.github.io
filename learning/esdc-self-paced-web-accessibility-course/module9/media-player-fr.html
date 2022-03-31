@@ -80,52 +80,61 @@
 	</nav>
 
 	<section>
-		<h2 id="media-player-accessibility">Accessibilité du lecteur multimédia (overview)</h2>
-		<p>The media player itself should be keyboard accessible and screen reader compatible. The browser default HTML5 video media player is insufficient, as browsers and screen readers vary in their support of accessibility features. The solution is to adopt a media player that has been designed and tested for accessibility.</p>
-		<p>Accessible media players include the <a href="https://ableplayer.github.io/ableplayer/">Able Player</a>, <a href="https://www.accessibilityoz.com/ozplayer/">OzPlayer</a>, <a href="https://github.com/nomensa/Accessible-Media-Player">Nomensa media player,</a> <a href="https://github.com/paypal/accessible-html5-video-player">PayPal media player,</a> and the <a href="https://support.google.com/accessibility/answer/189278?hl=en">YouTube</a> media player.</p>
+		<h2 id="media-player-accessibility">Accessibilité du lecteur multimédia (aperçu)</h2>
+		<p>Le lecteur multimédia doit être accessible par le clavier et compatible avec les lecteurs d’écran. Le lecteur multimédia HTML5 intégré par défaut aux navigateurs est insuffisant, car les navigateurs et les lecteurs d’écran prennent en charge différemment les fonctionnalités d’accessibilité. La solution consiste à adopter un lecteur multimédia qui a été conçu et testé pour assurer l’accessibilité. </p>
+		<p>Les lecteurs multimédias accessibles comprennent et media player. <a href="https://ableplayer.github.io/ableplayer/">Able Player</a>, <a href="https://www.accessibilityoz.com/ozplayer/">OzPlayer</a>, <a href="https://github.com/nomensa/Accessible-Media-Player">Nomensa media player,</a> <a href="https://github.com/paypal/accessible-html5-video-player">PayPal media player,</a> and the <a href="https://support.google.com/accessibility/answer/189278?hl=en">YouTube</a> media player.</p>
 	</section>
 	<section>
-		<h2 id="keyboard-accessibility">Keyboard accessibility</h2>
+		<h2 id="keyboard-accessibility">Accessibilité par le clavier</h2>
 		<ul>
-			<li>All controls can receive focus via the tab key:</li>
-			<li>If using a native HTML button, it receives focus automatically.</li>
-			<li>If using a custom button (with a <code>&lt;div&gt;</code> or a <code>&lt;span&gt;</code> element), it needs the <code>tabindex="0"</code> attribute <mark>and a JavaScript key press event</mark>.</li>
-			<li>Controls have a visible keyboard focus indicator. </li>
-			<li>The tab order of controls matches the visual order, left to right.</li>
-			<li>Controls are operable by keyboard:</li>
-			<li>Play/Pause controls activate via the Enter key or Space key.</li>
-			<li>Volume control activates via the arrow keys, usually up and down.</li>
-			<li>Forward and Rewind controls activate via the arrow keys, usually left and right.</li>
-			<li>Other controls like Sous-titres and Full Screen activate via the Enter key or Space key.</li>
-			<li>Text, controls, and backgrounds have sufficient contrast between colors.</li>
+					
+			<li>Toutes les commandes peuvent être focalisées au moyen de la touche de tabulation&nbsp;:
+				<ul>
+					<li>Si vous utilisez un bouton HTML natif, la commande sera focalisée automatiquement.</li>
+					<li>Si vous utilisez un bouton personnalisé (comportant un élément <code>&lt;div&gt;</code> ou <code>&lt;span&gt;</code>), vous devez utiliser l’attribut <code>tabindex="0"</code>.</li>
+				</ul>
+			</li>
+			<li>Les commandes comportent un indicateur visible de focus du clavier. </li>
+			<li>L’ordre des commandes activées par la touche de tabulation correspond à l’ordre visuel, de gauche à droite.</li>
+			<li>Les commandes peuvent être activées par le clavier&nbsp;:
+				<ul>
+					<li>Les commandes Lecture/Pause sont activées par la touche Entrée ou la barre d’espacement.</li>
+					<li>Le contrôle du volume est activé par les touches fléchées, généralement la flèche haut et la flèche du bas.</li>
+					<li>Les commandes Avancer/Reculer sont activées par les touches fléchées, généralement la flèche gauche et la flèche droite.</li>
+					<li>D’autres commandes comme Sous-titres et Plein écran sont activées par la touche Entrée ou la barre d’espacement.</li>
+				</ul>
+			</li>
+			<li>Le texte, les commandes et les arrière-plans présentent un contraste suffisant entre les couleurs.</li>
+
 		</ul>
 	</section>
 	<section>
-		<h2 id="screen-reader-accessibility">Screen reader accessibility</h2>
-		<p>Each control presents to screen readers its name and role, and value if one or more is set.</p>
+		<h2 id="screen-reader-accessibility">Accessibilité des lecteurs d’écran</h2>
+		<p>Chaque commande présente aux lecteurs d’écran son nom, son rôle et sa valeur (si une ou plusieurs sont définies).</p>
 		<ul>
-			<li><strong><dfn>Name:</dfn></strong> the control’s label, e.g., “Play”, “Pause” and “Volume”. The name is either the child node of the button (<code>&lt;button&gt;Play&lt;/button&gt;</code>) or is set via the <code>aria-label</code> or <code>aria-labelledby</code> attribute.</li>
-			<li><strong><dfn>Role:</dfn></strong>  the control's functional purpose, e.g., “Button”, “Slider”. A native button element declares its role automatically as “button”. Custom controls will use the <code>role="button"</code> attribute, for the most part. The exception is the volume control, which will need the <code>role="slider"</code> attribute.</li>
-			<li><strong><dfn>Value:</dfn></strong>  the attributes or current state of an element, e.g, “50%” for volume. The volume slider has a percentage value that, when changed, <mark><del>needs to be</del> <ins>is</ins></mark> declared by screen readers. Refer to <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module12/index.html"> Module 12</a> &gt; Sliders for details on how to accomplish this.</li>
+			<li><strong><dfn>Name:</dfn></strong> l’étiquette de la commande, p.&nbsp;ex. «&nbsp;Lecture&nbsp;», «&nbsp;Pause&nbsp;» ou «&nbsp;Volume&nbsp;». Le nom est extrait soit du nœud enfant du bouton  (<code>&lt;button&gt;</code>Lecture<code>&lt;/button&gt;</code>) soit de l’attribut <code>aria-label</code> ou <code>aria-labelledby</code>.</li>
+			<li><strong><dfn>Rôle:</dfn></strong>  la fonctionnalité contrôlée par la commande, p.&nbsp;ex. «&nbsp;Bouton&nbsp;», «&nbsp;Curseur&nbsp;». Un élément <code>&lt;button&gt;</code> natif déclare automatiquement son rôle comme «&nbsp;Bouton&nbsp;». Une commande personnalisée utilise généralement l’attribut <code>role="bouton"</code>. La commande de volume est une exception&nbsp;: elle utilise l’attribut <code>role="slider"</code>.</li>
+			<li><strong><dfn>Value:</dfn></strong>  les attributs ou l’état actuel d’un élément, p.&nbsp;ex. «&nbsp;50&nbsp;%&nbsp;» pour le volume. Le curseur de volume comporte une valeur en pourcentage qui, une fois modifiée, est déclaré par les lecteurs d’écran. Consultez le <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module12/index.html"> Module&nbsp;12</a> &gt; Curseurs pour en savoir plus sur la façon de procéder.</li>
 		</ul>
 	</section>
 	<section>
-		<h2 id="support-for-captions-audio-descriptions-transcripts">Support for captions, audio descriptions and transcripts</h2>
-		<p>The ideal media player provides built-in support for captions, audio descriptions, and transcripts.</p>
-		<p>Some media players add all accessibility features to a menu accessed via the closed caption button. Preferably, the player provides a separate button for each feature, with the standardized icon:</p>
+		<h2 id="support-for-captions-audio-descriptions-transcripts">Prise en charge des sous-titres, des audiodescriptions et des transcriptions</h2>
+		<p>Le lecteur multimédia idéal offre la prise en charge intégrée des sous-titres, des audiodescriptions et des transcriptions. </p>
+		<p>Certains lecteurs multimédias ajoutent toutes les fonctionnalités d’accessibilité à un menu accessible au moyen du bouton de sous-titrage codé. De préférence, le lecteur fournit un bouton distinct pour chaque fonction, avec son icône normalisée&nbsp;:</p>
+
 		<ul class="lst-none">
-			<li><img src="images/image14.png" alt=""><span class="mrgn-lft-md">Closed caption icon</span></li>
-			<li><img src="images/image15.png" alt=""><span class="mrgn-lft-md">Transcript icon</span></li>
-			<li><img src="images/image16.png" alt=""><span class="mrgn-lft-md">Audio description icon</span></li>
-			<li><img src="images/image17.png" alt=""><span class="mrgn-lft-md">Langue des signes icon</span></li>
+			<li><img src="images/image14.png" alt=""><span class="mrgn-lft-md">ic&ocirc;ne pour sous-titres</span></li>
+			<li><img src="images/image15.png" alt=""><span class="mrgn-lft-md">ic&ocirc;ne pour transcription</span></li>
+			<li><img src="images/image16.png" alt=""><span class="mrgn-lft-md">ic&ocirc;ne pour audio description</span></li>
+			<li><img src="images/image17.png" alt=""><span class="mrgn-lft-md">ic&ocirc;ne pour langue des signes</span></li>
 		</ul>
 
-		<p>There are workarounds if the media player does not support easy integration of the accessibility features:</p>
-		<ul>
-			<li>Provide open captions, burned into the video, rather than closed captions (the user cannot customize their appearance).</li>
-			<li>Provide the transcript directly or via a link, adjacent to the video.</li>
-			<li>Provide the audio description in a separate (longer) video easily accessible to the user.</li>
-		</ul>
+		<p>Il existe des solutions de rechange si le lecteur multimédia ne permet pas l’intégration aisée des fonctions d’accessibilité&nbsp;:</p>
+			<ul>
+				<li>Ajoutez des sous-titres visibles gravés dans la vidéo plutôt que des sous-titres codés (l’utilisateur ne peut pas personnaliser leur apparence).</li>
+				<li>Ajoutez la transcription directement ou par un lien à côté de la vidéo.</li>
+				<li>Ajoutez l’audiodescription dans une vidéo distincte (plus longue) facilement accessible pour l’utilisateur.</li>
+			</ul>
   </section>
 		
 	<nav role="navigation" aria-labelledby="nav-document">
