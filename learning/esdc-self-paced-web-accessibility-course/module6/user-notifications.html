@@ -10,7 +10,7 @@
 	<meta content="width=device-width,initial-scale=1" name="viewport">
 	<!-- Meta data -->
 	<meta name="description"
-		content="Accessibility guidelines related to user notifications. Upon form submission, notify the user of success or of any errors.">
+		content="">
 	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
@@ -61,7 +61,7 @@
 <div class="row">
 	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
 			
-	<h1 property="name" id="wb-cont">Heading title</h1>
+	<h1 property="name" id="wb-cont">User notifications</h1>
 						
 	<nav role="navigation">
     <div class="panel panel-default mrgn-tp-md">
@@ -70,9 +70,12 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#section1">S1</a></li>
-			<li><a href="#section2">S2</a></li>
-			<li><a href="#section3">S3</a></li>
+            <li><a href="#user-notification">Designing user notification</a></li>
+			<li><a href="#main-heading">Good example: Use the main heading</a></li>
+			<li><a href="#title-element">Good example: Use the title element</a></li>
+			  <li><a href="#list-errors">Good example: List errors before the form</a></li>
+			  <li><a href="#wet-form-validation">WET Form Validation’s user notification</a></li>
+			  <li><a href="#wet-in-line-feedback">Good Example: WET in-line feedback</a></li>
 			<li><a href="#resources1">Related WCAG resources</a></li>
           </ul>
         </div>
@@ -80,20 +83,233 @@
 	</nav>
 	
 			<section>				
-				<h2 id="section1">S1</h2>
-				
+				<h2 id="user-notification">Designing user notification</h2>
+				<p>Upon form submission, notify the user of success or of any errors.</p>
+				<p>Ensure error messages are clear and concise and provide simple instructions for resolving the error. </p>
+				<p>As per the examples below, provide feedback in the main heading, in the title element, as a list of errors before the form, as well as in-line, programmatically associated with the form control.   </p>
+		</section>
+		<section>
+				<div class="panel panel-success mrgn-tp-lg">
+				  <div class="panel-body">
+		
+				    <h2 class="text-success mrgn-tp-0 h3" id="main-heading"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Use the main heading</h2>
+						
+					  <p class="wb-inv">Code begins</p>	<pre><code class="language-html">&lt;h1&gt; Your form has been successfully submitted.&lt;/h1&gt;</code></pre><p class="wb-inv">Code ends</p>
+                    <p>While a success message may have a dedicated page, errors return the users to the form. The h1 element still needs to describe the purpose of the page, so preface the existing topic with a short error message:</p>
+                   <p class="wb-inv">Code begins</p>	<pre><code class="language-html">&lt;h1&gt;2 Errors – Contact information&lt;/h1&gt;</code></pre><p class="wb-inv">Code ends</p>
+
+                    <p>The WET Form Validation uses a dedicated level 2 heading for the error message (and it can be configured to be lower):</p>
+                      <p class="wb-inv">Code begins</p>	<pre><code class="language-html">&lt;h2&gt;The form could not be submitted because 2 errors were found.&lt;/h2&gt;</code></pre><p class="wb-inv">Code ends</p>
+                  </div>
+				</div>
+		</section>
+		<section>
+			<div class="panel panel-success mrgn-tp-lg">
+			  <div class="panel-body">
+		
+			    <h2 class="text-success mrgn-tp-0 h3" id="title-element"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Use the title element</h2>
+				  <p>The title element, in the page head element, is the first thing heard by screen reader users on page load. Prefacing the existing title value with &ldquo;Success&rdquo; or &ldquo;Errors&rdquo; (or &ldquo;4 Errors&rdquo; if you have the count) gives these users immediate feedback.</p>
+				  <p class="wb-inv">Code begins</p>	<pre><code class="language-html">&lt;title&gt;2 Errors: Contact information – Registration – Company X&lt;/title&gt;</code></pre><p class="wb-inv">Code ends</p>
+				  <p>The WET Form Validation does not leverage the title element.</p>
+              </div>
+				</div>
+      </section>
+			
+			<section>				
+				<div class="panel panel-success mrgn-tp-lg">
+			  <div class="panel-body">
+		
+			    <h2 class="text-success mrgn-tp-0 h3" id="list-errors"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: List errors before the form</h2>
+				  <p>List the errors before the form and under a heading that explains what&rsquo;s going on (see Example 1).</p>
+				  <p>Each error listed should:</p>
+                  <ul>
+                    <li>Reference the label of the corresponding form control. </li>
+                    <li>Provide a concise, easy to understand description of the error. </li>
+                    <li>Indicate how to correct mistakes and remind users of any format requirements.</li>
+                    <li>Include an in-page link to the corresponding form control for easy access. </li>
+                </ul>
+                  <p>The WET Form Validation also numbers each error in the list and at the control.</p>
+				 <div class="panel panel-primary mrgn-tp-md">
+				<div class="panel-body well mrgn-bttm-0">
+					<p class="wb-inv">Example begins</p>
+					<div class="wb-frmvld">
+	<form action="#" method="get" id="validation-example">
+		
+		<div class="form-group">
+			<label for="title1" class="required"><span class="field-name">Title</span> <strong class="required">(required)</strong></label>
+			<select class="form-control" id="title1" name="title1" autocomplete="honorific-prefix" required="required">
+				<option label="Select a title"></option>
+				<option value="dr">Dr.</option>
+				<option value="esq">Esq.</option>
+				<option value="mr">Mr.</option>
+				<option value="ms">Ms.</option>
+			</select>
+		</div>
+				<div class="form-group">
+			<label for="fname1" class="required"><span class="field-name">First name</span> <strong class="required">(required)</strong></label>
+			<input class="form-control" id="fname1" name="fname1" type="text" autocomplete="given-name" required="required" data-rule-minlength="2" />
+		</div>
+		
+		<div class="form-group">
+			<label for="lname1" class="required"><span class="field-name">Last name</span> <strong class="required">(required)</strong></label>
+			<input class="form-control" id="lname1" name="lname1" type="text" autocomplete="family-name" required="required" data-rule-minlength="2" />
+		</div>
+		
+				<div class="form-group">
+			<label for="tel1" class="required"><span class="field-name">Telephone number (including area code)</span> <strong class="required">(required)</strong></label>
+			<input class="form-control" id="tel1" name="tel1" type="tel" autocomplete="tel" required="required" data-rule-phoneUS="true" />
+		</div>
+		
+		<input type="submit" value="Submit" class="btn btn-primary">
+		<input type="reset" value="Reset page to defaults" class="btn btn-link btn-sm show p-0 mrgn-tp-md">
+						</form>
+					 </div>
+				  </div>
+				  
+              </div>
+				</div>
+				</div>
+				<p class="wb-inv">Example ends</p>
 			</section>
 			
 			<section>				
-				<h2 id="section2">S2</h2>
+				<div class="panel panel-success mrgn-tp-lg">
+			  <div class="panel-body">
+		
+			    <h2 class="text-success mrgn-tp-0 h3" id="in-line-feedback"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: In-line feedback</h2>
+			    <p>Provide success and error feedback in-line at the form control itself. Combine a visual indicator and a feedback message.</p>
+				  <p> For instance:</p>
+                  <ul>
+                    <li>Indicate success fields with the green word &ldquo;OK&rdquo; prefixed in the label, a green border on the input, and a green checkmark. </li>
+                    <li>Indicate errors fields with the red word &ldquo;Error&rdquo; prefixed in the label, a red border, and red instructions on how to correct. </li>
+                </ul>
+                  <p>In this example, each group of label, control, and message is nested in a div with a class name, either &ldquo;success&rdquo; or &ldquo;error&rdquo;, that sets the colour via CSS. The word &ldquo;OK&rdquo; or &ldquo;Error&rdquo; is inserted at the start of the label, providing a text equivalent for users with colour blindness. Lengthier feedback is associated with the form control via the aria-describedby attribute, pointing to the id attribute value of the message, held in a span element. The checkmark is declared as &ldquo;check&rdquo; by the NVDA screen reader.</p>
+                  <p>WET Form Validation&rsquo;s treatment of in-line feedback differs, as described in the next section.</p>
+				  
+			    <div class="panel panel-primary mrgn-tp-md">
+				<div class="panel-body well mrgn-bttm-0">
+				<p class="wb-inv">Example begins</p>
+			<style>.form-control-feedback { width: auto !important; float:left;}</style>
+					
+					<div class="form-group has-success has-feedback">
+<label for="username" class="control-label"> 
+<strong>OK:</strong>
+	 Username: </label>	  	
+	<input type="text" class="form-control" name="username" id="username" value="Johnny" aria-describedby="userDesc">
+	<span id="userDesc" class="form-control-feedback">✓</span>
+</div>
+<div class="form-group has-error has-feedback">
+	<label for="expire"  class="control-label"> 
+	<strong>Error:</strong>
+	Expiry date: 
+	</label> 
+	<input type="text" class="form-control" name="expire" id="expire" value="May 2015" aria-describedby="expDesc">
+	<span id="expDesc" class="form-control-feedback" aria-hidden="true">Use the format MM/YYYY.</span>
+</div>
+
+	<input type="submit" value="Submit" class="btn btn-primary">
+					
+
+					  
+					  
+					  
+					  
+				  </div>
+				  </div>
+				  <p class="wb-inv">Example ends</p>
+				  <pre><code class="language-html">&lt;div class=&quot;success&quot;&gt; 
+  &lt;label for=&quot;username&quot;&gt; 
+  &lt;strong&gt;OK:&lt;/strong&gt;
+				     Username: 
+  &lt;/label&gt; 
+  &lt;input type=&quot;text&quot; name=&quot;username&quot; id=&quot;username&quot; value=&quot;Johnny&quot; aria-describedby=&quot;userDesc&quot;&gt;
+  &lt;span id=&quot;userDesc&quot;&gt;✓&lt;/span&gt;
+  &lt;/div&gt; 
+  &lt;div class=&quot;error&quot;&gt; 
+  &lt;label for=&quot;expire&quot;&gt; 
+  &lt;strong&gt;Error:&lt;/strong&gt;
+				    Expiry date: 
+  &lt;/label&gt; 
+  &lt;input type=&quot;text&quot; name=&quot;expire&quot; id=&quot;expire&quot; value=&quot;May 2015&quot; aria-describedby=&quot;expDesc&quot;&gt;
+  &lt;span id=&quot;expDesc&quot;&gt;Use the format MM/YYYY.&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+  &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
+  &lt;/div&gt;</code>
+</pre><pre><code class="language-css">
+.error { color: #900; } 
+.success { color: #007a00; } 
+.error input { border: 3px solid #900; } 
+.success input { border: 3px solid #007a00; }
+label { display: block; }</code>
+</pre>
+</div>
+					
+					
+				  
+				</div>
 				
 			</section>
+			<section>
+		<h2 id="wet-form-validation">WET Form Validation’s user notification</h2>
+				<p>WET Form Validation generates user notifications that differ from the advice provided above:</p>
+                <ul>
+                  <li>By default, WET uses a h2 heading for the error summary, and it can be configured to be lower. It can&rsquo;t be set as h1.</li>
+                  <li>WET doesn&rsquo;t modify the title element to include a success/error message. </li>
+                  <li>WET doesn&rsquo;t provide in-line success feedback. </li>
+                  <li>WET numbers the errors.</li>
+                  <li>With in-line feedback, WET appends all error messaging in the label, rather than pointing to the message with the aria-describedby attribute from the control. This is verbose content for a label, but the user is guaranteed to encounter the information. </li>
+                </ul>
+                <p>The <a href="https://wet-boew.github.io/v4.0-ci/demos/formvalid/formvalid-en.html">example page for WET Form Validation</a> covers all variety of user input.</p>
+			  <div class="panel panel-success mrgn-tp-lg">
+	    <div class="panel-body">
+		
+		  <h2 class="text-success mrgn-tp-0 h3" id="wet-in-line-feedback"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good Example: WET in-line feedback</h2>
 			
-			<section>				
-				<h2 id="section3">S3</h2>
+			<div class="panel panel-primary mrgn-tp-md">
+				<div class="panel-body well mrgn-bttm-0">
+				<p class="wb-inv">Example begins</p>
+	<div class="form-group has-error">
+<label for="pcodeca1" class="required">
+<span class="field-name"> Website URL (https://www.url.com) </span>  
+<strong class="required">(required)</strong>
+<strong id="pcodeca1-error" class="error"><br>
+<span class="label label-danger">
+<span class="prefix">Error&nbsp;6: </span>
+Please enter a valid URL.
+</span>
+</strong>
+</label>
+<input class="form-control error" id="pcodeca1" name="pcodeca1" type="text" autocomplete="postal-code" size="7" maxlength="7" required="required" data-rule-postalcodeca="true" aria-invalid="true">
+</div>
+<p class="wb-inv">Example ends</p>
+
+							<p class="wb-inv">Code begins</p>
+				<pre><code class="language-html">&lt;div class="form-group has-error"&gt;
+	&lt;label for="pcodeca1" class="required"&gt;
+		&lt;span class="field-name"&gt; Website URL (https://www.url.com) &lt;/span&gt;  
+			&lt;strong class="required"&gt;(required)&lt;/strong&gt;
+			&lt;strong id="pcodeca1-error" class="error"&gt;
+			&lt;span class="label label-danger"&gt;
+			&lt;span class="prefix"&gt;Error&nbsp;6: &lt;/span&gt;
+			Please enter a valid URL.
+			&lt;/span&gt;
+		&lt;/strong&gt;
+	&lt;/label&gt;
+	&lt;input class="form-control error" id="pcodeca1" name="pcodeca1" type="text" autocomplete="postal-code" size="7" maxlength="7" required="required" data-rule-postalcodeca="true" aria-invalid="true"&gt;
+&lt;/div&gt;
+</code></pre>
+			</div>
+			</div>
+				</div>
+					
 				
-			</section>
 			
+
+				</div>
+				
+                
+            </section>
 			
 			<section>				
 				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
@@ -101,14 +317,19 @@
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
 					<ul>
-						<li><a href="https://www.link1.com">Link 1</a></li>
-					</ul>
+				  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification">3.3.1: Error Identification</a></li>
+				  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/error-suggestion">3.3.3: Error Suggestion</a></li>
+				  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages">4.1.3: Status Messages</a></li>
+			    </ul>
 					<h3>Techniques</h3>
 					<ul>
-						<li>
-							<a href="https://www.link2.com">Link 2</a>
-						</li>						
-					</ul>
+				  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G83">G83: Providing text descriptions to identify required fields that were not completed</a></li>
+				  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G85">G85: Providing a text description when user input falls outside the required format or values</a></li>
+				  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA18">ARIA18: Using aria-alertdialog to Identify Errors</a></li>
+				  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA19">ARIA19: Using ARIA role=alert or Live Regions to Identify Errors</a></li>
+				  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA21">ARIA21: Using Aria-Invalid to Indicate An Error Field</a></li>
+				  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G199">G199: Providing success feedback when data is submitted successfully</a></li>
+			    </ul>
 				</details>
 			</section>
 		
@@ -124,7 +345,7 @@
 			
 
 	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
-		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+	  <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Module 6 - Forms</h3>
 					<ul class="list-group menu list-unstyled">
