@@ -122,84 +122,33 @@ Some scripting may be necessary for validation when using custom controls or sup
 						<div class="panel panel-primary mrgn-tp-md">
 				<div class="panel-body well mrgn-bttm-0">
 				<p class="wb-inv">Example begins</p>
-					<div class="wb-frmvld">
-	
-						<form class="form-horizontal" role="form" method="get" action="#" id="validation-example1">
-						  <div class="form-group">
-							<label for="fname" class="col-sm-2 control-label">First Name</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="fname" autocomplete="given-name"/>
-							</div>
-						  </div>
-						 <div class="form-group">
-							<label for="lname" class="col-sm-2 control-label">Last Name</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="lname" autocomplete="family-name" />
-							</div>
-						  </div>
-						   <div class="form-group">
-							<label for="jobtitle" class="col-sm-2 control-label">Job Title</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="jobtitle" autocomplete="job-title" />
-							</div>
-						  </div>
-						   <div class="form-group">
-							<label for="org" class="col-sm-2 control-label">Organization</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="org" autocomplete="organization" />
-							</div>
-						  </div>
-						   <div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10">
-								
-								<button type="submit" class="btn btn-default">Continue</button>
-								<input type="reset" value="Reset page to defaults" class="btn btn-link btn-sm show p-0 mrgn-tp-md">
-							</div>
-						  </div>
+						<form method="post" action="script-here">
+						<label for="org">Organization (required): </label> 
+						<input type="text" id="org" required aria-required=”true”> 
+						<input type="submit" value="Submit">
 						</form>
-					</div>
+						<style>
+						input:invalid { border: 2px dashed red; }
+						input:required { background-color: pink; }
+						</style>
+
 					
 					<p class="wb-inv">Example ends</p>
 					</div></div>
 						<div class="clearfix"></div>		
 								
-					<details class="mrgn-tp-sm">
-							<summary class="bg-info">View HTML </summary>
+					
 							<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;form class="form-horizontal" role="form" method="get" action="#"&gt;
-  &lt;div class="form-group"&gt;
-	&lt;label for="fname" class="col-sm-2 control-label"&gt;First Name&lt;/label&gt;
-	&lt;div class="col-sm-10"&gt;
-		&lt;input type="text" class="form-control" id="fname" autocomplete="given-name"/&gt;
-	&lt;/div&gt;
-  &lt;/div&gt;
- &lt;div class="form-group"&gt;
-	&lt;label for="lname" class="col-sm-2 control-label"&gt;Last Name&lt;/label&gt;
-	&lt;div class="col-sm-10"&gt;
-		&lt;input type="text" class="form-control" id="lname" autocomplete="family-name" /&gt;
-	&lt;/div&gt;
-  &lt;/div&gt;
-   &lt;div class="form-group"&gt;
-	&lt;label for="jobtitle" class="col-sm-2 control-label"&gt;Job Title&lt;/label&gt;
-	&lt;div class="col-sm-10"&gt;
-		&lt;input type="text" class="form-control" id="jobtitle" autocomplete="job-title" /&gt;
-	&lt;/div&gt;
-  &lt;/div&gt;
-   &lt;div class="form-group"&gt;
-	&lt;label for="org" class="col-sm-2 control-label"&gt;Organization&lt;/label&gt;
-	&lt;div class="col-sm-10"&gt;
-		&lt;input type="text" class="form-control" id="org" autocomplete="organization" /&gt;
-	&lt;/div&gt;
-  &lt;/div&gt;
-   &lt;div class="form-group"&gt;
-	&lt;div class="col-sm-offset-2 col-sm-10"&gt;
-		&lt;button type="submit" class="btn btn-default"&gt;Continue&lt;/button&gt;
-	&lt;/div&gt;
-  &lt;/div&gt;
+<pre><code class="language-html">&lt;form method="post" action="script-here"&gt;
+&lt;label for="org"&gt;Organization (required): &lt;/label&gt; 
+&lt;input type="text" id="org" required aria-required=”true”&gt; 
+&lt;input type="submit" value="Submit"&gt;
 &lt;/form&gt;</code>
 </pre>
+<pre><code class="language-css">input:invalid { border: 2px dashed red; }
+input:required { background-color: pink; }</code>
+</pre>
 <p class="wb-inv">Code ends</p>
-						</details>	
           
 					</div>
 				</div>
