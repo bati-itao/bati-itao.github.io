@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Responsive images - Module 8 - Zoom and responsive design</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Accessibility guidelines related to responsive images. Describes how to design images to work with different viewport sizes.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../../index.html"
+            },
+			{
+                "title": "Web accessibility course",
+                "href" : "../index.html"
+            },
+			{
+                "title": "Module 8 - Zoom and responsive design",
+                "href" : "index.html"
+            }],
+            "lngLinks": [{
+                "lang": "fr",
+                "href": "responsive-images-fr.html",
+                "text": "Français"
+            }],
+            "menuPath": "../../../ajax/menu-en.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+			
+	<h1 property="name" id="wb-cont">Responsive images</h1>
+						
+	<nav role="navigation">
+    <div class="panel panel-default mrgn-tp-md">
+      <header class="panel-heading">
+        <h2 class="panel-title">Table of contents</h2>
+      </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#resp-images">Designing responsive images</a></li>
+			<li><a href="#css-width">Technique 1 – Style the image with CSS width: 100%</a></li>
+			<li><a href="#css-max-width">Technique 2 – Style the image with CSS max-width: 100%</a></li>
+			<li><a href="#css-src-att">Technique 3 – Serve different sizes of the image to different screen sizes using the srcset attribute</a></li>
+			<li><a href="#css-pic-element">Technique 4 – Serve different images to different screen sizes using the picture element.</a></li>
+			<li><a href="#resources1">Related WCAG resources</a></li>
+          </ul>
+        </div>
+      </div>
+	</nav>
+	
+			<section>				
+				<h2 id="resp-images">Designing responsive images</h2>
+				<p>An image that’s wider than its container will overflow, which can introduce horizontal scrolling. </p>
+				<p>To prevent this, images can be made responsive in one of four ways:</p>
+				<ul>
+					<li>Technique 1 – Style the image with CSS <code>width: 100%</code></li>
+					<li>Technique 2 – Style the image with CSS <code>max-width: 100%</code></li>
+					<li>Technique 3 – Serve different sizes of the image to different screen sizes using the <code>srcset</code> attribute</li>
+					<li>Technique 4 – Serve different images to different screen sizes using the <code>&lt;picture&gt;</code> element.</li>
+				</ul>
+			</section>
+			
+			<section>				
+				<h2 id="css-width">Technique 1: Style the image with CSS width: 100%</h2>
+				<p>If the image <code>width</code> is set via CSS to a percentage and the <code>height</code> property is set to <code>"auto"</code>, the image scales up or down to match the dimensions of its container. Typically, the image <code>width</code> is set to <code>100%</code>.</p>
+				<p>Resize the browser window to see the image scale. </p>
+				<div class="panel panel-primary mrgn-tp-md">
+					<div class="panel-body well mrgn-bttm-0">
+						<p class="wb-inv">Example begins</p>
+						<div id="technique-1">
+							<img src="images/deer.png" alt="Deer pasturing in a small meadow in a forest.">
+						</div>
+						<style type="text/css">
+#technique-1 { 
+  width: 50%;
+  border: 5px dotted black;
+}
+#technique-1 img {  
+  width: 100%;  
+  height: auto;
+}
+						</style>
+						<p class="wb-inv">Example ends</p>
+					</div>
+				</div>
+				
+				<p class="wb-inv">Code begins</p>
+				
+<pre><code class="language-css">#technique-1 { 
+  width: 50%;
+  border: 5px dotted black;
+}
+#technique-1 img {  
+  width: 100%;  
+  height: auto;
+}</code></pre>
+				<p class="wb-inv">Code ends</p>	
+				<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;div id="technique-1"&gt;
+   &lt;img src="deer.png" alt="Deer pasturing in a small meadow in a forest."&gt;
+&lt;/div&gt;</code></pre>
+				<p class="wb-inv">Code ends</p>
+			</section>
+			
+			<section>	
+				<h2 id="css-max-width">Technique 2 – Style the image with CSS max-width: 100%</h2>
+				<p>If the CSS <code>max-width</code> property is set to <code>100%</code>, the image will scale down, but never scale up to be larger than its original size. </p>
+				<p>Resize the browser window to see the image scale.</p>
+				
+				<div class="panel panel-primary mrgn-tp-md">
+					<div class="panel-body well mrgn-bttm-0">
+						<p class="wb-inv">Example begins</p>
+						<div id="technique-2">
+							<img src="images/deer.png" alt="Deer pasturing in a small meadow in a forest.">
+						</div>
+	<style type="text/css">
+#technique-2 { 
+  width: 50%;
+  border: 5px dotted black;
+}
+#technique-2 img {  
+  width: 100%;  
+  height: auto;
+}
+						</style>
+						<p class="wb-inv">Example ends</p>
+					</div>
+				</div>
+				
+				<p class="wb-inv">Code begins</p>
+<pre><code class="language-css">#technique-2 {
+   width: 50%;
+}
+#technique-2 img {  
+   max-width: 100%;  
+   height: auto;
+}</code></pre>
+				<p class="wb-inv">Code ends</p>	
+				<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;div id="technique-2"&gt;
+   &lt;img src="deer.png" alt="Deer pasturing in a small meadow in a forest."&gt;
+&lt;/div&gt;</code></pre>
+				<p class="wb-inv">Code ends</p>	
+			</section>
+
+			<section>	
+				<h2 id="css-src-att">Technique 3 – Serve different sizes of the image to different screen sizes using the srcset attribute.</h2>
+				<p>This technique serves different sizes of an image, larger or smaller, depending on the device.</p>
+				<p>The <code>srcset</code> attribute holds a comma-separated list of differently sized versions of the same image, each list item consisting of the filename and the image’s true width (the <code>w</code> unit is equivalent to pixels). </p>
+				<p>The <code>sizes</code> attribute holds a comma-separated list of different sizes of slots for images at different screen widths. The slot width is often expressed using the viewport width (vw) unit, but absolute and relative units can also be used. Each vw unit represents 1% of the viewport width. A media condition tests the screen width. The last slot width has no media condition; it’s the default that’s chosen when none of the media conditions is true. This example has a 50vw wide slot (50% of viewport width) for screens under 900 pixels wide, and a 700-pixel wide slot for the rest.</p>
+				<p>The <code>src</code> attribute holds the default image file name.</p>
+				<p>The <code>alt</code> attribute holds the alternative text.</p>
+				<p>With these attributes in place, the browser will:</p>
+				<ul>
+					<li>Check the device width.</li>
+					<li>Determine which media condition in the <code>sizes</code> list is the first one to be true.</li>
+					<li>Check the slot size given to that media query.</li>
+					<li>Load the image referenced in the <code>srcset</code> list that has the same size as the slot or, if there isn't one, the first image that is bigger than the chosen slot size.</li>
+				</ul>
+				<p>To see the image scale, narrow the browser window, clear the browser cache (if the 700px-wide image is already downloaded, it must be cleared), and refresh the browser window.</mark></p>
+				
+				<div class="panel panel-primary mrgn-tp-md">
+					<div class="panel-body well mrgn-bttm-0">
+						<p class="wb-inv">Example begins</p>
+						<div id="technique-3">
+							<!-- <img srcset="images/deer-160-labelled.jpg 160w, images/deer-320-labelled.jpg 320w" sizes="(max-width: 600px) 80vw, 40vw" src="images/deer-320.jpg" alt="A deer pasturing in a small meadow in a forest.">-->
+							<img srcset="images/deer-320-labelled.jpg 320w, images/deer-700-labelled.jpg 700w" 
+							     sizes="(max-width: 900px) 50vw, 700px" 
+							     src="images/deer-320.jpg" 
+							     alt="A deer pasturing in a small meadow in a forest.">
+						</div>
+						<p class="wb-inv">Example ends</p>
+					</div>
+				</div>
+				
+				<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;img srcset="deer-320-labelled.jpg 320w,
+             deer-700-labelled.jpg 700w"
+   sizes="(max-width: 900px) 50vw,
+          700px"
+   src="deer-320.jpg"
+   alt="A deer pasturing in a small meadow in a forest."&gt;</code></pre>
+				<p class="wb-inv">Code ends</p>	
+					
+					 
+				<h3 class="">Resource: Responsive Image Generator</h3>
+				<p>The <a href="http://www.responsivebreakpoints.com/">Responsive Image Generator</a> is an online tool that allows you to upload an image and generate various image dimensions for responsive breakpoints.</p>
+				<img src="images/image13.png" class="img-responsive" alt="Screenshot of the Responsive Image Generator online tool showing responsive breakpoints and image dimensions">
+
+			</section>
+			
+			<section>			
+				<h2 id="css-pic-element">Technique 4 – Serve different images to different screen sizes using the picture element.</h2>
+				<p>A small object of interest in a large image is hard to discern if that same image is shrunk to fit a mobile device. Cropping removes unneeded outer areas of an image to reframe closer to the object of interest. The  <code>&lt;picture&gt;</code> element is commonly used in responsive design for “Art Direction," where different crops of the same image, often at different aspect ratios, are served to different screen sizes. </p>
+				<p>The <code>&lt;picture&gt;</code> element contains two tags: one or more <code>&lt;source&gt;</code> tags and one <code>&lt;img&gt;</code> tag.</p>
+				<p>The browser looks for the first <code>&lt;source&gt;</code> element with a media query matching the current viewport, then displays the image specified in the <code>srcset</code> attribute. </p>
+				<p>The <code>&lt;img&gt;</code> element serves as a fallback if none of the <code>&lt;source&gt;</code> tags matches. It also provides the alt text for all variations of the image.</p>
+				<p>With this technique you could serve different pictures altogether and offer multiple resolutions of each one: <code>&lt;source&gt;</code> can take a <code>srcset</code> attribute with multiple images referenced, as well as a <code>sizes</code> attribute. However, since all variations share one <code>alt</code> attribute, the different <code>alt</code> values would have to be managed  using <a href="https://www.w3schools.com/howto/howto_js_media_queries.asp">media queries with JavaScript</a>. Otherwise, there’s little choice: the variations must represent the same thing.</p>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using the Art Direction </h3>
+						<p>In this example, a crop of the photo is served to small devices. </p>
+						<p>The <code>&lt;source&gt;</code> elements include a media condition. The first condition that returns true is displayed: if the viewport width is 799px wide or less, the first <code>&lt;source&gt;</code> element's image is displayed; if the viewport width is 800px or more, the second <code>&lt;source&gt;</code> element’s image is displayed.</p>
+						<p>Resize the browser window to see the image scale.</p>
+						
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">Example begins</p>
+									<picture>
+										<source media="(max-width: 799px)" srcset="images/deer-crop200w.jpg">
+										<source media="(min-width: 800px)" srcset="images/deer-320.jpg">
+										<img src="deer-500w.jpg" alt="A deer pasturing in a small meadow in a forest."></img>	
+									</picture>					
+								<p class="wb-inv">Example ends</p>
+							</div>
+						</div>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;picture&gt;  
+   &lt;source media="(max-width: 799px)" srcset="deer-crop200w.jpg"&gt;  
+   &lt;source media="(min-width: 800px)" srcset="deer-320.jpg"&gt;  
+   &lt;img src="deer-500w.jpg" alt="A deer pasturing in a small meadow in a forest."&gt;
+&lt;/picture&gt;</code></pre>
+						<p class="wb-inv">Code ends</p>	
+
+						<h4>Cropped image served to small devices</h4>
+						<img src="images/deer-crop200w.jpg" class="img-responsive" alt="In the cropped image, the dear occupies more than a third of the image's width.">
+						<h4>Original image served to large devices</h4>
+						<img src="images/deer-320.jpg" class="img-responsive" alt="In the uncropped original image, the deer occupies about a fifth of the image's width.">
+					</div>
+				</div>
+				<div class="panel panel-danger mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span> Bad example: Non-responsive image</h3>
+						<p>In the screenshot below, a 1,600-pixel wide image lacking any responsive markup displays at its native width. Since it’s wider than the viewport, it forces a horizontal scrollbar to appear. </p>
+						
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">Example begins</p>
+								<img src="images/butterflies.png" class="img-responsive" alt="Monarch butterflies fly below pine trees">
+								<p class="wb-inv">Example ends</p>
+							</div>
+						</div>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;img src="butterflies.png" alt="Monarch butterflies fly below pine trees"&gt;</code></pre>
+						<p class="wb-inv">Code ends</p>		
+						<hr/>
+						<p class="small">Image from <a href="href://www.cntravaler.com">cntravaler.com</a></p>
+					</div>
+				</div>
+			</section>
+
+			<section>				
+				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">Related WCAG resources</summary>
+					<h3>Success criteria</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html">1.4.10 : Reflow</a>
+						</li>					
+					</ul>
+					<h3>Techniques</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C32">C32: Using media queries and grid CSS to reflow columns</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C31">C31: Using CSS Flexbox to reflow content</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C33">C33: Allowing for Reflow with Long URLs and Strings of Text</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C38">C38: Using CSS width, max-width and flexbox to fit labels and inputs</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR34">SCR34: Calculating size and position in a way that scales with text size</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G206">G206: Providing options within the content to switch to a layout that does not require the user to scroll horizontally to read a line of text</a>
+						</li>					
+					</ul>
+					<h3 class="">Failures</h3>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F102">F102: Failure of Success Criterion 1.4.10 due to content disappearing and not being available when content has reflowed</a>
+					</li>
+				</ul>
+				</details>
+			</section>
+		
+		
+	<nav role="navigation">
+		<h2 class="wb-inv">Document navigation</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="responsive-forms.html">Previous - Responsive forms</a></li>
+			<li class="next"><a rel="next" href="responsive-text.html">Next - Responsive text</a></li>
+		</ul>
+	</nav>
+	</main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 8 - Zoom and responsive design</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="introduction.html">Introduction</a></li>
+						<li><a class="list-group-item" href="zoom.html">Zoom</a></li>
+						<li><a class="list-group-item" href="responsive-design.html">Responsive design</a>
+							<ul class="list-group menu list-unstyled">
+								<li><a class="list-group-item" href="responsive-forms.html">Responsive forms</a></li>
+								<li><a class="list-group-item active" aria-current="page" href="responsive-images.html">Responsive images</a></li>
+								<li><a class="list-group-item" href="responsive-text.html">Responsive text</a></li>
+								<li><a class="list-group-item" href="responsive-objects.html">Responsive objects and plugins</a></li>
+								<li><a class="list-group-item" href="responsive-tables.html">Responsive tables</a></li>
+								<li><a class="list-group-item" href="responsive-ui.html">Responsive UI components</a></li>
+								<li><a class="list-group-item" href="responsive-video.html">Responsive video</a></li>
+							</ul>
+						</li>
+						<li><a class="list-group-item" href="orientation.html">Orientation</a></li>
+						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">All modules</h3>
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/index.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item active" href="index.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
+					</ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>

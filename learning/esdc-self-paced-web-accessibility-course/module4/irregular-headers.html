@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Irregular headers - Module 4 – Tables</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Accessibility guidelines related to tables with irregular headers that span multiple columns or rows.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/custom-table.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../../index.html"
+            },
+			{
+                "title": "Web accessibility course",
+                "href" : "../index.html"
+            },
+			{
+                "title": "Module 4 – Tables",
+                "href" : "index.html"
+            }],
+            "lngLinks": [{
+                "lang": "fr",
+                "href": "irregular-headers-fr.html",
+                "text": "Français"
+            }],
+            "menuPath": "../../../ajax/menu-en.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
+	
+		<h1 property="name" id="wb-cont">Irregular headers</h1>
+		
+		<nav role="navigation" aria-labelledby="nav-table">
+			<div class="panel panel-default mrgn-tp-lg">
+				<header class="panel-heading">
+					<h2 id="nav-table" class="panel-title">Table of contents</h2>
+				</header>
+				<div class="panel-body">
+					<ul>
+						<li><a href="#irregular-headers">Designing with irregular headers</a></li>
+						<li><a href="#scope-attribute">The scope attribute</a></li>
+						<li><a href="#group-defining">The group-defining elements</a></li>
+						<li><a href="#headers">Good example: Table with column and row-spanning headers</a></li>
+						<li><a href="#wcag">Related WCAG resources</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		
+		<section>
+			<h2 id="irregular-headers">Designing with irregular headers</h2>
+			<p>A table is irregular when one or more of its headers span multiple columns or rows.</p>
+			<p>HTML introduces attributes and elements dedicated to representing the relationships between these row- or column-spanning headers and the data cells they define.</p>
+		</section>
+		<section>
+			<h2 id="scope-attribute">The scope attribute</h2>
+			<p>When a header spans multiple columns, add the <code>scope="colgroup"</code> attribute to the <code>th</code> element. See header <strong>A</strong> in the example table below.</p>
+			<p>When a header spans multiple rows, add the <code>scope="rowgroup"</code> attribute to the <code>th</code> element. See header <strong>B</strong> in the example table below.</p>
+			<p>For solo column headers, add the <code>scope="col"</code> attribute to the th element. See headers <strong>A1</strong>, <strong>A2</strong>, <strong>A3</strong> in the example table below.</p>
+			<p>For solo row headers, add the <code>scope="row"</code> attribute to the th element. See headers <strong>B1</strong>, <strong>B2</strong> in the example table below.</p>
+			<div class="panel panel-primary mrgn-tp-md">
+				<div class="panel-body well mrgn-bttm-0">
+					<p class="wb-inv">Example begins</p>
+					<table class="table table-bordered">
+					 <caption>Table with a column-spanning header and a row-spanning header</caption>
+							  <tr class="bg-primary">
+								<td colspan="2" rowspan="2">&nbsp;</td>
+								<th colspan="3">A</th>
+							  </tr>
+							  <tr class="bg-primary">
+								<th>A1</th>
+								<th>A2</th>
+								<th>A3</th>
+							  </tr>
+							  <tr>
+								<th rowspan="2" class="bg-primary">B</th>
+								<th class="bg-primary">B1</th>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+							  </tr>
+							  <tr>
+								<th class="bg-primary"">B2</th>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+							  </tr>
+					</table>
+					<p class="wb-inv">Example ends</p>
+				</div>
+			</div>
+			<p>Screen reader support for the <code>scope="rowgroup"</code> attribute is worse than support for <code>scope="colgroup"</code>. When possible, design tables to leverage <code>scope="colgroup"</code> and avoid <code>scope="rowgroup"</code>.</p>
+	 		<details class="mrgn-tp-lg">
+				<summary class="bg-info">View HTML</summary>
+				<p class="wb=inv">Code begins</p>
+<pre><code class="language-html">&lt;table class=&quot;table table-bordered&quot;&gt;
+   &lt;caption&gt;Table with a column-spanning header and a row-spanning header&lt;/caption&gt;
+   &lt;tr class=&quot;bg-primary&quot;&gt;
+      &lt;td colspan=&quot;2&quot; rowspan=&quot;2&quot;&gt;&amp;nbsp;&lt;/td&gt;
+      &lt;th colspan=&quot;3&quot; id=&quot;a&quot;&gt;A&lt;/th&gt;
+   &lt;/tr&gt;
+   &lt;tr class=&quot;bg-primary&quot;&gt;
+      &lt;th id=&quot;a1&quot;&gt;A1&lt;/th&gt;
+      &lt;th id=&quot;a2&quot;&gt;A2&lt;/th&gt;
+      &lt;th id=&quot;a3&quot;&gt;A3&lt;/th&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;th rowspan=&quot;2&quot; class=&quot;bg-primary&quot; id=&quot;b&quot;&gt;B&lt;/th&gt;
+      &lt;th class=&quot;bg-primary&quot; id=&quot;b1&quot;&gt;B1&lt;/th&gt;
+      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;th class=&quot;bg-primary&quot; id=&quot;b2&quot;&gt;B2&lt;/th&gt;
+      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+   &lt;/tr&gt;
+&lt;/table&gt;</code>
+</pre>
+				<p class="wb-inv">Code ends</p>
+			</details>
+	
+		</section>
+			
+		<section>
+			<h2 id="group-defining">The group-defining elements</h2>
+			<p>Irregular tables also define their solo columns and spanning columns with the <code>&lt;col&gt;</code> and <code>&lt;colgroup&gt;</code> elements, respectively. These elements are the first children of the table element and are listed in the order the columns appear in the table. The span attribute of the <code>&lt;colgroup&gt;</code> element holds the number of columns spanned. </p>
+			<p>Irregular tables define row groups using the <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code> and <code>&lt;tfoot&gt;</code> elements. <code>&lt;tbody&gt;</code> defines a new row group of rows with each use, while <code>&lt;thead&gt;</code> and <code>&lt;tfoot&gt;</code> do as well but can only be used once per table.</p>
+		</section>
+		<section>
+			<div class="panel panel-success  mrgn-tp-lg">
+				<div class="panel-body">
+					<h2 class="text-success mrgn-tp-0 h3" id="headers"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Table with column and row-spanning headers</h2>
+					<p>In this example, "Country" and "Onwership" are solo columns, each identified with a <code>&lt;col&gt;</code> element. "Scenario" spans columns, identified with a <code>&lt;colgroup span="3"&gt;</code> element. The "Canada" and "USA" headers and their respective rows are each nested in a <code>&lt;tbody&gt;</code> element.</p>
+					<div class="panel panel-primary mrgn-tp-md">
+						<div class="panel-body well mrgn-bttm-0">
+						<p class="wb-inv">Example begins</p>
+							<table class="table table-bordered">
+								<col> 
+								<col> 
+								<colgroup span="3"></colgroup> 
+								<caption>Ownership scenarios, Canada vs USA</caption> 
+								<thead> 
+									<tr class="bg-success"> 
+										<th scope="col" rowspan="2">Country</th> 
+										<th scope="col" rowspan="2">Ownership</th> 
+										<th scope="colgroup" colspan="3">Scenario</th> 
+									</tr> 
+									<tr class="bg-success"> 
+										<th scope="col">A</th> 
+										<th scope="col">B</th> 
+										<th scope="col">C</th> 
+									</tr> 
+								</thead> 
+								<tbody>  
+									<tr> 
+										<th scope="rowgroup" rowspan="2" class="bg-success">Canada</th> 
+										<th scope="row" class="bg-success">Purchase</th> 
+										<td>likely</td> 
+										<td>very unlikely</td> 
+										<td>n/a</td> 
+									</tr> 
+									<tr> 
+										<th scope="row" class="bg-success">Rent</th> 
+										<td>unlikely</td> 
+										<td>very unlikely</td> 
+										<td>very unlikely</td> 
+									</tr> 
+								</tbody> 
+								<tbody> 
+									<tr> 
+										<th scope="rowgroup" rowspan="2" class="bg-success">USA</th> 
+										<th scope="row" class="bg-success">Purchase</th> 
+										<td>unlikely</td> 
+										<td>very unlikely</td> 
+											<td>very unlikely</td> 
+									</tr> 
+									<tr> 
+										<th scope="row" class="bg-success">Rent</th> 
+										<td>likely</td> 
+										<td>very likely</td> 
+										<td>n/a</td> 
+									</tr> 
+								</tbody> 
+							</table>
+							<p class="wb-inv">Example ends</p>
+						</div>
+					</div>
+					<details class="mrgn-tp-lg">
+		
+						<summary class="bg-info">View HTML</summary>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;table class=&quot;table table-bordered&quot;&gt;
+   &lt;col&gt; 
+   &lt;col&gt; 
+   &lt;colgroup span="3"&gt;&lt;/colgroup&gt; 
+   &lt;caption&gt;Ownership scenarios, Canada vs USA&lt;/caption&gt; 	          
+   &lt;thead&gt; 
+      &lt;tr class=&quot;bg-success&quot;&gt; 
+         &lt;th scope=&quot;col&quot; rowspan=&quot;2&quot;&gt;Country&lt;/th&gt; 
+         &lt;th scope=&quot;col&quot; rowspan=&quot;2&quot;&gt;Ownership&lt;/th&gt; 
+         &lt;th scope=&quot;colgroup&quot; colspan=&quot;3&quot;&gt;Scenario&lt;/th&gt; 
+      &lt;/tr&gt; 
+      &lt;tr class=&quot;bg-success&quot;&gt; 
+         &lt;th scope=&quot;col&quot;&gt;A&lt;/th&gt; 
+         &lt;th scope=&quot;col&quot;&gt;B&lt;/th&gt; 
+         &lt;th scope=&quot;col&quot;&gt;C&lt;/th&gt; 
+      &lt;/tr&gt;    
+   &lt;/thead&gt; 
+   &lt;tbody&gt; 
+      &lt;tr&gt; 
+         &lt;th scope=&quot;rowgroup&quot; rowspan=&quot;2&quot; class=&quot;bg-success&quot;&gt;Canada&lt;/th&gt; 
+         &lt;th scope=&quot;row&quot; class=&quot;bg-success&quot;&gt;Purchase&lt;/th&gt; 
+         &lt;td&gt;likely&lt;/td&gt; 
+         &lt;td&gt;very unlikely&lt;/td&gt; 
+         &lt;td&gt;n/a&lt;/td&gt; 
+      &lt;/tr&gt; 
+      &lt;tr&gt; 
+         &lt;th scope=&quot;row&quot; class=&quot;bg-success&quot;&gt;Rent&lt;/th&gt; 
+         &lt;td&gt;unlikely&lt;/td&gt; 
+         &lt;td&gt;very unlikely&lt;/td&gt; 
+         &lt;td&gt;very unlikely&lt;/td&gt; 
+      &lt;/tr&gt; 
+   &lt;/tbody&gt; 
+   &lt;tbody&gt; 
+      &lt;tr&gt; 
+         &lt;th scope=&quot;rowgroup&quot; rowspan=&quot;2&quot; class=&quot;bg-success&quot;&gt;USA&lt;/th&gt; 
+         &lt;th scope=&quot;row&quot; class=&quot;bg-success&quot;&gt;Purchase&lt;/th&gt; 
+         &lt;td&gt;unlikely&lt;/td&gt; 
+         &lt;td&gt;very unlikely&lt;/td&gt; 
+         &lt;td&gt;very unlikely&lt;/td&gt; 
+      &lt;/tr&gt; 
+      &lt;tr&gt; 
+         &lt;th scope=&quot;row&quot; class=&quot;bg-success&quot;&gt;Rent&lt;/th&gt; 
+         &lt;td&gt;likely&lt;/td&gt; 
+         &lt;td&gt;very likely&lt;/td&gt; 
+         &lt;td&gt;n/a&lt;/td&gt; 
+      &lt;/tr&gt; 
+   &lt;/tbody&gt; 
+&lt;/table&gt;</code>
+</pre>
+						<p class="wb-inv">Code ends</p>
+					</details>
+			  	</div>
+			</div>
+		</section>
+		<section>
+			<h2 class="wb-inv" id="wcag">Related WCAG resources</h2>
+			<details class="mrgn-tp-lg">
+				<summary class="bg-info">Related WCAG resources</summary>
+				<h3>Success criteria</h3>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1: Info and Relationships</a>
+					</li>
+				</ul>
+				<h3>Techniques</h3>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H51">H51: Using table markup to present tabular information</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H63">H63: Using the scope attribute to associate header cells and data cells in data tables</a>
+					</li>
+				</ul>
+			</details>
+		</section>
+		<nav role="navigation" aria-labelledby="nav-document">
+	<h2 id="nav-document" class="wb-inv">Document navigation</h2>
+	<ul class="pager">
+	 <li class="previous"> <a rel="prev" href="two-headers.html">Previous - Two headers</a> </li>
+	  <li class="next"> <a rel="next" href="multi-level-headers.html">Next - Multi-level headers</a> </li>
+	</ul>
+  </nav>
+					
+
+</main>
+		
+		
+
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation" aria-labelledby="wb-sec-h">	
+			
+			
+
+		  <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				Module 4 –  Tables
+				</h3>
+				
+				
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="tables-concepts.html">Tables concepts</a></li>
+						<li><a class="list-group-item" href="one-header.html">One header</a></li>
+						<li><a class="list-group-item" href="two-headers.html">Two headers</a></li>
+						<li><a class="list-group-item active" href="irregular-headers.html">Irregular headers</a></li>
+						<li><a class="list-group-item" href="multi-level-headers.html">Multi-level headers</a></li>
+						<li><a class="list-group-item" href="caption-summary.html">Caption &amp; summary</a></li>
+						<li><a class="list-group-item" href="additional-tips-and-tricks.html">Additional tips and tricks</a></li>
+						<li><a class="list-group-item" href="tables-resources.html">Table resources in WET</a></li>
+						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+					</ul>
+				
+			
+			</section>
+			
+			
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				All modules
+				</h3>
+				
+				
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item active" href="index.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/index.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item" href="../module8/index.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
+					
+					</ul>
+				
+
+			</section>
+		
+	</nav>
+	
+		
+
+		
+		
+	
+			
+</div>
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+</div>	
+		
+		
+	<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+</body>
+	
+</html>

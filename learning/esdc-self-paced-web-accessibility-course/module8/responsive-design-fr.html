@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Conception adaptée - Module 8 - Zoom et conception adaptée</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Accessibility guidelines related to responsive design. Conception adaptée use HTML and CSS to automatically resize, hide, shrink, or enlarge a website.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.appTop({
+                "appName": [{
+                    "text": "EDSC / Bureau de l’accessibilité des TI",
+                    "href": "../../../index-fr.html"
+                }],
+               "breadcrumbs" : [{
+                    "title": "Accueil",
+                    "href" : "../../../index-fr.html"
+                },{
+                    "title": "Apprentissage",
+                    "href" : "../../index-fr.html"
+                },
+            {
+                    "title": "Cours d'accessibilité Web",
+                    "href" : "../index-fr.html"
+                },
+            {
+                    "title": "Module 8 - Zoom et conception adaptée",
+                    "href" : "index-fr.html"
+                }],
+            "lngLinks": [{
+                "lang": "en",
+                "href": "responsive-design.html",
+                "text": "English"
+            }],
+            "menuPath": "../../../ajax/menu-fr.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+			
+	<h1 property="name" id="wb-cont">Conception adaptée</h1>
+						
+	<nav role="navigation">
+    <div class="panel panel-default mrgn-tp-md">
+      <header class="panel-heading">
+        <h2 class="panel-title">Table of contents</h2>
+      </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#section1">Conception adaptée (aperçu)</a></li>
+			<li><a href="#section2">Requêtes média CSS</a></li>
+			<li><a href="#section3">Points d’interruption</a></li>
+			<li><a href="#section4">Configurer la zone d’affichage</a></li>
+			<li><a href="#section5">Bon exemple&nbsp;: Reformater le contenu</a></li>
+			<li><a href="#section6">Émulateurs de zone d’affichage</a></li>
+			<li><a href="#section7">Avantages d’une conception adaptative pour les utilisateurs malvoyants</a></li>
+			<li><a href="#resources1">Ressources WCAG connexes</a></li>
+          </ul>
+        </div>
+      </div>
+	</nav>
+	
+			<section>				
+				<h2 id="section1">Conception adaptée (aperçu)</h2>
+				<p>La conception Web adaptée utilise HTML et CSS pour redimensionner, masquer, réduire ou agrandir automatiquement un site Web, en s’assurant que la conception est bonne et que l’information et la fonctionnalité sont préservées pour tous les appareils de toutes tailles d’écran.</p>
+			</section>
+			
+			<section>				
+				<h2 id="section2">Requêtes média CSS</h2>
+				<p>La technique s’appuie sur les «&nbsp;requêtes média&nbsp;» CSS, qui effectue des tests pour déterminer la taille de l’écran des utilisateurs, puis servent des configurations distinctes à différentes largeurs d’écran. Une stratégie typique cible les trois grandes catégories d’affichage des appareils&nbsp;: grands écrans, tablettes et téléphones. Les versions HTML et CSS des composantes de la page sont adaptées pour éviter le défilement horizontal, comme il est décrit dans les sections suivantes.</p>
+				<p>Les points auxquels une requête média est présentée et la configuration est modifiée sont appelés «&nbsp;points d’interruption&nbsp;». Voici la syntaxe&nbsp;: </p>
+				<p class="wb-inv">Code begins</p>
+<pre><code class="language-css">@media media type and (condition: breakpoint) {
+   // CSS rules
+}</code></pre>
+				<p class="wb-inv">Code ends</p>
+				<p>Les types de médias disponibles pour les requêtes média comprennent&nbsp;:</p>
+				<dl>
+					<dt>all</dt>
+					<dd>pour tous les appareils</dd>
+					<dt>print</dt>
+					<dd>pour les imprimantes</dd>
+					<dt>screen</dt>
+					<dd>pour les écrans d’ordinateur, y compris les tablettes, les téléphones, etc.</dd>
+					<dt>speech</dt>
+					<dd>pour les lecteurs d’écran</dd>
+				  </dl>
+			</section>
+			
+			<section>				
+				<h2 id="section3">Points d’interruption</h2>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0">
+							<span class="glyphicon glyphicon-ok-circle"></span> Exemple&nbsp;: Point d’interruption unique
+						</h3>
+						<p>Dans cet exemple, le type de média est «&nbsp;<code>screen</code>&nbsp;» et le point d’interruption est 480&nbsp;pixels. Si la largeur d’un appareil est de 480&nbsp;pixels ou moins, la classe de <code>.button</code> est appliquée.</p>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-css">@media screen and (max-width: 480px) {
+   .button { background-color: red; }
+}</code></pre>
+						<p class="wb-inv">Code ends</p>
+					</div>
+				</div>
+				<h3>Points d’interruption du gouvernement du Canada</h3>
+				<p>Les spécifications techniques relatives à la présence Web et mobile du <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/web-mobile-presence.html">Secrétariat du Conseil du Trésor du gouvernement du Canada</a> précisent deux points d’interruption pour les grands et petits écrans à 768&nbsp;pixels. </p>
+				<p>Ces requêtes média ciblent le type «&nbsp;écran&nbsp;», de sorte que leurs règles ne sont pas appliquées à la sortie d’impression. </p>
+				<p class="wb-inv">Code begins</p>
+<pre><code class="language-css">@media screen and (min-width: 768px) {
+   /* styles for large screen device */
+}
+@media screen and (max-width: 767px) { 
+   /* styles for small screen device */
+}</code></pre>
+				<p class="wb-inv">Code ends</p>
+				<p><mark>styles for large screen device</mark> and <mark>small screen</mark></p>
+				<h3>Points d’interruption de la BOEW</h3>
+				<p>La Boîte à outils de l’expérience Web offre une conception adaptée aux appareils mobiles. Elle met en œuvre les points d’interruption de Bootstrap&nbsp;3&nbsp;:</p>
+				<ul>
+					<li>Très très petit – inférieur à 480&nbsp;pixels</li>
+					<li>Très petit - entre 480&nbsp;pixels et 768&nbsp;pixels</li>
+					<li>Petit – entre 768&nbsp;pixels et 992&nbsp;pixels – Taille mobile</li>
+					<li>Moyen – entre 992&nbsp;pixels et 1&nbsp;200&nbsp;pixels – Format tablette</li>
+					<li>Grand – entre 1&nbsp;200&nbsp;pixels et 1&nbsp;600&nbsp;pixels – Format ordinateur de bureau</li>
+					<li>Très grand – supérieur à 1&nbsp;600&nbsp;pixels</li>
+				</ul>
+				<h3>Points d’interruption courants</h3>
+				<h4>Petit (téléphones)</h4>
+				<ul>
+					<li>320&nbsp;pixels à 480&nbsp;pixels&nbsp;: Appareils mobiles</li>
+				</ul>
+				<h4>Moyen (tablettes)</h4>
+				<ul>
+					<li>481&nbsp;pixels à 768&nbsp;pixels&nbsp;: ipads, tablettes</li>
+				</ul>
+				<h4>Grands (ordinateurs de bureau)</h4>
+				<ul>
+					<li>769&nbsp;pixels à 1024&nbsp;pixels&nbsp;: Petits écrans, ordinateurs portables</li>
+					<li>1&nbsp;025&nbsp;pixels à 1&nbsp;200&nbsp;pixels&nbsp;: Ordinateurs de bureau, grands écrans</li>
+					<li>1&nbsp;201&nbsp;pixels et plus – Très grands écrans</li>
+				</ul>			
+			</section>
+			
+			<section>				
+				<h2 id="section4">Configurer la zone d’affichage</h2>
+					<p>Les pages optimisées pour une variété d’appareils doivent inclure un élément  <code>&lt;meta&gt;</code> dans le <code>&lt;head&gt;</code> du document, précisant quelques propriétés de la zone d’affichage. Une balise <code>meta</code> de zone d’affichage indique au navigateur comment contrôler les dimensions et la mise à l’échelle de la page. Sans cette balise, une page n’est pas adaptée sur les appareils mobiles. </p>
+					<p class="wb-inv">Code begins</p>
+					
+<pre><code class="language-html">&lt;html lang="fr-CA"&gt;
+   &lt;head&gt;
+      […]
+      &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+   &lt;/head&gt;</code></pre>
+   
+					<p class="wb-inv">Code ends</p>
+					<p>Le paramètre <code>width=device-width</code> indique que la page correspond à la largeur d’écran de l’appareil. Cela permet à la page de reformater le contenu pour qu’il corresponde à différentes tailles d’écran.</p>
+					<p>Le paramètre <code>initial-scale</code> définit le niveau de zoom par défaut de la page. Le réglage  <code>initial-scale=1</code> demande aux navigateurs d’établir une relation&nbsp;1:1 entre les pixels CSS et les pixels de la zone d’affichage. Cette propriété est en grande partie nécessaire pour contrer un bogue de redimensionnement et de coupure de contenu dans certains appareils déclenché par l’utilisation de <code>width=device-width</code> et la visualisation de la page en mode paysage. </p>
+					<p>Les pages mobiles doivent prendre en charge la fonction «&nbsp;zoom par pincement&nbsp;» afin de permettre aux utilisateurs d’agrandir les petits textes et les commandes et de compenser le faible contraste. Les développeurs désactivent souvent la fonction zoom par pincement en réglant deux paramètres sur l’élément <code>meta</code> de la zone d’affichage&nbsp;: <code>user-scalable=no</code> et <code>maximum-scale=1.0</code>. Pour activer la fonction zoom par pincement, réglez <code>user-scalable=1</code> et <code>maximum-scale=2.0</code>. Il s’agit d’une valeur de 200&nbsp;%, soit le zoom minimum requis pour respecter les WCAG. Vous pouvez activer un zoom plus important en réglant l’échelle maximale à une valeur plus élevée ou en supprimant le paramètre de l’échelle maximale pour supprimer entièrement la limite de zoom. </p>
+					<div class="panel panel-success mrgn-tp-lg">
+						<div class="panel-body">
+							<h3 class="text-success mrgn-tp-0">
+							<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Réglage du zoom par pincement à un grossissement de 200&nbsp;%</h3>
+							<p>Dans cet exemple, la page est configurée pour permettre un zoom maximal de 200&nbsp;% au moyen de la propriété d’échelle maximale. 200&nbsp;% est la valeur minimale de zoom exigée par les WCAG.</p>
+							<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0; user-scalable=1"&gt;</code></pre>
+							<p class="wb-inv">Code ends</p>
+						</div>
+					</div>			
+			</section>
+			
+			<section>				
+				<h2 id="section5">Bon exemple&nbsp;: Reformater le contenu</h2>
+				
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0">
+							<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Reformater le contenu
+						</h3>
+						<p><mark>Voir cet exemple en action à [URL de destination]</mark>. Rétrécir la fenêtre de votre navigateur pour déclencher les configurations adaptées.</p>
+						<details class="mrgn-tp-lg">
+							<summary class="bg-info"><mark><ins>View screenshots of the responsive layout</ins></mark></summary>
+							<h3>Ordinateur de bureau&nbsp;: @media (min-width:960px)</h3>
+							<img src="images/image3.png" class="img-responsive" alt="La configuration du bureau affiche le contenu sur trois colonnes. Les flotteurs sont utilisés sur deux icônes d’accessibilité.">
+							<p><mark>Alt text: Content is displayed in three columns, with text wrapping around floating images.</mark></p>
+							<img src="images/image4.png" class="img-responsive" alt="La configuration de la tablette affiche le contenu dans une seule colonne. Les flotteurs sont utilisés sur deux icônes d’accessibilité.">
+							<p><mark>Alt text: Content is stacked in one column, with text wrapping around floating images.</mark></p>
+							<h3 class="">Téléphone: @media (max-width:480px)</h3>
+							<p>Notez que le flotteur est retiré des images.</p>
+							<img src="images/image5.png" class="img-responsive" alt="La configuration du téléphone affiche le contenu dans une seule colonne. Les icônes ne flottent plus.">
+							<p><mark>Alt text: Content is stacked in one column with no floats.</mark></p>
+							<p>Developer: Here’s the image:</p>
+							<img src="images/image6.png" class="img-responsive" alt="">
+						</details>
+					
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">View CSS</summary>
+							<p class="wb-inv">Code begins</p>
+<pre><code class="language-css">article {
+   margin: 0 auto;
+}
+header { 
+   margin: 0 auto;
+   text-align: center; 
+} 
+.columns {
+   display: flex;
+   flex-wrap: wrap;
+}
+section {
+   background-color: white;
+   color: black;
+   border: 1px solid black;
+   padding: 1%;
+   margin:1%; 
+}
+h2 {
+   margin: 0;
+}
+section img {
+   width: 100px;
+   float: left;
+}
+@media (min-width:960px) {
+   article { 
+      width:960px; 
+   } 
+   #a { 
+      flex: 2;  
+   } 
+   #b { 
+      flex: 1;  
+   } 
+   #c {  
+      flex: 1;
+   }
+}
+@media (min-width:481px) and (max-width:959px) { 
+   article {  
+      width:100%;
+   }  
+   #a, #b, #c { 
+      flex:100%; 
+   }  
+} 
+@media (max-width:480px){ 
+   article { 
+      width:100%; 
+   } 
+   section img { 
+      float: none; 
+   } 
+   #a, #b, #c {  
+      flex:100%;  
+   } 
+}</code></pre>
+							<p class="wb-inv">Code ends</p>	
+						</details>
+						
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">View HTML</summary>
+							<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;article&gt;
+   &lt;header&gt; 
+      &lt;h1&gt;Responsive Tips...&lt;/h1&gt; 
+   &lt;/header&gt; 
+   &lt;div class="columns"&gt;
+      &lt;section id="a"&gt; 
+         &lt;h2&gt;One Size Doesn't Fit All! &lt;/h2&gt; 
+         &lt;img src="images/a11yicon.jpg" alt="Accessibility icon"&gt;
+         &lt;p&gt;Lorem ipsum dolor sit amet&lt;/p&gt;  
+      &lt;/section&gt; 
+      &lt;section id="b"&gt; 
+         &lt;h2&gt;One Speed Doesn't Work for Everyone! &lt;/h2&gt; 
+         &lt;img src="images/a11yicon.jpg" alt="Accessibility icon"&gt;
+         &lt;p&gt;Lorem ipsum dolor sit amet&lt;/p&gt;  
+      &lt;/section&gt;
+      &lt;section id="c"&gt; 
+         &lt;h2&gt;Assistive Technologies... &lt;/h2&gt; 
+         &lt;p&gt;Lorem ipsum dolor sit amet&lt;/p&gt;  
+      &lt;/section&gt; 
+   &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+							<p class="wb-inv">Code ends</p>	
+
+						</details>				
+					</div>
+				</div>
+			</section>
+			
+			
+			<section>				
+				<h2 id="section6">Émulateurs de zone d’affichage</h2>
+				
+				<p>Vous pouvez tester les points d’interruption à l’aide d’émulateurs de zone d’affichage pour représenter correctement votre requête média et votre style, en gardant à l’esprit que les émulateurs ne représentent pas la fonctionnalité ou les caractéristiques du navigateur.</p>
+				<p>Vous pouvez également tester les points d’interruption à l’aide du service en ligne <a href="http://www.viewportemulator.com">Viewport Emulator</a>, comme dans l’exemple ci-dessous.</p>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0">
+						<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Vérification du Bureau de l’accessibilité des TI à l’aide de l’émulateur de zone d’affichage</h3>
+						<p>Dans cet exemple, le <a href="https://bati-itao.github.io/index.html">Bureau de l’accessibilité des TI</a> est testé au moyen de l’é <a href="http://www.viewportemulator.com">mulateur de zone d’affichage en ligne</a>.</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">Example begins</p>
+								<img src="images/image7.png" class="img-responsive" alt="La configuration mobile comprend tout le contenu et la fonctionnalité de la configuration du bureau.">
+								<p class="wb-inv">Example ends</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0">
+						<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Vérification du Bureau de l’accessibilité des TI à l’aide de l’émulateur Chrome</h3>
+						<p>Il est possible d’accéder à l’émulateur mobile Chrome à partir de ses options d’outils de développement en utilisant des raccourcis clavier&nbsp;: Commande + Option + I (Mac) OU Ctrl + Shift + I (Windows).</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">Example begins</p>
+								<img src="images/image8.png" class="img-responsive" alt="La configuration mobile comprend tout le contenu et la fonctionnalité de la configuration du bureau.">
+								<p class="wb-inv">Example ends</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</section>
+			<section>				
+				<h2 id="section7">Avantages d’une conception adaptative pour les utilisateurs malvoyants</h2>
+				<p>De nombreux utilisateurs malvoyants ne peuvent pas agrandir suffisamment les petits écrans pour les lire. Ils lisent plutôt des sites sûrs de gros appareils et agrandissent l’écran. Au fur et à mesure que l’utilisateur agrandit, la fenêtre du navigateur devient plus petite par rapport à la taille du contenu, ce qui déclenche des points d’interruption CSS pour des configurations d’écran plus petites. Sur un grand appareil, une configuration de petit écran optimisée pour afficher en une seule colonne peut prendre toute la largeur du grand écran, ce qui permet un texte assez volumineux.</p>
+			</section>
+			
+			<section>				
+				<h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+					<h3>Critères de succès</h3>
+					<ul>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow">1.4.10: Reflow</a></li>
+					</ul>
+					<h3>Techniques</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C32">C32: Using media queries and grid CSS to reflow columns</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C31">C31: Using CSS Flexbox to reflow content</a>
+						</li>						
+					</ul>
+				</details>
+			</section>
+		
+		
+	<nav role="navigation">
+		<h2 class="wb-inv">Navigation dans le document</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="zoom-fr.html">Précédent - Zoom</a></li>
+			<li class="next"><a rel="next" href="responsive-forms-fr.html">Suivant - Formulaires adaptés</a></li>
+		</ul>
+	</nav>
+	</main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 8 - Zoom et conception adaptée</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
+						<li><a class="list-group-item" href="zoom-fr.html">Zoom</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="responsive-design-fr.html">Conception adaptée</a></li>
+						<li><a class="list-group-item" href="responsive-forms-fr.html">Formulaires adaptés</a></li>
+						<li><a class="list-group-item" href="responsive-images-fr.html">Images adaptées</a></li>
+						<li><a class="list-group-item" href="responsive-text-fr.html">Texte adapté</a></li>
+						<li><a class="list-group-item" href="responsive-objects-fr.html">Objets et modules d’extension adaptés</a></li>
+						<li><a class="list-group-item" href="responsive-tables-fr.html">Tableaux adaptés</a></li>
+						<li><a class="list-group-item" href="responsive-ui-fr.html">Composantes d’interface utilisateur adaptées</a></li>
+						<li><a class="list-group-item" href="responsive-video-fr.html">Vidéo adaptée</a></li>
+						<li><a class="list-group-item" href="orientation-fr.html">Orientation</a></li>
+						<li><a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Tous les modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/index-fr.html">Module 2 – Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/index-fr.html">Module 3 – Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/index-fr.html">Module 4 – Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/index-fr.html">Module 5 – Images</a></li>
+                        <li><a class="list-group-item" href="../module6/index-fr.html">Module 6 – Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/index-fr.html">Module 7 – Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item active" href="index-fr.html">Module 8 – Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+                     </ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>

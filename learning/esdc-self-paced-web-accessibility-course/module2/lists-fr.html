@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Listes – Module 2 - Structure et sémantique des pages</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Lignes directrices sur l’accessibilité relative aux listes. Décris comment les listes peuvent être reconnaissables et navigables pour les utilisateurs du lecteur d’écran.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "EDSC / Bureau de l’accessibilité des TI",
+                "href": "../../../index-fr.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Accueil",
+                "href" : "../../../index-fr.html"
+            },{
+                "title": "Apprentissage",
+                "href" : "../../index-fr.html"
+            },
+			{
+                "title": "Cours d'accessibilité Web",
+                "href" : "../index-fr.html"
+            },
+			{
+                "title": "Module 2 – Structure et sémantique des pages",
+                "href" : "index-fr.html"
+            }],
+            "lngLinks": [{
+                "lang": "en",
+                "href": "lists.html",
+                "text": "English"
+            }],
+            "menuPath": "../../../ajax/menu-fr.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
+		
+	<h1 property="name" id="wb-cont">Listes</h1>
+									
+	<nav role="navigation"  aria-label="Table des matières">
+      <div class="panel panel-default mrgn-tp-lg">
+        <header class="panel-heading">
+          <h2 class="panel-title">Table des matières</h2>
+        </header>
+        <div class="panel-body">
+          <ul>
+              <li><a href="#lists">Conception avec des listes</a></li>
+			  <li><a href="#unordered-list">Liste non ordonnée</a></li>
+			  <li><a href="#ordered-list">Liste ordonnée</a></li>
+			  <li><a href="#nested-lists">Listes imbriquées</a></li>
+			  <li><a href="#description-list">Liste de descriptions</a></li>
+			  <li><a href="#resources-6">Ressources WCAG connexes</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+			<section>
+				<h2 id="lists">Conception avec des listes</h2>
+				<p>Lorsqu’un lecteur d’écran rencontre une liste, il énonce l’information utile que les utilisateurs voyants captent d’un coup d’œil : la présence d’une liste et le nombre d’éléments de la liste. Toutefois, pour être reconnaissable et navigable par les utilisateurs du lecteur d’écran, la liste doit utiliser le balisage sémantique approprié.</p>
+				<p>HTML fournit trois structures de liste, chacune comportant une sémantique spécifique:</p>
+				<ul>
+					<li>Utiliser des <strong>listes non ordonnées</strong> (<code>&lt;ul&gt;</code>) lorsque l’ordre des éléments n’est pas pertinent. Chaque élément de liste (<code>&lt;li&gt;</code>) dans une liste non ordonnée est marqué d’une puce.</li>
+					<li>Utiliser les <strong>listes ordonnées</strong> (<code>&lt;ol&gt;</code>) pour l’information séquentielle. Chaque élément de liste (<code>&lt;li&gt;</code>) est numéroté par le navigateur.</li>
+					<li>Utiliser les <strong>listes de descriptions</strong> (<code>&lt;dl&gt;</code>) pour regrouper les termes associés(<code>&lt;dt&gt;</code>) et leurs descriptions (<code>&lt;dd&gt;</code>).</li>
+				</ul>
+				<p>Les éléments de liste individuels peuvent contenir divers éléments HTML, y compris des paragraphes, des en-têtes, des éléments de forme et d’autres listes (imbriquées) – tout type de “<a href="https://html.spec.whatwg.org/">contenu de flux</a>”. </p>
+				<p>Évitez d’imbriquer plusieurs éléments enfants dans chaque élément de la liste, puisque les utilisateurs du lecteur d’écran peuvent perdre le fil de la liste elle-même.</p>
+				<p>Les listes non-ordonnées sont d’habitude utilisées pour contenir des menus horizontaux et verticaux (pour la navigation, les médias sociaux et puis n’importe quelle liste de liens). Les listes ordonnées sont souvent utilisées pour la navigation.</p>
+			</section>
+			<section>				<h2 id="unordered-list">Liste non ordonnée</h2>
+				<p>La liste non ordonnée comprend un élément <code>&lt;ul&gt;</code> et plusieurs éléments de liste (<code>&lt;li&gt;</code>):</p>
+				<div class="panel panel-primary mrgn-tp-md">
+						<div class="panel-body well mrgn-bttm-0">
+							<p class="wb-inv">D&eacute;but de l'exemple</p>
+							<ul>
+								<li>Maïs</li>
+								<li>Tomates</li>
+								<li>Haricots</li>
+								<li>Oignons</li>
+								<li>Ail</li>
+							</ul>
+							<p class="wb-inv">Fin de l'exemple</p>			
+				 		</div>
+				</div>
+				 <p class="wb-inv">Code commence</p>
+<pre>
+ <code class=”language-html”>&lt;ul&gt;
+	&lt;li&gt;Maïs&lt;/li&gt;
+	&lt;li&gt;Tomates&lt;/li&gt;
+	&lt;li&gt;Haricots&lt;/li&gt;
+	&lt;li&gt;Oignons&lt;/li&gt;
+	&lt;li&gt;Ail&lt;/li&gt;
+&lt;/ul&gt;</code>
+</pre>
+<p class="wb-inv">Fins du code</p>
+			</section>
+			<section>
+				<h2 id="ordered-list">Liste ordonnée</h2>
+				<p>La liste ordonnée comprend un élément <code>&lt;ol&gt;</code> et plusieurs éléments de liste (<code>&lt;li&gt;</code>):</p>
+				<p>Utilisez des listes ordonnées (<code>&lt;ol&gt;</code>) pour des renseignements séquentiels, lorsque l'ordre des éléments est pertinent. Chaque élément de liste (<code>&lt;li&gt;</code>) est numéroté par le navigateur.</p>
+				<div class="panel panel-primary mrgn-tp-md">
+						<div class="panel-body well mrgn-bttm-0">
+							<p class="wb-inv">D&eacute;but de l'exemple</p>
+							<ol>
+								<li>Cuire les haricots pendant 45 minutes.</li>
+								<li>Couper les légumes en petits cubes.</li>
+								<li>Faire sauter les oignons et l’ail.</li>
+								<li>Déglacer avec les tomates.</li>
+								<li>Ajouter le maïs et les haricots.</li>
+							</ol>
+							<p class="wb-inv">Fin de l'exemple</p>	
+						</div>
+				</div>
+				<p class="wb-inv">Code commence</p>
+			
+<pre>
+ <code class=”language-html”>&lt;ol&gt;
+	&lt;li&gt;Cuire les haricots pendant 45 minutes.&lt;/li&gt;
+	&lt;li&gt;Couper les légumes en petits cubes.&lt;/li&gt;    
+	&lt;li&gt;Faire sauter les oignons et l’ail.&lt;/li&gt;
+	&lt;li&gt;Déglacer avec les tomates.&lt;/li&gt;
+	&lt;li&gt;Ajouter le maïs et les haricots.&lt;/li&gt;
+&lt;/ol&gt;</code>
+</pre>
+<p class="wb-inv">Fins du code</p>
+			</section>
+			<section>
+				<h2 id="nested-lists">Listes imbriquées</h2>
+				<p>Chaque liste peut être imbriquée dans une autre liste. Dans l’exemple suivant, l’ordre de préparation n’est pas critique, mais la préparation elle-même doit être effectuée avant d’utiliser les ingrédients. L’information est encore facile à assimiler, et la technologie d’assistance peut facilement informer les utilisateurs du nombre d’étapes.</p>
+				<div class="panel panel-primary mrgn-tp-md">
+						<div class="panel-body well mrgn-bttm-0">
+							<p class="wb-inv">D&eacute;but de l'exemple</p>
+							<ol>
+								<li>Préparer les ingrédients
+									<ul>
+										<li>Cuire les haricots pendant 45 minutes.</li>
+										<li>Couper les légumes en petits cubes.</li>
+									</ul> 
+								</li>
+								<li>Faire sauter les oignons et l’ail.</li>
+								<li>Déglacer avec les tomates.</li>
+								<li>Ajouter le maïs et les haricots</li>
+							</ol>
+							<p class="wb-inv">Fin de l'exemple</p>	
+						</div>
+				</div>
+				<p class="wb-inv">Code commence</p>
+<pre>
+<code class=”language-html”>&lt;ol&gt;
+	&lt;li&gt;Préparer les ingrédients
+		&lt;ul&gt;
+			&lt;li&gt;Cuire les haricots pendant 45 minutes.&lt;/li&gt;
+			&lt;li&gt;Couper les légumes en petits cubes.&lt;/li&gt;
+		&lt;/ul&gt; 
+	&lt;/li&gt;
+	&lt;li&gt;Faire sauter les oignons et l’ail.&lt;/li&gt;
+	&lt;li&gt;Déglacer avec les tomates.&lt;/li&gt;
+	&lt;li&gt;Ajouter le maïs et les haricots.&lt;/li&gt;
+&lt;/ol&gt;</code>
+</pre>
+<p class="wb-inv">Fins du code</p>
+			</section>
+			<section>				<h2 id="description-list">Liste de descriptions</h2>
+				<p>Une liste de descriptions comprend un ou plusieurs groupes de termes et de descriptions. Chaque regroupement associe un ou plusieurs termes (le contenu des éléments <code>&lt;dt&gt;</code>) à une ou plusieurs descriptions (le contenu des éléments <code>&lt;dd&gt;</code>).</p>
+				<p>Un regroupement commence soit avec le premier élément de la liste, soit chaque fois qu’un élément <code>&lt;dt&gt;</code> suit un élément <code>&lt;dd&gt;</code>.</p>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple 1 : Un terme, plusieurs descriptions</h3>
+						<p>Dans l’exemple qui suit, John et Luke sont décrits comme auteurs et Frank comme éditeur.</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">D&eacute;but de l'exemple</p>
+								<dl>  
+								<dt>Auteurs</dt>
+								 <dd>John</dd>  
+								<dd>Luke</dd>
+								  <dt>Éditeur</dt>  
+								<dd>Frank</dd></dl>
+								<p class="wb-inv">Fin de l'exemple</p>	
+							</div>
+						</div>
+						<p class="wb-inv">Code commence</p>
+<pre>
+<code class=”language-html”>&lt;dl&gt;  
+	&lt;dt&gt;Auteurs&lt;/dt&gt;
+	&lt;dd&gt;John&lt;/dd&gt;  
+	&lt;dd&gt;Luke&lt;/dd&gt;
+	&lt;dt&gt;Éditeur&lt;/dt&gt;  
+	&lt;dd&gt;Frank&lt;/dd&gt;
+&lt;/dl&gt;</code>
+</pre>
+						<p class="wb-inv">Fins du code</p>
+					</div>
+				</div>
+
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple 2 : Termes multiples, une description</h3>
+						<p>Dans l’exemple suivant, deux variantes orthographiques d’un mot sont définies au moyen de listes de descriptions. Dans de tels cas, utiliser l’élément <code>&lt;dfn&gt;</code> pour marquer le terme défini.</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">D&eacute;but de l'exemple</p>
+								<dl>   
+									<dt lang="en-US"><dfn>color</dfn></dt>
+									<dt lang="en-GB"><dfn>colour</dfn></dt>
+									<dd>A sensation which (in humans) derives from the ability of the fine structure of the eye to distinguish three differently filtered analyses of a view.</dd>
+								</dl>
+								<p class="wb-inv">Fin de l'exemple</p>	
+							</div>
+						</div>
+								<p class="wb-inv">Code commence</p>
+<pre>
+<code class=”language-html”>&lt;dl&gt;   
+	&lt;dt lang="en-US"&gt;&lt;dfn&gt;color&lt;/dfn&gt;&lt;/dt&gt;
+	&lt;dt lang="en-GB"&gt;&lt;dfn&gt;colour&lt;/dfn&gt;&lt;/dt&gt;
+	&lt;dd&gt;A sensation which (in humans) derives from the ability of the fine structure of the eye to distinguish three differently filtered analyses of a view.&lt;/dd&gt;
+&lt;/dl&gt;</code>
+</pre>
+						<p class="wb-inv">Fins du code</p>
+					</div>
+				</div>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple 3 : Termes multiples, descriptions multiples</h3>
+						<p>Dans cet exemple, John et Luke sont des auteurs et également des éditeurs :</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">D&eacute;but de l'exemple</p>
+								<dl>
+									<dt>Auteurs</dt> 
+									<dt>Éditeurs</dt>
+									<dd>John</dd>  
+									<dd>Luke</dd>
+								</dl>
+								<p class="wb-inv">Fin de l'exemple</p>	
+							</div>
+						</div>
+						<p class="wb-inv">Code commence</p>
+<pre>
+ <code class=”language-html”>&lt;dl&gt;
+	&lt;dt&gt;Auteurs&lt;/dt&gt; 
+	&lt;dt&gt;Éditeurs&lt;/dt&gt;
+	&lt;dd&gt;John&lt;/dd&gt;  
+	&lt;dd&gt;Luke&lt;/dd&gt;
+&lt;/dl&gt;</code>
+</pre>
+						<p class="wb-inv">Fins du code</p>
+					</div>
+				</div>
+			</section>
+			<section>				
+				<h2 id="resources-6" class="wb-inv">Ressources WCAG connexes</h2>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+                        <p class="mrgn-tp-md">En Anglais seulement.</p>
+					<h3>Critères de succès</h3>
+					<ul>
+						<li><a href="https://www.w3.org/WAI/WCAG21/quickref/" >1.3.1 Info and Relationships</a></li>
+					</ul>
+					<h3>Techniques</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H48" >H48: Using ol, ul and dl for lists or groups of links</a>
+						</li>
+					</ul>
+				</details>
+				<hr />
+				<p class="small">La description des trois types de liste est tirée du document Initiative d’accessibilité du Web (<a href="https://www.w3.org/WAI/" >WAI</a>): <a href="https://www.w3.org/WAI/tutorials/page-structure/content/" >Structure du contenu</a> dans  <a href="https://www.w3.org/WAI/tutorials/page-structure/" >Tutoriel sur la structure des pages</a> de  <a href="https://www.w3.org/WAI/tutorials/" >Tutoriels sur l’accessibilité du Web.</a>. Eric Eggert, Shadi Abou-Zahra, éd. Copyright  © 2019 W3C® (<a href="https://www.csail.mit.edu/" >MIT</a>, <a href="http://www.ercim.eu/" >ERCIM</a>, <a href="https://www.keio.ac.jp/" >Keio</a>). État d’avancement : Mise à jour le 27 juillet 2019. <a href="https://www.w3.org/WAI/tutorials/page-structure/content/" >https://www.w3.org/WAI/tutorials/page-structure/content/</a></p>
+			</section>
+		<nav role="navigation" aria-label="Document">
+	<h2 class="wb-inv">Navigation dans le document</h2>
+	<ul class="pager">
+		<li class="previous"> <a rel="prev" href="language-fr.html">Précédent - Langue</a></li>
+	  <li class="next"> <a rel="next" href="iframes-fr.html">Suivant - Iframes</a> </li>
+	</ul>
+  </nav>
+					
+
+</main>
+		
+		
+
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+			
+			
+
+				<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				Module 2 – Structure et sémantique des pages
+				</h3>
+				
+					<ul class="list-group menu list-unstyled">
+				
+						<li><a class="list-group-item" href="landmarks-fr.html">Points de repère</a></li>
+						<li><a class="list-group-item" href="headings-fr.html">En-têtes</a></li>
+						<li><a class="list-group-item" href="content-structure-fr.html">Structure du contenu</a></li>
+						<li><a class="list-group-item" href="language-fr.html">Langue</a></li>
+					
+						<li><a class="list-group-item active" aria-current="page" href="lists-fr.html">Listes</a></li>
+				
+						<li><a class="list-group-item" href="iframes-fr.html">IFrames</a></li>
+					
+						<li><a class="list-group-item" href="parsing-and-validity-fr.html">Analyse syntaxique et validité</a></li>
+					
+						<li><a class="list-group-item" href="best-practice-fr.html">Pratiques exemplaires</a></li>
+				</ul>
+			
+			</section>
+			
+			
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				Tous les modules
+				</h3>
+				
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+						<li><a class="list-group-item active" href="index-fr.html">Module 2 – Structure et sémantique des pages</a></li>			
+						<li><a class="list-group-item" href="../module3/index-fr.html">Module 3 – Liens et navigation</a></li>
+						<li><a class="list-group-item" href="../module4/index-fr.html">Module 4 – Tableaux</a></li>
+						<li><a class="list-group-item" href="../module5/index-fr.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/index-fr.html">Module 6 – Formulaires</a></li>	
+						<li><a class="list-group-item" href="../module7/index-fr.html">Module 7 – Conception visuelle couleurs</a></li>
+						<li><a class="list-group-item" href="../module8/index-fr.html">Module 8 – Zoom et conception adaptée</a></li>
+						<li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+			</ul>
+
+			</section>
+		
+		</nav>
+	
+		
+
+		
+		
+	
+			
+</div>
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+</div>	
+		
+		
+	<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+</body>
+	
+</html>

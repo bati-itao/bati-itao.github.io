@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Structure du contenu – Module 2 - Structure et sémantique des pages</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Lignes directrices sur l’accessibilité relative à une structure de page efficace. Décris les balises, les en têtes, les menus, les bannières, les paragraphes, les listes, les tableaux appropriés et les autres fonctionnalités.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "EDSC / Bureau de l’accessibilité des TI",
+                "href": "../../../index-fr.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Accueil",
+                "href" : "../../../index-fr.html"
+            },{
+                "title": "Apprentissage",
+                "href" : "../../index-fr.html"
+            },
+			{
+                "title": "Cours d'accessibilité Web",
+                "href" : "../index-fr.html"
+            },
+			{
+                "title": "Module 2 – Structure et sémantique des pages",
+                "href" : "index-fr.html"
+            }],
+            "lngLinks": [{
+                "lang": "en",
+                "href": "content-structure.html",
+                "text": "English"
+            }],
+            "menuPath": "../../../ajax/menu-fr.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
+		<h1 property="name" id="wb-cont">Structure du contenu</h1>
+			
+	<nav role="navigation"  aria-label="Table of contents">
+      <div class="panel panel-default mrgn-tp-lg">
+        <header class="panel-heading">
+          <h2 class="panel-title">Table des matières</h2>
+        </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#content-structure">Aperçu – Structure du Contenu</a></li>
+              <li><a href="#articles">Articles</a></li>
+              <li><a href="#sections">Sections</a></li>
+              <li><a href="#paragraphs">Paragraphes</a></li>
+			  <li><a href="#quotes">Citations</a></li>
+			  <li><a href="#figures">Figures</a></li>
+			  <li><a href="#tags">Balises strong (gras) et em (italique)</a></li>
+			  <li><a href="#abbreviations">Abbreviations</a></li>
+			  <li><a href="#resources-3">Ressources WCAG connexes</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+			<h2 id="content-structure">Aperçu – Structure du contenu</h2>
+			<p>Pour comprendre un document, tout le monde a besoin de comprendre sa structure. Les utilisateurs du lecteur d’écran doivent élaborer un modèle mental de la page et dépendent des auteurs de contenu qui identifient, avec le balisage approprié, les titres, les menus, les bannières, les paragraphes, les listes, les tableaux et les autres fonctions.</p>
+			<section>
+				<h2 id="articles">Articles</h2>
+				<p>L’élément&nbsp;HTML5 <code>&lt;article&gt;</code> représente une composition complète ou autonome dans une page Web. Parmi les exemples d’articles figurent un objet sur un site de magasinage ou un article sur un site de nouvelles.</p>
+				
+				 <p class="wb-inv">Code commence</p>
+<pre>
+ <code class="�language-html"�>&lt;article&gt; 
+	&lt;h2&gt;Dentifrice classique&lt;/h2&gt;
+&lt;/article&gt;
+&lt;article&gt;  
+	&lt;h2&gt;Dentifrice extrême&lt;/h2&gt;
+&lt;/article&gt;</code>
+</pre>
+				<p class="wb-inv">Fins de code</p>
+			</section>
+			<section>
+				<h2 id="sections">Sections</h2>
+				<p>L’élément HTML5 <code>&lt;section&gt;</code> marque une région générale d’une page Web ou d’un article. Il est utilisé pour le regroupement thématique du contenu.</p>
+				 <p class="wb-inv">Code commence</p>
+<pre>
+ <code class="�language-html"�>&lt;section&gt;
+	&lt;h2&gt;Chapitre&nbsp;2&lt;/h2&gt;
+&lt;/section&gt;</code>
+</pre>
+<p class="wb-inv">Fins de code</p>
+			</section>
+			<section>
+				<h2 id="paragraphs">Paragraphes</h2>
+				<p>Utilisez l’élément paragraphe (<code>&lt;p&gt;</code>) pour marquer les paragraphes du texte, comme celui-ci. Le style uniforme des paragraphes améliore la lisibilité du texte. Il donne également plus de contrôle aux utilisateurs lorsqu’ils personnalisent leur affichage.</p>
+			</section>
+			<section>
+				<h2 id="quotes">Citations</h2>
+				<p>L’identification d’une citation aide à préciser que le contenu est attribué à un autre auteur. Les citations peuvent être balisées comme inclusions ou sous forme des blocs de texte. Les technologies d’assistance peuvent indiquer aux utilisateurs l’endroit où une citation commence et se termine, ce qui peut éviter les malentendus.</p>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;1&nbsp;: Citation longue</h3>
+						<p>Utilisez l’élément <code>&lt;blockquote&gt;</code> pour des citations plus longues et plus complexes. Il peut contenir des paragraphes, des en-têtes et d’autres éléments de structure de texte. Ces éléments doivent refléter la structure du document cité. L’élément <code>&lt;cite&gt;</code> est utilisé pour indiquer la source de la citation.</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">D&eacute;but de l'exemple</p>
+								<p>Voici une définition du <cite>Concept de structure de page</cite> tirée de W3&nbsp;WAI.</p>
+								<blockquote>
+									<p>Le contenu bien structuré permet une navigation et un traitement plus efficaces. Utiliser HTML et WAI-ARIA pour améliorer la navigation et l’orientation sur les pages Web et dans les applications.</p>
+								</blockquote>	
+								<p class="wb-inv">Fin de l'exemple</p>
+								<p class="wb-inv">Code commence</p>
+<pre>
+<code class="�language-html"�>&lt;p&gt;Voici une définition du &lt;cite&gt;Concept de structure de page&lt;/cite&gt; tirée de W3&nbsp;WAI.&lt;/p&gt;
+&lt;blockquote&gt;
+	&lt;p&gt;Le contenu bien structuré permet une navigation et un traitement plus efficaces. Utiliser HTML et WAI-ARIA pour améliorer la navigation et l’orientation sur les pages Web et dans les applications. &lt;/p&gt;
+&lt;/blockquote&gt;</code>
+</pre>
+								<p class="wb-inv">Fins de code</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;2&nbsp;: Citation incluse par référence</h3>
+						<p>Pour les citations plus courtes, qui sont habituellement intégrées à une autre phrase, utiliser l’élément <code>&lt;q&gt;</code>.</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">D&eacute;but de l'exemple</p>
+								<p>Helen&nbsp;Keller a affirmé&nbsp;: <q>«&nbsp;L’apitoiement sur soi est notre pire ennemi et si nous y cédons, nous ne pourrons jamais rien faire de bien dans le monde&nbsp;»</q>.</p>
+								<p class="wb-inv">Fin de l'exemple</p>
+							</div>
+						</div>
+						<p class="wb-inv">Code commence</p>			
+<pre>
+<code class="�language-html"�>&lt;p&gt;Helen&nbsp;Keller a affirmé&nbsp;: &lt;q&gt;L’apitoiement sur soi est notre pire ennemi et si nous y cédons, nous ne pourrons jamais rien faire de bien dans le monde&lt;/q&gt;&lt;/p&gt;</code></pre>
+						<p class="wb-inv">Fins de code</p>
+			</section>
+			<section>
+				<h2 id="figures">Figures</h2>
+				<p>Les figures sont des blocs avec des renseignements supplémentaires présentés à l’extérieur du contenu principal de la page – parfois mentionnées dans le texte principal. Elles contiennent habituellement des diagrammes, des illustrations, des photos, des exemples de codes et des tableaux, mais peuvent aussi inclure d’autres contenus. Par exemple, un rapport annuel pourrait faire référence à un diagramme contenant les volumes de ventes d’un produit.</p>
+				<p>Chaque figure est emballée dans un élément <code>&lt;figure&gt;</code> et étiquetée à l’aide d’un élément <code>&lt;figcaption&gt;</code> emboîté.</p>
+				<p class="wb-inv">Code commence</p>
+<pre>
+<code class="�language-html"�>&lt;p&gt;
+Le volume des ventes de notre produit PearlyTooth a été stable au cours des trois premiers trimestres, mais a connu un franc succès au quatrième trimestre avec l’introduction du SuperBear, à temps pour la période des Fêtes. Voir le graphique G3 pour plus de détails.
+ &lt;/p&gt;
+ &lt;figure&gt;
+	&lt;figcaption&gt;G3&nbsp;: Volume des ventes de PearlyTooth&lt;/figcaption&gt; 
+ 	&lt;img src="…" alt="Graphique des ventes de PearlyTooth, illustrant l’énorme succès du&nbsp;T4"&gt;
+ 	&lt;p&gt;&lt;a href="[…]"&gt;Description longue&lt;/a&gt;&lt;/p&gt;
+ &lt;/figure&gt;</code>
+</pre>
+<p class="wb-inv">Fins de code</p>
+
+			</section>
+			<section>				<h2 id="tags">Balises strong (gras) et em (italique)</h2>
+				<p><code>STRONG</code> et <code>EM</code> sont des balises sémantiques qui signifient que l’auteur souhaite mettre des éléments en relief; ceux­ci seront affichés en gras (<code>&lt;strong&gt;</code>) ou en italique (<code>&lt;em&gt;</code>) dans un navigateur visuel. Les éléments <code>&lt;b&gt;</code> et <code>&lt;i&gt;</code> ne doivent pas être utilisés.</p>
+				<p>Les éléments <code>&lt;strong&gt;</code> et <code>&lt;em&gt;</code> sont souvent utilisés pour mettre en évidence des mots ou des phrases dans un paragraphe de texte. Par exemple&nbsp;:</p>
+				<div class="panel panel-primary mrgn-tp-md">
+					<div class="panel-body well mrgn-bttm-0">
+						<p class="wb-inv">D&eacute;but de l'exemple</p>
+						<p>«&nbsp;<strong>Important</strong>&nbsp;: J’aimerais être avisé par courriel, pas par d’autres formes de communication.&nbsp;»</p>
+						<p>«&nbsp;Son livre préféré est <em>Les raisins de la colère.&nbsp;»</em></p>
+						<p class="wb-inv">Fin de l'exemple</p>
+					</div>
+				</div>
+				<p>La prise en charge de <code>&lt;strong&gt;</code> et <code>&lt;em&gt;</code> par le lecteur d’écran est faible. </p>
+			</section>
+			<section>			
+				<h2 id="abbreviations">Abréviations</h2>
+				<p>Le Guide de rédaction du contenu du site Canada.ca exige stipulent que quand vous utilisez une abréviation pour la première fois sur une page, vous devez indiquer ce que signifie le terme complet entre parenthèses, ou alors inscrire le terme complet suivi de l’abréviation entre parenthèses (p.&nbsp;ex., «&nbsp;Emploi et Développement social Canada (EDSC)&nbsp;» ou «&nbsp;EDSC (Emploi et Développement social Canada)&nbsp;»).</p>
+			</section>
+			<section>				
+				<h2 id="resources-3" class="wb-inv">Ressources WCAG connexes</h2>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+                        <p class="mrgn-tp-md">En Anglais seulement.</p>
+					<h3 class="">Critères de succès</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships" >1.3.1 Info and Relationships</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/abbreviations" >3.1.4: Abbreviations</a>
+						</li>
+					</ul>
+					<h3 id="idelem4x6086">Techniques</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G62" >G62: Providing a glossary</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H40" >H40: Using definition lists</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H48" >H48: Using ol, ul and dl for lists or groups of links</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H49" >H49: Using semantic markup to mark emphasized or special text</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G97" >G97: Providing the first use of an abbreviation immediately before or after the expanded form</a>
+						</li>
+					</ul>
+				</details>
+				<hr />
+				<p class="small">La description des structures de page est tirée du document de l’Initiative pour l’accessibilité du Web (<a href="https://www.w3.org/WAI/">IAT</a>)&nbsp;: <a href="https://www.w3.org/WAI/tutorials/page-structure/content/">Structure du contenu</a> dans <a href="https://www.w3.org/WAI/tutorials/page-structure/">Tutoriel sur la structure des pages</a> des <a href="https://www.w3.org/WAI/tutorials/">Tutoriels sur l’accessibilité du Web</a>. <a href="https://www.w3.org/People/yatil/">Eric Eggert</a> et <a href="https://www.w3.org/People/shadi/">Shadi&nbsp;Abou-Zahra</a>. Contributeurs&nbsp;: Groupe de travail sur l’éducation et la sensibilisation (<a href="https://www.w3.org/WAI/EO/">GTSE</a>). Copyright © 2019&nbsp;W3C® (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERECIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>). Mis à jour le 27&nbsp;juillet&nbsp;2019 (publié pour la première fois en avril&nbsp;2017). <a href="https://www.w3.org/WAI/tutorials/page-structure/content/">https://www.w3.org/WAI/tutorials/page-structure/content/</a></p>
+			</section>
+			<nav role="navigation" aria-label="Navigation dans le document">
+	<h2 class="wb-inv">Navigation dans le document</h2>
+	<ul class="pager">
+		<li class="previous"> <a rel="prev" href="headings-fr.html">Précédent - En-têtes</a></li>
+	  <li class="next"> <a rel="next" href="language-fr.html">Suivant - Langue</a> </li>
+	</ul>
+  </nav>
+					
+
+</main>
+		
+		
+
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+			
+			
+
+				<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				Module 2 – Structure et sémantique des pages
+				</h3>
+				
+					<ul class="list-group menu list-unstyled">
+				
+						<li><a class="list-group-item" href="landmarks-fr.html">Points de repère</a></li>
+						<li><a class="list-group-item" href="headings-fr.html">En-têtes</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="content-structure-fr.html">Structure du contenu</a></li>
+						<li><a class="list-group-item" href="language-fr.html">Langue</a></li>
+					
+						<li><a class="list-group-item" href="lists-fr.html">Listes</a></li>
+				
+						<li><a class="list-group-item" href="iframes-fr.html">IFrames</a></li>
+					
+						<li><a class="list-group-item" href="parsing-and-validity-fr.html">Analyse syntaxique et validité</a></li>
+					
+						<li><a class="list-group-item" href="best-practice-fr.html">Pratiques exemplaires</a></li>
+				</ul>
+			
+			</section>
+			
+			
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				Tous les modules
+				</h3>
+				<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+						<li><a class="list-group-item active" href="index-fr.html">Module 2 – Structure et sémantique des pages</a></li>			
+						<li><a class="list-group-item" href="../module3/index-fr.html">Module 3 – Liens et navigation</a></li>
+						<li><a class="list-group-item" href="../module4/index-fr.html">Module 4 – Tableaux</a></li>
+						<li><a class="list-group-item" href="../module5/index-fr.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/index-fr.html">Module 6 – Formulaires</a></li>	
+						<li><a class="list-group-item" href="../module7/index-fr.html">Module 7 – Conception visuelle couleurs</a></li>
+						<li><a class="list-group-item" href="../module8/index-fr.html">Module 8 – Zoom et conception adaptée</a></li>
+						<li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+			</ul>
+
+						
+
+			</section>
+		
+		</nav>
+	
+		
+
+		
+		
+	
+			
+</div>
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+</div>	
+		
+		
+	<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+</body>
+	
+</html>

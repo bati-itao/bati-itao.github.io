@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Responsive text - Module 8 - Zoom and responsive design</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Accessibility guidelines related to responsive text. Describes how to design text containers to work with different viewport sizes.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../../index.html"
+            },
+			{
+                "title": "Web accessibility course",
+                "href" : "../index.html"
+            },
+			{
+                "title": "Module 8 - Zoom and responsive design",
+                "href" : "index.html"
+            }],
+            "lngLinks": [{
+                "lang": "fr",
+                "href": "responsive-text-fr.html",
+                "text": "Français"
+            }],
+            "menuPath": "../../../ajax/menu-en.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+			
+	<h1 property="name" id="wb-cont">Responsive text</h1>
+						
+	<nav role="navigation">
+    <div class="panel panel-default mrgn-tp-md">
+      <header class="panel-heading">
+        <h2 class="panel-title">Table of contents</h2>
+      </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#resp-text">Designing responsive text</a></li>
+			<li><a href="#cont-resize">Good example: Text container resizes with the viewport</a></li>
+			<li><a href="#cont-fix-width">Bad example: Text container uses fixed width</a></li>
+          </ul>
+        </div>
+      </div>
+	</nav>
+	
+	<section>				
+		<h2 id="resp-text">Designing responsive text</h2>
+		<p>Text containers should resize as the viewport size changes to prevent text from overflowing the viewport. Avoid static, fixed container sizes.</p>
+	</section>
+	
+	<section>	
+		<div class="panel panel-success mrgn-tp-lg">
+			<div class="panel-body">
+				<h2 class="text-success mrgn-tp-0" id="cont-resize"><span class="glyphicon glyphicon-ok-circle"></span> Good example: Text container resizes with the viewport</h2>
+				<p>In this example, the text container is set with a 75% percentage <code>width</code> value. The text reflows as the user changes the viewport size.</p>
+				<div class="panel panel-primary">
+					<div class="panel-body well mrgn-bttm-0">
+						<p class="wb-inv">Example begins</p>
+						<div style="width:75%; padding: 1em; border: 1px dotted black; background: #fff;">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa id justo egestas egestas in a urna. Cras et nunc fringilla, feugiat nisl tempus, aliquam nisi. Quisque rhoncus eros sed malesuada tincidunt. In commodo dignissim nulla ac porta. Nunc scelerisque quam sit amet sapien hendrerit sollicitudin. Curabitur tristique, tortor et ultricies dignissim, sem arcu tempor libero, sed aliquet tellus ex non lectus. Vestibulum maximus dolor ante, eget tincidunt mi accumsan a. Fusce euismod mauris neque, vitae sagittis ex faucibus eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+						</div>
+						<p class="wb-inv">Example ends</p>
+					</div>
+				</div>		
+				<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;div style="width:75%; padding: 1em; border: 1px dotted black"&gt;
+   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa id justo egestas egestas in a urna. Cras et nunc fringilla, feugiat nisl tempus, aliquam nisi. Quisque rhoncus eros sed malesuada tincidunt. In commodo dignissim nulla ac porta. Nunc scelerisque quam sit amet sapien hendrerit sollicitudin. Curabitur tristique, tortor et ultricies dignissim, sem arcu tempor libero, sed aliquet tellus ex non lectus. Vestibulum maximus dolor ante, eget tincidunt mi accumsan a. Fusce euismod mauris neque, vitae sagittis ex faucibus eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+				<p class="wb-inv">Code ends</p>	
+			</div>
+		</div>
+	</section>
+	
+	<section>	
+		<div class="panel panel-danger mrgn-tp-lg">
+			<div class="panel-body">
+				<h2 class="text-danger mrgn-tp-0" id="cont-fix-width"><span class="glyphicon glyphicon-remove-circle"></span> Bad example: Text container uses fixed width</h2>
+				<p>In this example, the text container is set with an 800px <code>width</code> value. The text does not reflow as the user changes the viewport size.</p>
+				<div class="panel panel-primary">
+					<div class="panel-body well mrgn-bttm-0">
+						<p class="wb-inv">Example begins</p>
+						<div style="width:800px; padding: 1em; border: 1px dotted black; background-color: #fff;">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa id justo egestas egestas in a urna. Cras et nunc fringilla, feugiat nisl tempus, aliquam nisi. Quisque rhoncus eros sed malesuada tincidunt. In commodo dignissim nulla ac porta. Nunc scelerisque quam sit amet sapien hendrerit sollicitudin. Curabitur tristique, tortor et ultricies dignissim, sem arcu tempor libero, sed aliquet tellus ex non lectus. Vestibulum maximus dolor ante, eget tincidunt mi accumsan a. Fusce euismod mauris neque, vitae sagittis ex faucibus eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+						</div>
+						<p class="wb-inv">Example ends</p>
+					</div>
+				</div>
+				<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;div style="width:800px; padding: 1em; border: 1px dotted black"&gt;
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis massa id justo egestas egestas in a urna. Cras et nunc fringilla, feugiat nisl tempus, aliquam nisi. Quisque rhoncus eros sed malesuada tincidunt. In commodo dignissim nulla ac porta. Nunc scelerisque quam sit amet sapien hendrerit sollicitudin. Curabitur tristique, tortor et ultricies dignissim, sem arcu tempor libero, sed aliquet tellus ex non lectus. Vestibulum maximus dolor ante, eget tincidunt mi accumsan a. Fusce euismod mauris neque, vitae sagittis ex faucibus eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+&lt;/div&gt;</code></pre>
+				<p class="wb-inv">Code ends</p>	
+			</div>
+		</div>
+	</section>		
+		
+	<nav role="navigation">
+		<h2 class="wb-inv">Document navigation</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="responsive-images.html">Previous - Responsive images</a></li>
+			<li class="next"><a rel="next" href="responsive-objects.html">Next - Responsive objects and plugins</a></li>
+		</ul>
+	</nav>
+	</main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 8 - Zoom and responsive design</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="introduction.html">Introduction</a></li>
+						<li><a class="list-group-item" href="zoom.html">Zoom</a></li>
+						<li><a class="list-group-item" href="responsive-design.html">Responsive design</a></li>
+						<li><a class="list-group-item" href="responsive-forms.html">Responsive forms</a></li>
+						<li><a class="list-group-item" href="responsive-images.html">Responsive images</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="responsive-text.html">Responsive text</a></li>
+						<li><a class="list-group-item" href="responsive-objects.html">Responsive objects and plugins</a></li>
+						<li><a class="list-group-item" href="responsive-tables.html">Responsive tables</a></li>
+						<li><a class="list-group-item" href="responsive-ui.html">Responsive UI components</a></li>
+						<li><a class="list-group-item" href="responsive-video.html">Responsive video</a></li>
+						<li><a class="list-group-item" href="orientation.html">Orientation</a></li>
+						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">All modules</h3>
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/index.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item active" href="index.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
+					</ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>

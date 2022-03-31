@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Accessibilité du lecteur multimédia - Module 9 - Audio, vidéo, animations et mouvement</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Accessibility guidelines related to media player. The media player itself should be keyboard accessible and screen reader compatible.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.appTop({
+                "appName": [{
+                    "text": "EDSC / Bureau de l’accessibilité des TI",
+                    "href": "../../../index-fr.html"
+                }],
+               "breadcrumbs" : [{
+                    "title": "Accueil",
+                    "href" : "../../../index-fr.html"
+                },{
+                    "title": "Apprentissage",
+                    "href" : "../../index-fr.html"
+                },
+            {
+                    "title": "Cours d'accessibilité Web",
+                    "href" : "../index-fr.html"
+                },
+            {
+                    "title": "Module 9 - Audio, vidéo, animations et mouvement",
+                    "href" : "index-fr.html"
+                }],
+            "lngLinks": [{
+                "lang": "en",
+                "href": "media-player.html",
+                "text": "English"
+            }],
+            "menuPath": "../../../ajax/menu-fr.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+			
+	<h1 property="name" id="wb-cont">Accessibilité du lecteur multimédia</h1>
+						
+	<nav role="navigation" aria-labelledby="nav-table">
+    <div class="panel panel-default mrgn-tp-md">
+      <header class="panel-heading">
+        <h2 id="nav-table" class="panel-title">Table des matières</h2>
+      </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#media-player-accessibility">Accessibilité du lecteur multimédia (overview)</a></li>
+			      <li><a href="#keyboard-accessibility">Keyboard accessibility</a></li>
+	       		<li><a href="#screen-reader-accessibility">Screen reader accessibility</a></li>
+		      	<li><a href="#support-for-captions-audio-descriptions-transcripts">Support for captions, audio descriptions and transcripts</a></li>
+          </ul>
+        </div>
+      </div>
+	</nav>
+
+	<section>
+		<h2 id="media-player-accessibility">Accessibilité du lecteur multimédia (aperçu)</h2>
+		<p>Le lecteur multimédia doit être accessible par le clavier et compatible avec les lecteurs d’écran. Le lecteur multimédia HTML5 intégré par défaut aux navigateurs est insuffisant, car les navigateurs et les lecteurs d’écran prennent en charge différemment les fonctionnalités d’accessibilité. La solution consiste à adopter un lecteur multimédia qui a été conçu et testé pour assurer l’accessibilité. </p>
+		<p>Les lecteurs multimédias accessibles comprennent et media player. <a href="https://ableplayer.github.io/ableplayer/">Able Player</a>, <a href="https://www.accessibilityoz.com/ozplayer/">OzPlayer</a>, <a href="https://github.com/nomensa/Accessible-Media-Player">Nomensa media player,</a> <a href="https://github.com/paypal/accessible-html5-video-player">PayPal media player,</a> and the <a href="https://support.google.com/accessibility/answer/189278?hl=en">YouTube</a> media player.</p>
+	</section>
+	<section>
+		<h2 id="keyboard-accessibility">Accessibilité par le clavier</h2>
+		<ul>
+					
+			<li>Toutes les commandes peuvent être focalisées au moyen de la touche de tabulation&nbsp;:
+				<ul>
+					<li>Si vous utilisez un bouton HTML natif, la commande sera focalisée automatiquement.</li>
+					<li>Si vous utilisez un bouton personnalisé (comportant un élément <code>&lt;div&gt;</code> ou <code>&lt;span&gt;</code>), vous devez utiliser l’attribut <code>tabindex="0"</code>.</li>
+				</ul>
+			</li>
+			<li>Les commandes comportent un indicateur visible de focus du clavier. </li>
+			<li>L’ordre des commandes activées par la touche de tabulation correspond à l’ordre visuel, de gauche à droite.</li>
+			<li>Les commandes peuvent être activées par le clavier&nbsp;:
+				<ul>
+					<li>Les commandes Lecture/Pause sont activées par la touche Entrée ou la barre d’espacement.</li>
+					<li>Le contrôle du volume est activé par les touches fléchées, généralement la flèche haut et la flèche du bas.</li>
+					<li>Les commandes Avancer/Reculer sont activées par les touches fléchées, généralement la flèche gauche et la flèche droite.</li>
+					<li>D’autres commandes comme Sous-titres et Plein écran sont activées par la touche Entrée ou la barre d’espacement.</li>
+				</ul>
+			</li>
+			<li>Le texte, les commandes et les arrière-plans présentent un contraste suffisant entre les couleurs.</li>
+
+		</ul>
+	</section>
+	<section>
+		<h2 id="screen-reader-accessibility">Accessibilité des lecteurs d’écran</h2>
+		<p>Chaque commande présente aux lecteurs d’écran son nom, son rôle et sa valeur (si une ou plusieurs sont définies).</p>
+		<ul>
+			<li><strong><dfn>Name:</dfn></strong> l’étiquette de la commande, p.&nbsp;ex. «&nbsp;Lecture&nbsp;», «&nbsp;Pause&nbsp;» ou «&nbsp;Volume&nbsp;». Le nom est extrait soit du nœud enfant du bouton  (<code>&lt;button&gt;</code>Lecture<code>&lt;/button&gt;</code>) soit de l’attribut <code>aria-label</code> ou <code>aria-labelledby</code>.</li>
+			<li><strong><dfn>Rôle:</dfn></strong>  la fonctionnalité contrôlée par la commande, p.&nbsp;ex. «&nbsp;Bouton&nbsp;», «&nbsp;Curseur&nbsp;». Un élément <code>&lt;button&gt;</code> natif déclare automatiquement son rôle comme «&nbsp;Bouton&nbsp;». Une commande personnalisée utilise généralement l’attribut <code>role="bouton"</code>. La commande de volume est une exception&nbsp;: elle utilise l’attribut <code>role="slider"</code>.</li>
+			<li><strong><dfn>Value:</dfn></strong>  les attributs ou l’état actuel d’un élément, p.&nbsp;ex. «&nbsp;50&nbsp;%&nbsp;» pour le volume. Le curseur de volume comporte une valeur en pourcentage qui, une fois modifiée, est déclaré par les lecteurs d’écran. Consultez le <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module12/index.html"> Module&nbsp;12</a> &gt; Curseurs pour en savoir plus sur la façon de procéder.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="support-for-captions-audio-descriptions-transcripts">Prise en charge des sous-titres, des audiodescriptions et des transcriptions</h2>
+		<p>Le lecteur multimédia idéal offre la prise en charge intégrée des sous-titres, des audiodescriptions et des transcriptions. </p>
+		<p>Certains lecteurs multimédias ajoutent toutes les fonctionnalités d’accessibilité à un menu accessible au moyen du bouton de sous-titrage codé. De préférence, le lecteur fournit un bouton distinct pour chaque fonction, avec son icône normalisée&nbsp;:</p>
+
+		<ul class="lst-none">
+			<li><img src="images/image14.png" alt=""><span class="mrgn-lft-md">ic&ocirc;ne pour sous-titres</span></li>
+			<li><img src="images/image15.png" alt=""><span class="mrgn-lft-md">ic&ocirc;ne pour transcription</span></li>
+			<li><img src="images/image16.png" alt=""><span class="mrgn-lft-md">ic&ocirc;ne pour audio description</span></li>
+			<li><img src="images/image17.png" alt=""><span class="mrgn-lft-md">ic&ocirc;ne pour langue des signes</span></li>
+		</ul>
+
+		<p>Il existe des solutions de rechange si le lecteur multimédia ne permet pas l’intégration aisée des fonctions d’accessibilité&nbsp;:</p>
+			<ul>
+				<li>Ajoutez des sous-titres visibles gravés dans la vidéo plutôt que des sous-titres codés (l’utilisateur ne peut pas personnaliser leur apparence).</li>
+				<li>Ajoutez la transcription directement ou par un lien à côté de la vidéo.</li>
+				<li>Ajoutez l’audiodescription dans une vidéo distincte (plus longue) facilement accessible pour l’utilisateur.</li>
+			</ul>
+  </section>
+		
+	<nav role="navigation" aria-labelledby="nav-document">
+		<h2 id="nav-document" class="wb-inv">Navigation dans le document</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="sign-language-fr.html">Précédent - Langue des signes</a></li>
+			<li class="next"><a rel="next" href="flashing-content-fr.html">Suivant - Contenu clignotant</a></li>
+		</ul>
+	</nav>
+	</main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation" aria-labelledby="wb-sec-h">	
+		<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 9 - Audio, vidéo, animations et mouvement</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
+						<li><a class="list-group-item" href="policy-matrix-fr.html">Matrice des politiques sur le multimédia</a></li>
+						<li><a class="list-group-item" href="captions-fr.html">Sous-titres</a></li>
+						<li><a class="list-group-item" href="transcripts-fr.html">Transcriptions</a></li>
+						<li><a class="list-group-item" href="transcribing-audio-fr.html">Transcription de l’audio en texte</a></li>
+						<li><a class="list-group-item" href="description-visual-fr.html">Description de l’information visuelle</a></li>
+						<li><a class="list-group-item" href="sign-language-fr.html">Langue des signes</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="media-player-fr.html">Accessibilité du lecteur multimédia</a></li>
+						<li><a class="list-group-item" href="flashing-content-fr.html">Contenu clignotant</a></li>
+						<li><a class="list-group-item" href="animation-motion-fr.html">Animations et mouvements</a></li>
+						<li><a class="list-group-item" href="pause-stop-hide-fr.html">Mettre en pause, arrêter ou masquer</a></li>
+						<li><a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Tous les modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/index-fr.html">Module 2 - Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/index-fr.html">Module 3 - Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/index-fr.html">Module 4 - Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/index-fr.html">Module 5 - Images</a></li>
+                        <li><a class="list-group-item" href="../module6/index-fr.html">Module 6 - Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/index-fr.html">Module 7 - Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item" href="../module8/index-fr.html">Module 8 - Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item active" href="index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+                     </ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>
