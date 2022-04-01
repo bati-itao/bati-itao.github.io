@@ -77,13 +77,13 @@
 			<li><a href="#sous-titres-pour-vidéo-préenregistrée-avec-audio">Sous-titres pour vidéo préenregistrée avec audio</a></li>
 			<li><a href="#sous-titres-en-direct">Sous-titres en direct</a></li>
 			<li><a href="#sous-titres-automatisés">Sous-titres automatisés</a></li>
-			<li><a href="#file-formats">Caption file formats</a></li>		
-			<li><a href="#pre-recordedvideo">Examples of captions for pre-recorded video with audio</a></li>
-			<li><a href="#track-element">Using the &lt;track&gt; element</a></li>
-			<li><a href="#youtube-captions">Adding captions on YouTube platform</a></li>
-			<li><a href="#microsoft-captions">Adding captions on Microsoft Stream platform</a></li>
-			<li><a href="#styling-captions">Presenting and styling captions</a></li>
-			<li><a href="#custom-captions">Customizing captions</a></li>
+			<li><a href="#formats-de-fichier-de-sous-titrage">Formats de fichier de sous-titrage</a></li>		
+			<li><a href="#sous-titres-pour-vidéo-préenregistrée-avec-audio">Sous-titres pour vidéo préenregistrée avec audio</a></li>
+			<li><a href="#utilisation-de-l’élément">Utilisation de l’élément &lt;track&gt;</a></li>
+			<li><a href="#ajout-de-sous-titres-sur-la-plateforme-YouTube">Ajout de sous-titres sur la plateforme YouTube</a></li>
+			<li><a href="#ajout-de-sous-titres-sur-la-plateforme-Microsoft-Stream">Ajout de sous-titres sur la plateforme Microsoft Stream</a></li>
+			<li><a href="#sous-titres-de-présentation-et-de-style">Sous-titres de présentation et de style</a></li>
+			<li><a href="#personnalisation-des-sous-titres">Personnalisation des sous-titres</a></li>
 			<li><a href="#resources1">Related WCAG resources</a></li>
           </ul>
         </div>
@@ -173,7 +173,7 @@
 			</section>
 
 			<section>
-				<h2 id="file-formats">Formats de fichier de sous-titrage</h2>
+				<h2 id="formats-de-fichier-de-sous-titrage">Formats de fichier de sous-titrage</h2>
 				<p>Il existe de nombreux formats de fichiers de sous-titrage. Ces trois formats sont pris en charge par le lecteur multimédia de la BOEW et le lecteur vidéo MS&nbsp;Stream&nbsp;:</p>
 				<ul>
 					<li><strong>Données HTML5&nbsp;</strong>: solution personnalisée utilisée par le lecteur multimédia de la BOEW qui combine sous-titres et transcription descriptive dans une seule source. <a href="#pre-recordedvideo"> Bon exemple&nbsp;: Sous-titres <mark><del>pour vidéo préenregistrée avec audio,</del></mark> </a>Voirci-dessus.</li>
@@ -385,16 +385,16 @@
 			</section>
 
 			<section>				
-				<h2 id="pre-recordedvideo">Examples of captions for pre-recorded video with audio</h2>
+				<h2 id="sous-titres-pour-vidéo-préenregistrée-avec-audio">Sous-titres pour vidéo préenregistrée avec audio</h2>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0" id="example-inline"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Sous-titres <mark><del>for pre-recorded video with audio (</del><ins>using </ins>inline HTML<del>)</del></mark></h3>
-						<p>The WET Media Player can weave captions and descriptive transcript together inline in the HTML, in the <code>&lt;figcaption&gt;</code> element:</p>
+						<h3 class="text-success mrgn-tp-0" id="example-inline"><span class="glyphicon glyphicon-ok-circle"></span>Bon exemple&nbsp;: Sous-titres <mark><del>pour vidéo préenregistrée avec audio (</del><ins>using </ins>(HTML en ligne)<del>)</del></mark></h3>
+						<p>Le lecteur multimédia de la BOEW peut intégrer des sous-titres et des transcriptions descriptives dans le code HTML en ligne, dans  <code>&lt;figcaption&gt;</code> l’élément:</p>
 						<ul>
-							<li><code>&lt;p&gt;</code> elements holding descriptive transcript take the <code>class="wet-boew-vd"</code> attribute.</li>
-							<li><code>&lt;span&gt;</code> elements holding captions take the <code>class="wd-tmtxt"</code>, <code>data-begin</code> and <code>data-dur</code> attributes. JavaScript identifies captions by these attributes and displays the captions dynamically in a <code>&lt;div&gt;</code> element directly below the video.</li>
+							<li>les éléments<code>&lt;p&gt;</code>  une transcription descriptive utilisent l’attribut <code>class="wet-boew-vd"</code> l’attribut.</li>
+							<li>les éléments<code>&lt;span&gt;</code>  contenant des sous-titres utilisent <code>class="wd-tmtxt"</code>, <code>data-begin</code> and <code>data-dur</code> les attributs. JavaScript identifie les sous-titres par ces attributs et affiche les sous-titres de façon dynamique dans un <code>&lt;div&gt;</code> directement sous la vidéo.</li>
 						</ul>
-						<p>The WET Media Player is described <mark><del>in the section</del><ins>on the page</ins></mark> <a href="media-player-fr.html">Media Player Accessibility</a>. </p>
+						<p>Le lecteur multimédia de la BOEW est décrit ci-dessous <mark><del>dans la section</del><ins>dans la section</ins></mark> <a href="media-player-fr.html">accessibilité du lecteur multimédia.</a>. </p>
 						<figure class="wb-mltmd">
 							<video poster="https://wet-boew.github.io/v4.0-ci/demos/multimedia/demo/video1-en.jpg" title="Looking for a Job">
 							  <source type="video/mp4" src="https://wet-boew.github.io/wet-boew-attachments/videos/video1-en.mp4" />
@@ -511,9 +511,9 @@
 				</div>
 				<div class="panel panel-success">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0" id="example-ttml"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Sous-titres<mark><del>for pre-recorded video with audio (</del><ins>using </ins>TTML<del>)</del></mark></h3>
-						<p>In addition to inline HTML5 captions, the WET media player supports Timed Text Markup Language (TTML) caption file format (in XML). </p>
-						<p>Use the <code>&lt;track&gt;</code> element to specify text tracks for <code>&lt;audio&gt;</code> or <code>&lt;video&gt;</code> elements.</p>
+						<h3 class="text-success mrgn-tp-0" id="example-ttml"><span class="glyphicon glyphicon-ok-circle"></span>Bon exemple&nbsp;: Sous-titres<mark><del>pour vidéo préenregistrée audio (</del><ins>avec </ins>TTML<del>)</del></mark></h3>
+						<p>En plus des sous-titres HTML5 en ligne, le lecteur multimédia de la BOEW prend en charge les formats de fichier de sous-titrage en langage de balisage texte chronométré (TTML&nbsp;– une variation du langage XML). </p>
+						<p>Utilisez <code>&lt;track&gt;</code> l’élément pour préciser les pistes de texte pour les éléments <code>&lt;audio&gt;</code> ou <code>&lt;video&gt;</code>.</p>
 						
 						<figure class="wb-mltmd">
 						
@@ -612,8 +612,8 @@
 			</section>
 
 			<section>
-				<h2 id="track-element">Using the &lt;track&gt; element</h2>
-				<p>The <code>&lt;track&gt;</code> element lets you specify timed text tracks for an <code>&lt;audio&gt;</code> or <code>&lt;video&gt;</code> element.</p>
+				<h2 id="utilisation-de-l’élément">Utilisation de l’élément &lt;track&gt;</h2>
+				<p>L’élément  <code>&lt;track&gt;</code> vous permet de spécifier des pistes de texte chronométrées pour un élément <code>&lt;audio&gt;</code> ou <code>&lt;video&gt;</code>.</p>
 				<p class="wb-inv">Code begins</p>
 <pre class="mrgn-tp-md"><code class="language-html">&lt;video controls&gt;
    &lt;source src="/videos/compliance.mp4" type="video/mp4"&gt;
@@ -672,7 +672,7 @@
 			</section>
 
 				<section>
-				<h2 id="">Ajout de sous-titres sur la plateforme YouTube</h2>
+				<h2 id="ajout-de-sous-titres-sur-la-plateforme-YouTube">Ajout de sous-titres sur la plateforme YouTube</h2>
 				<p>Vous pouvez ajouter des sous-titres à des vidéos YouTube en téléversant un fichier de sous-titrage&nbsp;:</p>
 				<ul>
 					<li>Ouvrez une session dans YouTube Studio.</li>
@@ -690,7 +690,7 @@
 			</section>
 
 			<section>
-				<h2 id="microsoft-captions">Ajout de sous-titres sur la plateforme Microsoft Stream</h2>
+				<h2 id="ajout-de-sous-titres-sur-la-plateforme-Microsoft-Stream">Ajout de sous-titres sur la plateforme Microsoft Stream</h2>
 				<p>Vous pouvez ajouter des sous-titres aux vidéos MS&nbsp;Stream en téléversant un fichier de sous-titrage&nbsp;:</p>
 				<ul>
 					<li>Dans Stream, trouvez la vidéo que vous voulez modifier.</li>
@@ -705,7 +705,7 @@
 			</section>
 			
 			<section>
-				<h2 id="">Sous-titres de présentation et de style</h2>
+				<h2 id="sous-titres-de-présentation-et-de-style">Sous-titres de présentation et de style</h2>
 				<p>Les exigences relatives aux sous-titres de présentation et de style sont principalement des pratiques exemplaires de la communauté plutôt que des critères de succès ou techniques des directives WCAG. Seul le rapport de contraste de 3:1 est requis pour satisfaire aux critères de succès des directives WCAG. </p>
 				<p>Voici une brève liste des exigences. Le site <a href="https://dcmp.org/learn/captioningkey/">Légende du sous-titrage</a> offre davantage des pratiques exemplaires pour les sous-titres de présentation et de style.</p>
 				<ul>
@@ -725,24 +725,24 @@
 			</section>
 
 			<section>
-				<h2 id="custom-captions">Customizing captions</h2>
-				<p>Users can customize the visual appearance of captions in the operating system. Some media players also support customization. </p>
+				<h2 id="personnalisation-des-sous-titres">Personnalisation des sous-titres</h2>
+				<p>Les utilisateurs peuvent personnaliser l’apparence visuelle des sous-titres dans le système d’exploitation. Certains lecteurs multimédias prennent également en charge la personnalisation. </p>
 				<div class="panel panel-success">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Sous-titres styling in Windows</h3>
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Style de sous-titres dans Windows</h3>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<img src="images/image6.png" class="img-responsive" alt="captions styling in windows used under setting to customize the visual appearcne of captions in the operating system">
+								<img src="images/image6.png" class="img-responsive" alt="&#34;style des sous-titres dans les paramètres Windows pour personnaliser l’apparence visuelle des sous-titres dans le système d’exploitation&#34;.">
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="panel panel-success">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Sous-titres styling in MAC</h3>
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>Bon exemple&nbsp;: Style des sous-titres dans MacOS</h3>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<img src="images/image7.png" class="img-responsive" alt="captions styling in MAC used under Accessibility to customize the visual appearance of subtitles and captions in the operating system">
+								<img src="images/image7.png" class="img-responsive" alt="&#34;style des sous-titres dans MacOS sous Accessibilité pour personnaliser l’apparence visuelle des sous-titres dans le système d’exploitation&#34;.">
 							</div>
 						</div>
 					</div>
@@ -751,10 +751,10 @@
 			</section>
 			
 			<section>				
-				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
+				<h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
 				<details class="mrgn-tp-lg">
-					<summary class="bg-info">Related WCAG resources</summary>
-					<h3>Success criteria</h3>
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+					<h3>Critères de succès</h3>
 					<ul>
 						<li>
 							<a href="https://www.w3.org/WAI/WCAG21/Understanding/captions-prerecorded">1.2.2: Sous-titres (Prerecorded)</a>
@@ -775,7 +775,7 @@
 							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H95">H95: Using the track element to provide captions</a>
 						</li>
 					</ul>
-					<h3>Failures</h3>
+					<h3>Défaillances</h3>
 					<ul>
 						<li>
 							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F8">F8: Failure of Success Criterion 1.2.2 due to captions omitting some dialogue or important sound effects</a>
