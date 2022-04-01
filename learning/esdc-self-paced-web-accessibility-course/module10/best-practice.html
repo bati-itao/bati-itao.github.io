@@ -70,48 +70,89 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#section1">S1</a></li>
-			<li><a href="#section2">S2</a></li>
-			<li><a href="#section3">S3</a></li>
-			<li><a href="#resources1">Related WCAG resources</a></li>
+            <li><a href="#best-practice-mouse-input">Best practice: Mouse input</a></li>
+			<li><a href="#best-practice-keyboard-input">Best practice: Keyboard input</a></li>
+			<li><a href="#best-practice-touch-input">Best practice: Touch input</a></li>
+			<li><a href="#best-practice-voice-input">Best practice: Voice input</a></li>
+			<li><a href="#best-practice-motion-actuation">Best practice: Motion actuation</a></li>
           </ul>
         </div>
       </div>
 	</nav>
 	
 			<section>				
-				<h2 id="section1">S1</h2>
-				
+				<h2 id="best-practice-mouse-input">Best practice: Mouse input</h2>
+				<ul>
+					<li>Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden, the addition content is:</li>
+					<li>Dismissible</li>
+					<li>Hoverable</li>
+					<li>Persistent </li>
+					<li>Content that can be triggered via pointer hover should also be able to be triggered by keyboard focus.</li>
+					<li>For functionality that can be operated using a single pointer, at least one of the following is true:</li>
+					<li>No Down-Event</li>
+					<li>Abort or Undo</li>
+					<li>Up Reversal</li>
+					<li>Essential</li>
+					<li>Use the default behaviour of controls (e.g. onclick or mouseup event) and do not override that behaviour with an explicit down-event trigger. </li>
+				</ul>
 			</section>
 			
 			<section>				
-				<h2 id="section2">S2</h2>
-				
+				<h2 id="best-practice-keyboard-input">Best practice: Keyboard input</h2>
+				<h3 class="">Focus and focus order</h3>
+				<ul>
+					<li>Ensure a meaningful tab order by positioning focusable content in the same sequence as the underlying code.</li>
+					<li>Ensure the keyboard navigation order is logical and intuitive. Typically, this means ensuring the navigation follows the visual flow of the page, left to right, top to bottom. It moves through the banner, main navigation, page navigation and controls, then footer on a typical page.</li>
+					<li>Avoid using tabindex values greater than 0.</li>
+				</ul>
+				<h3 class="">Visual focus indicator</h3>
+				<ul>
+					<li>Avoid styles that remove or limit the visibility of keyboard focus indicators</li>
+					<li>Use CSS to design a highly-visible focus indicator with strong contrast</li>
+					<li>Links must have a visible focus state.</li>
+				</ul>
+				<h3 class="">Keyboard functionality</h3>
+				<ul>
+					<li>Ensure all page content can be operated through a keyboard. </li>
+					<li>When possible, use native HTML links and form controls rather than custom elements.</li>
+					<li>Use the onclick event of anchors and buttons.</li>
+					<li>Pair mouse event handlers with keyboard event handlers.</li>
+					<li>Avoid keyboard traps: ensure the user can get in and out of interactive components using only the keyboard.</li>
+				</ul>
+				<h3 class="">Keyboard Trap</h3>
+				<ul>
+					<li>Make sure the user can get in and out of the interactive elements by using only the keyboard.</li>
+				</ul>
+				<h3 class="">Focus management with JavaScript-injected content</h3>
+				<ul>
+					<li>Whenever a pop up appears on the page as a result of the user interaction or invoking a control, ensure that the user must return to the same place where the interaction first started.</li>
+				</ul>
 			</section>
 			
 			<section>				
-				<h2 id="section3">S3</h2>
-				
+				<h2 id="best-practice-touch-input">Best practice: Touch input</h2>
+				<ul>
+					<li>All functionality should be accessible via pointer input devices, e.g., via a mouse, a finger on a touch screen, or an electronic stylus. </li>
+					<li>All functionalities can be operated by a single click or tap, double tap, double click, long press, or click &amp; hold.  </li>
+					<li>Write JavaScript event handlers that trigger on both keyboard and mouse click. A mouse-accessible interface is generally touch accessible.</li>
+					<li>Ensure the target size is at least 44px by 44px (Level AAA, optional)</li>
+				</ul>
 			</section>
-			
-			
+
 			<section>				
-				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
-				<details class="mrgn-tp-lg">
-					<summary class="bg-info">Related WCAG resources</summary>
-					<h3>Success criteria</h3>
-					<ul>
-						<li><a href="https://www.link1.com">Link 1</a></li>
-					</ul>
-					<h3>Techniques</h3>
-					<ul>
-						<li>
-							<a href="https://www.link2.com">Link 2</a>
-						</li>						
-					</ul>
-				</details>
+				<h2 id="best-practice-voice-input">Best practice: Voice input</h2>
+				<ul>
+					<li>When a control has an accessible name set via an ARIA label as well as a visible label, the visible label text must be part of or match the ARIA label.</li>
+				</ul>
 			</section>
-		
+
+			<section>				
+				<h2 id="best-practice-motion-actuation">Best practice: Motion actuation</h2>
+				<ul>
+					<li>If you provide motion actuation (functions triggered by sensor input such as shaking), ensure the functions can also be triggered by conventional user interface components.</li>
+					<li>Ensure users can disable motion actuation.</li>
+				</ul>
+			</section>	
 		
 	<nav role="navigation" aria-labelledby="nav-document">
 		<h2 id="nav-document" class="wb-inv">Document navigation</h2>
