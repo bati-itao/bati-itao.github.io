@@ -71,10 +71,26 @@
         <div class="panel-body">
           <ul>
             <li><a href="#overview">Validating input (overview)</a></li>
-			<li><a href="#required-input">Validating required input</a></li>
-			<li><a href="#common-input">Validating common input types</a></li>
-			<li><a href="#patterned-input">Validating patterned input</a></li>
-			<li><a href="#length">Validating the length of entries</a></li>
+			<li><a href="#required-input">Validating required input</a>
+				<ul>
+					<li><a href="#validation-required-input">Good example: Browser validation of required input</a></li>
+				</ul>
+			</li>
+			<li><a href="#common-input">Validating common input types</a>
+				<ul>
+					<li><a href="#input-types">Good example: HTML5 input types</a></li>
+				</ul>
+			</li>
+			<li><a href="#patterned-input">Validating patterned input</a>
+				<ul>
+					<li><a href="#pattern-attribute-match">Good example: Using the pattern attribute to match a car license plate</a></li>
+				</ul>
+			</li>
+			<li><a href="#length">Validating the length of entries</a>
+				<ul>
+					<li><a href="#length-entries">Good example: Validating the length of entries</a></li>
+				</ul>
+			</li>
 			<li><a href="#input-formats">Accommodating different input formats </a></li>
 			<li><a href="#client-benefits">Client-side validation benefits</a></li>
 			<li><a href="#validation-user">Validation by the user </a></li>
@@ -154,58 +170,60 @@ input:required { background-color: pink; }</code></pre>
 				<h2 id="common-input">Validating common input types</h2>
 				<p>HTML5 introduces new <code>&lt;input&gt;</code> types for data, including <code>email</code>, <code>url</code>, <code>number</code>, <code>tel</code> (telephone), <code>date</code> and <code>range</code>, amongst others.  Modern web browsers provide built-in client-side error validation for these new input types. For instance, a malformed URL triggers the browser to display a dialog with the message “Please enter a URL.”</p>
 				<p>To help users input data more easily, HTML5 provides controls for some of the new input types, such as a date picker and spin buttons for incrementing or decrementing numbers. For instance, in the example below, modern browsers display the “Number” input field with buttons to increase or decrease the number and display the “Range” input field as a slider control.</p>
-				<p>Legacy web browsers that don’t support the new input types display a simple text field.</p>
+				<p>Legacy web browsers that don’t support the new input types display a simple <code>text</code> field.</p>
 		
 				<p><mark><del>These <code>&lt;input&gt;</code> types were already in use when HTML5 was introduced:</del></mark></p>
-				<h3><mark><ins>Input types already in use when HTML5 was introduced</ins></mark></h3>
-				<dl>
-					<dt>text</dt>
-					<dd class="mrgn-lft-lg">Defines a one-line text input field</dd>
-					<dt>password</dt>
-					<dd class="mrgn-lft-lg">Defines a one-line password input field</dd>
-					<dt>submit</dt>
-					<dd class="mrgn-lft-lg">Defines a submit button to submit the form to server</dd>
-					<dt>reset</dt>
-					<dd class="mrgn-lft-lg">Defines a reset button to reset all values in the form.</dd>
-					<dt>radio</dt>
-					<dd class="mrgn-lft-lg">Defines a radio button which allows select one option.</dd>
-					<dt>checkbox</dt>
-					<dd class="mrgn-lft-lg">Defines checkboxes which allow select multiple options forms.</dd>
-					<dt>button</dt>
-					<dd class="mrgn-lft-lg">Defines a simple push button, which can be programmed to perform a task on an event.</dd>
-					<dt>file</dt>
-					<dd class="mrgn-lft-lg">Defines a file retrieval field.</dd>
-					<dt>image</dt>
-					<dd class="mrgn-lft-lg">Defines a graphical submit button.</dd>
-				</dl>
-				
-		
+				<details class="mrgn-tp-md">
+					<summary class="bg-info"><mark>Input types already in use when HTML5 was introduced</mark></summary>
+					<dl class="mrgn-tp-md">
+						<dt>text</dt>
+						<dd class="mrgn-lft-lg">Defines a one-line text input field</dd>
+						<dt>password</dt>
+						<dd class="mrgn-lft-lg">Defines a one-line password input field</dd>
+						<dt>submit</dt>
+						<dd class="mrgn-lft-lg">Defines a submit button to submit the form to server</dd>
+						<dt>reset</dt>
+						<dd class="mrgn-lft-lg">Defines a reset button to reset all values in the form.</dd>
+						<dt>radio</dt>
+						<dd class="mrgn-lft-lg">Defines a radio button which allows select one option.</dd>
+						<dt>checkbox</dt>
+						<dd class="mrgn-lft-lg">Defines checkboxes which allow select multiple options forms.</dd>
+						<dt>button</dt>
+						<dd class="mrgn-lft-lg">Defines a simple push button, which can be programmed to perform a task on an event.</dd>
+						<dt>file</dt>
+						<dd class="mrgn-lft-lg">Defines a file retrieval field.</dd>
+						<dt>image</dt>
+						<dd class="mrgn-lft-lg">Defines a graphical submit button.</dd>
+					</dl>
+				</details>
 				<p><mark><del>These <code>&lt;input&gt;</code>  types were introduced with HTML5:</del></mark></p>
-				<h3><mark>Input types introduced with HTML5</mark></h3>
-				<dl>
-					<dt>color</dt>
-					<dd class="mrgn-lft-lg">Defines an input field with a specific color.</dd>
-					<dt>date</dt>
-					<dd class="mrgn-lft-lg">Defines an input field for selection of date.</dd>
-					<dt>datetime-local</dt>
-					<dd class="mrgn-lft-lg">Defines an input field for entering a date without time zone.</dd>
-					<dt>email</dt>
-					<dd class="mrgn-lft-lg">Defines an input field for entering an email address.</dd>
-					<dt>month</dt>
-					<dd class="mrgn-lft-lg">Defines a control with month and year, without time zone.</dd>
-					<dt>number</dt>
-					<dd class="mrgn-lft-lg">Defines an input field to enter a number.</dd>
-					<dt><mark>range</mark></dt>
-					<dd class="mrgn-lft-lg"><mark>Defines a numeric value which must be no less than a given value, and no more than another given value.</mark></dd>
-					<dt>url</dt>
-					<dd class="mrgn-lft-lg">Defines a field for entering URL.</dd>
-					<dt>week</dt>
-					<dd class="mrgn-lft-lg">Defines a field to enter the date with week-year, without time zone.</dd>
-					<dt>search</dt>
-					<dd class="mrgn-lft-lg">Defines a single line text field for entering a search string.</dd>
-					<dt>tel</dt>
-					<dd class="mrgn-lft-lg">Defines an input field for entering the telephone number.</dd>
-				</dl>
+				<details class="mrgn-tp-md">
+					<summary class="bg-info"><mark>Input types introduced with HTML5</mark></summary>
+					<dl class="mrgn-tp-md">
+						<dt>color</dt>
+						<dd class="mrgn-lft-lg">Defines an input field with a specific color.</dd>
+						<dt>date</dt>
+						<dd class="mrgn-lft-lg">Defines an input field for selection of date.</dd>
+						<dt>datetime-local</dt>
+						<dd class="mrgn-lft-lg">Defines an input field for entering a date without time zone.</dd>
+						<dt>email</dt>
+						<dd class="mrgn-lft-lg">Defines an input field for entering an email address.</dd>
+						<dt>month</dt>
+						<dd class="mrgn-lft-lg">Defines a control with month and year, without time zone.</dd>
+						<dt>number</dt>
+						<dd class="mrgn-lft-lg">Defines an input field to enter a number.</dd>
+						<dt><mark>range</mark></dt>
+						<dd class="mrgn-lft-lg"><mark>Defines a numeric value which must be no less than a given value, and no more than another given value.</mark></dd>
+						<dt>url</dt>
+						<dd class="mrgn-lft-lg">Defines a field for entering URL.</dd>
+						<dt>week</dt>
+						<dd class="mrgn-lft-lg">Defines a field to enter the date with week-year, without time zone.</dd>
+						<dt>search</dt>
+						<dd class="mrgn-lft-lg">Defines a single line text field for entering a search string.</dd>
+						<dt>tel</dt>
+						<dd class="mrgn-lft-lg">Defines an input field for entering the telephone number.</dd>
+					</dl>
+				</details>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 		
@@ -214,6 +232,7 @@ input:required { background-color: pink; }</code></pre>
 							<div class="panel-body well mrgn-bttm-0">
 								<p class="wb-inv">Example begins</p>
 								<form class="form-horizontal" role="form" method="get" action="#">
+<!-- these aren't HTML5
 									<div class="form-group">
 										<label for="fname1" class="col-sm-2 control-label">First name</label>
 										<div class="col-sm-10">
@@ -226,16 +245,17 @@ input:required { background-color: pink; }</code></pre>
 											<input type="text" class="form-control" id="lname1" autocomplete="family-name" />
 										</div>
 									</div>
+-->
 									<div class="form-group">
 										<label for="email" class="col-sm-2 control-label">Email:</label>
 										<div class="col-sm-10">
-											<input type="email" name="email"  class="form-control" id="email">
+											<input type="email" name="email" class="form-control" id="email">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="url" class="col-sm-2 control-label">URL:</label>
 										<div class="col-sm-10">
-											<input type="url" name="url"  class="form-control" id="url">
+											<input type="url" name="url" class="form-control" id="url">
 										</div>
 									</div>
 									<div class="form-group">
@@ -253,13 +273,13 @@ input:required { background-color: pink; }</code></pre>
 									<div class="form-group">
 										<label for="date" class="col-sm-2 control-label">Date:</label>
 										<div class="col-sm-10">
-											<input type="date" class="form-control" name="date" id="date">
+											<input type="date" name="date" class="form-control" id="date">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="time" class="col-sm-2 control-label">Time:</label>
 										<div class="col-sm-10">
-											<input type="time" name="time" id="time" class="form-control">
+											<input type="time" name="time" class="form-control" id="time">
 										</div>
 									</div>
 									<div class="form-group">
@@ -276,7 +296,7 @@ input:required { background-color: pink; }</code></pre>
 					<details class="mrgn-tp-sm">
 							<summary class="bg-info">View HTML </summary>
 							<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;form class="form-horizontal" role="form" method="get" action="#"&gt;
+<!-- These aren't HTML5
    &lt;div class="form-group"&gt;
       &lt;label for="fname1" class="col-sm-2 control-label"&gt;First name&lt;/label&gt;
       &lt;div class="col-sm-10"&gt;
@@ -289,16 +309,18 @@ input:required { background-color: pink; }</code></pre>
          &lt;input type="text" class="form-control" id="lname1" autocomplete="family-name" /&gt;
       &lt;/div&gt;
    &lt;/div&gt;
+-->							
+<pre><code class="language-html">&lt;form class="form-horizontal" role="form" method="get" action="#"&gt;
    &lt;div class="form-group"&gt;
       &lt;label for="email" class="col-sm-2 control-label"&gt;Email:&lt;/label&gt;
       &lt;div class="col-sm-10"&gt;
-         &lt;input type="email" name="email"  class="form-control" id="email"&gt;
+         &lt;input type="email" name="email" class="form-control" id="email"&gt;
       &lt;/div&gt;
    &lt;/div&gt;
    &lt;div class="form-group"&gt;
       &lt;label for="url" class="col-sm-2 control-label"&gt;URL:&lt;/label&gt;
       &lt;div class="col-sm-10"&gt;
-         &lt;input type="url" name="url"  class="form-control" id="url"&gt;
+         &lt;input type="url" name="url" class="form-control" id="url"&gt;
       &lt;/div&gt;
    &lt;/div&gt;
    &lt;div class="form-group"&gt;
@@ -316,18 +338,18 @@ input:required { background-color: pink; }</code></pre>
    &lt;div class="form-group"&gt;
       &lt;label for="date" class="col-sm-2 control-label"&gt;Date:&lt;/label&gt;
       &lt;div class="col-sm-10"&gt;
-         &lt;input type="date" class="form-control" name="date" id="date"&gt;
+         &lt;input type="date" name="date" class="form-control" id="date"&gt;
       &lt;/div&gt;
    &lt;/div&gt;
    &lt;div class="form-group"&gt;
       &lt;label for="time" class="col-sm-2 control-label"&gt;Time:&lt;/label&gt;
       &lt;div class="col-sm-10"&gt;
-         &lt;input type="time" name="time" id="time" class="form-control"&gt;
+         &lt;input type="time" name="time" class="form-control" id="time"&gt;
       &lt;/div&gt;
    &lt;/div&gt;
    &lt;div class="form-group"&gt;
       &lt;div class="col-sm-offset-2 col-sm-10"&gt;
-         &lt;button type="submit"  class="btn btn-default"&gt;Continue&lt;/button&gt;
+         &lt;button type="submit" class="btn btn-default"&gt;Continue&lt;/button&gt;
       &lt;/div&gt;
    &lt;/div&gt;
 &lt;/form&gt;</code></pre>
@@ -441,8 +463,8 @@ input:required { background-color: pink; }</code></pre>
 				<p>Where possible, require user confirmation for irreversible actions, such as permanent deletion of data.  </p>
 				<p>For example:</p>
 				<ul>
-				<li>A webmail application with an irreversible submit action for sending dozens of emails prompts the user for confirmation. The confirmation is implemented as a Modal window, which requires the user acknowledge it before continuing.</li>
-				<li>Before an online shopping order is placed, the user reviews and confirms a summary of the products ordered and the shipping and billing addresses.</li>
+					<li>A webmail application with an irreversible submit action for sending dozens of emails prompts the user for confirmation. The confirmation is implemented as a Modal window <mark>(see <a href="../module12/index.html">Module 12</a>)</mark>, which requires the user acknowledge it before continuing.</li>
+					<li>Before an online shopping order is placed, the user reviews and confirms a summary of the products ordered and the shipping and billing addresses.</li>
 				</ul>
 				<h3>Provide undo functionality</h3>
 				<p>Where possible, ensure submissions are reversible.</p>
@@ -455,7 +477,18 @@ input:required { background-color: pink; }</code></pre>
 					<li>A Close button will allow users to close a new or an existing view.</li>
 				</ul>
 			</section>
-			
+			<hr/>
+			<p class="small">The examples of forms validations are from the Web Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a>) 
+					document: <a href="https://www.w3.org/WAI/tutorials/forms/validation/Validation</a> from the <a href="https://www.w3.org/WAI/tutorials/forms/">Forms</a>
+					tutorial of the <a href="https://www.w3.org/WAI/tutorials/">Web Accessibility Tutorials</a>. <a herf="https://www.w3.org/People/yatil/">
+					Eric Eggert</a> and <a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a>, Copyright © 2019 W3C ® 
+					(<a href="http://www.csail.mit.edu/">MIT</a>
+					, <a href="http://www.ercim.eu/">ERCIM</a>, 
+					<a href="http://www.keio.ac.jp/">Keio</a>
+					, <a href="http://ev.buaa.edu.cn/">Beihang</a>) 
+					<a href="https://www.w3.org/Consortium/Legal/ipr-notice">Usage policies apply</a>. Updated 27 July 2019 (first published September 2014). 
+					<a href="https://www.w3.org/WAI/tutorials/forms/instructions/">https://www.w3.org/WAI/tutorials/forms/instructions/</a>
+			</p>
 			<section>				
 				<h2 id="resources" class="wb-inv">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
@@ -476,16 +509,6 @@ input:required { background-color: pink; }</code></pre>
 						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G168">G168: Requesting confirmation to continue with selected action</a></li>	
 						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR18">SCR18: Providing client-side validation and alert</a></li>		
 					</ul>
-					<p class="small">The examples of forms validations are from the Web Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a>) 
-					document: <a href="https://www.w3.org/WAI/tutorials/forms/validation/Validation</a> from the <a href="https://www.w3.org/WAI/tutorials/forms/">Forms</a>
-					tutorial of the <a href="https://www.w3.org/WAI/tutorials/">Web Accessibility Tutorials</a>. <a herf="https://www.w3.org/People/yatil/">
-					Eric Eggert</a> and <a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a>, Copyright © 2019 W3C ® 
-					(<a href="http://www.csail.mit.edu/">MIT</a>
-					, <a href="http://www.ercim.eu/">ERCIM</a>, 
-					<a href="http://www.keio.ac.jp/">Keio</a>
-					, <a href="http://ev.buaa.edu.cn/">Beihang</a>) 
-					<a href="https://www.w3.org/Consortium/Legal/ipr-notice">Usage policies apply</a>. Updated 27 July 2019 (first published September 2014). 
-					<a href="https://www.w3.org/WAI/tutorials/forms/instructions/">https://www.w3.org/WAI/tutorials/forms/instructions/</a></p>
 				</details>
 				
 			</section>
