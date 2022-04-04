@@ -80,16 +80,16 @@
 	
 			<section>				
 				<h2 id="resp-tables">Conception de tableaux adaptés</h2>
-				<p>Les tableaux adaptés sont redimensionnés à mesure que la taille de la zone d’affichage change pour s’assurer qu’ils ne nécessitent pas de défilement horizontal. Pour les tableaux comportant quelques colonnes, on peut le faire en donnant à chaque colonne un pourcentage de largeur et en donnant au tableau une largeur maximale de 100&nbsp;%. Les tableaux plus grands doivent être transformés et réorganisés en une seule colonne. Veuillez noter que le gouvernement du Canada n’a pas besoin de tableaux adaptés&nbsp;: ni le système de conception de Canada.ca ni la BOEW ne comportent de fonctionnalité permettant de transformer et de réorganiser les tableaux, comme le montre l’exemple ci-dessous.</p>
+				<p>Les tableaux adaptés sont redimensionnés à mesure que la taille de la zone d’affichage change pour s’assurer qu’ils ne nécessitent pas de défilement horizontal. Pour les tableaux comportant quelques colonnes, on peut le faire en donnant à chaque colonne un pourcentage de largeur et en donnant au tableau une largeur maximale de 100 %. Les tableaux plus grands doivent être transformés et réorganisés en une seule colonne. <strong>Veuillez noter que le gouvernement du Canada n’a pas besoin de tableaux adaptés</strong> : ni le système de conception de Canada.ca ni la BOEW ne comportent de fonctionnalité permettant de transformer et de réorganiser les tableaux, comme le montre l’exemple ci-dessous.</p>
 				<p>Si l’écran est trop petit pour afficher le tableau complet, une barre de défilement horizontale s’affiche.</p>
 
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h2 id="reflow-table" class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Reformater le tableau en une seule colonne</h2>
-						<p>Dans l’exemple ci-dessous, le tableau est reformaté à une colonne si la largeur du navigateur est inférieure à 768&nbsp;pixels, ce qui maintient la lisibilité sans qu’un défilement horizontal soit nécessaire. </p>
-				<p>La technique consiste à empiler les cellules du tableau les unes sur les autres, à masquer les en-têtes au haut de la colonne et à les reproduire à gauche de la cellule comme des en-têtes de rangée visuels. Le problème avec cette technique est que les en-têtes de rangée sont créés avec le contenu généré par CSS, en s’appuyant sur la valeur d’un attribut personnalisé <code>aria-label</code>&nbsp;: </p>
+						<p>Dans l’exemple ci-dessous, le tableau est reformaté à une colonne si la largeur du navigateur est inférieure à 768 pixels, ce qui maintient la lisibilité sans qu’un défilement horizontal soit nécessaire.</p>
+				<p>La technique consiste à empiler les cellules du tableau les unes sur les autres, à masquer les en-têtes au haut de la colonne et à les reproduire à gauche de la cellule comme des en-têtes de rangée visuels. Le problème avec cette technique est que les en-têtes de rangée sont créés avec le contenu généré par CSS, en s’appuyant sur la valeur d’un attribut personnalisé d’étiquette de données:</p>
 						
-						<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Code commence</p>
 	
 <pre><code class="language-html">&lt;td data-label="Account"&gt;Mastercard - 5555&lt;/td&gt;</code></pre>
 <pre><code class="language-css">@media screen and (max-width: 767px) {
@@ -100,7 +100,7 @@
       text-transform: uppercase;
    }
 }</code></pre>
-						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Fin du code</p>
 						
 						<p>Malheureusement, le contenu généré par CSS n’est pas encore déclaré par les lecteurs d’écran JAWS et Narrator. Une fois qu’ils pourront le faire, cette technique sera viable.</p>
 						<p>Redimensionner la fenêtre du navigateur pour voir l’effet.</p>
@@ -110,39 +110,39 @@
  
 								<!-- <table class="example table table-bordered table-hover"> -->
 								<table class="example table table-hover">
-									<caption>Account Summary</caption>
+									<caption>Résumé du compte</caption>
 									<thead>
 										<tr>
-											<th scope="col"><mark>Accounts</mark></th>
-											<th scope="col"><mark>Due Date</mark></th>
+											<th scope="col"><mark>Compte</mark></th>
+											<th scope="col"><mark>Date d'échéance</mark></th>
 											<th scope="col"><mark>Balance</mark></th>
-											<th scope="col"><mark>Statement Date</mark></th>
+											<th scope="col"><mark>Date du relevé</mark></th>
 										</tr>
 									</thead>
 									<tbody> 
 										<tr> 
-											<th scope="row" data-label="Account">Mastercard - 5555</th> 
-											<td data-label="Due Date">04/01/2021</td> 
-											<td data-label="Amount">$5,390</td> 
-											<td data-label="Period">03/01/2021 - 03/31/2021</td> 
+											<th scope="row" data-label="Compte">Mastercard - 5555</th> 
+											<td data-label="Date d'echeance">04/01/2021</td> 
+											<td data-label="Montant">$5,390</td> 
+											<td data-label="Periode">03/01/2021 - 03/31/2021</td> 
 										</tr> 
 										<tr> 
-											<th scope="row" data-label="Account">Visa - 5155</th> 
-											<td data-label="Due Date">03/01/2020</td> 
-											<td data-label="Amount">$2,013</td> 
-											<td data-label="Period">02/01/2020 - 02/29/2020</td> 
+											<th scope="row" data-label="Compte">Visa - 5155</th> 
+											<td data-label="Date d'echeance">03/01/2020</td> 
+											<td data-label="Montant">$2,013</td> 
+											<td data-label="Periode">02/01/2020 - 02/29/2020</td> 
 										</tr> 
 										<tr> 
-											<th scope="row" data-label="Account">AMEX - 9010</th> 
-											<td data-label="Due Date">03/01/2020</td> 
-											<td data-label="Amount">$3,251</td> 
-											<td data-label="Period">02/01/2020 - 02/29/2020</td> 
+											<th scope="row" data-label="Compte">AMEX - 9010</th> 
+											<td data-label="Date d'echeance">03/01/2020</td> 
+											<td data-label="Montant">$3,251</td> 
+											<td data-label="Periode">02/01/2020 - 02/29/2020</td> 
 										</tr> 
 										<tr> 
-											<th scope="row" data-label="Acount">Capital One - 8800</th> 
-											<td data-label="Due Date">02/01/2021</td> 
-											<td data-label="Amount">$4,842</td> 
-											<td data-label="Period">01/01/2021 - 01/31/2021</td> 
+											<th scope="row" data-label="Compte">Capital One - 8800</th> 
+											<td data-label="Date d'echeance">02/01/2021</td> 
+											<td data-label="Montant">$4,842</td> 
+											<td data-label="Periode">01/01/2021 - 01/31/2021</td> 
 										</tr> 
 									</tbody>
 								</table>
@@ -222,17 +222,17 @@ table.example thead th {
 							<h3><mark>Desktop</mark></h3>
 							<div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
-									<img src="images/table-desktop.png" class="img-responsive" alt="A conventional table with four column headers and four row headers."/>
+									<img src="images/table-desktop.png" class="img-responsive" alt="Un tableau classique avec quatre en-têtes de colonne et quatre en-têtes de ligne."/>
 								</div>
 							</div>
-							<p>Alt text: <mark>A conventional table with four column headers and four row headers.</mark> [Replace screenshot with French one once translated]</p>
+							<p>Alt text: <mark>Un tableau classique avec quatre en-têtes de colonne et quatre en-têtes de ligne.</mark> [Replace screenshot with French one once translated]</p>
 							<h3><mark>Mobile</mark></h3>
 							<div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
-									<img src="images/table-mobile.png" class="img-responsive" alt="Column headers are now row headers, stacked in groups of four, each group holding one row of data."/>
+									<img src="images/table-mobile.png" class="img-responsive" alt="Les en-têtes de colonne sont maintenant des en-têtes de ligne, empilés par groupes de quatre, chaque groupe contenant une ligne de données."/>
 								</div>
 							</div>
-							<p>Alt text: <mark>Column headers are now row headers, stacked in groups of four, each group holding one row of data.</mark></p>
+							<p>Alt text: <mark>Les en-têtes de colonne sont maintenant des en-têtes de ligne, empilés par groupes de quatre, chaque groupe contenant une ligne de données.</mark></p>
 						</details>	
 						
 						<details class="mrgn-tp-md">
@@ -306,44 +306,44 @@ table thead th {
 								<p><mark>[Add translated headers]</mark></p>
 							<p class="wb-inv">Code commence</p>
 <pre><code class="language-html">&lt;table&gt;
-   &lt;caption&gt;Account Summary&lt;/caption&gt;
+   &lt;caption&gt;Résumé du compte&lt;/caption&gt;
    &lt;thead&gt;
       &lt;tr&gt;
-         &lt;th scope="col"&gt;Accounts&lt;/th&gt;
-         &lt;th scope="col"&gt;Due Date&lt;/th&gt;
+         &lt;th scope="col"&gt;Compte&lt;/th&gt;
+         &lt;th scope="col"&gt;Date d'échéance&lt;/th&gt;
          &lt;th scope="col"&gt;Balance&lt;/th&gt;
-         &lt;th scope="col"&gt;Statement Date&lt;/th&gt;
+         &lt;th scope="col"&gt;Date du relevé&lt;/th&gt;
       &lt;/tr&gt;
    &lt;/thead&gt;
    &lt;tbody&gt; 
       &lt;tr&gt; 
-         &lt;th scope="row" data-label="Account"&gt;Mastercard - 5555&lt;/th&gt; 
-         &lt;td data-label="Due Date"&gt;04/01/2021&lt;/td&gt; 
-         &lt;td data-label="Amount"&gt;$5,390&lt;/td&gt; 
-         &lt;td data-label="Period"&gt;03/01/2021 - 03/31/2021&lt;/td&gt; 
+         &lt;th scope="row" data-label="Compte"&gt;Mastercard - 5555&lt;/th&gt; 
+         &lt;td data-label="Date d'échéance"&gt;04/01/2021&lt;/td&gt; 
+         &lt;td data-label="Montant"&gt;$5,390&lt;/td&gt; 
+         &lt;td data-label="Periode"&gt;03/01/2021 - 03/31/2021&lt;/td&gt; 
       &lt;/tr&gt; 
       &lt;tr&gt; 
-         &lt;th scope="row" data-label="Account"&gt;Visa - 5155&lt;/th&gt; 
-         &lt;td data-label="Due Date"&gt;03/01/2020&lt;/td&gt; 
-         &lt;td data-label="Amount"&gt;$2,013&lt;/td&gt; 
-         &lt;td data-label="Period"&gt;02/01/2020 - 02/29/2020&lt;/td&gt; 
+         &lt;th scope="row" data-label="Compte"&gt;Visa - 5155&lt;/th&gt; 
+         &lt;td data-label="Date d'échéance"&gt;03/01/2020&lt;/td&gt; 
+         &lt;td data-label="Montant"&gt;$2,013&lt;/td&gt; 
+         &lt;td data-label="Periode"&gt;02/01/2020 - 02/29/2020&lt;/td&gt; 
       &lt;/tr&gt; 
       &lt;tr&gt; 
-         &lt;th scope="row" data-label="Account"&gt;AMEX - 9010&lt;/th&gt; 
-         &lt;td data-label="Due Date"&gt;03/01/2020&lt;/td&gt; 
-         &lt;td data-label="Amount"&gt;$3,251&lt;/td&gt; 
-         &lt;td data-label="Period"&gt;02/01/2020 - 02/29/2020&lt;/td&gt; 
+         &lt;th scope="row" data-label="Compte"&gt;AMEX - 9010&lt;/th&gt; 
+         &lt;td data-label="Date d'échéance"&gt;03/01/2020&lt;/td&gt; 
+         &lt;td data-label="Montant"&gt;$3,251&lt;/td&gt; 
+         &lt;td data-label="Periode"&gt;02/01/2020 - 02/29/2020&lt;/td&gt; 
       &lt;/tr&gt; 
       &lt;tr&gt; 
-         &lt;th scope="row" data-label="Acount"&gt;Capital One - 8800&lt;/th&gt; 
-         &lt;td data-label="Due Date"&gt;02/01/2021&lt;/td&gt; 
-         &lt;td data-label="Amount"&gt;$4,842&lt;/td&gt; 
-         &lt;td data-label="Period"&gt;01/01/2021 - 01/31/2021&lt;/td&gt; 
+         &lt;th scope="row" data-label="Compte"&gt;Capital One - 8800&lt;/th&gt; 
+         &lt;td data-label="Date d'échéance"&gt;02/01/2021&lt;/td&gt; 
+         &lt;td data-label="Montant"&gt;$4,842&lt;/td&gt; 
+         &lt;td data-label="Periode"&gt;01/01/2021 - 01/31/2021&lt;/td&gt; 
       &lt;/tr&gt; 
    &lt;/tbody&gt;
 &lt;/table&gt;</code>
 </pre>
-								<p class="wb-inv">Fins du code</p>
+								<p class="wb-inv">Fin du code</p>
 							
 							</details>	
 					
@@ -358,24 +358,24 @@ table thead th {
 						<h2 id="overflow-table" class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Débordement du tableau avec barre de défilement horizontale.</h2>
 						<p>Dans cet exemple, un grand tableau force une barre de défilement horizontale sur l’élément <code>&lt;div&gt;</code> parent, générée par la déclaration CSS <code>overflow-x: auto</code>. Le div utilise également l’attribut <code>tabindex="0"</code> pour s’assurer que la barre de défilement reçoit la cible du clavier (conformément à la règle W3C-IAW TIA <a href="https://www.w3.org/WAI/standards-guidelines/act/rules/scrollable-element-keyboard-accessible-0ssw9k/">Scrollable element is keyboard accessible (l’élément de défilement est accessible au clavier)</a>).</p>
 				<p>Il est toujours préférable de diviser les grands tableaux en plusieurs petits tableaux.</p>
-						<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Code commence</p>
 <pre><code class="language-html">&lt;div style="overflow-x:auto;" tabindex="0"&gt;
    &lt;table&gt;[…]&lt;/table&gt;
 &lt;/div&gt;</code></pre>
-				<p class="wb-inv">Code ends</p>
+				<p class="wb-inv">Fin du code</p>
 <div style="overflow-x:auto;" tabindex="0">
  <table class="table table-bordered">
     <tr>
        <th><mark>Sprint</mark> #</th>
-       <th><mark>Closed</mark></th>
-       <th><mark>In progress</mark></th>
-       <th><mark>New</mark></th>
-       <th><mark>To retest</mark></th>
-       <th><mark>Reopened</mark><th>
-       <th><mark>By severity</mark><th>
-       <th><mark>By priority</mark><th>
-       <th><mark>By sprint</mark><th>
-       <th><mark>By release</mark><th>
+       <th><mark>Fermé</mark></th>
+       <th><mark>En cours</mark></th>
+       <th><mark>Nouveau</mark></th>
+       <th><mark>Refaire un test</mark></th>
+       <th><mark>Réouverture</mark><th>
+       <th><mark>Par sévérité</mark><th>
+       <th><mark>Par priorité</mark><th>
+       <th><mark>Par sprint</mark><th>
+       <th><mark>Par sortie</mark><th>
     </tr>
     <tr>
        <td>101</td>
@@ -422,21 +422,21 @@ table thead th {
 						
 						<details class="mrgn-tp-sm">
 							<summary class="bg-info">Voir le HTML </summary>
-							<p class="wb-inv">Code begins</p>
+							<p class="wb-inv">Code commence</p>
 							<p><mark>[Add translated headers]</mark></p>
 <pre><code class="language-html">&lt;div style="overflow-x:auto;" tabindex="0"&gt;
  &lt;table&gt;
     &lt;tr&gt;
        &lt;th&gt;Sprint #&lt;/th&gt;
-       &lt;th&gt;Closed&lt;/th&gt;
-       &lt;th&gt;In progress&lt;/th&gt;
-       &lt;th&gt;New&lt;/th&gt;
-       &lt;th&gt;To retest&lt;/th&gt;
-       &lt;th&gt;Reopened&lt;/th&gt;
-       &lt;th&gt;By severity&lt;/th&gt;
-       &lt;th&gt;By priority&lt;/th&gt;
-       &lt;th&gt;By sprint&lt;/th&gt;
-       &lt;th&gt;By release&lt;/th&gt;
+       &lt;th&gt;Fermé&lt;/th&gt;
+       &lt;th&gt;En cours&lt;/th&gt;
+       &lt;th&gt;Nouveau&lt;/th&gt;
+       &lt;th&gt;Refaire un test&lt;/th&gt;
+       &lt;th&gt;Réouverture&lt;/th&gt;
+       &lt;th&gt;Par sévérité&lt;/th&gt;
+       &lt;th&gt;Par priorité&lt;/th&gt;
+       &lt;th&gt;Par sprint&lt;/th&gt;
+       &lt;th&gt;Par sortie&lt;/th&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
        &lt;td&gt;101&lt;/td&gt;
@@ -476,7 +476,7 @@ table thead th {
     &lt;/tr&gt;
  &lt;/table&gt;
 &lt;div&gt;</code></pre>
-							<p class="wb-inv">Code ends</p>
+							<p class="wb-inv">Fin du code</p>
 							
 						</details>	
 					</div>
