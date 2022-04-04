@@ -83,8 +83,8 @@
 	
 			<section>				
 				<h2 id="concevoir-images">Concevoir des images adaptées</h2>
-				<p>Une image qui est plus large que son conteneur débordera, ce qui peut introduire un défilement horizontal. </p>
-				<p>Pour éviter cela, les images peuvent être adaptées de l’une des quatre façons suivantes&nbsp;:</p>
+				<p>Une image qui est plus large que son conteneur débordera, ce qui peut introduire un défilement horizontal.</p>
+				<p>Pour éviter cela, les images peuvent être adaptées de l’une des quatre façons suivantes:</p>
 				<ul>
 					<li>Technique&nbsp;1 – Styliser l’image avec le CSS <code>width:100%</code></li>
 					<li>Technique&nbsp;2 – Styliser l’image avec le CSS <code>max-width:100%</code></li>
@@ -178,7 +178,7 @@
 			<section>	
 				<h2 id="css-src-att">Technique&nbsp;3&nbsp;: Servir différentes tailles d’image à différentes tailles d’écran en utilisant l’attribut srcset</h2>
 				<p>Cette technique sert différentes tailles d’images, plus grande ou plus petite, selon l’appareil.</p>
-				<p>L’attribut <code>srcset</code> contient une liste séparée par des virgules de versions différentes d’une même image, chaque élément de liste comprenant le nom du fichier et la largeur réelle de l’image (l’unité <code>w</code> équivaut aux pixels). </p>
+				<p>L’attribut <code>srcset</code> contient une liste séparée par des virgules de versions différentes d’une même image, chaque élément de liste comprenant le nom du fichier et la largeur réelle de l’image (l’unité <code>w</code> équivaut aux pixels).</p>
 				<p>L’attribut <code>sizes</code> contient une liste séparée par des virgules de tailles différentes de créneaux pour les images à différentes largeurs d’écran. <mark><ins>The slot width is often expressed using the viewport width (vw) unit, but absolute and relative units can also be used. Each vw unit represents 1% of the viewport width.</ins></mark> Une condition média vérifie la largeur de l’écran. La dernière largeur de créneau n’a aucune condition média; c’est la valeur par défaut qui est choisie lorsqu’aucune condition média n’est vraie. Cet exemple comporte un <mark>50vw wide slot (50% of viewport width) for screens under 900 pixels wide, and a 700-pixel wide slot for the rest. <del>créneau de 160&nbsp;pixels de largeur pour les petits écrans, et un créneau de 320&nbsp;pixels de largeur pour le reste.</del></mark></p>
 				<p>L’attribut <code>src</code> contient le nom du fichier image par défaut.</p>
 				<p>L’attribut <code>alt</code> contient le texte de remplacement.</p>
@@ -222,7 +222,7 @@
 			
 			<section>			
 				<h2 id="css-pic-element">Technique&nbsp;4&nbsp;: Servir différentes images à différentes tailles d’écran en utilisant l’élément picture</h2>			
-				<p>Un petit objet d’intérêt dans une grande image est difficile à discerner si cette même image est rétrécie pour convenir à un appareil mobile. Le cadrage enlève les zones extérieures inutiles d’une image pour se rapprocher de l’objet d’intérêt. L’élément <code>&lt;picture&gt; </code>est couramment utilisé dans la conception adaptative pour «&nbsp;Direction artistique&nbsp;», où différents cadrages d’une même image, souvent à différents rapports de forme, sont servis à différentes tailles d’écran. </p>
+				<p>Un petit objet d’intérêt dans une grande image est difficile à discerner si cette même image est rétrécie pour convenir à un appareil mobile. Le cadrage enlève les zones extérieures inutiles d’une image pour se rapprocher de l’objet d’intérêt. L’élément <code>&lt;picture&gt; </code>est couramment utilisé dans la conception adaptative pour «&nbsp;Direction artistique&nbsp;», où différents cadrages d’une même image, souvent à différents rapports de forme, sont servis à différentes tailles d’écran.</p>
 				<p>L’élément <code>&lt;picture&gt;</code> contient deux balises&nbsp;: une ou plusieurs balises <code>&lt;source&gt;</code> et une balise <code>&lt;img&gt;</code>.</p>
 				<p>Le navigateur recherche le premier élément <code>&lt;source&gt;</code> avec une requête média correspondant à la zone d’affichage actuel, puis affiche l’image spécifiée dans l’attribut <code>srcset</code>.</p>
 				<p>L’élément <code>&lt;img&gt;</code> sert de solution de rechange si aucune des balises <code>&lt;source&gt;</code> ne correspond. Il fournit également le texte de remplacement pour toutes les variantes de l’image.</p>
@@ -233,9 +233,9 @@
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Utilisation de la direction artistique </h3>
-						<p>Dans cet exemple, un cadrage de la photo est servi aux petits appareils. </p>
+						<p>Dans cet exemple, un cadrage de la photo est servi aux petits appareils.</p>
 						<p>Les éléments <code>&lt;source&gt;</code> comprennent une condition média. La première condition qui s’avère est affichée&nbsp;: si la largeur de zone d’écran est de 799&nbsp;pixels moins, l’image du premier élément <code>&lt;source&gt;</code> est affichée; si la largeur de la zone d’affichage est de 800&nbsp;pixels ou plus, l’image du deuxième élément <code>&lt;source&gt;</code> est affichée.</p>
-						<p>Redimensionner la fenêtre du navigateur pour voir l’échelle d’image. </p>
+						<p>Redimensionner la fenêtre du navigateur pour voir l’échelle d’image.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 								<p class="wb-inv">Example begins</p>
@@ -264,7 +264,7 @@
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span> Mauvais exemple&nbsp;: Image non adaptée</h3>
-						<p>Dans la capture d’écran ci-dessous, une image d’une largeur de 1&nbsp;600&nbsp;pixels, dépourvue de tout balisage réactif, s’affiche dans sa largeur originale. Comme elle est plus large que la fenêtre d’affichage, une barre de défilement horizontale doit apparaître. HTML </p>
+						<p>Dans la capture d’écran ci-dessous, une image d’une largeur de 1&nbsp;600&nbsp;pixels, dépourvue de tout balisage réactif, s’affiche dans sa largeur originale. Comme elle est plus large que la fenêtre d’affichage, une barre de défilement horizontale doit apparaître. HTML</p>
 						
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
