@@ -84,16 +84,25 @@
 				<h2 id="keyboard-input-overview">Keyboard input (overview)</h2>
 				<p>Many types of assistive technology act as keyboard emulators, including speech input software, sip-and-puff software and onscreen keyboards, to name a few. By making your design keyboard accessible, you accommodate a wide variety of assistive technologies and user groups.</p>
 				<p>Keyboard accessibility deals with these topics:</p>
-				<ul>
-					<li>Keyboard focus</li>
-					<li>See module 3, Links and Navigation &gt; Navigation &gt; Focus and focus order &gt; What is <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/navigation.html#focus-order">focus?</a></li>
-					<li>Focus order</li>
-					<li>See module 3, Links and Navigation &gt; Navigation &gt; Focus and focus order &gt; <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/navigation.html#focus-order">Focus order</a></li>
-					<li>Visual focus indicator</li>
-					<li>See module 3, Links and Navigation &gt; Links &gt; <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/links.html#indicator"> Visual focus indicator</a></li>
+									
+					<li>Keyboard focus
+					  <ul>
+						<li>See module 3 <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/navigation.html#focus-order">What is focus?</a></li>
+					  </ul>
+					</li>
+					<li>Focus order
+						<ul>
+						  <li>See module 3<a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/navigation.html#focus-order">Focus order</a></li>
+						</ul>
+					  </li>
+					  <li>Visual focus indicator
+						<ul>
+						  <li>See module 3 <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/links.html#indicator"> Visual focus indicator</a></li>
+						</ul>
+					  </li>
 					<li>Keyboard functionality</li>
 					<li>Keyboard traps</li>
-				</ul>
+				  </ul>
 			</section>
 			
 			<section>				
@@ -130,25 +139,25 @@
 				<p>To ensure keyboard users can invoke a scripting function, use native HTML links and buttons with the onclick event. The onclick event of both elements is device independent: it maps to a mouse click and the enter and space keys.</p>
 				<p class="wb-inv">Code begins</p>
 				<pre><code class="language-js">
-	&lt;button onclick="doStuff();"&gt;Do stuff&lt;/button&gt;
-	&lt;script&gt;
-	function doStuff ()
-	{
-	alert('Button clicked');
-	}
-	&lt;/script&gt;
+&lt;button onclick="doStuff();"&gt;Do stuff&lt;/button&gt;
+&lt;script&gt;
+function doStuff ()
+{
+alert('Button clicked');
+}
+&lt;/script&gt;
 			</code>
 		</pre>
 		<p class="wb-inv">Code ends</p>
 				<p>A submit button inside a &lt;form&gt; does not require an event handler. In both the following cases, pressing the submit button will submit the parent form without the need for handling the onclick event separately. Here, the form’s onsubmit value triggers validation.</p>
 				<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">
-	&lt;form onsubmit=”handle_form_submission()"&gt;</p>
-	[…]</p>
-	&lt;input type="submit" name="submit" value="Post your reply" /&gt;</p>
-	Or:</p>
-	&lt;button type="submit" &gt;Post your reply&lt;/button&gt;</p>
-	&lt;/form&gt;</p>
+&lt;form onsubmit=”handle_form_submission()"&gt;</p>
+[…]</p>
+&lt;input type="submit" name="submit" value="Post your reply" /&gt;</p>
+Or:</p>
+&lt;button type="submit" &gt;Post your reply&lt;/button&gt;</p>
+&lt;/form&gt;</p>
 </code>
 </pre>
 <p class="wb-inv">Code ends</p>
@@ -215,13 +224,13 @@
 				<p>In this example of an image link, the image is changed when the user positions the pointer over the image. To provide keyboard users with a similar experience, the image is also changed when the user tabs to it. </p>
 				<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">
-	&lt;a href="menu.php" 
-	onmouseover="swapImageOn('menu')" 
-	onfocus="swapImageOn('menu')" 
-	onmouseout="swapImageOff('menu')" 
-	onblur="swapImageOff('menu')"&gt; 
-	&lt;img id="menu" src="menu_off.gif" alt="Menu" /&gt;
-	&lt;/a&gt;
+&lt;a href="menu.php" 
+onmouseover="swapImageOn('menu')" 
+onfocus="swapImageOn('menu')" 
+onmouseout="swapImageOff('menu')" 
+onblur="swapImageOff('menu')"&gt; 
+&lt;img id="menu" src="menu_off.gif" alt="Menu" /&gt;
+&lt;/a&gt;
 </code>
 </pre>
 						<p class="wb-inv">Code ends</p>
@@ -236,25 +245,25 @@
 				<img src="images/image1.png" class="img-responsive" alt="">
 				<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">
-	&lt;img class="img-link" onclick="goToLink(event, 'http://www.example.com/page5.html')" src="arrow.gif" alt="Go to next page"&gt;</p>
+&lt;img class="img-link" onclick="goToLink(event, 'http://www.example.com/page5.html')" src="arrow.gif" alt="Go to next page"&gt;</p>
 			</code>
 		</pre><p class="wb-inv">Code ends</p>
 		<p class="wb-inv">Code begins</p>
 		<pre><code class="language-css">				
-	.img-link:hover { 
-	cursor: pointer;  
-	}
+.img-link:hover { 
+cursor: pointer;  
+}
 			</code>
 		</pre><p class="wb-inv">Code ends</p>
 		<p class="wb-inv">Code begins</p>
 		<pre><code class="language-js">	
-	function goToLink(event, url) {  
-	var type = event.type;  
-	if (type === ‘click’)
-	{  
-	window.location.href = url;      
-	event.stopPropagation();  
-	} 
+function goToLink(event, url) {  
+var type = event.type;  
+if (type === ‘click’)
+{  
+window.location.href = url;      
+event.stopPropagation();  
+} 
 			</code>
 		</pre>
 								<p class="wb-inv">Code ends</p>
@@ -277,57 +286,57 @@
 						<img src="images/image3.png" class="img-responsive" alt="">
 						<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">
-	&lt;label for="newName"&gt;Enter your Name: &lt;/label&gt;
-	&lt;input type="text" id="newName"&gt;
-	&lt;span role="button" tabindex="0" onclick="handleCommand(event)" onKeyDown="handleCommand(event)"&gt;Add Name&lt;/span&gt;
-	&lt;ul id="nameList"&gt;&lt;/ul&gt;
+&lt;label for="newName"&gt;Enter your Name: &lt;/label&gt;
+&lt;input type="text" id="newName"&gt;
+&lt;span role="button" tabindex="0" onclick="handleCommand(event)" onKeyDown="handleCommand(event)"&gt;Add Name&lt;/span&gt;
+&lt;ul id="nameList"&gt;&lt;/ul&gt;
 					</code>
 				</pre>
 										<p class="wb-inv">Code ends</p>
 						<p class="wb-inv">Code begins</p>
 						<pre><code class="language-css">			
-	[role="button"] {
-	padding: 0.25em 0.5em;
-	background-color: #CCCCCC;
-	color: black;
-	margin-left: 5px;
-	outline: 2px solid white;
-	}
-	#newName:focus,
-	#newName:hover {
-	background-color: rgb(186, 228, 253);
-	}
-	[role="button"]:focus,
-	[role="button"]:hover {
-	outline: 2px dotted rgb(81, 81, 250);
-	}
+[role="button"] {
+padding: 0.25em 0.5em;
+background-color: #CCCCCC;
+color: black;
+margin-left: 5px;
+outline: 2px solid white;
+}
+#newName:focus,
+#newName:hover {
+background-color: rgb(186, 228, 253);
+}
+[role="button"]:focus,
+[role="button"]:hover {
+outline: 2px dotted rgb(81, 81, 250);
+}
 					</code>
 				</pre>
 						<p class="wb-inv">Code ends</p>
 						<p class="wb-inv">Code begins</p>
 						<pre><code class="language-js">
-	&lt;script&gt;
-	function handleCommand(event) {
-	// Handles both mouse clicks and keyboard
-	// activate with Enter or Space
-	// Keypresses other then Enter and Space end the script
-	if (event instanceof KeyboardEvent &amp;&amp; event.key !== 'Enter' &amp;&amp; event.key !== ' ') {
-	      return;
-	}
-	// Get the new name value from the input element
-	let newNameInput = document.getElementById('newName');
-	let name = newNameInput.value;
-	newNameInput.value = ''; // clear the text field
-	newNameInput.focus();  // give the text field focus to enable entering and additional name.
-	// Don't add blank entries to the list.
-	if(name.length &gt; 0) {
-	listItem = document.createElement('li');
-	listItem.appendChild(document.createTextNode(name));
-	// Add the new name to the list.
-	let list = document.getElementById('nameList');
-	list.appendChild(listItem);
-	}
-	}
+&lt;script&gt;
+function handleCommand(event) {
+// Handles both mouse clicks and keyboard
+// activate with Enter or Space
+// Keypresses other then Enter and Space end the script
+if (event instanceof KeyboardEvent &amp;&amp; event.key !== 'Enter' &amp;&amp; event.key !== ' ') {
+    return;
+}
+// Get the new name value from the input element
+let newNameInput = document.getElementById('newName');
+let name = newNameInput.value;
+newNameInput.value = ''; // clear the text field
+newNameInput.focus();  // give the text field focus to enable entering and additional name.
+// Don't add blank entries to the list.
+if(name.length &gt; 0) {
+listItem = document.createElement('li');
+listItem.appendChild(document.createTextNode(name));
+// Add the new name to the list.
+let list = document.getElementById('nameList');
+list.appendChild(listItem);
+}
+}
 					</code>
 				</pre>
 						<p class="wb-inv">Code ends</p>
@@ -345,8 +354,8 @@
 				<p>This example illustrates the keyboard trap dangers of using the JavaScript focus() method. The form input field here uses the onblur event, which is triggered when focus leaves the element. When the keyboard user presses the Tab key to move focus away from the input field, the onblur event kicks in and sets focus back on the input field, trapping the user.</p>
 				<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">
-	&lt;label for="lastname"&gt;Last Name&lt;/label&gt;
-	&lt;input id="lastname" type="text" value="" class="trap" onblur="this.focus();"&gt;
+&lt;label for="lastname"&gt;Last Name&lt;/label&gt;
+&lt;input id="lastname" type="text" value="" class="trap" onblur="this.focus();"&gt;
 </code>
 </pre>
 		<p class="wb-inv">Code ends</p>
@@ -358,20 +367,20 @@
 				<p>This example illustrates the keyboard trap dangers of a JavaScript keypress event. The JavaScript function makes no effort to detect which key has been pressed (it should identify the Enter key), so it will trigger when any key is pressed. Furthermore, the default action associated with any key press is prevented with event.preventDefault(). Consequently, when a user attempts to move focus away from the link by pressing the Tab key, the keydown event fires, the default action of the Tab key (moving focus to the next focusable element) is prevented, focus remains on the link, and a new window opens. The keyboard user is trapped. Even pressing the Ctrl + Alt + Delete keys in Windows to bring up the Task Manager will fail, simply launching more windows in response to the keydown event. The user’s computer is hijacked, and unless a colleague or friend can move focus away from the element with a mouse, the user is forced to restart the computer.</p>
 				<p class="wb-inv">Code begins</p>
 				<pre><code class="language-html">
-	&lt;span class=”trap link” role=”link” tabindex=”0” data-href=”some-page.html”&gt;Some page&lt;/a&gt;
+&lt;span class=”trap link” role=”link” tabindex=”0” data-href=”some-page.html”&gt;Some page&lt;/a&gt;
 			</code>
 		</pre>
 		<p class="wb-inv">Code begins</p>
 <pre><code class="language-js">
-	$(document).ready(function(){   
-	$(‘span.trap’).keydown(function(event){ 
-	event.preventDefault();
-	var href = $(this).attr(‘data-href’);        
-	var text = $(this).text();
-	window.open(href, text);    
-	});
-	});
-			</code>
+$(document).ready(function(){   
+$(‘span.trap’).keydown(function(event){ 
+event.preventDefault();
+var href = $(this).attr(‘data-href’);        
+var text = $(this).text();
+window.open(href, text);    
+});
+});
+		</code>
 		</pre>
 				<p class="wb-inv">Code ends</p>
 				</div>
@@ -424,28 +433,28 @@
 				<p>The JavaScript’s first use should be triggered via the menu, not on page load. Screen reader users’ initial interaction with the page should start at the top, as usual.</p>
 				<p class="wb-inv">Code begins</p>
 				<pre><code class="language-html">
-	&lt;nav&gt; 
-	&lt;a href="/"&gt;Home&lt;/a&gt; 
-	&lt;a href="/policies"&gt;Policies&lt;/a&gt; 
-	&lt;a href="/practices"&gt;Practices&lt;/a&gt; 
-	&lt;/nav&gt; 
-	&lt;main&gt; 
-	// injected 
-	&lt;h1 tabindex="-1"&gt;Policies&lt;/h1&gt; 
-	// rest of injected content ... 
-	&lt;/main&gt; 
+&lt;nav&gt; 
+&lt;a href="/"&gt;Home&lt;/a&gt; 
+&lt;a href="/policies"&gt;Policies&lt;/a&gt; 
+&lt;a href="/practices"&gt;Practices&lt;/a&gt; 
+&lt;/nav&gt; 
+&lt;main&gt; 
+// injected 
+&lt;h1 tabindex="-1"&gt;Policies&lt;/h1&gt; 
+// rest of injected content ... 
+&lt;/main&gt; 
 			</code>
 		</pre>
 				<p class="wb-inv">Code ends</p>
 				<p class="wb-inv">Code begins</p>
 				<pre><code class="language-js">
 	 // This gets called every time new content loads:  
-	function onNewPage() { 
-	var heading = document.querySelector('h1'); 
-	heading.focus(); 
-	// Update the page title  
-	document.title = heading.textContent; 
-	  } 
+function onNewPage() { 
+var heading = document.querySelector('h1'); 
+heading.focus(); 
+// Update the page title  
+document.title = heading.textContent; 
+  } 
 			</code>
 		</pre>
 				<p class="wb-inv">Code ends</p>
@@ -459,7 +468,7 @@
 				
 				<p class="wb-inv">Code begins</p>
 				<pre><code class="language-js">
-	this.$transcriptArea.find('button').first().focus();
+this.$transcriptArea.find('button').first().focus();
 			</code>
 		</pre>
 		</div>
@@ -473,117 +482,117 @@
 				<img src="images/image8.png" class="img-responsive" alt="">
 				<p class="wb-inv">Code begins</p>
 				<pre><code class="language-css">
-	body {
-	background-color:#edeef6;
-	font-family:'Poppins', sans-serif;
-	display:flex;
-	align-items:center;
-	justify-content:center;
-	min-height: 100vh;
-	margin:0;
-	}
+body {
+background-color:#edeef6;
+font-family:'Poppins', sans-serif;
+display:flex;
+align-items:center;
+justify-content:center;
+min-height: 100vh;
+margin:0;
+}
 
-	/* The Modal (background) */
-	.modal {
-	display: none; /* Hidden by default */
-	position: fixed; /* Stay in place */
-	z-index: 1; /* Sit on top */
-	padding-top: 100px; /* Location of the box */
-	left: 0;
-	top: 0;
-	width: 100%; /* Full width */
-	height: 100%; /* Full height */
-	}
-	/* Modal Content */
-	.modal-content {
-	background-color: #fefefe;
-	margin: auto;
-	padding: 20px;
-	border: 1px solid #888;
-	width: 25%;
-	height:25%;
-	}
-	/* The Close Button */
-	.close {
-	color: #aaaaaa;
-	float: right;
-	font-size: 28px;
-	font-weight: bold;
-	}
-	.close:hover,
-	.close:focus {
-	  color: #000;
-	  text-decoration: none;
-	  cursor: pointer;
-	}
-	.close{
-    background-color:#47a386;
-	border:0;
-	border-radius: 5px;
-	box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-	color:#fff;
-	font-size: 15px;
-	padding: 10px 25px;
-	}
-	.submit{
-	background-color:#e60914;
-	border:0;
-	border-radius: 5px;
-	box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-	color:#fff;
-	font-size: 15px;
-	padding: 10px 25px;
-	}
-	.submit:hover,
-	.submit:focus {
-	color: #000;
-	text-decoration: none;
-	cursor: pointer;
-	}
+/* The Modal (background) */
+.modal {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 1; /* Sit on top */
+padding-top: 100px; /* Location of the box */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+}
+/* Modal Content */
+.modal-content {
+background-color: #fefefe;
+margin: auto;
+padding: 20px;
+border: 1px solid #888;
+width: 25%;
+height:25%;
+}
+/* The Close Button */
+.close {
+color: #aaaaaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+.close:hover,
+.close:focus {
+ color: #000;
+text-decoration: none;
+cursor: pointer;
+}
+.close{
+background-color:#47a386;
+border:0;
+border-radius: 5px;
+box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+color:#fff;
+font-size: 15px;
+padding: 10px 25px;
+}
+.submit{
+background-color:#e60914;
+border:0;
+border-radius: 5px;
+box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+color:#fff;
+font-size: 15px;
+padding: 10px 25px;
+}
+.submit:hover,
+.submit:focus {
+color: #000;
+text-decoration: none;
+cursor: pointer;
+}
 			</code>
 		</pre>
 				<p class="wb-inv">Code ends</p>
 				<p class="wb-inv">Code begins</p>
 				<pre><code class="language-html">
-	&lt;h1&gt;Modal Popup Example: &lt;/h1&gt;
-	&lt;!-- Trigger/Open The Modal --&gt;
-	&lt;button class="submit" id="myBtn"&gt;Submit&lt;/button&gt;
-	&lt;!-- The Modal --&gt;
-	&lt;div id="myModal" class="modal"&gt;
-	&lt;!-- Modal content --&gt;
-	&lt;div class="modal-content"&gt;
-	&lt;h2&gt;Your form has been submitted.&lt;/h2&gt;
-	&lt;button class="close"&gt;Close&lt;/button&gt;
-	&lt;/div&gt;
-	&lt;/div&gt;
+&lt;h1&gt;Modal Popup Example: &lt;/h1&gt;
+&lt;!-- Trigger/Open The Modal --&gt;
+&lt;button class="submit" id="myBtn"&gt;Submit&lt;/button&gt;
+&lt;!-- The Modal --&gt;
+&lt;div id="myModal" class="modal"&gt;
+&lt;!-- Modal content --&gt;
+&lt;div class="modal-content"&gt;
+&lt;h2&gt;Your form has been submitted.&lt;/h2&gt;
+&lt;button class="close"&gt;Close&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </code>
 </pre>
 		<p class="wb-inv">Code ends</p>
 	<p class="wb-inv">Code begins</p>
 				<pre><code class="language-js">
-	&lt;script&gt;
-	// Get the modal
-	var modal = document.getElementById("myModal");
-	// Get the button that opens the modal
-	var btn = document.getElementById("myBtn");
-	// Get the &lt;span&gt; element that closes the modal
-	var span = document.getElementsByClassName("close")[0];
-	// When the user clicks the button, open the modal 
-	btn.onclick = function() {
-	 modal.style.display = "block";
-	}
-	// When the user clicks on &lt;span&gt; (x), close the modal
-	span.onclick = function() {
-	  modal.style.display = "none";
-	}
-	// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
-	 if (event.target == modal) {
-	    modal.style.display = "none";
-	  }
-	}
-	&lt;/script&gt;
-		</code>
+&lt;script&gt;
+// Get the modal
+var modal = document.getElementById("myModal");
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+// Get the &lt;span&gt; element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+ modal.style.display = "block";
+}
+// When the user clicks on &lt;span&gt; (x), close the modal
+span.onclick = function() {	  
+modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+ if (event.target == modal) {
+  modal.style.display = "none";
+  }
+}
+&lt;/script&gt;
+	</code>
 		</pre>
 				<p class="wb-inv">Code ends</p>
 
