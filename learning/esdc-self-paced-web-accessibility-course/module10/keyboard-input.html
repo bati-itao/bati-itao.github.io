@@ -126,7 +126,7 @@
 					<li>&lt;textarea&gt;</li>
 					<li>&lt;button&gt;</li>
 				</ul>
-				h3 class="">Use the onclick event of anchors and buttons</h3>
+				<h3 class="">Use the onclick event of anchors and buttons</h3>
 				<p>To ensure keyboard users can invoke a scripting function, use native HTML links and buttons with the onclick event. The onclick event of both elements is device independent: it maps to a mouse click and the enter and space keys.</p>
 				<p class="wb-inv">Code begins</p>
 				<pre><code class="language-js">
@@ -208,7 +208,7 @@
 				</table>
 				<p>When using a native HTML button or link, user agents process the click event regardless of whether it was activated with the mouse or the keyboard. It’s not necessary to duplicate this event when adding handlers to natively focusable HTML elements. However, if not using a native button or link, it is necessary to add keypress.</p>
 				<p>Because the keypress event handler reacts to any key, the event handler should first check that the Enter key was pressed before proceeding to handle the event. Otherwise, the event handler will trigger on any key press, even the tab key to leave the control.</p>
-				<p>If using the ARIA role="button" attribute instead of the native &lt;button&gt; or &lt;input type="button"&gt; elements, you will need to both make the element focusable and define event handlers for click and for the Enter and Space keypresses. For more information on custom controls, see Module 12.</p>
+				<p>If using the ARIA role="button" attribute instead of the native &lt;button&gt; or &lt;input type="button"&gt; elements, you will need to both make the element focusable and define event handlers for click and for the Enter and Space keypresses. For more information on custom controls, see <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module12/custom-controls.html">Module 12</a>.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Pairing mouse and keyboard events</h3>
@@ -272,7 +272,7 @@
 							<li>An onclick event handler for activation by mouse.</li>
 							<li>An onKeyDown event handler for action by keyboard. The function terminates if the keypress is not the Space or Enter key.</li>
 						</ul>
-						<p>The JavaScript adds names to a list below the form.</p>
+						<p>The JavaScript adds names to a list below the form.<mark>Live example below:</mark></p>
 						<img src="images/image2.png" class="img-responsive" alt="">
 						<img src="images/image3.png" class="img-responsive" alt="">
 						<p class="wb-inv">Code begins</p>
@@ -354,7 +354,7 @@
 		</div>
 		<div class="panel panel-danger mrgn-tp-lg">
 			<div class="panel-body">
-				<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: JavaScript keydown() and event.preventDefault() trap the keyboard user</h3>
+				<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: JavaScript keydown() and event.preventDefault() trap the keyboard user</h3> <mark>Do NOT render this example in live HTML</mark>
 				<p>This example illustrates the keyboard trap dangers of a JavaScript keypress event. The JavaScript function makes no effort to detect which key has been pressed (it should identify the Enter key), so it will trigger when any key is pressed. Furthermore, the default action associated with any key press is prevented with event.preventDefault(). Consequently, when a user attempts to move focus away from the link by pressing the Tab key, the keydown event fires, the default action of the Tab key (moving focus to the next focusable element) is prevented, focus remains on the link, and a new window opens. The keyboard user is trapped. Even pressing the Ctrl + Alt + Delete keys in Windows to bring up the Task Manager will fail, simply launching more windows in response to the keydown event. The user’s computer is hijacked, and unless a colleague or friend can move focus away from the element with a mouse, the user is forced to restart the computer.</p>
 				<p class="wb-inv">Code begins</p>
 				<pre><code class="language-html">
@@ -389,7 +389,7 @@
 				</ul>
 				<p>There are exceptions if you are implementing some widget patterns described in the WAI-ARIA Authoring Practices’ section 3 <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">Design Patterns and Widgets</a>. Content authors must manage focus on the following container roles:</p>
 				<ul>
-					<li>combobox</li>
+					<li><a href="https://www.w3.org/TR/wai-aria-1.1/">combobox</a></li>
 					<li>
 						<a href="https://www.w3.org/TR/wai-aria-1.1/">grid</a>
 					</li>
@@ -415,7 +415,7 @@
 						<a href="https://www.w3.org/TR/wai-aria-1.1/">tablist</a>
 					</li>
 				</ul>
-				<p>Managing focus within these “composite” widgets is a separate concern addressed in module 12.</p>
+				<p>Managing focus within these “composite” widgets is a separate concern addressed in <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module12/index.html">module 12</a>.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good Example: Focus management in a single-page web application</h3>
@@ -467,7 +467,7 @@
 
 				<img src="images/image6.png" class="img-responsive" alt="Screenshot of Able Player">
 				<p>External example: <a href="https://ableplayer.github.io/ableplayer/demos/video3.html">Able Player Video Demo #3</a></p>
-				<h3 class="">Example: Focus managed on a dialog using keyboard interaction</h3>
+				<h3 class="">Example: Focus managed on a dialog using keyboard interaction</h3> <mark>Render as live HTML</mark>
 				<p>In this example, when the user clicks the 'Submit’ button a pop-up window opens and focus is sent to the pop-up's first child focusable element. When the user clicks the pop-up window’s ‘Close’ button, focus is sent back to the triggering button.</p>
 				<img src="images/image7.png" class="img-responsive" alt="">
 				<img src="images/image8.png" class="img-responsive" alt="">
