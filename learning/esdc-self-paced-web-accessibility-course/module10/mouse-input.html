@@ -83,39 +83,43 @@
 				<h2 id="mouse-input-overview">Mouse input (overview)</h2>
 				<p>Ensure all functionality is accessible via pointer input devices, e.g., via a mouse, a finger on a touch screen, an electronic stylus, or a laser pointer. This section covers two success criteria that impact mouse input:</p>
 				<ul>
-					<li>Content on Hover or Focus</li>
-					<li>Pointer Cancellation </li>
+					<li>Content on hover or focus</li>
+					<li>Pointer cancellation </li>
 				</ul>
 			</section>
 			
 			<section>				
 				<h2 id="content-on-hover-or-focus">Content on hover or focus</h2>
 				<p>Additional content that appears when a user hovers the pointer or moves the keyboard focus to the trigger (e.g. tooltips, pop-ups), often leads to accessibility issues. The user may not have intended to trigger the interaction or know that new content has appeared. It may also interfere with a user’s ability to do a task.</p>
-				<p>Low vision readers using a greatly magnified screen see only a small portion of the screen at a time. Tooltip content can be clipped by their viewports, so these users will need to move their pointer over the additional content to read it.Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden, the following are true:</p>
-				<ul>
-					<li>Dismissible: A mechanism (usually the Esc key) is available to dismiss the additional content without moving pointer hover or keyboard focus, unless the additional content communicates an input error or does not obscure or replace other content.</li>
-					<li>Hoverable: If pointer hover can trigger the additional content, then the pointer can be moved over the additional content without the additional content disappearing.</li>
-					<li>Persistent: The additional content remains visible until the hover or focus trigger is removed, the user dismisses it, or its information is no longer valid.</li>
-				</ul>
+				<p>Low vision readers using a greatly magnified screen see only a small portion of the screen at a time. Tooltip content can be clipped by their viewports, so these users will need to move their pointer over the additional content to read it. Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden, the following are true:</p>
+				<dl>
+					<dt>Dismissible</dt>
+					<dd class="mrgn-lft-lg">A mechanism (usually the Esc key) is available to dismiss the additional content without moving pointer hover or keyboard focus, unless the additional content communicates an input error or does not obscure or replace other content.</dd>
+					<dt>Hoverable</dt>
+					<dd class="mrgn-lft-lg">Pointer hover can trigger the additional content, then the pointer can be moved over the additional content without the additional content disappearing.</dd>
+					<dt>Persistent</dt>
+					<dd class="mrgn-lft-lg">The additional content remains visible until the hover or focus trigger is removed, the user dismisses it, or its information is no longer valid.</dd>
+				</dl>
 				<p>Content that can be triggered via pointer hover should also be able to be triggered by keyboard focus.</p>
 				<p>This requirement covers content that appear in addition to the triggering component itself. It does not apply to a non-visible component, like a Skip to Main link, that is made visible on keyboard focus (with no additional content other than the trigger becoming visible).</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h2 id="heading-hierarchy" class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good Example: Link content on Hover or Focus</h2>
+						<h2 id="heading-hierarchy" class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Link content on hover or focus</h2>
 				<p>When hovering over or focusing on a link, a content preview for the link appears just above or below that link. </p>
 				<p>Pointer devices can move off the trigger and roam the additional content (pop-up) without the additional content collapsing. In this example, this is achieved by nesting the tooltip in the trigger. </p>
 				<p>Pressing the Esc key dismisses (closes) the additional content.</p>
-				<p>Working example of content on hover and focus</p>
-				<p class="wb-inv">Code begins</p>
-				<pre>
-					<code class="language-html">
-<p>&lt;p&gt;This is the &lt;a class="a-and-tooltip" id="parent" href="index.html"&gt;trigger &lt;span id="popup" role="tooltip"&gt;And this additional text gives additional context on the trigger term&lt;/span&gt;&lt;/a&gt;. Text and popup are &lt;strong&gt;in one link (a)&lt;/strong&gt; element.&lt;/p&gt;</p>
-			</code>
-		</pre>
-								<p class="wb-inv">Code ends</p>
-					<p class="wb-inv">Code begins</p>	
-				<pre>
-					<code class="language-css">
+				<p><mark>TO DO: Working example of content on hover and focus</mark></p>
+				<div class="panel panel-primary mrgn-tp-md">
+					<div class="panel-body well mrgn-bttm-0">
+						<p>This is the 
+						   <a class="a-and-tooltip" id="parent" href="index.html">
+							  trigger.
+							  <span id="popup" role="tooltip">
+								 And this text gives additional context on the trigger term.
+							  </span>
+						   </a>
+						</p>
+						<style type="text/css">
 [role="tooltip"] {     
 	display: none;     
 	padding: 0.5em;     
@@ -127,76 +131,132 @@
 .a-and-tooltip {   
 	position: relative; 
 }
+.a-and-tooltip:hover [role="tooltip"],
+.a-and-tooltip:focus [role="tooltip"], 
 [role="tooltip"] {     
 	position: absolute;     
 	left:0;     
 	top:1em; 
+}						
+						</style>
+						<script type="JavaScript">
+// trigger and popup inside the same link
+
+var parent = document.getElementById('parent');
+
+parent.onmouseover = function() {
+    document.getElementById('popup').style.display = 'block';
 }
-			</code>
-		</pre>
+
+parent.onmouseout = function() {
+    document.getElementById('popup').style.display = 'none';
+}
+
+parent.onfocus = function() {
+    document.getElementById('popup').style.display = 'block';
+}
+
+parent.onblur = function() {
+    document.getElementById('popup').style.display = 'none';
+}
+
+// hide when ESC is pressed
+
+document.addEventListener('keydown', (e) => {
+  if ((e.keyCode || e.which) === 27)
+       document.getElementById('popup').style.display = 'none';
+});						
+						</script>
+					</div>
+				</div>
+				<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;p&gt;This is the 
+   &lt;a class="a-and-tooltip" id="parent" href="index.html"&gt;
+      trigger.
+      &lt;span id="popup" role="tooltip"&gt;
+         And this text gives additional context on the trigger term.
+      &lt;/span&gt;
+   &lt;/a&gt;
+&lt;/p&gt;</code></pre>
+								<p class="wb-inv">Code ends</p>
+					<p><mark>The CSS here doesn't make sense</mark></p>
+					<p class="wb-inv">Code begins</p>	
+<pre><code class="language-css">[role="tooltip"] {     
+   display: none;     
+   padding: 0.5em;     
+   background:white;     
+   color: black;     
+   border:solid black 2px;     
+   width:10em; 
+}
+.a-and-tooltip {   
+   position: relative; 
+}
+[role="tooltip"] {     
+   position: absolute;     
+   left:0;     
+   top:1em; 
+}</code></pre>
 		<p class="wb-inv">Code ends</p>
 		<p class="wb-inv">Code begins</p>
-		<pre>
-			<code class="language-js">
-	// trigger and popup inside the same link
-	var parent = document.getElementById('parent');
-	parent.onmouseover = function() {     
-		document.getElementById('popup').style.display = 'block'; 
-	}
-	parent.onmouseout = function() {     
-		document.getElementById('popup').style.display = 'none'; 
-	}
-	parent.onfocus = function() {     
-		document.getElementById('popup').style.display = 'block'; 
-	}
-	parent.onblur = function() {     
-		document.getElementById('popup').style.display = 'none'; 
-	}
-	// hide when ESC is pressed
+<pre><code class="language-js">// trigger and popup inside the same link
+var parent = document.getElementById('parent');
+parent.onmouseover = function() {     
+   document.getElementById('popup').style.display = 'block'; 
+}
+parent.onmouseout = function() {     
+   document.getElementById('popup').style.display = 'none'; 
+}
+parent.onfocus = function() {     
+   document.getElementById('popup').style.display = 'block'; 
+}
+parent.onblur = function() {     
+   document.getElementById('popup').style.display = 'none'; 
+}
 
-	document.addEventListener('keydown', (e) =&gt; {   
-	if ((e.keyCode || e.which) === 27)        
-		document.getElementById('popup').style.display = 'none'; 
-	});
-</code>
-</pre>
-<p class="wb-inv">Code ends</p>
-	<p>This example is from WCAG 2.1 Technique SCR39: Making content on focus or hover hoverable, dismissible, and persistent. (n.d.). W3C Web Accessibility Initiative. Retrieved December 17, 2021, from <a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR39">https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR39</a></p>
-			
-</div>
+// hide when ESC is pressed
+document.addEventListener('keydown', (e) =&gt; {   
+if ((e.keyCode || e.which) === 27)        
+   document.getElementById('popup').style.display = 'none'; 
+});</code></pre>
+				<p class="wb-inv">Code ends</p>	
+				<hr/>
+				<p class="small">This example is from WCAG 2.1 Technique SCR39: Making content on focus or hover hoverable, dismissible, and persistent. (n.d.). W3C Web Accessibility Initiative. Retrieved December 17, 2021, from <a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR39">https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR39</a></p>	
+			</div>
+
 		</div>
-			</section>
+	</section>
 			
 			<section>				
 				<h2 id="pointer-cancellation">Pointer cancellation</h2>
 				<p>The intent of this requirement is to help users prevent pointer input mistakes. Users can accidently initiate touch or mouse events with unwanted results. It is important to allow users to cancel pointer operations.</p>
 				<p>A single pointer is a pointer input that operates with one point of contact with the screen. This includes single taps and clicks, double-taps and clicks, long presses, and path-based gestures.</p>
 				<p>For functionality that can be operated using a single pointer, at least one of the following is true:</p>
-				<ul>
-					<li>No Down-Event</li>
-					<li>The down-event of the pointer is not used to execute any part of the function.</li>
-					<li>Abort or Undo</li>
-					<li>Completion of the function is on the up-event, and a mechanism is available to abort the function before completion or to undo the function after completion.</li>
-					<li>Up Reversal</li>
-					<li>The up-event reverses any outcome of the preceding down-event.</li>
-					<li>Essential</li>
-					<li>Completing the function on the down-event is essential.</li>
-				</ul>
-				<p>The easiest way to meet this requirement is to use the default behaviour of controls and not override that behaviour with an explicit down-event trigger. The up-event (e.g. onclick or mouseup event) is the default behaviour for most controls in any programming or markup language.</p>
+				<dl>
+					<dt>No Down-Event</dt>
+					<dd class="mrgn-lft-lg">The down-event of the pointer is not used to execute any part of the function.</dd>
+					<dt>Abort or Undo</dt>
+					<dd class="mrgn-lft-lg">Completion of the function is on the up-event, and a mechanism is available to abort the function before completion or to undo the function after completion.</dd>
+					<dt>Up Reversal</dt>
+					<dd class="mrgn-lft-lg">The up-event reverses any outcome of the preceding down-event.</dd>
+					<dt>Essential</dt>
+					<dd class="mrgn-lft-lg">Completing the function on the down-event is essential.</dd>
+				</dl>
+				<p>The easiest way to meet this requirement is to use the default behaviour of controls and not override that behaviour with an explicit down-event trigger. The up-event (e.g. <code>onclick</code> or <code>mouseup</code> event) is the default behaviour for most controls in any programming or markup language.</p>
 				<h3 class="">Examples</h3>
-				<ul>
-					<li>No Down-Event</li>
-					<li>Using native onclick event in JavaScript.</li>
-					<li>Using a native button or link in HTML, iOS or Android.</li>
-					<li>Abort or Undo</li>
-					<li>Ensuring the drag-and-drop actions can be cancelled. </li>
-					<li>For example, when using a drag-and-drop action to move an item to a drop target, the user can abort the action after picking up the item by releasing the item outside a drop area. Or by implementing an undo command or a dialog asking for confirmation after the item is dropped onto target.</li>
-					<li>Up Reversal</li>
-					<li>Press-and-hold actions such as where a pop-up appears (or a video plays) when the user presses on an object (down-event), but the pop-up (or video) disappears when the user releases the pointer (up-event).</li>
-					<li>Essential</li>
-					<li>Software keyboard emulators – the expected behaviour is to make letters and numbers appear when the key is pressed (down-event).</li>
-					<li>On screen piano keyboard.</li>
-				</ul>
+				<dl>
+					<dt>No Down-Event</dt>
+					<dd class="mrgn-lft-lg">Using native onclick event in JavaScript.</dd>
+					<dd class="mrgn-lft-lg">Using a native button or link in HTML, iOS or Android.</dd>
+					<dt>Abort or Undo</dt>
+					<dd class="mrgn-lft-lg">Ensuring the drag-and-drop actions can be cancelled. </dd>
+					<dd class="mrgn-lft-lg">For example, when using a drag-and-drop action to move an item to a drop target, the user can abort the action after picking up the item by releasing the item outside a drop area. Or by implementing an undo command or a dialog asking for confirmation after the item is dropped onto target.</dd>
+					<dt>Up Reversal</dt>
+					<dd class="mrgn-lft-lg">Press-and-hold actions such as where a pop-up appears (or a video plays) when the user presses on an object (down-event), but the pop-up (or video) disappears when the user releases the pointer (up-event).</dd>
+					<dt>Essential</dt>
+					<dd class="mrgn-lft-lg">Software keyboard emulators – the expected behaviour is to make letters and numbers appear when the key is pressed (down-event).</dd>
+					<dd class="mrgn-lft-lg">On screen piano keyboard.</dd>
+				</dl>
 			</section>
 			
 			
