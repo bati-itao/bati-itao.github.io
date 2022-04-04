@@ -75,7 +75,7 @@
 			<li><a href="#title-element">Good example: Use the title element</a></li>
 			  <li><a href="#list-errors">Good example: List errors before the form</a></li>
 			  <li><a href="#wet-form-validation">WET form validation’s user notification</a></li>
-			  <li><a href="#wet-in-line-feedback">Good xxample: WET in-line feedback</a></li>
+			  <li><a href="#wet-in-line-feedback">Good example: WET in-line feedback</a></li>
 			<li><a href="#resources1">Related WCAG resources</a></li>
           </ul>
         </div>
@@ -89,9 +89,9 @@
 				<p>As per the examples below, provide feedback:</p>
 				<ul>
 					<li>in the main heading</li>
-					in the <code>&lt;title&gt;</code> element
-					as a list of errors before the form
-					<mark><del>as well as</del></mark> in-line, programmatically associated with the form control
+					<li>in the <code>&lt;title&gt;</code> element</li>
+					<li>as a list of errors before the form</li>
+					<li><mark><del>as well as</del></mark> in-line, programmatically associated with the form control</li>
 				</ul>
 		</section>
 		<section>
@@ -100,17 +100,17 @@
 		
 				    <h2 class="text-success mrgn-tp-0 h3" id="main-heading"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Use the main heading</h2>
 					
-					<p><mark>One approach to notifying users of form submission success or failure is to set the notification message in the page's main heading:</mark></p>
+					
 					
 					<p class="wb-inv">Code begins</p>	
 <pre class="mrgn-tp-md"><code class="language-html">&lt;h1&gt; Your form has been successfully submitted.&lt;/h1&gt;</code></pre>
 					<p class="wb-inv">Code ends</p>
-                    <p>While a success message may have a dedicated page, errors return the users to the form. The <mark>existing</mark> <code>&lt;h1&gt;</code> element still needs to describe the purpose of the page, so preface the existing topic with a short error message:</p>
+                    <p>While a success message may have a dedicated page, errors return the users to the form <mark>on the same page</mark>. The <mark>existing</mark> <code>&lt;h1&gt;</code> element must still describe the purpose of the page, so preface the existing topic with a short error message:</p>
                    <p class="wb-inv">Code begins</p>	
 <pre><code class="language-html">&lt;h1&gt;2 Errors – Contact information&lt;/h1&gt;</code></pre>
 					<p class="wb-inv">Code ends</p>
 
-                    <p>The WET Form Validation uses a dedicated level 2 heading for the error message (and it can be configured to be lower):</p>
+                    <p>The WET form validation uses a dedicated level 2 heading for the error message (and it can be configured to be lower):</p>
                       <p class="wb-inv">Code begins</p>	<pre><code class="language-html">&lt;h2&gt;The form could not be submitted because 2 errors were found.&lt;/h2&gt;</code></pre><p class="wb-inv">Code ends</p>
                   </div>
 				</div>
@@ -122,9 +122,12 @@
 			    <h2 class="text-success mrgn-tp-0 h3" id="title-element"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Use the title element</h2>
 				<p>The <code>&lt;title&gt;</code> element, in the page <code>&lt;head&gt;</code> element, is the first thing heard by screen reader users on page load. Prefacing the existing title value with &ldquo;Success&rdquo; or &ldquo;Errors&rdquo; (or &ldquo;4 Errors&rdquo; if you have the count) gives these users immediate feedback.</p>
 				<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;title&gt;2 Errors: Contact information – Registration – Company X&lt;/title&gt;</code></pre>
+<pre><code class="language-html">&lt;head&gt;
+   &lt;title&gt;2 Errors: Contact information – Registration – Company X&lt;/title&gt;
+   [&hellip;]
+&lt;/head&gt;</code></pre>
 				<p class="wb-inv">Code ends</p>
-				<p>The WET Form Validation does not leverage the <code>&lt;title&gt;</code> element.</p>
+				<p>The WET form validation does not leverage the <code>&lt;title&gt;</code> element.</p>
               </div>
 				</div>
       </section>
@@ -142,7 +145,7 @@
                     <li>Indicate how to correct mistakes and remind users of any format requirements.</li>
                     <li>Include an in-page link to the corresponding form control for easy access. </li>
                 </ul>
-                  <p>The WET Form Validation also numbers each error in the list and at the control.</p>
+                  <p>The WET form validation also numbers each error in the list and at the control.</p>
 				 <div class="panel panel-primary mrgn-tp-md">
 				<div class="panel-body well mrgn-bttm-0">
 					<p class="wb-inv">Example begins</p>
@@ -198,7 +201,7 @@
 						<li>Indicate errors fields with the red word &ldquo;Error&rdquo; prefixed in the label, a red border, and red instructions on how to correct. </li>
 					</ul>
 					  <p>In this example, each group of label, control, and message is nested in a <code>&lt;div&gt;</code> with a class name, either &ldquo;success&rdquo; or &ldquo;error&rdquo;, that sets the colour via CSS. The word &ldquo;OK&rdquo; or &ldquo;Error&rdquo; is inserted at the start of the label, providing a text equivalent for users with colour blindness. Lengthier feedback is associated with the form control via the <code>aria-describedby</code> attribute, pointing to the <code>id</code> attribute value of the message, held in a <code>&lt;span&gt;</code> element. The checkmark is declared as &ldquo;check&rdquo; by the NVDA screen reader.</p>
-					  <p>WET Form Validation&rsquo;s treatment of in-line feedback differs, as described in the next section.</p>
+					  <p>WET form validation&rsquo;s treatment of in-line feedback differs, as described in the next section.</p>
 					  
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
@@ -261,7 +264,7 @@ label { display: block; }</code></pre>
 		</section>
 		<section>
 			<h2 id="wet-form-validation">WET form validation’s user notification</h2>
-			<p>WET Form Validation generates user notifications that differ from the advice provided above:</p>
+			<p>WET form validation generates user notifications that differ from the advice provided above:</p>
 			<ul>
 			  <li>By default, WET uses a <code>&lt;h2&gt;</code> heading for the error summary, and it can be configured to be lower. It can&rsquo;t be set as <code>&lt;h1&gt;</code>.</li>
 			  <li>WET doesn&rsquo;t modify the <code>&lt;title&gt;</code> element to include a success/error message. </li>
@@ -269,7 +272,7 @@ label { display: block; }</code></pre>
 			  <li>WET numbers the errors.</li>
 			  <li>With in-line feedback, WET appends all error messaging in the label, rather than pointing to the message with the <code>aria-describedby</code> attribute from the control. This is verbose content for a label, but the user is guaranteed to encounter the information. </li>
 			</ul>
-			<p>The <a href="https://wet-boew.github.io/v4.0-ci/demos/formvalid/formvalid-en.html">example page for WET Form Validation</a> covers all variety of user input.</p>
+			<p>The <a href="https://wet-boew.github.io/v4.0-ci/demos/formvalid/formvalid-en.html">example page for WET form validation</a> covers all variety of user input.</p>
 			<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
 		
