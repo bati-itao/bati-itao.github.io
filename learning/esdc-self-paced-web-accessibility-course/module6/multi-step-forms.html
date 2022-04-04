@@ -71,8 +71,8 @@
         <div class="panel-body">
           <ul>
             <li><a href="#design">Designing multi-step forms</a></li>
-			<li><a href="#progress">Indicating Progress in a Multi-Step Form</a></li>
-			<li><a href="#example">Example: The WET Steps Form </a></li>
+			<li><a href="#progress">Indicating progress in a multi-step form</a></li>
+			<li><a href="#example">Example: The WET steps form </a></li>
 			   <li><a href="#steps-form">Good example: The WET Steps Form</a></li>
 			<li><a href="#resources">Related WCAG resources</a></li>
 			 
@@ -97,7 +97,7 @@
 			</section>
 			
 			<section>				
-				<h2 id="progress">Indicating Progress in a Multi-Step Form</h2>
+				<h2 id="progress">Indicating progress in a multi-step form</h2>
 				<p>Each step should note the user’s progress. Approaches 1 and 2 apply only to multi-page forms.</p>
 				<h3>Approach 1: Using the page title</h3>
 				<p>Add a note indicating progress (e.g., “Step 2 of 4:”) to the beginning of the <code>&lt;title&gt;</code> element, before the name of the step or any error notification. The <code>&lt;title&gt;</code> element is the first thing declared on page load to screen reader users and so provides immediate feedback.</p>
@@ -116,44 +116,30 @@
 						
 						
 			<h3>Approach 3: Using the HTML5 progress element</h3>
-				<p>You can use a HTML5 progress element to inform users of their progress, as the first element in each step.</p>
+				<p>You can use a HTML5 <code>&lt;progress&gt;</code> element to inform users of their progress, as the first element in each step.</p>
 				<div class="panel panel-primary mrgn-tp-md">
 					<div class="panel-body well mrgn-bttm-0">
 					<p class="wb-inv">Example begins</p>
 					Survey <progress max="7" value="1">(Step 1 of 7)</progress>
-					<br>
-					Survey <progress max="7" value="2">(Step 2 of 7)</progress>
-					<br>
-					[…]
-					Survey <progress max="7" value="6">(Step 6 of 7)</progress>
-					<br>
-					Survey <progress max="7" value="7">(Finished)</progress>
 				<p class="wb-inv">Example ends</p>
 					</div>
 				</div>
 
 				
 							<p class="wb-inv">Code begins</p>
-				<pre><code class="language-html">Survey &lt;progress max="7" value="1"&gt;(Step 1 of 7)&lt;/progress&gt;
-&lt;br&gt;
-Survey &lt;progress max="7" value="2"&gt;(Step 2 of 7)&lt;/progress&gt;
-&lt;br&gt;
-[…]
-Survey &lt;progress max="7" value="6"&gt;(Step 6 of 7)&lt;/progress&gt;
-&lt;br&gt;
-Survey &lt;progress max="7" value="7"&gt;(Finished)&lt;/progress&gt;</code></pre>
+				<pre><code class="language-html">Survey &lt;progress max="7" value="1"&gt;(Step 1 of 7)&lt;/progress&gt;</code></pre>
 						
-						<p>Some operating systems animate the &lt;progress&gt; element, which violates WCAG’s Success Criterion 2.2.2 Pause, Stop, Hide. The animation can be stopped by using custom styling with browser-specific CSS as shown below.</p>
+						<p>Some operating systems animate the <code>&lt;progress&gt;</code> element, which violates WCAG’s Success Criterion 2.2.2 Pause, Stop, Hide. The animation can be stopped by using custom styling with browser-specific CSS as shown below:</p>
 			
 							<p class="wb-inv">Code begins</p>
 <pre><code class="language-css">/* Microsoft IE */ progress {  
-	color: #036;
+   color: #036;
 }
 /* Apple Safari and Google Chrome */ progress::-webkit-progress-bar {
-	background-color: #036;
+   background-color: #036;
 }
 /* Mozilla Firefox */ progress::-moz-progress-bar {
-	background-color: #036;
+   background-color: #036;
 }</code>
 </pre>
 <p class="wb-inv">Code ends</p>
@@ -161,145 +147,147 @@ Survey &lt;progress max="7" value="7"&gt;(Finished)&lt;/progress&gt;</code></pre
 
 						<h3>Approach 4: Using step-by-step indicator</h3>
 						<p>A step-by-step indicator can help users orient themselves in a stepped process. This example uses an ordered list with each step being a list item. Visually hidden text, off screen but still encountered by assistive tech, indicates the current and completed status of steps (the WET class <code>.wb-inv</code> visually hides the text). Previous steps are linked so users can review them. Any data already entered in the current step should be saved. </p>
-						<p>Example:</p>
-							<div class="panel panel-primary mrgn-tp-md">
-					<div class="panel-body well mrgn-bttm-0">
-					<p class="wb-inv">Example begins</p>
-						  <style type="text/css">
-						.box-content {
-						  font-size: .7em;
-						  overflow: auto;
-						  padding: .5em;
-						}
-						.tlwrapper {
-						  display: table;
-						  width: 100%;
-						}
-						.timeline {
-						  display: table-row;
-						  counter-reset: timeline;
-						}
-						.timeline li.timeline-past {
-						  background-color: #ccc;
-						}
-						.timeline li:first-child {
-						  padding-left: 0;
-						}
-						.timeline li {
-						  display: table-cell;
-						  width: 20%;
-						  counter-increment: timeline;
-						  list-style: none;
-						  text-align: center;
-						  padding: .25em .5em;
-						  overflow: hidden;
-						  position: relative;
-						  background-color: #fff;
-						  padding-left: 25px;
-						  white-space: nowrap;
-						}
-						.timeline li.timeline-current > span, .timeline li.timeline-current a {
-						  color: #036;
-						  font-weight: bold;
-						}
-						.timeline li a, .timeline li > span {
-						  z-index: 100;
-						  position: relative;
-						  display: block;
-						  color: #555;
-						}
-						.timeline li.timeline-current > span:before {
-						  color: #fff;
-						  background-color: #036;
-						  border-color: #036;
-						}
-						.timeline li a:before, .timeline li > span:before {
-						  display: inline-block;
-						  color: #555;
-						  content: counter(timeline);
-						  background-color: none;
-						  border: 3px solid #555;
-						  margin-right: .25em;
-						  border-radius: 5px;
-						  padding: 0 .25em;
-						}
-						.timeline li:after {
-						  left: 0;
-						  top: 50%;
-						  border: solid transparent;
-						  content: " ";
-						  height: 0;
-						  width: 0;
-						  position: absolute;
-						  pointer-events: none;
-						  border-color: rgba(151, 204, 237, 0);
-						  border-left-color: #ccc;
-						  border-width: 20px;
-						  margin-top: -20px;
-						}
-						.visuallyhidden {
-						  border: 0;
-						  clip: rect(0 0 0 0);
-						  height: 1px;
-						  margin: -1px;
-						  overflow: hidden;
-						  padding: 0;
-						  position: absolute;
-						  width: 1px;
-						}
-
-						  </style>
-						<div class="box-content">
-
-						<div class="tlwrapper"> 
-
-						<ol class="timeline"> 
-
-						<li class="timeline-past"> 
-
-						<span class="visuallyhidden">Completed: </span> 
-
-						<a href="billing.html">Billing Address</a>  
-
-						</li>  
-
-						<li class="timeline-current">  
-
-						<span class="visuallyhidden">Current: </span>  
-
-						<span>Shipping Address</span>  
-
-						</li>  
-
-						<li><span>Review Order</span></li>  
-
-						<li><span>Payment</span></li>  
-
-						<li><span>Finish Purchase</span></li>  
-
-						</ol> 
-
-						</div> 
+					
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">Example begins</p>
+								 <style type="text/css">
+								.box-content {
+								  font-size: .7em;
+								  overflow: auto;
+								  padding: .5em;
+								}
+								.tlwrapper {
+								  display: table;
+								  width: 100%;
+								}
+								.timeline {
+								  display: table-row;
+								  counter-reset: timeline;
+								}
+								.timeline li.timeline-past {
+								  background-color: #ccc;
+								}
+								.timeline li:first-child {
+								  padding-left: 0;
+								}
+								.timeline li {
+								  display: table-cell;
+								  width: 20%;
+								  counter-increment: timeline;
+								  list-style: none;
+								  text-align: center;
+								  padding: .25em .5em;
+								  overflow: hidden;
+								  position: relative;
+								  background-color: #fff;
+								  padding-left: 25px;
+								  white-space: nowrap;
+								}
+								.timeline li.timeline-current > span, .timeline li.timeline-current a {
+								  color: #036;
+								  font-weight: bold;
+								}
+								.timeline li a, .timeline li > span {
+								  z-index: 100;
+								  position: relative;
+								  display: block;
+								  color: #555;
+								}
+								.timeline li.timeline-current > span:before {
+								  color: #fff;
+								  background-color: #036;
+								  border-color: #036;
+								}
+								.timeline li a:before, .timeline li > span:before {
+								  display: inline-block;
+								  color: #555;
+								  content: counter(timeline);
+								  background-color: none;
+								  border: 3px solid #555;
+								  margin-right: .25em;
+								  border-radius: 5px;
+								  padding: 0 .25em;
+								}
+								.timeline li:after {
+								  left: 0;
+								  top: 50%;
+								  border: solid transparent;
+								  content: " ";
+								  height: 0;
+								  width: 0;
+								  position: absolute;
+								  pointer-events: none;
+								  border-color: rgba(151, 204, 237, 0);
+								  border-left-color: #ccc;
+								  border-width: 20px;
+								  margin-top: -20px;
+								}
+								.visuallyhidden {
+								  border: 0;
+								  clip: rect(0 0 0 0);
+								  height: 1px;
+								  margin: -1px;
+								  overflow: hidden;
+								  padding: 0;
+								  position: absolute;
+								  width: 1px;
+								}
+		
+								  </style>
+								<div class="box-content">
+		
+									<div class="tlwrapper"> 
+			
+										<ol class="timeline"> 
+				
+											<li class="timeline-past"> 
+					
+												<span class="visuallyhidden">Completed: </span> 
+						
+												<a href="billing.html">Billing Address</a>  
+					
+											</li>  
+					
+											<li class="timeline-current">  
+					
+												<span class="visuallyhidden">Current: </span>  
+						
+												<span>Shipping Address</span>  
+					
+											</li>  
+					
+											<li><span>Review Order</span></li>  
+					
+											<li><span>Payment</span></li>  
+					
+											<li><span>Finish Purchase</span></li>  
+				
+										</ol> 
+			
+									</div> 
+								</div>
+								
+								<p class="wb-inv">Example ends</p>
+							</div> 
 						</div>
-						</div> 
-						</div>
-						<p class="wb-inv">Example ends</p>
+								
 
-							<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;div class="tlwrapper"&gt;
-	&lt;ol class="timeline"&gt;
-		&lt;li class="timeline-past"&gt;
-			&lt;span class="wb-inv"&gt;Completed: &lt;/span&gt;
-			&lt;a href="billing.html"&gt;Billing Address&lt;/a&gt;
-		&lt;/li&gt;
-		&lt;li class="timeline-current"&gt;
-			&lt;span class="wb-inv"&gt;Current: &lt;/span&gt;
-			&lt;span&gt;Shipping Address&lt;/span&gt;
-		&lt;/li&gt;
-		&lt;li&gt;&lt;span&gt;Review Order&lt;/span&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;span&gt;Payment&lt;/span&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;span&gt;Finish Purchase&lt;/span&gt;&lt;/li&gt;
-	&lt;/ol&gt;
+   &lt;ol class="timeline"&gt;
+      &lt;li class="timeline-past"&gt;
+         &lt;span class="wb-inv"&gt;Completed: &lt;/span&gt;
+         &lt;a href="billing.html"&gt;Billing Address&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class="timeline-current"&gt;
+         &lt;span class="wb-inv"&gt;Current: &lt;/span&gt;
+         &lt;span&gt;Shipping Address&lt;/span&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;Review Order&lt;/span&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;Payment&lt;/span&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;Finish Purchase&lt;/span&gt;&lt;/li&gt;
+   &lt;/ol&gt;
 &lt;/div&gt;</code>
 </pre>
 <p class="wb-inv">Code ends</p>
@@ -322,21 +310,20 @@ Survey &lt;progress max="7" value="7"&gt;(Finished)&lt;/progress&gt;</code></pre
 				<div class="panel panel-success mrgn-tp-lg">
 			  <div class="panel-body">
 		
-			    <h2 class="text-success mrgn-tp-0 h3" id="steps-form"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: The WET Steps Form</h2>
+			    <h2 class="text-success mrgn-tp-0 h3" id="steps-form"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: The WET steps form</h2>
 				
-				<p>The <a href="https://wet-boew.github.io/v4.0-ci/demos/stepsform/stepsform-en.html">WET Steps Form (example)</a> is a same-page multi-step form. The <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/stepsform/stepsform-en.html">Steps Form documentation</a>
-				describes the input markup requirements. </p>
-				<p>The WET Form Steps do not yet support optional steps with a “skip” button.</p>
+				<p>The <a href="https://wet-boew.github.io/v4.0-ci/demos/stepsform/stepsform-en.html">WET steps form (example)</a> is a same-page multi-step form. The <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/stepsform/stepsform-en.html">Steps form documentation</a> describes the input markup requirements. </p>
+				<p>The WET steps form does not yet support optional steps with a “skip” button.</p>
 				<p>You define each step within a <code>&lt;fieldset&gt;</code> element, name it with a nested <code>&lt;legend&gt;</code> element then nest the form elements in a <code>&lt;div&gt;</code> element inside the <code>&lt;fieldset&gt;</code>. The JavaScript hides the <code>&lt;div&gt;</code> when the step is unselected. JavaScript also adds navigation buttons “next” and “previous”, which trigger validation on click.</p>
 				<p>This is the basic structure, without its HTML markup wrapper:</p>
 				<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;fieldset&gt;
-	&lt;legend&gt;Contact Information&lt;/legend&gt;
-	&lt;div&gt;(Form elements go here, hidden when inactive.)&lt;/div&gt;
+   &lt;legend&gt;Contact Information&lt;/legend&gt;
+   &lt;div&gt;(Form elements go here, hidden when inactive.)&lt;/div&gt;
 &lt;/fieldset&gt;
 &lt;fieldset&gt;
-	&lt;legend&gt;Questionnaire&lt;/legend&gt;
-	&lt;div&gt;(Form elements go here, hidden when inactive.)&lt;/div&gt;
+   &lt;legend&gt;Questionnaire&lt;/legend&gt;
+   &lt;div&gt;(Form elements go here, hidden when inactive.)&lt;/div&gt;
 &lt;/fieldset&gt;</code>
 </pre>
 <p class="wb-inv">Code ends</p>
@@ -344,7 +331,17 @@ Survey &lt;progress max="7" value="7"&gt;(Finished)&lt;/progress&gt;</code></pre
 					</div>
 			</section>
 			
-			
+			<hr/>
+			<p class="small">The examples of forms validations are from the Web Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a>) 
+					document: <a href="https://www.w3.org/WAI/tutorials/forms/multi-page/">Multi-page Forms</a> from the <a href="https://www.w3.org/WAI/tutorials/forms/">Forms</a>
+					tutorial of the <a href="https://www.w3.org/WAI/tutorials/">Web Accessibility Tutorials</a>. <a herf="https://www.w3.org/People/yatil/">
+					Eric Eggert</a> and <a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a>, Copyright © 2019 W3C ® 
+					(<a href="http://www.csail.mit.edu/">MIT</a>
+					, <a href="http://www.ercim.eu/">ERCIM</a>, 
+					<a href="http://www.keio.ac.jp/">Keio</a>
+					, <a href="http://ev.buaa.edu.cn/">Beihang</a>) 
+					<a href="https://www.w3.org/Consortium/Legal/ipr-notice">Usage policies apply</a>. Updated 27 July 2019 (first published September 2014). 
+					<a href="https://www.w3.org/WAI/tutorials/forms/instructions/">https://www.w3.org/WAI/tutorials/forms/instructions/</a></p>
 			<section>				
 				<h2 id="v" class="wb-inv">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
@@ -358,23 +355,14 @@ Survey &lt;progress max="7" value="7"&gt;(Finished)&lt;/progress&gt;</code></pre
 					</ul>
 					<h3>Techniques</h3>
 					<ul>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G133">G133: Providing a checkbox on the first page of a multipart form that allows users to ask for longer session time limit or no session time limit	</li>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G180">G180: Providing the user with a means to set the time limit to 10 times the default time limit	</li>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G198">G198: Providing a way for the user to turn the time limit off	</li>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H71">H71: Providing a description for groups of form controls using fieldset and legend elements	</li>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR1">SCR1: Allowing the user to extend the default time limit	</li>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR16">SCR16: Providing a script that warns the user a time limit is about to expire	</li>							
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G133">G133: Providing a checkbox on the first page of a multipart form that allows users to ask for longer session time limit or no session time limit	</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G180">G180: Providing the user with a means to set the time limit to 10 times the default time limit	</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G198">G198: Providing a way for the user to turn the time limit off	</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H71">H71: Providing a description for groups of form controls using fieldset and legend elements	</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR1">SCR1: Allowing the user to extend the default time limit	</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR16">SCR16: Providing a script that warns the user a time limit is about to expire	</a></li>							
 					</ul>
-					<p class="small">The examples of forms validations are from the Web Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a>) 
-					document: <a href="https://www.w3.org/WAI/tutorials/forms/multi-page/">Multi-page Forms</a> from the <a href="https://www.w3.org/WAI/tutorials/forms/">Forms</a>
-					tutorial of the <a href="https://www.w3.org/WAI/tutorials/">Web Accessibility Tutorials</a>. <a herf="https://www.w3.org/People/yatil/">
-					Eric Eggert</a> and <a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a>, Copyright © 2019 W3C ® 
-					(<a href="http://www.csail.mit.edu/">MIT</a>
-					, <a href="http://www.ercim.eu/">ERCIM</a>, 
-					<a href="http://www.keio.ac.jp/">Keio</a>
-					, <a href="http://ev.buaa.edu.cn/">Beihang</a>) 
-					<a href="https://www.w3.org/Consortium/Legal/ipr-notice">Usage policies apply</a>. Updated 27 July 2019 (first published September 2014). 
-					<a href="https://www.w3.org/WAI/tutorials/forms/instructions/">https://www.w3.org/WAI/tutorials/forms/instructions/</a></p>
+					
 				</details>
 			</section>
 		

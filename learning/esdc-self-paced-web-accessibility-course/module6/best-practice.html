@@ -89,28 +89,28 @@
 					<li>Match exactly the <code>for</code> attribute of the label with the <code>id</code> attribute of the form control</li>
 					<li>Elements that use explicitly associated labels are:
 					  <ul>
-					    <li><code>input type="text"</code></li>
-					    <li><code>input type="checkbox"</code></li>
-					    <li><code>input type="radio"</code></li>
-					    <li><code>input type="file"</code> (file-select fields)</li>
-					    <li><code>input type="password"</code></li>
-					    <li><code>textarea</code></li>
-					    <li>Select (drop-down lists)</li>
+					    <li><code>&lt;input type="text"&gt;</code></li>
+					    <li><code>&lt;input type="checkbox"&gt;</code></li>
+					    <li><code>&lt;input type="radio"&gt;</code></li>
+					    <li><code>&lt;input type="file"&gt;</code> (file-select fields)</li>
+					    <li><code>&lt;input type="password"&gt;</code></li>
+					    <li><code>&lt;textarea&gt;</code></li>
+					    <li><code>&lt;select&gt;</code> (drop-down lists)</li>
 				      </ul>
 					</li>
 					<li>Do not use the <code>&lt;label&gt;</code> element for the following elements. 
 					  <ul>
-					    <li>Submit and Reset buttons (<code>input type="submit"</code> or <code>input type="reset"</code>)
+					    <li>Submit and Reset buttons (<code>&lt;input type="submit"&gt;</code> or <code>&lt;input type="reset"&gt;</code>)
 					      <ul>
-					        <li>Label provided by the value attribute</li>
+					        <li>Label provided by the <code>value</code> attribute</li>
 				          </ul>
 					    </li>
-					    <li>Image buttons (<code>input type="image"</code>)
+					    <li>Image buttons (<code>&lt;input type="image"&gt;</code>)
 					      <ul>
 					        <li>Label provided by the <code>alt</code> attribute</li>
 				          </ul>
 					    </li>
-					    <li>Hidden input fields (<code>input type="hidden"</code>)</li>
+					    <li>Hidden input fields (<code>&lt;input type="hidden"&gt;</code>)</li>
 					    <li>Buttons (button elements or <code>&lt;input type="button"&gt;</code>)
 					      <ul>
 					        <li>Label provided by the element content itself (button) or the value, <code>aria-label</code>, or <code>aria-labelledby</code> attribute</li>
@@ -121,7 +121,7 @@
 					<li>Use ARIA labels (<code>aria-labelledby</code> and <code>aria-label</code> attributes) when it is not possible to use <code>&lt;label&gt;</code></li>
 					<li>When using ARIA labels, include any visible text in the control label.</li>
 					<li>Use the <code>aria-labelledby</code> attribute to retrieve a label from the context or to concatenate a label out of one or more elements in the context.</li>
-					<li>Avoid using the title attribute to identify form controls. It is not widely supported by AT.</li>
+					<li>Avoid using the <code>title</code> attribute to identify form controls. It is not widely supported by AT.</li>
 					<li>Keep label text short and concise.</li>
 					<li>Use unique label text on a page.</li>
 					<li>Position labels visually to the right of radio buttons and checkboxes.</li>
@@ -131,7 +131,8 @@
 			
 			<section>				
 				<h2 id="grouping-controls">Best practice – Grouping controls</h2>
-				<ul><li>Use <code>&lt;fieldset&gt;</code> element to group related controls in a form. </li>
+				<ul>
+					<li>Use the <code>&lt;fieldset&gt;</code> element to group related controls in a form. </li>
 					<li>Use the <code>&lt;legend&gt;</code> element to name the <code>&lt;fieldset&gt;</code> element</li>
 					<li>Make the <code>legend</code> as short as possible as some assistive technology declares the <code>legend</code> together with the label every time.</li>
 					<li>Make the individual labels self-explanatory as some assistive technology does not declare the <code>&lt;legend&gt;</code>. Do not repeat the <code>legend</code> in every label.</li>
@@ -157,12 +158,12 @@
 			<h2 id="validating-input">Best practice – Validating input</h2>
 			<ul>	
 				<li>Validate user data using validation attributes on HTML5 form elements.</li>
-				<li>Common validation attributes include required, <code>type</code>, <code>pattern</code>, <code>min</code> and <code>max</code> attributes.</li>
+				<li>Common validation attributes include <code>required</code>, <code>type</code>, <code>pattern</code>, <code>min</code> and <code>max</code> attributes.</li>
 				<li>Validate data on client-side and server-side to ensure security.</li>
 				<li>Identify required form fields both visually in the label and semantically.</li>
 				<li>Use HTML5 input types to validate different types of data, including email, URL, number, telephone, date and range.</li>
 				<li>Validate patterned input using the pattern attribute to specify a regular expression for matching</li>
-				<li>Validate length of entries using minlength, maxlength, <code>min</code> and <code>max</code> attributes</li>
+				<li>Validate length of entries using <code>minlength</code>, <code>maxlength</code>, <code>min</code> and <code>max</code> attributes</li>
 				<li>Be accommodating as possible of different input formats</li>
 				<li>Enable your users to check and correct their input to reduce errors.</li>
 				<li>Require user confirmation for irreversible actions.</li>
@@ -198,7 +199,7 @@
 					<li>Split the form up according to its logical groups of controls (e.g., contact information and questionnaire).</li>
 					<li>Validate the current step before exposing the next.</li>
 					<li>Label optional steps and enable users to skip them. </li>
-					<li>Ensure keyboard focus moves smoothly from step to step, backwards and forwards. At a new step, set the focus preferably on the next relevant form element, or relevant heading or container (a heading or container would need the <code>tabindex="-1"</code> attribute to programmatically receive focus).</li>
+					<li>Ensure keyboard focus moves smoothly from step to step, backwards and forwards. At a new step, set the focus preferably on the next relevant form element, or relevant heading or container<mark><del> (a heading or container would need the <code>tabindex="-1"</code> attribute to programmatically receive focus)</del></mark>.</li>
 					<li>Avoid a time limit to fill out the form. If a limit is required, enable the user to adjust or extend it.</li>
 					<li>If the steps are across pages, repeat overall instructions on every page.</li>
 					<li>Indicate progress in the form (“Step x of y”).</li>
@@ -210,7 +211,7 @@
 				<ul>
 					<li>Whenever possible, use native HTML form elements rather than custom controls.</li>
 					<li>Model the behaviour after native HTML form elements.</li>
-					<li>Add appropriate ARIA <code>name</code>, <code>role</code>, and values if necessary.</li>
+					<li>Add appropriate ARIA name, role, and values if necessary.</li>
 					<li>Communicate updates and state changes via ARIA live messages when they can’t be communicated through HTML or ARIA methods</li>
 				</ul>
 
