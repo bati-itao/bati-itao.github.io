@@ -61,7 +61,7 @@
 <div class="row">
 	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
 			
-	<h1 property="name" id="wb-cont">Heading title</h1>
+	<h1 property="name" id="wb-cont">Validating input</h1>
 						
 	<nav role="navigation">
     <div class="panel panel-default mrgn-tp-md">
@@ -70,46 +70,447 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#section1">S1</a></li>
-			<li><a href="#section2">S2</a></li>
-			<li><a href="#section3">S3</a></li>
-			<li><a href="#resources1">Related WCAG resources</a></li>
+            <li><a href="#overview">Validating input (overview)</a></li>
+			<li><a href="#required-input">Validating required input</a>
+				<ul>
+					<li><a href="#validation-required-input">Good example: Browser validation of required input</a></li>
+				</ul>
+			</li>
+			<li><a href="#common-input">Validating common input types</a>
+				<ul>
+					<li><a href="#input-types">Good example: HTML5 input types</a></li>
+				</ul>
+			</li>
+			<li><a href="#patterned-input">Validating patterned input</a>
+				<ul>
+					<li><a href="#pattern-attribute-match">Good example: Using the pattern attribute to match a car license plate</a></li>
+				</ul>
+			</li>
+			<li><a href="#length">Validating the length of entries</a>
+				<ul>
+					<li><a href="#length-entries">Good example: Validating the length of entries</a></li>
+				</ul>
+			</li>
+			<li><a href="#input-formats">Accommodating different input formats </a></li>
+			<li><a href="#client-benefits">Client-side validation benefits</a></li>
+			<li><a href="#validation-user">Validation by the user </a></li>
+			<li><a href="#resources">Related WCAG resources</a></li>
           </ul>
         </div>
       </div>
 	</nav>
 	
 			<section>				
-				<h2 id="section1">S1</h2>
-				
+				<h2 id="overview">Validating input (overview)</h2>
+				<p>To help users avoid mistakes, HTML5 defines a range of built-in functionality for validating common types of input, such as email addresses and dates. Some scripting may be necessary for validation when using custom controls or supporting legacy browsers. In these situations, the user notifications should be accessible, as described in the section <a href="user-notifications.html">User notifications</a>.</p>
+				<p>To ensure security, data needs to be validated both on the client-side and on the server-side as well. </p>
+				<p>Most user data can be validated using validation attributes on HTML5 form <mark><del>elements</del> <ins>controls</ins></mark>. The following are common validation attributes:</p>
+				<dl>
+					<dt><code>required</code> attribute</dt> 
+					<dd class="mrgn-lft-lg">Specifies whether a form field needs to be filled in before the form can be submitted. See <a href="#required-input">Validating required input</a>.</dd>
+					<dt><code>type</code> attribute</dt> 
+					<dd class="mrgn-lft-lg">Specifies the type of data. See <a href="#common-input">Validating common input types</a>.</dd>
+					<dt><code>pattern</code> attribute</dt> 
+					<dd class="mrgn-lft-lg">Specifies a regular expression that defines a pattern the entered data needs to follow. See <a href="#patterned-input">Validating pattern input</a>.</dd>
+					<dt><code>minlength</code> and <code>maxlength</code> attributes</dt> 
+					<dd class="mrgn-lft-lg">Specifies the minimum and maximum length of textual data. See <a href="#length">Validating length of entries</a>.</dd>
+					<dt><code>min</code> and <code>max</code> attributes</dt> 
+					<dd class="mrgn-lft-lg">Specifies the minimum and maximum values of numerical input types. See <a href="#length">Validating length of entries</a>.</dd>
+				</dl>
+				<p>If the rules specified by the validation attributes are not followed, then the element becomes invalid and the browser blocks the form and displays an error message.</p>
 			</section>
 			
 			<section>				
-				<h2 id="section2">S2</h2>
-				
+				<h2 id="required-input">Validating required input</h2>
+				<p>Identify required form fields both visually in the label and semantically:</p>
+				<ul>
+					<li>To identify required fields visually in the label, add an asterisk (*) to the label and define the asterisk above the form; or, add the word "required" in parentheses.</li>
+					<li>To identify required fields semantically, add the <code>required</code> attribute to the control and, to support legacy browsers, add the redundant <code>aria-required="true"</code> attribute.</li>
+				</ul>
+				<p>The <code>required</code> attribute triggers client-side validation in the browser. Current web browsers support the attribute and notify the user of missing required input using a standard web browser dialog. These dialogs respect user settings and preferences in the browser and operating system, such as default font-size, colors, and language.</p>
+				<p>The presence of the <code>required</code> attribute enables use of the <code>:required</code> pseudoclass for CSS styling. If the <mark><ins>required</ins></mark> <code>&lt;input&gt;</code> has no value, it enables use of the <code>:invalid</code> pseudoclass. See the following Good example.</p>
+			
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+		
+						<h3 class="text-success mrgn-tp-0 h3" id="validation-required-input"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Browser validation of required input</h3>
+						<p>In this example, the browser will not allow the form to be submitted until text is entered in the required input field. The <code>:required</code> pseudoclass applies a background pink. The <code>:invalid</code> pseudoclass applies a dashed border when the <code>&lt;input&gt;</code> does not have focus.</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">Example begins</p>
+								<form method="post" action="script-here">
+									<label for="org">Organization (required):</label> 
+									<input type="text" id="org" required aria-required="true"> 
+									<input type="submit" value="Submit">
+								</form>
+								<style>
+									input:invalid { border: 2px dashed red; }
+									input:required { background-color: pink; }
+								</style>							
+								<p class="wb-inv">Example ends</p>
+							</div>
+						</div>
+						<div class="clearfix"></div>		
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;form method="post" action="script-here"&gt;
+   &lt;label for="org"&gt;Organization (required): &lt;/label&gt; 
+   &lt;input type="text" id="org" required aria-required="true"&gt; 
+   &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;</code>
+</pre>
+<pre><code class="language-css">input:invalid { border: 2px dashed red; }
+input:required { background-color: pink; }</code></pre>
+						<p class="wb-inv">Code ends</p>
+          
+					</div>
+				</div>
 			</section>
 			
 			<section>				
-				<h2 id="section3">S3</h2>
-				
+				<h2 id="common-input">Validating common input types</h2>
+				<p>HTML5 introduces new <code>&lt;input&gt;</code> types for data, including <code>email</code>, <code>url</code>, <code>number</code>, <code>tel</code> (telephone), <code>date</code> and <code>range</code>, amongst others.  Modern web browsers provide built-in client-side error validation for these new input types. For instance, a malformed URL triggers the browser to display a dialog with the message “Please enter a URL.”</p>
+				<p>To help users input data more easily, HTML5 provides controls for some of the new input types, such as a date picker and spin buttons for incrementing or decrementing numbers. For instance, in the example below, modern browsers display the “Number” input field with buttons to increase or decrease the number and display the “Range” input field as a slider control.</p>
+				<p>Legacy web browsers that don’t support the new input types display a simple <code>text</code> field.</p>
+		
+				<p><mark><del>These <code>&lt;input&gt;</code> types were already in use when HTML5 was introduced:</del></mark></p>
+				<details class="mrgn-tp-md">
+					<summary class="bg-info"><mark>Input types already in use when HTML5 was introduced</mark></summary>
+					<dl class="mrgn-tp-md">
+						<dt>text</dt>
+						<dd class="mrgn-lft-lg">Defines a one-line text input field</dd>
+						<dt>password</dt>
+						<dd class="mrgn-lft-lg">Defines a one-line password input field</dd>
+						<dt>submit</dt>
+						<dd class="mrgn-lft-lg">Defines a submit button to submit the form to server</dd>
+						<dt>reset</dt>
+						<dd class="mrgn-lft-lg">Defines a reset button to reset all values in the form.</dd>
+						<dt>radio</dt>
+						<dd class="mrgn-lft-lg">Defines a radio button which allows select one option.</dd>
+						<dt>checkbox</dt>
+						<dd class="mrgn-lft-lg">Defines checkboxes which allow select multiple options forms.</dd>
+						<dt>button</dt>
+						<dd class="mrgn-lft-lg">Defines a simple push button, which can be programmed to perform a task on an event.</dd>
+						<dt>file</dt>
+						<dd class="mrgn-lft-lg">Defines a file retrieval field.</dd>
+						<dt>image</dt>
+						<dd class="mrgn-lft-lg">Defines a graphical submit button.</dd>
+					</dl>
+				</details>
+				<p><mark><del>These <code>&lt;input&gt;</code>  types were introduced with HTML5:</del></mark></p>
+				<details class="mrgn-tp-md">
+					<summary class="bg-info"><mark>Input types introduced with HTML5</mark></summary>
+					<dl class="mrgn-tp-md">
+						<dt>color</dt>
+						<dd class="mrgn-lft-lg">Defines an input field with a specific color.</dd>
+						<dt>date</dt>
+						<dd class="mrgn-lft-lg">Defines an input field for selection of date.</dd>
+						<dt>datetime-local</dt>
+						<dd class="mrgn-lft-lg">Defines an input field for entering a date without time zone.</dd>
+						<dt>email</dt>
+						<dd class="mrgn-lft-lg">Defines an input field for entering an email address.</dd>
+						<dt>month</dt>
+						<dd class="mrgn-lft-lg">Defines a control with month and year, without time zone.</dd>
+						<dt>number</dt>
+						<dd class="mrgn-lft-lg">Defines an input field to enter a number.</dd>
+						<dt><mark>range</mark></dt>
+						<dd class="mrgn-lft-lg"><mark>Defines a numeric value which must be no less than a given value, and no more than another given value.</mark></dd>
+						<dt>url</dt>
+						<dd class="mrgn-lft-lg">Defines a field for entering URL.</dd>
+						<dt>week</dt>
+						<dd class="mrgn-lft-lg">Defines a field to enter the date with week-year, without time zone.</dd>
+						<dt>search</dt>
+						<dd class="mrgn-lft-lg">Defines a single line text field for entering a search string.</dd>
+						<dt>tel</dt>
+						<dd class="mrgn-lft-lg">Defines an input field for entering the telephone number.</dd>
+					</dl>
+				</details>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+		
+						<h3 class="text-success mrgn-tp-0 h3" id="input-types"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: HTML5 input types</h3>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">Example begins</p>
+								<form class="form-horizontal" role="form" method="get" action="#">
+<!-- these aren't HTML5
+									<div class="form-group">
+										<label for="fname1" class="col-sm-2 control-label">First name</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" id="fname1" autocomplete="given-name"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="lname1" class="col-sm-2 control-label">Last name</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" id="lname1" autocomplete="family-name" />
+										</div>
+									</div>
+-->
+									<div class="form-group">
+										<label for="email" class="col-sm-2 control-label">Email:</label>
+										<div class="col-sm-10">
+											<input type="email" name="email" class="form-control" id="email">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="url" class="col-sm-2 control-label">URL:</label>
+										<div class="col-sm-10">
+											<input type="url" name="url" class="form-control" id="url">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="number" class="col-sm-2 control-label">Number:</label>
+										<div class="col-sm-10">
+											<input type="number" name="number" class="form-control" id="number" min="0" max="100" step="10" value="0">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="range" class="col-sm-2 control-label">Range:</label>
+										<div class="col-sm-10">
+											<input type="range" name="range" class="form-control" id="range" min="0" max="100" step="10" value="0">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="date" class="col-sm-2 control-label">Date:</label>
+										<div class="col-sm-10">
+											<input type="date" name="date" class="form-control" id="date">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="time" class="col-sm-2 control-label">Time:</label>
+										<div class="col-sm-10">
+											<input type="time" name="time" class="form-control" id="time">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-offset-2 col-sm-10">
+											<button type="submit"  class="btn btn-default">Continue</button>
+										</div>
+									</div>
+								</form>
+								<p class="wb-inv">Example ends</p>
+							</div>
+						</div>
+						<div class="clearfix"></div>		
+								
+					<details class="mrgn-tp-sm">
+							<summary class="bg-info">View HTML </summary>
+							<p class="wb-inv">Code begins</p>
+<!-- These aren't HTML5
+   &lt;div class="form-group"&gt;
+      &lt;label for="fname1" class="col-sm-2 control-label"&gt;First name&lt;/label&gt;
+      &lt;div class="col-sm-10"&gt;
+         &lt;input type="text" class="form-control" id="fname1" autocomplete="given-name"/&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+      &lt;label for="lname1" class="col-sm-2 control-label"&gt;Last name&lt;/label&gt;
+      &lt;div class="col-sm-10"&gt;
+         &lt;input type="text" class="form-control" id="lname1" autocomplete="family-name" /&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+-->							
+<pre><code class="language-html">&lt;form class="form-horizontal" role="form" method="get" action="#"&gt;
+   &lt;div class="form-group"&gt;
+      &lt;label for="email" class="col-sm-2 control-label"&gt;Email:&lt;/label&gt;
+      &lt;div class="col-sm-10"&gt;
+         &lt;input type="email" name="email" class="form-control" id="email"&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+      &lt;label for="url" class="col-sm-2 control-label"&gt;URL:&lt;/label&gt;
+      &lt;div class="col-sm-10"&gt;
+         &lt;input type="url" name="url" class="form-control" id="url"&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+      &lt;label for="number" class="col-sm-2 control-label"&gt;Number:&lt;/label&gt;
+      &lt;div class="col-sm-10"&gt;
+         &lt;input type="number" name="number" class="form-control" id="number" min="0" max="100" step="10" value="0"&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+      &lt;label for="range" class="col-sm-2 control-label"&gt;Range:&lt;/label&gt;
+      &lt;div class="col-sm-10"&gt;
+         &lt;input type="range" name="range" class="form-control" id="range" min="0" max="100" step="10" value="0"&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+      &lt;label for="date" class="col-sm-2 control-label"&gt;Date:&lt;/label&gt;
+      &lt;div class="col-sm-10"&gt;
+         &lt;input type="date" name="date" class="form-control" id="date"&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+      &lt;label for="time" class="col-sm-2 control-label"&gt;Time:&lt;/label&gt;
+      &lt;div class="col-sm-10"&gt;
+         &lt;input type="time" name="time" class="form-control" id="time"&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+      &lt;div class="col-sm-offset-2 col-sm-10"&gt;
+         &lt;button type="submit" class="btn btn-default"&gt;Continue&lt;/button&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+							<p class="wb-inv">Code ends</p>
+						</details>	
+					</div>
+				</div>
 			</section>
-			
-			
 			<section>				
-				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
+				<h2 id="patterned-input">Validating patterned input</h2>
+				<p>The <code>pattern</code> attribute provides another useful validation feature. It takes a regular expression (regex) as its value, which is used to match character combinations in text input. Regex is ideal for form validation, matching specific types of data patterns such as telephone numbers, postal codes, and serial numbers. </p>
+				<p>In this example, the pattern attribute of the <code>&lt;input&gt;</code> element uses regex to define a particular format that matches characters on an Ontario car license plate (issued since 1997). The pattern consists of four letters, followed by a space, followed by three numbers. The pattern won’t capture custom license plate values. </p>
+				<div class="panel panel-success">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Using the pattern attribute to match a car license plate</h3>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">Example begins</p>
+								<div>
+									<label for="license">Ontario License Plate (XXXX 999)</label>
+									<input type="text" id="license" class="form-control" pattern="^[A-Z]{4}( )[0-9]{3}$"> 
+								</div>
+								<p class="wb-inv">Example ends</p>
+							</div>
+						</div>
+						<div class="clearfix"></div>		
+								
+							<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;div&gt;
+   &lt;label for=”license”&gt;Ontario License Plate (XXXX 999)&lt;/label&gt;
+   &lt;input type="text" id="license" class="form-control" pattern="^[A-Z]{4}( )[0-9]{3}$"&gt; 
+&lt;/div&gt;</code></pre>
+							<p class="wb-inv">Code ends</p>	
+					</div>
+				</div>
+			</section>
+			<section>				
+				<h2 id="length">Validating the length of entries</h2>
+				<p>The character length of all text fields created by <code>&lt;input&gt;</code> or <code>&lt;textarea&gt;</code> can be constrained using the <code>minlength</code> and <code>maxlength</code> attributes. A field is invalid if the value has fewer characters than <code>minlength</code> or more characters than <code>maxlength</code>.</p>
+				<p>For number fields, the <code>min</code> and <code>max</code> attributes can be used to provide a range of valid values. </p>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+					  <h3 class="text-success mrgn-tp-0 h3" id="length-entries"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Validating the length of entries</h3>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">Example begins</p>
+								<form class="form-horizontal" role="form" method="get" action="#">
+								  <div class="form-group">
+									<label for="choose" class="col-sm-3 control-label">Carrot or Orange? </label>
+									<div class="col-sm-9">
+										<input type="text" name="choose" class="form-control" id="choose" minlength="6" maxlength="6">
+									</div>
+								  </div>
+								 <div class="form-group">
+									<label for="range1" class="col-sm-3 control-label">How many? </label>
+									<div class="col-sm-9">
+										<input type="number" class="form-control" name="range1" id="range1" min="1" max="10">
+									</div>
+								  </div> 
+								  <div class="form-group">
+									<div class="col-sm-offset-3 col-sm-9">
+										<button type="submit" class="btn btn-default">Submit</button>
+									</div>
+								  </div>
+								</form>
+								<p class="wb-inv">Example ends</p>
+							</div>
+						</div>
+						<div class="clearfix"></div>		
+								
+					<details class="mrgn-tp-sm">
+							<summary class="bg-info">View HTML </summary>
+							<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;form class="form-horizontal" role="form" method="get" action="#"&gt;
+   &lt;div class="form-group"&gt;
+      &lt;label for="choose" class="col-sm-2 control-label"&gt;Carrot or Orange? &lt;/label&gt;
+      &lt;div class="col-sm-10"&gt;
+         &lt;input type="text" name="choose" class="form-control" id="choose" minlength="6" maxlength="6"&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+      &lt;label for="range1" class="col-sm-2 control-label"&gt;How many? &lt;/label&gt;
+      &lt;div class="col-sm-10"&gt;
+         &lt;input type="number" class="form-control" name="range1" id="range1" min="1" max="10"&gt;
+      &lt;/div&gt;
+   &lt;/div&gt; 
+   &lt;div class="form-group"&gt;
+      &lt;div class="col-sm-offset-2 col-sm-10"&gt;
+         &lt;button type="submit" class="btn btn-default"&gt;Submit&lt;/button&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+&lt;/form&gt;</code>
+</pre>
+<p class="wb-inv">Code ends</p>
+						</details>	
+					</div>
+				</div>
+			</section>
+			<section>				
+				<h2 id="input-formats">Accommodating different input formats </h2>
+				<p>When designing validation for the different data types, be as accommodating as possible of different input formats. Keep internationalization and customization in mind. Be permissive about the input format. For example, postal codes and telephone numbers in different countries follow different patterns. License plates can be personalized. Your form will be easier to use if it can interpret multiple notations.  </p>
+			</section>
+			<section>				
+				<h2 id="client-benefits">Client-side validation benefits </h2>
+				<p>Client-side validation improves the user experience. By catching invalid data on the client-side, the user can fix it right away, rather than waiting for a round trip to the server and back for error notification. The immediacy makes validation errors more understandable. Client-side validation can also reduce network and server load. However, client-side validation is easy to bypass, so malicious users can easily send bad data through to your server. For that reason, you should always validate on the server-side as well.</p>
+			</section>
+			<section>				
+				<h2 id="validation-user">Validation by the user</h2>
+				<p>Enabling your users to check and correct their input also reduces errors. Offer this feature whenever possible, but especially when actions are permanent, legal, financial or otherwise critical, or when the user’s data can’t be automatically checked.</p>
+				<h3>Require user confirmation</h3>
+				<p>Where possible, require user confirmation for irreversible actions, such as permanent deletion of data.  </p>
+				<p>For example:</p>
+				<ul>
+					<li>A webmail application with an irreversible submit action for sending dozens of emails prompts the user for confirmation. The confirmation is implemented as a Modal window <mark>(see <a href="../module12/index.html">Module 12</a>)</mark>, which requires the user acknowledge it before continuing.</li>
+					<li>Before an online shopping order is placed, the user reviews and confirms a summary of the products ordered and the shipping and billing addresses.</li>
+				</ul>
+				<h3>Provide undo functionality</h3>
+				<p>Where possible, ensure submissions are reversible.</p>
+				<p>There are several UI controls that typically allow people to go back to the previous state of the system. For example:</p>
+				<ul>
+					<li>An Undo option will allow users to revert changes to a UI element.</li>
+					<li>A “trash” folder that restores deleted files.</li>
+					<li>Using a Back link returns users to a previous page or screen.</li>
+					<li>A Cancel button will allow the user to quit a task or multi-step process.</li>
+					<li>A Close button will allow users to close a new or an existing view.</li>
+				</ul>
+			</section>
+			<hr/>
+			<p class="small">The examples of forms validations are from the Web Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a>) 
+					document: <a href="https://www.w3.org/WAI/tutorials/forms/validation/Validation</a> from the <a href="https://www.w3.org/WAI/tutorials/forms/">Forms</a>
+					tutorial of the <a href="https://www.w3.org/WAI/tutorials/">Web Accessibility Tutorials</a>. <a herf="https://www.w3.org/People/yatil/">
+					Eric Eggert</a> and <a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a>, Copyright © 2019 W3C ® 
+					(<a href="http://www.csail.mit.edu/">MIT</a>
+					, <a href="http://www.ercim.eu/">ERCIM</a>, 
+					<a href="http://www.keio.ac.jp/">Keio</a>
+					, <a href="http://ev.buaa.edu.cn/">Beihang</a>) 
+					<a href="https://www.w3.org/Consortium/Legal/ipr-notice">Usage policies apply</a>. Updated 27 July 2019 (first published September 2014). 
+					<a href="https://www.w3.org/WAI/tutorials/forms/instructions/">https://www.w3.org/WAI/tutorials/forms/instructions/</a>
+			</p>
+			<section>				
+				<h2 id="resources" class="wb-inv">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
 					<ul>
-						<li><a href="https://www.link1.com">Link 1</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#error-identification">3.3.1 Error Identifications</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#error-prevention-legal-financial-data">3.3.4 Error Prevention (Legal, Financial, Data)</a></li>
 					</ul>
 					<h3>Techniques</h3>
-					<ul>
-						<li>
-							<a href="https://www.link2.com">Link 2</a>
-						</li>						
+					<ul>			
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G83">G83: Providing text descriptions to identify required fields that were not completed</a></li>	
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G85">G85: Providing a text description when user input falls outside the required format or values</a></li>	
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G98">G98: Providing the ability for the user to review and correct answers before submitting</a></li>	
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G99">G99: Providing the ability to recover deleted information</a></li>	
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G155">G155: Providing a checkbox in addition to a submit button</a></li>	
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G164">G164: Providing a stated time within which an online request (or transaction) may be amended or canceled by the user after making the request</a></li>	
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G168">G168: Requesting confirmation to continue with selected action</a></li>	
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR18">SCR18: Providing client-side validation and alert</a></li>		
 					</ul>
 				</details>
+				
 			</section>
 		
 		
