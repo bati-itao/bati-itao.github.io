@@ -87,17 +87,17 @@
 									
 					<li>Keyboard focus
 					  <ul>
-						<li>See module 3 <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/navigation.html#focus-order">What is focus?</a></li>
+						<li>See module 3: <mark>Links and navigation ></mark> <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/navigation.html#focus-order">What is focus?</a></li>
 					  </ul>
 					</li>
 					<li>Focus order
 						<ul>
-						  <li>See module 3<a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/navigation.html#focus-order">Focus order</a></li>
+						  <li>See module 3: <mark>Links and navigation ></mark> <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/navigation.html#focus-order">Focus order</a></li>
 						</ul>
 					  </li>
 					  <li>Visual focus indicator
 						<ul>
-						  <li>See module 3 <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/links.html#indicator"> Visual focus indicator</a></li>
+						  <li>See module 3: <mark>Links and navigation ></mark> <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/links.html#indicator"> Visual focus indicator</a></li>
 						</ul>
 					  </li>
 					<li>Keyboard functionality</li>
@@ -114,7 +114,7 @@
 					<li>Performing tasks such as adding or removing an item from a shopping cart or initiating a chat session with a sales representative.</li>
 				</ul>
 				<p>The exception is any action that depends on the path of the user’s movement (e.g., free hand drawing such as a signature). Such actions cannot be done from the keyboard.</p>
-				<p>A keyboard user typically presses the Tab key to navigate from interactive component to interactive component—links, buttons, fields for inputting text, etc. When an item is tabbed to, it has keyboard "focus" and can be activated or manipulated with the keyboard. Other keys, primarily the arrow keys, move focus inside of components that include multiple focusable elements. For instance, after pressing the Tab key to move focus to a radio button in a group, pressing arrow keys moves focus among the radio buttons in the group, and pressing the Tab key moves focus out of the radio group to the next element in the tab sequence. The path that the focus follows when pressing the tab key is known as the tab sequence or tab ring.</p>
+				<p>A keyboard user typically presses the Tab key to navigate from interactive component to interactive component—links, buttons, fields for inputting text, etc. When an item is tabbed to, it has keyboard "focus" and can be activated or manipulated with the keyboard. Other keys, primarily the arrow keys, move focus inside of components that include multiple focusable elements. For instance, after pressing the Tab key to move focus to a radio button in a group, pressing arrow keys moves focus among the radio buttons in the group, and pressing the Tab key moves focus out of the radio group to the next element in the tab sequence. The path that the focus follows when pressing the Tab key is known as the tab sequence or tab ring.</p>
 				<p>Other important keyboard commands:</p>
 				<ul>
 					<li>CTRL-L takes focus to the browser’s address field</li>
@@ -128,220 +128,281 @@
 				<p>When possible, use native HTML links and form controls rather than custom elements. User agents provide the keyboard operation of native HTML links and form controls and map them to an accessibility API. Assistive technologies use the accessibility API to extract and present useful information, such as the role, name, state and value.</p>
 				<p>The standard HTML controls and links:</p>
 				<ul>
-					<li>&lt;a&gt;</li>
-					<li>&lt;fieldset&gt;</li>
-					<li>&lt;input&gt; (many types; see Module 6: Forms &gt; <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module6/validating-input.html#common-input">Validating common input types </a>)  </li>
-					<li>&lt;select&gt;</li>
-					<li>&lt;textarea&gt;</li>
-					<li>&lt;button&gt;</li>
+					<li><code>&lt;a&gt;</code></li>
+					<li><code>&lt;fieldset&gt;</code></li>
+					<li><code>&lt;input&gt;</code>
+						<p>Many types; see Module 6: Forms &gt; <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module6/validating-input.html#common-input">Validating common input types</a>.</p>
+					</li>
+					<li><code>&lt;select&gt;</code></li>
+					<li><code>&lt;textarea&gt;</code></li>
+					<li><code>&lt;button&gt;</code></li>
 				</ul>
 				<h3 class="">Use the onclick event of anchors and buttons</h3>
-				<p>To ensure keyboard users can invoke a scripting function, use native HTML links and buttons with the onclick event. The onclick event of both elements is device independent: it maps to a mouse click and the enter and space keys.</p>
+				<p>To ensure keyboard users can invoke a scripting function, use native HTML links and buttons with the <code>onclick</code> event. The <code>onclick</code> event of both elements is device independent: it maps to a mouse click and the enter and space keys.</p>
 				<p class="wb-inv">Code begins</p>
-				<pre><code class="language-js">
-&lt;button onclick="doStuff();"&gt;Do stuff&lt;/button&gt;
+				<pre><code class="language-html">&lt;button onclick="doStuff();"&gt;Do stuff&lt;/button&gt;
 &lt;script&gt;
-function doStuff ()
-{
-alert('Button clicked');
-}
-&lt;/script&gt;
-			</code>
-		</pre>
-		<p class="wb-inv">Code ends</p>
-				<p>A submit button inside a &lt;form&gt; does not require an event handler. In both the following cases, pressing the submit button will submit the parent form without the need for handling the onclick event separately. Here, the form’s onsubmit value triggers validation.</p>
+   function doStuff () {
+      alert('Button clicked');
+   }
+&lt;/script&gt;</code></pre>
+				<p class="wb-inv">Code ends</p>
+				<p>A submit button inside a <code>&lt;form&gt;</code> does not require an event handler. In both the following cases, pressing the submit button will submit the parent form without the need for handling the <code>onclick</code> event separately. Here, the form’s <code>onsubmit</code> value triggers validation.</p>
 				<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">
-&lt;form onsubmit=”handle_form_submission()"&gt;</p>
-[…]</p>
-&lt;input type="submit" name="submit" value="Post your reply" /&gt;</p>
-Or:</p>
-&lt;button type="submit" &gt;Post your reply&lt;/button&gt;</p>
-&lt;/form&gt;</p>
-</code>
-</pre>
-<p class="wb-inv">Code ends</p>
+<pre><code class="language-html">&lt;form onsubmit="handle_form_submission()"&gt;
+   […]
+   &lt;input type="submit" name="submit" value="Post your reply" /&gt;
+   Or:
+   &lt;button type="submit" &gt;Post your reply&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+				<p class="wb-inv">Code ends</p>
 				<h3 class="">Pair mouse event handlers with keyboard event handlers</h3>
 				<p>Using both keyboard-specific and mouse-specific events together ensures that content can be operated by a wide range of devices.</p>
 				<p>The following table suggests mouse event handlers to pair with keyboard event handlers:</p>
-				<p>[Table caption:] Device handler correspondences</p>
 				<table class="table table-bordered table-hover">
-					<tr>
-						<td>
-							<p>Use ..</p>
-						</td>
-						<td>
-							<p>… with</p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<p>mousedown</p>
-						</td>
-						<td>
-							<p>keydown</p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<p>mouseup</p>
-						</td>
-						<td>
-							<p>keyup</p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<p>click</p>
-						</td>
-						<td>
-							<p>keypress</p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<p>mouseover</p>
-						</td>
-						<td>
-							<p>focus</p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<p>mouseout</p>
-						</td>
-						<td>
-							<p>blur</p>
-						</td>
-					</tr>
+					<caption>Device handler correspondences</caption>
+					<thead>
+						<tr>
+							<th scope="col">
+								<p>Use ..</p>
+							</th>
+							<th scope="col">
+								<p>… with</p>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<p>mousedown</p>
+							</td>
+							<td>
+								<p>keydown</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p>mouseup</p>
+							</td>
+							<td>
+								<p>keyup</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p>click</p>
+							</td>
+							<td>
+								<p>keypress</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p>mouseover</p>
+							</td>
+							<td>
+								<p>focus</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p>mouseout</p>
+							</td>
+							<td>
+								<p>blur</p>
+							</td>
+						</tr>
+					</tbody>
 				</table>
-				<p>When using a native HTML button or link, user agents process the click event regardless of whether it was activated with the mouse or the keyboard. It’s not necessary to duplicate this event when adding handlers to natively focusable HTML elements. However, if not using a native button or link, it is necessary to add keypress.</p>
-				<p>Because the keypress event handler reacts to any key, the event handler should first check that the Enter key was pressed before proceeding to handle the event. Otherwise, the event handler will trigger on any key press, even the tab key to leave the control.</p>
-				<p>If using the ARIA role="button" attribute instead of the native &lt;button&gt; or &lt;input type="button"&gt; elements, you will need to both make the element focusable and define event handlers for click and for the Enter and Space keypresses. For more information on custom controls, see <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module12/custom-controls.html">Module 12</a>.</p>
+				<p>When using a native HTML button or link, user agents process the click event regardless of whether it was activated with the mouse or the keyboard. It’s not necessary to duplicate this event when adding handlers to natively focusable HTML elements. However, if not using a native button or link, it is necessary to add <code>keypress</code>.</p>
+				<p>Because the <code>keypress</code> event handler reacts to any key, the event handler should first check that the Enter key was pressed before proceeding to handle the event. Otherwise, the event handler will trigger on any key press, even the Tab key to leave the control.</p>
+				<p>If using the ARIA <code>role="button"</code> attribute instead of the native <code>&lt;button&gt;</code> or <code>&lt;input type="button"&gt;</code> elements, you will need to both make the element focusable and define event handlers for click and for the Enter and Space keypresses. <mark><del>For more information on custom controls, see <a href="../module12/custom-controls.html">Module 12</a></del></mark>.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Pairing mouse and keyboard events</h3>
-				<p>In this example of an image link, the image is changed when the user positions the pointer over the image. To provide keyboard users with a similar experience, the image is also changed when the user tabs to it. </p>
-				<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">
-&lt;a href="menu.php" 
-onmouseover="swapImageOn('menu')" 
-onfocus="swapImageOn('menu')" 
-onmouseout="swapImageOff('menu')" 
-onblur="swapImageOff('menu')"&gt; 
-&lt;img id="menu" src="menu_off.gif" alt="Menu" /&gt;
-&lt;/a&gt;
-</code>
-</pre>
+						<p>In this example of an image link, the image is changed when the user positions the pointer over the image. To provide keyboard users with a similar experience, the image is also changed when the user tabs to it. </p>
+						<p><mark>TODO: This needs a live example</mark></p>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;a href="menu.php" 
+   onmouseover="swapImageOn('menu')" 
+   onfocus="swapImageOn('menu')" 
+   onmouseout="swapImageOff('menu')" 
+   onblur="swapImageOff('menu')"&gt; 
+   &lt;img id="menu" src="menu_off.gif" alt="Menu" /&gt;
+&lt;/a&gt;</code></pre>
 						<p class="wb-inv">Code ends</p>
 					</div>
 				</div>
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad example: Mouse-dependent link</h3>
-				<p>In this example, a custom image link responds to mouse click only and can’t be activated by keyboard. It lacks an equivalent event handler for the Enter key. The onclick event only responds to keyboard input when applied to a native HTML button or link, and this is an &lt;img&gt; element. </p>
-				<p>The image link also lacks a tabindex=”0” attribute so doesn’t receive keyboard focus.</p>
-				<p>Finally, the image link lacks the role=”link” attribute, which identifies it to assistive technology as a link.</p>
-				<img src="images/image1.png" class="img-responsive" alt="">
-				<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">
-&lt;img class="img-link" onclick="goToLink(event, 'http://www.example.com/page5.html')" src="arrow.gif" alt="Go to next page"&gt;</p>
-			</code>
-		</pre><p class="wb-inv">Code ends</p>
-		<p class="wb-inv">Code begins</p>
-		<pre><code class="language-css">				
-.img-link:hover { 
-cursor: pointer;  
-}
-			</code>
-		</pre><p class="wb-inv">Code ends</p>
-		<p class="wb-inv">Code begins</p>
-		<pre><code class="language-js">	
-function goToLink(event, url) {  
-var type = event.type;  
-if (type === ‘click’)
-{  
-window.location.href = url;      
-event.stopPropagation();  
-} 
-			</code>
-		</pre>
-								<p class="wb-inv">Code ends</p>
+						<p>In this example, a custom image link responds to mouse click only and can’t be activated by keyboard. It lacks an equivalent event handler for the Enter key. The <code>onclick</code> event only responds to keyboard input when applied to a native HTML button or link, and this is an <code>&lt;img&gt;</code> element. </p>
+						<p>The image link also lacks a <code>tabindex="0"</code> attribute so doesn’t receive keyboard focus.</p>
+						<p>Finally, the image link lacks the <code>role="link"</code> attribute, which identifies it to assistive technology as a link.</p>
+						<p><mark>TODO: Fix this linked image. Provide a real URL.</mark></p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body mrgn-bttm-0">
+								<img src="images/image1.png" class="img-link img-responsive" alt="Go to next page"  onclick="goToLink(event, 'http://www.example.com/page5.html')">
+								<style type="text/css">
+									.img-link:hover { cursor: pointer;  }
+								</style>
+								<script type="JavaScript">
+									function goToLink(event, url) {  
+									   var type = event.type;  
+									   if (type === 'click') {  
+										  window.location.href = url;      
+										  event.stopPropagation();  
+									   }								
+								</script>
 							</div>
 						</div>
-
-						<div class="panel panel-success mrgn-tp-lg">
-							<div class="panel-body">
-								<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good Example: Mouse and keyboard event handlers on a custom button</h3>
-						<p>In this example, a custom button built from a &lt;span&gt; element has the necessary accessibility semantics and functionality:</p>
-						<ul>
-							<li>A tabindex=”0” attribute, to ensure it receives keyboard focus.</li>
-							<li>A role=”button” attribute, to identify its purpose to assistive technology.</li>
-							<li>A visual indicator of keyboard focus and mouse hover via the CSS.</li>
-							<li>An onclick event handler for activation by mouse.</li>
-							<li>An onKeyDown event handler for action by keyboard. The function terminates if the keypress is not the Space or Enter key.</li>
-						</ul>
-						<p>The JavaScript adds names to a list below the form.<mark>Live example below:</mark></p>
-						<img src="images/image2.png" class="img-responsive" alt="">
-						<img src="images/image3.png" class="img-responsive" alt="">
 						<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">
-&lt;label for="newName"&gt;Enter your Name: &lt;/label&gt;
+<pre><code class="language-html">&lt;img class="img-link" onclick="goToLink(event, 'http://www.example.com/page5.html')" src="arrow.gif" alt="Go to next page"&gt;</code></pre>
+						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-css">.img-link:hover { 
+   cursor: pointer;  
+}</code></pre>
+						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-js">function goToLink(event, url) {  
+   var type = event.type;  
+   if (type === 'click') {  
+      window.location.href = url;      
+      event.stopPropagation();  
+   }</code></pre>
+						<p class="wb-inv">Code ends</p>
+					</div>
+				</div>
+
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Mouse and keyboard event handlers on a custom button</h3>
+						<p>In this example, a custom button built from a <code>&lt;span&gt;</code> element has the necessary accessibility semantics and functionality:</p>
+						<ul>
+							<li>A <code>tabindex="0"</code> attribute, to ensure it receives keyboard focus.</li>
+							<li>A <code>role="button"</code> attribute, to identify its purpose to assistive technology.</li>
+							<li>A visual indicator of keyboard focus and mouse hover via the CSS.</li>
+							<li>An <code>onclick</code> event handler for activation by mouse.</li>
+							<li>An <code>onKeyDown</code> event handler for action by keyboard. The function terminates if the keypress is not the Space or Enter key.</li>
+						</ul>
+						<p>The JavaScript adds names to a list below the form.</p>
+						
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+							
+								
+								
+								<label for="newName">Add a name: </label>
+								<input type="text" id="newName">
+								<span role="button" tabindex="0" onclick="handleCommand(event)" onKeyDown="handleCommand(event)">Add name</span>
+								<ul id="nameList"></ul>
+								
+								<style type="text/css">
+									[role="button"] {
+										padding: 0.25em 0.5em;
+										background-color: #CCCCCC;
+										color: black;
+										margin-left: 5px;
+										outline: 2px solid white;
+									}
+									#newName:focus,
+									#newName:hover {
+										background-color: rgb(186, 228, 253);
+									}
+									[role="button"]:focus,
+									[role="button"]:hover {
+										outline: 2px dotted rgb(81, 81, 250);
+									}								
+								</style>
+								<script>
+									function handleCommand(event) {
+										// Handles both mouse clicks and keyboard
+										// activate with Enter or Space
+										// Keypresses other then Enter and Space end the script
+										if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+											return;
+										}
+										// Get the new name value from the input element
+										let newNameInput = document.getElementById('newName');
+										let name = newNameInput.value;
+										// clear the text field
+										newNameInput.value = '';
+										// give the text field focus to enable entering an additional name
+										newNameInput.focus();  
+										// Don't add blank entries to the list
+										if(name.length > 0) {
+											listItem = document.createElement('li');
+											listItem.appendChild(document.createTextNode(name));
+											// Add the new name to the list
+											let list = document.getElementById('nameList');
+											list.appendChild(listItem);
+										}
+									}								
+								</script>
+							</div>
+						</div>
+								
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;label for="newName"&gt;Add a name: &lt;/label&gt;
 &lt;input type="text" id="newName"&gt;
 &lt;span role="button" tabindex="0" onclick="handleCommand(event)" onKeyDown="handleCommand(event)"&gt;Add Name&lt;/span&gt;
-&lt;ul id="nameList"&gt;&lt;/ul&gt;
-					</code>
-				</pre>
-										<p class="wb-inv">Code ends</p>
-						<p class="wb-inv">Code begins</p>
-						<pre><code class="language-css">			
-[role="button"] {
-padding: 0.25em 0.5em;
-background-color: #CCCCCC;
-color: black;
-margin-left: 5px;
-outline: 2px solid white;
+&lt;ul id="nameList"&gt;&lt;/ul&gt;</code></pre>
+
+						<p class="wb-inv">Code ends</p>
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">View JavaScript</summary>
+							<p class="wb-inv">Code begins</p>
+<pre><code class="language-js">function handleCommand(event) {
+   // Handles both mouse clicks and keyboard
+   // activate with Enter or Space
+   // Keypresses other then Enter and Space end the script
+   if (event instanceof KeyboardEvent 
+             &amp;&amp; event.key !== 'Enter' 
+             &amp;&amp; event.key !== ' ') {
+      return;
+   }
+   // Get the new name value from the input element
+   let newNameInput = document.getElementById('newName');
+   let name = newNameInput.value;
+   // clear the text field
+   newNameInput.value = ''; 
+   // give the text field focus to enable entering an additional name
+   newNameInput.focus();  
+   // Don't add blank entries to the list
+   if(name.length &gt; 0) {
+      listItem = document.createElement('li');
+      listItem.appendChild(document.createTextNode(name));
+      // Add the new name to the list
+      let list = document.getElementById('nameList');
+      list.appendChild(listItem);
+   }
+}</code></pre>
+							<p class="wb-inv">Code ends</p>
+						</details>						
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">View CSS</summary>
+							<p class="wb-inv">Code begins</p>
+<pre><code class="language-css">[role="button"] {
+   padding: 0.25em 0.5em;
+   background-color: #CCCCCC;
+   color: black;
+   margin-left: 5px;
+   outline: 2px solid white;
 }
 #newName:focus,
 #newName:hover {
-background-color: rgb(186, 228, 253);
+   background-color: rgb(186, 228, 253);
 }
 [role="button"]:focus,
 [role="button"]:hover {
-outline: 2px dotted rgb(81, 81, 250);
-}
-					</code>
-				</pre>
-						<p class="wb-inv">Code ends</p>
-						<p class="wb-inv">Code begins</p>
-						<pre><code class="language-js">
-&lt;script&gt;
-function handleCommand(event) {
-// Handles both mouse clicks and keyboard
-// activate with Enter or Space
-// Keypresses other then Enter and Space end the script
-if (event instanceof KeyboardEvent &amp;&amp; event.key !== 'Enter' &amp;&amp; event.key !== ' ') {
-    return;
-}
-// Get the new name value from the input element
-let newNameInput = document.getElementById('newName');
-let name = newNameInput.value;
-newNameInput.value = ''; // clear the text field
-newNameInput.focus();  // give the text field focus to enable entering and additional name.
-// Don't add blank entries to the list.
-if(name.length &gt; 0) {
-listItem = document.createElement('li');
-listItem.appendChild(document.createTextNode(name));
-// Add the new name to the list.
-let list = document.getElementById('nameList');
-list.appendChild(listItem);
-}
-}
-					</code>
-				</pre>
-						<p class="wb-inv">Code ends</p>
-			</div>
-			</div>
+   outline: 2px dotted rgb(81, 81, 250);
+}</code></pre>
+							<p class="wb-inv">Code ends</p>
+						</details>
+
+					</div>
+				</div>
 			</section>
 			
 			<section>				
@@ -351,42 +412,34 @@ list.appendChild(listItem);
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: JavaScript focus() traps the keyboard user</h3>
-				<p>This example illustrates the keyboard trap dangers of using the JavaScript focus() method. The form input field here uses the onblur event, which is triggered when focus leaves the element. When the keyboard user presses the Tab key to move focus away from the input field, the onblur event kicks in and sets focus back on the input field, trapping the user.</p>
-				<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">
-&lt;label for="lastname"&gt;Last Name&lt;/label&gt;
-&lt;input id="lastname" type="text" value="" class="trap" onblur="this.focus();"&gt;
-</code>
-</pre>
-		<p class="wb-inv">Code ends</p>
-		</div>
-		</div>
-		<div class="panel panel-danger mrgn-tp-lg">
-			<div class="panel-body">
-				<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: JavaScript keydown() and event.preventDefault() trap the keyboard user</h3> <mark>Do NOT render this example in live HTML</mark>
-				<p>This example illustrates the keyboard trap dangers of a JavaScript keypress event. The JavaScript function makes no effort to detect which key has been pressed (it should identify the Enter key), so it will trigger when any key is pressed. Furthermore, the default action associated with any key press is prevented with event.preventDefault(). Consequently, when a user attempts to move focus away from the link by pressing the Tab key, the keydown event fires, the default action of the Tab key (moving focus to the next focusable element) is prevented, focus remains on the link, and a new window opens. The keyboard user is trapped. Even pressing the Ctrl + Alt + Delete keys in Windows to bring up the Task Manager will fail, simply launching more windows in response to the keydown event. The user’s computer is hijacked, and unless a colleague or friend can move focus away from the element with a mouse, the user is forced to restart the computer.</p>
-				<p class="wb-inv">Code begins</p>
-				<pre><code class="language-html">
-&lt;span class=”trap link” role=”link” tabindex=”0” data-href=”some-page.html”&gt;Some page&lt;/a&gt;
-			</code>
-		</pre>
-		<p class="wb-inv">Code begins</p>
-<pre><code class="language-js">
-$(document).ready(function(){   
-$(‘span.trap’).keydown(function(event){ 
-event.preventDefault();
-var href = $(this).attr(‘data-href’);        
-var text = $(this).text();
-window.open(href, text);    
-});
-});
-		</code>
-		</pre>
+						<p>This example illustrates the keyboard trap dangers of using the JavaScript <code>focus()</code> method. The form input field here uses the <code>onblur</code> event, which is triggered when focus leaves the element. When the keyboard user presses the Tab key to move focus away from the input field, the <code>onblur</code> event kicks in and sets focus back on the input field, trapping the user.</p>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;label for="lastname"&gt;Last name&lt;/label&gt;
+&lt;input id="lastname" type="text" value="" class="trap" onblur="this.focus();"&gt;</code></pre>
+						<p class="wb-inv">Code ends</p>
+					</div>
+				</div>
+				<div class="panel panel-danger mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: JavaScript keydown() and event.preventDefault() trap the keyboard user</h3> 
+						<p>This example illustrates the keyboard trap dangers of a JavaScript key press event. The JavaScript function makes no effort to detect which key has been pressed (it should identify the Enter key), so it will trigger when <em>any</em> key is pressed. Furthermore, the default action associated with any key press is prevented with <code>event.preventDefault()</code>. Consequently, when a user attempts to move focus away from the link by pressing the Tab key, the <code>keydown</code> event fires, the default action of the Tab key (moving focus to the next focusable element) is prevented, focus remains on the link, and a new window opens. The keyboard user is trapped. Even pressing the Ctrl + Alt + Delete keys in Windows to bring up the Task Manager will fail, simply launching more windows in response to the keydown event. The user's computer is hijacked, and unless a colleague or friend can move focus away from the element with a mouse, the user is forced to restart the computer.</p>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;span class="trap link" role="link" tabindex="0" data-href="some-page.html"&gt;
+   Some page
+&lt;/a&gt;</code></pre>
 				<p class="wb-inv">Code ends</p>
+				<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-md"><code class="language-js">$(document).ready(function(){   
+   $('span.trap').keydown(function(event){ 
+      event.preventDefault();
+      var href = $(this).attr('data-href');        
+      var text = $(this).text();
+      window.open(href, text);    
+   });
+});</code></pre>
+						<p class="wb-inv">Code ends</p>
+					</div>
 				</div>
-				</div>
-
-
 			</section>
 			
 			<section>				
@@ -394,209 +447,257 @@ window.open(href, text);
 				<p>Content added to a page using JavaScript can be in one of two locations:</p>
 				<ul>
 					<li>The added content follows the trigger in the DOM. In this case, the focus does not need to be managed. When activated, the triggering control retains focus, and the added content is next in the screen-reader reading order and tab order. The added content can be absolutely positioned via CSS to be elsewhere on the page.</li>
-					<li>The added content does not follow the trigger in the DOM. In this case, the focus must be moved to the added content using the JavaScript focus() method. The target must have the tabindex=”-1” attribute to receive focus. Also, the target must have text content or programmatically-determined text via a label, or screen reader users will hear nothing upon arrival. If the added content can be collapsed/de-activated, collapsing it returns focus to the triggering control (or to another logical location, depending on the context). Prevent focus from being lost or reset to the top of the page.</li>
+					<li>The added content does not follow the trigger in the DOM. In this case, the focus must be moved to the added content using the JavaScript <code>focus()</code> method. The target must have the <code>tabindex="-1"</code> attribute to receive focus. Also, the target must have text content or programmatically-determined text via a label, or screen reader users will hear nothing upon arrival. If the added content can be collapsed/de-activated, collapsing it returns focus to the triggering control (or to another logical location, depending on the context). Prevent focus from being lost or reset to the top of the page.</li>
 				</ul>
-				<p>There are exceptions if you are implementing some widget patterns described in the WAI-ARIA Authoring Practices’ section 3 <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">Design Patterns and Widgets</a>. Content authors must manage focus on the following container roles:</p>
+				<p>There are exceptions if you are implementing some widget patterns described in the WAI-ARIA Authoring Practices’ section 3 <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">Design Patterns and Widgets</a>. Content authors must manage focus <mark><del>on</del> <ins>within</ins></mark> the following container roles:</p>
 				<ul>
-					<li><a href="https://www.w3.org/TR/wai-aria-1.1/">combobox</a></li>
 					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/">grid</a>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#combobox">combo box</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/">listbox</a>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#grid">grid</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/">menu</a>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#Listbox">listbox</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/">menubar</a>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#menu">menu</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/">radiogroup</a>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#menubar">menubar</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/">tree</a>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#radiobutton">radio group</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/">treegrid</a>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#tabpanel">tabs</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/">tablist</a>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#TreeView">tree view</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#treegrid">treegrid</a>
 					</li>
 				</ul>
-				<p>Managing focus within these “composite” widgets is a separate concern addressed in <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module12/index.html">module 12</a>.</p>
+				<p>Managing focus within these composite widgets is a separate concern addressed in <a href="../module12/index.html">module 12</a>.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good Example: Focus management in a single-page web application</h3>
-				<p>In this example, a single-page web application uses JavaScript to load a full article inside the main element, without a page load. Links in the navigation menu trigger the content load. This example has just a few menu items, but sites often have lengthy menus. Moving the focus spares keyboard users of single-page apps the tedious task of tabbing through a menu to get at the main content.</p>
-				<p>The h1 heading on each page has a tabindex=”-1” attribute, to enable it to be targeted by scripts. The JavaScript identifies the h1 heading with a query selector and sets focus on it. The script also updates the page’s title element to match the heading text. </p>
-				<p>The JavaScript’s first use should be triggered via the menu, not on page load. Screen reader users’ initial interaction with the page should start at the top, as usual.</p>
-				<p class="wb-inv">Code begins</p>
-				<pre><code class="language-html">
-&lt;nav&gt; 
-&lt;a href="/"&gt;Home&lt;/a&gt; 
-&lt;a href="/policies"&gt;Policies&lt;/a&gt; 
-&lt;a href="/practices"&gt;Practices&lt;/a&gt; 
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Focus management in a single-page web application</h3>
+						<p>In this example, a single-page web application uses JavaScript to load a full article inside the main element, without a page load. Links in the navigation menu trigger the content load. This example has just a few menu items, but sites often have lengthy menus. Moving the focus spares keyboard users of single-page apps the tedious task of tabbing through a menu to get at the main content.</p>
+						<p>The <code>&lt;h1&gt;</code> heading on each page has a <code>tabindex="-1"</code> attribute, to enable it to be targeted by scripts. The JavaScript identifies the <code>&lt;h1&gt;</code> with a query selector and sets focus on it. The script also updates the page’s <code>&lt;title&gt;</code> element to match the heading text. </p>
+						<p>The JavaScript’s first use should be triggered via the menu, not on page load. Screen reader users’ initial interaction with the page should start at the top, as usual.</p>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;nav&gt; 
+   &lt;a href="/"&gt;Home&lt;/a&gt; 
+   &lt;a href="/policies"&gt;Policies&lt;/a&gt; 
+   &lt;a href="/practices"&gt;Practices&lt;/a&gt; 
 &lt;/nav&gt; 
 &lt;main&gt; 
-// injected 
-&lt;h1 tabindex="-1"&gt;Policies&lt;/h1&gt; 
-// rest of injected content ... 
-&lt;/main&gt; 
-			</code>
-		</pre>
-				<p class="wb-inv">Code ends</p>
-				<p class="wb-inv">Code begins</p>
-				<pre><code class="language-js">
-	 // This gets called every time new content loads:  
+   // injected:
+          &lt;h1 tabindex="-1"&gt;Policies&lt;/h1&gt; 
+          // rest of injected content ... 
+&lt;/main&gt;</code></pre>
+						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-js">// This gets called every time new content loads:  
 function onNewPage() { 
-var heading = document.querySelector('h1'); 
-heading.focus(); 
-// Update the page title  
-document.title = heading.textContent; 
-  } 
-			</code>
-		</pre>
-				<p class="wb-inv">Code ends</p>
-				</div>
+   var heading = document.querySelector('h1'); 
+   heading.focus(); 
+   // Update the page title  
+   document.title = heading.textContent; 
+  }</code></pre>
+						<p class="wb-inv">Code ends</p>
+					</div>
 				</div>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good Example: Focus moved from trigger to dialog</h3>
-				<img src="images/image4.png image5.png" class="img-responsive" alt="">
-				<p>The “transcript” button’s JavaScript moves focus to the first focusable element (the user preferences button):</p>
-				
-				<p class="wb-inv">Code begins</p>
-				<pre><code class="language-js">
-this.$transcriptArea.find('button').first().focus();
-			</code>
-		</pre>
-		</div>
-		</div>
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Focus moved from trigger to dialog</h3>
+						<p>In this example, pressing the Ableplayer's transcript button <img src="images/image4.png" class="" alt="">:
+						<ul>
+							<li>launches an ARIA dialog widget holding the transcript, and </li>
+							<li>moves focus to the first <mark><del>interactive element</del> <ins>button</ins></mark> inside the dialog, the user preferences button <img src="images/image5.png" class="" alt="">:
+								<p class="wb-inv">Code begins</p>
+<pre><code class="language-js">this.$transcriptArea.find('button').first().focus();</code></pre>
+								<p class="wb-inv">Code ends</p>
+							</li>
+						</ul> 
+						<div class="panel panel-primary mrgn-tp-lg">
+							<div class="panel-body well mrgn-bttm-0">
+								<img src="images/image6.png" class="img-responsive" alt="Screenshot of Able Player">
+								<p class="mrgn-tp-lg">External example: <a href="https://ableplayer.github.io/ableplayer/demos/video3.html">Able Player Video Demo #3</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
 
-				<img src="images/image6.png" class="img-responsive" alt="Screenshot of Able Player">
-				<p>External example: <a href="https://ableplayer.github.io/ableplayer/demos/video3.html">Able Player Video Demo #3</a></p>
-				<h3 class="">Example: Focus managed on a dialog using keyboard interaction</h3> <mark>Render as live HTML</mark>
-				<p>In this example, when the user clicks the 'Submit’ button a pop-up window opens and focus is sent to the pop-up's first child focusable element. When the user clicks the pop-up window’s ‘Close’ button, focus is sent back to the triggering button.</p>
-				<img src="images/image7.png" class="img-responsive" alt="">
-				<img src="images/image8.png" class="img-responsive" alt="">
-				<p class="wb-inv">Code begins</p>
-				<pre><code class="language-css">
-body {
-background-color:#edeef6;
-font-family:'Poppins', sans-serif;
-display:flex;
-align-items:center;
-justify-content:center;
-min-height: 100vh;
-margin:0;
-}
-
-/* The Modal (background) */
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Focus managed on a dialog using keyboard interaction</h3> 
+						<p>In this example, when the user clicks the 'Submit' button a pop-up window opens and focus is sent to the pop-up's first child focusable element. When the user clicks the pop-up window’s ‘Close’ button, focus is sent back to the triggering button.</p>
+						<p><mark>TODO: Implement the full pattern (role and aria-labelledby, close on ESC key, managed focus)</mark></p>
+						<p><mark>TODO: Move focus to close button after triggering modal)</mark></p>
+						<div class="panel panel-primary mrgn-tp-lg">
+							<div class="panel-body well mrgn-bttm-0">
+								<!-- Trigger/Open The Modal -->
+								<button class="submit" id="myBtn">Submit</button>
+								<!-- The Modal -->
+								<div id="myModal" class="modal">
+									<!-- Modal content -->
+									<div class="modal-content">
+										<h2>Your form has been submitted.</h2>
+										<button class="btn-close">Close</button>
+									</div>
+								</div>
+								<script>
+									// Get the modal
+									var modal = document.getElementById("myModal");
+									// Get the button that opens the modal
+									var btnSubmit = document.getElementById("myBtn");
+									// Get the button that closes the modal
+									var btnClose = document.getElementsByClassName("btn-close")[0];
+									// When the user clicks the button, open the modal 
+									btnSubmit.onclick = function() {
+									   modal.style.display = "block";
+									}
+									// When the user clicks the close button, close the modal
+									btnClose.onclick = function() {	  
+									   modal.style.display = "none";
+									}
+									// When the user clicks anywhere outside of the modal, close it
+									window.onclick = function(event) {
+									   if (event.target == modal) {
+										  modal.style.display = "none";
+									   }
+									}								
+								</script>
+								<style type="text/css">
+									/* The Modal (background) */
+									.modal {
+										display: none; /* Hidden by default */
+										position: fixed; /* Stay in place */
+										z-index: 1; /* Sit on top */
+										padding-top: 100px; /* Location of the box */
+										left: 0;
+										top: 0;
+										width: 100%; /* Full width */
+										height: 100%; /* Full height */
+									}
+									/* Modal Content */
+									.modal-content {
+										background-color: #fefefe;
+										margin: auto;
+										padding: 20px;
+										border: 1px solid #888;
+										width: 25em;
+										height: auto;
+									}
+									/* The Close Button */
+									.submit {
+										background-color:#e60914;
+										border:0;
+										border-radius: 5px;
+										box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+										color:#fff;
+										font-size: 15px;
+										padding: 10px 25px;
+									}
+									.submit:hover,
+									.submit:focus {
+										color: #000;
+										text-decoration: none;
+										cursor: pointer;
+									}	
+											
+								</style>
+								<!-- 
+						<img src="images/image7.png" class="img-responsive" alt="">
+						<img src="images/image8.png" class="img-responsive" alt="">
+								-->
+							</div>
+						</div>
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">View CSS</summary>	
+							<p class="wb-inv">Code begins</p>
+<pre><code class="language-css">/* The Modal (background) */
 .modal {
-display: none; /* Hidden by default */
-position: fixed; /* Stay in place */
-z-index: 1; /* Sit on top */
-padding-top: 100px; /* Location of the box */
-left: 0;
-top: 0;
-width: 100%; /* Full width */
-height: 100%; /* Full height */
+   display: none; /* Hidden by default */
+   position: fixed; /* Stay in place */
+   z-index: 1; /* Sit on top */
+   padding-top: 100px; /* Location of the box */
+   left: 0;
+   top: 0;
+   width: 100%; /* Full width */
+   height: 100%; /* Full height */
 }
 /* Modal Content */
 .modal-content {
-background-color: #fefefe;
-margin: auto;
-padding: 20px;
-border: 1px solid #888;
-width: 25%;
-height:25%;
+   background-color: #fefefe;
+   margin: auto;
+   padding: 20px;
+   border: 1px solid #888;
+   width: 25%;
+   height:25%;
 }
-/* The Close Button */
-.close {
-color: #aaaaaa;
-float: right;
-font-size: 28px;
-font-weight: bold;
-}
-.close:hover,
-.close:focus {
- color: #000;
-text-decoration: none;
-cursor: pointer;
-}
-.close{
-background-color:#47a386;
-border:0;
-border-radius: 5px;
-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-color:#fff;
-font-size: 15px;
-padding: 10px 25px;
-}
-.submit{
-background-color:#e60914;
-border:0;
-border-radius: 5px;
-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-color:#fff;
-font-size: 15px;
-padding: 10px 25px;
+.submit {
+   background-color:#e60914;
+   border:0;
+   border-radius: 5px;
+   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+   color:#fff;
+   font-size: 15px;
+   padding: 10px 25px;
 }
 .submit:hover,
 .submit:focus {
-color: #000;
-text-decoration: none;
-cursor: pointer;
-}
-			</code>
-		</pre>
-				<p class="wb-inv">Code ends</p>
-				<p class="wb-inv">Code begins</p>
-				<pre><code class="language-html">
-&lt;h1&gt;Modal Popup Example: &lt;/h1&gt;
+   color: #000;
+   text-decoration: none;
+   cursor: pointer;
+}</code></pre>
+							<p class="wb-inv">Code ends</p>
+						</details>
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">View HTML</summary>
+							<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;h1&gt;Modal Popup Example: &lt;/h1&gt;
 &lt;!-- Trigger/Open The Modal --&gt;
 &lt;button class="submit" id="myBtn"&gt;Submit&lt;/button&gt;
 &lt;!-- The Modal --&gt;
 &lt;div id="myModal" class="modal"&gt;
-&lt;!-- Modal content --&gt;
-&lt;div class="modal-content"&gt;
-&lt;h2&gt;Your form has been submitted.&lt;/h2&gt;
-&lt;button class="close"&gt;Close&lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</code>
-</pre>
-		<p class="wb-inv">Code ends</p>
-	<p class="wb-inv">Code begins</p>
-				<pre><code class="language-js">
-&lt;script&gt;
-// Get the modal
+   &lt;!-- Modal content --&gt;
+   &lt;div class="modal-content"&gt;
+      &lt;h2&gt;Your form has been submitted.&lt;/h2&gt;
+      &lt;button class="btn-close"&gt;Close&lt;/button&gt;
+   &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+							<p class="wb-inv">Code ends</p>
+						</details>
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">View JavaScript</summary>
+							<p class="wb-inv">Code begins</p>
+<pre><code class="language-js">// Get the modal
 var modal = document.getElementById("myModal");
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-// Get the &lt;span&gt; element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var btnSubmit = document.getElementById("myBtn");
+// Get the button that closes the modal
+var btnClose = document.getElementsByClassName("btn-close")[0];
 // When the user clicks the button, open the modal 
-btn.onclick = function() {
- modal.style.display = "block";
+btnSubmit.onclick = function() {
+   modal.style.display = "block";
 }
-// When the user clicks on &lt;span&gt; (x), close the modal
-span.onclick = function() {	  
-modal.style.display = "none";
+// When the user clicks the close button, close the modal
+btnClose.onclick = function() {     
+   modal.style.display = "none";
 }
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
- if (event.target == modal) {
-  modal.style.display = "none";
-  }
-}
-&lt;/script&gt;
-	</code>
-		</pre>
-				<p class="wb-inv">Code ends</p>
-
-
+   if (event.target == modal) {
+     modal.style.display = "none";
+   }
+}</code></pre>
+							<p class="wb-inv">Code ends</p>
+						</details>
+					</div>
+				</div>
 
 			</section>
 			
@@ -613,7 +714,7 @@ window.onclick = function(event) {
 							<a href="https://www.w3.org/WAI/WCAG21/Understanding/no-keyboard-trap">2.1.2: No Keyboard Trap</a>
 						</li>
 					</ul>
-					<p>Techniques</p>
+					<h3>Techniques</h3>
 					<ul>
 						<li>
 							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G202">G202: Ensuring keyboard control for all functionality</a>
