@@ -70,48 +70,282 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#section1">S1</a></li>
-			<li><a href="#section2">S2</a></li>
-			<li><a href="#section3">S3</a></li>
+            <li><a href="#overview">Time limits (overview)</a></li>
 			<li><a href="#resources1">Related WCAG resources</a></li>
           </ul>
         </div>
       </div>
 	</nav>
 	
-			<section>				
-				<h2 id="section1">S1</h2>
+			<section>	
+			<h2 id="overview">Time limits (overview)</h2>			
+			<p>Time limits are a potential barrier to people with disabilities such as blindness, low vision, dexterity impairments, and cognitive limitations. These users may require more time to read content or to perform a task such as completing an on-line form. WCAG requires that content with time limits offers one of the following features:</p>
+				<ul>
+					<li><b>Turn off</b>: The user is allowed to turn off the time limit before encountering it.</li>
+					<li><b>Adjust</b>: The user is allowed to adjust the time limit before encountering it to a length at least ten times the default setting.</li>
+					<li><b>Extend</b>: The user is warned before time expires and given 20 seconds to extend the time limit.</li>
+				</ul>
+				<p>Any process that happens without user initiation after a set time or on a periodic basis is a time limit. This includes a partial or full update of content (such as a page refresh), changes to content, and the expiration of a window of opportunity for a user to react to a request for input. It also includes content that is updating too fast for the user to read or understand – any animated, moving or scrolling content.</p>
+				<p>Examples:</p>
+				<ul>
+					<li>A form with a time limit offers a control that allows the user to turn it off or extend it up to ten times the default.</li>
+					<li>After a period of user inactivity, a client-side script asks if the user needs more time. If it doesn’t get a response within 20 seconds, it times out. Note that 20 seconds is the minimum time.</li>
+					<li>A site with a rotating banner offers a control that allows the user to extend the time between updates as much as ten times the default.</li>
+					<li>A site with a rotating banner offers a pause button.</li>
+					<li>A page with animated text that scrolls, appears and fades away offers the user a pause button.</li>
+				</ul>
+				<p>With session timeouts, present warning messages in a popup dialog (the <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">WAI-ARIA Dialog pattern</a> and the <a href="https://wet-boew.github.io/v4.0-ci/demos/session-timeout/session-timeout-en.html">WET session timeout</a> are described in <a href="../module12/index.html">module 12</a>) with options for the user to either extend or end the session. </p>
+				<p>For timers with fixed deadlines, provide a countdown feature with <code>ARIA live</code> announcements at strategic intervals. See the example in the preceding section, <a href="aria-live.html#countdown">Good example: Countdown announcing at intervals</a>  </p>
+				<p>When refreshing/reloading a page, ask the user’s permission. An automatic page refresh/reload can cause difficulties for people with motor impairments, people with low vision, people who are blind, and people with certain cognitive limitations. Screen reader users may not have sufficient time to find their place before the page refreshes again. Instead, notify users that newer content is available and provide the options to update or continue with the old content. If the content update is urgent, use a popup dialog and shift the user’s focus to it; otherwise, use an eye-catching <a href="aria-live.html#overview">ARIA live region</a> with <code>role=”alert”</code>.</p>
+				<div class="panel panel-success">
+					<div class="panel-body">
+					  <h2 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Session timeout</h2>
 				
+				<p>In this example, after 15 seconds of inactivity JavaScript launches and shifts user focus to a pop-up dialog that uses the <code>role=”alertdialog"</code> attribute. The user can choose to Continue Session or End Session. If the user clicks Continue Session, JavaScript resets the 15 second counter. If the user clicks End Session, JavaScript exits the page.</p>
+				<p><a href="example-session-timeout.html">Open the session timeout example.</a></p>
+				<p class="wb-inv">Code begins</p>
+<pre><code class="language-css">#modalOverlay {
+width:100%;
+height:100%;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+}
+[role=alertdialog] {
+	position: relative;
+	width: 80%;
+	margin-left: -40%;
+	height: 400px;
+	margin-top: -200px;
+padding: 5px;
+border: thin #000 solid;
+background-color:#fff;
+}</code></pre>
+<pre><code class="language-html">&lt;main&gt;
+  &lt;h1&gt;Accessible session timeout dialog&lt;/h1&gt;
+  &lt;p&gt; after 15 seconds of inactivity JavaScript launches and shifts user focus to a pop-up dialog that uses the role=”alertdialog" attribute. The user can choose to Continue Session or End Session. If the user clicks Continue Session, JavaScript resets the 15 second counter. If the user clicks End Session, JavaScript exits the page.&lt;/p&gt;
+&lt;/main&gt;</code></pre>
+
+<p>To accommodate a focus bug in VoiceOver, the JavaScript hides the main and nav elements with <code>aria-hidden="true"</code> and CSS <code>display: none</code>, then a millisecond later cancels that out.</p>
+<details class="mrgn-tp-sm">
+							<summary class="bg-info">View Javascript </summary>
+<pre><code class="language-js">&lt;script&gt;
+	startTimeout();
+	function startTimeout(){
+	setTimeout(function(){
+	$('main, [role=navigation]').attr('aria-hidden','true').css('display','none');
+	setTimeout(function(){
+	$('main, [role=navigation]').attr('aria-hidden','true').css('display','inherit');
+	}, 1);
+	$('body').attr('style','background-color:gray;');
+	$('a').attr('tabindex','-1');
+	$('a').attr('style','cursor:default;');
+	$('button').attr('disabled','true');
+	var modalOverlay = $('&lt;div&gt;').attr({id:"modalOverlay"});
+	$(modalOverlay).appendTo('body');
+	var dialog = $('&lt;div&gt;').attr({role:"alertdialog", "aria-labelledby":"alertHeading", "aria-describedby":"alertText"});
+	$(dialog).html('
+	&lt;h1 id="alertHeading"&gt;Session Timeout!&lt;/h1&gt;
+	&lt;div id="alertText"&gt;
+	&lt;p&gt;
+	Due to inactivity, your session will expire in 2 minutes. If additional time is required, please click "Continue Session". To allow this session to end, click "End Session".
+	&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;button id="continue"&gt;Continue Session&lt;/button&gt;
+	&lt;button onclick="window.location.href = “https://accessible.canada.ca/;” &gt; End Session &lt;/button&gt;').appendTo('#modalOverlay');
+	$('#continue').focus();
+	$('#continue').click(function(e) {
+		$('main, [role=navigation]').attr('aria-hidden','false');
+	$('body, a').removeAttr('style');
+	$('a').removeAttr('tabindex');
+	$('button').removeAttr('disabled');
+	$(modalOverlay).remove();
+	$(dialog).remove();
+	startTimeout();
+	});
+	}, 15000);
+	}
+&lt;/script&gt;</code></pre>
+<p class="wb-inv">Code ends</p>
+				
+						</details>	
+						<p>Reference: <a href="https://pauljadam.com/demos/session-timeout-alertdialog.html">https://pauljadam.com/demos/session-timeout-alertdialog.html</a></p>
+				
+						</div>
+					</div>
+			
+			<div class="panel panel-danger mrgn-tp-lg">
+				<div class="panel-body">
+					<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span> Bad example: Session timeout with no option to extend</h3>
+				<p>Ending a session without proper warning risks frustration and loss of work. This example demonstrates a warning message to the user without the option of continuing to extend the session.</p>
+				<img src="images/screenshot_1.png" class="img-responsive" alt="Screenshot of warning message that says &#34;You will be auto logged out in 19 seconds&#34;">
+				<img src="images/screenshot_2.png" class="img-responsive" alt="Screenshot of notification message that says &#34;Your session has expired. Please login again.&#34;">
+				<p class="wb-inv">Code begins</p>
+				<p></p>
+<pre><code class="language-css">#timeOut
+	{
+		background-color: rgb(247, 231, 14);
+	}</code></pre>
+<pre><code class="language-html">&lt;body&gt;
+	&lt;form id="form1" runat="server"&gt;
+	&lt;div&gt;
+		You will be auto logged out in &lt;span id="timeOut"&gt;&lt;/span&gt; seconds.
+	&lt;/div&gt;
+	&lt;/form&gt;
+&lt;/body&gt;</code></pre>
+<pre><code class="language-js">&lt;script type="text/javascript"&gt;
+	var IdealTimeOut = 20; //10 seconds
+	var idleSecondsTimer = null;
+	var idleSecondsCounter = 0;
+	document.onclick = function () { idleSecondsCounter = 0; };
+	document.onmousemove = function () { idleSecondsCounter = 0; };
+	document.onkeypress = function () { idleSecondsCounter = 0; };
+	idleSecondsTimer = window.setInterval(CheckIdleTime, 2000);
+	function CheckIdleTime() {
+		idleSecondsCounter++;
+		var oPanel = document.getElementById("timeOut");
+		if (oPanel) {
+			oPanel.innerHTML = (IdealTimeOut - idleSecondsCounter);
+		}
+		if (idleSecondsCounter &gt;= IdealTimeOut) {
+			window.clearInterval(idleSecondsTimer);
+			alert("Your Session has expired. Please login again.");
+			window.location = "https://bati-itao.github.io/";
+		}
+	}
+&lt;/script&gt;</code></pre>
+<p class="wb-inv">Code ends</p>
+	</div></div>
+			<div class="panel panel-danger mrgn-tp-lg">
+				<div class="panel-body">
+					<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span> Bad example: JavaScript automatically refreshes a page </h3>
+				<img src="images/screenshot_3.png" class="img-responsive" alt="Screenshot of a bad example website that refreshes every 5 seconds">
+				<p></p>
+				<details class="mrgn-tp-sm">
+							<summary class="bg-info">View HTML </summary>
+							<p class="wb-inv">Code begins</p><pre><code class="language-html">&lt;html&gt;
+   &lt;head&gt;
+	  &lt;script type = "text/JavaScript"&gt;
+		 &lt;!--
+			function AutoRefresh( t ) {
+			   setTimeout("location.reload(true);", t);
+			}
+		 //--&gt;
+	  &lt;/script&gt;
+   &lt;/head&gt;
+   &lt;body onload = "JavaScript:AutoRefresh(5000);"&gt;
+	  &lt;p&gt;This page will refresh every 5 seconds.&lt;/p&gt;
+	  &lt;style&gt;
+		body {
+			font-family:Arial, sans-serif;
+		}
+		.image1, .image2, .image3, .image4{
+			display:inline-block;
+		}
+		.right {
+			float:right;
+		}
+		#container {
+			max-width:631px;
+			margin:auto;
+		}
+		section {
+		padding:0 20px 20px 20px;
+		border:1px solid grey;
+		margin:20px 0;
+		}
+		section h2 {
+			margin:0 -20px 0 -20px;
+			padding:3px 6px;
+			background:#3f3f3f;
+			color:#fff;
+		}
+		.city {
+			float:left;
+			width:50%;
+		}
+		.clear {
+			clear:both;
+		}
+	&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	&lt;div id="container"&gt;
+		&lt;h1&gt;Bad Example: Auto-refreshing  News Page&lt;/h1&gt;
+		&lt;p&gt;This page auto-refreshes every 5 seconds, which is an exaggeration of what news web sites actually do, but many of them do have auto-refreshing home pages, which are bad for accessibility.&lt;/p&gt;
+		&lt;h1&gt;WorldWideWeb News&lt;/h1&gt;
+	&lt;section id="headlines"&gt;
+		&lt;h2&gt;Accessibility News&lt;/h2&gt;
+	&lt;div class="version1"&gt;
+		&lt;h3&gt;A new accessibility tool is launched&lt;/h3&gt;
+		&lt;p&gt;&lt;img src="img/image1007.jpg" width="590" height="180" alt=""/&gt;&lt;/p&gt;
+		&lt;p&gt;For the first time ever, a brand-new tool has been launched by the Site Improve developers. &lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class="version2"&gt;
+		&lt;h3&gt;Economic purchasing power for people with disabilities on par with general population&lt;/h3&gt;
+		&lt;p&gt;&lt;img src="img/image1008.jpg" width="591" height="224" alt=""/&gt;&lt;/p&gt;
+		&lt;p&gt;After centuries of institutional neglect and powerful socioeconomic forces keeping most people with disabilities at or near the poverty level, modern societies have ensured that people with disabilities will not be subjected to the same economic disadvantages as their predecessors.&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class="version3"&gt;
+		&lt;h3&gt;Climate disaster averted&lt;/h3&gt;
+		&lt;p&gt;&lt;img src="img/image1009.jpg" width="589" height="331" alt=""/&gt;&lt;/p&gt;
+		&lt;p&gt;Against all political odds, leaders around the world united to enact legal protections that will save the planet from its greatest threat: ourselves.&lt;/p&gt;
+	&lt;/div&gt;
+		 &lt;/div&gt;
+	&lt;/section&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+				</code></pre>
+<p class="wb-inv">Code ends</p>
+</details>
 			</section>
 			
-			<section>				
-				<h2 id="section2">S2</h2>
-				
-			</section>
-			
-			<section>				
-				<h2 id="section3">S3</h2>
-				
-			</section>
-			
-			
-			<section>				
+		<section>				
 				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Related WCAG resources</summary>
-					<h3>Success criteria</h3>
-					<ul>
-						<li><a href="https://www.link1.com">Link 1</a></li>
-					</ul>
-					<h3>Techniques</h3>
-					<ul>
-						<li>
-							<a href="https://www.link2.com">Link 2</a>
-						</li>						
-					</ul>
+				<h3 class="">Success Criteria</h3>
+				<ul>
+					<li>This Success Criterion works in tandem with Success Criterion 2.2.1 Timing Adjustable, but is specifically focused on notification of timeouts related to user inactivity.</li>
+				</ul>
+				<p>Techniques</p>
+				<p>Situation A: If there are session time limits:</p>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G133">G133: Providing a checkbox on the first page of a multipart form that allows users to ask for longer session time limit or no session time limit</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G198">G198: Providing a way for the user to turn the time limit off</a>
+					</li>
+				</ul>
+				<h3 class="">Situation B: If a time limit is controlled by a script on the page:</h3>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G198">G198: Providing a way for the user to turn the time limit off</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G180">G180: Providing the user with a means to set the time limit to 10 times the default time limit</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR16">SCR16: Providing a script that warns the user a time limit is about to expire</a> AND <a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR1">SCR1: Allowing the user to extend the default time limit</a></li>
+				</ul>
+				<h3 class="">Situation C: If there are time limits on reading:</h3>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G4">G4: Allowing the content to be paused and restarted from where it was paused</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G198">G198: Providing a way for the user to turn the time limit off</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR33">SCR33: Using script to scroll content, and providing a mechanism to pause it</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR36">SCR36: Providing a mechanism to allow users to display moving, scrolling, or auto-updating text in a static window or area</a>
+					</li>
+				</ul>
 				</details>
 			</section>
-		
 		
 	<nav role="navigation" aria-labelledby="nav-document">
 		<h2 id="nav-document" class="wb-inv">Pagination menu</h2>
