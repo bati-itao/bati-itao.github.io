@@ -146,7 +146,11 @@
 				<div class="panel-body">
 	
 					<h2 class="text-success mrgn-tp-0 h3" id="labels-attributes"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Associating labels explicitly using for/id attributes</h2>
-					<p>Use the <code>&lt;label&gt;</code> element to associate text with form elements explicitly, whenever possible. The <code>for</code> attribute of the label must exactly match the <code>id</code> of the form control. Prioritize using the HTML <code>&lt;label&gt;</code> element to <mark><del>associate</del> <ins>name</ins></mark> form controls <mark><del>using</del> <ins>over</ins></mark> using <mark>an</mark> ARIA <mark>label</mark>.</p>
+					<p>Use the <code>&lt;label&gt;</code> element to associate text with form elements explicitly, whenever possible. The <code>for</code> attribute of the label must exactly match the <code>id</code> of the form control. Prioritize using the HTML <code>&lt;label&gt;</code> element to 
+					<mark>
+						<del>associate form controls using ARIA</del>
+						<ins>name form controls over using an ARIA label</ins>
+					</mark>.</p>
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
 <p class="wb-inv">Example begins</p>
@@ -166,12 +170,14 @@
 					
 					<p class="wb-inv">Code begins</p>
 					
-<pre><code class="language-html">&lt;label for="firstname"&gt;First name:&lt;/label&gt;
-&lt;input type="text" name="firstname" id="firstname"&gt;
-&lt;br&gt;
-&lt;input type="checkbox" name="married" id="married"&gt;
-&lt;label for="married"&gt;Married&lt;/label&gt;</code>
-</pre>
+<pre><code class="language-html">&lt;div class="form-group"&gt;
+   &lt;label for="firstname"&gt;First name:&lt;/label&gt;
+   &lt;input type="text" name="firstname" id="firstname"&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+   &lt;input type="checkbox" name="married" id="married"&gt;
+   &lt;label for="married"&gt;Married&lt;/label&gt;
+&lt;/div&gt;</code></pre>
 					<p class="wb-inv">Code ends</p>
 							
           
@@ -183,7 +189,7 @@
 			<div class="panel panel-success mrgn-tp-lg">
 			  <div class="panel-body">
 	
-				<h2 class="text-success mrgn-tp-0 h3" id="hiding-label-element"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Visually hiding the <code>label</code> element</h2>
+				<h2 class="text-success mrgn-tp-0 h3" id="hiding-label-element"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Visually hiding the label element</h2>
 				<p>Visually hide the <code>&lt;label&gt;</code> element to avoid redundancy for users who can identify the purpose visually. In this example, The WET class <code>.wb-inv</code> effectively hides the label "Search" from sighted users but the element is still in the HTML and is encountered by assistive technology users.</p>
 				<div class="panel panel-primary mrgn-tp-md">
 					<div class="panel-body well mrgn-bttm-0">
@@ -271,12 +277,12 @@
 													   
 					<div class="clearfix"></div>
 					<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;h3 id=”option1”&gt;Service 1&lt;/h3&gt;
-&lt;button type=”submit” id=”add1” aria-labelledby=”add1 option1”&gt;Add to cart&lt;/button&gt;
-&lt;h3 id=”option2”&gt;Service 2&lt;/h3&gt;
-&lt;button type=”submit” id=”add2” aria-labelledby=”add2 option2”&gt;Add to cart&lt;/button&gt;
-&lt;h3 id=”option3”&gt;Service 3&lt;/h3&gt;
-&lt;button type=”submit” id=”add3” aria-labelledby=”add3 option3”&gt;Add to cart&lt;/button&gt;</code></pre>
+<pre><code class="language-html">&lt;h3 id="option1"&gt;Service 1&lt;/h3&gt;
+&lt;button type="submit" id="add1" aria-labelledby="add1 option1"&gt;Add to cart&lt;/button&gt;
+&lt;h3 id="option2"&gt;Service 2&lt;/h3&gt;
+&lt;button type="submit" id="add2" aria-labelledby="add2 option2"&gt;Add to cart&lt;/button&gt;
+&lt;h3 id="option3"&gt;Service 3&lt;/h3&gt;
+&lt;button type="submit" id="add3" aria-labelledby="add3 option3"&gt;Add to cart&lt;/button&gt;</code></pre>
 					<p class="wb-inv">Code ends</p>
 				</div>
 			</div>
@@ -290,7 +296,7 @@
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
 							<p class="wb-inv">Example begins</p>
-							<table class="table">
+							<table class="table table-bordered">
 								<thead>
 									<tr>
 										<th scope="col">Name</th>
