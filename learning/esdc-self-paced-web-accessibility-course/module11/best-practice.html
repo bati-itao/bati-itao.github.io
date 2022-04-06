@@ -70,46 +70,52 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#section1">S1</a></li>
-			<li><a href="#section2">S2</a></li>
-			<li><a href="#section3">S3</a></li>
-			<li><a href="#resources1">Related WCAG resources</a></li>
+            <li><a href="#aria-regions">Best practice – ARIA live regions</a></li>
+			<li><a href="#time-limits">Best practice – Time limits</a></li>
           </ul>
         </div>
       </div>
 	</nav>
 	
-			<section>				
-				<h2 id="section1">S1</h2>
-				
-			</section>
-			
-			<section>				
-				<h2 id="section2">S2</h2>
-				
-			</section>
-			
-			<section>				
-				<h2 id="section3">S3</h2>
-				
-			</section>
-			
-			
-			<section>				
-				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
-				<details class="mrgn-tp-lg">
-					<summary class="bg-info">Related WCAG resources</summary>
-					<h3>Success criteria</h3>
+			<section>
+				<h2 id="aria-regions">Best practice – ARIA live regions</h2>
+				<ul>
+					<li>Identify a live region with an aria-live attribute on a container element.</li>
 					<ul>
-						<li><a href="https://www.link1.com">Link 1</a></li>
+					<li>The live region must be empty on page load or when it’s first added to the DOM.  </li>
+					<li>Use <code>aria-live=”polite”</code> for most announcement. </li>
+					<li>Use <code>aria-live=”assertive”</code> when the user needs immediate feedback.</li>
 					</ul>
-					<h3>Techniques</h3>
+					<li>Use the <code>aria-atomic</code> attribute to specify if the whole live region should be announced, or only the text that changed.</li>
 					<ul>
-						<li>
-							<a href="https://www.link2.com">Link 2</a>
-						</li>						
+					<li>Use <code>aria-atomic=”false”</code> to announced only the updated text.</li>
+					<li>Use <code>aria-atomic=”true</code> to announce static and updated text.</li>
 					</ul>
-				</details>
+					<li>Only use the <code>aria-relevant</code> attribute if the removal of content from a live region needs to be announced.</li>
+					<li>Use the <code>aria-busy=”true”</code> attribute to notify assistive technology that it should temporarily ignore changes to an element when things are loading. Once everything is in place, clear the attribute or set it to <code>aria-busy=”false”</code>.</li>
+					<ul>
+					<li>Use a special type of live region role when appropriate:</li>
+					<li>Use <code>role=”alert”</code> to announce important and typically time-sensitive information that requires the user’s immediate attention.</li>
+					<li>Use <code>role=”status”</code> to announce advisory information to the user that is less urgent than an alert.</li>
+					<li>Use <code>role=”timer”</code> to identify a numerical counter listing the time elapsed from a starting point or the time remaining until an end point.</li>
+					<li>Use <code>role=”marquee”</code> to define an area as a type of live region with non-essential announcements that change frequently.</li>
+					<li>Use <code>role=”log”</code> to keep track of sequential updates, such as a chat log, messaging history, game log or an error log.</li>
+					</ul>
+				</ul>
+			</section>
+			<section>
+				<h2 id="time-limits">Best practice – Time limits</h2>
+				<ul>
+					<li>Any design with a time limit must offer the user the ability to either:</li>
+					<ul>
+					<li><b>Turn off</b> the time limit before encountering it.</li>
+					<li><b>Adjust</b> the time limit before encountering it to a length at least ten times the default setting.</li>
+					<li><b>Extend</b> the time limit. The user must be warned at least 20 seconds before time expires.</li>
+					</ul>
+					<li>With session timeouts, present warning messages in a popup dialog with options for the user to either extend or end the session. </li>
+					<li>For timers with fixed deadlines, provide a countdown feature with ARIA live announcements at strategic intervals.</li>
+					<li>When refreshing/reloading a page, ask the user’s permission. Notify users that newer content is available and provide the options to update or continue</li>
+				</ul>
 			</section>
 		
 		
