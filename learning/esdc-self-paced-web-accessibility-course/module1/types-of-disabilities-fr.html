@@ -56,108 +56,6 @@
             "menuPath": "../../../ajax/menu-fr.html"
         });
 		
-
-$(function(){
-
-  
-	var getTextNodesIn = function(el) { // Look at all the page elements and returns the text nodes
-	    return $(el).find(":not(iframe,script)").addBack().contents().filter(function() {
-	        return this.nodeType == 3; // Text node types are type 3
-	    });
-	};
-
-	// var textNodes = getTextNodesIn($("p, h1, h2, h3","*"));
-	var textNodes = getTextNodesIn($(".dyslexiaSim p"));
-
-	function isLetter(char) {
-		return /^[\d]$/.test(char);
-	}
-
-	var wordsInTextNodes = [];
-	for (var i = 0; i < textNodes.length; i++) {
-		var node = textNodes[i];
-
-		var words = []
-
-		var re = /\w+/g;
-		var match;
-		while ((match = re.exec(node.nodeValue)) != null) {
-
-			var word = match[0];
-			var position = match.index;
-
-			words.push({
-				length: word.length,
-				position: position
-			});
-		}
-
-		wordsInTextNodes[i] = words;
-	};
-
-	function messUpWords () {
-
-		for (var i = 0; i < textNodes.length; i++) {
-
-			var node = textNodes[i];
-
-			for (var j = 0; j < wordsInTextNodes[i].length; j++) {
-
-				// Only change a tenth of the words each round.
-				if (Math.random() > 1/10) {
-
-					continue;
-				}
-
-				var wordMeta = wordsInTextNodes[i][j];
-
-				var word = node.nodeValue.slice(wordMeta.position, wordMeta.position + wordMeta.length);
-				var before = node.nodeValue.slice(0, wordMeta.position);
-				var after  = node.nodeValue.slice(wordMeta.position + wordMeta.length);
-
-				node.nodeValue = before + messUpWord(word) + after;
-			};
-		};
-	}
-
-	function messUpWord (word) {
-
-		if (word.length < 3) {
-
-			return word;
-		}
-
-		return word[0] + messUpMessyPart(word.slice(1, -1)) + word[word.length - 1];
-	}
-
-	function messUpMessyPart (messyPart) {
-
-		if (messyPart.length < 2) {
-
-			return messyPart;
-		}
-
-		var a, b;
-		while (!(a < b)) {
-
-			a = getRandomInt(0, messyPart.length - 1);
-			b = getRandomInt(0, messyPart.length - 1);
-		}
-
-		return messyPart.slice(0, a) + messyPart[b] + messyPart.slice(a+1, b) + messyPart[a] + messyPart.slice(b+1);
-	}
-
-	// From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-	function getRandomInt(min, max) {
-		
-		return Math.floor(Math.random() * (max - min + 1) + min);
-	}
-
-
-	setInterval(messUpWords, 150);
-});
-
-
     </script>
 <div class="container">
 <div class="row">
@@ -165,10 +63,10 @@ $(function(){
 		<h1 property="name" id="wb-cont">Types de handicaps</h1>
                 
                 
-                	<nav role="navigation"  aria-label="Table des matières">
+                	<nav role="navigation"  aria-labelledby="nav-table">
       <div class="panel panel-default mrgn-tp-lg">
         <header class="panel-heading">
-          <h2 class="panel-title">Table des matières</h2>
+          <h2 id="nav-table" class="panel-title">Table des matières</h2>
         </header>
         <div class="panel-body">
           <ul>
@@ -572,8 +470,8 @@ $(function(){
 				</ul>
 			</section>	
 			
-	<nav role="navigation">
-	<h2 class="wb-inv">Navigation dans le document</h2>
+	<nav role="navigation" aria-labelledby="nav-pagination">
+	<h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
 	<ul class="pager">
 		<li class="previous"> <a rel="prev" href="web-accessibility-fr.html">Précédent - Accessibilité du Web</a></li>
 	  <li class="next"> <a rel="next" href="accessibility-guidelines-fr.html">Suivant - Lignes directrices sur l’accessibilité</a> </li>
@@ -585,7 +483,7 @@ $(function(){
 		
 		
 
-		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation" aria-labelledby="wb-sec-h">
 			
 			
 
