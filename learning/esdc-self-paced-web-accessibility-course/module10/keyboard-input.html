@@ -159,15 +159,15 @@
 				<h3 class="">Pair mouse event handlers with keyboard event handlers</h3>
 				<p>Using both keyboard-specific and mouse-specific events together ensures that content can be operated by a wide range of devices.</p>
 				<p>The following table suggests mouse event handlers to pair with keyboard event handlers:</p>
-				<table class="table table-bordered table-hover">
+				<table class="table table-bordered table-hover" style="max-width: 24em">
 					<caption>Device handler correspondences</caption>
 					<thead>
 						<tr>
 							<th scope="col">
-								<p>Use ..</p>
+								<p>Use &hellip;</p>
 							</th>
 							<th scope="col">
-								<p>… with</p>
+								<p>&hellip; with</p>
 							</th>
 						</tr>
 					</thead>
@@ -214,7 +214,7 @@
 						</tr>
 					</tbody>
 				</table>
-				<p>When using a native HTML button or link, user agents process the click event regardless of whether it was activated with the mouse or the keyboard. It’s not necessary to duplicate this event when adding handlers to natively focusable HTML elements. However, if not using a native button or link, it is necessary to add <code>keypress</code>.</p>
+				<p>When using a native HTML button or link, user agents process the <code>click</code> event regardless of whether it was activated with the mouse or the keyboard. It’s not necessary to duplicate this event when adding handlers to natively focusable HTML elements. However, if not using a native button or link, it is necessary to add <code>keypress</code>.</p>
 				<p>Because the <code>keypress</code> event handler reacts to any key, the event handler should first check that the Enter key was pressed before proceeding to handle the event. Otherwise, the event handler will trigger on any key press, even the Tab key to leave the control.</p>
 				<p>If using the ARIA <code>role="button"</code> attribute instead of the native <code>&lt;button&gt;</code> or <code>&lt;input type="button"&gt;</code> elements, you will need to both make the element focusable and define event handlers for click and for the Enter and Space keypresses. <mark><del>For more information on custom controls, see <a href="../module12/custom-controls.html">Module 12</a></del></mark>.</p>
 				<div class="panel panel-success mrgn-tp-lg">
@@ -239,7 +239,7 @@
 						<p>In this example, a custom image link responds to mouse click only and can’t be activated by keyboard. It lacks an equivalent event handler for the Enter key. The <code>onclick</code> event only responds to keyboard input when applied to a native HTML button or link, and this is an <code>&lt;img&gt;</code> element. </p>
 						<p>The image link also lacks a <code>tabindex="0"</code> attribute so doesn’t receive keyboard focus.</p>
 						<p>Finally, the image link lacks the <code>role="link"</code> attribute, which identifies it to assistive technology as a link.</p>
-						<p><mark>TODO: Fix this linked image. Provide a real URL.</mark></p>
+						<p><mark>TODO: Fix this linked image. Add keyboard event. Provide a real URL.</mark></p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body mrgn-bttm-0">
 								<img src="images/image1.png" class="img-link img-responsive" alt="Go to next page"  onclick="goToLink(event, 'http://www.example.com/page5.html')">
@@ -483,7 +483,7 @@
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Focus management in a single-page web application</h3>
-						<p>In this example, a single-page web application uses JavaScript to load a full article inside the main element, without a page load. Links in the navigation menu trigger the content load. This example has just a few menu items, but sites often have lengthy menus. Moving the focus spares keyboard users of single-page apps the tedious task of tabbing through a menu to get at the main content.</p>
+						<p>In this example, a single-page web application uses JavaScript to load a full article inside the <code>&lt;main&gt;</code> element, without a page load. Links in the navigation menu trigger the content load. This example has just a few menu items, but sites often have lengthy menus. Moving the focus spares keyboard users of single-page apps the tedious task of tabbing through a menu to get at the main content.</p>
 						<p>The <code>&lt;h1&gt;</code> heading on each page has a <code>tabindex="-1"</code> attribute, to enable it to be targeted by scripts. The JavaScript identifies the <code>&lt;h1&gt;</code> with a query selector and sets focus on it. The script also updates the page’s <code>&lt;title&gt;</code> element to match the heading text. </p>
 						<p>The JavaScript’s first use should be triggered via the menu, not on page load. Screen reader users’ initial interaction with the page should start at the top, as usual.</p>
 						<p class="wb-inv">Code begins</p>
