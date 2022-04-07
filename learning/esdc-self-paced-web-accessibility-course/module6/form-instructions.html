@@ -73,7 +73,7 @@
             <li><a href="#form-instructions">Form instructions (overview)</a></li>
 			<li><a href="#overall-instructions">Overall instructions</a></li>
 			<li><a href="#inline-instructions">In-line instructions</a></li>
-			<li><a href="#instructions-for-groups">Instructions for groups<mark><del> or sections are programmatically associated with the group</del></mark></a></li>
+			<li><a href="#instructions-for-groups">Instructions for groups <mark><del>or sections are programmatically associated with the group</del></mark></a></li>
 			<li><a href="#resources">Related WCAG resources</a></li>
           </ul>
         </div>
@@ -109,22 +109,22 @@
 					<div class="panel-body">
 					  <h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing instructions within a label</h4>
 					  
-						<p>The required format for the “Date of Birth” is indicated by “YYYY/MM/DD” within the same label:</p>
+						<p>The required format for the “<mark><del>Date of Birth</del> <ins>Employee ID</ins></mark>” is indicated by “<mark><del>YYYY/MM/DD</del> <ins>XX-1234</ins></mark></del></mark>” within the same label:</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 								<p class="wb-inv">Example begins</p>
 								<form class="form-inline" role="form" method="get" action="#">
 									<div class="form-group">
-										<label for="dob">Date of Birth (YYYY/MM/DD):</label> 
-										<input type="date" autocomplete="bday" name="dob" id="dob" class="form-control">
+										<label for="employee-id">Employee ID (XX-1234)</label> 
+										<input type="text" name="employee-id" id="employee-id" class="form-control">
 									</div>
 								</form>
 								<p class="wb-inv">Example ends</p>
 							</div>
 						</div>
 						<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;label for="dob"&gt;Date of Birth (YYYY/MM/DD): &lt;/label&gt; 
-&lt;input type="date" autocomplete="bday" name="dob" id="dob"&gt;</code></pre>
+<pre><code class="language-html">&lt;label for="employee-id"&gt;Employee ID (XX-1234)&lt;/label&gt; 
+&lt;input type="text" name="employee-id" id="employee-id"&gt;</code></pre>
 						<p class="wb-inv">Code ends</p>
 					</div>
 				</div>
@@ -134,18 +134,20 @@
 					<div class="panel-body">
 					
 						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing form <mark><ins>control</ins></mark> instructions using aria-labelledby</h4>
-						<p>One approach to providing instructions outside of labels uses the <code>aria-labelledby</code> attribute on the control. The <code>aria-labelledby</code> attribute references the <code>id</code> attribute values of the <code>&lt;label&gt;</code> element and the element holding the description. This approach guarantees the additional description is communicated to assistive tech, but should only be used with short descriptions.</p>
-						<p>A <code>&lt;label&gt;</code> element is associated with its control using matching <code>for</code> and <code>id</code> attribute values.</p>
+						<p>One approach to providing instructions outside of labels uses the <code>aria-labelledby</code> attribute on the control:</p>
+						<ul>
+							<li>The <code>&lt;label&gt;</code> element is associated with its control using matching <code>for</code> and <code>id</code> attribute values.</li>
+							<li>The <code>aria-labelledby</code> attribute <mark>on the control</mark> references the <code>id</code> attribute values of <mark><del>the <code>&lt;label&gt;</code> element</del> <ins>itself</ins></mark> and the element holding the description.</li>
+						</ul> 
+						<p>This approach guarantees the additional description is communicated to assistive tech, but should only be used with short descriptions.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 							<p class="wb-inv">Example begins</p>
 								<form class="form-inline" role="form" method="get" action="#">
 									<div class="form-group">
-										<label id="expLabel" for="expire">Expiration date:</label>
-										<span>
-											<input type="text" name="expire" id="expire" aria-labelledby="expLabel expDesc" class="form-control">
-										</span>
-										&nbsp;<span id="expDesc">MM/YYYY</span>
+										<label for="health-card"><mark>Health card number</mark></label>
+										<input type="text" name="health-card" id="health-card" aria-labelledby="health-card hc-format" class="form-control">
+										&nbsp;<span id="hc-format"><mark>1234-567-890-XX</mark></span>
 									</div>
 								</form>
 								<p class="wb-inv">Example ends</p>
@@ -153,11 +155,10 @@
 						</div>
 
 						<p class="wb-inv">Code begins</p>
-						<pre><code class="language-html">&lt;label id="exp-label" for="expire"&gt;Expiration date:&lt;/label&gt;
-&lt;span&gt;
-   &lt;input type="text" name="expire" id="expire" aria-labelledby="exp-label exp-desc"&gt;
-   &lt;span id="exp-desc"&gt;MM/YYYY&lt;/span&gt;
-&lt;/span&gt;</code></pre>
+						<pre><code class="language-html">&lt;label for="health-card"&gt;Health card number&lt;/label&gt;
+&lt;input type="text" id="health-card" aria-labelledby="health-card hc-format" name="health-card"&gt;
+&lt;span id="hc-format"&gt;1234-567-890-XX&lt;/span&gt;
+</code></pre>
 						<p class="wb-inv">Code ends</p>
 
 					</div>
@@ -198,7 +199,7 @@
 				<h3>Placeholder text</h3>
 				<p><mark><del>Placeholder text</del><ins>Text in the <code>placeholder</code> attribute</ins></mark> provides instructions or an example of the required data format inside form fields that have not yet been edited by the user. <mark><del>Most browsers’ default placeholder text lacks sufficient contrast.  Also, </del></mark> 
 				<div class="alert alert-warning">
-				   <p><mark><ins>Note that</ins></mark> placeholder text disappears from form fields when users start entering text. If the placeholder text contains instructional information or examples that disappear, it makes it more difficult for users to check their responses before submitting the form.</p>
+				   <p><mark><ins>Note that [Fr: Noter que]</ins></mark> placeholder text disappears from <mark><ins>a form field</ins> <del>form fields</del></mark> when users start entering text. If the placeholder text contains instructional information or examples that disappear, it makes it more difficult for users to check their responses before submitting the form.</p>
 				</div>
 				
 				<p>Placeholder text is not a replacement for labels. Assistive technologies such as screen readers do not treat placeholder text as labels. </p>
@@ -367,7 +368,7 @@
 			</section>
 			<section>				
 				<h2 id="instructions-for-groups">Instructions for groups<mark><del> or Sections are programmatically associated with the group</del></mark></h2>
-				<p>In “focus mode”, when tabbing through the form, screen reader users <mark><del>will not hear regular text added to the form</del><ins> set focus on form controls and hear their labels and descriptions. Text in a</ins> non-focusable <ins>element is </ins><del>text will be</del></mark> skipped unless it is programmatically associated with a form control as label or description.</p>
+				<p>In “focus mode”, when tabbing through the form, screen reader users <mark><del>will not hear regular text added to the form</del><ins> set focus on form controls and hear their labels and descriptions. Text in a non-focusable <ins>element is missed </ins><del>text will be skipped</del></mark> unless it is programmatically associated with a form control as label or description.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Group instructions in a legend</h3>
