@@ -70,9 +70,9 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#mouse-input-overview">Saisie avec la souris (overview)</a></li>
-			<li><a href="#content-on-hover-or-focus">Content on hover or focus</a></li>
-			<li><a href="#pointer-cancellation">Pointer cancellation</a></li>
+            <li><a href="#saisie-avec-la-souris-aperçu">Saisie avec la souris (aperçu)</a></li>
+			<li><a href="#contenu-sur-survol-ou-cible">Contenu sur survol ou cible</a></li>
+			<li><a href="#annulation-du-pointage">Annulation du pointage</a></li>
 			<li><a href="#resources1">Related WCAG resources</a></li>
           </ul>
         </div>
@@ -80,35 +80,35 @@
 	</nav>
 	
 			<section>				
-				<h2 id="mouse-input-overview">Saisie avec la souris (overview)</h2>
-				<p>Ensure all functionality is accessible via pointer input devices, e.g., via a mouse, a finger on a touch screen, an electronic stylus, or a laser pointer. This section covers two success criteria that impact mouse input:</p>
+				<h2 id="saisie-avec-la-souris-aperçu">Saisie avec la souris (aperçu)</h2>
+				<p>Il faut s’assurer que toutes les fonctions sont accessibles au moyen d’un dispositif de pointage (p.&nbsp;ex., souris, doigt sur un écran tactile, stylet électronique, pointeur laser). Cette section couvre deux critères de réussite de la saisie avec la souris&nbsp;:</p>
 				<ul>
-					<li>Content on hover or focus</li>
-					<li>Pointer cancellation </li>
+					<li>Contenu sur le survol ou cible</li>
+					<li>Annulation du pointeur </li>
 				</ul>
 			</section>
 			
 			<section>				
-				<h2 id="content-on-hover-or-focus">Content on hover or focus</h2>
-				<p>Additional content that appears when a user hovers the pointer or moves the keyboard focus to the trigger (e.g. tooltips, pop-ups), often leads to accessibility issues. The user may not have intended to trigger the interaction or know that new content has appeared. It may also interfere with a user’s ability to do a task.</p>
-				<p>Low vision readers using a greatly magnified screen see only a small portion of the screen at a time. Tooltip content can be clipped by their viewports, so these users will need to move their pointer over the additional content to read it. Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden, the following are true:</p>
+				<h2 id="contenu-sur-survol-ou-cible">Contenu sur survol ou cible</h2>
+				<p>Le contenu supplémentaire qui apparaît quand l’utilisateur passe le pointeur ou la cible du clavier sur l’élément déclencheur (p.&nbsp;ex. infobulles, fenêtres contextuelles) cause souvent des problèmes d’accessibilité. L’utilisateur n’avait peut-être pas l’intention de déclencher l’interaction ou peut ne pas s’apercevoir que du nouveau contenu est apparu. Cette action peut également nuire à l’utilisateur dans la tâche qu’il cherche à effectuer.</p>
+				<p>Les aides de lecture pour malvoyants utilisant un fort grossissement ne laissent voir qu’une petite partie de l’écran à la fois. Le contenu d’une infobulle peut être rogné par la zone de lecture, ce qui oblige l’utilisateur à déplacer son pointeur pour lire le contenu supplémentaire.Dans le cas où il faut placer le pointeur ou la cible du clavier sur une zone sensible pour ouvrir un contenu supplémentaire, puis l’enlever pour le faire disparaître, les règles suivantes sont vraies&nbsp;:</p>
 				<dl>
-					<dt>Dismissible</dt>
-					<dd class="mrgn-lft-lg">A mechanism (usually the Esc key) is available to dismiss the additional content without moving pointer hover or keyboard focus, unless the additional content communicates an input error or does not obscure or replace other content.</dd>
-					<dt>Hoverable</dt>
-					<dd class="mrgn-lft-lg">Pointer hover can trigger the additional content, then the pointer can be moved over the additional content without the additional content disappearing.</dd>
-					<dt>Persistent</dt>
-					<dd class="mrgn-lft-lg">The additional content remains visible until the hover or focus trigger is removed, the user dismisses it, or its information is no longer valid.</dd>
+					<dt>Possibilité de rejet</dt>
+					<dd class="mrgn-lft-lg">Un mécanisme (habituellement la touche Esc/Échap) permet de rejeter le contenu supplémentaire sans déplacer le curseur ou la cible du clavier, sauf si le contenu supplémentaire communique une erreur de saisie ou ne cache pas ou ne remplace pas un autre contenu.</dd>
+					<dt>Possibilité de survol</dt>
+					<dd class="mrgn-lft-lg">Si le survol du pointeur peut déclencher le contenu supplémentaire, il est ensuite possible de déplacer le pointeur sur le contenu supplémentaire sans le faire disparaître.</dd>
+					<dt>Persistance</dt>
+					<dd class="mrgn-lft-lg">Le contenu supplémentaire demeure visible jusqu’à ce que le pointeur ou la cible sorte de la zone sensible, que l’utilisateur le rejette ou qu’il ne soit plus pertinent.</dd>
 				</dl>
-				<p>Content that can be triggered via pointer hover should also be able to be triggered by keyboard focus.</p>
-				<p>This requirement covers content that appear in addition to the triggering component itself. It does not apply to a non-visible component, like a Skip to Main link, that is made visible on keyboard focus (with no additional content other than the trigger becoming visible).</p>
+				<p>Le contenu pouvant être déclenché par le survol du pointeur devrait également pouvoir être déclenché par le positionnement de la cible du clavier.</p>
+				<p>Cette exigence s’applique au contenu qui apparaît en plus de l’élément déclencheur lui-même. Elle ne s’applique pas à un élément non visible, tel qu’un lien de retour à la page d’accueil qui est rendu visible par la cible du clavier (sans autre contenu que le déclencheur devenu visible).</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h2 id="heading-hierarchy" class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Link content on hover or focus</h2>
-						<p>When hovering over or focusing on a link, a content preview for the link appears just above or below that link. </p>
-						<p>Pointer devices can move off the trigger and roam the additional content (pop-up) without the additional content collapsing. In this example, this is achieved by nesting the tooltip in the trigger. </p>
-						<p>Pressing the Esc key dismisses (closes) the additional content.</p>
-						<p><mark>TO DO: Working example of content on hover and focus</mark></p>
+						<h2 id="heading-hierarchy" class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>Un bon exemple&nbsp;: Contenu de lien survolé ou ciblé</h2>
+						Quand le pointeur survole – ou le clavier cible – un lien, un aperçu du contenu lié s’affiche juste au-dessus ou en dessous. </p>
+				<p>Le dispositif de pointage peut quitter la zone sensible du lien et parcourir le contenu supplémentaire sans que la fenêtre contextuelle ne se ferme. Dans cet exemple, ce résultat est obtenu en emboîtant l’infobulle dans l’élément déclencheur. </p>
+				<p>La touche Esc/Échap ferme le contenu supplémentaire.</p>
+						<p><mark>Exemple pratique de contenu ouvert par survol ou ciblage</mark></p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 								<p>This is the 
@@ -221,50 +221,53 @@ if ((e.keyCode || e.which) === 27)
 });</code></pre>
 				<p class="wb-inv">Code ends</p>	
 				<hr/>
-				<p class="small">This example is from WCAG 2.1 Technique SCR39: Making content on focus or hover hoverable, dismissible, and persistent. (n.d.). W3C Web Accessibility Initiative. Retrieved December 17, 2021, from <a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR39">https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR39</a></p>	
+				<p class="small">Cet exemple provient du guide technique&nbsp;SCR39 du DACW&nbsp;2.1&nbsp;: Rendre possible le survol, le rejet et la persistance de l’affichage contextuel ouvert par survol ou ciblage clavier. Initiative pour l’accessibilité du Web&nbsp;W3C Extrait le 17&nbsp;décembre&nbsp;2021 de <a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR39">https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR39</a></p>
 			</div>
 
 		</div>
 	</section>
 			
 			<section>				
-				<h2 id="pointer-cancellation">Pointer cancellation</h2>
-				<p>The intent of this requirement is to help users prevent pointer input mistakes. Users can accidently initiate touch or mouse events with unwanted results. It is important to allow users to cancel pointer operations.</p>
-				<p>A single pointer is a pointer input that operates with one point of contact with the screen. This includes single taps and clicks, double-taps and clicks, long presses, and path-based gestures.</p>
-				<p>For functionality that can be operated using a single pointer, at least one of the following is true:</p>
+				<h2 id="pointer-cancellation">Annulation du pointage</h2>
+				<p>Cette exigence vise à aider l’utilisateur à éviter les erreurs de pointage. Il peut arriver que l’utilisateur déclenche accidentellement des événements par commande tactile ou avec la souris et obtienne des résultats indésirables. Il est important de permettre à l’utilisateur d’annuler un pointage indésirable.</p>
+				<p>Un pointeur simple est une entrée de pointeur qui fonctionne avec un seul point de contact avec l'écran. Il peut s'agir d'une simple tape ou d'un clic, d'une double tape ou d'un clic, d'une pression longue ou d'un geste basé sur la trajectoire.</p>
+				<p>Pour toute fonctionnalité qui se commande par pointage unique, au moins un des énoncés suivants est vrai&nbsp;:</p>
 				<dl>
-					<dt>No Down-Event</dt>
-					<dd class="mrgn-lft-lg">The down-event of the pointer is not used to execute any part of the function.</dd>
-					<dt>Abort or Undo</dt>
-					<dd class="mrgn-lft-lg">Completion of the function is on the up-event, and a mechanism is available to abort the function before completion or to undo the function after completion.</dd>
-					<dt>Up Reversal</dt>
-					<dd class="mrgn-lft-lg">The up-event reverses any outcome of the preceding down-event.</dd>
-					<dt>Essential</dt>
-					<dd class="mrgn-lft-lg">Completing the function on the down-event is essential.</dd>
+					<dt>Pas d’événement de pression</dt>
+					<dd class="mrgn-lft-lg">L’événement de pression (sur le bouton de sélection du dispositif de pointage) n’est pas utilisé pour exécuter une partie de la fonction.</dd>
+					<dt>Abandon ou annulation</dt>
+					<dd class="mrgn-lft-lg">L’exécution de la fonction se fait à l’événement de relâchement de la sélection, et un mécanisme est prévu pour abandonner la fonction avant exécution ou pour l’annuler après exécution.</dd>
+					<dt>Annulation sur relâchement</dt>
+					<dd class="mrgn-lft-lg">L’événement de relâchement du bouton de sélection annule tout résultat de l’événement de pression.</dd>
+					<dt>Obligation</dt>
+					<dd class="mrgn-lft-lg">L’exécution de la fonction est obligatoire en réponse à l’événement de pression.</dd>
 				</dl>
 				<p>The easiest way to meet this requirement is to use the default behaviour of controls and not override that behaviour with an explicit down-event trigger. The up-event (e.g. <code>onclick</code> or <code>mouseup</code> event) is the default behaviour for most controls in any programming or markup language.</p>
+				<p>Le moyen le plus simple de répondre à cette exigence est d'utiliser le comportement par défaut des contrôles et de ne pas remplacer ce comportement par un déclencheur explicite d'événement descendant. L'événement de relâchement (par exemple, l'événement <code>onclick</code> ou <code>mouseup</code>) est le comportement par défaut de la plupart des contrôles dans tout langage de programmation ou de balisage.</p>
 				<h3 class="">Examples</h3>
 				<dl>
-					<dt>No Down-Event</dt>
-					<dd class="mrgn-lft-lg">Using native <code>onclick</code> event in JavaScript.</dd>
-					<dd class="mrgn-lft-lg">Using a native button or link in HTML, iOS or Android.</dd>
-					<dt>Abort or Undo</dt>
-					<dd class="mrgn-lft-lg">Ensuring the drag-and-drop actions can be cancelled. </dd>
-					<dd class="mrgn-lft-lg">For example, when using a drag-and-drop action to move an item to a drop target, the user can abort the action after picking up the item by releasing the item outside a drop area. Or by implementing an undo command or a dialog asking for confirmation after the item is dropped onto target.</dd>
-					<dt>Up Reversal</dt>
-					<dd class="mrgn-lft-lg">Press-and-hold actions such as where a pop-up appears (or a video plays) when the user presses on an object (down-event), but the pop-up (or video) disappears when the user releases the pointer (up-event).</dd>
+					<dt>Pas d’événement de pression</dt>
+					<dd class="mrgn-lft-lg">Utiliser un événement <code>onclick </code>natif en JavaScript.</dd>
+					<dd class="mrgn-lft-lg">Utiliser un bouton ou lien natif en HTML, iOS ou Android.</dd>
+					<dt>Abandon ou annulation</dt>
+					<dd class="mrgn-lft-lg">Rendre possible l’annulation des actions glisser-déposer. </dd>
+					<dd class="mrgn-lft-lg">Par exemple, lorsque l’utilisateur utilise l’action glisser-déposer pour déplacer un objet vers une cible de dépôt, il peut annuler l’action après avoir saisi l’objet en le relâchant à l’extérieur de la cible de dépôt. Une autre possibilité est qu’on peut ajouter une commande d’annulation ou un dialogue demandant la confirmation de l’action après que le dépôt de l’objet sur la cible.</dd>
+					<dt>Annulation sur relâchement</dt>
+					<dd class="mrgn-lft-lg">Voici différents contextes dans lequel on utilise les actions de type "appuyer et maintenir":</dd>
+					<dd class="mrgn-lft-lg">Lorsqu'une fenêtre contextuelle apparaît (ou qu'une vidéo est diffusée);</dd>
+					<dd class="mrgn-lft-lg">Lorsque l'utilisateur appuie sur un objet (événement descendant), mais que la fenêtre contextuelle (ou la vidéo) disparaît lorsque l'utilisateur relâche le pointeur (événement ascendant).</dd>
 					<dt>Essential</dt>
-					<dd class="mrgn-lft-lg">Software keyboard emulators – the expected behaviour is to make letters and numbers appear when the key is pressed (down-event).</dd>
-					<dd class="mrgn-lft-lg">On screen piano keyboard.</dd>
+					<dd class="mrgn-lft-lg">Clavier virtuel – le comportement attendu consiste à faire apparaître des lettres et des chiffres quand l’utilisateur appuie sur la touche (activité de pression).</dd>
+					<dd class="mrgn-lft-lg">Clavier virtuel à l’écran.</dd>
 				</dl>
 			</section>
 			
 			
 			<section>				
-				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
+				<h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
 				<details class="mrgn-tp-lg">
-					<summary class="bg-info">Related WCAG resources</summary>
-					<h3>Success criteria</h3>
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+					<h3>Critères de succès</h3>
 					<ul>
 						<li>
 							<a href="https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus">1.4.13: Content on Hover or Focus</a>
