@@ -221,19 +221,7 @@
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Pairing mouse and keyboard events</h3>
 						<p>In this example of an image link, the image is changed when the user positions the pointer over the image. To provide keyboard users with a similar experience, the image is also changed when the user tabs to it. </p>
-						<script>
-						function swapImageOn(id){
-							document.getElementById(id).src='images/menu_on.PNG'
-						}
-						function swapImageOff(id){
-							document.getElementById(id).src='images/menu_off.PNG'
-						}	
-						</script>
-						
-						<p><a href="" onmouseover="swapImageOn('menu')" 
-   onfocus="swapImageOn('menu')" 
-   onmouseout="swapImageOff('menu')" 
-   onblur="swapImageOff('menu')"><img id="menu" src="images/menu_off.PNG" alt="Menu" width="100px" height="100px"/></a></p>
+						<p><mark>TODO: This needs a live example</mark></p>
 						<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;a href="menu.php" 
    onmouseover="swapImageOn('menu')" 
@@ -254,21 +242,18 @@
 						<p><mark>TODO: Fix this linked image. Provide a real URL.</mark></p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body mrgn-bttm-0">
+								<img src="images/image1.png" class="img-link img-responsive" alt="Go to next page"  onclick="goToLink(event, 'http://www.example.com/page5.html')">
+								<style type="text/css">
+									.img-link:hover { cursor: pointer;  }
+								</style>
 								<script type="JavaScript">
-
 									function goToLink(event, url) {  
 									   var type = event.type;  
 									   if (type === 'click') {  
 										  window.location.href = url;      
 										  event.stopPropagation();  
-									   }				
-									}
+									   }								
 								</script>
-								<img src="images/image1.png" class="img-link img-responsive" alt="Go to next page" onclick="window.location.href='http://www.example.com/page5.html'">
-								<style type="text/css">
-									.img-link:hover { cursor: pointer;  }
-								</style>
-								
 							</div>
 						</div>
 						<p class="wb-inv">Code begins</p>
