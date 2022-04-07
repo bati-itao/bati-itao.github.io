@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Saisie vocale - Module 10 - Méthodes de saisie de données</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Accessibility guidelines related to voice input">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.appTop({
+                "appName": [{
+                    "text": "EDSC / Bureau de l’accessibilité des TI",
+                    "href": "../../../index-fr.html"
+                }],
+               "breadcrumbs" : [{
+                    "title": "Accueil",
+                    "href" : "../../../index-fr.html"
+                },{
+                    "title": "Apprentissage",
+                    "href" : "../../index-fr.html"
+                },
+				{
+                    "title": "Cours d'accessibilité Web",
+                    "href" : "../index-fr.html"
+                },
+			{
+                "title": "Module 10 - Méthodes de saisie de données",
+                "href" : "index-fr.html"
+            }],
+            "lngLinks": [{
+                "lang": "en",
+                "href": "voice-input.html",
+                "text": "English"
+            }],
+            "menuPath": "../../../ajax/menu-fr.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+			
+	<h1 property="name" id="wb-cont">Saisie vocale</h1>
+						
+	<nav role="navigation" aria-labelledby="nav-table">
+    <div class="panel panel-default mrgn-tp-md">
+      <header class="panel-heading">
+        <h2 id="nav-table" class="panel-title">Table of contents</h2>
+      </header>
+        <div class="panel-body">
+          <ul>
+			<li><a href="#overview">Saisie vocale (overiew)</a></li>
+            <li><a href="#dragon-naturally-speaking">Dragon Naturally Speaking</a></li>
+			<li><a href="#resources1">Related WCAG resources</a></li>
+          </ul>
+        </div>
+      </div>
+	</nav>
+	
+		<section>
+			<h2 id="overview"><mark>Saisie vocale (overview)</mark></h2>
+			<p>Saisie vocale, also known as speech recognition, translates spoken language into text and computer commands. It’s very useful for people who have difficulty using their hands to operate a mouse or keyboard, including people with mild repetitive stress injuries, people with limited dexterity or muscular control limitations such as tremors, poor coordination, or paralysis, people with arthritis and people missing limbs.</p>
+			<p>Saisie vocale allows users to dictate text into any application such as MS Word, email, web forms and more. Rather than type, users talk into a microphone with the words appearing where the keyboard focus is. When browsing web pages using voice input, users can activate links and buttons, fill out forms, copy and paste text, scroll the screen and perform other functions.</p>
+			<p>Content must be properly designed and coded so that it can be controlled by speech. Generally, pages that allow keyboard interaction and screen reader use are also accessible through voice input.</p>
+			<p>Challenges that people who use speech recognition software face on the web:</p>
+			<ul>
+				<li>Lack of keyboard control for all functionality (e.g., a carousel that moves without a pause button, a custom button that lacks a keyboard event)</li>
+				<li>Invisible focus indicators on interactive elements</li>
+				<li>Mismatched visual order and tab order</li>
+				<li>Linked image with mismatched visible text and alternative text</li>
+				<li>Duplicate link text (e.g., Read More) that leads to different places</li>
+				<li>Form controls without programmatically associated labels</li>
+				<li>Hover only menus</li>
+				<li>Small click targets</li>
+				<li>Clickable controls that don’t look clickable</li>
+			</ul>
+		</section>
+			<section>				
+				<h2 id="dragon-naturally-speaking">Dragon Naturally Speaking</h2>
+				<p>Dragon Naturally Speaking (Dragon) is the industry-leading voice input software.</p>
+				<h3 class="">Example Dragon commands</h3>
+				<p>Dragon commands are numerous and allow the user to control the whole computer interface. A subset concerns accessibility.</p>
+				<p>To move focus from one focusable control to the next, the user says “Press Tab”.</p>
+				<p>To activate a control, the user says “Click” followed by the name of the control. Users can access any of the following controls by saying their name:</p>
+				<ul>
+					<li>Links</li>
+					<li>Buttons</li>
+					<li>Checkboxes</li>
+					<li>Images (actionable)</li>
+					<li>Radio buttons</li>
+					<li>Text fields</li>
+					<li>List boxes</li>
+				</ul>
+				<p>Dragon will click the control once it has a unique match, so users often don’t need to say the entire name. When a control has an accessible name set via an ARIA label as well as a visible label, the visible label text must be part of or match the ARIA label. The ARIA label has precedent over any visible text. If no part of the visible label is part of the accessible name, the user won’t be able to target the control by name.</p>
+				<p>Alternately, users can number all controls and choose a number:</p>
+				<ol>
+					<li>Users say one of the following:
+						<ul>
+							<li>Show links or Click links</li>
+							<li>Click button</li>
+							<li>Click checkbox</li>
+							<li>Click image</li>
+							<li>Click radio button</li>
+							<li>Click text field</li>
+							<li>Click list box</li>
+						</ul>
+						<p>Numbers appear next to all controls of that type:</p>
+						<img src="images/image9.png" class="img-responsive" alt="">
+						<p class="mrgn-tp-md">If there is only one control of that type, that control will be clicked.</p>
+					</li>
+					<li>Users say “Choose [number]” to select from the numbered controls.</li>
+				</ol>
+				<p>Other common commands enable the user to scroll the page, reload, navigate browser history, undo text entered in input fields, etc.</p>
+				<h3 class="">Dragon MouseGrid</h3>
+				<p>The Dragon Naturally Speaking MouseGrid allows the user to move the mouse pointer to a specific area.</p>
+				<p>Users summon the MouseGrid by saying “Mouse Grid”, which displays a transparent three-by-three grid over the screen with the sections numbered one through nine.</p>
+				<div class="panel panel-primary mrgn-tp-md">
+					<div class="panel-body well mrgn-bttm-0">
+						<img src="images/image10.png" class="img-responsive" alt="">
+					</div>
+				</div>
+				<p>With the MouseGrid on the screen, the user speaks the number they want to focus on. A new three-by-three grid appears in that spot, with the mouse pointer at the center.</p>
+				<div class="panel panel-primary mrgn-tp-md">
+					<div class="panel-body well mrgn-bttm-0">
+						<img src="images/image11.png" class="img-responsive" alt="">
+					</div>
+				</div>
+				<p>The user can repeat the process as many times as needed. When the mouse pointer is finally over the control the user wishes to activate, they say “Click”.</p>
+				<hr/>
+				<p class="small">This section is adapted from MouseGrid, from the Nuance Naturally Dragon Speaking documentation. <a href="https://www.nuance.com/products/help/dragon/dragon-for-mac6/enx/Content/Navigation/MouseGrid.html">https://www.nuance.com/products/help/dragon/dragon-for-mac6/enx/Content/Navigation/MouseGrid.html</a></p>
+
+			</section>
+			
+			
+			
+			
+			<section>				
+				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">Related WCAG resources</summary>
+					<h3>Success criteria</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/label-in-name">2.5.3: Label in Name</a>
+						</li>
+					</ul>
+					<h3>Techniques</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G208">G208: Including the text of the visible label as part of the accessible name</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G211">G211: Matching the accessible name to the visible label</a>
+						</li>
+					</ul>
+					<h3 class="">Failures</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F96">F96: Failure due to the accessible name not containing the visible label text</a>
+						</li>
+					</ul>
+				</details>
+			</section>
+		
+		
+	<nav role="navigation" aria-labelledby="nav-document">
+		<h2 id="nav-document" class="wb-inv">Menu de la pagination</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="touch-input-fr.html">Précédent - Saisie avec un dispositif de pointage</a></li>
+			<li class="next"><a rel="next" href="motion-actuation-fr.html">Suivant - Commande par le mouvement</a></li>
+		</ul>
+	</nav>
+	</main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation" aria-labelledby="wb-sec-h">	
+		<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 10 - Méthodes de saisie de données</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
+						<li><a class="list-group-item" href="mouse-input-fr.html">Saisie avec la souris</a></li>
+						<li><a class="list-group-item" href="keyboard-input-fr.html">Saisie avec clavier</a></li>
+						<li><a class="list-group-item" href="touch-input-fr.html">Saisie avec un dispositif de pointage</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="voice-input-fr.html">Saisie vocale</a></li>
+						<li><a class="list-group-item" href="motion-actuation-fr.html">Commande par le mouvement</a></li>						
+						<li><a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Tous les modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/index-fr.html">Module 2 - Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/index-fr.html">Module 3 - Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/index-fr.html">Module 4 - Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/index-fr.html">Module 5 - Images</a></li>
+                        <li><a class="list-group-item" href="../module6/index-fr.html">Module 6 - Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/index-fr.html">Module 7 - Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item" href="../module8/index-fr.html">Module 8 - Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item active" href="index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item" href="../module10/index-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/index-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+                     </ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>
