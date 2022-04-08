@@ -409,13 +409,13 @@
 			</section>
 			
 			<section>				
-				<h2 id="keyboard-trap">Keyboard trap</h2>
-				<p>A keyboard trap occurs when a keyboard user can navigate into a component or element on a web page but cannot navigate out. A simple example is a pop-up window (a modal window or lightbox) that doesn’t close when the user presses the Esc key and with a close button that doesn't respond to keyboard.</p>
-				<p>Ensure the user can get in and out of the interactive elements using only the keyboard.</p>
+				<h2 id="keyboard-trap">Piège de clavier</h2>
+				<p>Un piège à clavier se produit lorsqu'un utilisateur peut naviguer dans un composant ou un élément d'une page Web mais ne peut pas en sortir. Un exemple simple est une fenêtre pop-up (fenêtre modale ou lightbox) qui ne se ferme pas lorsque l'utilisateur appuie sur la touche Esc et dont le bouton de fermeture ne répond pas au clavier. </p>
+				<p>Assurez-vous que l'utilisateur peut entrer et sortir des éléments interactifs en utilisant uniquement le clavier. </p>
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: JavaScript focus() traps the keyboard user</h3>
-						<p>This example illustrates the keyboard trap dangers of using the JavaScript <code>focus()</code> method. The form input field here uses the <code>onblur</code> event, which is triggered when focus leaves the element. When the keyboard user presses the Tab key to move focus away from the input field, the <code>onblur</code> event kicks in and sets focus back on the input field, trapping the user.</p>
+						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>Un exemple à éviter&nbsp;: JavaScript focus() piège l’utilisateur du clavier</h3>
+						<p>Cet exemple illustre les dangers du piège à clavier que représente l'utilisation de la méthode JavaScript <code>focus()</code>. Le champ de saisie du formulaire utilise ici l'événement <code></code>onblur</code>, qui est déclenché lorsque le focus quitte l'élément. Lorsque l'utilisateur du clavier appuie sur la touche Tab pour déplacer le focus du champ de saisie, l'événement <code>onblur</code> se déclenche et remet le focus sur le champ de saisie, piégeant ainsi l'utilisateur. &lt;label for="lastname"&gt;Last Name&lt;/label&gt;</p>
 						<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;label for="lastname"&gt;Last name&lt;/label&gt;
 &lt;input id="lastname" type="text" value="" class="trap" onblur="this.focus();"&gt;</code></pre>
@@ -424,8 +424,9 @@
 				</div>
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: JavaScript keydown() and event.preventDefault() trap the keyboard user</h3> 
-						<p>This example illustrates the keyboard trap dangers of a JavaScript key press event. The JavaScript function makes no effort to detect which key has been pressed (it should identify the Enter key), so it will trigger when <em>any</em> key is pressed. Furthermore, the default action associated with any key press is prevented with <code>event.preventDefault()</code>. Consequently, when a user attempts to move focus away from the link by pressing the Tab key, the <code>keydown</code> event fires, the default action of the Tab key (moving focus to the next focusable element) is prevented, focus remains on the link, and a new window opens. The keyboard user is trapped. Even pressing the Ctrl + Alt + Delete keys in Windows to bring up the Task Manager will fail, simply launching more windows in response to the keydown event. The user's computer is hijacked, and unless a colleague or friend can move focus away from the element with a mouse, the user is forced to restart the computer.</p>
+						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Un exemple à éviter&nbsp;: JavaScript keydown() et event.preventDefault() piègent l’utilisateur du clavier</h3> 
+						<p>Cet exemple illustre les dangers du piège à clavier que représente un événement keypress JavaScript. La fonction JavaScript ne fait aucun effort pour détecter quelle touche a été enfoncée (elle devrait identifier la touche Entrée), elle se déclenche donc lorsque n'importe <code>quelle</code> touche est enfoncée. En outre, l'action par défaut associée à toute pression sur une touche est empêchée par <code>event.preventDefault()</code>. Par conséquent, lorsqu'un utilisateur tente de déplacer le focus du lien en appuyant sur <code><mark>la touche </mark></code>Tab, l'événement keydown se déclenche, l'action par défaut de la touche Tab (déplacement du focus vers l'élément suivant sur lequel le focus est possible) est empêchée, le focus reste sur le lien et une nouvelle fenêtre s'ouvre. L'utilisateur du clavier est pris au piège. Même le fait d'appuyer sur les touches Ctrl + Alt + Suppr dans Windows pour faire apparaître le gestionnaire de tâches échouera, car d'autres fenêtres seront simplement lancées en réponse à l'événement de frappe. L'ordinateur de l'utilisateur est détourné et, à moins qu'un collègue ou un ami ne puisse déplacer le focus de l'élément avec une souris, l'utilisateur est obligé de redémarrer l'ordinateur. </p>
+
 						<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;span class="trap link" role="link" tabindex="0" data-href="some-page.html"&gt;
    Some page
@@ -446,13 +447,13 @@
 			</section>
 			
 			<section>				
-				<h2 id="focus-management-with-javascript-injected-content">Focus management with JavaScript-injected content</h2>
-				<p>Content added to a page using JavaScript can be in one of two locations:</p>
+				<h2 id="gestion-de-cible-avec-contenu-injecté-de-JavaScript">Gestion de cible avec contenu injecté de JavaScript</h2>
+				<p>Le contenu ajouté à une page avec JavaScript peut se trouver à l’un des deux endroits suivants&nbsp;:</p>
 				<ul>
-					<li>The added content follows the trigger in the DOM. In this case, the focus does not need to be managed. When activated, the triggering control retains focus, and the added content is next in the screen-reader reading order and tab order. The added content can be absolutely positioned via CSS to be elsewhere on the page.</li>
-					<li>The added content does not follow the trigger in the DOM. In this case, the focus must be moved to the added content using the JavaScript <code>focus()</code> method. The target must have the <code>tabindex="-1"</code> attribute to receive focus. Also, the target must have text content or programmatically-determined text via a label, or screen reader users will hear nothing upon arrival. If the added content can be collapsed/de-activated, collapsing it returns focus to the triggering control (or to another logical location, depending on the context). Prevent focus from being lost or reset to the top of the page.</li>
+					<li>Le contenu ajouté suit le déclencheur dans le DOM. Dans ce cas, il n'est pas nécessaire de gérer le focus. Lorsqu'il est activé, le contrôle déclencheur conserve le focus, et le contenu ajouté est le suivant dans l'ordre de lecture du lecteur d'écran et dans l'ordre des tabulations. Le contenu ajouté peut être positionné de manière absolue par le biais de CSS pour se trouver ailleurs sur la page.</li>
+					<li>Le contenu ajouté ne suit pas le déclencheur dans le DOM. Dans ce cas, la cible doit être déplacée vers le contenu ajouté en utilisant la méthode JavaScript <code>focus()</code>. La cible doit avoir l’attribut <code>tabindex=&nbsp;»-1&nbsp;»</code>. De plus, la cible doit avoir un contenu textuel ou un texte déterminé par programmation au moyen d’une étiquette, sinon un utilisateur de lecteur d’écran n’entendra rien à son arrivée. Si le contenu ajouté peut être réduit ou désactivé, la cible revient sur la commande de déclenchement (ou à un autre emplacement logique, selon le contexte). Éviter de perdre la cible ou de la réinitialiser au haut de la page.</li>
 				</ul>
-				<p>There are exceptions if you are implementing some widget patterns described in the WAI-ARIA Authoring Practices’ section 3 <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">Design Patterns and Widgets</a>. Content authors must manage focus <mark><del>on</del> <ins>within</ins></mark> the following container roles:</p>
+				<p>Il y a des exceptions si vous mettez en œuvres certains modèles de composants graphiques décrits à la section&nbsp;3 des pratiques de codage WAI-ARIA, <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">Modèles de conception et widgets</a>. Les auteurs de (<mark><del>on</del> <ins>within</ins></mark>)contenu doivent se concentrer sur les rôles de conteneur suivants&nbsp;:</p>
 				<ul>
 					<li>
 						<a href="https://www.w3.org/TR/wai-aria-1.1/#combobox">combo box</a>
@@ -482,13 +483,13 @@
 						<a href="https://www.w3.org/TR/wai-aria-1.1/#treegrid">treegrid</a>
 					</li>
 				</ul>
-				<p>Managing focus within these composite widgets is a separate concern addressed in <a href="../module12/index.html">module 12</a>.</p>
+				<p>La gestion de la cible dans ces composants graphiques «&nbsp;composites&nbsp;» est une question distincte abordée dans le <a href="../module12/index.html">module&nbsp;12</a>.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Focus management in a single-page web application</h3>
-						<p>In this example, a single-page web application uses JavaScript to load a full article inside the <code>&lt;main&gt;</code> element, without a page load. Links in the navigation menu trigger the content load. This example has just a few menu items, but sites often have lengthy menus. Moving the focus spares keyboard users of single-page apps the tedious task of tabbing through a menu to get at the main content.</p>
-						<p>The <code>&lt;h1&gt;</code> heading on each page has a <code>tabindex="-1"</code> attribute, to enable it to be targeted by scripts. The JavaScript identifies the <code>&lt;h1&gt;</code> with a query selector and sets focus on it. The script also updates the page’s <code>&lt;title&gt;</code> element to match the heading text. </p>
-						<p>The JavaScript’s first use should be triggered via the menu, not on page load. Screen reader users’ initial interaction with the page should start at the top, as usual.</p>
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Un bon exemple&nbsp;: Gestion de la cible dans une application Web monopage</h3>
+						<p>Dans cet exemple, une application Web monopage utilise JavaScript pour charger un article complet à l’intérieur de l’élément <code>principal</code>, sans chargement de la page. Les liens dans le menu de navigation déclenchent le chargement du contenu. Cet exemple ne comporte que quelques éléments de menu, mais les sites ont souvent des menus bien plus longs. Le déplacement de la cible est vite à un utilisateur de clavier la tâche fastidieuse de parcourir un menu avec la touche de tabulation pour accéder au contenu principal d’une application d’une seule page.</p>
+						<p>L’en-tête&nbsp;<code>h1 </code>de chaque page comporte l’attribut <code>tabindex=&nbsp;»-1&nbsp;» </code>qui permet le ciblage par les scripts. JavaScript identifie l’en-tête&nbsp;<code>h1 </code>au moyen d’un sélecteur de requête et pose la cible sur lui. Le script met également à jour l’élément <code>titre </code>de la page pour qu’il corresponde au texte de l’en-tête. </p>
+						<p>La première utilisation de JavaScript devrait être déclenchée par le menu et non par le chargement de la page. L’interaction initiale d’un utilisateur de lecteur d’écran avec la page devrait commencer par le haut, comme d’habitude.</p>
 						<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;nav&gt; 
    &lt;a href="/"&gt;Home&lt;/a&gt; 
@@ -514,7 +515,7 @@ function onNewPage() {
 				</div>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Focus moved from trigger to dialog</h3>
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Un bon exemple&nbsp;: Cible déplacée du déclencheur à une boîte de dialogue</h3>
 						<p>In this example, pressing the Ableplayer's transcript button <img src="images/image4.png" class="" alt="">:
 						<ul>
 							<li>launches an ARIA dialog widget holding the transcript, and </li>
@@ -535,8 +536,8 @@ function onNewPage() {
 
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Focus managed on a dialog using keyboard interaction</h3> 
-						<p>In this example, when the user clicks the 'Submit' button a pop-up window opens and focus is sent to the pop-up's first child focusable element. When the user clicks the pop-up window’s ‘Close’ button, focus is sent back to the triggering button.</p>
+						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>Exemple&nbsp;: Cible gérée sur une boîte de dialogue au moyen d’une interaction au clavier</h3> 
+						<p>Dans cet exemple, quand l’utilisateur clique sur le bouton d’envoi, une fenêtre contextuelle s’ouvre et la cible est posée sur le premier élément actif de la fenêtre contextuelle. Quand l’utilisateur clique sur le bouton de fermeture de la fenêtre contextuelle, la cible retourne au bouton déclencheur.</p>
 						<p><mark>TODO: Implement the full pattern (role and aria-labelledby, close on ESC key, managed focus)</mark></p>
 						<p><mark>TODO: Move focus to close button after triggering modal)</mark></p>
 						<div class="panel panel-primary mrgn-tp-lg">
@@ -705,10 +706,10 @@ window.onclick = function(event) {
 			</section>
 			
 			<section>				
-				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
+				<h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
 				<details class="mrgn-tp-lg">
-					<summary class="bg-info">Related WCAG resources</summary>
-					<h3>Success criteria</h3>
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+					<h3>Critères de succès</h3>
 					<ul>
 						<li>
 							<a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard">2.1.1: Keyboard</a>
@@ -741,7 +742,7 @@ window.onclick = function(event) {
 							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR35">SCR35: Making actions keyboard accessible by using the onclick event of anchors and buttons</a>
 						</li>
 					</ul>
-					<h3 class="">Failures</h3>
+					<h3 class="">Échecs</h3>
 					<ul>
 						<li>
 							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F54">F54: Failure of Success Criterion 2.1.1 due to using only pointing-device-specific event handlers (including gesture) for a function</a>
