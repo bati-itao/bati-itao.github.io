@@ -97,7 +97,8 @@
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h2 class="text-success mrgn-tp-0 h3" id="autocomplete-attributes"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Using the autocomplete attribute</h2>
-						<p>This is a simple form that collects contact information from the user. <mark>The autocomplete field names use tokens to distinguish between work and home, and land line and mobile phone. The fields only auto-populate if the browser has saved values for the tokens (e.g., <code>given-name</code>, <code>family-name</code>) from a previous form submission.</mark></p>
+						<p>This is a simple form that <mark><del>collects</del> <ins>identifies</ins></mark> contact information from the user <mark>with the <code>autocomplete</code> attribute. The <code>autocomplete</code> field names use tokens to distinguish between billing and shipping, and land line and mobile phone.</mark></p>
+						<p><mark>The fields only auto-populate if the browser has saved values for the field names (e.g., <code>given-name</code>, <code>family-name</code>) from a previous form submission. To test, enter some values and press "Populate browser" to store values for the field names in the browser. The data is not submitted, and we don't store any of it.</mark></p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 								<form class="form-horizontal" autocomplete="on" onsubmit="return false;" > 
@@ -125,74 +126,75 @@
 										</div>
 									</div>
 									<fieldset>
-										<legend><mark>Business address</mark></legend>
+										<legend><mark>Shipping address</mark></legend>
 										<div class="form-group">
-											<label for="work-treet" class="col-sm-4 control-label"><mark>Street</mark></label>
+											<label for="ship-st" class="col-sm-4 control-label"><mark>Street</mark></label>
 											<div class="col-sm-8">
-												<input type="text" id="work-st" class="form-control" autocomplete="work street-address">
+												<input type="text" id="ship-st" class="form-control" autocomplete="shipping street-address">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="work-city" class="col-sm-4 control-label"><mark>City</mark></label>
+											<label for="ship-city" class="col-sm-4 control-label"><mark>City</mark></label>
 											<div class="col-sm-8">
-												<input type="text" id="work-city" class="form-control" autocomplete="work address-level2">
+												<input type="text" id="ship-city" class="form-control" autocomplete="shipping address-level2">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="work-prov" class="col-sm-4 control-label"><mark>Province</mark></label>
+											<label for="ship-prov" class="col-sm-4 control-label"><mark>Province</mark></label>
 											<div class="col-sm-8">
-												<input type="text" id="work-prov" class="form-control" autocomplete="work address-level1">
+												<input type="text" id="ship-prov" class="form-control" autocomplete="shipping address-level1">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="work-mobile-phone" class="col-sm-4 control-label"><mark>Mobile phone for delivery</mark></label>
+											<label for="ship-mobile-phone" class="col-sm-4 control-label"><mark>Mobile phone for delivery</mark></label>
 											<div class="col-sm-8">
-												<input type="tel" id="work-mobile-phone" class="form-control" autocomplete="work mobile tel-national">
+												<input type="tel" id="ship-mobile-phone" class="form-control" autocomplete="shipping mobile tel-national">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="work-email" class="col-sm-4 control-label"><mark>Email</mark></label>
+											<label for="ship-email" class="col-sm-4 control-label"><mark>Email</mark></label>
 											<div class="col-sm-8">
-												<input type="email" id="work-email" class="form-control" autocomplete="work email">
+												<input type="email" id="ship-email" class="form-control" autocomplete="shipping email">
 											</div>
 										</div>
 									</fieldset>
 									<fieldset>
-										<legend><mark>Home address</mark></legend>
+										<legend><mark>Billing address</mark></legend>
 										<div class="form-group">
-											<label for="home-st" class="col-sm-4 control-label"><mark>Street</mark></label>
+											<label for="bill-st" class="col-sm-4 control-label"><mark>Street</mark></label>
 											<div class="col-sm-8">
-												<input type="text" id="home-st" class="form-control" autocomplete="home street-address">
+												<input type="text" id="bill-st" class="form-control" autocomplete="billing street-address">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="home-city" class="col-sm-4 control-label"><mark>City</mark></label>
+											<label for="bill-city" class="col-sm-4 control-label"><mark>City</mark></label>
 											<div class="col-sm-8">
-												<input type="text" id="home-city" class="form-control" autocomplete="home address-level2">
+												<input type="text" id="bill-city" class="form-control" autocomplete="billing address-level2">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="home-prov" class="col-sm-4 control-label"><mark>Province</mark></label>
+											<label for="bill-prov" class="col-sm-4 control-label"><mark>Province</mark></label>
 											<div class="col-sm-8">
-												<input type="text" id="home-prov" class="form-control" autocomplete="work address-level1">
+												<input type="text" id="bill-prov" class="form-control" autocomplete="shipping address-level1">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="home-phone" class="col-sm-4 control-label"><mark>Phone</mark></label>
+											<label for="bill-phone" class="col-sm-4 control-label"><mark>Phone</mark></label>
 											<div class="col-sm-8">
-												<input type="tel" id="home-phone" class="form-control" autocomplete="home tel-national">
+												<input type="tel" id="bill-phone" class="form-control" autocomplete="billing tel-national">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="home-email" class="col-sm-4 control-label"><mark>Email</mark></label>
+											<label for="bill-email" class="col-sm-4 control-label"><mark>Email</mark></label>
 											<div class="col-sm-8">
-												<input type="tel" id="home-email" class="form-control" autocomplete="home email">
+												<input type="tel" id="bill-email" class="form-control" autocomplete="billing email">
 											</div>
 										</div>
 									</fieldset>
 									<div class="form-group">
 										<div class="col-sm-offset-4 col-sm-8">
-											<input type="submit" value="Continue">
+											<input type="submit" value="Populate browser">
+											<span><mark>Populate browser</mark></span>
 										</div>
 									</div>
 									
@@ -205,57 +207,57 @@
 							<p class="mrgn-tp-md"><mark>This markup has been simplified by removing grouping <code>&lt;div&gt;</code> elements and class attributes.</mark></p>
 							<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;form method="post" action="step1"&gt;  
-   &lt;label for="fname"&gt;First name&lt;/label&gt;
-   &lt;input id="fname" type="text" autocomplete="given-name"&gt;  
+  &lt;label for="fname"&gt;First name&lt;/label&gt;
+  &lt;input id="fname" type="text" autocomplete="given-name"&gt;  
 
-   &lt;label for="lname"&gt;Last name&lt;/label&gt;  
-   &lt;input id="lname" type="text" autocomplete="family-name"&gt;    
-   
-   &lt;label for="jobtitle"&gt;Job title&lt;/label&gt;  
-   &lt;input type="text" id="jobtitle" autocomplete="organization-title"&gt;
-   
-   &lt;label for="org"&gt;Organization&lt;/label&gt;
-   &lt;input type="text" id="org" autocomplete="organization"&gt;
-   
-   &lt;fieldset&gt;
-      &lt;legend&gt;Business address&lt;/legend&gt;
-      
-      &lt;label for="work-st"&gt;Street&lt;/label&gt;
-      &lt;input type="text" id="work-st" autocomplete="work street-address"&gt;
-      
-      &lt;label for="work-city"&gt;City&lt;/label&gt;
-      &lt;input type="text" id="work-city" autocomplete="work address-level2"&gt;
-      
-      &lt;label for="work-prov"&gt;Province&lt;/label&gt;
-      &lt;input type="text" id="work-prov" autocomplete="work address-level1"&gt;
-      
-      &lt;label for="work-mobile-phone"&gt;Mobile phone for delivery&lt;/label&gt;
-      &lt;input type="tel" id="work-mobile-phone" autocomplete="work mobile tel-national"&gt;
-      
-      &lt;label for="work-email"&gt;Email&lt;/label&gt;
-      &lt;input type="email" id="work-email" autocomplete="work email"&gt;
-   &lt;/fieldset&gt;
-   
-   &lt;fieldset&gt;
-      &lt;legend&gt;Home address&lt;/legend&gt;
-      
-      &lt;label for="home-st"&gt;Street&lt;/label&gt;
-      &lt;input type="text" id="home-st" autocomplete="home street-address"&gt;
-      
-      &lt;label for="home-city"&gt;City&lt;/label&gt;
-      &lt;input type="text" id="home-city" autocomplete="home address-level2"&gt;
-      
-      &lt;label for="home-prov"&gt;Province&lt;/label&gt;
-      &lt;input type="text" id="home-prov" autocomplete="work address-level1"&gt;
-      
-      &lt;label for="home-phone"&gt;Phone&lt;/label&gt;
-      &lt;input type="tel" id="home-phone" autocomplete="home tel-national"&gt;
-      
-      &lt;label for="home-email"&gt;Email&lt;/label&gt;
-      &lt;input type="email" id="home-email" autocomplete="home email"&gt;
-   &lt;/fieldset&gt;
-     
-   &lt;input type="submit" value="Continue"&gt; 
+  &lt;label for="lname"&gt;Last name&lt;/label&gt;  
+  &lt;input id="lname" type="text" autocomplete="family-name"&gt;   
+  
+  &lt;label for="jobtitle"&gt;Job title&lt;/label&gt;  
+  &lt;input type="text" id="jobtitle" autocomplete="organization-title"&gt;
+  
+  &lt;label for="org"&gt;Organization&lt;/label&gt;
+  &lt;input type="text" id="org" autocomplete="organization"&gt;
+  
+  &lt;fieldset&gt;
+    &lt;legend&gt;Shipping address&lt;/legend&gt;
+    
+    &lt;label for="ship-st"&gt;Street&lt;/label&gt;
+    &lt;input type="text" id="ship-st" autocomplete="shipping street-address"&gt;
+    
+    &lt;label for="ship-city"&gt;City&lt;/label&gt;
+    &lt;input type="text" id="ship-city" autocomplete="shipping address-level2"&gt;
+    
+    &lt;label for="ship-prov"&gt;Province&lt;/label&gt;
+    &lt;input type="text" id="ship-prov" autocomplete="shipping address-level1"&gt;
+    
+    &lt;label for="ship-mobile-phone"&gt;Mobile phone for delivery&lt;/label&gt;
+    &lt;input type="tel" id="ship-mobile-phone" autocomplete="shipping mobile tel-national"&gt;
+    
+    &lt;label for="ship-email"&gt;Email&lt;/label&gt;
+    &lt;input type="email" id="ship-email" autocomplete="shipping email"&gt;
+  &lt;/fieldset&gt;
+  
+  &lt;fieldset&gt;
+    &lt;legend&gt;Billing address&lt;/legend&gt;
+    
+    &lt;label for="bill-st"&gt;Street&lt;/label&gt;
+    &lt;input type="text" id="bill-st" autocomplete="billing street-address"&gt;
+    
+    &lt;label for="bill-city"&gt;City&lt;/label&gt;
+    &lt;input type="text" id="bill-city" autocomplete="billing address-level2"&gt;
+    
+    &lt;label for="bill-prov"&gt;Province&lt;/label&gt;
+    &lt;input type="text" id="bill-prov" autocomplete="billing address-level1"&gt;
+    
+    &lt;label for="bill-phone"&gt;Phone&lt;/label&gt;
+    &lt;input type="tel" id="bill-phone" autocomplete="billing tel-national"&gt;
+    
+    &lt;label for="bill-email"&gt;Email&lt;/label&gt;
+    &lt;input type="email" id="bill-email" autocomplete="billing email"&gt;
+  &lt;/fieldset&gt;
+    
+  &lt;input type="submit" value="Populate browser"&gt; 
 &lt;/form&gt;</code></pre>
 							<p class="wb-inv">Code ends</p>
 						</details>
