@@ -66,7 +66,7 @@
 	<nav role="navigation" aria-labelledby="nav-table">
     <div class="panel panel-default mrgn-tp-md">
       <header class="panel-heading">
-        <h2 id="nav-table" class="panel-title">Table of contents</h2>
+        <h2 id="nav-table" class="panel-title">Table des matières</h2>
       </header>
         <div class="panel-body">
           <ul>
@@ -83,80 +83,79 @@
 			<section>				
 				<h2 id="best-practice-mouse-input">Pratique exemplaire: Saisie avec la souris</h2>
 				<ul>
-					<li>Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden, the addition content is:
+					<li>Lorsque la réception puis la suppression du survol du curseur ou de la cible du clavier déclenchent un contenu supplémentaire pour le rendre visible puis masqué, ce contenu supplémentaire est&nbsp;:
 						<ul>
-							<li>Dismissible</li>
-							<li>Hoverable</li>
-							<li>Persistent </li>
+							<li>Rejetable</li>
+							<li>Survolable</li>
+							<li>Persistant </li>
 						</ul>
 					</li>
-					<li>Content that can be triggered via pointer hover should also be able to be triggered by keyboard focus.</li>
-					<li>For functionality that can be operated using a single pointer, at least one of the following is true:
+					<li>Le contenu pouvant être déclenché par le survol du curseur devrait également pouvoir être déclenché par le positionnement de la cible du clavier.</li>
+					<li>Pour toute fonctionnalité qui se commande par pointage unique, au moins un des énoncés suivants est vrai&nbsp;:
 						<ul>
-							<li>No Down-Event</li>
-							<li>Abort or Undo</li>
-							<li>Up Reversal</li>
-							<li>Essential</li>
+							<li>Pas d’événement de pression</li>
+							<li>Abandon ou annulation</li>
+							<li>Annulation sur relâchement</li>
+							<li>Obligation</li>
 						</ul>
 					</li>
-					<li>Use the default behaviour of controls (e.g. <code>onclick</code> or <code>mouseup</code> event) and do not override that behaviour with an explicit down-event trigger. </li>
+					<li>Utiliser le comportement par défaut des commandes (p.&nbsp;ex., événement <code>onclick </code>ou <code>mouseup</code>) et éviter d’annuler ce comportement par un déclencheur explicite par événement de pression.</li>
 				</ul>
 			</section>
 			
 			<section>				
 				<h2 id="best-practice-keyboard-input">Pratique exemplaire: Saisie avec clavier</h2>
-				<h3>Focus and focus order</h3>
+				<h3>Cible et ordre de cible</h3>
 				<ul>
-					<li>Ensure a meaningful tab order by positioning focusable content in the same sequence as the underlying code.</li>
-					<li>Ensure the keyboard navigation order is logical and intuitive. Typically, this means ensuring the navigation follows the visual flow of the page, left to right, top to bottom. It moves through the banner, main navigation, page navigation and controls, then footer on a typical page.</li>
-					<li>Avoid using <code>tabindex</code> values greater than 0.</li>
+					<li>Assurer un ordre de tabulation significatif en positionnant le contenu ciblable dans la même séquence que le code sous-jacent.</li>
+					<li>S’assurer que l’ordre de navigation au clavier est logique et intuitif. Habituellement, il faut pour cela s’assurer que la navigation suit le flux visuel de la page, de gauche à droite et de haut en bas. Il passe successivement par la bannière, la navigation principale, la navigation et les commandes des pages, puis le pied de page d’une page type.</li>
+					<li>Éviter d’utiliser des valeurs <code>tabindex </code>supérieures à&nbsp;0.</li>
 				</ul>
-				<h3>Visual focus indicator</h3>
+				<h3>Indicateur visuel de la cible</h3>
 				<ul>
-					<li>Avoid styles that remove or limit the visibility of keyboard focus indicators</li>
-					<li>Use CSS to design a highly-visible focus indicator with strong contrast</li>
-					<li>Links must have a visible focus state.</li>
+					<li>Toujours éviter les styles qui éliminent ou limitent la visibilité des indicateurs de cible du clavier.</li>
+					<li>Utiliser CSS pour concevoir un indicateur de cible très visible avec un fort contraste.</li>
+					<li>Les liens doivent avoir un état ciblé visible.</li>
 				</ul>
-				<h3>Keyboard functionality</h3>
+				<h3>Fonctionnalité du clavier</h3>
 				<ul>
-					<li>Ensure all page content can be operated through a keyboard. </li>
-					<li>When possible, use native HTML links and form controls rather than custom elements.</li>
-					<li>Use the <code>onclick</code> event of anchors and buttons.</li>
-					<li>Pair mouse event handlers with keyboard event handlers.</li>
-					<li><mark><del>Avoid keyboard traps: ensure the user can get in and out of interactive components using only the keyboard.</del></mark></li>
+					<li>S’assurer que tout le contenu de la page puisse se commander à partir du clavier. </li>
+					<li>Dans la mesure du possible, utiliser des liens et des commandes de formulaire HTML natifs plutôt que des éléments personnalisés.</li>
+					<li>Utiliser l’événement onclick des ancrages et des boutons.</li>
+					<li>Jumeler les gestionnaires d’événement souris et les gestionnaires d’événement clavier.</li>
 				</ul>
-				<h3>Keyboard Trap</h3>
+				<h3>Piège de clavier</h3>
 				<ul>
-					<li>Make sure the user can get in and out of the interactive elements by using only the keyboard.</li>
+					<li>S’assurer que l’utilisateur puisse entrer et sortir des éléments interactifs en utilisant uniquement le clavier.</li>
 				</ul>
-				<h3>Focus management with JavaScript-injected content</h3>
+				<h3>Gestion de cible avec contenu injecté de JavaScript</h3>
 				<ul>
-					<li>Whenever a pop up appears on the page as a result of the user interaction or invoking a control, ensure that the user <mark><del>must</del></mark> returns to the same place where the interaction first started.</li>
+					<li>Chaque fois qu’une fenêtre contextuelle apparaît sur la page en réponse à une action de l’utilisateur ou l’invocation d’une commande, s’assurer que l’utilisateur retourner au point de départ de l’interaction.</li>
 				</ul>
 			</section>
 			
 			<section>				
-				<h2 id="best-practice-touch-input">Pratique exemplaire: Touch input</h2>
+				<h2 id="best-practice-touch-input">Pratique exemplaire&nbsp;: Saisie tactile</h2>
 				<ul>
-					<li>All functionality should be accessible via pointer input devices, e.g., via a mouse, a finger on a touch screen, or an electronic stylus. </li>
-					<li>All functionalities can be operated by a single click or tap, double tap, double click, long press, or click &amp; hold.  </li>
-					<li>Write JavaScript event handlers that trigger on both keyboard and mouse click. A mouse-accessible interface is generally touch accessible.</li>
-					<li>Ensure the target size is at least 44px by 44px (Level AAA, optional)</li>
+					<li>Toutes les fonctionnalités doivent être accessibles au moyen d’un dispositif de pointage (p.&nbsp;ex., souris, doigt sur un écran tactile, stylet électronique, pointeur laser). </li>
+					<li>Toutes les fonctionnalités peuvent être commandées par toucher ou clic simple, par double toucher, par double-clic, par pression longue ou par clic maintenu. </li>
+					<li>Coder des gestionnaires d’événement JavaScript qui se déclenchent à la fois en réaction aux clics de clavier et de souris. Une interface accessible par souris est généralement accessible au toucher.</li>
+					<li>La taille de la cible devrait faire au moins 44px sur 44px (niveau&nbsp;AAA, facultatif).</li>
 				</ul>
 			</section>
 
 			<section>				
-				<h2 id="best-practice-voice-input">Pratique exemplaire: Saisie vocale</h2>
+				<h2 id="best-practice-voice-input">Pratique exemplaire&nbsp;: Saisie vocale</h2>
 				<ul>
-					<li>When a control has an accessible name set via an ARIA label as well as a visible label, the visible label text must be part of or match the ARIA label.</li>
+					<li>Lorsqu’une commande a un nom accessible défini au moyen d’une étiquette ARIA et d’une étiquette visible, le texte de l’étiquette visible doit faire partie de l’étiquette ARIA ou y correspondre.</li>
 				</ul>
 			</section>
 
 			<section>				
-				<h2 id="best-practice-motion-actuation">Pratique exemplaire: Commande par le mouvement</h2>
+				<h2 id="best-practice-motion-actuation">Pratique exemplaire&nbsp;: Commande par le mouvement</h2>
 				<ul>
-					<li>If you provide motion actuation (functions triggered by sensor input such as shaking), ensure the functions can also be triggered by conventional user interface components.</li>
-					<li>Ensure users can disable motion actuation.</li>
+					<li>Si des fonctions sont déclenchées par le mouvement (par exemple, par des secousses), il faut faire en sorte qu’elles se commandent également par des éléments d’interfaces utilisateurs classiques.</li>
+					<li>S’assurer que l’utilisateur puisse désactiver la commande par le mouvement.</li>
 				</ul>
 			</section>	
 		
