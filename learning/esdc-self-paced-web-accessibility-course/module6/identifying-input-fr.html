@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Déterminer l’objet de la saisie - Module 6 - Formulaires</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.appTop({
+                "appName": [{
+                    "text": "EDSC / Bureau de l’accessibilité des TI",
+                    "href": "../../../index-fr.html"
+                }],
+               "breadcrumbs" : [{
+                    "title": "Accueil",
+                    "href" : "../../../index-fr.html"
+                },{
+                    "title": "Apprentissage",
+                    "href" : "../../index-fr.html"
+                },
+				{
+                    "title": "Cours d'accessibilité Web",
+                    "href" : "../index-fr.html"
+                },
+			{
+                "title": "Module 6 - Formulaires",
+                "href" : "index-fr.html"
+            }],
+            "lngLinks": [{
+                "lang": "en",
+                "href": "identifying-input.html",
+                "text": "English"
+            }],
+            "menuPath": "../../../ajax/menu-en.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+	<h1 property="name" id="wb-cont">Déterminer l’objet de la saisie</h1>
+						
+	<nav role="navigation">
+    <div class="panel panel-default mrgn-tp-md">
+      <header class="panel-heading">
+        <h2 class="panel-title">Table des matières</h2>
+      </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#overview">Déterminer l’objet de la saisie (overview)</section></a></li>
+			<li><a href="#autocomplete-attributes">Good example: Using the autocomplete attribute</a></li>
+			<li><a href="#wcag-resources">Related WCAG resources</a></li>
+          </ul>
+        </div>
+      </div>
+	</nav>
+	
+			<section>
+				<h2 id="overview">Déterminer l’objet de la saisie (overview)</h2>
+				<p><mark>FRENCH: re-arranged sentences below</mark></p>
+				<p>When a form input field collects personal information such as the user’s name, phone number, email and street addresses, <mark><del>you must</del></mark> programmatically define its semantics with the <code>autocomplete</code> attribute. Assistive technologies leverage the <code>autocomplete</code> attribute value to automatically complete forms, drawing on past user input stored in the browser. This saves the user from having to type the information. Assistive technologies also leverage the <code>autocomplete</code> value to pair input fields with icons, for users who prefer using images for communication.</p>
+				<p>The attribute <mark>value</mark> takes one of 53 potential <mark><del>values</del> <ins><dfn>field names</dfn></ins></mark> from WCAG’s list of <a href="https://www.w3.org/TR/WCAG21/#input-purposes">Input Purposes for User Interface Components</a>. <mark><del>The values are granual</del> <ins>The field names are either broad or narrow</ins></mark>. For instance, regarding the user’s name, it’s possible to identify an input’s purpose as full name, given name, family name, or nickname. You can further refine the purpose by adding space-separated <mark><dfn>autofill detail tokens</dfn></mark> to the <code>autocomplete</code> <mark><del>attribute</del> <ins>value</ins></mark>:</p>
+				<ul>
+					<li><code>shipping</code></li>
+					<li><code>billing</code></li>
+					<li><code>home</code></li>
+					<li><code>work</code></li>
+					<li><code>mobile</code></li>
+					<li><code>fax</code></li>
+					<li><code>pager</code></li>
+				</ul>
+				<p><mark>Use <code>autocomplete</code> on <code>&lt;input&gt;</code> elements that take a text or numeric value as input, <code>&lt;textarea&gt;</code> elements, <code>&lt;select&gt;</code> elements, and <code>&lt;form&gt;</code> elements. The HTML5 specification lists the <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#inappropriate-for-the-control">appropriate elements to match with each autocomplete field name</a>.</mark></p>
+			</section>	
+			<section>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h2 class="text-success mrgn-tp-0 h3" id="autocomplete-attributes"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Using the autocomplete attribute</h2>
+						<p>This is a simple form that <mark><del>collects</del> <ins>identifies</ins></mark> contact information from the user <mark>with the <code>autocomplete</code> attribute. The <code>autocomplete</code> field names use tokens to distinguish between billing and shipping, and land line and mobile phone.</mark></p>
+						<p><mark>The fields only auto-populate if the browser has saved values for the field names (e.g., <code>given-name</code>, <code>family-name</code>) from a previous form submission. To test, enter some values and press "Populate browser" to store values for the field names in the browser. The data is not submitted, and we don't store any of it.</mark></p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<form class="form-horizontal" autocomplete="on" onsubmit="return false;" > 
+									<div class="form-group">
+										<label for="fname" class="col-sm-4 control-label">First name</label>
+										<div class="col-sm-8">
+											<input id="fname" type="text" class="form-control" autocomplete="given-name">  
+										</div>
+									</div>
+									<div class="form-group"> 
+										<label for="lname" class="col-sm-4 control-label">Last name</label> 
+										<div class="col-sm-8">
+											<input id="lname" type="text" class="form-control" autocomplete="family-name">    
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="jobtitle" class="col-sm-4 control-label">Job title</label> 
+										<div class="col-sm-8">
+											<input type="text" id="jobtitle" class="form-control" autocomplete="organization-title"> </div>
+										</div>
+									<div class="form-group">
+										<label for="org" class="col-sm-4 control-label">Organization</label>
+										<div class="col-sm-8">
+											<input type="text" id="org" class="form-control" autocomplete="organization">
+										</div>
+									</div>
+									<fieldset>
+										<legend><mark>Shipping address</mark></legend>
+										<div class="form-group">
+											<label for="ship-st" class="col-sm-4 control-label"><mark>Street</mark></label>
+											<div class="col-sm-8">
+												<input type="text" id="ship-st" class="form-control" autocomplete="shipping street-address">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="ship-city" class="col-sm-4 control-label"><mark>City</mark></label>
+											<div class="col-sm-8">
+												<input type="text" id="ship-city" class="form-control" autocomplete="shipping address-level2">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="ship-prov" class="col-sm-4 control-label"><mark>Province</mark></label>
+											<div class="col-sm-8">
+												<input type="text" id="ship-prov" class="form-control" autocomplete="shipping address-level1">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="ship-mobile-phone" class="col-sm-4 control-label"><mark>Mobile phone for delivery</mark></label>
+											<div class="col-sm-8">
+												<input type="tel" id="ship-mobile-phone" class="form-control" autocomplete="shipping mobile tel-national">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="ship-email" class="col-sm-4 control-label"><mark>Email</mark></label>
+											<div class="col-sm-8">
+												<input type="email" id="ship-email" class="form-control" autocomplete="shipping email">
+											</div>
+										</div>
+									</fieldset>
+									<fieldset>
+										<legend><mark>Billing address</mark></legend>
+										<div class="form-group">
+											<label for="bill-st" class="col-sm-4 control-label"><mark>Street</mark></label>
+											<div class="col-sm-8">
+												<input type="text" id="bill-st" class="form-control" autocomplete="billing street-address">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="bill-city" class="col-sm-4 control-label"><mark>City</mark></label>
+											<div class="col-sm-8">
+												<input type="text" id="bill-city" class="form-control" autocomplete="billing address-level2">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="bill-prov" class="col-sm-4 control-label"><mark>Province</mark></label>
+											<div class="col-sm-8">
+												<input type="text" id="bill-prov" class="form-control" autocomplete="shipping address-level1">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="bill-phone" class="col-sm-4 control-label"><mark>Phone</mark></label>
+											<div class="col-sm-8">
+												<input type="tel" id="bill-phone" class="form-control" autocomplete="billing tel-national">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="bill-email" class="col-sm-4 control-label"><mark>Email</mark></label>
+											<div class="col-sm-8">
+												<input type="tel" id="bill-email" class="form-control" autocomplete="billing email">
+											</div>
+										</div>
+									</fieldset>
+									<div class="form-group">
+										<div class="col-sm-offset-4 col-sm-8">
+											<input type="submit" value="Populate browser">
+											<span><mark>Populate browser</mark></span>
+										</div>
+									</div>
+									
+								</form>
+								<p class="wb-inv">Example ends</p>
+							</div>
+						</div>
+						<details class="mrgn-tp-lg">
+							<summary class="bg-info">View HTML <mark>(simplified) [Fr: simplifi&eacute;]</mark></summary>
+							<p class="mrgn-tp-md"><mark>This markup has been simplified by removing grouping <code>&lt;div&gt;</code> elements and class attributes.</mark></p>
+							<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;form method="post" action="step1"&gt;  
+  &lt;label for="fname"&gt;First name&lt;/label&gt;
+  &lt;input id="fname" type="text" autocomplete="given-name"&gt;  
+
+  &lt;label for="lname"&gt;Last name&lt;/label&gt;  
+  &lt;input id="lname" type="text" autocomplete="family-name"&gt;   
+  
+  &lt;label for="jobtitle"&gt;Job title&lt;/label&gt;  
+  &lt;input type="text" id="jobtitle" autocomplete="organization-title"&gt;
+  
+  &lt;label for="org"&gt;Organization&lt;/label&gt;
+  &lt;input type="text" id="org" autocomplete="organization"&gt;
+  
+  &lt;fieldset&gt;
+    &lt;legend&gt;Shipping address&lt;/legend&gt;
+    
+    &lt;label for="ship-st"&gt;Street&lt;/label&gt;
+    &lt;input type="text" id="ship-st" autocomplete="shipping street-address"&gt;
+    
+    &lt;label for="ship-city"&gt;City&lt;/label&gt;
+    &lt;input type="text" id="ship-city" autocomplete="shipping address-level2"&gt;
+    
+    &lt;label for="ship-prov"&gt;Province&lt;/label&gt;
+    &lt;input type="text" id="ship-prov" autocomplete="shipping address-level1"&gt;
+    
+    &lt;label for="ship-mobile-phone"&gt;Mobile phone for delivery&lt;/label&gt;
+    &lt;input type="tel" id="ship-mobile-phone" autocomplete="shipping mobile tel-national"&gt;
+    
+    &lt;label for="ship-email"&gt;Email&lt;/label&gt;
+    &lt;input type="email" id="ship-email" autocomplete="shipping email"&gt;
+  &lt;/fieldset&gt;
+  
+  &lt;fieldset&gt;
+    &lt;legend&gt;Billing address&lt;/legend&gt;
+    
+    &lt;label for="bill-st"&gt;Street&lt;/label&gt;
+    &lt;input type="text" id="bill-st" autocomplete="billing street-address"&gt;
+    
+    &lt;label for="bill-city"&gt;City&lt;/label&gt;
+    &lt;input type="text" id="bill-city" autocomplete="billing address-level2"&gt;
+    
+    &lt;label for="bill-prov"&gt;Province&lt;/label&gt;
+    &lt;input type="text" id="bill-prov" autocomplete="billing address-level1"&gt;
+    
+    &lt;label for="bill-phone"&gt;Phone&lt;/label&gt;
+    &lt;input type="tel" id="bill-phone" autocomplete="billing tel-national"&gt;
+    
+    &lt;label for="bill-email"&gt;Email&lt;/label&gt;
+    &lt;input type="email" id="bill-email" autocomplete="billing email"&gt;
+  &lt;/fieldset&gt;
+    
+  &lt;input type="submit" value="Populate browser"&gt; 
+&lt;/form&gt;</code></pre>
+							<p class="wb-inv">Code ends</p>
+						</details>
+					</div>
+				</div>
+			</section>
+			
+			
+			
+			<section>				
+				<h2 id="wcag-resources" class="wb-inv">Related WCAG resources</h2>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">Related WCAG resources</summary>
+					<h3>Success criteria</h3>
+					<ul>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose">1.3.5: Identify Input Purpose</a></li>
+						
+					</ul>
+					<h3>Techniques</h3>
+					<ul>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H98.html">H98: Using HTML 5.2 autocomplete attributes</a></li>
+										
+					</ul>
+					<h3>Failures</h3>
+					<ul>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F107.htmll">F107: Failure of Success Criterion 1.3.5 due to incorrect autocomplete attribute values</a></li>
+											
+					</ul>
+				</details>
+			</section>
+		
+		
+	<nav role="navigation">
+		<h2 class="wb-inv">Menu de la pagination</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="form-instructions-fr.html">Précédent - Instructions du formulaire</a></li>
+			<li class="next"><a rel="next" href="validating-input-fr.html">Suivant - Validation des saisies</a></li>
+		</ul>
+	</nav>
+	</main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+		<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 6 - Formulaires</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="forms-concepts-fr.html">Concepts des formulaires</a></li>
+						<li><a class="list-group-item" href="labelling-controls-fr.html">Commandes d’étiquetage</a></li>
+						<li><a class="list-group-item" href="grouping-controls-fr.html">Regroupement des commandes</a></li>
+						<li><a class="list-group-item" href="form-instructions-fr.html">Instructions du formulaire</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="identifying-input-fr.html">Déterminer l’objet de la saisie</a></li>
+						<li><a class="list-group-item" href="validating-input-fr.html">Validation des saisies</a></li>
+						<li><a class="list-group-item" href="user-notifications-fr.html">Avis à l’utilisateur</a></li>
+						<li><a class="list-group-item" href="multi-step-forms-fr.html">Formulaires à étapes multiples</a></li>
+						<li><a class="list-group-item" href="custom-controls-fr.html">Commandes personnalisées</a></li>
+						<li><a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Tous les modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/index-fr.html">Module 2 - Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/index-fr.html">Module 3 - Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/index-fr.html">Module 4 - Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/index-fr.html">Module 5 - Images</a></li>
+                        <li><a class="list-group-item active" href="index-fr.html">Module 6 - Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/index-fr.html">Module 7 - Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item" href="../module8/index-fr.html">Module 8 - Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item" href="../module10/index-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/index-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+                     </ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>
