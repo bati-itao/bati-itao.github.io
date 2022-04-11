@@ -135,30 +135,27 @@
 				</ul>
 				
 			<div class="panel panel-success">
-					<div class="panel-body">
-					  <h2 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good examples: aria-atomic false vs true</h2>
+				<div class="panel-body">
+					<h2 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good examples: aria-atomic false vs true</h2>
 				
-				
-				<p class="wb-inv">Example begins</p>
-				<p>In these examples, the updated total price in a purchase process is announced when the user adds a product.</p>
-				<p>In this first example, the aria-atomic attribute is not used, so the default value applies, which is “false". Only the dynamic content is announced, that is, the price. If the dynamic content isn’t meaningful on its own, it can easily confuse users. In this case, the dynamic content alone is vague.</p>
-				<p class="wb-inv">Code begins</p>
-				<pre><code class="language-html">&lt;p aria-live="polite"&gt;
-	Total price:
-	&lt;span id="total-price"&gt;$84.52&lt;/span&gt;
+					<p>In these examples, the updated total price in a purchase process is announced when the user adds a product.</p>
+					<p>In this first example, the aria-atomic attribute is not used, so the default value applies, which is “false". Only the dynamic content is announced, that is, the price. If the dynamic content isn’t meaningful on its own, it can easily confuse users. In this case, the dynamic content alone is vague.</p>
+					<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;p aria-live="polite"&gt;
+   Total price:
+   &lt;span id="total-price"&gt;$84.52&lt;/span&gt;
 &lt;/p&gt;</code></pre>
 <p class="wb-inv">Code ends</p>
 In this second example, the aria-atomic attribute is set to “true". All the content of the live region is announced, providing the necessary context to make sense of the dynamic content:
 <p class="wb-inv">Code begins</p>
 <pre><code class="language-html">
 &lt;p aria-live="polite" aria-atomic="true"&gt;
-	Total price:
-	&lt;span id="total-price"&gt;$84.52&lt;/span&gt;
+   Total price:
+   &lt;span id="total-price"&gt;$84.52&lt;/span&gt;
 &lt;/p&gt;</code></pre>
-<p class="wb-inv">Code ends</p>
-	<p class="wb-inv">Example ends</p>
-</div>
-</div>
+				<p class="wb-inv">Code ends</p>
+			</div>
+		</div>
 			</section>
 			<section>
 				<h2 id="relevant">aria-relevant</h2>
@@ -169,7 +166,7 @@ In this second example, the aria-atomic attribute is set to “true". All the co
 					<li><code>aria-relevant="removals"</code>: Removal of nodes to the live region are announced. Reserve for important changes, such as a colleague leaving a chat room.</li>
 					<li><code>aria-relevant="text"</code>: Changes to the text content (including text equivalents, such as alt text) in the live region are announced.</li>
 				</ul>
-				<p>A live region has an implicit <code>aria-relevant</code> value of “additions" and “text", so the attribute isn’t needed if the design calls for the normal behaviour of announcing added content. Only use the <code>aria-relevant</code> attribute if you need to communicate the removal of content from a live region. </p>
+				<p>A live region has an implicit <code>aria-relevant</code> value of “additions" and “text", so the attribute isn’t needed if the design calls for the <mark><del>normal</del> <ins>default</ins></mark> behaviour of announcing added content. Only use the <code>aria-relevant</code> attribute if you need to communicate the removal of content from a live region. </p>
 			</section>
 			<section>
 				<h2 id="busy">aria-busy</h2>
@@ -179,124 +176,164 @@ In this second example, the aria-atomic attribute is set to “true". All the co
 				<h2 id="special-types">Special types of live regions</h2>
 				
 				<h3 class="">role="alert"</h3>
-				<p>Use the ARIA <code>alert</code> role to announce important and typically time-sensitive information that requires the user’s immediate attention. Setting <code>role="alert"</code> is equivalent to setting <code>aria-live="assertive"</code> and <code>aria-atomic="true"</code>. The only difference is that some screen readers begin the announcement by saying “alert", to identify it to users as an alert.</p>
+				<p>Use the ARIA <code>alert</code> role to announce important and typically time-sensitive information that requires the user’s immediate attention. Setting <code>role="alert"</code> is equivalent to setting <code>aria-live="assertive"</code> and <code>aria-atomic="true"</code>. The only difference is that some screen readers begin the announcement by saying "alert", to identify it to users as an alert.</p>
 				<div class="panel panel-success">
 					<div class="panel-body">
-					  <h2 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using role="alert"</h2>
-					<p class="wb-inv">Example begins</p>
-				<p>In this example, a div has <code>role="alert"</code> and CSS <code>display: none</code> attributes. Changing the display value with CSS or JavaScript triggers the live announcement. Exposing such previously-hidden text is equivalent to injecting text.</p>
-				<p>The initial alert has the CSS class name <code>“hidden"</code>, which hides the alert text with <code>display: none</code>. </p>
-				<p class="wb-inv">Code begins</p>
-				<pre><code class="language-html">&lt;form id="updateProfile" method="post" action="javascript:void(0)"&gt;
-	&lt;p&gt;&lt;button&gt;Update profile&lt;button&gt;&lt;/p&gt;
-	&lt;div class="confirm hidden" role="alert"&gt;You profile has been updated.&lt;/div&gt;
-&lt;/form&gt;
-The alert is triggered by removing the CSS class name “hidden":
-&lt;form id="updateProfile" method="post" action="javascript:void(0)"&gt;
-	&lt;p&gt;&lt;button&gt;Update profile&lt;button&gt;&lt;/p&gt;
-	&lt;div class="confirm " role="alert"&gt;You profile has been updated.&lt;/div&gt;
+						<h2 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using role="alert"</h2>
+					
+						<p>
+							<mark>
+								<del>In this example, a div has <code>role="alert"</code> and CSS <code>display: none</code> attributes.</del>
+								<ins>In this example, a <code>&lt;div&gt;</code> element has a <code>role="alert"</code> attribute and is set via CSS to <code>display: none</code>.</ins>
+							</mark> 
+						</p>
+						Changing the <code>display</code> value <mark><del>with CSS or JavaScript</del></mark> triggers the live announcement. Exposing such previously-hidden text is equivalent to injecting text.</p>
+						<p>The initial alert has the CSS class name <code>hidden</code>, which hides the alert text with <code>display: none</code>. </p>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;form id="updateProfile" method="post" action="javascript:void(0)"&gt;
+   &lt;p&gt;&lt;button&gt;Update profile&lt;button&gt;&lt;/p&gt;
+   &lt;div class="confirm hidden" role="alert"&gt;You profile has been updated.&lt;/div&gt;
 &lt;/form&gt;</code></pre>
-<p class="wb-inv">Code ends</p>
-	<p class="wb-inv">Example ends</p>
-</div>
-</div>
+						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-css">.hidden { display: none; }</code></pre>
+						<p class="wb-inv">Code ends</p>
+						<p>The alert is triggered by removing the CSS class name <code>hidden</code></p>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;form id="updateProfile" method="post" action="javascript:void(0)"&gt;
+   &lt;p&gt;&lt;button&gt;Update profile&lt;button&gt;&lt;/p&gt;
+   &lt;div class="confirm" role="alert"&gt;You profile has been updated.&lt;/div&gt;
+&lt;/form&gt;</code></pre>
+						<p class="wb-inv">Code ends</p>
+					</div>
+				</div>
 				<h3 class="">role="status"</h3>
 				<p>Use the ARIA <code>status</code> role to announce advisory information to the user that is less urgent than an alert. Setting <code>role="status"</code> is equivalent to setting <code>aria-live="polite"</code> and <code>aria-atomic="true"</code>. </p>
-				<p>If an element on the page controls what appears in the status, assign the controlling element the <code>aria-controls="IDREF"</code> attribute, pointing to the id attribute value of the element with <code>role="status"</code>.</p>
+				<p>If an element on the page controls what appears in the status, assign the controlling element the <code>aria-controls="IDREF"</code> attribute, pointing to the <code>id</code> attribute value of the element with <code>role="status"</code>.</p>
 				
 					
 			<div class="panel panel-success">
-					<div class="panel-body">
-					  <h2 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Use role="status"</h2>
+				<div class="panel-body">
+					<h2 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Use role="status"</h2>
 					
-				<p>In this example, a paragraph with <code>role="status"</code> displays the number of items in a shopping cart. Because <code>role="status"</code> by default uses <code>aria-atomic="true"</code>, the whole contents of the paragraph are announced. When the count updates, the live announcement kicks in. Screen readers declare the alt text of the shopping cart icon, the revised count, and the word “items". </p>
-				<p>To prevent the <code>&lt;br&gt;</code> element from being declared by screen readers it’s given the <code>aria-hidden="true"</code> attribute. The <code>aria-controls="IDREF"</code> attribute is set on the button and given the id attribute value of the span element holding the count.</p>
-				
-				<div class="panel panel-primary mrgn-tp-md">
-				<div class="panel-body well mrgn-bttm-0">
-				 <p class="wb-inv">Example begins</p>
-				<p role="status">
-				<span class="glyphicon glyphicon-shopping-cart" alt="Shopping cart">
-				<br aria-hidden="true">
-				<span id="cart-count">0</span> items
-				</p>
-				<button id="btn" onclick="buy()" aria-controls="cart-count">Add to cart</button>
-				<script>
-				let counter = 0;
-				function buy() {
-					counter += 1;
-					document.getElementById("cart-count").innerHTML = counter;
-				}
-				</script>
-				<p class="wb-inv">Example ends</p>
-				</div>
-				</div>
-				<details class="mrgn-tp-sm">
-				<summary class="bg-info">View HTML</summary>
-				<p class="wb-inv">Code begins</p>
-				<pre><code class="language-html">&lt;p role="status"&gt;
-	&lt;img id="cart-icon" src="cart.gif" alt="Shopping cart"&gt;
-	&lt;br aria-hidden="true"&gt;
-	&lt;span id="cart-count"&gt;0&lt;/span&gt; items
+					<p>In this example, a paragraph with <code>role="status"</code> displays the number of items in a shopping cart. Because <code>role="status"</code> by default uses <code>aria-atomic="true"</code>, the whole contents of the paragraph are announced. When the count updates, the live announcement kicks in. Screen readers declare the <mark><del>alt text of the shopping cart icon</del> <ins>the visually-hidden text "Shopping cart"</ins></mark>, the revised count, and the word "items".</p>
+					<p><mark>The <code>title</code> attribute on the <code>&lt;span&gt;</code> holding the icon provides a visual label for mouse users. Since support for the <code>title</code> attribute is inconsistent across screen readers, the element is hidden from all of them (using the <code>aria-hidden="true"</code> attribute) and the more reliable visually-hidden text is used to label the icon (using the class <code>.wb-inv</code>).</mark></p>
+					<p><mark><del>To prevent the <code>&lt;br&gt;</code> element from being declared by screen readers it’s given the <code>aria-hidden="true"</code> attribute.</del></mark> The <code>aria-controls="IDREF"</code> attribute is set on the button and given the <code>id</code> attribute value of the <mark><del>span</del></mark> element holding the <mark><del>count</del> <ins><code>role="status"</code> attribute</ins></mark>.</p>
+					
+					<div class="panel panel-primary mrgn-tp-md">
+						<div class="panel-body well mrgn-bttm-0">
+							<p class="wb-inv">Example begins</p>
+							<p role="status" id="cart">
+								<span class="glyphicon glyphicon-shopping-cart" title="Shopping cart" aria-hidden="true"></span>
+								<span class="wb-inv">Shopping cart</span>
+								<span id="cart-count">0</span> 
+								items
+							</p>
+							<button id="btn" onclick="buy()" aria-controls="cart">Add to cart</button>
+							<script>
+							let counter = 0;
+							function buy() {
+								counter += 1;
+								document.getElementById("cart-count").innerHTML = counter;
+							}
+							</script>
+							<p class="wb-inv">Example ends</p>
+						</div>
+					</div>
+
+					<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;p role="status" id="cart"&gt;
+   &lt;span title="Shopping cart" aria-hidden="true" class="glyphicon glyphicon-shopping-cart"&gt;&lt;/span&gt;
+   &lt;span class="wb-inv"&gt;Shopping cart&lt;/span&gt;
+   &lt;span id="cart-count"&gt;0&lt;/span&gt; 
+   items
 &lt;/p&gt;
-&lt;button id="btn" onclick="buy()" aria-controls="cart-count"&gt;Add to cart&lt;/button&gt;
+&lt;button id="btn" onclick="buy()" aria-controls="cart"&gt;Add to cart&lt;/button&gt;
 &lt;script&gt;
-	let counter = 0;
-	function buy() {
-		counter += 1;
-		document.getElementById("cart-count").innerHTML = counter;
-	}
-&lt;/script&gt;</code>
-				</pre>
-				</details>
-				
-				</div></div>
+   let counter = 0;
+   function buy() {
+      counter += 1;
+      document.getElementById("cart-count").innerHTML = counter;
+   }
+&lt;/script&gt;</code></pre>
+					<p class="wb-inv">Code ends</p>
+					<p class="wb-inv">Code begins</p>
+<pre><code class="language-css">.wb-inv {
+   clip: rect(1px,1px,1px,1px);
+   height: 1px;
+   margin: 0;
+   overflow: hidden;
+   position: absolute;
+   width: 1px;
+}
+.glyphicon {
+   position: relative;
+   top: 2px;
+   display: inline-block;
+   font-family: "Glyphicons Halflings";
+   font-style: normal;
+   font-weight: 400;
+   line-height: 1;
+   -webkit-font-smoothing: antialiased;
+}</code></pre>
+					<p class="wb-inv">Code ends</p>
+			</div>
+		</div>
 				
 				<h3 class="">role="timer"</h3>
-				<p>Use the ARIA timer role to identify a numerical counter listing the time elapsed from a starting point or the time remaining until an end point. The role has the implied value of <code>aria-live="off"</code>, to prevent frequent announcements from overwhelming the screen reader user. However, you can announce the time at regular intervals by using JavaScript to briefly set the <code>aria-live="assertive"</code> and <code>role="alert"</code> attributes, overruling <code>aria-live="off"</code> and <code>role="timer"</code>.</p>
+				<p>Use the ARIA <code>timer</code> role to identify a numerical counter listing the time elapsed from a starting point or the time remaining until an end point. The role has the implied value of <code>aria-live="off"</code>, to prevent frequent announcements from overwhelming the screen reader user. However, you can announce the time at regular intervals by using JavaScript to briefly set the <code>aria-live="assertive"</code> and <code>role="alert"</code> attributes, overruling <code>aria-live="off"</code> and <code>role="timer"</code>.</p>
 				<div class="panel panel-success">
 					<div class="panel-body">
-					  <h2 class="text-success mrgn-tp-0 h3" id="countdown"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example:  Countdown announcing at intervals</h2>
-				<p>In this example, a countdown uses the <code>role="timer"</code>, so is silent in screen readers due to its implicit <code>aria-live="off"</code> setting. However, at 15-second intervals, JavaScript briefly adds the <code>aria-live ="assertive"</code> attribute and replaces the timer role with <code>role="alert"</code>. Screen readers announce the initial alert, “60 seconds left!", then the time remaining every 15 seconds: “45 seconds left!", etc.</p>
-				<p>An interval of 15 seconds between announcements is too brief in practice and is done here simply to illustrate the technique. One minute is a more practical interval.</p>
-				<p>Try visiting the <a href="example-countdown.html" target="_blank">live demo<span class="wb-inv"> (Opens in new tab)</span></a>  with a screen reader running.</p>
-				
-				
-				<pre><code class="language-html">&lt;div id="countdown" role="timer" aria-atomic="true"&gt;
-	&lt;span id="number"&gt;60&lt;/span&gt; seconds left!
+						<h2 class="text-success mrgn-tp-0 h3" id="countdown"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example:  Countdown announcing at intervals</h2>
+						<p>In this example, a countdown uses the <code>role="timer"</code>, so is silent in screen readers due to its implicit <code>aria-live="off"</code> setting.</p>
+										
+<pre><code class="language-html">&lt;div id="countdown" role="timer" aria-atomic="true"&gt;
+   &lt;span id="number"&gt;60&lt;/span&gt; seconds left!
 &lt;/div&gt;</code>
 </pre>
+						<p>However, at 15-second intervals, JavaScript briefly adds the <code>aria-live ="assertive"</code> attribute and replaces the <code>timer</code> role with <code>role="alert"</code>. Screen readers announce the initial alert, “60 seconds left!", then the time remaining every 15 seconds: “45 seconds left!", etc.</p>
+										
+<pre><code class="language-html">&lt;div id="countdown" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+   &lt;span id="number"&gt;45&lt;/span&gt; seconds left!
+&lt;/div&gt;</code>
+</pre>
+						<p>An interval of 15 seconds between announcements is too brief in practice and is done here simply to illustrate the technique. One minute is a more practical interval.</p>
+						<p>Try visiting the <a href="example-countdown.html" target="_blank">live demo<span class="wb-inv"> (Opens in new tab)</span></a>  with a screen reader running.</p>
 				
-				<p class="wb-inv">Code begins</p>
-				<pre><code class="language-js">function decrement() { 
-	var numElement = document.getElementById('number'); 
-	var liveRegion = document.getElementById('countdown'); 
-	var newNumber = parseInt(numElement.textContent - 1); 
-	if (newNumber &gt; -1) { 
-		numElement.textContent = newNumber; 
-	} 
-	if ((newNumber % 15)===0) {
-		liveRegion.setAttribute('aria-live', 'assertive'); 
-		liveRegion.setAttribute('role', 'alert'); 
-		setTimeout(function() { 
-			liveRegion.removeAttribute('aria-live'); 
-			liveRegion.setAttribute('role', 'timer'); 
-		}, 999);
-	} 
+						<p><mark>TODO: add declarations at 60 and 0 seconds left (to sample code and live example). Currently only works at 45, 30 and 15 sec left.</mark></p>
+						<details class="mrgn-tp-lg">
+							<summary class="bg-info">View JavaScript</summary>
+							<p class="wb-inv">Code begins</p>
+<pre><code class="language-js">function decrement() { 
+   var numElement = document.getElementById('number'); 
+   var liveRegion = document.getElementById('countdown'); 
+   var newNumber = parseInt(numElement.textContent - 1); 
+   if (newNumber &gt; -1) { 
+      numElement.textContent = newNumber; 
+   } 
+   if ((newNumber % 15)===0) {
+      liveRegion.setAttribute('aria-live', 'assertive'); 
+      liveRegion.setAttribute('role', 'alert'); 
+      setTimeout(function() { 
+         liveRegion.removeAttribute('aria-live'); 
+         liveRegion.setAttribute('role', 'timer'); 
+      }, 999);
+   } 
 } 
 window.setInterval(function() { 
-	decrement(); 
+   decrement(); 
 }, 1000);</code>
 </pre>
 
-<p class="wb-inv">Code ends</p>
+							<p class="wb-inv">Code ends</p>
+						</details>
 </div>
 </div>
 				<h3 class="">role="marquee"</h3>
-				<p>Use the ARIA marquee role to define an area as a type of live region with non-essential announcements that change frequently. Examples include stock tickers and frequently-changing ad banners. </p>
-				<p>Elements with the marquee role have an implicit <code>aria-live="off"</code>. As with the timer role, the content changes too frequently to announce in screen readers. Screen reader users can still navigate to the area to read the text. </p>
-				<p>A marquee is required to have an accessible name. If a visible label is present use <code>aria-labelledby</code>; otherwise, use <code>aria-label</code>.</p>
-				<h3 class="">role="log"</h3>
+				<p>Use the ARIA <code>marquee</code> role to define an area as a type of live region with non-essential announcements that change frequently. Examples include stock tickers and frequently-changing ad banners. </p>
+				<p>Elements with the <code>marquee</code> role have an implicit <code>aria-live="off"</code>. As with the <code>timer</code> role, the content changes too frequently to announce in screen readers. Screen reader users can still navigate to the area to read the text. </p>
+				<p>A marquee is required to have an accessible name. If a visible label is present use the <code>aria-labelledby</code> attribute; otherwise, use <code>aria-label</code>.</p>
+				<h3>role="log"</h3>
 				<p>Use the ARIA log role to keep track of sequential updates, such as a chat log, messaging history, game log or an error log. New information is added to the end, old information is optionally removed from the beginning. Updates to the live region are announced when the user is idle. The live region defined by <code>role="log"</code> has implicit <code>aria-live="polite"</code> and <code>aria-atomic="true"</code> attribute values.</p>
 			</section>
 			<section>				
@@ -312,7 +349,7 @@ window.setInterval(function() {
 						<a href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages">4.1.3: Status Messages</a>
 					</li>
 				</ul>
-				<p>Techniques</p>
+				<h3>Techniques</h3>
 				<ul>
 					<li>
 						<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA19">ARIA19: Using ARIA role=alert or Live Regions to Identify Errors</a>
