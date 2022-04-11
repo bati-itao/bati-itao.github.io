@@ -92,11 +92,11 @@
 				<h2 id="section2">Requêtes média CSS</h2>
 				<p>La technique s’appuie sur les « requêtes média » CSS, qui effectue des tests pour déterminer la taille de l’écran des utilisateurs, puis servent des configurations distinctes à différentes largeurs d’écran. Une stratégie typique cible les trois grandes catégories d’affichage des appareils : grands écrans, tablettes et téléphones. Les versions HTML et CSS des composantes de la page sont adaptées pour éviter le défilement horizontal, comme il est décrit dans les sections suivantes.</p>
 				<p>Les points auxquels une requête média est présentée et la configuration est modifiée sont appelés «&nbsp;points d’interruption&nbsp;». Voici la syntaxe&nbsp;:</p>
-				<p class="wb-inv">Code begins</p>
+				<p class="wb-inv">Début du code</p>
 <pre><code class="language-css">@media media type and (condition: breakpoint) {
    // CSS rules
 }</code></pre>
-				<p class="wb-inv">Code ends</p>
+				<p class="wb-inv">Fin du code</p>
 				<p>Les types de médias disponibles pour les requêtes média comprennent&nbsp;:</p>
 				<dl>
 					<dt>all</dt>
@@ -118,25 +118,25 @@
 							<span class="glyphicon glyphicon-ok-circle"></span> Exemple&nbsp;: Point d’interruption unique
 						</h3>
 						<p>Dans cet exemple, le type de média est «&nbsp;<code>screen</code>&nbsp;» et le point d’interruption est 480&nbsp;pixels. Si la largeur d’un appareil est de 480&nbsp;pixels ou moins, la classe de <code>.button</code> est appliquée.</p>
-						<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Début du code</p>
 <pre><code class="language-css">@media screen and (max-width: 480px) {
    .button { background-color: red; }
 }</code></pre>
-						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Fin du code</p>
 					</div>
 				</div>
 				<h3>Points d’interruption du gouvernement du Canada</h3>
 				<p>Les spécifications techniques relatives à la présence Web et mobile du <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/web-mobile-presence.html">Secrétariat du Conseil du Trésor du gouvernement du Canada</a> précisent deux points d’interruption pour les grands et petits écrans à 768&nbsp;pixels. </p>
 				<p>Ces requêtes média ciblent le type «&nbsp;écran&nbsp;», de sorte que leurs règles ne sont pas appliquées à la sortie d’impression. </p>
-				<p class="wb-inv">Code begins</p>
+				<p class="wb-inv">Début du code</p>
 <pre><code class="language-css">@media screen and (min-width: 768px) {
-   /* styles for large screen device */
+   /* styles pour les appareils à grand écran */
 }
 @media screen and (max-width: 767px) { 
-   /* styles for small screen device */
+   /* styles pour les appareils à petit écran */
 }</code></pre>
-				<p class="wb-inv">Code ends</p>
-				<p><mark>styles for large screen device</mark> and <mark>small screen</mark></p>
+				<p class="wb-inv">Fin du code</p>
+				<p><mark>Styles pour les appareils à grand écran</mark> et <mark>les petits écrans</mark></p>
 				<h3>Points d’interruption de la BOEW</h3>
 				<p>La Boîte à outils de l’expérience Web offre une conception adaptée aux appareils mobiles. Elle met en œuvre les points d’interruption de Bootstrap&nbsp;3&nbsp;:</p>
 				<ul>
@@ -167,7 +167,7 @@
 			<section>				
 				<h2 id="section4">Configurer la zone d’affichage</h2>
 					<p>Les pages optimisées pour une variété d’appareils doivent inclure un élément  <code>&lt;meta&gt;</code> dans le <code>&lt;head&gt;</code> du document, précisant quelques propriétés de la zone d’affichage. Une balise <code>meta</code> de zone d’affichage indique au navigateur comment contrôler les dimensions et la mise à l’échelle de la page. Sans cette balise, une page n’est pas adaptée sur les appareils mobiles.</p>
-					<p class="wb-inv">Code begins</p>
+					<p class="wb-inv">Début du code</p>
 					
 <pre><code class="language-html">&lt;html lang="fr-CA"&gt;
    &lt;head&gt;
@@ -175,7 +175,7 @@
       &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
    &lt;/head&gt;</code></pre>
    
-					<p class="wb-inv">Code ends</p>
+					<p class="wb-inv">Fin du code</p>
 					<p>Le paramètre <code>width=device-width</code> indique que la page correspond à la largeur d’écran de l’appareil. Cela permet à la page de reformater le contenu pour qu’il corresponde à différentes tailles d’écran.</p>
 					<p>Le paramètre <code>initial-scale</code> définit le niveau de zoom par défaut de la page. Le réglage  <code>initial-scale=1</code> demande aux navigateurs d’établir une relation&nbsp;1:1 entre les pixels CSS et les pixels de la zone d’affichage. Cette propriété est en grande partie nécessaire pour contrer un bogue de redimensionnement et de coupure de contenu dans certains appareils déclenché par l’utilisation de <code>width=device-width</code> et la visualisation de la page en mode paysage.</p>
 					<p>Les pages mobiles doivent prendre en charge la fonction «&nbsp;zoom par pincement&nbsp;» afin de permettre aux utilisateurs d’agrandir les petits textes et les commandes et de compenser le faible contraste. Les développeurs désactivent souvent la fonction zoom par pincement en réglant deux paramètres sur l’élément <code>meta</code> de la zone d’affichage&nbsp;: <code>user-scalable=no</code> et <code>maximum-scale=1.0</code>. Pour activer la fonction zoom par pincement, réglez <code>user-scalable=1</code> et <code>maximum-scale=2.0</code>. Il s’agit d’une valeur de 200&nbsp;%, soit le zoom minimum requis pour respecter les WCAG. Vous pouvez activer un zoom plus important en réglant l’échelle maximale à une valeur plus élevée ou en supprimant le paramètre de l’échelle maximale pour supprimer entièrement la limite de zoom. </p>
@@ -184,9 +184,9 @@
 							<h3 class="text-success mrgn-tp-0">
 							<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Réglage du zoom par pincement à un grossissement de 200&nbsp;%</h3>
 							<p>Dans cet exemple, la page est configurée pour permettre un zoom maximal de 200&nbsp;% au moyen de la propriété d’échelle maximale. 200&nbsp;% est la valeur minimale de zoom exigée par les WCAG.</p>
-							<p class="wb-inv">Code begins</p>
+							<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0; user-scalable=1"&gt;</code></pre>
-							<p class="wb-inv">Code ends</p>
+							<p class="wb-inv">Fin du code</p>
 						</div>
 					</div>			
 			</section>
@@ -201,7 +201,7 @@
 						</h3>
 						<p><mark>Voir cet exemple en action à [URL de destination]</mark>. Rétrécir la fenêtre de votre navigateur pour déclencher les configurations adaptées.</p>
 						<details class="mrgn-tp-lg">
-							<summary class="bg-info"><mark>View screenshots of the responsive layout</mark></summary>
+							<summary class="bg-info"><mark>Voir les captures d'écran de la mise en page réactive</mark></summary>
 							<h3>Ordinateur de bureau&nbsp;: @media (min-width:960px)</h3>
 							<img src="images/image3.png" class="img-responsive" alt="La configuration du bureau affiche le contenu sur trois colonnes. Les flotteurs sont utilisés sur deux icônes d’accessibilité.">
 							<img src="images/image4.png" class="img-responsive" alt="La configuration de la tablette affiche le contenu dans une seule colonne. Les flotteurs sont utilisés sur deux icônes d’accessibilité.">
@@ -213,7 +213,7 @@
 					
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">View CSS</summary>
-							<p class="wb-inv">Code begins</p>
+							<p class="wb-inv">Début du code</p>
 <pre><code class="language-css">article {
    margin: 0 auto;
 }
@@ -272,12 +272,12 @@ section img {
       flex:100%;  
    } 
 }</code></pre>
-							<p class="wb-inv">Code ends</p>	
+							<p class="wb-inv">Fin du code</p>	
 						</details>
 						
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">View HTML</summary>
-							<p class="wb-inv">Code begins</p>
+							<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;article&gt;
    &lt;header&gt; 
       &lt;h1&gt;Responsive Tips...&lt;/h1&gt; 
@@ -299,7 +299,7 @@ section img {
       &lt;/section&gt; 
    &lt;/div&gt;
 &lt;/article&gt;</code></pre>
-							<p class="wb-inv">Code ends</p>	
+							<p class="wb-inv">Fin du code</p>	
 
 						</details>				
 					</div>
@@ -311,17 +311,17 @@ section img {
 				<h2 id="section6">Émulateurs de zone d’affichage</h2>
 				
 				<p>Vous pouvez tester les points d’interruption à l’aide d’émulateurs de zone d’affichage pour représenter correctement votre requête média et votre style, en gardant à l’esprit que les émulateurs ne représentent pas la fonctionnalité ou les caractéristiques du navigateur.</p>
-				<p>Vous pouvez également tester les points d’interruption à l’aide du service en ligne <a href="http://www.viewportemulator.com">Viewport Emulator</a>, comme dans l’exemple ci-dessous.</p>
+				<p>Vous pouvez également tester les points d’interruption à l’aide du service en ligne <a hreflang="en" lang="en" href="http://www.viewportemulator.com">Viewport Emulator</a>, comme dans l’exemple ci-dessous.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0">
 						<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Vérification du Bureau de l’accessibilité des TI à l’aide de l’émulateur de zone d’affichage</h3>
-						<p>Dans cet exemple, le <a href="https://bati-itao.github.io/index.html">Bureau de l’accessibilité des TI</a> est testé au moyen de l’é <a href="http://www.viewportemulator.com">mulateur de zone d’affichage en ligne</a>.</p>
+						<p>Dans cet exemple, le <a href="https://bati-itao.github.io/index.html">Bureau de l’accessibilité des TI</a> est testé au moyen de l’ <a hreflang="en" href="http://www.viewportemulator.com">Émulateur de zone d’affichage en ligne</a>.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Example begins</p>
+								<p class="wb-inv">L'exemple commence</p>
 								<img src="images/image7.png" class="img-responsive" alt="La configuration mobile comprend tout le contenu et la fonctionnalité de la configuration du bureau.">
-								<p class="wb-inv">Example ends</p>
+								<p class="wb-inv">L'exemple finit</p>
 							</div>
 						</div>
 					</div>
@@ -334,9 +334,9 @@ section img {
 						<p>Il est possible d’accéder à l’émulateur mobile Chrome à partir de ses options d’outils de développement en utilisant des raccourcis clavier: Commande + Option + I (Mac) OU Ctrl + Shift + I (Windows).</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Example begins</p>
+								<p class="wb-inv">L'exemple commence</p>
 								<img src="images/image8.png" class="img-responsive" alt="La configuration mobile comprend tout le contenu et la fonctionnalité de la configuration du bureau.">
-								<p class="wb-inv">Example ends</p>
+								<p class="wb-inv">L'exemple finit</p>
 							</div>
 						</div>
 					</div>
