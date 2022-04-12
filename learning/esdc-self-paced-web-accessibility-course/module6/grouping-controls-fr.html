@@ -71,43 +71,43 @@
         <div class="panel-body">
           <ul>
             <li><a href="#related-form-controls">Grouping related form controls</a></li>
-			<li><a href="#related-checkbox-controls">Good example: Group related checkbox controls using fieldset and legend</a></li>
-			<li><a href="#related-form-elements">Good example: Group related form elements with ARIA</a></li>
-			<li><a href="#related-options">Good example: Group related option elements with optgroup</a></li>
-			<li><a href="#resources1">Related WCAG resources</a></li>
+			<li><a href="#related-checkbox-controls">Exemple&nbsp;1&nbsp;: Regrouper les commandes de cases connexes avec &lt;fieldset&gt; et &lt;legend&gt;</a></li>
+			<li><a href="#related-form-elements">Exemple&nbsp;3&nbsp;: Regrouper les éléments de formulaire connexes avec ARIA</a></li>
+			<li><a href="#related-options">Exemple&nbsp;2&nbsp;: Regrouper les options connexes avec &lt;optgroup&gt;</a></li>
+			<li><a href="#resources1">Ressources WCAG connexes</a></li>
           </ul>
         </div>
       </div>
 	</nav>
 	<p><mark>French: the last two examples swap positions</mark></p>
-			<section>				
+			<section>
+				<p><mark>TODO: French translation for the heading below.</mark></p>				
 				<h2 id="related-form-controls">Grouping related form controls</h2>
-				<p>Group related form controls to make it easier for all users to understand the form. Screen readers announce the start and end of the group and the group&rsquo;s label as one navigates in and out of groups. Regroupement des commandes is especially important for related radio buttons and checkboxes, as individual labels may not fully convey the group&rsquo;s topic.</p><p>
-Follow these best practices for labeling controls: </p>
-                <ul>
-                  <li>Use a <code>&lt;fieldset&gt;</code> element to group related controls in a form. </li>
-                  <li>Use the <code>&lt;legend&gt;</code> element to name the <code>&lt;fieldset&gt;</code> element.</li>
-                  <li>Make the <code>&lt;legend&gt;</code> as short as possible, as some screen readers declare the <code>&lt;legend&gt;</code> together with each label. </li>
-                  <li>Make the individual labels self-explanatory as some assistive technology does not declare the <code>&lt;legend&gt;</code>. Do not repeat the <code>&lt;legend&gt;</code> in any label. </li>
-                  <li>Use ARIA <code>role="group"</code> and <code>aria-labelledby</code> to group and label related form elements when you can't use native HTML <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> elements. </li>
-                  <li>Use <code>&lt;label&gt;</code> wherever possible for universal browser and screen reader support.</li>
-                  <li>Use <code>&lt;optgroup&gt;</code> element for <code>&lt;select&gt;</code> elements with groups of options</li>
-                </ul>
-               
+				<p>Regrouper les commandes de formulaire pour faciliter la compréhension du formulaire par tous les utilisateurs. Les lecteurs d’écran annoncent le début et la fin du groupe et l’étiquette du groupe au fur et à mesure de la navigation dans les groupes. Le regroupement des commandes est particulièrement important pour les boutons radio et les cases à cocher connexes, car les étiquettes individuelles ne reflètent pas pleinement le sujet du groupe.</p>
+				<p>Suivez les pratiques exemplaires suivantes pour étiqueter les commandes&nbsp;: </p>		   
+				<ul>
+					<li>Utiliser l’élément <code>&lt;fieldset&gt;</code> pour regrouper les commandes connexes dans un formulaire. </li>
+					<li>Utiliser l’élément <code>&lt;legend&gt; </code>pour nommer l’élément <code>&lt;fieldset&gt;</code>.</li>
+					<li>Faire en sorte que la <code>légende </code>soit aussi courte que possible, car certains lecteurs d’écran la déclarent avec chaque étiquette.</li>
+					<li>Rendre les étiquettes individuelles explicites, car certaines technologies d’assistance ne déclarepas la <code>&lt;legend&gt;</code>. Ne pas répéter la <code>légende</code> dans une étiquette.</li>
+					<li>Utiliser l’élément <code>&lt;optgroup&gt;</code> pour les éléments <code>&lt;select&gt;</code> avec groupes d’options</li>
+					<li>Utiliser ARIA <code>role=”group” </code>et <code>aria-labelledby</code> pour regrouper et étiqueter les éléments de formulaire connexes lorsque vous ne pouvez pas utiliser les éléments HTML natifs <code>&lt;fieldset&gt;</code> et <code>&lt;legend&gt;</code>.</li>
+					<li>Utiliser <code>&lt;label&gt;</code> dans la mesure du possible pour prendre en charge le navigateur universel et le lecteur d’écran.</li>
+				</ul>
             </section>
 			
 			<section>				
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 		
-						<h2 class="text-success mrgn-tp-0 h3" id="related-checkbox-controls"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Group related checkbox controls using fieldset and legend</h2>
+						<h2 class="text-success mrgn-tp-0 h3" id="related-checkbox-controls"><span class="glyphicon glyphicon-ok-circle"></span>Exemple&nbsp;1&nbsp;: Regrouper les commandes de cases connexes avec &lt;fieldset&gt; et &lt;legend&gt;</h2>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Example begins</p>
+								<p class="wb-inv">Exemple begins</p>
 						
 								<form class="form-horizontal" role="form" method="get" action="#">
 									<fieldset class="chkbxrdio-grp">
-										<legend><span class="field-name">Choose your availability (check all that apply):</span></legend>
+										<legend><span class="field-name">Choisissez votre disponibilité (cochez toutes les réponses qui s’appliquent):</span></legend>
 										<div class="checkbox">
 											<label for="morning"> 
 												<input type="checkbox" id="morning" name="avail" value="a">
@@ -136,7 +136,7 @@ Follow these best practices for labeling controls: </p>
 <pre><code class="language-html">&lt;fieldset class=&quot;chkbxrdio-grp&quot;&gt;
    &lt;legend&gt;
       &lt;span class=&quot;field-name&quot;&gt;   
-         Choose your availability (check all that apply):
+	  Choisissez votre disponibilité (cochez toutes les réponses qui s’appliquent):
       &lt;/span&gt;
    &lt;/legend&gt;
    &lt;div class=&quot;checkbox&quot;&gt;
@@ -167,31 +167,32 @@ Follow these best practices for labeling controls: </p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 		
-						<h2 class="text-success mrgn-tp-0 h3" id="related-form-elements"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Group related form elements with ARIA</h2>
+						<h2 class="text-success mrgn-tp-0 h3" id="related-form-elements"><span class="glyphicon glyphicon-ok-circle"></span>Exemple&nbsp;3&nbsp;: Regrouper les éléments de formulaire connexes avec ARIA</h2>
 						 
-						<p>Group related form elements and name them with ARIA when the equivalent, native HTML <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> elements cannot be used.</p>
-						<p>Set the related form fields in a <code>&lt;div&gt;</code> container and assign the container the <code>role="group"</code> attribute. Name the group container with an <code>aria-labelledby</code> attribute pointing to the <code>id</code> attribute value of the element holding the descriptive text.</p>
+						<p>Regroupez les éléments de formulaire connexes et nommez-les avec ARIA lorsque les éléments HTML natif <code>&lt;fieldset&gt; </code>et <code>&lt;legend&gt;</code> équivalents ne peuvent pas être utilisés. </p>
+						<p>Définissez les champs de formulaire connexes dans un conteneur <code>&lt;div&gt;</code> et attribuez au conteneur l’attribut <code>role=”group”</code>. Nommez le conteneur du groupe avec un attribut <code>aria-labelledby </code>pointant vers la valeur attribut <code>id</code> de l’élément contenant le texte descriptif.</p>
+
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Example begins</p>
+								<p class="wb-inv">Exemple begins</p>
 								<form class="form-horizontal" role="form" method="get" action="#">
 									<p id="grouplabel" class="col-sm-offset-2"><strong>Contact information</strong></p>
 									<div role="group" aria-labelledby="grouplabel"> 
 										<div class="form-group">
-											<label for="name" class="col-sm-4 control-label">Name: </label> 
+											<label for="name" class="col-sm-4 control-label">Nom: </label> 
 											<div class="col-sm-8">
 												<input type="text" id="name" class="form-control">
 											</div>
 										</div> 
-										<div class="form-group"><label for="phone" class="col-sm-4 control-label">Phone: </label> <div class="col-sm-8"><input type="text" id="phone" class="form-control"></div></div> 
-										<div class="form-group"><label for="email" class="col-sm-4 control-label">Email: </label> <div class="col-sm-8"><input type="text" id="email" class="form-control"></div></div> 
-										<div class="form-group"><label for="address" class="col-sm-4 control-label">Address: </label> <div class="col-sm-8"><input type="text" id="address" class="form-control"></div></div> 
-										<div class="form-group"><label for="city" class="col-sm-4 control-label">City: </label> <div class="col-sm-8"><input type="text" id="city" class="form-control"></div></div> 
+										<div class="form-group"><label for="phone" class="col-sm-4 control-label">Téléphone: </label> <div class="col-sm-8"><input type="text" id="phone" class="form-control"></div></div> 
+										<div class="form-group"><label for="email" class="col-sm-4 control-label">Courriel: </label> <div class="col-sm-8"><input type="text" id="email" class="form-control"></div></div> 
+										<div class="form-group"><label for="address" class="col-sm-4 control-label">Adresse: </label> <div class="col-sm-8"><input type="text" id="address" class="form-control"></div></div> 
+										<div class="form-group"><label for="city" class="col-sm-4 control-label">Ville: </label> <div class="col-sm-8"><input type="text" id="city" class="form-control"></div></div> 
 										<div class="form-group"><label for="province" class="col-sm-4 control-label">Province: </label> <div class="col-sm-8"><input type="text" id="province" class="form-control"></div></div> 
-										<div class="form-group"><label for="postalcode" class="col-sm-4 control-label">Postal Code: </label> <div class="col-sm-8"><input type="text" id="postalcode" class="form-control"></div></div>
+										<div class="form-group"><label for="postalcode" class="col-sm-4 control-label">Code postal: </label> <div class="col-sm-8"><input type="text" id="postalcode" class="form-control"></div></div>
 									</div>
 								</form>
-								<p class="wb-inv">Example ends</p>
+								<p class="wb-inv">Exemple ends</p>
 							</div>
 						</div>
 						
@@ -223,14 +224,14 @@ Follow these best practices for labeling controls: </p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 		
-						<h2 class="text-success mrgn-tp-0 h3" id="related-options"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Group related option elements with optgroup</h2>
+						<h2 class="text-success mrgn-tp-0 h3" id="related-options"><span class="glyphicon glyphicon-ok-circle"></span>Exemple&nbsp;2&nbsp;: Regrouper les options connexes avec &lt;optgroup&gt;</h2>
 						  
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-<p class="wb-inv">Example begins</p>
+<p class="wb-inv">Exemple begins</p>
 					
 								<form class="form-horizontal" role="form" method="get" action="#">
-									<label for="cars">Choose a car:</label>
+									<label for="cars">Choisir une voiture:</label>
 									<select  name="cars" id="cars">
 									 <optgroup label="American cars">
 									 <option value="ford">Ford</option>
@@ -246,17 +247,17 @@ Follow these best practices for labeling controls: </p>
 								</form>
 							  </div>
 						</div>
-						<p class="wb-inv">Example ends</p>
+						<p class="wb-inv">Exemple ends</p>
 						
 						<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;label for=&quot;cars&quot;&gt;Choose a car:&lt;/label&gt;
+<pre><code class="language-html">&lt;label for=&quot;cars&quot;&gt;Choisir une voiture:&lt;/label&gt;
 &lt;select name="cars" id="cars"&gt;
-   &lt;optgroup label="American cars"&gt;
+   &lt;optgroup label="Voitures américaines"&gt;
       &lt;option value="ford"&gt;Ford&lt;/option&gt;
       &lt;option value="chevrolet"&gt;Chevrolet&lt;/option&gt;
       &lt;option value="tesla"&gt;Tesla&lt;/option&gt;
    &lt;/optgroup&gt;
-   &lt;optgroup label="Japanese cars"&gt;
+   &lt;optgroup label="Voitures japonaises"&gt;
        &lt;option value="honda"&gt;Honda&lt;/option&gt;
        &lt;option value="toyota"&gt;Toyota&lt;/option&gt;
    &lt;/optgroup&gt;
@@ -270,10 +271,10 @@ Follow these best practices for labeling controls: </p>
 			
 			
 			<section>				
-				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
+				<h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
 				<details class="mrgn-tp-lg">
-					<summary class="bg-info">Related WCAG resources</summary>
-					<h3>Success criteria</h3>
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+					<h3>Critères de succès</h3>
 					<ul>
 					    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1 Info and Relationships</a></li>
 					    <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels">2.4.6 Headings and Labels</a></li>
