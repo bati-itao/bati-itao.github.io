@@ -267,12 +267,9 @@
 		</div>
 	</div>
 		
-		<h4>Approach: Multiple instances of the “more” text label</h4>
-		<p>With this approach, each instance of the “more” button takes a unique <code>id</code> attribute value, resulting in id values “more-1” and “more-2”. The <code>aria-labelledby</code> attribute concatenates a name by pointing to the <code>id</code> attribute values of itself and the partner button, resulting in labels ”More Bullets” and “More Text alignment”.</p>
+		
 		<p class="wb-inv">Code begins</p>
-		<div style="padding-top: 1em">
-<pre>
-<code class="language-html">&lt;button id="bullets" arial-label="Bullets"&gt;
+<pre><code class="language-html">&lt;button id="bullets" arial-label="Bullets"&gt;
 	&lt;img src="images/bullets.png" alt=""&gt;
 &lt;/button&gt;
 &lt;button id="more-1" aria-label="More" aria-labelledby="more-1 bullets&gt;
@@ -285,11 +282,11 @@
 	&lt;img src="images/down-arrow.png" alt=""&gt;
 &lt;/button&gt;</code>
 </pre>
-		</div>
+		
 		<p class="wb-inv">Code ends</p>
 		
-		<h4>Approach: One instance of the “more” text label</h4>
-		<p>When using the <code>aria-labelledby</code> attribute, developers may prefer targeting a single target <code>id</code> attribute value for the name of a repeating element</p>
+		<h4>Alternative approach: One instance of the “more” text label</h4>
+		<p>When using the <code>aria-labelledby</code> attribute, developers may prefer targeting a single <code>id</code> attribute value for the name of a repeating element</p>
 		<p>With this approach, one defining instance of the text “More” is given an <code>id</code> attribute value and set to CSS <code>display: none</code>. The <code>aria-labelledby</code> (and <code>aria-describedby</code>) attribute can target an element that’s set to <code>display: none</code>. The <code>aria-labelledby</code> attribute concatenates a name by pointing to the <code>id</code> attribute values of that defining instance and the partner button, resulting in labels ”More Bullets” and “More Text alignment”.</p>
 		<p>Unlike in the first approach, the “more” buttons do not need <code>id</code> or <code>aria-label</code> attributes, as they’re not contributing to the concatenated label.</p>
 		<p class="wb-inv">Code begins</p>

@@ -61,7 +61,7 @@
          <div class="container">
             <div class="row">
                <main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-                  <h1 property="name" id="wb-cont">CSS-generated content</h1>
+                  <h1 property="name" id="wb-cont">CSS-generated text and icons</h1>
                   <nav role="navigation">
                      <div class="panel panel-default mrgn-tp-md">
                         <header class="panel-heading">
@@ -70,7 +70,7 @@
                         <div class="panel-body">
                            <ul>
                               <li><a href="#designing-with-CSS-generated-content">Designing with CSS-generated content</a></li>
-                              <li><a href="#example">Good example: Visually-hiding CSS-generated content and providing a text alternative</a></li>
+                              <li><a href="#example">Good example: Informative CSS icon</a></li>
                               <li><a href="#resources1">Related WCAG resources</a></li>
                            </ul>
                         </div>
@@ -78,25 +78,29 @@
                   </nav>
                   <section>
                      <h2 id="designing-with-CSS-generated-content">Designing with CSS-generated content</h2>
-                     <p>CSS can generate text through the <code>:before</code> and <code>:after</code> pseudo-classes, but the text is not in the DOM and consequently not easily accessible to assistive technology. While the NVDA and VoiceOver screen readers recognize CSS-generated content, the JAWS and Narrator screen readers don’t.</p>
-                     <p>Consequently, meaningful CSS-generated content can be used on print style sheets to print the URL of links on the page, but otherwise it should be avoided.</p>
-                     <p>If you do use CSS-generated content, hide it from screen readers with the aria-hidden="true" attribute. If the CSS-generated content is informative, provide a text alternative. To provide a text alternative:</p>
+                     <p>CSS can generate text and icons through the <code>:before</code> and <code>:after</code> pseudo-classes. However, CSS-generated content is not in the DOM and consequently not easily accessible to assistive technology. While the NVDA and VoiceOver screen readers recognize CSS-generated content, the JAWS and Narrator screen readers don’t.</p>
+                     <p>Consequently, meaningful CSS-generated content can be used on print style sheets to print the URL of links, but otherwise it should be avoided.</p>
+                     <p>If you use CSS-generated content, hide it from screen readers with the <code>aria-hidden="true"</code> attribute. If the CSS-generated content is informative, provide a text alternative. To provide a text alternative:</p>
                      <ul>
                         <li>If the content is a link or control, use the <code>aria-label</code> attribute.</li>
                         <li>If the content can't receive focus, use the WET <code>.wb-inv</code> class to visually hide the text alternative.</li>
                      </ul>
                     <div class="panel panel-success mrgn-tp-lg">
 						<div class="panel-body">
-							<h2 class="text-success mrgn-tp-0" id="example"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Visually-hiding CSS-generated content and providing a text alternative
+							<h2 class="text-success mrgn-tp-0" id="example"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Informative CSS icon
 							</h2>
-							 <p>In this example, the Font Awesome hammer icon is used to represent a task. The <code>&lt;span&gt;</code> element with class <code>"fas fa-hammer"</code> displays the icon via a CSS pseudo-class, while its <code>title</code> attribute holds a tooltip for mouse users and the <code>aria-hidden="true"</code> attribute hides the element from screen readers. Directly following is the visually-hidden name “Task”, which declares in screen readers.</p>
+							<p>In this example, the Font Awesome hammer icon is used to represent a task.</p>
+							<ul>
+								<li>The <code>&lt;span&gt;</code> element with classes <code>.fas</code> and <code>.fa-hammer</code> displays the icon via a CSS <code>:before</code> pseudo-class.</li>
+								<li>Its <code>title</code> attribute holds a tooltip for mouse users, "Task".</li>	
+								<li>Its <code>aria-hidden="true"</code> attribute hides the element from screen readers, since their support for the <code>title</code> attribute is inconsistent.</li>
+								<li>Directly following the icon is the visually-hidden name “Task”, which declares in all screen readers.</li>
+							</ul>
 							<div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
 									 <style type="text/css">
 										.fa-hammer:before { content: "\f6e3"; }
-										.fa, .far, .fas {  font-family: "Font Awesome 5 Free"; }
-										li.icon { list-style: none; }
-										li.icon > * { margin-left: 2em; }
+										.fas {  font-family: "Font Awesome 5 Free"; }
 										.wb-inv {
 										clip: rect(1px,1px,1px,1px);
 										height: 1px;
@@ -106,42 +110,36 @@
 										width: 1px;
 										}
 									 </style>
-									 <ul>
-										 <li class="icon">
-											<span class="fas fa-hammer" title="Task" aria-hidden="true"></span>
-											<span class="wb-inv">Task</span>
-											Complete the application
-										 </li>
-									 </ul>
+									 
+									 <p>
+										<span class="fas fa-hammer" title="Task" aria-hidden="true"></span>
+										<span class="wb-inv">Task</span>
+										Complete the application
+									 </p>
+									
 								</div>
 							</div>
 							<p class="wb-inv">Code begins</p>
-<pre><code class="language-css">&lt;style type="text/css"&gt;
-	.fa-hammer:before { content: "\f6e3"; }
-	.fa, .far, .fas {  font-family: "Font Awesome 5 Free"; }
-	li.icon { list-style: none; }
-	li.icon > * { margin-left: 2em; }
-	.wb-inv {
-	   clip: rect(1px,1px,1px,1px);
-	   height: 1px;
-	   margin: 0;
-	   overflow: hidden;
-	   position: absolute;
-	   width: 1px;
-	}
-&lt;/style&gt;</code>
+<pre><code class="language-html">&lt;p&gt;
+   &lt;span class="fas fa-hammer" title="Task" aria-hidden="true"&gt;&lt;/span&gt;
+   &lt;span class="wb-inv"&gt;Task&lt;/span&gt;
+   Complete the application
+ &lt;/p&gt;</code>
 </pre>
-
 							<p class="wb-inv">Code ends</p>
 							<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;ul&gt;
-   &lt;li class="icon"&gt;
-      &lt;span class="fas fa-hammer" title="Task" aria-hidden="true"&gt;&lt;/span&gt;
-      &lt;span class="wb-inv"&gt;Task&lt;/span&gt;
-      Complete the application
-    &lt;/li&gt;
- &lt;/ul&gt;</code>
-</pre>
+<pre><code class="language-css">.fa-hammer:before { content: "\f6e3"; }
+.fas { font-family: "Font Awesome 5 Free"; }
+.wb-inv {
+   clip: rect(1px,1px,1px,1px);
+   height: 1px;
+   margin: 0;
+   overflow: hidden;
+   position: absolute;
+   width: 1px;
+}
+</code></pre>
+
 							<p class="wb-inv">Code ends</p>
 						</div>
 					</div>
@@ -183,7 +181,7 @@
                         <li><a class="list-group-item" href="contrast.html">Contrast</a></li>
                         <li><a class="list-group-item" href="visual-proximity.html">Visual proximity of labels</a></li>
                         <li><a class="list-group-item" href="textspacing.html">Text spacing</a></li>
-                        <li><a class="list-group-item active" aria-current="page" href="css-generated.html">CSS-generated content</a></li>
+                        <li><a class="list-group-item active" aria-current="page" href="css-generated.html">CSS-generated text and icons</a></li>
                         <li><a class="list-group-item" href="hiding-content.html">Hiding and exposing content on hover or focus</a></li>
                         <li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
                      </ul>
