@@ -84,25 +84,19 @@
 				<h2 id="keyboard-input-overview">Saisie avec clavier (aperçu)</h2>
 				<p>De nombreux types de technologies d’aide permettent de reproduire les fonctions d’un clavier, notamment les logiciels de reconnaissance vocale, les logiciels de commande au souffle et les claviers virtuels à l’écran, pour ne citer que ces exemples. En adoptant une conception de clavier accessible, vous assurez sa compatibilité avec un large éventail de technologies d’aide et de groupes d’utilisateurs.</p>
 				<p>L’accessibilité du clavier recoupe les sujets suivants&nbsp;:</p>
-									
-					<li>Ciblage clavier
-					  <ul>
-						<li>SVoir le module&nbsp;3: <mark>Liens et navigation &gt;Navigation &gt; Cible et ordre de cible &gt; <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/navigation.html#focus-order">Quelle est la cible?</a></li>
-					  </ul>
+				<ul>
+					<li><strong>Ciblage clavier</strong>
+						<p>Voir le module&nbsp;3 : Liens et navigation &gt;Navigation &gt; Cible et ordre de cible &gt; <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/navigation.html#focus-order">Quelle est la cible?</a></p>
 					</li>
-					<li>Ordre de cible
-						<ul>
-						  <li>Voir le module&nbsp;3, Liens et navigation &gt; Navigation &gt; Cible et ordre de cible &gt; <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/navigation.html#focus-order">Ordre de cible</a></li>
-						</ul>
-					  </li>
-					  <li>Indicateur visuel de la cible
-						<ul>
-						  <li>Voir module&nbsp;3, Liens et navigation &gt; Liens &gt; <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/links.html#indicator"> Indicateur visuel de la cible</a></li>
-						</ul>
-					  </li>
-					<li>Fonctionnalité du clavier</li>
-					<li>Pièges de clavier</li>
-				  </ul>
+					<li><strong>Ordre de cible</strong>
+						<p>Voir le module&nbsp;3 : Liens et navigation &gt; Navigation &gt; Cible et ordre de cible &gt; <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/navigation.html#focus-order">Ordre de cible</a></p>
+					</li>
+					<li><strong>Indicateur visuel de la cible</strong>
+						<p>Voir module&nbsp;3 : Liens et navigation &gt; Liens &gt; <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/links.html#indicator"> Indicateur visuel de la cible</a></p>
+					</li>
+					<li><strong>Fonctionnalité du clavier</strong></li>
+					<li><strong>Pièges de clavier</strong></li>
+				</ul>
 			</section>
 			
 			<section>				
@@ -222,7 +216,28 @@
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Un bon exemple&nbsp;: Jumelage des événements souris et clavier</h3>
 						<p>Dans cet exemple de lien d’image, l’image change lorsque l’utilisateur positionne le pointeur sur elle. Pour offrir aux utilisateurs du clavier une expérience similaire, l’image change également quand l’utilisateur l’atteint avec la touche de tabulation.  </p>
-						<p><mark>TODO: This needs a live example</mark></p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">Example begins</p>
+								<p>
+									<a href="" onmouseover="swapImageOn('menu')" 
+									   onfocus="swapImageOn('menu')" 
+									   onmouseout="swapImageOff('menu')" 
+									   onblur="swapImageOff('menu')">
+										<img id="menu" src="images/menu_off.PNG" alt="Menu" width="100px" height="100px"/>
+									</a>
+								</p>
+								<script>
+								function swapImageOn(id){
+									document.getElementById(id).src='images/menu_on.PNG'
+								}
+								function swapImageOff(id){
+									document.getElementById(id).src='images/menu_off.PNG'
+								}	
+								</script>
+								<p class="wb-inv">Example ends</p>
+							</div>
+						</div>
 						<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;a href="menu.php" 
    onmouseover="swapImageOn('menu')" 
@@ -538,8 +553,7 @@ function onNewPage() {
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>Exemple&nbsp;: Cible gérée sur une boîte de dialogue au moyen d’une interaction au clavier</h3> 
 						<p>Dans cet exemple, quand l’utilisateur clique sur le bouton d’envoi, une fenêtre contextuelle s’ouvre et la cible est posée sur le premier élément actif de la fenêtre contextuelle. Quand l’utilisateur clique sur le bouton de fermeture de la fenêtre contextuelle, la cible retourne au bouton déclencheur.</p>
-						<p><mark>TODO: Implement the full pattern (role and aria-labelledby, close on ESC key, managed focus)</mark></p>
-						<p><mark>TODO: Move focus to close button after triggering modal)</mark></p>
+						<p><mark>TODO: Implement the full dialog (modal) pattern: role and aria-labelledby, close on ESC key, focus constrained to foreground window. Move focus to close button after triggering modal)</mark></p>
 						<div class="panel panel-primary mrgn-tp-lg">
 							<div class="panel-body well mrgn-bttm-0">
 								<!-- Trigger/Open The Modal -->
@@ -793,8 +807,8 @@ window.onclick = function(event) {
                         <li><a class="list-group-item" href="../module6/index-fr.html">Module 6 - Formulaires</a></li>
                         <li><a class="list-group-item" href="../module7/index-fr.html">Module 7 - Conception visuelle et couleurs</a></li>
                         <li><a class="list-group-item" href="../module8/index-fr.html">Module 8 - Zoom et conception adaptée</a></li>
-                        <li><a class="list-group-item active" href="index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
-						<li><a class="list-group-item" href="../module10/index-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+                        <li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item active" href="index-fr.html">Module 10 - Méthodes de saisie de données</a></li>
 						<li><a class="list-group-item" href="../module11/index-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
                      </ul>
 			</section>
