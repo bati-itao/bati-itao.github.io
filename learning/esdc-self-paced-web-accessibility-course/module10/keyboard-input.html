@@ -84,24 +84,18 @@
 				<h2 id="keyboard-input-overview">Keyboard input (overview)</h2>
 				<p>Many types of assistive technology act as keyboard emulators, including speech input software, sip-and-puff software and onscreen keyboards, to name a few. By making your design keyboard accessible, you accommodate a wide variety of assistive technologies and user groups.</p>
 				<p>Keyboard accessibility deals with these topics:</p>
-									
-					<li>Keyboard focus
-					  <ul>
-						<li>See module 3: <mark>Links and navigation [Fr: Liens et navigation] ></mark> <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/navigation.html#focus-order">What is focus?</a></li>
-					  </ul>
+				<ul>	
+					<li><strong>Keyboard focus</strong>
+					  <p>See module 3: Links and navigation > <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/navigation.html#focus-order">What is focus?</a></p>
 					</li>
-					<li>Focus order
-						<ul>
-						  <li>See module 3: <mark>Links and navigation ></mark> <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/navigation.html#focus-order">Focus order</a></li>
-						</ul>
+					<li><strong>Focus order</strong>
+						<p>See module 3: Links and navigation > <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/navigation.html#focus-order">Focus order</a></p>
 					  </li>
-					  <li>Visual focus indicator
-						<ul>
-						  <li>See module 3: <mark>Links and navigation ></mark> <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/links.html#indicator"> Visual focus indicator</a></li>
-						</ul>
+					  <li><strong>Visual focus indicator</strong>
+						<p>See module 3: Links and navigation > <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/links.html#indicator"> Visual focus indicator</a></p>
 					  </li>
-					<li>Keyboard functionality</li>
-					<li>Keyboard traps</li>
+					<li><strong>Keyboard functionality</strong></li>
+					<li><strong>Keyboard traps</strong></li>
 				  </ul>
 			</section>
 			
@@ -216,24 +210,34 @@
 				</table>
 				<p>When using a native HTML button or link, user agents process the <code>click</code> event regardless of whether it was activated with the mouse or the keyboard. It’s not necessary to duplicate this event when adding handlers to natively focusable HTML elements. However, if not using a native button or link, it is necessary to add <code>keypress</code>.</p>
 				<p>Because the <code>keypress</code> event handler reacts to any key, the event handler should first check that the Enter key was pressed before proceeding to handle the event. Otherwise, the event handler will trigger on any key press, even the Tab key to leave the control.</p>
-				<p>If using the ARIA <code>role="button"</code> attribute instead of the native <code>&lt;button&gt;</code> or <code>&lt;input type="button"&gt;</code> elements, you will need to both make the element focusable and define event handlers for click and for the Enter and Space keypresses. <mark><del>For more information on custom controls, see <a href="../module12/custom-controls.html">Module 12</a></del></mark>.</p>
+				<p>If using the ARIA <code>role="button"</code> attribute instead of the native <code>&lt;button&gt;</code> or <code>&lt;input type="button"&gt;</code> elements, you will need to both make the element focusable and define event handlers for click and for the Enter and Space keypresses.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Pairing mouse and keyboard events</h3>
 						<p>In this example of an image link, the image is changed when the user positions the pointer over the image. To provide keyboard users with a similar experience, the image is also changed when the user tabs to it. </p>
-						<script>
-						function swapImageOn(id){
-							document.getElementById(id).src='images/menu_on.PNG'
-						}
-						function swapImageOff(id){
-							document.getElementById(id).src='images/menu_off.PNG'
-						}	
-						</script>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">Example begins</p>
+								<p>
+									<a href="" onmouseover="swapImageOn('menu')" 
+									   onfocus="swapImageOn('menu')" 
+									   onmouseout="swapImageOff('menu')" 
+									   onblur="swapImageOff('menu')">
+										<img id="menu" src="images/menu_off.PNG" alt="Menu" width="100px" height="100px"/>
+									</a>
+								</p>
+								<script>
+								function swapImageOn(id){
+									document.getElementById(id).src='images/menu_on.PNG'
+								}
+								function swapImageOff(id){
+									document.getElementById(id).src='images/menu_off.PNG'
+								}	
+								</script>
+								<p class="wb-inv">Example ends</p>
+							</div>
+						</div>
 						
-						<p><a href="" onmouseover="swapImageOn('menu')" 
-   onfocus="swapImageOn('menu')" 
-   onmouseout="swapImageOff('menu')" 
-   onblur="swapImageOff('menu')"><img id="menu" src="images/menu_off.PNG" alt="Menu" width="100px" height="100px"/></a></p>
 						<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;a href="menu.php" 
    onmouseover="swapImageOn('menu')" 
@@ -540,8 +544,7 @@ function onNewPage() {
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Focus managed on a dialog using keyboard interaction</h3> 
 						<p>In this example, when the user clicks the 'Submit' button a pop-up window opens and focus is sent to the pop-up's first child focusable element. When the user clicks the pop-up window’s ‘Close’ button, focus is sent back to the triggering button.</p>
-						<p><mark>TODO: Implement the full pattern (role and aria-labelledby, close on ESC key, managed focus)</mark></p>
-						<p><mark>TODO: Move focus to close button after triggering modal)</mark></p>
+						<p><mark>TODO: Implement the full dialog (modal) pattern: role and aria-labelledby, close on ESC key, focus constrained to foreground window. Move focus to close button after triggering modal)</mark></p>
 						<div class="panel panel-primary mrgn-tp-lg">
 							<div class="panel-body well mrgn-bttm-0">
 								<!-- Trigger/Open The Modal -->
