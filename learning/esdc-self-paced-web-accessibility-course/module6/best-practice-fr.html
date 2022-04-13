@@ -83,142 +83,144 @@
 	
 			<section>				
 				<h2 id="labelling-controls">Pratique exemplaire – Commandes d’étiquetage</h2>
-			  <ul><li>Provide labels to describe the purpose of the form control.</li>
-				
-					<li>Use the <code>&lt;label&gt;</code> element to explicitly associate a form control with a label</li>
-					<li>Match exactly the <code>for</code> attribute of the label with the <code>id</code> attribute of the form control</li>
-					<li>Elements that use explicitly associated labels are:
+			  <ul>
+				<li>Fournir des étiquettes pour décrire la fonction de commande de formulaire.</li>
+
+					<li>Utiliser l’élément <code>&lt;label&gt;</code> pour associer explicitement une commande de formulaire à une étiquette</li>
+					<li>Associer exactement l’attribut <code>“for” </code>de l’étiquette à l’attribut <code>id</code> de la commande de formulaire.</li>
+
+					<li>Voici les éléments qui utilisent des étiquettes explicitement associées&nbsp;:
 					  <ul>
-					    <li><code>&lt;input type="text"&gt;</code></li>
-					    <li><code>&lt;input type="checkbox"&gt;</code></li>
-					    <li><code>&lt;input type="radio"&gt;</code></li>
-					    <li><code>&lt;input type="file"&gt;</code> (file-select fields)</li>
-					    <li><code>&lt;input type="password"&gt;</code></li>
-					    <li><code>&lt;textarea&gt;</code></li>
-					    <li><code>&lt;select&gt;</code> (drop-down lists)</li>
+					    <li><code>&lt;type d’entrée="text"&gt;</code></li>
+					    <li><code>&lt;type d’entrée="checkbox"&gt;</code></li>
+					    <li><code>&lt;type d'entrée="radio&gt;</code></li>
+					    <li><code>&lt;type d’entrée="file"&gt;</code> (champs de sélection de fichier)</li>
+					    <li><code>&lt;type d’entrée="password"&gt;</code></li>
+					    <li><code>&lt;zone de texte&gt;</code></li>
+					    <li><code>&lt;Sélectionner&gt;</code> listes déroulantes)</li>
 				      </ul>
 					</li>
-					<li>Do not use the <code>&lt;label&gt;</code> element for the following elements. 
+					<li>Ne pas utiliser l’élément <code></code>&lt;label&gt;></code> pour les éléments suivants. 
 					  <ul>
-					    <li>Submit and Reset buttons (<code>&lt;input type="submit"&gt;</code> or <code>&lt;input type="reset"&gt;</code>)
+					    <li>Boutons Soumettre et Réinitialisation (<code>&lt;type d'entrée="submit"&gt;</code> ou <code>&lt;type d’entrée="reset"&gt;</code>)
 					      <ul>
-					        <li>Label provided by the <code>value</code> attribute</li>
+							<li>Étiquette fournie par l’attribut de <code>valeur</code></li>
+						</ul>
+					    </li>
+					    <li>Boutons image  (<code>&lt;type d’entrée="image"&gt;</code>)
+					      <ul>
+					        <li>Étiquette fournie par l’attribut <code>alt</code></li>
 				          </ul>
 					    </li>
-					    <li>Image buttons (<code>&lt;input type="image"&gt;</code>)
+					    <li>Champs de saisie masqué (<code>&lt;type d'entrée="hidden"&gt;</code>)</li>
+					    <li>Boutons (éléments de bouton ou <code>&lt;nput type="button"&gt;</code>)
 					      <ul>
-					        <li>Label provided by the <code>alt</code> attribute</li>
-				          </ul>
-					    </li>
-					    <li>Hidden input fields (<code>&lt;input type="hidden"&gt;</code>)</li>
-					    <li>Buttons (button elements or <code>&lt;input type="button"&gt;</code>)
-					      <ul>
-					        <li>Label provided by the element content itself (button) or the value, <code>aria-label</code>, or <code>aria-labelledby</code> attribute</li>
-				          </ul>
+							<li>Étiquette fournie par le contenu de l’élément lui-même (bouton) ou par la valeur, <code>aria-label</code> ou <code>aria-labelledby</code></li>
+						</ul>
 					    </li>
 				      </ul>
 					</li>
-					<li>Use ARIA labels (<code>aria-labelledby</code> and <code>aria-label</code> attributes) when it is not possible to use <code>&lt;label&gt;</code></li>
-					<li>When using ARIA labels, include any visible text in the control label.</li>
-					<li>Use the <code>aria-labelledby</code> attribute to retrieve a label from the context or to concatenate a label out of one or more elements in the context.</li>
-					<li>Avoid using the <code>title</code> attribute to identify form controls. It is not widely supported by AT.</li>
-					<li>Keep label text short and concise.</li>
-					<li>Use unique label text on a page.</li>
-					<li>Position labels visually to the right of radio buttons and checkboxes.</li>
-					<li>Position labels visually directly above their form fields (preferred by WET) or to the left (WET alternative, when there’s a need to conserve vertical space). </li>
+					<li>Utiliser des étiquettes ARIA (<code>aria-labelledby</code> et attributs <code>aria-label</code>) lorsqu’il n’est pas possible d’utiliser <code>&lt;label&gt;</code></li>
+					<li>Lorsque vous utilisez des étiquettes ARIA, ajouter tout texte visible dans l’étiquette de commande.</li>
+					<li>Utiliser l’attribut <code></code>aria-labelledby</code> pour récupérer une étiquette du contexte ou pour concaténer une étiquette d’un ou de plusieurs éléments du contexte.</li>
+					<li>Éviter d’utiliser l’attribut <code>title</code> pour identifier les commandes de formulaire. Ce n’est pas largement pris en charge par AT.</li>
+					<li>Le texte de l’étiquette doit être court et concis.</li>
+					<li>Utiliser un texte d’étiquette unique sur une page.</li>
+					<li>Placer les étiquettes visuellement à droite des boutons radio et des cases à cocher.</li>
+					<li>Placer les étiquettes de façon visuelle, directement au-dessus des champs de formulaire (de préférence par la BOEW) ou à gauche (solution de rechange à la BOEW, lorsqu’il faut conserver un espace vertical). </li>
 			  </ul>
 			</section>
 			
 			<section>				
 				<h2 id="grouping-controls">Pratique exemplaire – Regroupement des commandes</h2>
 				<ul>
-					<li>Use the <code>&lt;fieldset&gt;</code> element to group related controls in a form. </li>
-					<li>Use the <code>&lt;legend&gt;</code> element to name the <code>&lt;fieldset&gt;</code> element</li>
-					<li>Make the <code>legend</code> as short as possible as some assistive technology declares the <code>legend</code> together with the label every time.</li>
-					<li>Make the individual labels self-explanatory as some assistive technology does not declare the <code>&lt;legend&gt;</code>. Do not repeat the <code>legend</code> in every label.</li>
-					<li>Use <code>optgroup</code> element for <code>&lt;select&gt;</code> elements with groups of options</li>
-					<li>Use <code>ARIA role="group"</code> and <code>aria-labelledby</code> attributes to group and label related form elements when you can't use native HTML <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> elements.</li>
-					<li>Use <code>&lt;label&gt;</code> wherever possible for universal browser and screen reader support.</li>
+					<li>Utiliser l’élément <code>&lt;fieldset&gt;</code> pour regrouper les commandes connexes dans un formulaire. </li>
+					<li>Utiliser l’élément <code>&lt;legend&gt;</code> pour nommer l’élément <code>&lt;fieldset&gt;</code>.</li>
+					<li>Faire en sorte que la <code>légende </code>soit aussi courte que possible, car certaines technologies d’assistance la déclarent avec l’étiquette chaque fois.</li>
+					<li>Rendre les étiquettes individuelles explicites, car certaines technologies d’assistance ne déclarent pas la <code>&lt;legend&gt;</code>. Ne pas répéter la <code>légende </code>dans chaque étiquette.</li>
+					<li>Utiliser l’élément <code>&lt;optgroup&gt;</code> pour les éléments <code>&lt;select&gt;</code> avec groupes d’options</li>
+					<li>Utiliser les attributs <code>ARIA role=”group”</code> et <code>aria-labelledby</code> pour regrouper et étiqueter les éléments de formulaire lorsque vous ne pouvez pas utiliser des éléments HTML natifs <code>&lt;fieldset&gt;</code> et <code>&lt;legend&gt;</code>.</li>
+					<li>Utiliser <code>&lt;label&gt;</code> dans la mesure du possible pour prendre en charge le navigateur universel et le lecteur d’écran.</li>
 				</ul>
+
 			</section>
 			
 			<section>				
-				<h2 id="form-instruction">Pratique exemplaire – Form instruction</h2>
-			<ul>			
-				<li>Provide overall instructions that apply to the entire form and provide them before the <code>&lt;form&gt;</code>  element. This ensures screen reader users encounter the information before switching to “Forms Mode.”</li>
-				<li>Use <code>aria-labelledby</code> or <code>aria-describedby</code> to provide instructions outside of labels. </li>
-				<li>Identify the type of form input field (e.g., <code>type= "email"</code>) so that browsers and assistive technology can provide input helpers, such as custom keyboards, autofill and icon labels.</li>
-				<li>Indicate any required input, data formats, and other relevant information.</li>
-				<li>Ensure placeholder attribute text meets a minimum contrast ratio of 4.5:1.</li>
+				<h2 id="form-instruction">Pratique exemplaire – Instruction relative au formulaire</h2>
+			<ul>
+				<li>Fournir les instructions générales qui s’appliquent à l’ensemble du formulaire et les fournir avant l’élément <code>&lt;form&gt;</code>. Cela permet aux utilisateurs du lecteur d’écran de consulter l’information avant de passer aux modes formulaires.</li>
+				<li>Utiliser <code>aria-labelledby</code> ou <code>aria-descripbedby</code> pour fournir des instructions à l’extérieur des étiquettes. </li>
+				<li>Indiquer le type de champ de saisie du formulaire (p.&nbsp;ex., <code>type= “email”</code>) afin que les navigateurs et les technologies d’assistance puissent fournir des aides à la saisie comme des claviers personnalisés, des étiquettes de remplissage automatique et des icônes.</li>
+				<li>Indiquer les saisies, les formats de données et les autres renseignements pertinents requis.</li>
+				<li>S’assurer que le texte des attributs d’espace réservé respecte un rapport de contraste minimal de&nbsp;4,5:1.</li>
 			</ul>
+
 			</section>
 			
 				
 			<section>				
 			<h2 id="validating-input">Pratique exemplaire – Validation des saisies</h2>
-			<ul>	
-				<li>Validate user data using validation attributes on HTML5 form elements.</li>
-				<li>Common validation attributes include <code>required</code>, <code>type</code>, <code>pattern</code>, <code>min</code> and <code>max</code> attributes.</li>
-				<li>Validate data on client-side and server-side to ensure security.</li>
-				<li>Identify required form fields both visually in the label and semantically.</li>
-				<li>Use HTML5 input types to validate different types of data, including email, URL, number, telephone, date and range.</li>
-				<li>Validate patterned input using the pattern attribute to specify a regular expression for matching</li>
-				<li>Validate length of entries using <code>minlength</code>, <code>maxlength</code>, <code>min</code> and <code>max</code> attributes</li>
-				<li>Be accommodating as possible of different input formats</li>
-				<li>Enable your users to check and correct their input to reduce errors.</li>
-				<li>Require user confirmation for irreversible actions.</li>
-				<li>Provide undo functionality to ensure submissions are reversible.</li>
-			</ul>
-								
-			</section>
-			
-				
-			<section>				
-			  <h2 id="user-notifications">Pratique exemplaire – Avis à l’utilisateur</h2>
-				<ul>	
-					<li>Upon form submission, notify the user of success or of any errors.</li>
-					<li>Ensure error messages are clear and concise and provide simple instructions for resolving the error. </li>
-					<li>Provide feedback in the main heading, in the title element, as a list of errors before the form, as well as in-line, programmatically associated with the form control.</li>
-					<li>Errors listed before the form should:
-					  <ul>
-					    <li>Reference the <code>label</code> of the corresponding form control.</li>
-					    <li>Provide a concise, easy to understand description of the error.</li>
-					    <li>Indicate how to correct mistakes, and remind users of any format requirements;</li>
-					    <li>Include an in-page link to the corresponding form control for easy access.</li>
-				      </ul>
-				    </li>
-				</ul>
 					
+			<ul>
+				<li>Valider les données utilisateur à l’aide des attributs de validation des éléments de formulaire HTML5.</li>
+				<li>Les attributs de validation communs <code>comprennent</code>, <code>le type</code>, <code>la structure</code>, et les attributs <code>min</code> et <code>max </code>requis.</li>
+				<li>Valider les données du côté client et du côté serveur pour assurer la sécurité.</li>
+				<li>Identifier les champs de formulaire requis à la fois visuellement dans l’étiquette et sémantiquement.</li>
+				<li>Utiliser les types de données HTML5 pour valider différents types de données, y compris l’adresse courriel, l’adresse URL, le numéro, le numéro de téléphone, la date et la plage.</li>
+				<li>Valider la saisie structurée en utilisant l’attribut structure pour spécifier une expression régulière pour l’appariement</li>
+				<li>Valider la longueur des entrées en utilisant les attributs <code>minlength</code>, <code>maxlength</code>, <code>min</code> et <code>max</code></li>
+				<li>Tenir compte autant que possible des différents formats de saisie</li>
+				<li>Permettre à vos utilisateurs de vérifier et de corriger leurs saisies afin de réduire les erreurs.</li>
+				<li>Exiger la confirmation de l’utilisateur pour les actions irréversibles.</li>
+				<li>Offrir une fonction d’annulation pour s’assurer que les soumissions sont réversibles.</li>
+			</ul>
 
 			</section>
 			
 				
 			<section>				
-				<h2 id="multi-step">Pratique exemplaire – Formulaires à étapes multiples</h2>
-				<ul>
-					<li>Split the form up according to its logical groups of controls (e.g., contact information and questionnaire).</li>
-					<li>Validate the current step before exposing the next.</li>
-					<li>Label optional steps and enable users to skip them. </li>
-					<li>Ensure keyboard focus moves smoothly from step to step, backwards and forwards. At a new step, set the focus preferably on the next relevant form element, or relevant heading or container<mark><del> (a heading or container would need the <code>tabindex="-1"</code> attribute to programmatically receive focus)</del></mark>.</li>
-					<li>Avoid a time limit to fill out the form. If a limit is required, enable the user to adjust or extend it.</li>
-					<li>If the steps are across pages, repeat overall instructions on every page.</li>
-					<li>Indicate progress in the form (“Step x of y”).</li>
+			  <h2 id="user-notifications">Pratique exemplaire – Avis aux utilisateurs</h2>
+				<ul>	
+					<li>Lorsqu’un utilisateur soumet un formulaire, l’aviser de la réussite ou de toute erreur.</li>
+					<li>S’assurer que les messages d’erreur sont clairs et concis, et fournissent des instructions simples pour corriger l’erreur. </li>
+					<li>Fournir une rétroaction dans l’en-tête principal, dans l’élément du titre, sous forme de liste d’erreurs avant le formulaire, ainsi qu’en ligne, associée au programme à la commande du formulaire.</li>
+					<li>Les erreurs énumérées avant le formulaire devraient&nbsp;:</li>
+					  <ul>
+					    <li>Faire référence à <code>l’étiquette</code> de la commande de formulaire correspondant.</li>
+						<li>Fournir une description concise et facile à comprendre de l’erreur.</li>
+						<li>Indiquer comment corriger les erreurs et rappeler aux utilisateurs les exigences en matière de format;</li>
+						<li>Inclure dans la page un lien vers la commande de formulaire correspondant pour faciliter l’accès.</li>
+				      </ul>
+				    </li>
 				</ul>
+			</section>
+			
+				
+			<section>				
+				<h2 id="multi-step">Pratique exemplaire – Formulaires en plusieurs étapes</h2>
+				
+				<ul>
+					<li>Diviser le formulaire en fonction de ses groupes de commandes logiques (p.&nbsp;ex., coordonnées et questionnaire).</li>
+					<li>Valider l’étape en cours avant d’exposer la suivante.</li>
+					<li>Étiqueter les étapes facultatives et permettre aux utilisateurs de les sauter. </li>
+					<li>S’assurer que la cible du clavier se déplace facilement d’une étape à l’autre, vers l’arrière et vers l’avant. À une nouvelle étape, cibler de préférence le prochain élément de formulaire pertinent, ou l’en-tête ou le conteneur pertinent <mark><del>(un en-tête ou un conteneur aurait besoin de l’attribut <code>tabindex=”-1”</code> pour recevoir la cible par un programme)</del></mark>.</li>
+					<li>Éviter d’imposer une limite de temps pour remplir le formulaire. Si une limite est requise, permettre à l’utilisateur de la modifier ou de la prolonger.</li>
+					<li>Si les étapes se trouvent sur plusieurs pages, répéter les instructions générales sur chaque page.</li>
+					<li>Indiquer la progression dans le formulaire («&nbsp;Étape&nbsp;x de&nbsp;y&nbsp;»).</li>
+				</ul>
+
 			</section>
 			
 			<section>				
 				<h2 id="custom-control">Pratique exemplaire – Commandes personnalisées</h2>
 				<ul>
-					<li>Whenever possible, use native HTML form elements rather than custom controls.</li>
-					<li>Model the behaviour after native HTML form elements.</li>
-					<li>Add appropriate ARIA name, role, and values if necessary.</li>
-					<li>Communicate updates and state changes via ARIA live messages when they can’t be communicated through HTML or ARIA methods</li>
+					<li>Dans la mesure du possible, utiliser des éléments de formulaire HTML natifs plutôt que des commandes personnalisées.</li>
+					<li>Modéliser le comportement d’après les éléments de formulaire HTML natifs.</li>
+					<li>Ajoutez un nom, un rôle et des valeurs ARIA appropriés, au besoin.</li>
+					<li>Communiquer des mises à jour et des changements d’état par l’entremise de messages ARIA live lorsqu’ils ne peuvent pas être communiqués par l’entremise de méthodes HTML ou ARIA</li>
 				</ul>
 
 			</section>
-			
-			
-		
 		
 	<nav role="navigation">
 		<h2 class="wb-inv">Menu de la pagination</h2>
