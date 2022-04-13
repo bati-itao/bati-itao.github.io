@@ -82,14 +82,14 @@
                      <ul>
                         <li>From all users, by using either the CSS <code>display:none</code> or <code>visibility:hidden</code> declaration.</li>
                         <li>From users of assistive technology, by using the <code>aria-hidden="true"</code> attribute to remove the element from the Accessibility API.</li>
-                        <li>From sighted users, by using the WET CSS class <code>"wb-inv"</code> to visually hide the content.</li>
+                        <li>From sighted users, by using the WET CSS class <code>.wb-inv</code> to visually hide the content.</li>
                      </ul>
                      <p>When hiding inactive content, such as untriggered modal windows and unselected sub-menus, hide it from all users. Developers frequently introduce a barrier by visually hiding such content offscreen via CSS positioning, leaving the content exposed to the accessibility API, where it’s encountered by screen reader users and others. If it needs to be hidden from sighted users, it needs to be hidden from screen reader users.</p>
                      <p>Use the <code>aria-hidden</code> attribute with caution, and only to improve the experience for users of assistive technology by removing redundant or extraneous information. If you use <code>aria-hidden</code> to hide meaningful visible content you must ensure that identical or equivalent meaning and functionality is exposed to assistive technologies.</p>
                      <p>Visually-hidden text can:</p>
                      <ul>
                         <li>provide a name where ARIA labels won’t work because the element doesn’t receive focus. This is illustrated in the example of CSS-generated content in the previous section. The same approach would work with a CSS background image needing a name; for instance, a list holding logos set as CSS background images could use a visually-hidden name in each list item.</li>
-                        <li>name or extend the name of elements as an alternative to ARIA labels. For example, on a page with multiple “read more” links, to distinguish each link’s purpose from the other, the preceding heading text is inserted as a visually-hidden span element into the link text.</li>
+                        <li>name or extend the name of elements as an alternative to ARIA labels. For example, on a page with multiple “read more” links, to distinguish each link’s purpose from the other, the preceding heading text is inserted as a visually-hidden <code>&lt;span&gt;</code> element into the link text.</li>
                      </ul>
                      <div class="panel panel-success mrgn-tp-lg">
 						<div class="panel-body">
@@ -125,17 +125,17 @@
    &lt;span class="wb-inv"&gt;About How to Apply&lt;/span&gt; 
    Read more  
 &lt;/a&gt; 
-&lt;style type="text/css"&gt;
-.wb-inv {
+</code></pre>
+							<p class="wb-inv">Fins du code</p>
+							<p class="wb-inv">Code commence</p>
+<pre><code class="language-css">.wb-inv {
    clip: rect(1px,1px,1px,1px);
    height: 1px;
    margin: 0;
    overflow: hidden;
    position: absolute;
    width: 1px;
-}
-&lt;/style&gt;</code>
-</pre>
+}</code></pre>
 							<p class="wb-inv">Code ends</p>
 						</div>
 					</div>
@@ -143,12 +143,15 @@
                   <section>
                      <h2 id="Exposing-hidden-content-on-hover-or-focus">Exposing hidden content on hover or focus</h2>
                      <p>When exposing hidden content via pointer hover or keyboard focus, ensure the exposed content has these three properties:</p>
-                     <ul>
-                        <li>Dismissable -- the user can dismiss the exposed content without moving the mouse or keyboard focus, typically by pressing the Escape key.</li>
-                        <li>Hoverable -- the user can hover the mouse over the exposed content.</li>
-                        <li>Persistent -- the exposed content doesn’t disappear until mouse hover or keyboard focus leaves it.</li>
-                     </ul>
-                     <p>For more details, see Module 10 – Input Modalities -> Mouse Input -> <mark><a href="">Content on Hover or Focus</a></mark></p>
+                     <dl>
+                        <dt>Dismissable</dt>
+                        <dd class="mrgn-lft-lg">The user can dismiss the exposed content without moving the mouse or keyboard focus, typically by pressing the Escape key.</dd>
+                        <dt>Hoverable</dt>
+                        <dd class="mrgn-lft-lg">The user can hover the mouse over the exposed content.</dd>
+                        <dt>Persistent</dt>
+                        <dd class="mrgn-lft-lg">The exposed content doesn’t disappear until mouse hover or keyboard focus leaves it.</dd>
+                     </dl>
+                     <p>For more details, see Module 10: Input Modalities > Mouse Input > <a href="../module10/mouse-input.html#content-on-hover-or-focus">Content on Hover or Focus</a></p>
                   </section>
                   <section>
                      <h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
@@ -169,7 +172,7 @@
                   <nav role="navigation">
                      <h2 class="wb-inv">Document navigation</h2>
                      <ul class="pager">
-                        <li class="previous"><a rel="prev" href="css-generated.html">Previous - CSS-generated content</a></li>
+                        <li class="previous"><a rel="prev" href="css-generated.html">Previous - CSS-generated text and icons</a></li>
                         <li class="next"><a rel="next" href="best-practice.html">Next - Best practice</a></li>
                      </ul>
                   </nav>
