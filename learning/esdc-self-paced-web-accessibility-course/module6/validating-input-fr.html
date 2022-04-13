@@ -102,39 +102,39 @@
 	
 			<section>				
 				<h2 id="overview">Validation des saisies (overview)</h2>
-				<p>To help users avoid mistakes, HTML5 defines a range of built-in functionality for validating common types of input, such as email addresses and dates. Some scripting may be necessary for validation when using custom controls or supporting legacy browsers. In these situations, the user notifications should be accessible, as described in the section <a href="user-notifications-fr.html">Avis à l’utilisateur</a>.</p>
-				<p>To ensure security, data needs to be validated both on the client-side and on the server-side as well. </p>
-				<p>Most user data can be validated using validation attributes on HTML5 form <mark><del>elements</del> <ins>controls [Fr: contr&ocirc;les]</ins></mark>. The following are common validation attributes:</p>
+				<p>Pour aider les utilisateurs à éviter les erreurs, HTML5 définit une gamme de fonctionnalités intégrées pour valider les types communs de saisie, comme les adresses de courriel et les dates. Certains scripts peuvent être nécessaires à la validation lors de l’utilisation de commandes personnalisées ou à la prise en charge des anciens navigateurs. Dans ces situations, les notifications aux utilisateurs doivent être accessibles, comme décrit à la section <a href="user-notifications-fr.html"></a>Notifications aux utilisateurs.</a>.</p>
+				<p>Pour assurer la sécurité, les données doivent également être validées du côté client et du côté serveur. </p>
+				<p>La plupart des données d’utilisateurs peuvent être validées au moyen des attributs de validation des contr&ocirc;les de formulaire&nbsp;HTML5. Voici les attributs de validation communs&nbsp;:</p>
 				<dl>
-					<dt><code>required</code> attribute</dt> 
-					<dd class="mrgn-lft-lg">Specifies whether a form field needs to be filled in before the form can be submitted. See <a href="#required-input">Validating required input</a>.</dd>
-					<dt><code>type</code> attribute</dt> 
-					<dd class="mrgn-lft-lg">Specifies the type of data. See <a href="#common-input">Validating common input types</a>.</dd>
-					<dt><code>pattern</code> attribute</dt> 
-					<dd class="mrgn-lft-lg">Specifies a regular expression that defines a pattern the entered data needs to follow. See <a href="#patterned-input">Validating pattern input</a>.</dd>
-					<dt><code>minlength</code> and <code>maxlength</code> attributes</dt> 
-					<dd class="mrgn-lft-lg">Specifies the minimum and maximum length of textual data. See <a href="#length">Validating length of entries</a>.</dd>
-					<dt><code>min</code> and <code>max</code> attributes</dt> 
-					<dd class="mrgn-lft-lg">Specifies the minimum and maximum values of numerical input types. See <a href="#length">Validating length of entries</a>.</dd>
+					<dt><code>required</code> attribut</dt> 
+					<dd class="mrgn-lft-lg">Indique si un champ de formulaire doit être rempli avant que le formulaire puisse être soumis. Voir <a href="#required-input">Validation des saisies requises</a>.</dd>
+					<dt><code>type</code> attribut</dt> 
+					<dd class="mrgn-lft-lg">Précise le type de données. Voir <a href="#common-input">Validation des types de saisie commune. </a>.</dd>
+					<dt><code>pattern</code> attribut</dt> 
+					<dd class="mrgn-lft-lg">Précise une expression régulière qui définit un modèle que les données saisies doivent suivre. Voir <a href="#patterned-input">Validation des saisies de structure</a>.</dd>
+					<dt><code>minlength</code> et <code>maxlength</code> attributs</dt> 
+					<dd class="mrgn-lft-lg">Indique la longueur minimale et maximale des données textuelles. Voir <a href="#length">Validation de la longueur des saisies</a>.</dd>
+					<dt><code>min</code> et <code>max</code> attributs</dt> 
+					<dd class="mrgn-lft-lg">Indique les valeurs minimales et maximales des types de saisies numériques. Voir <a href="#length">Validation de la longueur des saisies</a>.</dd>
 				</dl>
-				<p>If the rules specified by the validation attributes are not followed, then the element becomes invalid and the browser blocks the form and displays an error message.</p>
+				<p>Si les règles spécifiées par les attributs de validation ne sont pas suivies, l’élément devient invalide et le navigateur bloque le formulaire et affiche un message d’erreur.</p>
 			</section>
 			
 			<section>				
-				<h2 id="required-input">Validating required input</h2>
-				<p>Identify required form fields both visually in the label and semantically:</p>
+				<h2 id="required-input">Validation des saisies requises</h2>
+				<p>Identifiez les champs de formulaire requis à la fois visuellement dans l’étiquette et sémantiquement&nbsp;:</p>
 				<ul>
-					<li>To identify required fields visually in the label, add an asterisk (*) to the label and define the asterisk above the form; or, add the word "required" in parentheses.</li>
-					<li>To identify required fields semantically, add the <code>required</code> attribute to the control and, to support legacy browsers, add the redundant <code>aria-required="true"</code> attribute.</li>
+					<li>Pour identifier visuellement les champs requis dans l’étiquette, ajoutez un astérisque&nbsp;(*) à l’étiquette et définissez l’astérisque au-dessus du formulaire, ou ajoutez le mot «&nbsp;requis&nbsp;» entre parenthèses.</li>
+					<li>Pour identifier sémantiquement les champs requis, ajoutez l’attribut <code>“required”</code> à la commande et, pour prendre en charge les anciens navigateurs, ajoutez l’attribut redondant <code>aria-required=”true”</code>.</li>
 				</ul>
-				<p>The <code>required</code> attribute triggers client-side validation in the browser. Current web browsers support the attribute and notify the user of missing required input using a standard web browser dialog. These dialogs respect user settings and preferences in the browser and operating system, such as default font-size, colors, and language.</p>
-				<p>The presence of the <code>required</code> attribute enables use of the <code>:required</code> pseudoclass for CSS styling. If the <mark><ins>required</ins></mark> <code>&lt;input&gt;</code> has no value, it enables use of the <code>:invalid</code> pseudoclass. See the following Good example.</p>
-			
+				<p>L’attribut <code>“required”</code> déclenche une validation côté client dans le navigateur. Les navigateurs Web actuels prennent en charge l’attribut et avisent l’utilisateur de toute entrée requise manquant au moyen d’une boîte de dialogue standard du navigateur Web. Ces dialogues respectent les paramètres et les préférences de l’utilisateur dans le navigateur et le système d’exploitation, comme la taille de police par défaut, les couleurs et la langue.</p>
+				<p>La présence de l’attribut <code>“required”</code> permet d’utiliser la pseudoclasse <code>:required</code> pour le style CSS. Si <mark><ins>required</ins></mark><code>&lt;input&gt;</code> n’a aucune valeur, il permet d’utiliser la pseudoclasse <code>:invalid</code>. Voir le bon exemple suivant.</p>
+
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 		
-						<h3 class="text-success mrgn-tp-0 h3" id="validation-required-input"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Browser validation of required input</h3>
-						<p>In this example, the browser will not allow the form to be submitted until text is entered in the required input field. The <code>:required</code> pseudoclass applies a background pink. The <code>:invalid</code> pseudoclass applies a dashed border when the <code>&lt;input&gt;</code> does not have focus.</p>
+						<h3 class="text-success mrgn-tp-0 h3" id="validation-required-input"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple&nbsp;: Validation par le navigateur des saisies requises</h3>
+						<p>Dans cet exemple, le navigateur ne permet pas de soumettre le formulaire tant que le texte n’est pas entré dans le champ de saisis requis. La pseudoclasse <code>:required </code>applique un fond rose. La pseudoclasse <code>:invalid</code> applique une bordure pointillée lorsque <code>&lt;input&gt;</code> n’a pas de cible.
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 								<p class="wb-inv">Example begins</p>
