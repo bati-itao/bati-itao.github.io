@@ -82,34 +82,41 @@
 
 			<section>						
 				<h2 id="form-instructions">Instructions du formulaire (overview)</h2>
-				<p>Instructions du formulaire help users understand how to complete the form and use individual form controls. Indicate any required input, data formats, and other relevant information.</p>
+				<p>Les instructions du formulaire aident les utilisateurs à comprendre la façon de remplir le formulaire et d’utiliser les commandes individuelles du formulaire. Indiquer les saisies, les formats de données et les autres renseignements pertinents requis.</p>
 			</section>
 			
 			<section>				
-				<h2 id="overall-instructions">Overall instructions</h2>
-				<p>Provide form instructions above the form prior to the starting <code>&lt;form&gt;</code> tag. Indicate any required and optional input, allowed data formats, timing limitations and any overall instructions that apply to the entire form. </p>
+				<h2 id="overall-instructions">Instructions générales</h2>
+				<p>Fournir les instructions du formulaire au-dessus du formulaire avant la balise <code>&lt;form&gt;</code> d’ouverture. Indiquer toute saisie obligatoire et facultative, les formats de données autorisés, les limites de temps et toute instruction générale qui s’appliquent à l’ensemble du formulaire. </p>
+
 				<div class="alert alert-warning">
-					<p><strong>Note:</strong> Screen reader users could easily miss overall form instructions nested in a <code>&lt;form&gt;</code> element. Screen readers enter “forms mode” once inside a form, disabling text-browsing keyboard shortcuts to enable the screen reader user to type directly into <code>input</code> and <code>textarea</code> fields. Keyboard navigation is limited to just the focusable elements (form inputs, links and other controls) via the Tab key. Text that isn’t programmatically associated with a focusable element &mdash; serving as a label or description &mdash; is easily missed.</p>
+					<p><strong>Remarque&nbsp;: </strong>Les utilisateurs du lecteur d’écran pourraient facilement rater les instructions générales du formulaire imbriquées dans un élément <code>&lt;form&gt;</code>. Les lecteurs d’écran entrent en «&nbsp;mode formulaires&nbsp;» une fois dans un formulaire, désactivant ainsi les raccourcis clavier de balayage de texte pour permettre à l’utilisateur de taper directement dans les champs de saisie et de zone de<code> texte</code>. La navigation au clavier se limite aux éléments pouvant être ciblés (saisies de formulaires, liens et autres commandes) au moyen de la touche Tab. Le texte qui n’est pas associé par un programme à un élément pouvant être ciblé – servant d’étiquette ou de description – est facilement omis.</p>
 				</div>
-				<p>Instructions du formulaire <mark><del>can indicate how required fields are marked, expected format, and where to find extra help. Here are some</del></mark> examples:</p>
+				<p>Les instructions du formulaire <mark><del>peuvent indiquer la façon dont les champs obligatoires sont balisés, le format prévu et où trouver de l’aide supplémentaire. Voici quelques</del></mark> exemples&nbsp;:</p>
+
 				<ul>
-					<li>All fields marked “required” must be completed.</li>
-					<li>Dates should all be typed in the format yyyy/mm/dd, (as in 2022/01/05).</li>
-					<li>Extra help can be found immediately after each field.</li>
+					<li>Tous les champs marqués «&nbsp;obligatoire&nbsp;» doivent être remplis.</li>
+					<li>Les dates doivent toutes être entrées selon le format aaaa/mm/jj (comme dans 2022/01/05).</li>
+					<li>Vous trouverez de l’aide supplémentaire immédiatement après chaque champ</li>
 				</ul>
 			</section>
 			
 			<section>				
-				<h2 id="inline-instructions">In-line instructions</h2>
-				<p>In-line instructions are provided within or outside the label of the form control. Short instructions can fit in the label along with the control’s name. Long instructions should be outside the label, associated with the control via the <code>aria-describedby</code> attribute. <mark><del>Prioritize using semantic HTML <code>&lt;label&gt;</code> instead of ARIA to provide instructions within labels. Match the <code>for</code> attribute of the label with the <code>id</code> attribute of the form control.</del></mark>
+				<h2 id="inline-instructions">Instructions incluses</h2>
+				<p>Des instructions incluses sont fournies à l’intérieur ou à l’extérieur de l’étiquette de commande du formulaire. De courtes instructions peuvent être insérées dans l’étiquette avec le nom de la commande. Les instructions longues devraient être à l’extérieur de l’étiquette et être associées à la commande par l’entremise de l’attribut <code>aria-descripbedby</code>. <mark><del>Privilégier l’utilisation d’un langage HTML sémantique <code>&lt;label&gt;</code> au lieu d’ARIA pour fournir des instructions dans les étiquettes. Associer l’attribut <code>“for”</code> de l’étiquette à l’attribut <code>“id”</code> de la commande du formulaire.</del></mark></p>
+
 				</p>
-				<h3>Providing instructions within labels</h3>
-				<p>Providing instructions within labels is well-supported by user agents, though it should be reserved for shorter instructions. Match the <code>for</code> attribute of the label with the <code>id</code> attribute of the form control.</p>
+				<h3>Fournir des instructions dans les étiquettes</h3>
+				<p>Les agents utilisateurs prennent en charge sans difficulté les instructions fournies dans les étiquettes, mais celles-ci devraient être réservées aux instructions plus courtes. Associer l’attribut <code>“for” </code>de l’étiquette à l’attribut <code>“id”</code> de la commande du formulaire.</p>
+
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 					  <h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing instructions within a label</h4>
 					  
+					    <p><mark>TODO; The paragraph below needs to be done!</mark></p>
 						<p>The required format for the “<mark><del>Date of Birth</del> <ins>Employee ID</ins></mark>” is indicated by “<mark><del>YYYY/MM/DD</del> <ins>XX-1234</ins></mark></del></mark>” within the same label:</p>
+						<p>Le format requis pour la «&nbsp;Date de naissance&nbsp;» est indiqué par le format «&nbsp;AAAA/MM/JJ&nbsp;» dans la même étiquette&nbsp;:</p>
+
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 								<p class="wb-inv">Example begins</p>
@@ -128,18 +135,23 @@
 						<p class="wb-inv">Code ends</p>
 					</div>
 				</div>
-				<h3>Providing instructions outside labels</h3>
-				<p>Use ARIA to provide instructions outside of labels. Associate any descriptive text in the form with the relevant form element using the <code>aria-labelledby</code> or <code>aria-describedby</code> attribute. </p>
+				<h3>Fournir des instructions à l’extérieur des étiquettes</h3>
+				<p>Utiliser ARIA pour fournir des instructions à l’extérieur des étiquettes. Associer tout texte descriptif du formulaire à l’élément pertinent du formulaire en utilisant l’attribut <code>aria-labelledby </code>ou <code>aria-descripbedby</code>. </p>
+
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 					
-						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing form <mark><ins>control</ins></mark> instructions using aria-labelledby</h4>
+						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;1&nbsp;: Fournir des <mark><ins>control</ins></mark>instructions du formulaire en utilisant aria-labelledby</h4>
 						<p>One approach to providing instructions outside of labels uses the <code>aria-labelledby</code> attribute on the control:</p>
+						<p>L’utilisation de l’attribut aria-labelledby sur la commande constitue une façon de fournir des instructions à l’extérieur des étiquettes.  Cette approche garantit que la description supplémentaire est communiquée à la technologie d’assistance, mais elle ne devrait être utilisée qu’avec de courtes descriptions.</p>
+
 						<ul>
-							<li>The <code>&lt;label&gt;</code> element is associated with its control using matching <code>for</code> and <code>id</code> attribute values.</li>
+							<p>Un élément <code>&lt;label&gt; </code>est associé à sa commande au moyen de valeurs d’attribut correspondantes <code>“for”</code> et <code>“id”</code>.</p>
+							<p><mark>TODO: This li section below needs to be done!</mark></p>
 							<li>The <code>aria-labelledby</code> attribute <mark>on the control</mark> references the <code>id</code> attribute values of <mark><del>the <code>&lt;label&gt;</code> element</del> <ins>itself</ins></mark> and the element holding the description.</li>
+							<li>L’attribut <code>aria-labelledby</code> fait référence aux valeurs de l’attribut id de l’élément étiquette et de l’élément qui contient la description.</li>
 						</ul> 
-						<p>This approach guarantees the additional description is communicated to assistive tech, but should only be used with short descriptions.</p>
+						<p>Cette approche garantit que la description supplémentaire est communiquée à la technologie d’assistance, mais elle ne devrait être utilisée qu’avec de courtes descriptions</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 							<p class="wb-inv">Example begins</p>
@@ -167,6 +179,7 @@
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing form <mark><ins>control</ins></mark> instructions with aria-describedby</h4>
+						<p><mark>check for existing translation</mark></p>
 						<p>The more common approach to providing instructions outside of labels is to use the <code>aria-describedby</code> attribute. The attribute is set on the control and points to the <code>id</code> attribute value of the element containing the description.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
@@ -187,7 +200,7 @@
    &lt;label for="password1"&gt;Password:&lt;/label&gt;
    &lt;div&gt;
       &lt;input type="password" id="password1" aria-describedby="passDesc" name="password1"&gt;
-      &lt;div id="passDesc"&gt;Must contain at least 8 characters, one uppercase letter and one special character&lt;/div&gt;
+      &lt;div id="passDesc"&gt;Doit contenir au moins huit caractères, une lettre majuscule et un caractère spécial&lt;&lt;/div&gt;
    &lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
@@ -196,25 +209,28 @@
 					</div>
 				</div>
 				
-				<h3>Placeholder text</h3>
+				<h3>Texte d’espace réservé</h3>
+				<p><mark>TODO:Below paragraph needs to be fixed!</mark></p>
 				<p><mark><del>Placeholder text</del><ins>Text in the <code>placeholder</code> attribute</ins></mark> provides instructions or an example of the required data format inside form fields that have not yet been edited by the user. <mark><del>Most browsers’ default placeholder text lacks sufficient contrast.  Also, </del></mark> 
+				<p>Le texte d’espace réservé fournit des instructions ou un exemple de format de données requis dans les champs de formulaire qui n’ont pas encore été modifiés par l’utilisateur. Le texte d’espace réservé par défaut de la plupart des navigateurs ne présente pas de contraste suffisant. De plus, le texte d’espace réservé disparaît des champs de formulaire lorsque les utilisateurs commencent à entrer du texte. Si le texte d’espace réservé contient de l’information ou des exemples qui disparaissent, il devient plus difficile pour les utilisateurs de vérifier leurs réponses avant de soumettre le formulaire.</p>
+
 				<div class="alert alert-warning">
 				   <p><mark><ins>Note that [Fr: Noter que]</ins></mark> placeholder text disappears from <mark><ins>a form field</ins> <del>form fields</del></mark> when users start entering text. If the placeholder text contains instructional information or examples that disappear, it makes it more difficult for users to check their responses before submitting the form.</p>
 				</div>
 				
-				<p>Placeholder text is not a replacement for labels. Assistive technologies such as screen readers do not treat placeholder text as labels. </p>
+				<p>Le texte d’espace réservé ne remplace pas les étiquettes. Les technologies d’assistance comme les lecteurs d’écran ne traitent pas le texte d’espace réservé comme des étiquettes. </p>
 				<div class="panel panel-primary mrgn-tp-md">
 					<div class="panel-body well mrgn-bttm-0">	
-						<p class="wb-inv">Example begins</p>
+						<p class="wb-inv">Exemple begins</p>
 						<form class="form-horizontal" role="form" method="get" action="#">
 							<div class="form-group">
-								<label for="search"  class="col-sm-2 control-label">Search:</label> 
+								<label for="search"  class="col-sm-2 control-label">Recherche:</label> 
 								<div class="col-sm-10">
-									<input type="text" name="search" id="search" placeholder="e.g., Accessibility courses" class="form-control">
+									<input type="text" name="search" id="search" placeholder="e.g., cours sur l’accessibilité" class="form-control">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="email"  class="col-sm-2 control-label">Email: </label> 
+								<label for="email"  class="col-sm-2 control-label">Courriel: </label> 
 								<div class="col-sm-10">	
 									<input type="email" name="email" id="email" placeholder="jane.doe@gmail.com" class="form-control" autocomplete="email">
 								</div>
@@ -241,50 +257,50 @@
 							}						
 													
 						</style>
-						<p class="wb-inv">Example ends</p>
+						<p class="wb-inv">Exemple ends</p>
 					</div>
 				</div>
 
 				<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;div&gt;
-   &lt;label for="search"&gt;Search:&lt;/label&gt; 
-   &lt;input type="text" name="search" id="search" placeholder="e.g., Accessibility courses"&gt;
+   &lt;label for="search"&gt;Recherche:&lt;/label&gt; 
+   &lt;input type="text" name="search" id="search" placeholder="e.g., cours sur l’accessibilité"&gt;
 &lt;/div&gt;
 &lt;div&gt;
-   &lt;label for="email"&gt;Email: &lt;/label&gt; 
+   &lt;label for="email"&gt;Courriel: &lt;/label&gt; 
    &lt;input type="email" name="email" id="email" placeholder="jane.doe@gmail.com" autocomplete="email"&gt;
 &lt;/div&gt;</code></pre>
 				<p class="wb-inv">Code ends</p>
 
 
 						
-				<h3>Styling the placeholder</h3>
-				<p>In many browsers, the default <code>placeholder</code> attribute colour fails a contrast check, making it difficult for many people to see. The colour of the placeholder can be styled using CSS.</p>
-				<p>The example below sets the foreground color to a medium gray (hex #767676) against a white background, which just meets the minimum 4.5:1 contrast ratio requirement.</p>
+				<h3>Styliser l’espace réservé</h3>
+				<p>Dans de nombreux navigateurs, la couleur d’attribut <code>de l’espace</code> réservé échoue au test de contraste, ce qui empêche de nombreuses personnes de voir distinctement. La couleur de l’espace réservé peut être stylisée à l’aide de CSS.</p>
+				<p> L’extrait de code ci-dessous établit la couleur d’avant-plan à un gris moyen (no&nbsp;hex&nbsp;767676) sur fond blanc, ce qui satisfait tout juste à l’exigence minimale de rapport de contraste de 4,5:1.</p>
 				<div class="panel panel-primary mrgn-tp-md mrgn-bttm-lg">
 					<div class="panel-body well mrgn-bttm-0">
-					<p class="wb-inv">Example begins</p>
+					<p class="wb-inv">Exemple begins</p>
 						<form class="form-horizontal" role="form" method="get" action="#">
 							<div class="form-group">
-							<label for="search" class="col-sm-3 control-label">Search courses:</label>
+							<label for="search" class="col-sm-3 control-label">Recherche de cours:</label>
 								<div class="col-sm-9">
-									<input type="text" name="search1" id="search1" placeholder="e.g., Accessibility courses" class="form-control">
+									<input type="text" name="search1" id="search1" placeholder="e.g., cours sur l’accessibilité" class="form-control">
 								</div>
 								</div>
 							<div class="form-group">
-								<label for="fname" class="col-sm-3 control-label">First name: </label>
+								<label for="fname" class="col-sm-3 control-label">Prénom: </label>
 								<div class="col-sm-9">
 									<input type="text" name="fname" id="fname" class="form-control" autocomplete="given-name">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="lname" class="col-sm-3 control-label">Last name: </label> 
+								<label for="lname" class="col-sm-3 control-label">Nom de famille: </label> 
 								<div class="col-sm-9">
-									<input type="text" name="lname" id="lname" class="form-control" autocomplete="family-name">
+									<input type="text" name="lname" id="lname" class="form-control" autocomplete="Nom-de-famille">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="email" class="col-sm-3 control-label">Email: </label>  
+								<label for="email" class="col-sm-3 control-label">Courriel: </label>  
 								<div class="col-sm-9">
 									<input type="email" name="email1" id="email1" placeholder="jane.doe@gmail.com" class="form-control" autocomplete="email"> 
 								</div>
@@ -312,7 +328,7 @@
 							}						
 						</style>
 						
-						<p class="wb-inv">Example ends</p>
+						<p class="wb-inv">Exemple ends</p>
 					</div>
 				</div>
 					
@@ -320,19 +336,19 @@
 						<summary class="bg-info">View HTML </summary>
 <p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;div&gt;
-   &lt;label for="search"&gt;Search courses:&lt;/label&gt;  
-   &lt;input type="text" name="search" id="search" placeholder="e.g., Accessibility courses"&gt;
+   &lt;label for="search"&gt;Recherche de cours:&lt;/label&gt;  
+   &lt;input type="text" name="search" id="search" placeholder="e.g., cours sur l’accessibilité"&gt;
 &lt;/div&gt;
 &lt;div&gt;
-   &lt;label for="fname"&gt;First name: &lt;/label&gt;  
+   &lt;label for="fname"&gt;Prénom: &lt;/label&gt;  
    &lt;input type="text" name="fname" id="fname"&gt;
 &lt;/div&gt;
 &lt;div&gt;
-   &lt;label for="lname"&gt;Last name: &lt;/label&gt;  
+   &lt;label for="lname"&gt;Nom de famille: &lt;/label&gt;  
    &lt;input type="text" name="lname" id="lname"&gt;
 &lt;/div&gt;
 &lt;div&gt;
-   &lt;label for="email"&gt;Email: &lt;/label&gt;  
+   &lt;label for="email"&gt;Courriel: &lt;/label&gt;  
    &lt;input type="text" name="email" id="email" placeholder="jane.doe@gmail.com"&gt; 
 &lt;/div&gt;</code>
 </pre>
@@ -367,47 +383,50 @@
 			
 			</section>
 			<section>				
-				<h2 id="instructions-for-groups">Instructions for groups<mark><del> or Sections are programmatically associated with the group</del></mark></h2>
+				<h2 id="instructions-for-groups">Les instructions relatives aux groupes<mark><del> ou aux sections sont associées au groupe par un programme</del></mark></h2> 
+				<p><mark>TODO: The paragraph below needs to be fixed!</mark></p>
 				<p>In “focus mode”, when tabbing through the form, screen reader users <mark><del>will not hear regular text added to the form</del><ins> set focus on form controls and hear their labels and descriptions. Text in a non-focusable <ins>element is missed </ins><del>text will be skipped</del></mark> unless it is programmatically associated with a form control as label or description.</p>
+				<p>En «&nbsp;mode cible&nbsp;», les utilisateurs du lecteur d’écran n’entendront pas le texte ordinaire ajouté au formulaire lorsqu’ils parcourent le formulaire à l’aide de la touche Tab. Le texte non ciblé sera sauté à moins qu’il ne soit associé par un programme à une commande de formulaire comme étiquette ou description.</p>
+
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Group instructions in a legend</h3>
-						<p>In this example, the word “Required” is set within the <code>&lt;legend&gt;</code> to indicate that everything within the related fieldset is required. Depending on the configuration, some screen readers read out the legend either with every form element, once, or, rarely, not at all. Keep legends short and self-explanatory.</p>
+						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>Bon exemple&nbsp;: Instructions de groupe dans une &lt;legend&gt;</h3>
+						<p>Dans cet exemple, le mot «&nbsp;Requis&nbsp;» est défini dans la <code>&lt;legend&gt;</code> pour indiquer que tout ce qui se trouve dans le champ correspondant est requis. Selon la configuration, certains lecteurs d’écran lisent la légende avec chaque élément de forme, une fois ou, rarement, pas du tout. Gardez les légendes courtes et explicites.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Example begins</p>
+								<p class="wb-inv">Exemple begins</p>
 								<form class="form-horizontal" role="form" method="get" action="#">
 									<fieldset>
 										<legend class="required mrgn-lft-md"> 
-											<span class="field-name">User login information</span>  
-											<strong>(required)</strong>
+											<span class="field-name">Renseignements d’ouverture de session (Requis)</span>  
+											<strong>(Requis)</strong>
 										</legend>
 										<div class="form-group">		
-											<label for="username" class="col-sm-3 control-label required">Username:</label>
+											<label for="username" class="col-sm-3 control-label required">Nom d’utilisateur:</label>
 											<div class="col-sm-9">
 												<input type="text" id="username" class="form-control" required autocomplete="username">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="password" class="col-sm-3 control-label required">Password:</label>
+											<label for="password" class="col-sm-3 control-label required">Mot de passe:</label>
 											<div class="col-sm-9">
 												<input type="password" id="password" class="form-control" required autocomplete="current-password">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="email" class="col-sm-3 control-label required">Email:</label>
+											<label for="email" class="col-sm-3 control-label required">Courriel:</label>
 											<div class="col-sm-9">
 												<input type="email" id="email2" class="form-control" required autocomplete="email"></div>
 											</div>
 										<div class="form-group">
-											<label for="phone" class="col-sm-3 control-label required">Phone:</label>
+											<label for="phone" class="col-sm-3 control-label required">Téléphone:</label>
 											<div class="col-sm-9">
 												<input type="tel" id="phone" class="form-control" required autocomplete="tel-national">
 											</div>
 										</div>
 									</fieldset>
 								</form>
-								<p class="wb-inv">Example ends</p>
+								<p class="wb-inv">Exemple ends</p>
 							</div>
 						</div>
 		
@@ -416,18 +435,18 @@
 							<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;fieldset&gt;
    &lt;legend class="required"&gt; 
-      User login information (Required)
+   Renseignements d’ouverture de session (Requis)
    &lt;/legend&gt;
-   &lt;label for="username" class="required"&gt;Username:&lt;/label&gt;
+   &lt;label for="username" class="required"&gt;Nom d’utilisateur:&lt;/label&gt;
    &lt;input type="text" id="username" required autocomplete="username"&gt;
    
-   &lt;label for="password" class="required"&gt;Password:&lt;/label&gt;
+   &lt;label for="password" class="required"&gt;Mot de passe:&lt;/label&gt;
    &lt;input type="password" id="password" required autcomplete="current-password"&gt;
    
-   &lt;label for="email" class="required"&gt;Email:&lt;/label&gt;
+   &lt;label for="email" class="required"&gt;Courriel:&lt;/label&gt;
    &lt;input type="email" id="email" required autcomplete="email"&gt;
    
-   &lt;label for="phone" class="required"&gt;Phone:&lt;/label&gt;
+   &lt;label for="phone" class="required"&gt;Téléphone:&lt;/label&gt;
    &lt;input type="tel" id="phone" required auto-complete="tel-national"&gt;
 &lt;/fieldset&gt;</code>
 </pre>
@@ -453,41 +472,43 @@ legend.required:before {
 				
 			<div class="panel panel-danger mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Instructions in a paragraph not associated with a control</h3>
+					<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>Bon exemple&nbsp;: Instructions associées à l’utilisation d’aria-descripbedby</h3>
 					<p>When instructions are in a <code>&lt;p&gt;</code> element not associated via <code>aria-describedby</code>, they’re easily missed by users navigating the form in the screen reader’s “forms mode”. </p>
+					<p>Dans cet exemple, le paragraphe <code>«&nbsp;</code>Les mots de passe doivent correspondre&nbsp;» est associé aux deux champs de saisie de mot de passe utilisant l’attribut <code>aria-descripbedby</code>.</p>
+
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
-							<p class="wb-inv">Example begins</p>
+							<p class="wb-inv">Exemple begins</p>
 							<form class="form-horizontal" role="form" method="get" action="#">
 								<fieldset>
-									<legend><span class="field-name">Create a User Account</span></legend>
+									<legend><span class="field-name">Créer un compte d’utilisateur</span></legend>
 									<div class="form-group">
-										<label for="username" class="col-sm-3 control-label">Username:</label>
+										<label for="username" class="col-sm-3 control-label">Nom d’utilisateur:</label>
 										<div class="col-sm-9">
 											<input type="text" id="username"  class="form-control">
 										</div>
 									</div>
-									<p id="passmatch">Passwords must match</p>
+									<p id="passmatch">Les mots de passe correspondent beaucoup</p>
 									<div class="form-group">
-										<label for="password" class="col-sm-3 control-label">Password:</label>
+										<label for="password" class="col-sm-3 control-label">Mot de passe:</label>
 										<div class="col-sm-9">
 											<input type="password" id="password" class="form-control">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="retype" class="col-sm-3 control-label">Re-type Password:</label>
+										<label for="retype" class="col-sm-3 control-label">Retapez votre mot de passe:</label>
 										<div class="col-sm-9">
 											<input type="password" id="retype" class="form-control">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="email" class="col-sm-3 control-label">Email:</label>
+										<label for="email" class="col-sm-3 control-label">Courriel:</label>
 										<div class="col-sm-9">
 											<input type="email" id="email" class="form-control">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="phone"class="col-sm-3 control-label">Phone:</label>
+										<label for="phone"class="col-sm-3 control-label">Téléphone:</label>
 										<div class="col-sm-9">
 											<input type="tel" id="phone" class="form-control">
 										</div>
@@ -503,27 +524,27 @@ legend.required:before {
 					<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;fieldset&gt;
    &lt;legend&gt; 
-      Create a User Account
+   Créer un compte d’utilisateur
    &lt;/legend&gt;
    &lt;p&gt;
-      &lt;label for="username"&gt;Username:&lt;/label&gt;
+      &lt;label for="username"&gt;Nom d’utilisateur:&lt;/label&gt;
       &lt;input type="text" id="username"&gt;
    &lt;/p&gt;
-   &lt;p&gt;Passwords much match&lt;/p&gt;
+   &lt;p&gt;Les mots de passe correspondent beaucoup&lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="password"&gt;Password:&lt;/label&gt;
+      &lt;label for="password"&gt;Mot de passe:&lt;/label&gt;
       &lt;input type="password" id="password"&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="retype"&gt;Re-type Password:&lt;/label&gt;
+      &lt;label for="retype"&gt;Retapez votre mot de passe:&lt;/label&gt;
       &lt;input type="password" id="retype"&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="email"&gt;Email:&lt;/label&gt;
+      &lt;label for="email"&gt;Courriel:&lt;/label&gt;
       &lt;input type="email" id="email"&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="phone"&gt;Phone:&lt;/label&gt;
+      &lt;label for="phone"&gt;Téléphone:&lt;/label&gt;
       &lt;input type="tel" id="phone"&gt;
    &lt;/p&gt;
 &lt;/fieldset&gt;</code></pre>
@@ -535,37 +556,37 @@ legend.required:before {
 		<div class="panel panel-success mrgn-tp-lg">
 			<div class="panel-body">
 		
-		  <h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Shared instructions associated with multiple form fields</h3>
-			<p>In some situations, shared instructions can be associated with multiple form fields.</p>
-			<div class="panel panel-primary mrgn-tp-md">
+		  <h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>Mauvais exemple&nbsp;: Instructions dans un paragraphe non associées à une commande</h3>
+		  <p>Lorsque les instructions se trouvent dans un élément &lt;p&gt; qui n’est pas associé par aria-descripbedby, les utilisateurs qui naviguent dans le formulaire en «&nbsp;mode formulaires&nbsp;» du lecteur d’écran peuvent facilement passer à côté de ces instructions. </p>
+		  <div class="panel panel-primary mrgn-tp-md">
 				<div class="panel-body well mrgn-bttm-0">
 					<p class="wb-inv">Example begins</p>
 					<form class="form-horizontal" role="form" method="get" action="#">
 						<fieldset>
-							<legend><span class="field-name"> Create User Account</legend>
+							<legend><span class="field-name"> Créer un compte d’utilisateur</legend>
 							
 							<p>Username and Password fields <span id="specialchar">must NOT contain special characters</span></p>
 							
 							<div class="form-group">
-								<label for="username" class="col-sm-2 control-label">Username:</label>
+								<label for="username" class="col-sm-2 control-label">Nom d’utilisateur:</label>
 								<div class="col-sm-10">
 									<input type="text" id="username" aria-describedby="specialchar" class="form-control" autocomplete="username">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="password" class="col-sm-2 control-label">Password:</label>
+								<label for="password" class="col-sm-2 control-label">Mot de passe:</label>
 								<div class="col-sm-10">
 									<input type="password" id="password" aria-describedby="specialchar" class="form-control" autocomplete="password">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="email" class="col-sm-2 control-label">Email:</label>
+								<label for="email" class="col-sm-2 control-label">Courriel:</label>
 								<div class="col-sm-10">
 									<input type="email" id="email" class="form-control" autocomplete="email">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="phone" class="col-sm-2 control-label">Phone:</label>
+								<label for="phone" class="col-sm-2 control-label">Téléphone:</label>
 								<div class="col-sm-10">
 									<input type="tel" id="phone" class="form-control" autocomplete="tel-national">
 								</div>
@@ -580,24 +601,24 @@ legend.required:before {
 				<summary class="bg-info">View HTML </summary>
 				<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;fieldset&gt;
-   &lt;legend&gt;Create User Account&lt;/legend&gt;
+   &lt;legend&gt;Créer un compte d’utilisateur&lt;/legend&gt;
    &lt;p&gt;
       Username and Password fields &lt;span id="specialchar"&gt;must NOT contain special characters&lt;/span&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="username"&gt;Username:&lt;/label&gt;
+      &lt;label for="username"&gt;Nom d’utilisateur:&lt;/label&gt;
       &lt;input type="text" id="username" aria-describedby="specialchar"&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="password"&gt;Password:&lt;/label&gt;
+      &lt;label for="password"&gt;Mot de passe:&lt;/label&gt;
       &lt;input type="password" id="password" aria-describedby="specialchar"&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="email"&gt;Email:&lt;/label&gt;
+      &lt;label for="email"&gt;Courriel:&lt;/label&gt;
       &lt;input type="email" id="email"&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="phone"&gt;Phone:&lt;/label&gt;
+      &lt;label for="phone"&gt;Téléphone:&lt;/label&gt;
       &lt;input type="tel" id="phone"&gt;
    &lt;/p&gt;
 &lt;/fieldset&gt;</code></pre>
@@ -608,34 +629,36 @@ legend.required:before {
 
 	<div class="panel panel-danger mrgn-tp-lg">
 		<div class="panel-body">
-			<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Instructions for groups are not programmatically determinable</h3>
-			<p>In this example, the instruction “Choose accounts below to complete your funds transfer” is an image of text lacking a text alternative. Also, the instruction is not associated with the fieldset.</p>
+			<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>Mauvais exemple&nbsp;: Les instructions pour les groupes ne peuvent pas être déterminées par un programme</h3>
+			<p>Il est important d’utiliser du texte réel ou du texte disponible par d’autres méthodes. Les technologies d’assistance comme les lecteurs d’écran ne pourront pas déterminer le texte qui n’est pas fourni par le texte réel ou par des attributs comme aria-label, aria-labelledby, aria-descripbedby ou alt si des images sont utilisées.</p>
+			<p>Dans cet exemple, l’instruction «&nbsp;Choisir parmi les comptes ci-dessous pour compléter votre virement de fonds&nbsp;» est une image de texte sans équivalent textuel. De plus, l’instruction n’est pas associée au champ.</p>
+
 			<div class="panel panel-primary mrgn-tp-md">
 				<div class="panel-body well mrgn-bttm-0">
 					<p class="wb-inv">Example begins</p>
 					<form  method="get" action="#" onsubmit="return false;">
 						<fieldset> 
-							<legend><span class="field-name">Transfer funds</span></legend> 
+							<legend><span class="field-name">Virer des fonds</span></legend> 
 							<p><img class="img-responsive" src="images/banner.png" alt=""></p>
 							<div class="form-group">
-								<label for="fromacct">Transfer funds from account:</label> 
+								<label for="fromacct">Virer des fonds du compte:</label> 
 								<select name="accounts" id="fromacct" class="form-control"> 
-								  <option value="Select account">Select account</option> 
-								  <option value="Saving account - 8888-999">Saving account - 8888-999</option> 
-								  <option value="Checking account - 9999-9999">Checking account - 9999-9999</option> 
+								  <option value="Select account">Sélectionner le compte</option> 
+								  <option value="Saving account - 8888-999">Compte d’épargne – 8888-999</option> 
+								  <option value="Checking account - 9999-9999">Compte chèques - 9999-9999</option> 
 								</select>
 							</div>
 						  <div class="form-group">
-							<label for="toacct">Transfer funds to account:</label>
+							<label for="toacct">Virer des fonds au compte:</label>
 							  
 							<select name="accounts" id="toacct" class="form-control"> 
-							  <option value="Select account">Select account</option> 
-							  <option value="Saving account - 8888-999">Saving account - 8888-999</option> 
-							  <option value="Checking account - 9999-9999">Checking account - 9999-9999</option> 
+							  <option value="Select account">Sélectionner le compte</option> 
+							  <option value="Saving account - 8888-999">Compte d’épargne - 8888-999</option> 
+							  <option value="Checking account - 9999-9999">Compte chèques - 9999-9999</option> 
 							</select> 
 						  </div>
 						  <div class="form-group">
-							<label for="amount">Amount:</label> 
+							<label for="amount">Montant:</label> 
 							  
 							<input type="text" id="amount"  class="form-control">
 						  </div>
@@ -646,7 +669,7 @@ legend.required:before {
 					  </form>
 
 
-					<p class="wb-inv">Example ends</p>
+					<p class="wb-inv">Exemple ends</p>
 				</div>
 			</div>
 			<details class="mrgn-tp-sm">
@@ -654,22 +677,22 @@ legend.required:before {
 				<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;form action="/action.php method="get"&gt;
    &lt;fieldset&gt;
-      &lt;legend&gt;Transfer funds&lt;/legend&gt;
+      &lt;legend&gt;Virer des fonds&lt;/legend&gt;
       &lt;p&gt;&lt;img scr="banner.png"&gt;&lt;/p&gt;
-      &lt;label for="fromacct"&gt;Transfer funds from account:&lt;/label&gt;
+      &lt;label for="fromacct"&gt;Virer des fonds du compte:&lt;/label&gt;
       &lt;select name="accounts" id="fromaccounts"&gt;
-         &lt;option value="Select account"&gt;Select account&lt;/option&gt;
-         &lt;option value="Saving account - 8888-999"&gt;Saving account - 8888-999&lt;/option&gt;
-         &lt;option value="Checking account - 9999-9999"&gt;Checking account - 9999-9999&lt;/option&gt;
+         &lt;option value="Select account"&gt;Sélectionner le compte&lt;/option&gt;
+         &lt;option value="Saving account - 8888-999"&gt;Compte d’épargne – 8888-999&lt;/option&gt;
+         &lt;option value="Checking account - 9999-9999"&gt;Compte chèques - 9999-9999&lt;/option&gt;
       &lt;/select&gt;
-      &lt;label for="toacct"&gt;Transfer funds to account:&lt;/label&gt;
+      &lt;label for="toacct"&gt;Virer des fonds au compte:&lt;/label&gt;
       &lt;select name="accounts" id="toaccounts"&gt;
-         &lt;option value="Select account"&gt;Select account&lt;/option&gt;
-         &lt;option value="Saving account - 8888-999"&gt;Saving account - 8888-999&lt;/option&gt;
-         &lt;option value="Checking account - 9999-9999"&gt;Checking account - 9999-9999&lt;/option&gt;
+         &lt;option value="Select account"&gt;Sélectionner le compte&lt;/option&gt;
+         &lt;option value="Saving account - 8888-999"&gt;Compte d’épargne - 8888-999&lt;/option&gt;
+         &lt;option value="Checking account - 9999-9999"&gt;Compte chèques - 9999-9999&lt;/option&gt;
       &lt;/select&gt;
       &lt;p&gt;
-         &lt;label for="amount"&gt;Amount:&lt;/label&gt;
+         &lt;label for="amount"&gt;Montant:&lt;/label&gt;
          &lt;input type="text" id="amount"&gt;
       &lt;/p&gt;
       &lt;input type="submit" value="Submit"&gt;
@@ -685,38 +708,39 @@ legend.required:before {
 <div class="panel panel-success mrgn-tp-lg">
 	    <div class="panel-body">
 		
-		  <h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Provide instructions in plain text before the form</h3>
-			<p>In this example, general form instructions precede the opening <code>&lt;form&gt;</code> tag, where screen reader users can easily access them. If the plain text instructions were inside the <code>&lt;form&gt;</code> element, users could easily miss them since navigation inside a form is limited to focusable elements (aka ”forms mode”).</p>
+		  <h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>Bon exemple&nbsp;: Fournir des instructions en texte clair avant le formulaire</h3>
+			<p>Dans cet exemple, les instructions générales du formulaire précèdent la balise d’ouverture <code>&lt;form&gt;</code>, où les utilisateurs du lecteur d’écran peuvent facilement y accéder. Si les instructions en texte clair se trouvaient à l’intérieur de l’élément <code>&lt;form&gt;</code>, les utilisateurs pourraient facilement les manquer puisque la navigation à l’intérieur d’un formulaire se limite aux éléments faciles à cibler (aussi appelés «&nbsp;mode formulaires&nbsp;»).</p>
+
 			 <div class="panel panel-primary mrgn-tp-md">
               <div class="panel-body well mrgn-bttm-0">              
             <p>
-			Choose the source and destination accounts below to complete your funds transfer:
+				Choisissez les comptes source et destination ci-dessous pour effectuer votre virement de fonds:
 			</p> 
-			<p class="wb-inv">Example begins</p>
+			<p class="wb-inv">Exemple begins</p>
 			  <form  method="get"  onsubmit="return false;">
 				<fieldset> 
-					<legend> <span class="field-name">Transfer funds</span></legend> 
+					<legend> <span class="field-name">Virer des fonds</span></legend> 
 				  <div class="form-group">
-					<label for="fromacct">Transfer funds from account:</label> 
+					<label for="fromacct">Virer des fonds du compte:</label> 
 					  
 					<select name="accounts" id="fromacct" class="form-control"> 
-					  <option value="Select account">Select account</option> 
-					  <option value="Saving account - 8888-999">Saving account - 8888-999</option> 
-					  <option value="Checking account - 9999-9999">Checking account - 9999-9999</option> 
+					  <option value="Select account">Sélectionner un compte</option> 
+					  <option value="Saving account - 8888-999">Compte d’épargne - 8888-999</option> 
+					  <option value="Checking account - 9999-9999">Compte chèques - 9999-9999</option> 
 					</select>
 					  
 				  </div>
 				  <div class="form-group">
-					<label for="toacct">Transfer funds to account:</label>
+					<label for="toacct">Virer des fonds au compte:</label>
 					  
 					<select name="accounts" id="toacct" class="form-control"> 
-					  <option value="Select account">Select account</option> 
-					  <option value="Saving account - 8888-999">Saving account - 8888-999</option> 
-					  <option value="Checking account - 9999-9999">Checking account - 9999-9999</option> 
+					  <option value="Select account">Sélectionner un compte</option> 
+					  <option value="Saving account - 8888-999">Compte d’épargne - 8888-999</option> 
+					  <option value="Checking account - 9999-9999">Compte chèques - 9999-9999</option> 
 				    </select> 
 				  </div>
 				  <div class="form-group">
-					<label for="amount">Amount:</label> 
+					<label for="amount">Montant:</label> 
 					  
 					<input type="text" id="amount"  class="form-control">
 				  </div>
@@ -725,14 +749,14 @@ legend.required:before {
 					  	
 				</fieldset> 
 			  </form>
-			  <p class="wb-inv">Example ends</p>
+			  <p class="wb-inv">Exemple ends</p>
 		</div>
 	</div>
 
 
 			
 				<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;p&gt;Choose the source and destination accounts below to complete your funds transfer:&lt;/p&gt; 
+<pre><code class="language-html">&lt;p&gt;Choisissez les comptes source et destination ci-dessous pour effectuer votre virement de fonds:&lt;/p&gt; 
 &lt;form action="/action.php" method="get"&gt;[&hellip;]&lt;/form&gt;</code></pre>
 				<p class="wb-inv">Code ends</p>
 					  
@@ -743,10 +767,10 @@ legend.required:before {
 			</section>
 			
 			<section>				
-				<h2 id="resources" class="wb-inv">Related WCAG resources</h2>
+				<h2 id="resources" class="wb-inv">Ressources WCAG connexes</h2>
 				<details class="mrgn-tp-lg">
-					<summary class="bg-info">Related WCAG resources</summary>
-					<h3>Success criteria</h3>
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+					<h3>Critères de succès</h3>
 					<ul>
 						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1 Info and Relationships</a></li>
 						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels">2.4.6 Headings and Labels </a></li>
@@ -787,6 +811,8 @@ legend.required:before {
 						</li>					
 					</ul>
 				</details>
+				<p>Les exemples de validations de formulaires proviennent du document de l’Initiative pour l’accessibilité du Web (<a href="https://www.w3.org/WAI/">IAW</a>)&nbsp;: <a href="https://www.w3.org/WAI/tutorials/forms/instructions/">Instructions</a> du tutoriel <a href="https://www.w3.org/WAI/tutorials/forms/">Formulaires</a> des <a href="https://www.w3.org/WAI/tutorials/">Tutoriels sur l’accessibilité du Web</a>. <a href="https://www.w3.org/People/yatil/">Éric Eggert</a> et <a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra,</a> © 2019 W3C ® (<a href="http://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="https://www.w3.org/Consortium/Legal/ipr-notice">Les politiques d’utilisation s’appliquent</a>.Mis à jour le 27&nbsp;juillet&nbsp;2019 (publié pour la première fois en septembre&nbsp;2014). <a href="https://www.w3.org/WAI/tutorials/forms/instructions/">https://www.w3.org/WAI/tutorials/forms/instructions/</a></p>
+
 			</section>
 		
 		
