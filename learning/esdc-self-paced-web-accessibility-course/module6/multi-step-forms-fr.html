@@ -61,7 +61,7 @@
 <div class="row">
 	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
 			
-	<h1 property="name" id="wb-cont">Multi steps form</h1>
+	<h1 property="name" id="wb-cont">Formulaires à étapes multiples</h1>
 						
 	<nav role="navigation">
     <div class="panel panel-default mrgn-tp-md">
@@ -71,10 +71,10 @@
         <div class="panel-body">
           <ul>
             <li><a href="#design">Designing multi-step forms</a></li>
-			<li><a href="#progress">Indicating progress in a multi-step form</a></li>
+			<li><a href="#progress">Indiquer la progression dans un formulaire à étapes multiples</a></li>
 			<li><a href="#example">Example: The WET steps form </a></li>
-			   <li><a href="#steps-form">Good example: The WET Steps Form</a></li>
-			<li><a href="#resources">Related WCAG resources</a></li>
+			   <li><a href="#steps-form">Exemple&nbsp;: Formulaire des étapes de la BOEW</a></li>
+			<li><a href="#resources">Ressources WCAG connexes</a></li>
 			 
           </ul>
         </div>
@@ -83,43 +83,43 @@
 	
 			<section>				
 				<h2 id="design">Designing multi-step forms</h2>
-				<p>It’s best practice to divide a long form into a stepped series of smaller forms with validation at each step. Formulaires à étapes multiples can be less daunting and easier to understand and correct than a long form. Formulaires à étapes multiples can be designed across pages, or on the same page. </p>
-				<p>Follow these best practices for multi-step forms:</p>
-				<ul>
-					<li>Split the form up according to its logical groups of controls (e.g., contact information and questionnaire).</li>
-					<li>Validate the current step before exposing the next.</li>
-					<li>Label optional steps and enable users to skip them. </li>
-					<li>Ensure keyboard focus moves smoothly from step to step, backwards and forwards. At a new step, set the focus preferably on the next relevant form element, or relevant heading or container (a heading or container would need the <code>tabindex="-1"</code> attribute to programmatically receive focus).</li>
-					<li>Avoid a time limit to fill out the form. If a limit is required, enable the user to adjust or extend it.</li>
-					<li>If the steps are across pages, repeat overall instructions on every page.</li>
-					<li>Indicate progress in the form (“Step x of y”).</li>
-				</ul>
+				<p>Il est préférable de diviser un formulaire long en une série de formulaires plus petits avec validation à chaque étape. Les formulaires à étapes multiples peuvent être moins intimidants et plus faciles à comprendre et à corriger qu’un formulaire long. Les formulaires à étapes multiples peuvent être conçus d’une page à l’autre ou sur une même page. </p>
+			<p>Suivez les pratiques exemplaires suivantes pour les formulaires à étapes multiples&nbsp;:</p>
+			<ul>
+				<li>Diviser le formulaire en fonction de ses groupes de commandes logiques (p.&nbsp;ex., coordonnées et questionnaire).</li>
+				<li>Valider l’étape en cours avant d’exposer la suivante.</li>
+				<li>Étiqueter les étapes facultatives et permettre aux utilisateurs de les sauter. </li>
+				<li>S’assurer que la cible du clavier se déplace facilement d’une étape à l’autre, vers l’arrière et vers l’avant. À une nouvelle étape, cibler de préférence le prochain élément de formulaire pertinent, ou l’en-tête ou le conteneur pertinent (un en-tête ou un conteneur aurait besoin de l’attribut <code>tabindex=”-1”</code> pour recevoir la cible par un programme).</li>
+				<li>Éviter une limite de temps pour remplir le formulaire. Si une limite est requise, permettre à l’utilisateur de la modifier ou de la prolonger.</li>
+				<li>Si les étapes se trouvent sur plusieurs pages, répéter les instructions générales sur chaque page.</li>
+				<li>Indiquer la progression dans le formulaire («&nbsp;Étape&nbsp;x de&nbsp;y&nbsp;»).</li>
+			</ul>
 			</section>
 			
 			<section>				
-				<h2 id="progress">Indicating progress in a multi-step form</h2>
-				<p>Each step should note the user’s progress. Approaches 1 and 2 apply only to multi-page forms.</p>
-				<h3>Approach 1: Using the page title</h3>
-				<p>Add a note indicating progress (e.g., “Step 2 of 4:”) to the beginning of the <code>&lt;title&gt;</code> element, before the name of the step or any error notification. The <code>&lt;title&gt;</code> element is the first thing declared on page load to screen reader users and so provides immediate feedback.</p>
-				
-							<p class="wb-inv">Code begins</p>
-				<pre><code class="language-html">&lt;title&gt;Step 2 of 4: Contact information – Survey X – Company Z&lt;/title&gt;</code></pre>
-				<p class="wb-inv">Code ends</p>
-					
-						
-				<h3>Approach 2: Using the main heading</h3>
-				<p>Add a note indicating progress (e.g., “(Step 2 of 4)” to the end of the page’s main heading, making the information prominent and easily discoverable by visual scan.</p>
-				<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;h1&gt;Contact information (Step 2 of 4)&lt;/h1&gt;</code>
+				<h2 id="progress">Indiquer la progression dans un formulaire à étapes multiples</h2>
+				<p>Chaque étape doit indiquer la progression de l’utilisateur. Les approches&nbsp;1 et&nbsp;2 s’appliquent uniquement aux formulaires multipages.</p>
+				<h3>Approche&nbsp;1&nbsp;: Utilisation du titre de la page</h3>
+				<p>Ajoutez une note indiquant la progression (p.&nbsp;ex., «&nbsp;Étape&nbsp;2 de&nbsp;4&nbsp;:&nbsp;») au début de l’élément <code>&lt;title&gt;</code>, avant le nom de l’étape ou tout avis d’erreur. L’élément <code>&lt;title&gt;</code> est la première chose déclarée aux utilisateurs du lecteur d’écran lors du chargement de la page et il fournit une rétroaction immédiate.</p>
+
+							<p class="wb-inv">EXTRAIT DE CODE&nbsp;:</p>
+				<pre><code class="language-html">&lt;title&gt;Étape&nbsp;2 de&nbsp;4&nbsp;: Coordonnées – Sondage&nbsp;X – Entreprise&nbsp;Z&lt;/title&gt;</code></pre>
+				<p class="wb-inv">EXTRAIT DE CODE&nbsp;:</p>
+
+				<h3>Approche&nbsp;2&nbsp;: Utilisation de l’en-tête principal</h3>
+				<p>Ajoutez une note indiquant la progression (p.&nbsp;ex., «&nbsp;(Étape&nbsp;2 de&nbsp;4)&nbsp;» à la fin de l’en-tête principal de la page, ce qui rend l’information bien en vue et facilement repérable par balayage visuel.</p>
+				<p class="wb-inv">EXTRAIT DE CODE&nbsp;:</p>
+<pre><code class="language-html">&lt;h1&gt;Coordonnées (Étape&nbsp;2 de&nbsp;4)&lt;/h1&gt;</code>
 </pre>
 <p class="wb-inv">Code ends</p>
 						
 						
-			<h3>Approach 3: Using the HTML5 progress element</h3>
-				<p>You can use a HTML5 <code>&lt;progress&gt;</code> element to inform users of their progress, as the first element in each step.</p>
+			<h3>Approche&nbsp;3&nbsp;: Utilisation de l’élément de progression HTML5</h3>
+				<p>Vous pouvez utiliser un élément de <code>&lt;progress&gt;</code> HTML5 pour informer les utilisateurs de leur progression, comme premier élément à chaque étape.</p>
+				
 				<div class="panel panel-primary mrgn-tp-md">
 					<div class="panel-body well mrgn-bttm-0">
-					<p class="wb-inv">Example begins</p>
+					<p class="wb-inv">EXEMPLE&nbsp;:</p>
 					Survey <progress max="7" value="1">(Step 1 of 7)</progress>
 				<p class="wb-inv">Example ends</p>
 					</div>
@@ -127,11 +127,14 @@
 
 				
 							<p class="wb-inv">Code begins</p>
-				<pre><code class="language-html">Survey &lt;progress max="7" value="1"&gt;(Step 1 of 7)&lt;/progress&gt;</code></pre>
-						
-						<p>Some operating systems animate the <code>&lt;progress&gt;</code> element, which violates WCAG’s Success Criterion 2.2.2 Pause, Stop, Hide. The animation can be stopped by using custom styling with browser-specific CSS as shown below:</p>
-			
-							<p class="wb-inv">Code begins</p>
+				<pre><code class="language-html">Sondage &lt;progress max="7" value="1"&gt;(Étape&nbsp;1 de&nbsp;7)&lt;/progress&gt;</code></pre>
+				<pre><code class="language-html">Sondage &lt;progress max="7" value="2"&gt;(Étape&nbsp;2 de&nbsp;7)&lt;/progress&gt;</code></pre>
+				<pre><code class="language-html">Sondage &lt;progress max="7" value="6"&gt;(Étape&nbsp;6 de&nbsp;7)&lt;/progress&gt;</code></pre>
+				<pre><code class="language-html">Sondage &lt;progress max="7" value="7"&gt;(Terminé)&lt;/progress&gt;</code></pre>
+	
+						<p>Certains systèmes d’exploitation animent l’élément <code>&lt;progress&gt;</code>, ce qui contrevient au critère de succès&nbsp;2.2.2 des WCAG&nbsp;: Pause, Stop, Masquer. Vous pouvez arrêter l’animation en utilisant un style personnalisé avec les CSS spécifiques au navigateur, comme illustré ci-dessous.</p>
+
+							<p class="wb-inv">EXTRAIT DE CODE&nbsp;:</p>
 <pre><code class="language-css">/* Microsoft IE */ progress {  
    color: #036;
 }
@@ -145,12 +148,13 @@
 <p class="wb-inv">Code ends</p>
 
 
-						<h3>Approach 4: Using step-by-step indicator</h3>
-						<p>A step-by-step indicator can help users orient themselves in a stepped process. This example uses an ordered list with each step being a list item. Visually hidden text, off screen but still encountered by assistive tech, indicates the current and completed status of steps (the WET class <code>.wb-inv</code> visually hides the text). Précédent steps are linked so users can review them. Any data already entered in the current step should be saved. </p>
+						<h3>Approche&nbsp;4&nbsp;: Utilisation d’un indicateur étape par étape</h3>
+						<p>Un indicateur étape par étape peut aider les utilisateurs à s’orienter dans un processus par étapes. Cet exemple utilise une liste ordonnée dont chaque étape est un élément de la liste. Le texte visuellement masqué, hors écran, mais encore rencontré par un technicien d’assistance, indique l’état actuel et l’état terminé des étapes (la classe WET <code>.wb-inv</code> masque visuellement le texte). Les étapes précédentes sont liées afin que les utilisateurs puissent les réviser. Toutes les données déjà entrées à l’étape en cours devraient être sauvegardées. </p>
+
 					
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Example begins</p>
+								<p class="wb-inv">EXAMPLE:</p>
 								 <style type="text/css">
 								.box-content {
 								  font-size: .7em;
@@ -243,25 +247,25 @@
 				
 											<li class="timeline-past"> 
 					
-												<span class="visuallyhidden">Completed: </span> 
+												<span class="visuallyhidden">Terminé: </span> 
 						
-												<a href="billing.html">Billing Address</a>  
+												<a href="billing.html">Adresse de facturation</a>  
 					
 											</li>  
 					
 											<li class="timeline-current">  
 					
-												<span class="visuallyhidden">Current: </span>  
+												<span class="visuallyhidden">État actuel: </span>  
 						
-												<span>Shipping Address</span>  
+												<span>Adresse de livraison</span>  
 					
 											</li>  
 					
-											<li><span>Review Order</span></li>  
+											<li><span>Vérification de la commande</span></li>  
 					
-											<li><span>Payment</span></li>  
+											<li><span>Paiement</span></li>  
 					
-											<li><span>Finish Purchase</span></li>  
+											<li><span>erminer l’achat</span></li>  
 				
 										</ol> 
 			
@@ -277,16 +281,16 @@
 <pre><code class="language-html">&lt;div class="tlwrapper"&gt;
    &lt;ol class="timeline"&gt;
       &lt;li class="timeline-past"&gt;
-         &lt;span class="wb-inv"&gt;Completed: &lt;/span&gt;
-         &lt;a href="billing.html"&gt;Billing Address&lt;/a&gt;
+         &lt;span class="wb-inv"&gt;Terminé: &lt;/span&gt;
+         &lt;a href="billing.html"&gt;Adresse de facturation&lt;/a&gt;
       &lt;/li&gt;
       &lt;li class="timeline-current"&gt;
-         &lt;span class="wb-inv"&gt;Current: &lt;/span&gt;
-         &lt;span&gt;Shipping Address&lt;/span&gt;
+         &lt;span class="wb-inv"&gt;État actuel: &lt;/span&gt;
+         &lt;span&gt;Adresse de livraison&lt;/span&gt;
       &lt;/li&gt;
-      &lt;li&gt;&lt;span&gt;Review Order&lt;/span&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;span&gt;Payment&lt;/span&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;span&gt;Finish Purchase&lt;/span&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;Vérification de la commande&lt;/span&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;Paiement&lt;/span&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;Terminer l’achat&lt;/span&gt;&lt;/li&gt;
    &lt;/ol&gt;
 &lt;/div&gt;</code>
 </pre>
@@ -310,20 +314,19 @@
 				<div class="panel panel-success mrgn-tp-lg">
 			  <div class="panel-body">
 		
-			    <h2 class="text-success mrgn-tp-0 h3" id="steps-form"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: The WET steps form</h2>
-				
-				<p>The <a href="https://wet-boew.github.io/v4.0-ci/demos/stepsform/stepsform-en.html">WET steps form (example)</a> is a same-page multi-step form. The <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/stepsform/stepsform-en.html">Steps form documentation</a> describes the input markup requirements. </p>
-				<p>The WET steps form does not yet support optional steps with a “skip” button.</p>
-				<p>You define each step within a <code>&lt;fieldset&gt;</code> element, name it with a nested <code>&lt;legend&gt;</code> element then nest the form elements in a <code>&lt;div&gt;</code> element inside the <code>&lt;fieldset&gt;</code>. The JavaScript hides the <code>&lt;div&gt;</code> when the step is unselected. JavaScript also adds navigation buttons “next” and “previous”, which trigger validation on click.</p>
-				<p>This is the basic structure, without its HTML markup wrapper:</p>
+			    <h2 class="text-success mrgn-tp-0 h3" id="steps-form"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Exemple&nbsp;: Formulaire des étapes de la BOEW</h2>
+				<p>Le <a href="https://wet-boew.github.io/v4.0-ci/demos/stepsform/stepsform-fr.html">Formulaire des étapes de la BOEW (exemple)</a> est un formulaire à étapes multiples de même page. La <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/stepsform/stepsform-fr.html">Documentation du formulaire des étapes</a> décrit les exigences en matière de balisage des saisies. </p>
+				<p>Les étapes du formulaire de la BOEW n’appuient pas encore les étapes facultatives au moyen d’un bouton «&nbsp;sauter&nbsp;».</p>
+				<p>Vous définissez chaque étape au sein d’un élément <code>&lt;fieldset&gt;</code>, vous la nommez avec un élément <code>&lt;legend&gt;</code> emboîté, puis imbriquez les éléments de formulaire dans un élément <code>&lt;div&gt;</code> à l’intérieur de <code>&lt;fieldset&gt;</code>. Le JavaScript masque la <code>&lt;div&gt;</code> lorsque l’étape n’est pas sélectionnée. JavaScript ajoute également les boutons de navigation «&nbsp;suivant&nbsp;» et «&nbsp;précédent&nbsp;», qui déclenche la validation au clic.</p>
+				<p>Il s’agit de la structure de base, sans son enveloppe de balisage HTML&nbsp;:</p>
 				<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;fieldset&gt;
-   &lt;legend&gt;Contact Information&lt;/legend&gt;
-   &lt;div&gt;(Form elements go here, hidden when inactive.)&lt;/div&gt;
+   &lt;legend&gt;Coordonnées&lt;/legend&gt;
+   &lt;div&gt;(Les éléments du formulaire vont ici, masqués lorsqu’ils sont inactifs.)&lt;/div&gt;
 &lt;/fieldset&gt;
 &lt;fieldset&gt;
    &lt;legend&gt;Questionnaire&lt;/legend&gt;
-   &lt;div&gt;(Form elements go here, hidden when inactive.)&lt;/div&gt;
+   &lt;div&gt;(Les éléments du formulaire vont ici, masqués lorsqu’ils sont inactifs.)&lt;/div&gt;
 &lt;/fieldset&gt;</code>
 </pre>
 <p class="wb-inv">Code ends</p>
@@ -343,10 +346,10 @@
 					<a href="https://www.w3.org/Consortium/Legal/ipr-notice">Usage policies apply</a>. Updated 27 July 2019 (first published September 2014). 
 					<a href="https://www.w3.org/WAI/tutorials/forms/instructions/">https://www.w3.org/WAI/tutorials/forms/instructions/</a></p>
 			<section>				
-				<h2 id="v" class="wb-inv">Related WCAG resources</h2>
+				<h2 id="v" class="wb-inv">Ressources WCAG connexes</h2>
 				<details class="mrgn-tp-lg">
-					<summary class="bg-info">Related WCAG resources</summary>
-					<h3>Success criteria</h3>
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+					<h3>Critères de succès</h3>
 					<ul>
 						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1: Info and Relationships</a></li>
 						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable">2.2.1: Timing Adjustable</a></li>
@@ -362,7 +365,8 @@
 							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR1">SCR1: Allowing the user to extend the default time limit	</a></li>
 							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR16">SCR16: Providing a script that warns the user a time limit is about to expire	</a></li>							
 					</ul>
-					
+					<p>Le balisage HTML pour les approches&nbsp;3 et&nbsp;4 est tiré du document Initiative pour l’accessibilité du Web (<a href="https://www.w3.org/WAI/">IAW</a>)&nbsp;: <a href="https://www.w3.org/WAI/tutorials/forms/multi-page/">Formulaires multipages</a> dans le tutoriel <a href="https://www.w3.org/WAI/tutorials/forms/">Concepts de formulaires</a> du tutoriel <a href="https://www.w3.org/WAI/tutorials/">Tutoriels sur l’accessibilité du Web</a>. <a href="https://www.w3.org/People/yatil/">Eric Eggert</a> et <a href="https://www.w3.org/People/shadi/">Shadi&nbsp;Abou-Zahra</a>.  Copyright © 2019 W3C® (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>). Mis à jour le 27&nbsp;juillet&nbsp;2019 (publié pour la première fois en septembre&nbsp;2014). <a href="https://www.w3.org/WAI/tutorials/forms/multi-page/">https://www.w3.org/WAI/tutorials/forms/multi-page/</a></p>
+
 				</details>
 			</section>
 		
