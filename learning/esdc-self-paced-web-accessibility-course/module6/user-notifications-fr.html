@@ -84,35 +84,34 @@
 	
 			<section>				
 				<h2 id="user-notification">Designing user notification</h2>
-				<p>Upon form submission, notify the user of success or of any errors.</p>
-				<p>Ensure error messages are clear and concise and provide simple instructions for resolving the error. </p>
-				<p>As per the examples below, provide feedback:</p>
+				<p>Lorsqu’un utilisateur soumet un formulaire, avisez-le de la réussite ou de toute erreur.</p>
+				<p>Assurez-vous que les messages d’erreur sont clairs et concis et fournissent des instructions simples pour résoudre l’erreur. </p>
+				<p>Comme dans les exemples ci-dessous, fournissez de la rétroaction:</p>
 				<ul>
-					<li>in the main heading (optional)</li>
-					<li>in the <code>&lt;title&gt;</code> element (optional)</li>
-					<li>as a list of errors before the form</li>
-					<li><mark><del>as well as</del></mark> in-line, programmatically associated with the form control</li>
+					<li>dans l’en-tête principal (optional)</li>
+					<li>dans l’élément du <code>&lt;title&gt;</code> (optional)</li>
+					<li>sous forme de liste d’erreurs avant le formulaire</li>
+					<li><mark><del>as well as</del></mark> ainsi qu’en ligne, le tout étant associé par un programme à la commande du formulaire.</li>
 				</ul>
 		</section>
 		<section>
 			<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
 		
-				    <h2 class="text-success mrgn-tp-0 h3" id="main-heading"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Use the main heading</h2>
-					
-					
+				    <h2 class="text-success mrgn-tp-0 h3" id="main-heading"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Exemple&nbsp;1&nbsp;: Utilisation de l’en-tête principal</h2>
 					
 					<p class="wb-inv">Code begins</p>	
-<pre class="mrgn-tp-md"><code class="language-html">&lt;h1&gt; Your form has been successfully submitted.&lt;/h1&gt;</code></pre>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;h1&gt; Votre formulaire a été soumis avec succès.&lt;/h1&gt;</code></pre>
 					<p class="wb-inv">Code ends</p>
-                    <p>While a success message may have a dedicated page, errors return the users to the form <mark>on the same page</mark>. The <mark>existing</mark> <code>&lt;h1&gt;</code> element must still describe the purpose of the page, so preface the existing topic with a short error message:</p>
+					<p>Bien qu’un message de réussite ait une page dédiée, des erreurs ramènent les utilisateurs au formulaire<mark>on the same page</mark>. L’élément <code>h1 </code><mark>existing</mark>doit encore décrire la fonction de la page, alors préfacez le sujet existant avec un court message d’erreur&nbsp;:</p>
+
 					<p class="wb-inv">Code begins</p>	
-<pre><code class="language-html">&lt;h1&gt;2 Errors – Contact information&lt;/h1&gt;</code></pre>
+<pre><code class="language-html">&lt;h1&gt;2 Erreurs – Coordonnées&lt;/h1&gt;</code></pre>
 					<p class="wb-inv">Code ends</p>
 
-                    <p>The WET form validation uses a dedicated level 2 heading for the error message (and it can be configured to be lower):</p>
-                      <p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;h2&gt;The form could not be submitted because 2 errors were found.&lt;/h2&gt;</code></pre>
+					<p>La validation des formulaires de la BOEW utilise un en-tête de niveau&nbsp;2 réservé au message d’erreur (qui peut être configuré pour être inférieur)&nbsp;:</p>
+					<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;h2&gt;Le formulaire n’a pu être soumis parce que deux erreurs ont été détectées.&lt;/h2&gt;</code></pre>
 					<p class="wb-inv">Code ends</p>
                 </div>
 			</div>
@@ -121,15 +120,18 @@
 			<div class="panel panel-success mrgn-tp-lg">
 			  <div class="panel-body">
 		
-			    <h2 class="text-success mrgn-tp-0 h3" id="title-element"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Use the title element</h2>
-				<p>The <code>&lt;title&gt;</code> element, in the page <code>&lt;head&gt;</code> element, is the first thing heard by screen reader users on page load. Prefacing the existing title value with &ldquo;Success&rdquo; or &ldquo;Errors&rdquo; (or &ldquo;4 Errors&rdquo; if you have the count) gives these users immediate feedback.</p>
+			    <h2 class="text-success mrgn-tp-0 h3" id="title-element"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Exemple&nbsp;2&nbsp;: Utilisation de l’élément du titre</h2>
+				<p>L’élément du <code>&lt;titre&gt;</code>, dans l’élément en <code>&lt;tête&gt;</code> de page, est la première chose que les utilisateurs du lecteur d’écran entendent lors du chargement de la page. En préfaçant la valeur du titre existant avec «&nbsp;Succès&nbsp;» ou «&nbsp;Erreurs&nbsp;» (ou «&nbsp;4&nbsp;erreurs&nbsp;» si vous avez le nombre), vous donnez une rétroaction immédiate à ces utilisateurs.</p>
+
 				<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;head&gt;
-   &lt;title&gt;2 Errors: Contact information – Registration – Company X&lt;/title&gt;
+   &lt;title&gt;2 Erreurs&nbsp;: Coordonnées – Inscription – Entreprise X&lt;/title&gt;
    [&hellip;]
 &lt;/head&gt;</code></pre>
 				<p class="wb-inv">Code ends</p>
 				<p>The WET form validation does not leverage the <code>&lt;title&gt;</code> element.</p>
+				<p>La validation du formulaire de la BOEW ne tire pas parti de l’élément du <code>&lt;titre&gt;</code>.</p>
+
               </div>
 				</div>
       </section>
@@ -138,24 +140,27 @@
 				<div class="panel panel-success mrgn-tp-lg">
 			  <div class="panel-body">
 		
-			    <h2 class="text-success mrgn-tp-0 h3" id="list-errors"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: List errors before the form</h2>
-				  <p>List the errors before the form and under a heading that explains what&rsquo;s going on <mark><del>(see Example 1)</del></mark>.</p>
-				  <p>Each error listed should:</p>
+			    <h2 class="text-success mrgn-tp-0 h3" id="list-errors"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Exemple&nbsp;3&nbsp;: Liste des erreurs avant le formulaire</h2>
+				  <p>Énumérez les erreurs avant le formulaire et sous un en-tête qui explique ce qui se passe <mark><del>(voir l’exemple&nbsp;1)</del></mark>.</p>
+
+				  <p>Chaque erreur indiquée doit&nbsp;:</p>
                   <ul>
-                    <li>Reference the label of the corresponding form control. </li>
-                    <li>Provide a concise, easy to understand description of the error. </li>
-                    <li>Indicate how to correct mistakes and remind users of any format requirements.</li>
-                    <li>Include an in-page link to the corresponding form control for easy access. </li>
-                </ul>
-                  <p>The WET form validation also numbers each error in the list and at the control.</p>
+					<li>Faire référence à l’étiquette de la commande de formulaire correspondant.</li>
+					<li>Fournir une description concise et facile à comprendre de l’erreur.</li>
+					<li>Indiquer comment corriger les erreurs et rappeler aux utilisateurs les exigences en matière de format.</li>
+					<li>Inclure dans la page un lien vers la commande de formulaire correspondante pour faciliter l’accès.</li>
+				</ul>
+				<p>La validation du formulaire de la BOEW numérote également chaque erreur dans la liste et dans la commande.</p>
 				 <div class="panel panel-primary mrgn-tp-md">
 				<div class="panel-body well mrgn-bttm-0">
-					<p class="wb-inv">Example begins</p>
+					<p class="wb-inv">Exemple begins</p>
+					<!-- Check for the placement of this below line MoQ -->
+					<p>Le formulaire n’a pu être transmis parce que quatre erreurs ont été détectées.</p>
 					<div class="wb-frmvld">
 						<form action="#" method="get" id="validation-example">
 							
 							<div class="form-group">
-								<label for="title1" class="required"><span class="field-name">Title</span> <strong class="required">(required)</strong></label>
+								<label for="title1" class="required"><span class="field-name">Titre</span> <strong class="required">(Ce champ est requis)</strong></label>
 								<select class="form-control" id="title1" name="title1" autocomplete="honorific-prefix" required="required">
 									<option label="Select a title"></option>
 									<option value="dr">Dr.</option>
@@ -165,17 +170,17 @@
 								</select>
 							</div>
 									<div class="form-group">
-								<label for="fname1" class="required"><span class="field-name">First name</span> <strong class="required">(required)</strong></label>
+								<label for="fname1" class="required"><span class="field-name">Prénom</span> <strong class="required">(Ce champ est requis)</strong></label>
 								<input class="form-control" id="fname1" name="fname1" type="text" autocomplete="given-name" required="required" data-rule-minlength="2" />
 							</div>
 							
 							<div class="form-group">
-								<label for="lname1" class="required"><span class="field-name">Last name</span> <strong class="required">(required)</strong></label>
+								<label for="lname1" class="required"><span class="field-name">Nom de famille</span> <strong class="required">(Ce champ est requis)</strong></label>
 								<input class="form-control" id="lname1" name="lname1" type="text" autocomplete="family-name" required="required" data-rule-minlength="2" />
 							</div>
 							
 									<div class="form-group">
-								<label for="tel1" class="required"><span class="field-name">Telephone number (including area code)</span> <strong class="required">(required)</strong></label>
+								<label for="tel1" class="required"><span class="field-name">Numéro de téléphone (y compris l’indicatif régional)</span> <strong class="required">(Ce champ est requis)</strong></label>
 								<input class="form-control" id="tel1" name="tel1" type="tel" autocomplete="tel" required="required" data-rule-phoneUS="true" />
 							</div>
 							
@@ -188,50 +193,50 @@
               </div>
 				</div>
 				</div>
-				<p class="wb-inv">Example ends</p>
+				<p class="wb-inv">Exemple ends</p>
 		</section>
 		
 		<section>				
 			<div class="panel panel-success mrgn-tp-lg">
 			   <div class="panel-body">
 		
-					<h2 class="text-success mrgn-tp-0 h3" id="in-line-feedback"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: In-line feedback</h2>
-					<p>Provide success and error feedback in-line at the form control itself. Combine a visual indicator and a feedback message.</p>
-					  <p> For instance:</p>
-					  <ul>
-						<li>Indicate success fields with the green word &ldquo;OK&rdquo; prefixed in the label, a green border on the input, and a green checkmark. </li>
-						<li>Indicate errors fields with the red word &ldquo;Error&rdquo; prefixed in the label, a red border, and red instructions on how to correct. </li>
+					<h2 class="text-success mrgn-tp-0 h3" id="in-line-feedback"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Exemple&nbsp;4&nbsp;: Rétroaction en ligne</h2>
+					<p>Fournir en ligne des commentaires sur la réussite et les erreurs, à même la commande du formulaire. Combiner un indicateur visuel et un message de rétroaction. </p>
+					<p>Par exemple&nbsp;:</p>
+					<ul>
+						<li>Indiquer les champs de réussite avec le mot vert «&nbsp;OK&nbsp;» préfixé dans l’étiquette, une bordure verte sur la saisie et un crochet vert.</li>
+						<li>Indiquer les champs d’erreurs avec le mot «&nbsp;Erreur&nbsp;» en rouge préfixé dans l’étiquette, une bordure rouge et des instructions en rouge sur la façon de les corriger.</li>
 					</ul>
-					  <p>In this example, each group of label, control, and message is nested in a <code>&lt;div&gt;</code> with a class name, either &ldquo;success&rdquo; or &ldquo;error&rdquo;, that sets the colour via CSS. The word &ldquo;OK&rdquo; or &ldquo;Error&rdquo; is inserted at the start of the label, providing a text equivalent for users with colour blindness. Lengthier feedback is associated with the form control via the <code>aria-describedby</code> attribute, pointing to the <code>id</code> attribute value of the message, held in a <code>&lt;span&gt;</code> element. The checkmark is declared as &ldquo;check&rdquo; by the NVDA screen reader.</p>
-					  <p>WET form validation&rsquo;s treatment of in-line feedback differs, as described in the next section.</p>
+					  <p>Dans cet exemple, chaque groupe d’étiquettes, de commandes et de messages est imbriqué dans une <code>&lt;div&gt;</code> avec un nom de classe, soit «&nbsp;réussite&nbsp;» ou «&nbsp;erreur&nbsp;», qui établit la couleur par l’entremise de CSS. Le mot «&nbsp;OK&nbsp;» ou «&nbsp;Erreur&nbsp;» est inséré au début de l’étiquette, ce qui donne un équivalent textuel aux utilisateurs daltoniens. Une rétroaction plus longue est associée à la commande du formulaire au moyen de l’attribut <code>aria-describedby</code>, pointant vers la valeur d’attribut <code>id</code> du message, maintenue dans un élément <code>&lt;span&gt;</code>. Le lecteur d’écran NVDA indique que le crochet est «&nbsp;activé&nbsp;».</p>
+					  <p>Le traitement de la rétroaction en ligne de la validation des formulaires de la BOEW diffère, comme il est décrit à la section suivante.</p>
 					  
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
-							<p class="wb-inv">Example begins</p>
+							<p class="wb-inv">Exemple begins</p>
 			
 					
 							<div class="form-group has-success has-feedback">
 								<label for="username" class="control-label"> 
 									<strong>OK:</strong>
-									 Username: 
+									Nom d’utilisateur: 
 								</label>	  	
 								<input type="text" class="form-control" name="username" id="username" value="Johnny" aria-describedby="userDesc">
 								<span id="userDesc" class="form-control-feedback">✓</span>
 							</div>
 							<div class="form-group has-error has-feedback">
 								<label for="expire"  class="control-label"> 
-								<strong>Error:</strong>
-								Expiry date: 
+								<strong>Erreur:</strong>
+								Date d’expiration: 
 								</label> 
 								<input type="text" class="form-control" name="expire" id="expire" value="May 2015" aria-describedby="expDesc">
-								<span id="expDesc" class="form-control-feedback">Use the format MM/YYYY.</span>
+								<span id="expDesc" class="form-control-feedback">Utilisez le format MM/AAAA.</span>
 							</div>
 				
-							<input type="submit" value="Submit" class="btn btn-primary">
+							<input type="submit" value="Soumettre" class="btn btn-primary">
 								
 							<style>.form-control-feedback { width: auto !important; left:15em; text-align:left; vertical-align:center;}</style>
 							
-							<p class="wb-inv">Example ends</p>
+							<p class="wb-inv">Exemple ends</p>
 						</div>
 					</div>
 					
@@ -239,21 +244,21 @@
 				  <pre><code class="language-html">&lt;div class=&quot;success&quot;&gt; 
    &lt;label for=&quot;username&quot;&gt; 
       &lt;strong&gt;OK:&lt;/strong&gt;
-      Username: 
+      Nom d’utilisateur: 
    &lt;/label&gt; 
    &lt;input type=&quot;text&quot; name=&quot;username&quot; id=&quot;username&quot; value=&quot;Johnny&quot; aria-describedby=&quot;userDesc&quot;&gt;
    &lt;span id=&quot;userDesc&quot;&gt;✓&lt;/span&gt;
 &lt;/div&gt; 
 &lt;div class=&quot;error&quot;&gt; 
    &lt;label for=&quot;expire&quot;&gt; 
-      &lt;strong&gt;Error:&lt;/strong&gt;
-      Expiry date: 
+      &lt;strong&gt;Erreur:&lt;/strong&gt;
+      Date d’expiration: 
    &lt;/label&gt; 
    &lt;input type=&quot;text&quot; name=&quot;expire&quot; id=&quot;expire&quot; value=&quot;May 2015&quot; aria-describedby=&quot;expDesc&quot;&gt;
-   &lt;span id=&quot;expDesc&quot;&gt;Use the format MM/YYYY.&lt;/span&gt;
+   &lt;span id=&quot;expDesc&quot;&gt;tilisez le format MM/AAAA.&lt;/span&gt;
 &lt;/div&gt;
 &lt;div&gt;
-   &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
+   &lt;button type=&quot;submit&quot;&gt;Soumettre&lt;/button&gt;
 &lt;/div&gt;</code>
 </pre><pre><code class="language-css">.error { color: #900; } 
 .success { color: #007a00; } 
@@ -265,48 +270,50 @@ label { display: block; }</code></pre>
 			</div>
 		</section>
 		<section>
-			<h2 id="wet-form-validation">WET form validation’s user notification</h2>
-			<p>WET form validation generates user notifications that differ from the advice provided above:</p>
+			<h2 id="wet-form-validation">Avis aux utilisateurs de la validation des formulaires de la BOEW</h2>
+			<p>La validation des formulaires de la BOEW génère des avis aux utilisateurs qui diffèrent des conseils fournis ci-dessus&nbsp;:</p>
+			
 			<ul>
-			  <li>By default, WET uses a <code>&lt;h2&gt;</code> heading for the error summary, and it can be configured to be lower. It can&rsquo;t be set as <code>&lt;h1&gt;</code>.</li>
-			  <li>WET doesn&rsquo;t modify the <code>&lt;title&gt;</code> element to include a success/error message. </li>
-			  <li>WET doesn&rsquo;t provide in-line success feedback. </li>
-			  <li>WET numbers the errors.</li>
-			  <li>With in-line feedback, WET appends all error messaging in the label, rather than pointing to the message with the <code>aria-describedby</code> attribute from the control. This is verbose content for a label, but the user is guaranteed to encounter the information. </li>
+				<li>Par défaut, la BOEW utilise un en-tête <code>&lt;h2&gt;</code> pour le sommaire des erreurs et on peut le configurer pour qu’il soit plus faible. Il ne peut pas être réglé à <code>&lt;h1&gt;</code>.</li>
+				<li>La BOEW ne modifie pas l’élément du <code>&lt;title&gt;</code> pour inclure un message de succès/erreur.</li>
+				<li>La BOEW ne fournit pas de rétroaction en ligne sur le succès.</li>
+				<li>La BOEW numérote les erreurs.</li>
+				<li>Avec la rétroaction en ligne, la BOEW annexe tous les messages d’erreur dans l’étiquette, plutôt que de pointer vers le message avec l’attribut aria-descripbedby de la commande. Il s’agit d’un contenu verbeux pour une étiquette, mais l’utilisateur est assuré de voir l’information.</li>
 			</ul>
-			<p>The <a href="https://wet-boew.github.io/v4.0-ci/demos/formvalid/formvalid-en.html">example page for WET form validation</a> covers all variety of user input.</p>
+
+			<p>The <a href="https://wet-boew.github.io/v4.0-ci/demos/formvalid/formvalid-en.html">page d’exemple pour la validation des formulaires de la BOEW</a> couvre toute la variété des saisies par l’utilisateur.</p>
 			<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
 		
-					<h2 class="text-success mrgn-tp-0 h3" id="wet-in-line-feedback"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: WET in-line feedback</h2>
+					<h2 class="text-success mrgn-tp-0 h3" id="wet-in-line-feedback"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple&nbsp;: Rétroaction en ligne sur la BOEW</h2>
 			
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
-							<p class="wb-inv">Example begins</p>
+							<p class="wb-inv">Exemple begins</p>
 							<div class="form-group has-error">
 								<label for="pcodeca1" class="required">
-									<span class="field-name"> Website URL (https://www.url.com) </span>  
-									<strong class="required">(required)</strong>
+									<span class="field-name"> URL du site Web (https://www.url.com) </span>  
+									<strong class="required">(requis)</strong>
 									<strong id="pcodeca1-error" class="error"><br>
 										<span class="label label-danger">
-											<span class="prefix">Error&nbsp;6: </span>
-											Please enter a valid URL.
+											<span class="prefix">Erreur&amp;nbsp;6: </span>
+											Veuillez entrer une URL valide.
 										</span>
 									</strong>
 								</label>
 								<input class="form-control error" id="pcodeca1" name="pcodeca1" type="text" autocomplete="postal-code" size="7" maxlength="7" required="required" data-rule-postalcodeca="true" aria-invalid="true">
 							</div>
-							<p class="wb-inv">Example ends</p>
+							<p class="wb-inv">Exemple ends</p>
 
 							<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;div class="form-group has-error"&gt;
    &lt;label for="pcodeca1" class="required"&gt;
-      &lt;span class="field-name"&gt; Website URL (https://www.url.com) &lt;/span&gt;  
-      &lt;strong class="required"&gt;(required)&lt;/strong&gt;
+      &lt;span class="field-name"&gt; URL du site Web (https://www.url.com) &lt;/span&gt;  
+      &lt;strong class="required"&gt;(requis)&lt;/strong&gt;
       &lt;strong id="pcodeca1-error" class="error"&gt;
          &lt;span class="label label-danger"&gt;
-            &lt;span class="prefix"&gt;Error&nbsp;6: &lt;/span&gt;
-            Please enter a valid URL.
+            &lt;span class="prefix"&gt;Erreur&amp;nbsp;6: &lt;/span&gt;
+			Veuillez entrer une URL valide.
          &lt;/span&gt;
       &lt;/strong&gt;
    &lt;/label&gt;
@@ -320,10 +327,10 @@ label { display: block; }</code></pre>
         </section>
 			
 			<section>				
-				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
+				<h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
 				<details class="mrgn-tp-lg">
-					<summary class="bg-info">Related WCAG resources</summary>
-					<h3>Success criteria</h3>
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+					<h3>Critères de succès</h3>
 					<ul>
 					  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification">3.3.1: Error Identification</a></li>
 					  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/error-suggestion">3.3.3: Error Suggestion</a></li>
