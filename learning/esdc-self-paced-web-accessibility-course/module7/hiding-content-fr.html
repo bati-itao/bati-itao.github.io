@@ -82,14 +82,14 @@
                      <ul>
                         <li>pour tous, en utilisant la déclaration <code>display:none</code> ou <code>visibility:hidden</code> de CSS;</li>
                         <li>pour les utilisateurs d’une technologie d’aide, au moyen de l’attribut <code>aria-hidden="true"</code> pour supprimer l’élément de l’API d’accessibilité;</li>
-                        <li>pour les utilisateurs voyants, par l’entremise de la classe <code>wb-inv</code> de CSS de la BOEW pour masquer le contenu.</li>
+                        <li>pour les utilisateurs voyants, par l’entremise de la classe <code>.wb-inv</code> de CSS de la BOEW pour masquer le contenu.</li>
                      </ul>
                      <p>Lorsque vous masquez du contenu inactif, comme les fenêtres modales non déclenchées et les sous-menus non sélectionnés, vous devez le masquer pour tous les utilisateurs. Les développeurs introduisent fréquemment un obstacle en dissimulant visuellement ce contenu hors écran par l’entremise du positionnement CSS, ce qui laisse le contenu affiché à l’API d’accessibilité, où les utilisateurs des lecteurs d’écran et d’autres personnes le voient. S’il faut le masquer pour les utilisateurs voyants, il doit également l’être pour les utilisateurs de lecteurs d’écran.</p>
                      <p>Utilisez l’attribut <code>aria-hidden</code> avec prudence et uniquement pour améliorer l’expérience des utilisateurs de technologies d’aide en éliminant l’information redondante ou superflue. Si vous utilisez <code>aria-hidden</code> pour masquer un contenu visible important, vous devez vous assurer que la signification et les fonctionnalités identiques ou équivalentes sont exposées aux technologies d’aide.</p>
                      <p>Le texte masqué visuellement peut :</p>
                      <ul>
                         <li>fournir un nom où les étiquettes ARIA ne fonctionnent pas parce que l’élément n’est pas sélectionné. Ce cas est illustré dans l’exemple du contenu généré par une CSS à la section précédente. La même approche s’appliquerait à une image d’arrière-plan en CSS ayant besoin d’un nom; par exemple, une liste contenant des logos définis comme images d’arrière-plan de CSS pourrait utiliser un nom masqué visuellement dans chaque élément de liste;</li>
-                        <li>nommer ou préciser le nom des éléments comme solution de rechange aux étiquettes ARIA. Par exemple, sur une page comportant plusieurs liens « En savoir plus », pour distinguer la fonction de chacun d’eux, le texte du titre qui précède est inséré comme élément « span » masqué dans le texte du lien.</li>
+                        <li>nommer ou préciser le nom des éléments comme solution de rechange aux étiquettes ARIA. Par exemple, sur une page comportant plusieurs liens « En savoir plus », pour distinguer la fonction de chacun d’eux, le texte du titre qui précède est inséré comme élément <code>&lt;span&gt;</code> masqué dans le texte du lien.</li>
                      </ul>
                      <div class="panel panel-success mrgn-tp-lg">
 						<div class="panel-body">
@@ -117,38 +117,41 @@
 								</div>
 							</div>
 							
+
 							<p class="wb-inv">Début du code</p>
-<pre>
-<code class="language-html">&lt;h3 class="mrgn-tp-0"&gt;Comment présenter une demande&lt;/h3&gt;
+<pre><code class="language-html">&lt;h3 class="mrgn-tp-0"&gt;Comment présenter une demande&lt;/h3&gt;
 &lt;p&gt;[Paragraphe d’accroche.]&lt;/p&gt;
 &lt;a href="article/how-to-apply.html"&gt;
    &lt;span class="wb-inv"&gt;Comment présenter une demande&lt;/span&gt; 
    En savoir plus  
-&lt;/a&gt; 
-&lt;style type="text/css"&gt;
-.wb-inv {
+&lt;/a&gt;
+</code></pre>
+							<p class="wb-inv">Fins du code</p>
+							<p class="wb-inv">Code commence</p>
+<pre><code class="language-css">.wb-inv {
    clip: rect(1px,1px,1px,1px);
    height: 1px;
    margin: 0;
    overflow: hidden;
    position: absolute;
    width: 1px;
-}
-&lt;/style&gt;</code>
-</pre>
-							<p class="wb-inv">Fin du code</p>
+}</code></pre>
+							<p class="wb-inv">Fins du code</p>
 						</div>
 					</div>
                   </section>
                   <section>
                      <h2 id="afficher-le-contenu-lorsqu-on-le-survole-ou-qu-on-le-selectionne">Afficher le contenu lorsqu’on le survole ou qu’on le sélectionne</h2>
                      <p>Lorsque vous affichez du contenu masqué avec le pointeur ou le clavier, assurez-vous que le contenu affiché possède les trois propriétés suivantes :</p>
-                     <ul>
-                        <li>Peut être ignoré – l’utilisateur peut ignorer le contenu affiché sans déplacer le pointeur de la souris ou annuler la sélection avec le clavier, habituellement en appuyant sur la touche Escape.</li>
-                        <li>Peut être survolé – l’utilisateur peut placer le pointeur de la souris sur le contenu affiché.</li>
-                        <li>Persistant – le contenu affiché ne disparaît pas tant que le pointeur ne l’a pas dépassé ou que la sélection avec le clavier n’est pas annulée.</li>
-                     </ul>
-                     <p>Pour en savoir plus, consultez le module 10 – Modalités d'entrée -> Entrée souris -> <a hreflang="en" href="https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus">Contenu au survol ou au focus</a></p>
+                     <dl>
+                        <dt>Peut être ignoré</dt>
+                        <dd class="mrgn-lft-lg">L’utilisateur peut ignorer le contenu affiché sans déplacer le pointeur de la souris ou annuler la sélection avec le clavier, habituellement en appuyant sur la touche Escape.</dd>
+                        <dt>Peut être survolé</dt>
+                        <dd class="mrgn-lft-lg">L’utilisateur peut placer le pointeur de la souris sur le contenu affiché.</dd>
+                        <dt>Persistant</dt>
+                        <dd class="mrgn-lft-lg">Le contenu affiché ne disparaît pas tant que le pointeur ne l’a pas dépassé ou que la sélection avec le clavier n’est pas annulée.</dd>
+                     </dl>
+                     <p>Pour en savoir plus, consultez le module 10 : Méthodes de saisie de données > Saisie avec la souris > <a href="../module10/mouse-input-fr.html#contenu-sur-survol-ou-cible">Contenu sur survol ou cible</a></p>
                   </section>
                   <section>
                      <h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
@@ -170,7 +173,7 @@
                   <nav role="navigation">
                      <h2 class="wb-inv">Navigation dans le document</h2>
                      <ul class="pager">
-                        <li class="previous"><a rel="prev" href="css-generated-fr.html">Précédent - Contenu généré par une CSS</a></li>
+                        <li class="previous"><a rel="prev" href="css-generated-fr.html">Précédent - Texte et icônes générés par une CSS</a></li>
                         <li class="next"><a rel="next" href="best-practice-fr.html">Suivant - Pratiques exemplaire</a></li>
                      </ul>
                   </nav>

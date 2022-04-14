@@ -69,7 +69,7 @@
                         </header>
                         <div class="panel-body">
                            <ul>
-                              <li><a href="#couleur-apercu">Couleur (aperçu)</a></li>
+                              <li><a href="#couleur-apercu">Aperçu : Couleur</a></li>
                               <li><a href="#information-transmise-au-moyen-de-couleurs">Information transmise au moyen de couleurs</a></li>
                               <li><a href="#distinguer-les-liens-et-les-controles-du-texte">Distinguer les liens et les contrôles du texte</a></li>
                               <li><a href="#resources1">Ressources WCAG connexes</a></li>
@@ -78,7 +78,7 @@
                      </div>
                   </nav>
                   <section>
-                     <h2 id="couleur-apercu">Couleur (aperçu)</h2>
+                     <h2 id="couleur-apercu">Aperçu : Couleur</h2>
                      <p>La couleur améliore la conception du contenu Web en rehaussant son attrait esthétique, sa convivialité et son accessibilité. Aussi utile soit-elle, la couleur ne doit pas être la seule façon de transmettre l’information. La couleur transmet l’information lorsqu’elle met l’accent sur le texte, fait la distinction entre les éléments visuels et distingue les éléments interactifs des éléments statiques. Les personnes daltoniennes, malvoyantes ou aveugles doivent se voir offrir un équivalent textuel de l’information transmise par couleur. Il en va de même pour ceux qui utilisent uniquement du texte, des couleurs limitées ou des affichages monochromes.</p>
                      <p>Pour répondre aux besoins de tous, assurez-vous que la couleur n’est pas la seule façon de transmettre l’information. Assurez-vous également que les utilisateurs peuvent personnaliser la conception de vos CSS en ce qui a trait aux couleurs afin qu’ils puissent compenser celles dont les contrastes sont extrêmement vifs ou faibles au moyen du système d’exploitation ou du navigateur en appliquant une feuille de style personnalisée.</p>
                   </section>
@@ -92,24 +92,133 @@
                            <div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
 									<figure>
-									   <img src="images/image1.png" alt="Tableau comportant des couleurs (rouge, jaune et vert) d’arrière-plan de CSS attribuées aux cellules." class="img-responsive"/>
+									   <!-- <img src="images/image1.png" alt="Tableau comportant des couleurs (rouge, jaune et vert) d’arrière-plan de CSS attribuées aux cellules." class="img-responsive"/> -->
+									   <table class="colour-data">
+											<caption>Rapport de d&eacute;faut</caption>
+											<thead>
+												<tr>
+													<th># de d&eacute;fauts</th>
+													<th>S&eacute;v&eacute;rit&eacute; </th>
+													<th>Status</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>20</td>
+													<td class="red"></td>
+													<td>Ouvert</td>
+												</tr>
+												<tr>
+													<td>30</td>
+													<td class="yellow"></td>
+													<td>ferm&eacute;</td>
+												</tr>
+												<tr>
+													<td>15</td>
+													<td class="green"></td>
+													<td>en cours</td>
+												</tr>
+											</tbody>
+										</table>
+									   
 									   <p>Rouge = Élevé, Jaune = Moyen, Vert = Faible</p>
 									   <figcaption>Figure 1 : Tableau inaccessible qui utilise uniquement la couleur pour déterminer les niveaux de gravité. Aucune étiquette texte n’est fournie.</figcaption>
 									</figure>
+		<style type="text/css">
+            .colour-data { border-collapse: collapse;}
+            .colour-data caption { 
+				font-weight: bold; 
+				text-align: left; 
+				margin-bottom: 0.5em;}
+            th, td { 
+                border: 1px solid black;
+                padding: 0.25em  1.5em;
+                text-align: center;
+                background-color: #fff;
+            }
+            
+            .red { background-color: red; }
+            .yellow { background-color: yellow; }
+            .green { background-color: green; color: #fff;}
+
+            
+            .red-pro { background-color: #908121; }
+            .yellow-pro { background-color: #FFF7D8; }
+            .green-pro { background-color: #7B6E00; }
+
+            
+            .red-deut { background-color: #A27A00; }
+            .yellow-deut { background-color: #FFF5E9; }
+            .green-deut { background-color: #89681C; }
+        </style>
 								</div>
 							</div>
 							<div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
 									<figure>
-									   <img src="images/image2.png" alt="Tableau de la figure 1 avec le changement de couleurs suivant : Bronze plutôt que rouge. Beige au lieu du jaune. Bronze foncé plutôt que vert." class="img-responsive"/>
-									   <figcaption>Figure 2 : Couleurs de la figure 1 vues par un utilisateur atteint de protanopie (cécité au rouge).</figcaption>
+									   <!-- <img src="images/image2.png" alt="Tableau de la figure 1 avec le changement de couleurs suivant : Bronze plutôt que rouge. Beige au lieu du jaune. Bronze foncé plutôt que vert." class="img-responsive"/> -->
+									   <table class="colour-data">
+											<thead>
+												<tr>
+													<th># de d&eacute;fauts</th>
+													<th>S&eacute;v&eacute;rit&eacute; </th>
+													<th>Status</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>20</td>
+													<td class="red-pro"></td>
+													<td>Ouvert</td>
+												</tr>
+												<tr>
+													<td>30</td>
+													<td class="yellow-pro"></td>
+													<td>ferm&eacute;</td>
+												</tr>
+												<tr>
+													<td>15</td>
+													<td class="green-pro"></td>
+													<td>en cours</td>
+												</tr>
+											</tbody>
+										</table>
+										<p>Rouge = Élevé, Jaune = Moyen, Vert = Faible</p>
+									   <figcaption>Figure 2 : Couleurs de la figure 1 vues par un utilisateur atteint de protanopie (cécité au rouge). Bronze plutôt que rouge. Beige au lieu du jaune. Bronze foncé plutôt que vert.</figcaption>
 								</div>
 							</div>
 							<div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
 									<figure>
-									   <img src="images/image3.png" alt="Tableau de la figure 1 avec le changement de couleurs suivant : Brun au lieu du rouge. Beige au lieu du jaune. Brun foncé au lieu du vert. " class="img-responsive"/>
-									   <figcaption>Figure 3 : Couleurs de la figure 1 vues par un utilisateur atteint de deutéranopie (cécité à la couleur verte).</figcaption>
+									   <!-- <img src="images/image3.png" alt="Tableau de la figure 1 avec le changement de couleurs suivant : Brun au lieu du rouge. Beige au lieu du jaune. Brun foncé au lieu du vert. " class="img-responsive"/>-->
+									   <table class="colour-data">
+											<thead>
+												<tr>
+													<th># de d&eacute;fauts</th>
+													<th>S&eacute;v&eacute;rit&eacute; </th>
+													<th>Status</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>20</td>
+													<td class="red-deut"></td>
+													<td>Ouvert</td>
+												</tr>
+												<tr>
+													<td>30</td>
+													<td class="yellow-deut"></td>
+													<td>ferm&eacute;</td>
+												</tr>
+												<tr>
+													<td>15</td>
+													<td class="green-deut"></td>
+													<td>en cours</td>
+												</tr>
+											</tbody>
+										</table>
+										<p>Rouge = Élevé, Jaune = Moyen, Vert = Faible</p>
+									   <figcaption>Figure 3 : Couleurs de la figure 1 vues par un utilisateur atteint de deutéranopie (cécité à la couleur verte). Brun au lieu du rouge. Beige au lieu du jaune. Brun foncé au lieu du vert.</figcaption>
 									</figure>
 								</div>
 							</div>
@@ -122,8 +231,34 @@
                            <div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
 									<figure>
-									   <img src="images/image4.png" alt="Figure 4 : Tableau comportant des couleurs d’arrière-plan de CSS attribuées aux cellules : « rouge » avec étiquette de texte « élevé », « jaune » avec étiquette de texte « moyen » et « vert » avec étiquette de texte « faible »." class="img-responsive"/>
-									   <figcaption>Figure 4 : Un tableau accessible qui utilise des couleurs et des étiquettes textuelles pour transmettre de l’information</figcaption>
+									   <!-- <img src="images/image4.png" alt="Figure 4 : Tableau comportant des couleurs d’arrière-plan de CSS attribuées aux cellules : « rouge » avec étiquette de texte « élevé », « jaune » avec étiquette de texte « moyen » et « vert » avec étiquette de texte « faible »." class="img-responsive"/> -->
+									   <table class="colour-data">
+											<thead>
+												<tr>
+													<th># de d&eacute;fauts</th>
+													<th>S&eacute;v&eacute;rit&eacute; </th>
+													<th>Status</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>20</td>
+													<td class="red">Élevé</td>
+													<td>Ouvert</td>
+												</tr>
+												<tr>
+													<td>30</td>
+													<td class="yellow">Moyen</td>
+													<td>ferm&eacute;</td>
+												</tr>
+												<tr>
+													<td>15</td>
+													<td class="green">Faible</td>
+													<td>en cours</td>
+												</tr>
+											</tbody>
+										</table>
+									   <figcaption>Figure 4 : Un tableau accessible qui combine la couleur et l'étiquette textuelle dans la m&ecirc;me cellule pour transmettre de l’information.</figcaption>
 									</figure>
 								</div>
 							</div>
@@ -240,7 +375,8 @@
                            <p>Dans le bon exemple ci-dessous, la légende utilise la couleur et les motifs pour différencier les colonnes de l’histogramme. Le texte de remplacement décrit adéquatement les données véhiculées dans le diagramme.</p>
                            <div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
-								   <img src="images/image9.png" alt="Histogramme illustrant les ventes de console de jeu au cours du premier trimestre de 2021 : en janvier 84 Nintendo, 66 PlayStation; en février 48 Nintendo, 22 PlayStation; en mars 25 Nintendo, 57 PlayStation" class="img-responsive"/>
+								   <img src="images/image9.png" alt="Histogramme illustrant les ventes de console de jeu au cours du premier trimestre de 2021 : en janvier 84 Nintendo, 66 PlayStation; en f&eacute;vrier 48 Nintendo, 22 PlayStation; en mars 25 Nintendo, 57 PlayStation" class="img-responsive"/>
+								   <p class="mrgn-tp-md"><strong>Texte de remplacement :</strong> Histogramme illustrant les ventes de console de jeu au cours du premier trimestre de 2021 : en janvier 84 Nintendo, 66 PlayStation; en f&eacute;vrier 48 Nintendo, 22 PlayStation; en mars 25 Nintendo, 57 PlayStation</p>
 								</div>
 							</div>
                         </div>
@@ -297,7 +433,7 @@
 		
 								</div>
 							</div>
-                            <details class="mrgn-tp-lg">
+                            <details class="mrgn-tp-md">
 								<summary class="bg-info">R&eacute;sultats de l’application Colour Contrast Analyser</summary> 
 								<figure class="mrgn-tp-lg">
 								   <img src="images/image10.png" alt="Capture d’écran de l’application Colour Contrast Analyseur montrant le rapport de contraste de 3,1:1" class="img-responsive"/>
@@ -365,7 +501,9 @@
                         <div class="panel-body">
                            <h2 class="text-danger mrgn-tp-0 h3" id="header"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Mauvais exemple : Bouton utilisant une image de texte</h2>
                            <p>Lorsque les boutons utilisent une image de texte, les feuilles de style utilisateur ne peuvent pas personnaliser les propriétés du texte, notamment les couleurs d’avant et d’arrière-plan. En grossissant le texte, il est pixélisé et devient flou dans les images, ce qui diminue la lisibilité.</p>
-                           <img src="images/image17.png" alt="" class="img-responsive"/>
+                            <button style="border: none; background: none;">
+							   <img src="images/image17.png" alt="Next" class="img-responsive"/>
+							</button>
                         </div>
                      </div>
                   </section>
