@@ -133,23 +133,23 @@
 				</ul>
 				<h3 class="">Utiliser l’événement onclick des ancrages et des boutons</h3>
 				<p>Pour s’assurer que les utilisateurs du clavier puissent invoquer un script, utiliser des liens et des boutons HTML natifs avec l’événement <code>onclick</code>. L’événement <code>onclick</code> des deux éléments est indépendant du dispositif de saisie&nbsp;: il est lié à un clic de souris, à la touche Entrée et à la barre d’espacement.</p>
-				<p class="wb-inv">Code begins</p>
+				<p class="wb-inv">Début du code</p>
 				<pre><code class="language-html">&lt;button onclick="doStuff();"&gt;Do stuff&lt;/button&gt;
 &lt;script&gt;
    function doStuff () {
       alert('Button clicked');
    }
 &lt;/script&gt;</code></pre>
-				<p class="wb-inv">Code ends</p>
+				<p class="wb-inv">Fin du code</p>
 				<p>Un bouton d’envoi situé à l’intérieur d’un formulaire<code>&lt;form&gt;</code> ne nécessite pas de gestionnaire d’événement. Dans les deux cas suivants, la sélection du bouton d’envoi transmet le formulaire parent sans nécessiter le traitement séparé de l’événement <code>onclick</code>. Ici, la valeur <code>onsubmit </code>du formulaire déclenche la validation.</p>
-				<p class="wb-inv">Code begins</p>
+				<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;form onsubmit="handle_form_submission()"&gt;
    […]
    &lt;input type="submit" name="submit" value="Post your reply" /&gt;
    Or:
    &lt;button type="submit" &gt;Post your reply&lt;/button&gt;
 &lt;/form&gt;</code></pre>
-				<p class="wb-inv">Code ends</p>
+				<p class="wb-inv">Fin du code</p>
 				<h3 class="">Jumeler les gestionnaires d’événement souris et les gestionnaires d’événement clavier</h3>
 				<p>L’utilisation à la fois des événements clavier et des événements souris permet de rendre le contenu exploitable par un large éventail de dispositifs de saisie.</p>
 				<p>Le tableau suivant suggère les gestionnaires d’événement souris à jumeler aux gestionnaires d’événement clavier&nbsp;:</p>
@@ -238,7 +238,7 @@
 								<p class="wb-inv">Example ends</p>
 							</div>
 						</div>
-						<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;a href="menu.php" 
    onmouseover="swapImageOn('menu')" 
    onfocus="swapImageOn('menu')" 
@@ -246,7 +246,7 @@
    onblur="swapImageOff('menu')"&gt; 
    &lt;img id="menu" src="menu_off.gif" alt="Menu" /&gt;
 &lt;/a&gt;</code></pre>
-						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Fin du code</p>
 					</div>
 				</div>
 				<div class="panel panel-danger mrgn-tp-lg">
@@ -274,22 +274,22 @@
 								</script>
 							</div>
 						</div>
-						<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;img class="img-link" onclick="goToLink(event, 'http://www.example.com/page5.html')" src="arrow.gif" alt="Go to next page"&gt;</code></pre>
-						<p class="wb-inv">Code ends</p>
-						<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Fin du code</p>
+						<p class="wb-inv">Début du code</p>
 <pre><code class="language-css">.img-link:hover { 
    cursor: pointer;  
 }</code></pre>
-						<p class="wb-inv">Code ends</p>
-						<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Fin du code</p>
+						<p class="wb-inv">Début du code</p>
 <pre><code class="language-js">function goToLink(event, url) {  
    var type = event.type;  
    if (type === 'click') {  
       window.location.href = url;      
       event.stopPropagation();  
    }</code></pre>
-						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Fin du code</p>
 					</div>
 				</div>
 
@@ -361,16 +361,16 @@
 							</div>
 						</div>
 								
-						<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;label for="newName"&gt;Add a name: &lt;/label&gt;
 &lt;input type="text" id="newName"&gt;
 &lt;span role="button" tabindex="0" onclick="handleCommand(event)" onKeyDown="handleCommand(event)"&gt;Add Name&lt;/span&gt;
 &lt;ul id="nameList"&gt;&lt;/ul&gt;</code></pre>
 
-						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Fin du code</p>
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">View JavaScript</summary>
-							<p class="wb-inv">Code begins</p>
+							<p class="wb-inv">Début du code</p>
 <pre><code class="language-js">function handleCommand(event) {
    // Handles both mouse clicks and keyboard
    // activate with Enter or Space
@@ -396,11 +396,11 @@
       list.appendChild(listItem);
    }
 }</code></pre>
-							<p class="wb-inv">Code ends</p>
+							<p class="wb-inv">Fin du code</p>
 						</details>						
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">View CSS</summary>
-							<p class="wb-inv">Code begins</p>
+							<p class="wb-inv">Début du code</p>
 <pre><code class="language-css">[role="button"] {
    padding: 0.25em 0.5em;
    background-color: #CCCCCC;
@@ -416,7 +416,7 @@
 [role="button"]:hover {
    outline: 2px dotted rgb(81, 81, 250);
 }</code></pre>
-							<p class="wb-inv">Code ends</p>
+							<p class="wb-inv">Fin du code</p>
 						</details>
 
 					</div>
@@ -431,23 +431,23 @@
 					<div class="panel-body">
 						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>Un exemple à éviter&nbsp;: JavaScript focus() piège l’utilisateur du clavier</h3>
 						<p>Cet exemple illustre les dangers du piège à clavier que représente l'utilisation de la méthode JavaScript <code>focus()</code>. Le champ de saisie du formulaire utilise ici l'événement <code></code>onblur</code>, qui est déclenché lorsque le focus quitte l'élément. Lorsque l'utilisateur du clavier appuie sur la touche Tab pour déplacer le focus du champ de saisie, l'événement <code>onblur</code> se déclenche et remet le focus sur le champ de saisie, piégeant ainsi l'utilisateur. &lt;label for="lastname"&gt;Last Name&lt;/label&gt;</p>
-						<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;label for="lastname"&gt;Last name&lt;/label&gt;
 &lt;input id="lastname" type="text" value="" class="trap" onblur="this.focus();"&gt;</code></pre>
-						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Fin du code</p>
 					</div>
 				</div>
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Un exemple à éviter&nbsp;: JavaScript keydown() et event.preventDefault() piègent l’utilisateur du clavier</h3> 
-						<p>Cet exemple illustre les dangers du piège à clavier que représente un événement keypress JavaScript. La fonction JavaScript ne fait aucun effort pour détecter quelle touche a été enfoncée (elle devrait identifier la touche Entrée), elle se déclenche donc lorsque n'importe <code>quelle</code> touche est enfoncée. En outre, l'action par défaut associée à toute pression sur une touche est empêchée par <code>event.preventDefault()</code>. Par conséquent, lorsqu'un utilisateur tente de déplacer le focus du lien en appuyant sur <code><mark>la touche </mark></code>Tab, l'événement keydown se déclenche, l'action par défaut de la touche Tab (déplacement du focus vers l'élément suivant sur lequel le focus est possible) est empêchée, le focus reste sur le lien et une nouvelle fenêtre s'ouvre. L'utilisateur du clavier est pris au piège. Même le fait d'appuyer sur les touches Ctrl + Alt + Suppr dans Windows pour faire apparaître le gestionnaire de tâches échouera, car d'autres fenêtres seront simplement lancées en réponse à l'événement de frappe. L'ordinateur de l'utilisateur est détourné et, à moins qu'un collègue ou un ami ne puisse déplacer le focus de l'élément avec une souris, l'utilisateur est obligé de redémarrer l'ordinateur. </p>
+						<p>Cet exemple illustre les dangers du piège à clavier que représente un événement keypress JavaScript. La fonction JavaScript ne fait aucun effort pour détecter quelle touche a été enfoncée (elle devrait identifier la touche Entrée), elle se déclenche donc lorsque n'importe <code>quelle</code> touche est enfoncée. En outre, l'action par défaut associée à toute pression sur une touche est empêchée par <code>event.preventDefault()</code>. Par conséquent, lorsqu'un utilisateur tente de déplacer le focus du lien en appuyant sur la touche Tab, l'événement keydown se déclenche, l'action par défaut de la touche Tab (déplacement du focus vers l'élément suivant sur lequel le focus est possible) est empêchée, le focus reste sur le lien et une nouvelle fenêtre s'ouvre. L'utilisateur du clavier est pris au piège. Même le fait d'appuyer sur les touches Ctrl + Alt + Suppr dans Windows pour faire apparaître le gestionnaire de tâches échouera, car d'autres fenêtres seront simplement lancées en réponse à l'événement de frappe. L'ordinateur de l'utilisateur est détourné et, à moins qu'un collègue ou un ami ne puisse déplacer le focus de l'élément avec une souris, l'utilisateur est obligé de redémarrer l'ordinateur. </p>
 
-						<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;span class="trap link" role="link" tabindex="0" data-href="some-page.html"&gt;
    Some page
 &lt;/a&gt;</code></pre>
-				<p class="wb-inv">Code ends</p>
-				<p class="wb-inv">Code begins</p>
+				<p class="wb-inv">Fin du code</p>
+				<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-md"><code class="language-js">$(document).ready(function(){   
    $('span.trap').keydown(function(event){ 
       event.preventDefault();
@@ -456,7 +456,7 @@
       window.open(href, text);    
    });
 });</code></pre>
-						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Fin du code</p>
 					</div>
 				</div>
 			</section>
@@ -468,7 +468,7 @@
 					<li>Le contenu ajouté suit le déclencheur dans le DOM. Dans ce cas, il n'est pas nécessaire de gérer le focus. Lorsqu'il est activé, le contrôle déclencheur conserve le focus, et le contenu ajouté est le suivant dans l'ordre de lecture du lecteur d'écran et dans l'ordre des tabulations. Le contenu ajouté peut être positionné de manière absolue par le biais de CSS pour se trouver ailleurs sur la page.</li>
 					<li>Le contenu ajouté ne suit pas le déclencheur dans le DOM. Dans ce cas, la cible doit être déplacée vers le contenu ajouté en utilisant la méthode JavaScript <code>focus()</code>. La cible doit avoir l’attribut <code>tabindex=&nbsp;»-1&nbsp;»</code>. De plus, la cible doit avoir un contenu textuel ou un texte déterminé par programmation au moyen d’une étiquette, sinon un utilisateur de lecteur d’écran n’entendra rien à son arrivée. Si le contenu ajouté peut être réduit ou désactivé, la cible revient sur la commande de déclenchement (ou à un autre emplacement logique, selon le contexte). Éviter de perdre la cible ou de la réinitialiser au haut de la page.</li>
 				</ul>
-				<p>Il y a des exceptions si vous mettez en œuvres certains modèles de composants graphiques décrits à la section&nbsp;3 des pratiques de codage WAI-ARIA, <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">Modèles de conception et widgets</a>. Les auteurs de (<mark><del>on</del> <ins>within</ins></mark>)contenu doivent se concentrer sur les rôles de conteneur suivants&nbsp;:</p>
+				<p>Il y a des exceptions si vous mettez en œuvres certains modèles de composants graphiques décrits à la section&nbsp;3 des pratiques de codage WAI-ARIA, <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">Modèles de conception et widgets</a>. Les auteurs du contenu doivent se concentrer sur les rôles de conteneur suivants&nbsp;:</p>
 				<ul>
 					<li>
 						<a href="https://www.w3.org/TR/wai-aria-1.1/#combobox">combo box</a>
@@ -505,7 +505,7 @@
 						<p>Dans cet exemple, une application Web monopage utilise JavaScript pour charger un article complet à l’intérieur de l’élément <code>principal</code>, sans chargement de la page. Les liens dans le menu de navigation déclenchent le chargement du contenu. Cet exemple ne comporte que quelques éléments de menu, mais les sites ont souvent des menus bien plus longs. Le déplacement de la cible est vite à un utilisateur de clavier la tâche fastidieuse de parcourir un menu avec la touche de tabulation pour accéder au contenu principal d’une application d’une seule page.</p>
 						<p>L’en-tête&nbsp;<code>h1 </code>de chaque page comporte l’attribut <code>tabindex=&nbsp;»-1&nbsp;» </code>qui permet le ciblage par les scripts. JavaScript identifie l’en-tête&nbsp;<code>h1 </code>au moyen d’un sélecteur de requête et pose la cible sur lui. Le script met également à jour l’élément <code>titre </code>de la page pour qu’il corresponde au texte de l’en-tête. </p>
 						<p>La première utilisation de JavaScript devrait être déclenchée par le menu et non par le chargement de la page. L’interaction initiale d’un utilisateur de lecteur d’écran avec la page devrait commencer par le haut, comme d’habitude.</p>
-						<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;nav&gt; 
    &lt;a href="/"&gt;Home&lt;/a&gt; 
    &lt;a href="/policies"&gt;Policies&lt;/a&gt; 
@@ -516,8 +516,8 @@
           &lt;h1 tabindex="-1"&gt;Policies&lt;/h1&gt; 
           // rest of injected content ... 
 &lt;/main&gt;</code></pre>
-						<p class="wb-inv">Code ends</p>
-						<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Fin du code</p>
+						<p class="wb-inv">Début du code</p>
 <pre><code class="language-js">// This gets called every time new content loads:  
 function onNewPage() { 
    var heading = document.querySelector('h1'); 
@@ -525,7 +525,7 @@ function onNewPage() {
    // Update the page title  
    document.title = heading.textContent; 
   }</code></pre>
-						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Fin du code</p>
 					</div>
 				</div>
 				<div class="panel panel-success mrgn-tp-lg">
@@ -535,9 +535,9 @@ function onNewPage() {
 						<ul>
 							<li>launches an ARIA dialog widget holding the transcript, and </li>
 							<li>moves focus to the first <mark><del>interactive element</del> <ins>button</ins></mark> inside the dialog, the user preferences button <img src="images/image5.png" class="" alt="">:
-								<p class="wb-inv">Code begins</p>
+								<p class="wb-inv">Début du code</p>
 <pre><code class="language-js">this.$transcriptArea.find('button').first().focus();</code></pre>
-								<p class="wb-inv">Code ends</p>
+								<p class="wb-inv">Fin du code</p>
 							</li>
 						</ul> 
 						<div class="panel panel-primary mrgn-tp-lg">
@@ -635,7 +635,7 @@ function onNewPage() {
 						</div>
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">View CSS</summary>	
-							<p class="wb-inv">Code begins</p>
+							<p class="wb-inv">Début du code</p>
 <pre><code class="language-css">/* The Modal (background) */
 .modal {
    display: none; /* Hidden by default */
@@ -671,11 +671,11 @@ function onNewPage() {
    text-decoration: none;
    cursor: pointer;
 }</code></pre>
-							<p class="wb-inv">Code ends</p>
+							<p class="wb-inv">Fin du code</p>
 						</details>
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">View HTML</summary>
-							<p class="wb-inv">Code begins</p>
+							<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;h1&gt;Modal Popup Example: &lt;/h1&gt;
 &lt;!-- Trigger/Open The Modal --&gt;
 &lt;button class="submit" id="myBtn"&gt;Submit&lt;/button&gt;
@@ -687,11 +687,11 @@ function onNewPage() {
       &lt;button class="btn-close"&gt;Close&lt;/button&gt;
    &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-							<p class="wb-inv">Code ends</p>
+							<p class="wb-inv">Fin du code</p>
 						</details>
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">View JavaScript</summary>
-							<p class="wb-inv">Code begins</p>
+							<p class="wb-inv">Début du code</p>
 <pre><code class="language-js">// Get the modal
 var modal = document.getElementById("myModal");
 // Get the button that opens the modal
@@ -712,7 +712,7 @@ window.onclick = function(event) {
      modal.style.display = "none";
    }
 }</code></pre>
-							<p class="wb-inv">Code ends</p>
+							<p class="wb-inv">Fin du code</p>
 						</details>
 					</div>
 				</div>
