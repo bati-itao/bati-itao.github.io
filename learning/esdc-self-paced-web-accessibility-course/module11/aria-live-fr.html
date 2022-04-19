@@ -70,7 +70,7 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#overview">Zones live ARIA (overview)</a></li>
+            <li><a href="#overview">Zones live ARIA (aperçu)</a></li>
 			<li><a href="#live">aria-live</a></li>
 			<li><a href="#atomic">aria-atomic</a></li>
 			<li><a href="#relevant">aria-relevant</a></li>
@@ -83,44 +83,112 @@
 	</nav>
 	
 			<section>
-				<h2 id="overview">Zones live ARIA (overview)</h2>
-				<p>Introduced to make dynamic page content accessible to screen readers users, Zones live ARIA are regions of a web page that announce dynamic updates to their content when the user’s attention and system focus are elsewhere. Example use cases of live regions include:</p>
+				<h2 id="overview">Zones live ARIA (aperçu)</h2>
+				<p>
+          Les zones live ARIA, développées afin de rendre les contenus
+          dynamiques accessibles aux lecteurs d’écran, sont des zones d’une page
+          Web qui annoncent les mises à jour dynamiques de leur contenu lorsque
+          le focus de l’utilisateur et celui du système sont différents.
+          Exemples de cas d’utilisation de zones live&nbsp;:
+				</p>
 				<ul>
-					<li>User receives a Facebook/Twitter notification</li>
-					<li>Stock ticker price increases</li>
-					<li>New chat message is received</li>
-					<li>Progress bar updates</li>
-					<li>Form validation error occurs</li>
-					<li>Shopping cart total updates</li>
-					<li>A sport scoring section updates periodically to reflect game statistics</li>
-					<li>A visible countdown announces once a minute</li>
-					<li>User presses the “next" carousel button to advance a slide (slide content is announced)</li>
-					<li>User sorts a table by name, prompting the announcement “Sorted alphabetically by name". In this case, the live text may be visually hidden as sighted users don’t need the notification.</li>
-				</ul>
-				<p>WAI-ARIA provides four attributes that enable the author to identify live regions and their properties: <code>aria-live</code>, <code>aria-relevant</code>, <code>aria-atomic</code>, and <code>aria-busy</code>. WAI-ARIA also provides five specialized roles for specific types of live regions.</p>
-			</section>
+          <li>L’utilisateur reçoit un avis sur Facebook/Twitter</li>
+          <li>Augmentations de prix sur un afficheur boursier</li>
+          <li>Réception d’un nouveau message de clavardage</li>
+          <li>Actualisation d’une barre de progression</li>
+          <li>Erreur de validation d’un formulaire</li>
+          <li>Actualisation du total dans un panier d’achat</li>
+          <li>
+            Une section sur les scores sportifs est actualisée périodiquement
+            pour refléter les statistiques d’un match
+          </li>
+          <li>Un compte à rebours visible est actualisé une fois par minute</li>
+          <li>
+            L’utilisateur clique sur le bouton de carrousel
+            «&nbsp;Suivant&nbsp;» pour passer à une autre diapositive (le
+            contenu de la diapositive est annoncé)
+          </li>
+          <li>
+            L’utilisateur trie le contenu d’un tableau par nom, ce qui déclenche
+            l’annonce «&nbsp;Trié alphabétiquement par nom&nbsp;» Dans cette
+            situation, le texte actualisé pourrait être masqué puisque les
+            utilisateurs voyants n’ont pas besoin de la notification.
+          </li>
+        </ul>
+				<p>
+          La norme WAI-ARIA offre quatre attributs qui permettent à l’auteur
+          d’identifier les zones live et leurs propriétés&nbsp;: <code>aria-live</code>,
+          <code>aria-relevant</code>, <code>aria-atomic</code> et <code>aria-busy</code>. WAI-ARIA offre également cinq
+          rôles spécialisés pour certains types de zones live.
+        </p>			</section>
 			<section>
 				<h2 id="live">aria-live</h2>
-				<p>Identify a live region with an <code>aria-live</code> attribute on a container element, such as a <code>span</code> or <code>div</code>. Browsers and the accessibility API monitor the container for any script-injected text. As soon as text is injected into the live region, a screen reader will announce it. </p>
-				<p>The live region must be empty on page load or when it’s first added to the DOM.  It’s preferable to add the live region on page load, but if adding the live region to the DOM dynamically, it’s best practice to wait at least 2 seconds for the accessibility API to identify it before injecting any text.</p>
-				<p>The <code>aria-live</code> attribute takes three possible values: assertive, polite or off.</p>
+				<p>
+          Une zone live est désignée par un attribut <code>aria-live </code>associé à un
+          élément conteneur, p.&nbsp;ex. <code>span</code> ou <code>div</code>. Les navigateurs et l’API
+          d’accessibilité surveillent le conteneur pour détecter tout texte
+          injecté par script. Dès que du texte est injecté dans la zone live, le
+          lecteur d’écran l’annonce.
+				</p>				
+				<p>
+          La zone live doit être vide au moment du chargement de la page, ou
+          lorsqu’elle est ajoutée pour la première fois au DOM. Il est
+          préférable d’ajouter une zone live au moment du chargement de la page,
+          mais si vous ajoutez la zone au DOM de façon dynamique, il est
+          préférable d’attendre au moins 2&nbsp;secondes pour que l’API
+          d’accessibilité puisse l’identifier avant d’injecter du texte.
+				</p>				
+				<p>
+          L’attribut <code>aria-live</code> accepte trois valeurs possibles&nbsp;: assertive,
+          polite ou off.
+				</p>				
 				<ul>
-					<li><code>aria-live="assertive"</code>: An assertive announcement interrupts whatever a screen reader is reading. Only use assertive announcements when the user needs immediate feedback. </li>
-					<li><code>aria-live="polite"</code>: A polite announcement is delayed until the screen reader finishes its current sentence or until the user pauses typing. Use the polite value most of the time.</li>
-					<li><code>aria-live="off"</code>: tells screen readers to temporarily suspend aria-live interruptions. </li>
-				</ul>
-				<p>The <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">WAI-ARIA Carousel widget</a> described in module 12 uses <code>aria-live="off"</code> on the slide container when advancing slides automatically, and <code>aria-live="polite"</code> when the user is manually advancing the slides. This prevents an automatic slideshow’s announcements from overwhelming a screen reader user trying to read the page, and facilitates the reading of a manually-operated slideshow.</p>
+          <li>
+            <code>aria-live=”assertive”</code>: Une annonce assertive interrompt tout ce que
+            lecteur d’écran lit. Utilisez des annonces assertive seulement
+            lorsque l’utilisateur doit être avisé immédiatement.
+          </li>
+          <li>
+            <code>aria-live=”polite"&nbsp;</code>: Une annonce polie est retardée jusqu’à ce
+            que le lecteur d’écran termine sa phrase actuelle ou jusqu’à ce que
+            l’utilisateur arrête de taper. Vous utiliserez la valeur polie la
+            plupart du temps.
+          </li>
+          <li>
+            <code>aria-live="off"</code>: indique au lecteur d’écran de suspendre
+            temporairement les interruptions aria-live.
+          </li>
+        </ul>
+				<p>
+          Le
+          <a href="https://www.w3.org/TR/wai-aria-practices-1.1/"
+            >WAI-ARIA Carousel widget</a>
+          utilise <code>aria-live="off"</code> associé au conteneur de diapositive lorsque
+          les diapositives avancent automatiquement, et <code>aria-live="polite"</code>
+          lorsque l’utilisateur fait progresser manuellement les diapositives.
+          Ainsi, un diaporama automatique ne pourra pas submerger l’utilisateur
+          d’un lecteur d’écran qui essaie de lire la page, et il sera plus
+          facile de lire un diaporama manuel.
+				</p>				
 				<div class="panel panel-success">
 					<div class="panel-body">
-					  <h2 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: aria-live attribute</h2>
+					  <h2 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>Bon exemple&nbsp;:
+							Attribut aria-live</h2>
 						
-				<p>Here, a <code>div</code> element provides a container for a live region. The element is empty on page load.</p>
-				<p class="wb-inv">Début du code</p>
+							<p>
+								Ici, un élément <code>div</code> fournit un conteneur pour une zone live. L’élément
+								est vide au moment du chargement de la page.
+							</p>				
+							<p class="wb-inv">Début du code</p>
 				<pre><code class="language-html">&lt;div aria-live="polite"&gt;&lt;/div&gt;</code></pre>
 <p class="wb-inv">Fin du code</p>
-				<p>After the user clicks a sort button in a table column header, JavaScript populates the div with text. The screen reader announces “Sorted alphabetically by name".</p>
-<p class="wb-inv">Début du code</p>
-				<pre><code class="language-html">&lt;div aria-live="polite"&gt;Sorted alphabetically by name&lt;/div&gt;</code></pre>
+<p>
+	Lorsque l’utilisateur clique sur un bouton de tri dans l’en-tête d’une
+	colonne de tableau, JavaScript remplit l’élément div avec du texte. Le
+	lecteur d’écran annonce «&nbsp;Trié alphabétiquement par nom&nbsp;».
+</p><p class="wb-inv">Début du code</p>
+				<pre><code class="language-html">&lt;div aria-live=”polite”&gt;Trié alphabétiquement par
+          nom&lt;/div&gt;</code></pre>
 <p class="wb-inv">Fin du code</p>
 </div>
 </div>
@@ -128,25 +196,52 @@
 			
 			<section>
 				<h2 id="atomic">aria-atomic</h2>
-				<p>Use the <code>aria-atomic</code> attribute to specify if the whole live region should be announced, or only the text that changed.</p>
-				<ul>
-					<li><code>aria-atomic="false"</code>: When a live region is updated, only the updated text is announced. Use this value when the updated text makes sense on its own. This is the default value.</li>
-					<li><code>aria-atomic="true"</code>: When a live region is updated, the entire region is announced. Use this value when the neighbouring static text in the live region provides necessary context to make sense of the updated text.</li>
+				<p>
+          Utilisez l’attribut <code>aria-atomic</code> pour préciser si toute la zone live
+          doit être annoncé, ou seulement le texte qui a changé.
+        </p>				<ul>
+					<li>
+            <code>aria-atomic=”false”</code>: Lorsqu’une zone live est actualisée, seul le
+            texte actualisé est annoncé. Utilisez cette valeur lorsque le texte
+            actualisé fait du sens par lui-même. Il s’agit de la valeur par
+            défaut.
+					</li>					
+					<li>
+            <code>aria-atomic=”true”&nbsp;</code>: Lorsqu’une zone live est actualisée, toute
+            la zone est annoncée. Utilisez cette valeur lorsque le texte
+            statique voisin dans la zone live fournit le contexte nécessaire
+            pour donner un sens au texte actualisé.
+					</li>				
 				</ul>
 				
 			<div class="panel panel-success">
 				<div class="panel-body">
-					<h2 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good examples: aria-atomic false vs true</h2>
+					<h2 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>Bons exemples&nbsp;: aria-atomic false ou true</h2>
 				
-					<p>In these examples, the updated total price in a purchase process is announced when the user adds a product.</p>
-					<p>In this first example, the aria-atomic attribute is not used, so the default value applies, which is “false". Only the dynamic content is announced, that is, the price. If the dynamic content isn’t meaningful on its own, it can easily confuse users. In this case, the dynamic content alone is vague.</p>
+					<p>
+						Dans ces exemples, le prix total actualisé au cours d’un processus
+						d’achat est annoncé lorsque l’utilisateur ajoute un produit.
+					</p>
+					<p>
+						Dans ce premier exemple, l’attribut aria-atomic n’est pas utilisé, de
+						sorte que la valeur par défaut s’applique, c’est-à-dire
+						«&nbsp;false&nbsp;». Seul le contenu dynamique est annoncé,
+						c’est-à-dire le prix. Si le contenu dynamique n’est pas significatif
+						en soi, il peut facilement confondre les utilisateurs. Dans ce cas, le
+						contenu dynamique à lui seul est vague.
+					</p>
 					<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;p aria-live="polite"&gt;
    Total price:
    &lt;span id="total-price"&gt;$84.52&lt;/span&gt;
 &lt;/p&gt;</code></pre>
 <p class="wb-inv">Fin du code</p>
-In this second example, the aria-atomic attribute is set to “true". All the content of the live region is announced, providing the necessary context to make sense of the dynamic content:
+<p>
+	Dans ce deuxième exemple, l’attribut aria-atomique est fixé à
+	«&nbsp;true&nbsp;». Tout le contenu de la zone live est annoncé,
+	fournissant le contexte nécessaire pour donner un sens au contenu
+	dynamique&nbsp;:
+</p>
 <p class="wb-inv">Début du code</p>
 <pre><code class="language-html">
 &lt;p aria-live="polite" aria-atomic="true"&gt;
@@ -159,19 +254,42 @@ In this second example, the aria-atomic attribute is set to “true". All the co
 			</section>
 			<section>
 				<h2 id="relevant">aria-relevant</h2>
-				<p>The aria-relevant attribute specifies which types of changes to a live region should be announced.</p>
+				<p>
+          L’attribut aria-relevant spécifie quels types de changement apportés à
+          une zone live doivent être annoncés.
+				</p>				
 				<ul>
-					<li><code>aria-relevant="all"</code>: All changes are announced. Use with caution, as this setting can be verbose.</li>
-					<li><code>aria-relevant="additions"</code>: Insertion of nodes to the live region are announced. </li>
-					<li><code>aria-relevant="removals"</code>: Removal of nodes to the live region are announced. Reserve for important changes, such as a colleague leaving a chat room.</li>
-					<li><code>aria-relevant="text"</code>: Changes to the text content (including text equivalents, such as alt text) in the live region are announced.</li>
-				</ul>
+          <li>
+            <code>aria-relevant="all"&nbsp;</code>: Tous les changements sont annoncés. À
+            utiliser avec prudence, car ce paramètre peut être «&nbsp;verbeux
+            &nbsp;».
+          </li>
+          <li>
+            <code>aria-relevant="additions"&nbsp;</code>: Les insertions de nœuds dans la
+            zone live sont annoncées.
+          </li>
+          <li>
+            <code>aria-relevant="removals« </code>: Les suppressions de nœuds dans la zone
+            live sont annoncées. À réserver pour des changements importants,
+            comme un collègue qui quitte une salle de clavardage.
+          </li>
+          <li>
+            <code>aria-relevant="text"&nbsp;</code>: Les modifications au contenu textuel (y
+            compris les équivalents textuels, comme alt text) dans la zone live
+            sont annoncées.
+          </li>
+        </ul>
 				<p>A live region has an implicit <code>aria-relevant</code> value of “additions" and “text", so the attribute isn’t needed if the design calls for the <mark><del>normal</del> <ins>default</ins></mark> behaviour of announcing added content. Only use the <code>aria-relevant</code> attribute if you need to communicate the removal of content from a live region. </p>
 			</section>
 			<section>
 				<h2 id="busy">aria-busy</h2>
-				<p>Use the <code>aria-busy</code> attribute to notify assistive technology that it should temporarily ignore changes to an element when things are loading. Set <code>aria-busy="true"</code> initially and, once everything is in place, clear the attribute or set it to <code>aria-busy="false"</code>.</p>
-			</section>
+				<p>
+          Utilisez l’attribut <code>aria-busy</code> pour aviser la technologie d’assistance
+          qu’elle devrait ignorer temporairement les changements apportés à un
+          élément lorsque des éléments sont en cours de chargement. Configurez
+          <code>aria-busy="true"</code> initialement et, une fois tous les éléments chargés,
+          effacez l’attribut ou configurez-le à <code>aria-busy="false"</code>.
+        </p>			</section>
 			<section>
 				<h2 id="special-types">Special types of live regions</h2>
 				
