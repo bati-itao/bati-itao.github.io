@@ -120,51 +120,47 @@
 								   </a>
 								</p>
 								<style type="text/css">
-[role="tooltip"] {     
-	display: none;     
-	padding: 0.5em;     
-	background:white;     
-	color: black;     
-	border:solid black 2px;     
-	width:10em; 
-}
-.a-and-tooltip {   
-	position: relative; 
-}
-.a-and-tooltip:hover [role="tooltip"],
-.a-and-tooltip:focus [role="tooltip"], 
-[role="tooltip"] {     
-	position: absolute;     
-	left:0;     
-	top:1em; 
-}						
-						</style>
-						<script type="JavaScript">
+								[role="tooltip"] {     
+									visibility: hidden;     
+									padding: 0.5em;     
+									background:white;     
+									color: black;     
+									border:solid black 2px;     
+									width:10em; 
+									position: absolute;  							
+									left:0;     
+									top:1em; 
+								}
+								.a-and-tooltip {   
+									position: relative; 
+								}				
+														</style>
+						<script>
 // trigger and popup inside the same link
 
 var parent = document.getElementById('parent');
 
 parent.onmouseover = function() {
-    document.getElementById('popup').style.display = 'block';
+    document.getElementById('popup').style.visibility = 'visible';
 }
 
 parent.onmouseout = function() {
-    document.getElementById('popup').style.display = 'none';
+    document.getElementById('popup').style.visibility = 'hidden';
 }
 
 parent.onfocus = function() {
-    document.getElementById('popup').style.display = 'block';
+    document.getElementById('popup').style.visibility = 'visible';
 }
 
 parent.onblur = function() {
-    document.getElementById('popup').style.display = 'none';
+    document.getElementById('popup').style.visibility = 'hidden';
 }
 
 // hide when ESC is pressed
 
 document.addEventListener('keydown', (e) => {
   if ((e.keyCode || e.which) === 27)
-       document.getElementById('popup').style.display = 'none';
+       document.getElementById('popup').style.visibility = 'hidden';
 });						
 						</script>
 					</div>
@@ -182,43 +178,47 @@ document.addEventListener('keydown', (e) => {
 					<p><mark>The CSS here doesn't make sense</mark></p>
 					<p class="wb-inv">Code begins</p>	
 <pre><code class="language-css">[role="tooltip"] {     
-   display: none;     
-   padding: 0.5em;     
-   background:white;     
-   color: black;     
-   border:solid black 2px;     
-   width:10em; 
+	visibility: hidden;     
+	padding: 0.5em;     
+	background:white;     
+	color: black;     
+	border:solid black 2px;     
+	width:10em; 
+	position: absolute;  							
+	left:0;     
+	top:1em; 
 }
 .a-and-tooltip {   
-   position: relative; 
-}
-[role="tooltip"] {     
-   position: absolute;     
-   left:0;     
-   top:1em; 
-}</code></pre>
+	position: relative; 
+}	</code></pre>
 		<p class="wb-inv">Code ends</p>
 		<p class="wb-inv">Code begins</p>
 <pre><code class="language-js">// trigger and popup inside the same link
+
 var parent = document.getElementById('parent');
-parent.onmouseover = function() {     
-   document.getElementById('popup').style.display = 'block'; 
+
+parent.onmouseover = function() {
+    document.getElementById('popup').style.visibility = 'visible';
 }
-parent.onmouseout = function() {     
-   document.getElementById('popup').style.display = 'none'; 
+
+parent.onmouseout = function() {
+    document.getElementById('popup').style.visibility = 'hidden';
 }
-parent.onfocus = function() {     
-   document.getElementById('popup').style.display = 'block'; 
+
+parent.onfocus = function() {
+    document.getElementById('popup').style.visibility = 'visible';
 }
-parent.onblur = function() {     
-   document.getElementById('popup').style.display = 'none'; 
+
+parent.onblur = function() {
+    document.getElementById('popup').style.visibility = 'hidden';
 }
 
 // hide when ESC is pressed
-document.addEventListener('keydown', (e) =&gt; {   
-if ((e.keyCode || e.which) === 27)        
-   document.getElementById('popup').style.display = 'none'; 
-});</code></pre>
+
+document.addEventListener('keydown', (e) => {
+  if ((e.keyCode || e.which) === 27)
+       document.getElementById('popup').style.visibility = 'hidden';
+});	</code></pre>
 				<p class="wb-inv">Code ends</p>	
 				<hr/>
 				<p class="small">This example is from WCAG 2.1 Technique SCR39: Making content on focus or hover hoverable, dismissible, and persistent. (n.d.). W3C Web Accessibility Initiative. Retrieved December 17, 2021, from <a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR39">https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR39</a></p>	

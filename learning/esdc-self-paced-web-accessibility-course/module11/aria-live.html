@@ -305,24 +305,37 @@ In this second example, the aria-atomic attribute is set to “true". All the co
 							<summary class="bg-info">View JavaScript</summary>
 							<p class="wb-inv">Code begins</p>
 <pre><code class="language-js">function decrement() { 
-   var numElement = document.getElementById('number'); 
-   var liveRegion = document.getElementById('countdown'); 
-   var newNumber = parseInt(numElement.textContent - 1); 
-   if (newNumber &gt; -1) { 
-      numElement.textContent = newNumber; 
-   } 
-   if ((newNumber % 15)===0) {
-      liveRegion.setAttribute('aria-live', 'assertive'); 
-      liveRegion.setAttribute('role', 'alert'); 
-      setTimeout(function() { 
-         liveRegion.removeAttribute('aria-live'); 
-         liveRegion.setAttribute('role', 'timer'); 
-      }, 999);
-   } 
+
+    var numElement = document.getElementById('number'); 
+   
+    var newNumber = parseInt(numElement.textContent - 1); 
+    if (newNumber > -1) { 
+        numElement.textContent = newNumber; 
+    } 
+	
+    if ((newNumber % 15)===0 || newNumber == 0) {
+		setAlert();
+    } 
 } 
+
+function setAlert() {
+	var liveRegion = document.getElementById('countdown'); 
+	liveRegion.setAttribute('aria-live', 'assertive'); 
+	liveRegion.setAttribute('role', 'alert'); 
+	setTimeout(function() { 
+		liveRegion.removeAttribute('aria-live'); 
+		liveRegion.setAttribute('role', 'timer'); 
+	}, 999);
+}
+
+
 window.setInterval(function() { 
-   decrement(); 
-}, 1000);</code>
+    decrement(); 
+}, 1000); 
+
+window.addEventListener('load', function () {
+	setAlert(); //alert on 60 seconds (or beginning)
+});</code>
 </pre>
 
 							<p class="wb-inv">Code ends</p>
