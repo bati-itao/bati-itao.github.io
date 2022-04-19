@@ -22,9 +22,9 @@ background-color:#fff;
 startTimeout();
 function startTimeout(){
 setTimeout(function(){
-$('main, [role=navigation]').attr('aria-hidden','true').css('display','none');
+$('main, [role=alertdialog]').attr('aria-hidden','true').css('display','none');
 setTimeout(function(){
-$('main, [role=navigation]').attr('aria-hidden','true').css('display','inherit');
+$('main, [role=alertdialog]').attr('aria-hidden','true').css('display','inherit');
 }, 1);
 $('body').attr('style','background-color:gray;');
 $('a').attr('tabindex','-1');
@@ -36,7 +36,7 @@ var dialog = $('<div>').attr({role:"alertdialog", "aria-labelledby":"alertHeadin
 $(dialog).html('<h1 id="alertHeading">Session Timeout!</h1><div id="alertText"><p>Due to inactivity, your session will expire in 2 minutes. If additional time is required, please click "Continue Session". To allow this session to end, click "End Session".</p></div><button id="continue">Continue Session</button><button onclick="window.location.href=\'https:\\\accessible.canada.ca\'"> End Session </button>').appendTo('#modalOverlay');
 $('#continue').focus();
 $('#continue').click(function(e) {
-$('main, [role=navigation]').attr('aria-hidden','false');
+$('main, [role=alertdialog]').attr('aria-hidden','false');
 $('body, a').removeAttr('style');
 $('a').removeAttr('tabindex');
 $('button').removeAttr('disabled');

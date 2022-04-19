@@ -144,9 +144,9 @@
 <pre><code class="language-js">startTimeout();
 function startTimeout(){
    setTimeout(function(){
-      $('main, [role=navigation]').attr('aria-hidden','true').css('display','none');
+      $('main, [role=alertdialog]').attr('aria-hidden','true').css('display','none');
       setTimeout(function(){
-         $('main, [role=navigation]').attr('aria-hidden','true').css('display','inherit');
+         $('main, [role=alertdialog]').attr('aria-hidden','true').css('display','inherit');
       }, 1);
       $('body').attr('style','background-color:gray;');
       $('a').attr('tabindex','-1');
@@ -166,7 +166,7 @@ function startTimeout(){
          &lt;button onclick="window.location.href = “https://accessible.canada.ca/;” &gt; End Session &lt;/button&gt;').appendTo('#modalOverlay');
       $('#continue').focus();
       $('#continue').click(function(e) {
-         $('main, [role=navigation]').attr('aria-hidden','false');
+         $('main, [role=alertdialog]').attr('aria-hidden','false');
          $('body, a').removeAttr('style');
          $('a').removeAttr('tabindex');
          $('button').removeAttr('disabled');
