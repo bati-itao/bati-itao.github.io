@@ -2,371 +2,570 @@
 <!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="fr" dir="ltr">
-<!--<![endif]-->
-<head>
-	<meta charset="utf-8">
-	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-	<title>Zones live ARIA - Module 11 – Zones live ARIA et limites de temps</title>
-	<meta content="width=device-width,initial-scale=1" name="viewport">
-	<!-- Meta data -->
-	<meta name="description"
-		content="Lignes directrices sur l’accessibilité relative aux zones ARIA en direct. Les zones ARIA en direct rendent le contenu des pages dynamique accessible. Les sujets abordés comprennent aria live, aria atomic, aria relevant et aria busy.">
-	<meta name="robots" content="noindex">
-		<!-- Meta data-->
-	<!-- Load closure template scripts -->
-	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
-	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
-	<!-- Write closure template -->
-	<script src="../../../scripts/refTop.min.js"></script>
-	<link rel="stylesheet" href="../../../css/a11y-dark.css">
-	<script src="../../../scripts/highlight.min.js"></script>
-	<script>hljs.highlightAll();</script>
-</head>
-
-<body vocab="https://schema.org/" typeof="WebPage">
-	<div id="def-top">
-	</div>
-	<!-- Write closure template -->
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>
+      Zones live ARIA - Module 11 – Zones live ARIA et limites de temps
+    </title>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <!-- Meta data -->
+    <meta
+      name="description"
+      content="Lignes directrices sur l’accessibilité relative aux zones ARIA en direct. Les zones ARIA en direct rendent le contenu des pages dynamique accessible. Les sujets abordés comprennent aria live, aria atomic, aria relevant et aria busy."
+    />
+    <meta name="robots" content="noindex" />
+    <!-- Meta data-->
+    <!-- Load closure template scripts -->
+    <script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+    <script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+    <!-- Write closure template -->
+    <script src="../../../scripts/refTop.min.js"></script>
+    <link rel="stylesheet" href="../../../css/a11y-dark.css" />
+    <script src="../../../scripts/highlight.min.js"></script>
     <script>
-        var defTop = document.getElementById("def-top");
-            defTop.outerHTML = wet.builder.appTop({
-                "appName": [{
-                    "text": "EDSC / Bureau de l’accessibilité des TI",
-                    "href": "../../../index-fr.html"
-                }],
-               "breadcrumbs" : [{
-                    "title": "Accueil",
-                    "href" : "../../../index-fr.html"
-                },{
-                    "title": "Apprentissage",
-                    "href" : "../../index-fr.html"
-                },
-				{
-                    "title": "Cours d'accessibilité Web",
-                    "href" : "../index-fr.html"
-                },
-			{
-                "title": "Module 11 – Zones live ARIA et limites de temps",
-                "href" : "index-fr.html"
-            }],
-            "lngLinks": [{
-                "lang": "en",
-                "href": "aria-live.html",
-                "text": "English"
-            }],
-            "menuPath": "../../../ajax/menu-fr.html"
-        });
+      hljs.highlightAll();
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-			
-	<h1 property="name" id="wb-cont">Zones live ARIA</h1>
-						
-	<nav role="navigation" aria-labelledby="nav-table">
-    <div class="panel panel-default mrgn-tp-md">
-      <header class="panel-heading">
-        <h2 id="nav-table" class="panel-title">Table des matières</h2>
-      </header>
-        <div class="panel-body">
-          <ul>
-            <li><a href="#overview">Zones live ARIA (aperçu)</a></li>
-			<li><a href="#live">aria-live</a></li>
-			<li><a href="#atomic">aria-atomic</a></li>
-			<li><a href="#relevant">aria-relevant</a></li>
-			<li><a href="#busy">aria-busy</a></li>
-			<li><a href="#special-types">Special types of live regions</a></li>
-			<li><a href="#resources">Related WCAG resources</a></li>
-          </ul>
-        </div>
-      </div>
-	</nav>
-	
-			<section>
-				<h2 id="overview">Zones live ARIA (aperçu)</h2>
-				<p>
-          Les zones live ARIA, développées afin de rendre les contenus
-          dynamiques accessibles aux lecteurs d’écran, sont des zones d’une page
-          Web qui annoncent les mises à jour dynamiques de leur contenu lorsque
-          le focus de l’utilisateur et celui du système sont différents.
-          Exemples de cas d’utilisation de zones live&nbsp;:
-				</p>
-				<ul>
-          <li>L’utilisateur reçoit un avis sur Facebook/Twitter</li>
-          <li>Augmentations de prix sur un afficheur boursier</li>
-          <li>Réception d’un nouveau message de clavardage</li>
-          <li>Actualisation d’une barre de progression</li>
-          <li>Erreur de validation d’un formulaire</li>
-          <li>Actualisation du total dans un panier d’achat</li>
-          <li>
-            Une section sur les scores sportifs est actualisée périodiquement
-            pour refléter les statistiques d’un match
-          </li>
-          <li>Un compte à rebours visible est actualisé une fois par minute</li>
-          <li>
-            L’utilisateur clique sur le bouton de carrousel
-            «&nbsp;Suivant&nbsp;» pour passer à une autre diapositive (le
-            contenu de la diapositive est annoncé)
-          </li>
-          <li>
-            L’utilisateur trie le contenu d’un tableau par nom, ce qui déclenche
-            l’annonce «&nbsp;Trié alphabétiquement par nom&nbsp;» Dans cette
-            situation, le texte actualisé pourrait être masqué puisque les
-            utilisateurs voyants n’ont pas besoin de la notification.
-          </li>
-        </ul>
-				<p>
-          La norme WAI-ARIA offre quatre attributs qui permettent à l’auteur
-          d’identifier les zones live et leurs propriétés&nbsp;: <code>aria-live</code>,
-          <code>aria-relevant</code>, <code>aria-atomic</code> et <code>aria-busy</code>. WAI-ARIA offre également cinq
-          rôles spécialisés pour certains types de zones live.
-        </p>			</section>
-			<section>
-				<h2 id="live">aria-live</h2>
-				<p>
-          Une zone live est désignée par un attribut <code>aria-live </code>associé à un
-          élément conteneur, p.&nbsp;ex. <code>span</code> ou <code>div</code>. Les navigateurs et l’API
-          d’accessibilité surveillent le conteneur pour détecter tout texte
-          injecté par script. Dès que du texte est injecté dans la zone live, le
-          lecteur d’écran l’annonce.
-				</p>				
-				<p>
-          La zone live doit être vide au moment du chargement de la page, ou
-          lorsqu’elle est ajoutée pour la première fois au DOM. Il est
-          préférable d’ajouter une zone live au moment du chargement de la page,
-          mais si vous ajoutez la zone au DOM de façon dynamique, il est
-          préférable d’attendre au moins 2&nbsp;secondes pour que l’API
-          d’accessibilité puisse l’identifier avant d’injecter du texte.
-				</p>				
-				<p>
-          L’attribut <code>aria-live</code> accepte trois valeurs possibles&nbsp;: assertive,
-          polite ou off.
-				</p>				
-				<ul>
-          <li>
-            <code>aria-live=”assertive”</code>: Une annonce assertive interrompt tout ce que
-            lecteur d’écran lit. Utilisez des annonces assertive seulement
-            lorsque l’utilisateur doit être avisé immédiatement.
-          </li>
-          <li>
-            <code>aria-live=”polite"&nbsp;</code>: Une annonce polie est retardée jusqu’à ce
-            que le lecteur d’écran termine sa phrase actuelle ou jusqu’à ce que
-            l’utilisateur arrête de taper. Vous utiliserez la valeur polie la
-            plupart du temps.
-          </li>
-          <li>
-            <code>aria-live="off"</code>: indique au lecteur d’écran de suspendre
-            temporairement les interruptions aria-live.
-          </li>
-        </ul>
-				<p>
-          Le
-          <a href="https://www.w3.org/TR/wai-aria-practices-1.1/"
-            >WAI-ARIA Carousel widget</a>
-          utilise <code>aria-live="off"</code> associé au conteneur de diapositive lorsque
-          les diapositives avancent automatiquement, et <code>aria-live="polite"</code>
-          lorsque l’utilisateur fait progresser manuellement les diapositives.
-          Ainsi, un diaporama automatique ne pourra pas submerger l’utilisateur
-          d’un lecteur d’écran qui essaie de lire la page, et il sera plus
-          facile de lire un diaporama manuel.
-				</p>				
-				<div class="panel panel-success">
-					<div class="panel-body">
-					  <h2 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>Bon exemple&nbsp;:
-							Attribut aria-live</h2>
-						
-							<p>
-								Ici, un élément <code>div</code> fournit un conteneur pour une zone live. L’élément
-								est vide au moment du chargement de la page.
-							</p>				
-							<p class="wb-inv">Début du code</p>
-				<pre><code class="language-html">&lt;div aria-live="polite"&gt;&lt;/div&gt;</code></pre>
-<p class="wb-inv">Fin du code</p>
-<p>
-	Lorsque l’utilisateur clique sur un bouton de tri dans l’en-tête d’une
-	colonne de tableau, JavaScript remplit l’élément div avec du texte. Le
-	lecteur d’écran annonce «&nbsp;Trié alphabétiquement par nom&nbsp;».
-</p><p class="wb-inv">Début du code</p>
-				<pre><code class="language-html">&lt;div aria-live=”polite”&gt;Trié alphabétiquement par
+  </head>
+
+  <body vocab="https://schema.org/" typeof="WebPage">
+    <div id="def-top"></div>
+    <!-- Write closure template -->
+    <script>
+      var defTop = document.getElementById("def-top");
+      defTop.outerHTML = wet.builder.appTop({
+        appName: [
+          {
+            text: "EDSC / Bureau de l’accessibilité des TI",
+            href: "../../../index-fr.html",
+          },
+        ],
+        breadcrumbs: [
+          {
+            title: "Accueil",
+            href: "../../../index-fr.html",
+          },
+          {
+            title: "Apprentissage",
+            href: "../../index-fr.html",
+          },
+          {
+            title: "Cours d'accessibilité Web",
+            href: "../index-fr.html",
+          },
+          {
+            title: "Module 11 – Zones live ARIA et limites de temps",
+            href: "index-fr.html",
+          },
+        ],
+        lngLinks: [
+          {
+            lang: "en",
+            href: "aria-live.html",
+            text: "English",
+          },
+        ],
+        menuPath: "../../../ajax/menu-fr.html",
+      });
+    </script>
+    <div class="container">
+      <div class="row">
+        <main
+          class="col-md-9 col-md-push-3"
+          role="main"
+          property="mainContentOfPage"
+        >
+          <h1 property="name" id="wb-cont">Zones live ARIA</h1>
+
+          <nav role="navigation" aria-labelledby="nav-table">
+            <div class="panel panel-default mrgn-tp-md">
+              <header class="panel-heading">
+                <h2 id="nav-table" class="panel-title">Table des matières</h2>
+              </header>
+              <div class="panel-body">
+                <ul>
+                  <li><a href="#overview">Zones live ARIA (aperçu)</a></li>
+                  <li><a href="#live">aria-live</a></li>
+                  <li><a href="#atomic">aria-atomic</a></li>
+                  <li><a href="#relevant">aria-relevant</a></li>
+                  <li><a href="#busy">aria-busy</a></li>
+                  <li>
+                    <a href="#special-types">Types particuliers de zone live</a>
+                  </li>
+                  <li><a href="#resources">Ressources WCAG connexes</a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+          <section>
+            <h2 id="overview">Zones live ARIA (aperçu)</h2>
+            <p>
+              Les zones live ARIA, développées afin de rendre les contenus
+              dynamiques accessibles aux lecteurs d’écran, sont des zones d’une
+              page Web qui annoncent les mises à jour dynamiques de leur contenu
+              lorsque le focus de l’utilisateur et celui du système sont
+              différents. Exemples de cas d’utilisation de zones live&nbsp;:
+            </p>
+            <ul>
+              <li>L’utilisateur reçoit un avis sur Facebook/Twitter</li>
+              <li>Augmentations de prix sur un afficheur boursier</li>
+              <li>Réception d’un nouveau message de clavardage</li>
+              <li>Actualisation d’une barre de progression</li>
+              <li>Erreur de validation d’un formulaire</li>
+              <li>Actualisation du total dans un panier d’achat</li>
+              <li>
+                Une section sur les scores sportifs est actualisée
+                périodiquement pour refléter les statistiques d’un match
+              </li>
+              <li>
+                Un compte à rebours visible est actualisé une fois par minute
+              </li>
+              <li>
+                L’utilisateur clique sur le bouton de carrousel
+                «&nbsp;Suivant&nbsp;» pour passer à une autre diapositive (le
+                contenu de la diapositive est annoncé)
+              </li>
+              <li>
+                L’utilisateur trie le contenu d’un tableau par nom, ce qui
+                déclenche l’annonce «&nbsp;Trié alphabétiquement par nom&nbsp;»
+                Dans cette situation, le texte actualisé pourrait être masqué
+                puisque les utilisateurs voyants n’ont pas besoin de la
+                notification.
+              </li>
+            </ul>
+            <p>
+              La norme WAI-ARIA offre quatre attributs qui permettent à l’auteur
+              d’identifier les zones live et leurs propriétés&nbsp;:
+              <code>aria-live</code>, <code>aria-relevant</code>,
+              <code>aria-atomic</code> et <code>aria-busy</code>. WAI-ARIA offre
+              également cinq rôles spécialisés pour certains types de zones
+              live.
+            </p>
+          </section>
+          <section>
+            <h2 id="live">aria-live</h2>
+            <p>
+              Une zone live est désignée par un attribut
+              <code>aria-live </code>associé à un élément conteneur, p.&nbsp;ex.
+              <code>span</code> ou <code>div</code>. Les navigateurs et l’API
+              d’accessibilité surveillent le conteneur pour détecter tout texte
+              injecté par script. Dès que du texte est injecté dans la zone
+              live, le lecteur d’écran l’annonce.
+            </p>
+            <p>
+              La zone live doit être vide au moment du chargement de la page, ou
+              lorsqu’elle est ajoutée pour la première fois au DOM. Il est
+              préférable d’ajouter une zone live au moment du chargement de la
+              page, mais si vous ajoutez la zone au DOM de façon dynamique, il
+              est préférable d’attendre au moins 2&nbsp;secondes pour que l’API
+              d’accessibilité puisse l’identifier avant d’injecter du texte.
+            </p>
+            <p>
+              L’attribut <code>aria-live</code> accepte trois valeurs
+              possibles&nbsp;: assertive, polite ou off.
+            </p>
+            <ul>
+              <li>
+                <code>aria-live=”assertive”</code>: Une annonce assertive
+                interrompt tout ce que lecteur d’écran lit. Utilisez des
+                annonces assertive seulement lorsque l’utilisateur doit être
+                avisé immédiatement.
+              </li>
+              <li>
+                <code>aria-live=”polite"&nbsp;</code>: Une annonce polie est
+                retardée jusqu’à ce que le lecteur d’écran termine sa phrase
+                actuelle ou jusqu’à ce que l’utilisateur arrête de taper. Vous
+                utiliserez la valeur polie la plupart du temps.
+              </li>
+              <li>
+                <code>aria-live="off"</code>: indique au lecteur d’écran de
+                suspendre temporairement les interruptions aria-live.
+              </li>
+            </ul>
+            <p>
+              Le
+              <a href="https://www.w3.org/TR/wai-aria-practices-1.1/"
+                >WAI-ARIA Carousel widget</a
+              >
+              utilise <code>aria-live="off"</code> associé au conteneur de
+              diapositive lorsque les diapositives avancent automatiquement, et
+              <code>aria-live="polite"</code>
+              lorsque l’utilisateur fait progresser manuellement les
+              diapositives. Ainsi, un diaporama automatique ne pourra pas
+              submerger l’utilisateur d’un lecteur d’écran qui essaie de lire la
+              page, et il sera plus facile de lire un diaporama manuel.
+            </p>
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <h2
+                  class="text-success mrgn-tp-0 h3"
+                  id="pattern-attribute-match"
+                >
+                  <span class="glyphicon glyphicon-ok-circle"></span>Bon
+                  exemple&nbsp;: Attribut aria-live
+                </h2>
+
+                <p>
+                  Ici, un élément <code>div</code> fournit un conteneur pour une
+                  zone live. L’élément est vide au moment du chargement de la
+                  page.
+                </p>
+                <p class="wb-inv">Début du code</p>
+                <pre><code class="language-html">&lt;div aria-live="polite"&gt;&lt;/div&gt;</code></pre>
+                <p class="wb-inv">Fin du code</p>
+                <p>
+                  Lorsque l’utilisateur clique sur un bouton de tri dans
+                  l’en-tête d’une colonne de tableau, JavaScript remplit
+                  l’élément div avec du texte. Le lecteur d’écran annonce
+                  «&nbsp;Trié alphabétiquement par nom&nbsp;».
+                </p>
+                <p class="wb-inv">Début du code</p>
+                <pre><code class="language-html">&lt;div aria-live=”polite”&gt;Trié alphabétiquement par
           nom&lt;/div&gt;</code></pre>
-<p class="wb-inv">Fin du code</p>
-</div>
-</div>
-			</section>
-			
-			<section>
-				<h2 id="atomic">aria-atomic</h2>
-				<p>
-          Utilisez l’attribut <code>aria-atomic</code> pour préciser si toute la zone live
-          doit être annoncé, ou seulement le texte qui a changé.
-        </p>				<ul>
-					<li>
-            <code>aria-atomic=”false”</code>: Lorsqu’une zone live est actualisée, seul le
-            texte actualisé est annoncé. Utilisez cette valeur lorsque le texte
-            actualisé fait du sens par lui-même. Il s’agit de la valeur par
-            défaut.
-					</li>					
-					<li>
-            <code>aria-atomic=”true”&nbsp;</code>: Lorsqu’une zone live est actualisée, toute
-            la zone est annoncée. Utilisez cette valeur lorsque le texte
-            statique voisin dans la zone live fournit le contexte nécessaire
-            pour donner un sens au texte actualisé.
-					</li>				
-				</ul>
-				
-			<div class="panel panel-success">
-				<div class="panel-body">
-					<h2 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>Bons exemples&nbsp;: aria-atomic false ou true</h2>
-				
-					<p>
-						Dans ces exemples, le prix total actualisé au cours d’un processus
-						d’achat est annoncé lorsque l’utilisateur ajoute un produit.
-					</p>
-					<p>
-						Dans ce premier exemple, l’attribut aria-atomic n’est pas utilisé, de
-						sorte que la valeur par défaut s’applique, c’est-à-dire
-						«&nbsp;false&nbsp;». Seul le contenu dynamique est annoncé,
-						c’est-à-dire le prix. Si le contenu dynamique n’est pas significatif
-						en soi, il peut facilement confondre les utilisateurs. Dans ce cas, le
-						contenu dynamique à lui seul est vague.
-					</p>
-					<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;p aria-live="polite"&gt;
+                <p class="wb-inv">Fin du code</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 id="atomic">aria-atomic</h2>
+            <p>
+              Utilisez l’attribut <code>aria-atomic</code> pour préciser si
+              toute la zone live doit être annoncé, ou seulement le texte qui a
+              changé.
+            </p>
+            <ul>
+              <li>
+                <code>aria-atomic=”false”</code>: Lorsqu’une zone live est
+                actualisée, seul le texte actualisé est annoncé. Utilisez cette
+                valeur lorsque le texte actualisé fait du sens par lui-même. Il
+                s’agit de la valeur par défaut.
+              </li>
+              <li>
+                <code>aria-atomic=”true”&nbsp;</code>: Lorsqu’une zone live est
+                actualisée, toute la zone est annoncée. Utilisez cette valeur
+                lorsque le texte statique voisin dans la zone live fournit le
+                contexte nécessaire pour donner un sens au texte actualisé.
+              </li>
+            </ul>
+
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <h2
+                  class="text-success mrgn-tp-0 h3"
+                  id="pattern-attribute-match"
+                >
+                  <span class="glyphicon glyphicon-ok-circle"></span>Bons
+                  exemples&nbsp;: aria-atomic false ou true
+                </h2>
+
+                <p>
+                  Dans ces exemples, le prix total actualisé au cours d’un
+                  processus d’achat est annoncé lorsque l’utilisateur ajoute un
+                  produit.
+                </p>
+                <p>
+                  Dans ce premier exemple, l’attribut aria-atomic n’est pas
+                  utilisé, de sorte que la valeur par défaut s’applique,
+                  c’est-à-dire «&nbsp;false&nbsp;». Seul le contenu dynamique
+                  est annoncé, c’est-à-dire le prix. Si le contenu dynamique
+                  n’est pas significatif en soi, il peut facilement confondre
+                  les utilisateurs. Dans ce cas, le contenu dynamique à lui seul
+                  est vague.
+                </p>
+                <p class="wb-inv">Début du code</p>
+                <pre><code class="language-html">&lt;p aria-live="polite"&gt;
    Total price:
    &lt;span id="total-price"&gt;$84.52&lt;/span&gt;
 &lt;/p&gt;</code></pre>
-<p class="wb-inv">Fin du code</p>
-<p>
-	Dans ce deuxième exemple, l’attribut aria-atomique est fixé à
-	«&nbsp;true&nbsp;». Tout le contenu de la zone live est annoncé,
-	fournissant le contexte nécessaire pour donner un sens au contenu
-	dynamique&nbsp;:
-</p>
-<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">
+                <p class="wb-inv">Fin du code</p>
+                <p>
+                  Dans ce deuxième exemple, l’attribut aria-atomique est fixé à
+                  «&nbsp;true&nbsp;». Tout le contenu de la zone live est
+                  annoncé, fournissant le contexte nécessaire pour donner un
+                  sens au contenu dynamique&nbsp;:
+                </p>
+                <p class="wb-inv">Début du code</p>
+                <pre><code class="language-html">
 &lt;p aria-live="polite" aria-atomic="true"&gt;
    Total price:
    &lt;span id="total-price"&gt;$84.52&lt;/span&gt;
 &lt;/p&gt;</code></pre>
-				<p class="wb-inv">Fin du code</p>
-			</div>
-		</div>
-			</section>
-			<section>
-				<h2 id="relevant">aria-relevant</h2>
-				<p>
-          L’attribut aria-relevant spécifie quels types de changement apportés à
-          une zone live doivent être annoncés.
-				</p>				
-				<ul>
-          <li>
-            <code>aria-relevant="all"&nbsp;</code>: Tous les changements sont annoncés. À
-            utiliser avec prudence, car ce paramètre peut être «&nbsp;verbeux
-            &nbsp;».
-          </li>
-          <li>
-            <code>aria-relevant="additions"&nbsp;</code>: Les insertions de nœuds dans la
-            zone live sont annoncées.
-          </li>
-          <li>
-            <code>aria-relevant="removals« </code>: Les suppressions de nœuds dans la zone
-            live sont annoncées. À réserver pour des changements importants,
-            comme un collègue qui quitte une salle de clavardage.
-          </li>
-          <li>
-            <code>aria-relevant="text"&nbsp;</code>: Les modifications au contenu textuel (y
-            compris les équivalents textuels, comme alt text) dans la zone live
-            sont annoncées.
-          </li>
-        </ul>
-				<p>A live region has an implicit <code>aria-relevant</code> value of “additions" and “text", so the attribute isn’t needed if the design calls for the <mark><del>normal</del> <ins>default</ins></mark> behaviour of announcing added content. Only use the <code>aria-relevant</code> attribute if you need to communicate the removal of content from a live region. </p>
-			</section>
-			<section>
-				<h2 id="busy">aria-busy</h2>
-				<p>
-          Utilisez l’attribut <code>aria-busy</code> pour aviser la technologie d’assistance
-          qu’elle devrait ignorer temporairement les changements apportés à un
-          élément lorsque des éléments sont en cours de chargement. Configurez
-          <code>aria-busy="true"</code> initialement et, une fois tous les éléments chargés,
-          effacez l’attribut ou configurez-le à <code>aria-busy="false"</code>.
-        </p>			</section>
-			<section>
-				<h2 id="special-types">Special types of live regions</h2>
-				
-				<h3 class="">role="alert"</h3>
-				<p>Use the ARIA <code>alert</code> role to announce important and typically time-sensitive information that requires the user’s immediate attention. Setting <code>role="alert"</code> is equivalent to setting <code>aria-live="assertive"</code> and <code>aria-atomic="true"</code>. The only difference is that some screen readers begin the announcement by saying "alert", to identify it to users as an alert.</p>
-				<div class="panel panel-success">
-					<div class="panel-body">
-						<h2 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using role="alert"</h2>
-					
-						<p>
-							<mark>
-								<del>In this example, a div has <code>role="alert"</code> and CSS <code>display: none</code> attributes.</del>
-								<ins>In this example, a <code>&lt;div&gt;</code> element has a <code>role="alert"</code> attribute and is set via CSS to <code>display: none</code>.</ins>
-							</mark> 
-						</p>
-						Changing the <code>display</code> value <mark><del>with CSS or JavaScript</del></mark> triggers the live announcement. Exposing such previously-hidden text is equivalent to injecting text.</p>
-						<p>The initial alert has the CSS class name <code>hidden</code>, which hides the alert text with <code>display: none</code>. </p>
-						<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;form id="updateProfile" method="post" action="javascript:void(0)"&gt;
-   &lt;p&gt;&lt;button&gt;Update profile&lt;button&gt;&lt;/p&gt;
-   &lt;div class="confirm hidden" role="alert"&gt;You profile has been updated.&lt;/div&gt;
-&lt;/form&gt;</code></pre>
-						<p class="wb-inv">Fin du code</p>
-						<p class="wb-inv">Début du code</p>
-<pre><code class="language-css">.hidden { display: none; }</code></pre>
-						<p class="wb-inv">Fin du code</p>
-						<p>The alert is triggered by removing the CSS class name <code>hidden</code></p>
-						<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;form id="updateProfile" method="post" action="javascript:void(0)"&gt;
-   &lt;p&gt;&lt;button&gt;Update profile&lt;button&gt;&lt;/p&gt;
-   &lt;div class="confirm" role="alert"&gt;You profile has been updated.&lt;/div&gt;
-&lt;/form&gt;</code></pre>
-						<p class="wb-inv">Fin du code</p>
-					</div>
-				</div>
-				<h3 class="">role="status"</h3>
-				<p>Use the ARIA <code>status</code> role to announce advisory information to the user that is less urgent than an alert. Setting <code>role="status"</code> is equivalent to setting <code>aria-live="polite"</code> and <code>aria-atomic="true"</code>. </p>
-				<p>If an element on the page controls what appears in the status, assign the controlling element the <code>aria-controls="IDREF"</code> attribute, pointing to the <code>id</code> attribute value of the element with <code>role="status"</code>.</p>
-				
-					
-			<div class="panel panel-success">
-				<div class="panel-body">
-					<h2 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Use role="status"</h2>
-					
-					<p>In this example, a paragraph with <code>role="status"</code> displays the number of items in a shopping cart. Because <code>role="status"</code> by default uses <code>aria-atomic="true"</code>, the whole contents of the paragraph are announced. When the count updates, the live announcement kicks in. Screen readers declare the <mark><del>alt text of the shopping cart icon</del> <ins>the visually-hidden text "Shopping cart"</ins></mark>, the revised count, and the word "items".</p>
-					<p><mark>The <code>title</code> attribute on the <code>&lt;span&gt;</code> holding the icon provides a visual label for mouse users. Since support for the <code>title</code> attribute is inconsistent across screen readers, the element is hidden from all of them (using the <code>aria-hidden="true"</code> attribute) and the more reliable visually-hidden text is used to label the icon (using the class <code>.wb-inv</code>).</mark></p>
-					<p><mark><del>To prevent the <code>&lt;br&gt;</code> element from being declared by screen readers it’s given the <code>aria-hidden="true"</code> attribute.</del></mark> The <code>aria-controls="IDREF"</code> attribute is set on the button and given the <code>id</code> attribute value of the <mark><del>span</del></mark> element holding the <mark><del>count</del> <ins><code>role="status"</code> attribute</ins></mark>.</p>
-					
-					<div class="panel panel-primary mrgn-tp-md">
-						<div class="panel-body well mrgn-bttm-0">
-							<p class="wb-inv">Example begins</p>
-							<p role="status" id="cart">
-								<span class="glyphicon glyphicon-shopping-cart" title="Shopping cart" aria-hidden="true"></span>
-								<span class="wb-inv">Shopping cart</span>
-								<span id="cart-count">0</span> 
-								items
-							</p>
-							<button id="btn" onclick="buy()" aria-controls="cart">Add to cart</button>
-							<script>
-							let counter = 0;
-							function buy() {
-								counter += 1;
-								document.getElementById("cart-count").innerHTML = counter;
-							}
-							</script>
-							<p class="wb-inv">Example ends</p>
-						</div>
-					</div>
+                <p class="wb-inv">Fin du code</p>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2 id="relevant">aria-relevant</h2>
+            <p>
+              L’attribut aria-relevant spécifie quels types de changement
+              apportés à une zone live doivent être annoncés.
+            </p>
+            <ul>
+              <li>
+                <code>aria-relevant="all"&nbsp;</code>: Tous les changements
+                sont annoncés. À utiliser avec prudence, car ce paramètre peut
+                être «&nbsp;verbeux &nbsp;».
+              </li>
+              <li>
+                <code>aria-relevant="additions"&nbsp;</code>: Les insertions de
+                nœuds dans la zone live sont annoncées.
+              </li>
+              <li>
+                <code>aria-relevant="removals« </code>: Les suppressions de
+                nœuds dans la zone live sont annoncées. À réserver pour des
+                changements importants, comme un collègue qui quitte une salle
+                de clavardage.
+              </li>
+              <li>
+                <code>aria-relevant="text"&nbsp;</code>: Les modifications au
+                contenu textuel (y compris les équivalents textuels, comme alt
+                text) dans la zone live sont annoncées.
+              </li>
+            </ul>
+            <p>
+              A live region has an implicit <code>aria-relevant</code> value of
+              “additions" and “text", so the attribute isn’t needed if the
+              design calls for the
+              <mark><del>normal</del> <ins>default</ins></mark> behaviour of
+              announcing added content. Only use the
+              <code>aria-relevant</code> attribute if you need to communicate
+              the removal of content from a live region.
+            </p>
+          </section>
+          <section>
+            <h2 id="busy">aria-busy</h2>
+            <p>
+              Utilisez l’attribut <code>aria-busy</code> pour aviser la
+              technologie d’assistance qu’elle devrait ignorer temporairement
+              les changements apportés à un élément lorsque des éléments sont en
+              cours de chargement. Configurez
+              <code>aria-busy="true"</code> initialement et, une fois tous les
+              éléments chargés, effacez l’attribut ou configurez-le à
+              <code>aria-busy="false"</code>.
+            </p>
+          </section>
+          <section>
+            <h2 id="special-types">Types particuliers de zone live</h2>
 
-					<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;p role="status" id="cart"&gt;
-   &lt;span title="Shopping cart" aria-hidden="true" class="glyphicon glyphicon-shopping-cart"&gt;&lt;/span&gt;
-   &lt;span class="wb-inv"&gt;Shopping cart&lt;/span&gt;
+            <h3 class="">role="alert"</h3>
+            <p>
+              Utilisez le rôle ARIA <code>alert</code> pour annoncer des
+              informations importantes et généralement urgentes qui nécessitent
+              l’attention immédiate de l’utilisateur. Configurer
+              <code>role="alert"</code> équivaut à configurer
+              <code>aria-live="assertive"</code> et
+              <code>aria-atomic="true"</code>. La seule différence réside dans
+              le fait que certains lecteurs d’écran commencent l’annonce en
+              disant «&nbsp;Alerte&nbsp;», pour indiquer à l’utilisateur qu’il
+              s’agit d’une information urgente.
+            </p>
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <h2
+                  class="text-success mrgn-tp-0 h3"
+                  id="pattern-attribute-match"
+                >
+                  <span class="glyphicon glyphicon-ok-circle"></span>Bon
+                  exemple&nbsp;: Utilisation de role="alert"
+                </h2>
+
+                <p>
+                  <mark>
+                    <del
+                      >In this example, a div has <code>role="alert"</code> and
+                      CSS <code>display: none</code> attributes.</del
+                    >
+                    <ins
+                      >In this example, a <code>&lt;div&gt;</code> element has a
+                      <code>role="alert"</code> attribute and is set via CSS to
+                      <code>display: none</code>.</ins
+                    >
+                    Dans cet exemple, une div utilise
+                    <code>role="alert"</code> et le code CSS affiche&nbsp;:
+                    aucun attribut.
+                  </mark>
+                </p>
+
+                <p>
+                  La modification de la valeur <code>affichée</code>
+                  <mark><del>par CSS ou JavaScript</del></mark> déclenche
+                  l’annonce de la zone live. Exposer ce texte caché précédemment
+                  équivaut à injecter du texte.
+                </p>
+                <p>
+                  The initial alert has the CSS class name <code>hidden</code>,
+                  which hides the alert text with <code>display: none</code>.
+                </p>
+                <p>
+                  L’alerte initiale comporte le nom de classe CSS
+                  «&nbsp;<code>hidden</code>&nbsp;», ce qui masque le texte de
+                  l’alerte avec <code>affichage&nbsp;</code>: aucun.
+                </p>
+                <p class="wb-inv">Début du code</p>
+                <pre><code class="language-html">&lt;form id="updateProfile" method="post" action="javascript:void(0)"&gt;
+   &lt;p&gt;&lt;button&gt;Mettre à jour le profil&lt;button&gt;&lt;/p&gt;
+   &lt;div class="confirm hidden" role="alert"&gt;Votre profil a été mis
+	 à jour.&lt;/div&gt;
+&lt;/form&gt;</code></pre>
+                <p class="wb-inv">Fin du code</p>
+                <p class="wb-inv">Début du code</p>
+                <pre><code class="language-css">.hidden { display: none; }</code></pre>
+                <p class="wb-inv">Fin du code</p>
+                <p>
+                  The alert is triggered by removing the CSS class name
+                  <code>hidden</code>
+                  L’alerte est déclenchée en supprimant le nom de classe CSS
+                  «&nbsp;<code>hidden</code>&nbsp;»&nbsp;:
+                </p>
+                <p class="wb-inv">Début du code</p>
+                <pre><code class="language-html">&lt;form id="updateProfile" method="post" action="javascript:void(0)"&gt;
+   &lt;p&gt;&lt;button&gt;Mettre à jour le profil&lt;button&gt;&lt;/p&gt;
+   &lt;div class="confirm" role="alert"&gt;Votre profil a été mis à
+	 jour.&lt;/div&gt;
+&lt;/form&gt;</code></pre>
+                <p class="wb-inv">Fin du code</p>
+              </div>
+            </div>
+            <h3 class="">role="status"</h3>
+
+            <p>
+              Utilisez le rôle ARIA <code>status</code> pour annoncer à
+              l’utilisateur des informations moins urgentes qu’une alerte.
+              Configurer <code>role="status"</code> équivaut à configurer
+              <code>aria-live="polite"</code> et
+              <code>aria-atomic="true"</code>.
+            </p>
+
+            <p>
+              Si un élément de la page contrôle ce qui est affiché dans l’état,
+              attribuez à l’élément de contrôle l’attribut
+              <code>aria-controls="IDREF"</code> en pointant vers la valeur
+              d’attribut <code>id</code> de l’élément avec
+              <code>role="status"</code>.
+            </p>
+
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <h2
+                  class="text-success mrgn-tp-0 h3"
+                  id="pattern-attribute-match"
+                >
+                  <span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon
+                  exemple&nbsp;: Utilisation de role="status"
+                </h2>
+
+                <p>
+                  <mark
+                    >Left both paragraph below, not sure which portion to del in
+                    FR</mark
+                  >
+                  In this example, a paragraph with
+                  <code>role="status"</code> displays the number of items in a
+                  shopping cart. Because <code>role="status"</code> by default
+                  uses <code>aria-atomic="true"</code>, the whole contents of
+                  the paragraph are announced. When the count updates, the live
+                  announcement kicks in. Screen readers declare the
+                  <mark
+                    ><del>alt text of the shopping cart icon</del>
+                    <ins>the visually-hidden text "Shopping cart"</ins></mark
+                  >, the revised count, and the word "items".
+                </p>
+                <p>
+                  Dans cet exemple, un paragraphe comportant
+                  <code>role="status"</code> affiche le nombre d’articles dans
+                  un panier d’achat. Puisque <code>role="status"</code> par
+                  défaut utilise <code>aria-atomic="true"</code>, l’ensemble du
+                  contenu du paragraphe est annoncé. Lorsque le nombre
+                  d’articles est actualisé, l’annonce de la zone live est
+                  activée. Les lecteurs d’écran déclarent le texte alternatif de
+                  l’icône du panier d’achat, le nombre d’articles actualisé et
+                  le mot «&nbsp;articles&nbsp;».
+                </p>
+                <p>
+                  <mark
+                    >The <code>title</code> attribute on the
+                    <code>&lt;span&gt;</code> holding the icon provides a visual
+                    label for mouse users. Since support for the
+                    <code>title</code> attribute is inconsistent across screen
+                    readers, the element is hidden from all of them (using the
+                    <code>aria-hidden="true"</code> attribute) and the more
+                    reliable visually-hidden text is used to label the icon
+                    (using the class <code>.wb-inv</code>).</mark
+                  >
+                </p>
+
+                <p>
+                  <mark
+                    >Left both paragraph below, not sure which portion to del in
+                    FR</mark
+                  >
+                  <mark
+                    ><del
+                      >To prevent the <code>&lt;br&gt;</code> element from being
+                      declared by screen readers it’s given the
+                      <code>aria-hidden="true"</code> attribute.</del
+                    ></mark
+                  >
+                  The <code>aria-controls="IDREF"</code> attribute is set on the
+                  button and given the <code>id</code> attribute value of the
+                  <mark><del>span</del></mark> element holding the
+                  <mark
+                    ><del>count</del>
+                    <ins><code>role="status"</code> attribute</ins></mark
+                  >.
+                </p>
+                <p>
+                  <mark
+                    ><del>
+                      Pour éviter que l’élément <code>&lt;br&gt;</code> soit
+                      déclaré par les lecteurs d’écran, on lui donne l’attribut
+                      <code>aria-hidden="true"</code></del
+                    ></mark
+                  >. L’attribut <code>aria-controls="IDREF"</code> est associé
+                  au bouton et reçoit la valeur d’attribut <code>id</code> de
+                  l’élément <mark><del>span</del></mark> qui contient le nombre
+                  d’articles.
+                </p>
+                <div class="panel panel-primary mrgn-tp-md">
+                  <div class="panel-body well mrgn-bttm-0">
+                    <p class="wb-inv">Example begins</p>
+                    <p role="status" id="cart">
+                      <span
+                        class="glyphicon glyphicon-shopping-cart"
+                        title="Panier d’achat"
+                        aria-hidden="true"
+                      ></span>
+                      <span class="wb-inv">Panier d’achat</span>
+                      <span id="cart-count">0</span>
+                      articles
+                    </p>
+                    <button id="btn" onclick="buy()" aria-controls="cart">
+                      Ajouter au panier
+                    </button>
+                    <script>
+                      let counter = 0;
+                      function buy() {
+                        counter += 1;
+                        document.getElementById(
+                          "cart-count"
+                        ).innerHTML = counter;
+                      }
+                    </script>
+                    <p class="wb-inv">Example ends</p>
+                  </div>
+                </div>
+
+                <p class="wb-inv">Début du code</p>
+                <pre><code class="language-html">&lt;p role="status" id="cart"&gt;
+   &lt;span title="Panier d’achat" aria-hidden="true" class="glyphicon glyphicon-shopping-cart"&gt;&lt;/span&gt;
+   &lt;span class="wb-inv"&gt;Panier d’achat&lt;/span&gt;
    &lt;span id="cart-count"&gt;0&lt;/span&gt; 
-   items
+   articles
 &lt;/p&gt;
-&lt;button id="btn" onclick="buy()" aria-controls="cart"&gt;Add to cart&lt;/button&gt;
+&lt;button id="btn" onclick="buy()" aria-controls="cart"&gt;Ajouter au panier&lt;/button&gt;
 &lt;script&gt;
    let counter = 0;
    function buy() {
@@ -374,9 +573,9 @@
       document.getElementById("cart-count").innerHTML = counter;
    }
 &lt;/script&gt;</code></pre>
-					<p class="wb-inv">Fin du code</p>
-					<p class="wb-inv">Début du code</p>
-<pre><code class="language-css">.wb-inv {
+                <p class="wb-inv">Fin du code</p>
+                <p class="wb-inv">Début du code</p>
+                <pre><code class="language-css">.wb-inv {
    clip: rect(1px,1px,1px,1px);
    height: 1px;
    margin: 0;
@@ -394,35 +593,85 @@
    line-height: 1;
    -webkit-font-smoothing: antialiased;
 }</code></pre>
-					<p class="wb-inv">Fin du code</p>
-			</div>
-		</div>
-				
-				<h3 class="">role="timer"</h3>
-				<p>Use the ARIA <code>timer</code> role to identify a numerical counter listing the time elapsed from a starting point or the time remaining until an end point. The role has the implied value of <code>aria-live="off"</code>, to prevent frequent announcements from overwhelming the screen reader user. However, you can announce the time at regular intervals by using JavaScript to briefly set the <code>aria-live="assertive"</code> and <code>role="alert"</code> attributes, overruling <code>aria-live="off"</code> and <code>role="timer"</code>.</p>
-				<div class="panel panel-success">
-					<div class="panel-body">
-						<h2 class="text-success mrgn-tp-0 h3" id="countdown"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example:  Countdown announcing at intervals</h2>
-						<p>In this example, a countdown uses the <code>role="timer"</code>, so is silent in screen readers due to its implicit <code>aria-live="off"</code> setting.</p>
-										
-<pre><code class="language-html">&lt;div id="countdown" role="timer" aria-atomic="true"&gt;
+                <p class="wb-inv">Fin du code</p>
+              </div>
+            </div>
+
+            <h3 class="">role="timer"</h3>
+
+            <p>
+              Utilisez le rôle ARIA <code>timer</code> pour identifier un
+              compteur numérique indiquant le temps écoulé depuis un point de
+              départ ou le temps restant avant un point de fin. Le rôle comporte
+              la valeur implicite <code>aria-live="off"</code> pour éviter que
+              des annonces trop fréquentes submergent l’utilisateur du lecteur
+              d’écran. Toutefois, vous pouvez annoncer le délai à intervalles
+              réguliers en utilisant JavaScript pour définir brièvement les
+              attributs <code>aria-live="assertive"</code> et
+              <code>role="alert"</code> de manière à ignorer
+              <code>aria-live="off"</code> et <code>role="timer"</code>.
+            </p>
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <h2 class="text-success mrgn-tp-0 h3" id="countdown">
+                  <span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon
+                  exemple&nbsp;: Compte à rebours annoncé à intervalles
+                  réguliers
+                </h2>
+                <p>
+                  Dans cet exemple, un compte à rebours utilise
+                  <code>role="timer"</code>, et est donc silencieux pour les
+                  lecteurs d’écran en raison de son paramètre implicite
+                  a<code>aria-live="off"</code>.
+                </p>
+
+                <pre><code class="language-html">&lt;div id="countdown" role="timer" aria-atomic="true"&gt;
    &lt;span id="number"&gt;60&lt;/span&gt; seconds left!
 &lt;/div&gt;</code>
 </pre>
-						<p>However, at 15-second intervals, JavaScript briefly adds the <code>aria-live ="assertive"</code> attribute and replaces the <code>timer</code> role with <code>role="alert"</code>. Screen readers announce the initial alert, “60 seconds left!", then the time remaining every 15 seconds: “45 seconds left!", etc.</p>
-										
-<pre><code class="language-html">&lt;div id="countdown" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+                <p>
+                  Toutefois, à des intervalles de 15&nbsp;secondes, JavaScript
+                  ajoute brièvement l’attribut
+                  <code>aria-live ="assertive"</code> et remplace le rôle
+                  <code>timer</code> par <code>role="alert"</code>. Les lecteurs
+                  d’écran annoncent l’alerte initiale, «&nbsp;Il reste
+                  60&nbsp;secondes!&nbsp;», puis le temps restant toutes les
+                  15&nbsp;secondes&nbsp;: «&nbsp;Il reste
+                  45&nbsp;secondes!&nbsp;», etc.
+                </p>
+
+                <pre><code class="language-html">&lt;div id="countdown" role="alert" aria-live="assertive" aria-atomic="true"&gt;
    &lt;span id="number"&gt;45&lt;/span&gt; seconds left!
 &lt;/div&gt;</code>
 </pre>
-						<p>An interval of 15 seconds between announcements is too brief in practice and is done here simply to illustrate the technique. One minute is a more practical interval.</p>
-						<p>Try visiting the <a href="example-countdown.html" target="_blank">live demo<span class="wb-inv"> (Opens in new tab)</span></a>  with a screen reader running.</p>
-				
-						<p><mark>TODO: add declarations at 60 and 0 seconds left (to sample code and live example). Currently only works at 45, 30 and 15 sec left.</mark></p>
-						<details class="mrgn-tp-lg">
-							<summary class="bg-info">View JavaScript</summary>
-							<p class="wb-inv">Début du code</p>
-<pre><code class="language-js">function decrement() { 
+                <p>
+                  En fait, un intervalle de 15&nbsp;secondes entre les annonces
+                  est trop courte en pratique et nous l’utilisons ici simplement
+                  pour illustrer la technique. Une minute est un intervalle plus
+                  pratique.
+                </p>
+                <p>
+                  Try visiting the
+                  <a href="example-countdown.html" target="_blank"
+                    >live demo<span class="wb-inv"> (Opens in new tab)</span></a
+                  >
+									with a screen reader running.
+									Faites l’essai en visitant <a href="example-countdown.html" target="_blank"
+									>la démonstration <span class="wb-inv"></span>en direct </span></a
+                  >avec un lecteur d’écran.
+                </p>
+
+                <p>
+                  <mark
+                    >TODO: add declarations at 60 and 0 seconds left (to sample
+                    code and live example). Currently only works at 45, 30 and
+                    15 sec left.</mark
+                  >
+                </p>
+                <details class="mrgn-tp-lg">
+                  <summary class="bg-info">View JavaScript</summary>
+                  <p class="wb-inv">Début du code</p>
+                  <pre><code class="language-js">function decrement() { 
 
     var numElement = document.getElementById('number'); 
    
@@ -456,130 +705,247 @@ window.addEventListener('load', function () {
 });</code>
 </pre>
 
-							<p class="wb-inv">Fin du code</p>
-						</details>
-</div>
-</div>
-				<h3 class="">role="marquee"</h3>
-				<p>Use the ARIA <code>marquee</code> role to define an area as a type of live region with non-essential announcements that change frequently. Examples include stock tickers and frequently-changing ad banners. </p>
-				<p>Elements with the <code>marquee</code> role have an implicit <code>aria-live="off"</code>. As with the <code>timer</code> role, the content changes too frequently to announce in screen readers. Screen reader users can still navigate to the area to read the text. </p>
-				<p>A marquee is required to have an accessible name. If a visible label is present use the <code>aria-labelledby</code> attribute; otherwise, use <code>aria-label</code>.</p>
-				<h3>role="log"</h3>
-				<p>Use the ARIA log role to keep track of sequential updates, such as a chat log, messaging history, game log or an error log. New information is added to the end, old information is optionally removed from the beginning. Updates to the live region are announced when the user is idle. The live region defined by <code>role="log"</code> has implicit <code>aria-live="polite"</code> and <code>aria-atomic="true"</code> attribute values.</p>
-			</section>
-			<section>				
-				<h2 id="resources" class="wb-inv">Related WCAG resources</h2>
-				<details class="mrgn-tp-lg">
-					<summary class="bg-info">Related WCAG resources</summary>
-				<h3 class="">Success criteria</h3>
-				<ul>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification">3.3.1: Error Identification</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages">4.1.3: Status Messages</a>
-					</li>
-				</ul>
-				<h3>Techniques</h3>
-				<ul>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA19">ARIA19: Using ARIA role=alert or Live Regions to Identify Errors</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA22">ARIA22: Using role="status" to present status messages</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA23">ARIA23: Using role=log to identify sequential information updates</a>
-					</li>
-				</ul>
-				<h3 class="">WAI-ARIA 1.1</h3>
-				<ul>
-					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/">aria-live (property)</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/">aria-atomic (state)</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/">aria-relevant (property)</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/">aria-busy (property)</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/">alert (role)</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/">status (role)</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/">timer (role)</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/">marquee (role)</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/">log (role)</a>
-					</li>
-				</ul>
-			</details>
-				
-			</section>
-			
-		
-		
-	<nav role="navigation" aria-labelledby="nav-document">
-		<h2 id="nav-document" class="wb-inv">Menu de la pagination</h2>
-		<ul class="pager">
-			<li class="next"><a rel="next" href="time-limits-fr.html">Suivant - Limites de temps</a></li>
-		</ul>
-	</nav>
-	</main>
-			
+                  <p class="wb-inv">Fin du code</p>
+                </details>
+              </div>
+            </div>
+            <h3 class="">role="marquee"</h3>
+            
+						<p>
+							Utilisez le rôle ARIA <code>marquee</code> pour définir une zone comme un type de
+							zone live comportant des annonces non essentielles qui changent
+							fréquemment. Par exemple, le contenu d’un afficheur boursier et les
+							bannières publicitaires fréquemment actualisées.
+						</p>
+            
+						<p>
+							Les éléments comportant le rôle <code>marquee</code> ont une valeur <code>aria-live="off"</code>
+							implicite. Comme pour le rôle <code>timer</code>, le contenu change trop
+							fréquemment pour être annoncé par les lecteurs d’écran. Les
+							utilisateurs de lecteur d’écran peuvent néanmoins naviguer jusqu’à la
+							zone pour lire le texte.
+						</p>
+            
+						<p>
+							Une zone marquee doit avoir un nom accessible. Si une étiquette
+							visible est présente, utilisez <code>aria-labelledby</code>; sinon, utilisez
+							<code>aria-label</code>.
+						</p>
+            <h3>role="log"</h3>
+            
+						<p>
+							Utilisez le rôle ARIA log pour faire le suivi des actualisations
+							séquentielles, comme un journal de clavardage, un historique des
+							messages, un journal de jeu ou un journal d’erreurs. Les nouvelles
+							informations sont ajoutées à la fin et, facultativement, les
+							informations plus anciennes sont supprimées du début. Les
+							actualisations de la zone live sont annoncées lorsque l’utilisateur
+							est inactif. La zone live définie par <code>role="log"</code> comporte des valeurs
+							implicites d’attribut <code>aria-live="polite"</code> et <code>aria-atomic="true"</code>.
+						</p>
+          </section>
+          <section>
+            <h2 id="resources" class="wb-inv">Ressources WCAG connexes</h2>
+            <details class="mrgn-tp-lg">
+              <summary class="bg-info">Ressources WCAG connexes</summary>
+              <h3 class="">Critères de succès</h3>
+              <ul>
+                <li>
+                  <a
+                    href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification"
+                    >3.3.1: Error Identification</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages"
+                    >4.1.3: Status Messages</a
+                  >
+                </li>
+              </ul>
+              <h3>Techniques</h3>
+              <ul>
+                <li>
+                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA19"
+                    >ARIA19: Using ARIA role=alert or Live Regions to Identify
+                    Errors</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA22"
+                    >ARIA22: Using role="status" to present status messages</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA23"
+                    >ARIA23: Using role=log to identify sequential information
+                    updates</a
+                  >
+                </li>
+              </ul>
+              <h3 class="">WAI-ARIA 1.1</h3>
+              <ul>
+                <li>
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/"
+                    >aria-live (property)</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/"
+                    >aria-atomic (state)</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/"
+                    >aria-relevant (property)</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/"
+                    >aria-busy (property)</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/">alert (role)</a>
+                </li>
+                <li>
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/"
+                    >status (role)</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/">timer (role)</a>
+                </li>
+                <li>
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/"
+                    >marquee (role)</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/">log (role)</a>
+                </li>
+              </ul>
+            </details>
+          </section>
 
-	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation" aria-labelledby="wb-sec-h">	
-		<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
-			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Module 11 – Zones live ARIA et limites de temps</h3>
-					<ul class="list-group menu list-unstyled">
-												
-						<li><a class="list-group-item active" aria-current="page" href="aria-live-fr.html">Zones live ARIA</a></li>
-						<li><a class="list-group-item" href="time-limits-fr.html">Limites de temps</a></li>
-						<li><a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a></li>						
-						
-					</ul>
-			</section>
-						
-			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Tous les modules</h3>
-                     <ul class="list-group menu list-unstyled">
-                        <li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
-                        <li><a class="list-group-item" href="../module2/index-fr.html">Module 2 - Structure et sémantique des pages</a></li>
-                        <li><a class="list-group-item" href="../module3/index-fr.html">Module 3 - Liens et navigation</a></li>
-                        <li><a class="list-group-item" href="../module4/index-fr.html">Module 4 - Tableaux</a></li>
-                        <li><a class="list-group-item" href="../module5/index-fr.html">Module 5 - Images</a></li>
-                        <li><a class="list-group-item" href="../module6/index-fr.html">Module 6 - Formulaires</a></li>
-                        <li><a class="list-group-item" href="../module7/index-fr.html">Module 7 - Conception visuelle et couleurs</a></li>
-                        <li><a class="list-group-item" href="../module8/index-fr.html">Module 8 - Zoom et conception adaptée</a></li>
-                        <li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
-						<li><a class="list-group-item" href="../module10/index-fr.html">Module 10 - Méthodes de saisie de données</a></li>
-						<li><a class="list-group-item active" href="index-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
-                     </ul>
-			</section>
-	</nav>
-</div>
+          <nav role="navigation" aria-labelledby="nav-document">
+            <h2 id="nav-document" class="wb-inv">Menu de la pagination</h2>
+            <ul class="pager">
+              <li class="next">
+                <a rel="next" href="time-limits-fr.html"
+                  >Suivant - Limites de temps</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </main>
 
-<div id="def-preFooter2"></div>
-		<script src="../../../scripts/preFooter2-fr.min.js"></script>
-<div id="def-preFooter"></div>
-		<script src="../../../scripts/preFooter.min.js"></script>
-		
-</div>	
-		
-<div id="def-footer"></div>
-	<script src="../../../scripts/appFooter-fr.min.js"></script>
-	<script src="../../../scripts/refFooter.min.js"></script>
-	<script src="../../../scripts/bati-itao.min.js"></script>
+        <nav
+          id="wb-sec"
+          class="wb-sec col-md-3 col-md-pull-9"
+          typeof="SiteNavigationElement"
+          role="navigation"
+          aria-labelledby="wb-sec-h"
+        >
+          <h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">
+              Module 11 – Zones live ARIA et limites de temps
+            </h3>
+            <ul class="list-group menu list-unstyled">
+              <li>
+                <a
+                  class="list-group-item active"
+                  aria-current="page"
+                  href="aria-live-fr.html"
+                  >Zones live ARIA</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="time-limits-fr.html"
+                  >Limites de temps</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="best-practice-fr.html"
+                  >Pratique exemplaire</a
+                >
+              </li>
+            </ul>
+          </section>
 
-</body>
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">Tous les modules</h3>
+            <ul class="list-group menu list-unstyled">
+              <li>
+                <a class="list-group-item" href="../module1/index-fr.html"
+                  >Module 1 - Principes fondamentaux de l'accessilité</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module2/index-fr.html"
+                  >Module 2 - Structure et sémantique des pages</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module3/index-fr.html"
+                  >Module 3 - Liens et navigation</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module4/index-fr.html"
+                  >Module 4 - Tableaux</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module5/index-fr.html"
+                  >Module 5 - Images</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module6/index-fr.html"
+                  >Module 6 - Formulaires</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module7/index-fr.html"
+                  >Module 7 - Conception visuelle et couleurs</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module8/index-fr.html"
+                  >Module 8 - Zoom et conception adaptée</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module9/index-fr.html"
+                  >Module 9 - Audio, vidéo, etc.</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module10/index-fr.html"
+                  >Module 10 - Méthodes de saisie de données</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item active" href="index-fr.html"
+                  >Module 11 - Zones live ARIA et limites de temps</a
+                >
+              </li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+
+      <div id="def-preFooter2"></div>
+      <script src="../../../scripts/preFooter2-fr.min.js"></script>
+      <div id="def-preFooter"></div>
+      <script src="../../../scripts/preFooter.min.js"></script>
+    </div>
+
+    <div id="def-footer"></div>
+    <script src="../../../scripts/appFooter-fr.min.js"></script>
+    <script src="../../../scripts/refFooter.min.js"></script>
+    <script src="../../../scripts/bati-itao.min.js"></script>
+  </body>
 </html>
