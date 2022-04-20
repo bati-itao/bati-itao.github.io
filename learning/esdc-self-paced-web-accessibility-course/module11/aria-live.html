@@ -112,18 +112,31 @@
 				<p>The <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">WAI-ARIA Carousel widget</a> described in module 12 uses <code>aria-live="off"</code> on the slide container when advancing slides automatically, and <code>aria-live="polite"</code> when the user is manually advancing the slides. This prevents an automatic slideshow’s announcements from overwhelming a screen reader user trying to read the page, and facilitates the reading of a manually-operated slideshow.</p>
 				<div class="panel panel-success">
 					<div class="panel-body">
-					  <h2 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: aria-live attribute</h2>
+						<h2 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: aria-live attribute</h2>
 						
-				<p>Here, a <code>div</code> element provides a container for a live region. The element is empty on page load.</p>
-				<p class="wb-inv">Code begins</p>
-				<pre><code class="language-html">&lt;div aria-live="polite"&gt;&lt;/div&gt;</code></pre>
-<p class="wb-inv">Code ends</p>
-				<p>After the user clicks a sort button in a table column header, JavaScript populates the div with text. The screen reader announces “Sorted alphabetically by name".</p>
-<p class="wb-inv">Code begins</p>
-				<pre><code class="language-html">&lt;div aria-live="polite"&gt;Sorted alphabetically by name&lt;/div&gt;</code></pre>
-<p class="wb-inv">Code ends</p>
-</div>
-</div>
+						<p>Here, a <code>&lt;div&gt;</code> element provides a container for a live region, identified by the <code>aria-live="polite"</code> attribute. The element is empty on page load.</p>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;div aria-live="polite" class="wb-inv"&gt;&lt;/div&gt;</code></pre>
+						<p class="wb-inv">Code ends</p>
+						<p>After the user clicks a sort button in a table column header, JavaScript populates the div with text. The screen reader announces “Sorted alphabetically by name".</p>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;div aria-live="polite" class="wb-inv"&gt;
+   Sorted alphabetically by name
+&lt;/div&gt;</code></pre>
+						<p class="wb-inv">Code ends</p>
+						<p>Because the result of the sort is apparent to visual users, the live region is visually hidden with the WET CSS class <code>.wb-inv</code>.</p>
+						<p class="wb-inv">Code begins</p>
+<pre><code class="language-css">.wb-inv {
+   clip: rect(1px,1px,1px,1px);
+   height: 1px;
+   margin: 0;
+   overflow: hidden;
+   position: absolute;
+   width: 1px;
+}</code></pre>
+						<p class="wb-inv">Code ends</p>
+					</div>
+				</div>
 			</section>
 			
 			<section>
@@ -136,20 +149,20 @@
 				
 			<div class="panel panel-success">
 				<div class="panel-body">
-					<h2 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good examples: aria-atomic false vs true</h2>
+					<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: aria-atomic false vs true</h3>
 				
 					<p>In these examples, the updated total price in a purchase process is announced when the user adds a product.</p>
-					<p>In this first example, the aria-atomic attribute is not used, so the default value applies, which is “false". Only the dynamic content is announced, that is, the price. If the dynamic content isn’t meaningful on its own, it can easily confuse users. In this case, the dynamic content alone is vague.</p>
+					<p>In this first example, the <code>aria-atomic</code> attribute is not used, so the default value applies, which is "false". Only the dynamic content is announced, that is, the price. If the dynamic content isn’t meaningful on its own, it can easily confuse users. In this case, the dynamic content alone is vague: "$84.52".</p>
 					<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;p aria-live="polite"&gt;
    Total price:
    &lt;span id="total-price"&gt;$84.52&lt;/span&gt;
 &lt;/p&gt;</code></pre>
-<p class="wb-inv">Code ends</p>
-In this second example, the aria-atomic attribute is set to “true". All the content of the live region is announced, providing the necessary context to make sense of the dynamic content:
-<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">
-&lt;p aria-live="polite" aria-atomic="true"&gt;
+					<p class="wb-inv">Code ends</p>
+					<p>In this second example, the <code>aria-atomic</code> attribute is set to "true". All the content of the live region is announced, providing the necessary context to make sense of the dynamic content: "Total price: $84.52".
+					</p>
+					<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;p aria-live="polite" aria-atomic="true"&gt;
    Total price:
    &lt;span id="total-price"&gt;$84.52&lt;/span&gt;
 &lt;/p&gt;</code></pre>
@@ -159,14 +172,14 @@ In this second example, the aria-atomic attribute is set to “true". All the co
 			</section>
 			<section>
 				<h2 id="relevant">aria-relevant</h2>
-				<p>The aria-relevant attribute specifies which types of changes to a live region should be announced.</p>
+				<p>The <code>aria-relevant</code> attribute specifies which types of changes to a live region should be announced.</p>
 				<ul>
 					<li><code>aria-relevant="all"</code>: All changes are announced. Use with caution, as this setting can be verbose.</li>
 					<li><code>aria-relevant="additions"</code>: Insertion of nodes to the live region are announced. </li>
 					<li><code>aria-relevant="removals"</code>: Removal of nodes to the live region are announced. Reserve for important changes, such as a colleague leaving a chat room.</li>
 					<li><code>aria-relevant="text"</code>: Changes to the text content (including text equivalents, such as alt text) in the live region are announced.</li>
 				</ul>
-				<p>A live region has an implicit <code>aria-relevant</code> value of “additions" and “text", so the attribute isn’t needed if the design calls for the <mark><del>normal</del> <ins>default</ins></mark> behaviour of announcing added content. Only use the <code>aria-relevant</code> attribute if you need to communicate the removal of content from a live region. </p>
+				<p>A live region has an implicit <code>aria-relevant</code> value of “additions" and “text", so the attribute isn’t needed if the design calls for the normal behaviour of announcing added content. Only use the <code>aria-relevant</code> attribute if you need to communicate the removal of content from a live region. </p>
 			</section>
 			<section>
 				<h2 id="busy">aria-busy</h2>
@@ -179,16 +192,11 @@ In this second example, the aria-atomic attribute is set to “true". All the co
 				<p>Use the ARIA <code>alert</code> role to announce important and typically time-sensitive information that requires the user’s immediate attention. Setting <code>role="alert"</code> is equivalent to setting <code>aria-live="assertive"</code> and <code>aria-atomic="true"</code>. The only difference is that some screen readers begin the announcement by saying "alert", to identify it to users as an alert.</p>
 				<div class="panel panel-success">
 					<div class="panel-body">
-						<h2 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using role="alert"</h2>
+						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using role="alert"</h4>
 					
-						<p>
-							<mark>
-								<del>In this example, a div has <code>role="alert"</code> and CSS <code>display: none</code> attributes.</del>
-								<ins>In this example, a <code>&lt;div&gt;</code> element has a <code>role="alert"</code> attribute and is set via CSS to <code>display: none</code>.</ins>
-							</mark> 
-						</p>
-						Changing the <code>display</code> value <mark><del>with CSS or JavaScript</del></mark> triggers the live announcement. Exposing such previously-hidden text is equivalent to injecting text.</p>
-						<p>The initial alert has the CSS class name <code>hidden</code>, which hides the alert text with <code>display: none</code>. </p>
+						<p>In this example, a <code>&lt;div&gt;</code> element has a <code>role="alert"</code> attribute and is set via CSS to <code>display: none</code>.</p>
+						<p>Removing the CSS <code>display: none</code> value triggers the live announcement. Exposing such previously-hidden text is equivalent to injecting text.</p>
+						<p>The initial alert has the class name <code>hidden</code>, which hides the alert text with CSS <code>display: none</code>. </p>
 						<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;form id="updateProfile" method="post" action="javascript:void(0)"&gt;
    &lt;p&gt;&lt;button&gt;Update profile&lt;button&gt;&lt;/p&gt;
@@ -214,7 +222,7 @@ In this second example, the aria-atomic attribute is set to “true". All the co
 					
 			<div class="panel panel-success">
 				<div class="panel-body">
-					<h2 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Use role="status"</h2>
+					<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Use role="status"</h4>
 					
 					<p>In this example, a paragraph with <code>role="status"</code> displays the number of items in a shopping cart. Because <code>role="status"</code> by default uses <code>aria-atomic="true"</code>, the whole contents of the paragraph are announced. When the count updates, the live announcement kicks in. Screen readers declare the <mark><del>alt text of the shopping cart icon</del> <ins>the visually-hidden text "Shopping cart"</ins></mark>, the revised count, and the word "items".</p>
 					<p><mark>The <code>title</code> attribute on the <code>&lt;span&gt;</code> holding the icon provides a visual label for mouse users. Since support for the <code>title</code> attribute is inconsistent across screen readers, the element is hidden from all of them (using the <code>aria-hidden="true"</code> attribute) and the more reliable visually-hidden text is used to label the icon (using the class <code>.wb-inv</code>).</mark></p>
@@ -284,7 +292,7 @@ In this second example, the aria-atomic attribute is set to “true". All the co
 				<p>Use the ARIA <code>timer</code> role to identify a numerical counter listing the time elapsed from a starting point or the time remaining until an end point. The role has the implied value of <code>aria-live="off"</code>, to prevent frequent announcements from overwhelming the screen reader user. However, you can announce the time at regular intervals by using JavaScript to briefly set the <code>aria-live="assertive"</code> and <code>role="alert"</code> attributes, overruling <code>aria-live="off"</code> and <code>role="timer"</code>.</p>
 				<div class="panel panel-success">
 					<div class="panel-body">
-						<h2 class="text-success mrgn-tp-0 h3" id="countdown"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example:  Countdown announcing at intervals</h2>
+						<h4 class="text-success mrgn-tp-0 h3" id="countdown"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example:  Countdown announcing at intervals</h4>
 						<p>In this example, a countdown uses the <code>role="timer"</code>, so is silent in screen readers due to its implicit <code>aria-live="off"</code> setting.</p>
 										
 <pre><code class="language-html">&lt;div id="countdown" role="timer" aria-atomic="true"&gt;
@@ -300,7 +308,6 @@ In this second example, the aria-atomic attribute is set to “true". All the co
 						<p>An interval of 15 seconds between announcements is too brief in practice and is done here simply to illustrate the technique. One minute is a more practical interval.</p>
 						<p>Try visiting the <a href="example-countdown.html" target="_blank">live demo<span class="wb-inv"> (Opens in new tab)</span></a>  with a screen reader running.</p>
 				
-						<p><mark>TODO: add declarations at 60 and 0 seconds left (to sample code and live example). Currently only works at 45, 30 and 15 sec left.</mark></p>
 						<details class="mrgn-tp-lg">
 							<summary class="bg-info">View JavaScript</summary>
 							<p class="wb-inv">Code begins</p>
@@ -347,7 +354,7 @@ window.addEventListener('load', function () {
 				<p>Elements with the <code>marquee</code> role have an implicit <code>aria-live="off"</code>. As with the <code>timer</code> role, the content changes too frequently to announce in screen readers. Screen reader users can still navigate to the area to read the text. </p>
 				<p>A marquee is required to have an accessible name. If a visible label is present use the <code>aria-labelledby</code> attribute; otherwise, use <code>aria-label</code>.</p>
 				<h3>role="log"</h3>
-				<p>Use the ARIA log role to keep track of sequential updates, such as a chat log, messaging history, game log or an error log. New information is added to the end, old information is optionally removed from the beginning. Updates to the live region are announced when the user is idle. The live region defined by <code>role="log"</code> has implicit <code>aria-live="polite"</code> and <code>aria-atomic="true"</code> attribute values.</p>
+				<p>Use the ARIA <code>log</code> role to keep track of sequential updates, such as a chat log, messaging history, game log or an error log. New information is added to the end, old information is optionally removed from the beginning. Updates to the live region are announced when the user is idle. The live region defined by <code>role="log"</code> has implicit <code>aria-live="polite"</code> and <code>aria-atomic="true"</code> attribute values.</p>
 			</section>
 			<section>				
 				<h2 id="resources" class="wb-inv">Related WCAG resources</h2>
