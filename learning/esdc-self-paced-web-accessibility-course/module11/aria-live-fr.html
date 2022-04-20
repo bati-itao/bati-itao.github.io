@@ -74,8 +74,7 @@
         <main
           class="col-md-9 col-md-push-3"
           role="main"
-          property="mainContentOfPage"
-        >
+          property="mainContentOfPage">
           <h1 property="name" id="wb-cont">Zones live ARIA</h1>
 
           <nav role="navigation" aria-labelledby="nav-table">
@@ -186,9 +185,7 @@
             </ul>
             <p>
               Le
-              <a href="https://www.w3.org/TR/wai-aria-practices-1.1/"
-                >WAI-ARIA Carousel widget</a
-              >
+              <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">WAI-ARIA Carousel widget</a>
               utilise <code>aria-live="off"</code> associé au conteneur de
               diapositive lorsque les diapositives avancent automatiquement, et
               <code>aria-live="polite"</code>
@@ -199,32 +196,38 @@
             </p>
             <div class="panel panel-success">
               <div class="panel-body">
-                <h2
-                  class="text-success mrgn-tp-0 h3"
-                  id="pattern-attribute-match"
-                >
-                  <span class="glyphicon glyphicon-ok-circle"></span>Bon
-                  exemple&nbsp;: Attribut aria-live
-                </h2>
+                <h3 class="text-success mrgn-tp-0 h3">
+                  <span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Attribut aria-live
+                </h3>
 
                 <p>
-                  Ici, un élément <code>div</code> fournit un conteneur pour une
-                  zone live. L’élément est vide au moment du chargement de la
-                  page.
+                  Ici, un élément <code>&lt;div&gt;</code> fournit un conteneur pour une
+                  zone live, identifi&eacute; avec l’attribut <code>aria-live="polite"</code>. L’élément est vide au moment du chargement de la page.
                 </p>
                 <p class="wb-inv">Début du code</p>
-                <pre><code class="language-html">&lt;div aria-live="polite"&gt;&lt;/div&gt;</code></pre>
+                <pre><code class="language-html">&lt;div aria-live="polite" class="wb-inv"&gt;&lt;/div&gt;</code></pre>
                 <p class="wb-inv">Fin du code</p>
                 <p>
                   Lorsque l’utilisateur clique sur un bouton de tri dans
                   l’en-tête d’une colonne de tableau, JavaScript remplit
-                  l’élément div avec du texte. Le lecteur d’écran annonce
-                  «&nbsp;Trié alphabétiquement par nom&nbsp;».
+                  l’élément <code>&lt;div&gt;</code> avec du texte. Le lecteur d’écran annonce «&nbsp;Trié alphabétiquement par nom&nbsp;».
                 </p>
                 <p class="wb-inv">Début du code</p>
-                <pre><code class="language-html">&lt;div aria-live=”polite”&gt;Trié alphabétiquement par
-          nom&lt;/div&gt;</code></pre>
+                <pre><code class="language-html">&lt;div aria-live="polite" class="wb-inv"&gt;
+   Trié alphabétiquement par nom
+&lt;/div&gt;</code></pre>
                 <p class="wb-inv">Fin du code</p>
+                <p><mark>Because the result of the sort is apparent to visual users, the live region is visually hidden with the WET CSS class <code>.wb-inv</code>.</mark></p>
+				<p class="wb-inv">Début du code</p>
+<pre><code class="language-css">.wb-inv {
+   clip: rect(1px,1px,1px,1px);
+   height: 1px;
+   margin: 0;
+   overflow: hidden;
+   position: absolute;
+   width: 1px;
+}</code></pre>
+						<p class="wb-inv">Fin du code</p>
               </div>
             </div>
           </section>
@@ -253,13 +256,10 @@
 
             <div class="panel panel-success">
               <div class="panel-body">
-                <h2
-                  class="text-success mrgn-tp-0 h3"
-                  id="pattern-attribute-match"
-                >
-                  <span class="glyphicon glyphicon-ok-circle"></span>Bons
-                  exemples&nbsp;: aria-atomic false ou true
-                </h2>
+                <h3 class="text-success mrgn-tp-0 h3">
+                  <span class="glyphicon glyphicon-ok-circle"></span> Bon
+                  exemple&nbsp;: aria-atomic false ou true
+                </h3>
 
                 <p>
                   Dans ces exemples, le prix total actualisé au cours d’un
@@ -267,31 +267,31 @@
                   produit.
                 </p>
                 <p>
-                  Dans ce premier exemple, l’attribut aria-atomic n’est pas
+                  Dans ce premier exemple, l’attribut <code>aria-atomic</code> n’est pas
                   utilisé, de sorte que la valeur par défaut s’applique,
                   c’est-à-dire «&nbsp;false&nbsp;». Seul le contenu dynamique
                   est annoncé, c’est-à-dire le prix. Si le contenu dynamique
                   n’est pas significatif en soi, il peut facilement confondre
                   les utilisateurs. Dans ce cas, le contenu dynamique à lui seul
-                  est vague.
+                  est vague: «&nbsp;84,52 $ ».
                 </p>
                 <p class="wb-inv">Début du code</p>
                 <pre><code class="language-html">&lt;p aria-live="polite"&gt;
-   Total price:
-   &lt;span id="total-price"&gt;$84.52&lt;/span&gt;
+   Prix total :
+   &lt;span id="total-price"&gt;84,52 $&lt;/span&gt;
 &lt;/p&gt;</code></pre>
                 <p class="wb-inv">Fin du code</p>
                 <p>
-                  Dans ce deuxième exemple, l’attribut aria-atomique est fixé à
+                  Dans ce deuxième exemple, l’attribut <code>aria-atomique</code> est fixé à
                   «&nbsp;true&nbsp;». Tout le contenu de la zone live est
                   annoncé, fournissant le contexte nécessaire pour donner un
-                  sens au contenu dynamique&nbsp;:
+                  sens au contenu dynamique&nbsp;: «&nbsp;Prix total : 84,52 $&nbsp;».
                 </p>
                 <p class="wb-inv">Début du code</p>
                 <pre><code class="language-html">
 &lt;p aria-live="polite" aria-atomic="true"&gt;
-   Total price:
-   &lt;span id="total-price"&gt;$84.52&lt;/span&gt;
+   Prix total :
+   &lt;span id="total-price"&gt;84,52 $&lt;/span&gt;
 &lt;/p&gt;</code></pre>
                 <p class="wb-inv">Fin du code</p>
               </div>
@@ -300,7 +300,7 @@
           <section>
             <h2 id="relevant">aria-relevant</h2>
             <p>
-              L’attribut aria-relevant spécifie quels types de changement
+              L’attribut <code>aria-relevant</code> spécifie quels types de changement
               apportés à une zone live doivent être annoncés.
             </p>
             <ul>
@@ -325,15 +325,7 @@
                 text) dans la zone live sont annoncées.
               </li>
             </ul>
-            <p>
-              A live region has an implicit <code>aria-relevant</code> value of
-              “additions" and “text", so the attribute isn’t needed if the
-              design calls for the
-              <mark><del>normal</del> <ins>default</ins></mark> behaviour of
-              announcing added content. Only use the
-              <code>aria-relevant</code> attribute if you need to communicate
-              the removal of content from a live region.
-            </p>
+            <p>Une zone live a une valeur <code>aria-relevant</code> implicite «&nbsp;additions&nbsp;» et «&nbsp;text&nbsp;», donc l’attribut n’est pas nécessaire si la conception suppose le comportement normal, c’est-à-dire l’annonce de contenu ajouté. Utilisez seulement l’attribut <code>aria-relevant</code> si vous devez communiquer la suppression de contenu d’une zone live. </p>
           </section>
           <section>
             <h2 id="busy">aria-busy</h2>
@@ -364,45 +356,26 @@
             </p>
             <div class="panel panel-success">
               <div class="panel-body">
-                <h2
-                  class="text-success mrgn-tp-0 h3"
-                  id="pattern-attribute-match"
-                >
-                  <span class="glyphicon glyphicon-ok-circle"></span>Bon
-                  exemple&nbsp;: Utilisation de role="alert"
-                </h2>
+                <h4 class="text-success mrgn-tp-0 h3">
+                  <span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Utilisation de role="alert"
+                </h4>
 
                 <p>
-                  <mark>
-                    <del
-                      >In this example, a div has <code>role="alert"</code> and
-                      CSS <code>display: none</code> attributes.</del
-                    >
-                    <ins
-                      >In this example, a <code>&lt;div&gt;</code> element has a
-                      <code>role="alert"</code> attribute and is set via CSS to
-                      <code>display: none</code>.</ins
-                    >
-                    Dans cet exemple, une div utilise
-                    <code>role="alert"</code> et le code CSS affiche&nbsp;:
-                    aucun attribut.
-                  </mark>
+                    Dans cet exemple, un &eacute;l&eacute;ment <code>&lt;div&gt;</code> utilise l'attribut 
+                    <code>role="alert"</code> et la d&eacute;claration CSS <code>display&nbsp;:
+                    none</code>.
                 </p>
 
                 <p>
-                  La modification de la valeur <code>affichée</code>
-                  <mark><del>par CSS ou JavaScript</del></mark> déclenche
+                  Suppression de la declaration CSS <code>display: none</code>
+                  déclenche
                   l’annonce de la zone live. Exposer ce texte caché précédemment
                   équivaut à injecter du texte.
                 </p>
                 <p>
-                  The initial alert has the CSS class name <code>hidden</code>,
-                  which hides the alert text with <code>display: none</code>.
-                </p>
-                <p>
                   L’alerte initiale comporte le nom de classe CSS
                   «&nbsp;<code>hidden</code>&nbsp;», ce qui masque le texte de
-                  l’alerte avec <code>affichage&nbsp;</code>: aucun.
+                  l’alerte avec <code>display: none</code>
                 </p>
                 <p class="wb-inv">Début du code</p>
                 <pre><code class="language-html">&lt;form id="updateProfile" method="post" action="javascript:void(0)"&gt;
@@ -449,29 +422,21 @@
 
             <div class="panel panel-success">
               <div class="panel-body">
-                <h2
-                  class="text-success mrgn-tp-0 h3"
-                  id="pattern-attribute-match"
-                >
-                  <span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon
-                  exemple&nbsp;: Utilisation de role="status"
-                </h2>
+                <h4 class="text-success mrgn-tp-0 h3">
+                  <span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Utilisation de role="status"
+                </h4>
 
                 <p>
-                  <mark
-                    >Left both paragraph below, not sure which portion to del in
-                    FR</mark
-                  >
+                  <mark>Left both paragraph below, not sure which portion to del in
+                    FR</mark>
                   In this example, a paragraph with
                   <code>role="status"</code> displays the number of items in a
                   shopping cart. Because <code>role="status"</code> by default
                   uses <code>aria-atomic="true"</code>, the whole contents of
                   the paragraph are announced. When the count updates, the live
                   announcement kicks in. Screen readers declare the
-                  <mark
-                    ><del>alt text of the shopping cart icon</del>
-                    <ins>the visually-hidden text "Shopping cart"</ins></mark
-                  >, the revised count, and the word "items".
+                  <mark><del>alt text of the shopping cart icon</del>
+                    <ins>the visually-hidden text "Shopping cart"</ins></mark>, the revised count, and the word "items".
                 </p>
                 <p>
                   Dans cet exemple, un paragraphe comportant
@@ -485,46 +450,33 @@
                   le mot «&nbsp;articles&nbsp;».
                 </p>
                 <p>
-                  <mark
-                    >The <code>title</code> attribute on the
+                  <mark>The <code>title</code> attribute on the
                     <code>&lt;span&gt;</code> holding the icon provides a visual
                     label for mouse users. Since support for the
                     <code>title</code> attribute is inconsistent across screen
                     readers, the element is hidden from all of them (using the
                     <code>aria-hidden="true"</code> attribute) and the more
                     reliable visually-hidden text is used to label the icon
-                    (using the class <code>.wb-inv</code>).</mark
-                  >
+                    (using the class <code>.wb-inv</code>).</mark>
                 </p>
 
                 <p>
-                  <mark
-                    >Left both paragraph below, not sure which portion to del in
-                    FR</mark
-                  >
-                  <mark
-                    ><del
-                      >To prevent the <code>&lt;br&gt;</code> element from being
+                  <mark>Left both paragraph below, not sure which portion to del in
+                    FR</mark>
+                  <mark><del>To prevent the <code>&lt;br&gt;</code> element from being
                       declared by screen readers it’s given the
-                      <code>aria-hidden="true"</code> attribute.</del
-                    ></mark
-                  >
+                      <code>aria-hidden="true"</code> attribute.</del></mark>
                   The <code>aria-controls="IDREF"</code> attribute is set on the
                   button and given the <code>id</code> attribute value of the
                   <mark><del>span</del></mark> element holding the
-                  <mark
-                    ><del>count</del>
-                    <ins><code>role="status"</code> attribute</ins></mark
-                  >.
+                  <mark><del>count</del>
+                    <ins><code>role="status"</code> attribute</ins></mark>.
                 </p>
                 <p>
-                  <mark
-                    ><del>
+                  <mark><del>
                       Pour éviter que l’élément <code>&lt;br&gt;</code> soit
                       déclaré par les lecteurs d’écran, on lui donne l’attribut
-                      <code>aria-hidden="true"</code></del
-                    ></mark
-                  >. L’attribut <code>aria-controls="IDREF"</code> est associé
+                      <code>aria-hidden="true"</code></del></mark>. L’attribut <code>aria-controls="IDREF"</code> est associé
                   au bouton et reçoit la valeur d’attribut <code>id</code> de
                   l’élément <mark><del>span</del></mark> qui contient le nombre
                   d’articles.
@@ -536,8 +488,7 @@
                       <span
                         class="glyphicon glyphicon-shopping-cart"
                         title="Panier d’achat"
-                        aria-hidden="true"
-                      ></span>
+                        aria-hidden="true"></span>
                       <span class="wb-inv">Panier d’achat</span>
                       <span id="cart-count">0</span>
                       articles
@@ -613,20 +564,18 @@
             </p>
             <div class="panel panel-success">
               <div class="panel-body">
-                <h2 class="text-success mrgn-tp-0 h3" id="countdown">
-                  <span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon
-                  exemple&nbsp;: Compte à rebours annoncé à intervalles
-                  réguliers
-                </h2>
+                <h4 class="text-success mrgn-tp-0 h3" id="countdown">
+                  <span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple&nbsp;: Compte à rebours annoncé à intervalles réguliers
+                </h4>
                 <p>
                   Dans cet exemple, un compte à rebours utilise
                   <code>role="timer"</code>, et est donc silencieux pour les
                   lecteurs d’écran en raison de son paramètre implicite
-                  a<code>aria-live="off"</code>.
+                  <code>aria-live="off"</code>.
                 </p>
 
                 <pre><code class="language-html">&lt;div id="countdown" role="timer" aria-atomic="true"&gt;
-   &lt;span id="number"&gt;60&lt;/span&gt; seconds left!
+   Il reste &lt;span id="number"&gt;45&lt;/span&gt; secondes!
 &lt;/div&gt;</code>
 </pre>
                 <p>
@@ -641,7 +590,7 @@
                 </p>
 
                 <pre><code class="language-html">&lt;div id="countdown" role="alert" aria-live="assertive" aria-atomic="true"&gt;
-   &lt;span id="number"&gt;45&lt;/span&gt; seconds left!
+   Il reste &lt;span id="number"&gt;45&lt;/span&gt; secondes!
 &lt;/div&gt;</code>
 </pre>
                 <p>
@@ -652,22 +601,11 @@
                 </p>
                 <p>
                   Try visiting the
-                  <a href="example-countdown.html" target="_blank"
-                    >live demo<span class="wb-inv"> (Opens in new tab)</span></a
-                  >
+                  <a href="example-countdown.html" target="_blank">live demo<span class="wb-inv"> (Opens in new tab)</span></a>
 									with a screen reader running.
-									Faites l’essai en visitant <a href="example-countdown.html" target="_blank"
-									>la démonstration <span class="wb-inv"></span>en direct </span></a
-                  >avec un lecteur d’écran.
+									Faites l’essai en visitant <a href="example-countdown.html" target="_blank">la démonstration <span class="wb-inv">(S'ouvre dans un nouvel onglet)</span></a> avec un lecteur d’écran.
                 </p>
 
-                <p>
-                  <mark
-                    >TODO: add declarations at 60 and 0 seconds left (to sample
-                    code and live example). Currently only works at 45, 30 and
-                    15 sec left.</mark
-                  >
-                </p>
                 <details class="mrgn-tp-lg">
                   <summary class="bg-info">View JavaScript</summary>
                   <p class="wb-inv">Début du code</p>
@@ -711,38 +649,38 @@ window.addEventListener('load', function () {
             </div>
             <h3 class="">role="marquee"</h3>
             
-						<p>
-							Utilisez le rôle ARIA <code>marquee</code> pour définir une zone comme un type de
-							zone live comportant des annonces non essentielles qui changent
-							fréquemment. Par exemple, le contenu d’un afficheur boursier et les
-							bannières publicitaires fréquemment actualisées.
-						</p>
-            
-						<p>
-							Les éléments comportant le rôle <code>marquee</code> ont une valeur <code>aria-live="off"</code>
-							implicite. Comme pour le rôle <code>timer</code>, le contenu change trop
-							fréquemment pour être annoncé par les lecteurs d’écran. Les
-							utilisateurs de lecteur d’écran peuvent néanmoins naviguer jusqu’à la
-							zone pour lire le texte.
-						</p>
-            
-						<p>
-							Une zone marquee doit avoir un nom accessible. Si une étiquette
-							visible est présente, utilisez <code>aria-labelledby</code>; sinon, utilisez
-							<code>aria-label</code>.
-						</p>
+			<p>
+				Utilisez le rôle ARIA <code>marquee</code> pour définir une zone comme un type de
+				zone live comportant des annonces non essentielles qui changent
+				fréquemment. Par exemple, le contenu d’un afficheur boursier et les
+				bannières publicitaires fréquemment actualisées.
+			</p>
+
+			<p>
+				Les éléments comportant le rôle <code>marquee</code> ont une valeur <code>aria-live="off"</code>
+				implicite. Comme pour le rôle <code>timer</code>, le contenu change trop
+				fréquemment pour être annoncé par les lecteurs d’écran. Les
+				utilisateurs de lecteur d’écran peuvent néanmoins naviguer jusqu’à la
+				zone pour lire le texte.
+			</p>
+
+			<p>
+				Une zone marquee doit avoir un nom accessible. Si une étiquette
+				visible est présente, utilisez <code>aria-labelledby</code>; sinon, utilisez
+				<code>aria-label</code>.
+			</p>
             <h3>role="log"</h3>
             
-						<p>
-							Utilisez le rôle ARIA log pour faire le suivi des actualisations
-							séquentielles, comme un journal de clavardage, un historique des
-							messages, un journal de jeu ou un journal d’erreurs. Les nouvelles
-							informations sont ajoutées à la fin et, facultativement, les
-							informations plus anciennes sont supprimées du début. Les
-							actualisations de la zone live sont annoncées lorsque l’utilisateur
-							est inactif. La zone live définie par <code>role="log"</code> comporte des valeurs
-							implicites d’attribut <code>aria-live="polite"</code> et <code>aria-atomic="true"</code>.
-						</p>
+			<p>
+				Utilisez le rôle ARIA <code>log</code> pour faire le suivi des actualisations
+				séquentielles, comme un journal de clavardage, un historique des
+				messages, un journal de jeu ou un journal d’erreurs. Les nouvelles
+				informations sont ajoutées à la fin et, facultativement, les
+				informations plus anciennes sont supprimées du début. Les
+				actualisations de la zone live sont annoncées lorsque l’utilisateur
+				est inactif. La zone live définie par <code>role="log"</code> comporte des valeurs
+				implicites d’attribut <code>aria-live="polite"</code> et <code>aria-atomic="true"</code>.
+			</p>
           </section>
           <section>
             <h2 id="resources" class="wb-inv">Ressources WCAG connexes</h2>
@@ -752,74 +690,52 @@ window.addEventListener('load', function () {
               <ul>
                 <li>
                   <a
-                    href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification"
-                    >3.3.1: Error Identification</a
-                  >
+                    href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification">3.3.1: Error Identification</a>
                 </li>
                 <li>
                   <a
-                    href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages"
-                    >4.1.3: Status Messages</a
-                  >
+                    href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages">4.1.3: Status Messages</a>
                 </li>
               </ul>
               <h3>Techniques</h3>
               <ul>
                 <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA19"
-                    >ARIA19: Using ARIA role=alert or Live Regions to Identify
-                    Errors</a
-                  >
+                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA19">ARIA19: Using ARIA role=alert or Live Regions to Identify
+                    Errors</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA22"
-                    >ARIA22: Using role="status" to present status messages</a
-                  >
+                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA22">ARIA22: Using role="status" to present status messages</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA23"
-                    >ARIA23: Using role=log to identify sequential information
-                    updates</a
-                  >
+                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA23">ARIA23: Using role=log to identify sequential information
+                    updates</a>
                 </li>
               </ul>
               <h3 class="">WAI-ARIA 1.1</h3>
               <ul>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/"
-                    >aria-live (property)</a
-                  >
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/">aria-live (property)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/"
-                    >aria-atomic (state)</a
-                  >
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/">aria-atomic (state)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/"
-                    >aria-relevant (property)</a
-                  >
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/">aria-relevant (property)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/"
-                    >aria-busy (property)</a
-                  >
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/">aria-busy (property)</a>
                 </li>
                 <li>
                   <a href="https://www.w3.org/TR/wai-aria-1.1/">alert (role)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/"
-                    >status (role)</a
-                  >
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/">status (role)</a>
                 </li>
                 <li>
                   <a href="https://www.w3.org/TR/wai-aria-1.1/">timer (role)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/"
-                    >marquee (role)</a
-                  >
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/">marquee (role)</a>
                 </li>
                 <li>
                   <a href="https://www.w3.org/TR/wai-aria-1.1/">log (role)</a>
@@ -832,9 +748,7 @@ window.addEventListener('load', function () {
             <h2 id="nav-document" class="wb-inv">Menu de la pagination</h2>
             <ul class="pager">
               <li class="next">
-                <a rel="next" href="time-limits-fr.html"
-                  >Suivant - Limites de temps</a
-                >
+                <a rel="next" href="time-limits-fr.html">Suivant - Limites de temps</a>
               </li>
             </ul>
           </nav>
@@ -845,8 +759,7 @@ window.addEventListener('load', function () {
           class="wb-sec col-md-3 col-md-pull-9"
           typeof="SiteNavigationElement"
           role="navigation"
-          aria-labelledby="wb-sec-h"
-        >
+          aria-labelledby="wb-sec-h">
           <h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
           <section class="list-group menu list-unstyled">
             <h3 class="wb-navcurr">
@@ -857,19 +770,13 @@ window.addEventListener('load', function () {
                 <a
                   class="list-group-item active"
                   aria-current="page"
-                  href="aria-live-fr.html"
-                  >Zones live ARIA</a
-                >
+                  href="aria-live-fr.html">Zones live ARIA</a>
               </li>
               <li>
-                <a class="list-group-item" href="time-limits-fr.html"
-                  >Limites de temps</a
-                >
+                <a class="list-group-item" href="time-limits-fr.html">Limites de temps</a>
               </li>
               <li>
-                <a class="list-group-item" href="best-practice-fr.html"
-                  >Pratique exemplaire</a
-                >
+                <a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a>
               </li>
             </ul>
           </section>
@@ -878,59 +785,37 @@ window.addEventListener('load', function () {
             <h3 class="wb-navcurr">Tous les modules</h3>
             <ul class="list-group menu list-unstyled">
               <li>
-                <a class="list-group-item" href="../module1/index-fr.html"
-                  >Module 1 - Principes fondamentaux de l'accessilité</a
-                >
+                <a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a>
               </li>
               <li>
-                <a class="list-group-item" href="../module2/index-fr.html"
-                  >Module 2 - Structure et sémantique des pages</a
-                >
+                <a class="list-group-item" href="../module2/index-fr.html">Module 2 - Structure et sémantique des pages</a>
               </li>
               <li>
-                <a class="list-group-item" href="../module3/index-fr.html"
-                  >Module 3 - Liens et navigation</a
-                >
+                <a class="list-group-item" href="../module3/index-fr.html">Module 3 - Liens et navigation</a>
               </li>
               <li>
-                <a class="list-group-item" href="../module4/index-fr.html"
-                  >Module 4 - Tableaux</a
-                >
+                <a class="list-group-item" href="../module4/index-fr.html">Module 4 - Tableaux</a>
               </li>
               <li>
-                <a class="list-group-item" href="../module5/index-fr.html"
-                  >Module 5 - Images</a
-                >
+                <a class="list-group-item" href="../module5/index-fr.html">Module 5 - Images</a>
               </li>
               <li>
-                <a class="list-group-item" href="../module6/index-fr.html"
-                  >Module 6 - Formulaires</a
-                >
+                <a class="list-group-item" href="../module6/index-fr.html">Module 6 - Formulaires</a>
               </li>
               <li>
-                <a class="list-group-item" href="../module7/index-fr.html"
-                  >Module 7 - Conception visuelle et couleurs</a
-                >
+                <a class="list-group-item" href="../module7/index-fr.html">Module 7 - Conception visuelle et couleurs</a>
               </li>
               <li>
-                <a class="list-group-item" href="../module8/index-fr.html"
-                  >Module 8 - Zoom et conception adaptée</a
-                >
+                <a class="list-group-item" href="../module8/index-fr.html">Module 8 - Zoom et conception adaptée</a>
               </li>
               <li>
-                <a class="list-group-item" href="../module9/index-fr.html"
-                  >Module 9 - Audio, vidéo, etc.</a
-                >
+                <a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a>
               </li>
               <li>
-                <a class="list-group-item" href="../module10/index-fr.html"
-                  >Module 10 - Méthodes de saisie de données</a
-                >
+                <a class="list-group-item" href="../module10/index-fr.html">Module 10 - Méthodes de saisie de données</a>
               </li>
               <li>
-                <a class="list-group-item active" href="index-fr.html"
-                  >Module 11 - Zones live ARIA et limites de temps</a
-                >
+                <a class="list-group-item active" href="index-fr.html">Module 11 - Zones live ARIA et limites de temps</a>
               </li>
             </ul>
           </section>
