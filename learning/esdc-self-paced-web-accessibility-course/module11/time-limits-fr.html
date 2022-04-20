@@ -222,14 +222,11 @@
   &lt;p&gt; after 15 seconds of inactivity JavaScript launches and shifts user focus to a pop-up dialog that uses the role="alertdialog" attribute. The user can choose to Continue Session or End Session. If the user clicks Continue Session, JavaScript resets the 15 second counter. If the user clicks End Session, JavaScript exits the page.&lt;/p&gt;
 &lt;/main&gt;</code></pre>
 -->
-						<p><mark>TODO: The JavaScript references main and [role=navigation] but nav doesn't exist on the demo page. Either add a nav to demo page or remove [role=navigation] from the JS</mark></p>
+						<p><mark>TODO: The JavaScript references main and [role=alertdialog] but the dialog is not a target of the original script</mark></p>
 						<details class="mrgn-tp-sm">
 							<summary class="bg-info">View Javascript</summary>
 							<p>
-								Pour contourner un bogue de focus dans VoiceOver, JavaScript masque
-								les éléments <code>&lt;main&gt;</code> et <code>&lt;nav&gt;</code> avec <code>aria-hidden="true"</code> et le code CSS
-								<code>affiche&nbsp;</code>: none, puis une milliseconde plus tard, le script
-								l’annule.
+								Pour contourner un bogue de focus dans VoiceOver, JavaScript masque l’élément <code>&lt;main&gt;</code> avec <code>aria-hidden="true"</code> et le code CSS <code>display: none</code>, puis une milliseconde plus tard, le script l’annule.
 							</p>
 							<p class="wb-inv">Début du code</p>
 <pre><code class="language-js">startTimeout();
@@ -257,7 +254,7 @@ function startTimeout(){
 				&lt;/p&gt;
          &lt;/div&gt;
          &lt;button id="continue"&gt;Continue Session&lt;/button&gt;
-         &lt;button onclick="window.location.href = “https://accessible.canada.ca/;” &gt; Terminer la session &lt;/button&gt;').appendTo('#modalOverlay');
+         &lt;button onclick="window.location.href = "https://accessible.canada.ca/" &gt; Terminer la session &lt;/button&gt;').appendTo('#modalOverlay');
       $('#continue').focus();
       $('#continue').click(function(e) {
          $('main, [role=alertdialog]').attr('aria-hidden','false');
