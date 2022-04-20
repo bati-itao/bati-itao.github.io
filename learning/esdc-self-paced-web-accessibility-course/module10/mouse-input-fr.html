@@ -104,11 +104,10 @@
 				<p>Cette exigence s’applique au contenu qui apparaît en plus de l’élément déclencheur lui-même. Elle ne s’applique pas à un élément non visible, tel qu’un lien de retour à la page d’accueil qui est rendu visible par la cible du clavier (sans autre contenu que le déclencheur devenu visible).</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h2 id="heading-hierarchy" class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>Un bon exemple&nbsp;: Contenu de lien survolé ou ciblé</h2>
+						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>Un bon exemple&nbsp;: Contenu de lien survolé ou ciblé</h3>
 						Quand le pointeur survole – ou le clavier cible – un lien, un aperçu du contenu lié s’affiche juste au-dessus ou en dessous. </p>
 				<p>Le dispositif de pointage peut quitter la zone sensible du lien et parcourir le contenu supplémentaire sans que la fenêtre contextuelle ne se ferme. Dans cet exemple, ce résultat est obtenu en emboîtant l’infobulle dans l’élément déclencheur. </p>
 				<p>La touche Esc/Échap ferme le contenu supplémentaire.</p>
-						<p><mark>TODO: Fix example of content on hover and focus</mark></p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 								<p>This is the 
@@ -169,6 +168,8 @@ document.addEventListener('keydown', (e) => {
 						</script>
 					</div>
 				</div>
+				<p><mark>This is the trigger</mark></p>
+				<p><mark>And this text gives additional context on the trigger term.</mark></p>
 				<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;p&gt;This is the 
    &lt;a class="a-and-tooltip" id="parent" href="index.html"&gt;
@@ -178,8 +179,9 @@ document.addEventListener('keydown', (e) => {
       &lt;/span&gt;
    &lt;/a&gt;
 &lt;/p&gt;</code></pre>
-								<p class="wb-inv">Fin du code</p>
-					<p><mark>The CSS here doesn't make sense</mark></p>
+				<p class="wb-inv">Fin du code</p>
+				<details class="mrgn-tp-md">
+					<summary class="bg-info">Voir le CSS</summary>
 					<p class="wb-inv">Début du code</p>	
 <pre><code class="language-css">[role="tooltip"] {     
    display: none;     
@@ -197,29 +199,34 @@ document.addEventListener('keydown', (e) => {
    left:0;     
    top:1em; 
 }</code></pre>
-		<p class="wb-inv">Fin du code</p>
-		<p class="wb-inv">Début du code</p>
+					<p class="wb-inv">Fin du code</p>
+				</details>
+				<p><mark>trigger and popup inside the same link</mark></p>
+				<p><mark>hide when ESC is pressed</mark></p>
+				<details class="mrgn-tp-md">
+					<summary class="bg-info">Voir le JavaScript</summary>
+					<p class="wb-inv">Début du code</p>
 <pre><code class="language-js">// trigger and popup inside the same link
 var parent = document.getElementById('parent');
-parent.onmouseover = function() {     
+parent.onmouseover = function() {    
    document.getElementById('popup').style.display = 'block'; 
 }
-parent.onmouseout = function() {     
+parent.onmouseout = function() {    
    document.getElementById('popup').style.display = 'none'; 
 }
-parent.onfocus = function() {     
+parent.onfocus = function() {    
    document.getElementById('popup').style.display = 'block'; 
 }
-parent.onblur = function() {     
+parent.onblur = function() {    
    document.getElementById('popup').style.display = 'none'; 
 }
-
 // hide when ESC is pressed
 document.addEventListener('keydown', (e) =&gt; {   
-if ((e.keyCode || e.which) === 27)        
+if ((e.keyCode || e.which) === 27)      
    document.getElementById('popup').style.display = 'none'; 
 });</code></pre>
-				<p class="wb-inv">Fin du code</p>	
+					<p class="wb-inv">Fin du code</p>	
+				</details>
 				<hr/>
 				<p class="small">Cet exemple provient du guide technique&nbsp;SCR39 du DACW&nbsp;2.1&nbsp;: Rendre possible le survol, le rejet et la persistance de l’affichage contextuel ouvert par survol ou ciblage clavier. Initiative pour l’accessibilité du Web&nbsp;W3C Extrait le 17&nbsp;décembre&nbsp;2021 de <a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR39">https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR39</a></p>
 			</div>
