@@ -549,13 +549,11 @@ function onNewPage() {
 								<!-- Trigger/Open The Modal -->
 								<button class="submit" id="myBtn">Submit</button>
 								<!-- The Modal -->
-								<div id="myModal" class="modal" role="dialog"
-     aria-labelledby="dialog"
-     aria-describedby="popup dialog">
+								<div id="myModal" class="modal" role="dialog" aria-labelledby="modal-title">
 									<!-- Modal content -->
 									<div class="modal-content">
 									<header class="modal-header">
-										<h2 class="modal-title">Your form has been submitted.</h2>
+										<h2 id="modal-title" class="modal-title">Your form has been submitted.</h2>
 									</header>
 										<div class="modal-body">
 											<button class="btn-close">Close</button>
@@ -563,6 +561,7 @@ function onNewPage() {
 									</div>
 								</div>
 								<script>
+									
 									// Get the modal
 									var modal = document.getElementById("myModal");
 									// Get the button that opens the modal
@@ -574,6 +573,14 @@ function onNewPage() {
 									   modal.style.display = "block";
 									   btnClose.focus();
 									}
+									//prevent tabbing to the page
+									btnClose.addEventListener("keydown", event => {
+										  if (event.shiftKey || event.keyCode === 9) {
+											btnClose.focus();
+											event.preventDefault();
+											false;
+										  }
+										});
 									// When the user clicks the close button, close the modal
 									btnClose.onclick = function() {	  
 									   modal.style.display = "none";
@@ -588,7 +595,7 @@ function onNewPage() {
 									}	
 
 									document.addEventListener('keyup', function (event) {
-									  if ( event.keyCode == 27 )   {
+									  if ( event.keyCode == 27 )   { //keycode 27 is escape
 										  modal.style.display = "none";
 										  btnSubmit.focus();
 									  }
@@ -698,8 +705,7 @@ function onNewPage() {
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">View JavaScript</summary>
 							<p class="wb-inv">Code begins</p>
-<pre><code class="language-js">// Get the modal
-var modal = document.getElementById("myModal");
+<pre><code class="language-js">var modal = document.getElementById("myModal");
 // Get the button that opens the modal
 var btnSubmit = document.getElementById("myBtn");
 // Get the button that closes the modal
@@ -709,6 +715,14 @@ btnSubmit.onclick = function() {
    modal.style.display = "block";
    btnClose.focus();
 }
+//prevent tabbing to the page
+btnClose.addEventListener("keydown", event => {
+	  if (event.shiftKey || event.keyCode === 9) {
+		btnClose.focus();
+		event.preventDefault();
+		false;
+	  }
+	});
 // When the user clicks the close button, close the modal
 btnClose.onclick = function() {	  
    modal.style.display = "none";
@@ -723,11 +737,11 @@ window.onclick = function(event) {
 }	
 
 document.addEventListener('keyup', function (event) {
-  if ( event.keyCode == 27 )   {
+  if ( event.keyCode == 27 )   { //keycode 27 is escape
 	  modal.style.display = "none";
 	  btnSubmit.focus();
   }
-})	</code></pre>
+})</code></pre>
 							<p class="wb-inv">Code ends</p>
 						</details>
 					</div>
