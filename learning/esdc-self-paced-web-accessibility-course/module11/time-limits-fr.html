@@ -71,10 +71,10 @@
         <div class="panel-body">
           <ul>
             <li><a href="#overview">Limites de temps (aperçu)</a></li>
-            <li><a href="#good-session-timeout">Good example: Session timeout</a></li>
-            <li><a href="#bad-no-extend">Bad example: Session timeout with no option to extend</a></li>
-            <li><a href="#bad-js-refresh">Bad example: JavaScript automatically refreshes a page</a></li>
-			<li><a href="#resources1">Related WCAG resources</a></li>
+            <li><a href="#good-session-timeout">&nbsp;Bon exemple&nbsp;:Expiration de session</a></li>
+            <li><a href="#bad-no-extend">Mauvais exemple&nbsp;: Expiration de session sans option de prolongation</a></li>
+            <li><a href="#bad-js-refresh">Mauvais exemple&nbsp;: JavaScript rafraîchit automatiquement une page</a></li>
+			<li><a href="#resources1">Ressources WCAG connexes</a></li>
           </ul>
         </div>
       </div>
@@ -158,7 +158,7 @@
         <p>
           Pour les minuteries comportant des échéances fixes, offrez un compte à
           rebours avec annonces <code>ARIA live</code> à des intervalles appropriés. Voir
-          l’exemple dans la section précédente, <a href="aria-live-fr.html#countdown">Bon exemple&nbsp;: Compte à
+          l’exemple dans la section précédente, <a href="aria-live-fr.html#countdown">&nbsp;Bon exemple&nbsp;: Compte à
           rebours annoncé à intervalles réguliers</a>
         </p>
         <p>
@@ -181,7 +181,7 @@
 			<section>
 				<div class="panel panel-success">
 					<div class="panel-body">
-					  <h2 class="text-success mrgn-tp-0 h3" id="good-session-timeout"><span class="glyphicon glyphicon-ok-circle"></span>Bon exemple&nbsp;:
+					  <h2 class="text-success mrgn-tp-0 h3" id="good-session-timeout"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;:
 							Expiration de session</h2>
 				
 				<p>
@@ -222,14 +222,11 @@
   &lt;p&gt; after 15 seconds of inactivity JavaScript launches and shifts user focus to a pop-up dialog that uses the role="alertdialog" attribute. The user can choose to Continue Session or End Session. If the user clicks Continue Session, JavaScript resets the 15 second counter. If the user clicks End Session, JavaScript exits the page.&lt;/p&gt;
 &lt;/main&gt;</code></pre>
 -->
-						<p><mark>TODO: The JavaScript references main and [role=navigation] but nav doesn't exist on the demo page. Either add a nav to demo page or remove [role=navigation] from the JS</mark></p>
+						<p><mark>TODO: The JavaScript references main and [role=alertdialog] but the dialog is not a target of the original script</mark></p>
 						<details class="mrgn-tp-sm">
 							<summary class="bg-info">View Javascript</summary>
 							<p>
-								Pour contourner un bogue de focus dans VoiceOver, JavaScript masque
-								les éléments <code>&lt;main&gt;</code> et <code>&lt;nav&gt;</code> avec <code>aria-hidden="true"</code> et le code CSS
-								<code>affiche&nbsp;</code>: none, puis une milliseconde plus tard, le script
-								l’annule.
+								Pour contourner un bogue de focus dans VoiceOver, JavaScript masque l’élément <code>&lt;main&gt;</code> avec <code>aria-hidden="true"</code> et le code CSS <code>display: none</code>, puis une milliseconde plus tard, le script l’annule.
 							</p>
 							<p class="wb-inv">Début du code</p>
 <pre><code class="language-js">startTimeout();
@@ -257,7 +254,7 @@ function startTimeout(){
 				&lt;/p&gt;
          &lt;/div&gt;
          &lt;button id="continue"&gt;Continue Session&lt;/button&gt;
-         &lt;button onclick="window.location.href = “https://accessible.canada.ca/;” &gt; Terminer la session &lt;/button&gt;').appendTo('#modalOverlay');
+         &lt;button onclick="window.location.href = "https://accessible.canada.ca/" &gt; Terminer la session &lt;/button&gt;').appendTo('#modalOverlay');
       $('#continue').focus();
       $('#continue').click(function(e) {
          $('main, [role=alertdialog]').attr('aria-hidden','false');
@@ -362,7 +359,7 @@ function CheckIdleTime() {
 
 
 		</section>
-			
+			<!-- id's verification in French Mohammed Qadeer-->
 		<section>				
 				<h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
 				<details class="mrgn-tp-lg">
