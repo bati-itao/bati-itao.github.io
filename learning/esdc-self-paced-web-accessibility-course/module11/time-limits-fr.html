@@ -70,8 +70,8 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#overview">Limites de temps (aperçu)</a></li>
-            <li><a href="#good-session-timeout">&nbsp;Bon exemple&nbsp;:Expiration de session</a></li>
+            <li><a href="#overview">Aperçu : Limites de temps</a></li>
+            <li><a href="#good-session-timeout">Bon exemple&nbsp;: Expiration de session</a></li>
             <li><a href="#bad-no-extend">Mauvais exemple&nbsp;: Expiration de session sans option de prolongation</a></li>
             <li><a href="#bad-js-refresh">Mauvais exemple&nbsp;: JavaScript rafraîchit automatiquement une page</a></li>
 			<li><a href="#resources1">Ressources WCAG connexes</a></li>
@@ -81,7 +81,7 @@
 	</nav>
 	
 		<section>	
-			<h2 id="overview">Limites de temps (aperçu)</h2>			
+			<h2 id="overview">Aperçu : Limites de temps</h2>			
 			<p>
 				Les limites de temps constituent un obstacle potentiel pour les
 				personnes qui ont des handicaps tels que la cécité, la malvoyance, un
@@ -91,16 +91,19 @@
 				WCAG exigent que tout contenu comportant des limites de temps offre
 				l’une des fonctionnalités suivantes&nbsp;:
 			</p>
-				<ul>
-					<li> <b>Désactiver&nbsp;</b>: L’utilisateur peut désactiver la limite de temps
-            avant qu’elle soit activée.</li>
-					<li><b>Ajuster&nbsp;</b>: L’utilisateur peut ajuster la limite de temps avant
+				<dl>
+					 <dt>Désactiver</dt>
+					 <dd class="mrgn-lft-lg">L’utilisateur peut désactiver la limite de temps
+            avant qu’elle soit activée.</dd>
+					<dt>Ajuster</dt>
+					<dd class="mrgn-lft-lg">L’utilisateur peut ajuster la limite de temps avant
             qu’elle soit activée à une durée d’au moins dix fois la valeur par
-            défaut.</li>
-					<li> <b>Prolonger&nbsp;</b>: L’utilisateur est averti avant l’expiration du
+            défaut.</dd>
+					<dt>Prolonger</dt>
+					<dd class="mrgn-lft-lg">L’utilisateur est averti avant l’expiration du
             délai et dispose de 20&nbsp;secondes pour prolonger la limite de
-            temps.</li>
-				</ul>
+            temps.</dd>
+				</dl>
 				<p>
           Tout processus qui survient sans activation par l’utilisateur après un
           délai défini ou périodiquement est considéré comme une limite de
@@ -137,29 +140,20 @@
             apparaît et disparaît à l’écran offre un bouton pause.
           </li>
         </ul>
-				<p>With session timeouts, present warning messages in a popup dialog (the <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">WAI-ARIA Dialog pattern</a> and the <a href="https://wet-boew.github.io/v4.0-ci/demos/session-timeout/session-timeout-en.html">WET session timeout</a> are described in <a href="../module12/index.html">module 12</a>) with options for the user to either extend or end the session. </p>
-				<p>For timers with fixed deadlines, provide a countdown feature with <code>ARIA live</code> announcements at strategic intervals. See the example in the preceding section, <a href="aria-live-fr.html#countdown">Good example: Countdown announcing at intervals</a>  </p>
-				<p>When refreshing/reloading a page, ask the user’s permission. An automatic page refresh/reload can cause difficulties for people with motor impairments, people with low vision, people who are blind, and people with certain cognitive limitations. Screen reader users may not have sufficient time to find their place before the page refreshes again. Instead, notify users that newer content is available and provide the options to update or continue with the old content. If the content update is urgent, use a popup dialog and shift the user’s focus to it; otherwise, use an eye-catching <a href="aria-live-fr.html#overview">ARIA live region</a> with <code>role="alert"</code>.</p>
 
 				<p>
           Pour les sessions comportant un délai d’expiration, présentez des
-          messages d’avertissement dans une boîte de dialogue contextuelle (<a
-            href="https://www.w3.org/TR/wai-aria-practices-1.1/"
-            >WAI-ARIA Dialog pattern</a
-          >
+          messages d’avertissement dans une boîte de dialogue contextuelle (
+          <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">WAI-ARIA Dialog pattern</a>
           et
-          <a
-            href="https://wet-boew.github.io/v4.0-ci/demos/session-timeout/session-timeout-en.html"
-            >WET session timeout</a
-          >
+          <a href="https://wet-boew.github.io/v4.0-ci/demos/session-timeout/session-timeout-fr.html">WET Expiration de la session</a>
           sont décrits dans le module&nbsp;12) avec des options permettant à
           l’utilisateur de prolonger ou de terminer la session.
         </p>
         <p>
           Pour les minuteries comportant des échéances fixes, offrez un compte à
-          rebours avec annonces <code>ARIA live</code> à des intervalles appropriés. Voir
-          l’exemple dans la section précédente, <a href="aria-live-fr.html#countdown">&nbsp;Bon exemple&nbsp;: Compte à
-          rebours annoncé à intervalles réguliers</a>
+          rebours avec annonces ARIA live à des intervalles appropriés. Voir
+          l’exemple dans la section précédente, <a href="aria-live-fr.html#countdown">Bon exemple&nbsp;: Compte àrebours annoncé à intervalles réguliers</a>
         </p>
         <p>
           Lorsqu’une page est rafraîchie ou rechargée, le système doit demander
@@ -181,8 +175,7 @@
 			<section>
 				<div class="panel panel-success">
 					<div class="panel-body">
-					  <h2 class="text-success mrgn-tp-0 h3" id="good-session-timeout"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;:
-							Expiration de session</h2>
+					  <h2 class="text-success mrgn-tp-0 h3" id="good-session-timeout"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Expiration de session</h2>
 				
 				<p>
           Dans cet exemple, après 15&nbsp;secondes d’inactivité, JavaScript est
@@ -193,9 +186,11 @@
           de 15&nbsp;secondes. Si l’utilisateur clique sur Terminer la session,
           JavaScript quitte la page.
         </p>
-				<p><a href="example-session-timeout.html" target="_blank">Ouvrez l’exemple d’expiration de session <mark>(opens in new window)</mark></a>.</p>
+        <p>Translate from external example: <mark>Accessible session timeout dialog</mark></p>
+       <p>Translate from external JavaScript: <mark>Due to inactivity, your session will expire in 2 minutes. If additional time is required, please click "Continue Session". To allow this session to end, click "End Session".</mark></p>
+				<p><a href="example-session-timeout-fr.html" target="_blank">Ouvrez l’exemple d’expiration de session<span class="wb-inv"> (s'ouvre dans un nouvel onglet)</span></a>.</p>
 				<details class="mrgn-tp-sm">
-					<summary class="bg-info">View CSS</summary>
+					<summary class="bg-info">Voir le CSS</summary>
 					<p class="wb-inv">Début du code</p>
 <pre><code class="language-css">#modalOverlay {
    width:100%;
@@ -224,7 +219,7 @@
 -->
 						<p><mark>TODO: The JavaScript references main and [role=alertdialog] but the dialog is not a target of the original script</mark></p>
 						<details class="mrgn-tp-sm">
-							<summary class="bg-info">View Javascript</summary>
+							<summary class="bg-info">Voir le Javascript</summary>
 							<p>
 								Pour contourner un bogue de focus dans VoiceOver, JavaScript masque l’élément <code>&lt;main&gt;</code> avec <code>aria-hidden="true"</code> et le code CSS <code>display: none</code>, puis une milliseconde plus tard, le script l’annule.
 							</p>
@@ -246,15 +241,10 @@ function startTimeout(){
       $(dialog).html('
          &lt;h1 id="alertHeading"&gt;Expiration de session!&lt;/h1&gt;
          &lt;div id="alertText"&gt;
-            &lt;p&gt;
-						En l’absence d’activité, votre session expirera dans 2&nbsp;minutes.
-						Si vous avez besoin de plus de temps, veuillez cliquer sur
-						«&nbsp;Continuer la session&nbsp;». Pour laisser expirer la session,
-						veuillez cliquer sur «&nbsp;Terminer la session&nbsp;».
-				&lt;/p&gt;
+            &lt;p&gt;En l’absence d’activité, votre session expirera dans 2&nbsp;minutes. Si vous avez besoin de plus de temps, veuillez cliquer sur «&nbsp;Continuer la session&nbsp;». Pour laisser expirer la session, veuillez cliquer sur «&nbsp;Terminer la session&nbsp;».&lt;/p&gt;
          &lt;/div&gt;
          &lt;button id="continue"&gt;Continue Session&lt;/button&gt;
-         &lt;button onclick="window.location.href = "https://accessible.canada.ca/" &gt; Terminer la session &lt;/button&gt;').appendTo('#modalOverlay');
+         &lt;button onclick="window.location.href = "https://accessible.canada.ca/"&gt; Terminer la session &lt;/button&gt;').appendTo('#modalOverlay');
       $('#continue').focus();
       $('#continue').click(function(e) {
          $('main, [role=alertdialog]').attr('aria-hidden','false');
@@ -297,13 +287,13 @@ function startTimeout(){
 						</div>
 					</div>
 					<p class="wb-inv">Début du code</p>
-<pre><code class="language-css">#timeOut { background-color: rgb(247, 231, 14); }</code></pre>
-					<p class="wb-inv">Fin du code</p>
-					<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;div&gt;
-	Vous serez automatiquement déconnecté dans &lt;span id="timeOut"&gt;19&lt;/span&gt; secondes.
+   Vous serez automatiquement déconnecté dans &lt;span id="timeOut"&gt;19&lt;/span&gt; secondes.
 &lt;/div&gt;
 </code></pre>
+					<p class="wb-inv">Fin du code</p>
+					<p class="wb-inv">Début du code</p>
+<pre><code class="language-css">#timeOut { background-color: rgb(247, 231, 14); }</code></pre>
 					<p class="wb-inv">Fin du code</p>
 					<details class="mrgn-tp-sm">
 						<summary class="bg-info">View Javascript</summary>
@@ -323,8 +313,7 @@ function CheckIdleTime() {
    }
    if (idleSecondsCounter &gt;= IdealTimeOut) {
       window.clearInterval(idleSecondsTimer);
-      alert("Votre session est expirée. Veuillez ouvrir une nouvelle
-          session.");
+      alert("Votre session est expirée. Veuillez ouvrir une nouvelle session.");
       window.location = "https://bati-itao.github.io/";
    }
 }
@@ -337,80 +326,72 @@ function CheckIdleTime() {
 		<section>
 			<div class="panel panel-danger mrgn-tp-lg">
 				<div class="panel-body">
-					<h2 class="text-danger mrgn-tp-0 h3" id="bad-js-refresh"><span class="glyphicon glyphicon-remove-circle"></span> Mauvais
-						exemple&nbsp;: JavaScript rafraîchit automatiquement une page</h2>
+					<h2 class="text-danger mrgn-tp-0 h3" id="bad-js-refresh"><span class="glyphicon glyphicon-remove-circle"></span> Mauvais exemple&nbsp;: JavaScript rafraîchit automatiquement une page</h2>
 				
 				
 
 							<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;head&gt;
-   &lt;script type = "text/JavaScript"&gt;
+   &lt;script type="text/JavaScript"&gt;
       function AutoRefresh( t ) {
          setTimeout("location.reload(true);", t);
       }
    &lt;/script&gt;
 &lt;/head&gt;
-&lt;body onload = "JavaScript:AutoRefresh(5000);"&gt;
-   &lt;p&gt;Cette page sera rafraîchie toutes les
-	 5&nbsp;secondes.&lt;/p&gt;
+&lt;body onload="JavaScript:AutoRefresh(5000);"&gt;
+   &lt;p&gt;Cette page sera rafraîchie toutes les 5 secondes.&lt;/p&gt;
 &lt;/body&gt;</code></pre>
-<p class="wb-inv">Fin du code</p>
-</details>
-
-
+							<p class="wb-inv">Fin du code</p>
+				</div>
+			</div>
 		</section>
 			<!-- id's verification in French Mohammed Qadeer-->
 		<section>				
 				<h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Ressources WCAG connexes</summary>
-				<h3 class="">Critères de succès</h3>
-				<ul>
-					<li>
-            Ce critère de succès fonctionne de concert avec le critère de
-            succès&nbsp;2.2.1&nbsp;– Timing Adjustable, mais il porte tout
-            particulièrement sur l’avis d’expiration de session lié à
-            l’inactivité de l’utilisateur.
-					</li>
-								</ul>
-				<h2>Techniques</h2>
-				<p>Situation&nbsp;A&nbsp;: S’il y a des limites de temps associées à une
-          session&nbsp;:</p>
-				<ul>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G133">G133: Providing a checkbox on the first page of a multipart form that allows users to ask for longer session time limit or no session time limit</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G198">G198: Providing a way for the user to turn the time limit off</a>
-					</li>
-				</ul>
-				<h3 class="">Situation B: If a time limit is controlled by a script on the page:</h3>
-				<ul>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G198">G198: Providing a way for the user to turn the time limit off</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G180">G180: Providing the user with a means to set the time limit to 10 times the default time limit</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR16">SCR16: Providing a script that warns the user a time limit is about to expire</a> AND <a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR1">SCR1: Allowing the user to extend the default time limit</a></li>
-				</ul>
-				<h3 class="">Situation&nbsp;B&nbsp;: Si une limite de temps est contrôlée par un
-          script sur la page&nbsp;:</h3>
-				<ul>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G4">G4: Allowing the content to be paused and restarted from where it was paused</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G198">G198: Providing a way for the user to turn the time limit off</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR33">SCR33: Using script to scroll content, and providing a mechanism to pause it</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR36">SCR36: Providing a mechanism to allow users to display moving, scrolling, or auto-updating text in a static window or area</a>
-					</li>
-				</ul>
+					<h3 class="">Critères de succès</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable">2.2.1: Timing Adjustable</a>
+						</li>
+					</ul>
+					<h3>Techniques</h3>
+					<h4>Situation A : S’il y a des limites de temps associées à une session</h4>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G133">G133: Providing a checkbox on the first page of a multipart form that allows users to ask for longer session time limit or no session time limit</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G198">G198: Providing a way for the user to turn the time limit off</a>
+						</li>
+					</ul>
+					<h4>Situation B : Si une limite de temps est contrôlée par un script sur la page</h4>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G198">G198: Providing a way for the user to turn the time limit off</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G180">G180: Providing the user with a means to set the time limit to 10 times the default time limit</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR16">SCR16: Providing a script that warns the user a time limit is about to expire</a> AND <a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR1">SCR1: Allowing the user to extend the default time limit</a></li>
+					</ul>
+					<h4><mark>Situation C: If there are time limits on reading</mark></h4>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G4">G4: Allowing the content to be paused and restarted from where it was paused</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G198">G198: Providing a way for the user to turn the time limit off</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR33">SCR33: Using script to scroll content, and providing a mechanism to pause it</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR36">SCR36: Providing a mechanism to allow users to display moving, scrolling, or auto-updating text in a static window or area</a>
+						</li>
+					</ul>
 				</details>
 			</section>
 		
