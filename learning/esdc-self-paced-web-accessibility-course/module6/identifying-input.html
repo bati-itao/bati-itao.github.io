@@ -79,9 +79,8 @@
 	
 			<section>
 				<h2 id="overview">Identifying input purpose (overview)</h2>
-				<p><mark>FRENCH: re-arranged sentences below</mark></p>
-				<p>When a form input field collects personal information such as the user’s name, phone number, email and street addresses, <mark><del>you must</del></mark> programmatically define its semantics with the <code>autocomplete</code> attribute. Assistive technologies leverage the <code>autocomplete</code> attribute value to automatically complete forms, drawing on past user input stored in the browser. This saves the user from having to type the information. Assistive technologies also leverage the <code>autocomplete</code> value to pair input fields with icons, for users who prefer using images for communication.</p>
-				<p>The attribute <mark>value</mark> takes one of 53 potential <mark><del>values</del> <ins><dfn>field names</dfn></ins></mark> from WCAG’s list of <a href="https://www.w3.org/TR/WCAG21/#input-purposes">Input Purposes for User Interface Components</a>. <mark><del>The values are granual</del> <ins>The field names are either broad or narrow</ins></mark>. For instance, regarding the user’s name, it’s possible to identify an input’s purpose as full name, given name, family name, or nickname. You can further refine the purpose by adding space-separated <mark><dfn>autofill detail tokens</dfn></mark> to the <code>autocomplete</code> <mark><del>attribute</del> <ins>value</ins></mark>:</p>
+				<p>When a form input field collects personal information such as the user’s name, phone number, email and street addresses, programmatically define its semantics with the <code>autocomplete</code> attribute. Assistive technologies leverage the <code>autocomplete</code> attribute value to automatically complete forms, drawing on past user input stored in the browser. This saves the user from having to type the information. Assistive technologies also leverage the <code>autocomplete</code> value to pair input fields with icons, for users who prefer using images for communication.</p>
+				<p>The attribute value takes one of 53 potential <ins><dfn>field names</dfn></ins></mark> from WCAG’s list of <a href="https://www.w3.org/TR/WCAG21/#input-purposes">Input Purposes for User Interface Components</a>. The field names are either broad or narrow. For instance, regarding the user’s name, it’s possible to identify an input’s purpose as full name, given name, family name, or nickname. You can further refine the purpose by adding space-separated <dfn>autofill detail tokens</dfn> to the <code>autocomplete</code> value:</p>
 				<ul>
 					<li><code>shipping</code></li>
 					<li><code>billing</code></li>
@@ -91,14 +90,14 @@
 					<li><code>fax</code></li>
 					<li><code>pager</code></li>
 				</ul>
-				<p><mark>Use <code>autocomplete</code> on <code>&lt;input&gt;</code> elements that take a text or numeric value as input, <code>&lt;textarea&gt;</code> elements, <code>&lt;select&gt;</code> elements, and <code>&lt;form&gt;</code> elements. The HTML5 specification lists the <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#inappropriate-for-the-control">appropriate elements to match with each autocomplete field name</a>.</mark></p>
+				<p>Use <code>autocomplete</code> on <code>&lt;input&gt;</code> elements that take a text or numeric value as input, <code>&lt;textarea&gt;</code> elements, <code>&lt;select&gt;</code> elements, and <code>&lt;form&gt;</code> elements. The HTML5 specification lists the <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#inappropriate-for-the-control">appropriate elements to match with each autocomplete field name</a>.</p>
 			</section>	
 			<section>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h2 class="text-success mrgn-tp-0 h3" id="autocomplete-attributes"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Using the autocomplete attribute</h2>
-						<p>This is a simple form that <mark><del>collects</del> <ins>identifies</ins></mark> contact information from the user <mark>with the <code>autocomplete</code> attribute. The <code>autocomplete</code> field names use tokens to distinguish between billing and shipping, and land line and mobile phone.</mark></p>
-						<p><mark>The fields only auto-populate if the browser has saved values for the field names (e.g., <code>given-name</code>, <code>family-name</code>) from a previous form submission. To test, enter some values and press "Populate browser" to store values for the field names in the browser. The data is not submitted, and we don't store any of it.</mark></p>
+						<p>This is a simple form that identifies contact information from the user with the <code>autocomplete</code> attribute. The <code>autocomplete</code> field names use tokens to distinguish between billing and shipping, and land line and mobile phone.</p>
+						<p>The fields only auto-populate if the browser has saved values for the field names (e.g., <code>given-name</code>, <code>family-name</code>) from a previous form submission. To test, enter some values and press "Populate browser" to store values for the field names in the browser. The data is not submitted, and we don't store any of it.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 								<form class="form-horizontal" autocomplete="on" onsubmit="return false;" > 
@@ -126,66 +125,66 @@
 										</div>
 									</div>
 									<fieldset>
-										<legend><mark>Shipping address</mark></legend>
+										<legend>Shipping address</legend>
 										<div class="form-group">
-											<label for="ship-st" class="col-sm-4 control-label"><mark>Street</mark></label>
+											<label for="ship-st" class="col-sm-4 control-label">Street</label>
 											<div class="col-sm-8">
 												<input type="text" id="ship-st" class="form-control" autocomplete="shipping street-address">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="ship-city" class="col-sm-4 control-label"><mark>City</mark></label>
+											<label for="ship-city" class="col-sm-4 control-label">City</label>
 											<div class="col-sm-8">
 												<input type="text" id="ship-city" class="form-control" autocomplete="shipping address-level2">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="ship-prov" class="col-sm-4 control-label"><mark>Province</mark></label>
+											<label for="ship-prov" class="col-sm-4 control-label">Province</label>
 											<div class="col-sm-8">
 												<input type="text" id="ship-prov" class="form-control" autocomplete="shipping address-level1">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="ship-mobile-phone" class="col-sm-4 control-label"><mark>Mobile phone for delivery</mark></label>
+											<label for="ship-mobile-phone" class="col-sm-4 control-label">Mobile phone for delivery</label>
 											<div class="col-sm-8">
 												<input type="tel" id="ship-mobile-phone" class="form-control" autocomplete="shipping mobile tel-national">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="ship-email" class="col-sm-4 control-label"><mark>Email</mark></label>
+											<label for="ship-email" class="col-sm-4 control-label">Email</label>
 											<div class="col-sm-8">
 												<input type="email" id="ship-email" class="form-control" autocomplete="shipping email">
 											</div>
 										</div>
 									</fieldset>
 									<fieldset>
-										<legend><mark>Billing address</mark></legend>
+										<legend>Billing address</legend>
 										<div class="form-group">
-											<label for="bill-st" class="col-sm-4 control-label"><mark>Street</mark></label>
+											<label for="bill-st" class="col-sm-4 control-label">Street</label>
 											<div class="col-sm-8">
 												<input type="text" id="bill-st" class="form-control" autocomplete="billing street-address">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="bill-city" class="col-sm-4 control-label"><mark>City</mark></label>
+											<label for="bill-city" class="col-sm-4 control-label">City</label>
 											<div class="col-sm-8">
 												<input type="text" id="bill-city" class="form-control" autocomplete="billing address-level2">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="bill-prov" class="col-sm-4 control-label"><mark>Province</mark></label>
+											<label for="bill-prov" class="col-sm-4 control-label">Province</label>
 											<div class="col-sm-8">
 												<input type="text" id="bill-prov" class="form-control" autocomplete="shipping address-level1">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="bill-phone" class="col-sm-4 control-label"><mark>Phone</mark></label>
+											<label for="bill-phone" class="col-sm-4 control-label">Phone</label>
 											<div class="col-sm-8">
 												<input type="tel" id="bill-phone" class="form-control" autocomplete="billing tel-national">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="bill-email" class="col-sm-4 control-label"><mark>Email</mark></label>
+											<label for="bill-email" class="col-sm-4 control-label">Email</label>
 											<div class="col-sm-8">
 												<input type="tel" id="bill-email" class="form-control" autocomplete="billing email">
 											</div>
@@ -194,7 +193,7 @@
 									<div class="form-group">
 										<div class="col-sm-offset-4 col-sm-8">
 											<input type="submit" value="Populate browser">
-											<span><mark>Populate browser</mark></span>
+											<span>Populate browser</span>
 										</div>
 									</div>
 									
@@ -203,9 +202,9 @@
 							</div>
 						</div>
 						<details class="mrgn-tp-lg">
-							<summary class="bg-info">View HTML <mark>(simplified) [Fr: simplifi&eacute;]</mark></summary>
-							<p class="mrgn-tp-md"><mark>This markup has been simplified by removing grouping <code>&lt;div&gt;</code> elements and class attributes.</mark></p>
-							<p class="wb-inv">Code begins</p>
+							<summary class="bg-info">View HTML (simplified)</summary>
+							<p class="mrgn-tp-md">This markup has been simplified by removing grouping <code>&lt;div&gt;</code> elements and class attributes.</p>
+							<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;form method="post" action="step1"&gt;  
   &lt;label for="fname"&gt;First name&lt;/label&gt;
   &lt;input id="fname" type="text" autocomplete="given-name"&gt;  
@@ -259,7 +258,7 @@
     
   &lt;input type="submit" value="Populate browser"&gt; 
 &lt;/form&gt;</code></pre>
-							<p class="wb-inv">Code ends</p>
+							<p class="wb-inv">Fin du code</p>
 						</details>
 					</div>
 				</div>

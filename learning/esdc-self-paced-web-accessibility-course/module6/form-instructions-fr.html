@@ -73,7 +73,7 @@
             <li><a href="#form-instructions">Instructions du formulaire (overview)</a></li>
 			<li><a href="#overall-instructions">Instructions générales</a></li>
 			<li><a href="#inline-instructions">Instructions incluse</a></li>
-			<li><a href="#instructions-for-groups">Les instructions relatives aux groupes<mark><del> ou aux sections sont associées au groupe par un programme</del></mark></a></li>
+			<li><a href="#instructions-for-groups">Les instructions relatives aux groupes</a></li>
 			<li><a href="#resources">Ressources WCAG connexes</a></li>
           </ul>
         </div>
@@ -92,7 +92,7 @@
 				<div class="alert alert-warning">
 					<p><strong>Remarque&nbsp;: </strong>Les utilisateurs du lecteur d’écran pourraient facilement rater les instructions générales du formulaire imbriquées dans un élément <code>&lt;form&gt;</code>. Les lecteurs d’écran entrent en «&nbsp;mode formulaires&nbsp;» une fois dans un formulaire, désactivant ainsi les raccourcis clavier de balayage de texte pour permettre à l’utilisateur de taper directement dans les champs de saisie et de zone de<code> texte</code>. La navigation au clavier se limite aux éléments pouvant être ciblés (saisies de formulaires, liens et autres commandes) au moyen de la touche Tab. Le texte qui n’est pas associé par un programme à un élément pouvant être ciblé – servant d’étiquette ou de description – est facilement omis.</p>
 				</div>
-				<p>Les instructions du formulaire <mark><del>peuvent indiquer la façon dont les champs obligatoires sont balisés, le format prévu et où trouver de l’aide supplémentaire. Voici quelques</del></mark> exemples&nbsp;:</p>
+				<p>Voici des exemples d'instructions pour un formulaire :</p>
 
 				<ul>
 					<li>Tous les champs marqués «&nbsp;obligatoire&nbsp;» doivent être remplis.</li>
@@ -103,119 +103,114 @@
 			
 			<section>				
 				<h2 id="inline-instructions">Instructions incluses</h2>
-				<p>Des instructions incluses sont fournies à l’intérieur ou à l’extérieur de l’étiquette de commande du formulaire. De courtes instructions peuvent être insérées dans l’étiquette avec le nom de la commande. Les instructions longues devraient être à l’extérieur de l’étiquette et être associées à la commande par l’entremise de l’attribut <code>aria-descripbedby</code>. <mark><del>Privilégier l’utilisation d’un langage HTML sémantique <code>&lt;label&gt;</code> au lieu d’ARIA pour fournir des instructions dans les étiquettes. Associer l’attribut <code>“for”</code> de l’étiquette à l’attribut <code>“id”</code> de la commande du formulaire.</del></mark></p>
+				<p>Des instructions incluses sont fournies à l’intérieur ou à l’extérieur de l’étiquette de commande du formulaire. De courtes instructions peuvent être insérées dans l’étiquette avec le nom de la commande. Les instructions longues devraient être à l’extérieur de l’étiquette et être associées à la commande par l’entremise de l’attribut <code>aria-descripbedby</code>. </p>
 
 				</p>
 				<h3>Fournir des instructions dans les étiquettes</h3>
-				<p>Les agents utilisateurs prennent en charge sans difficulté les instructions fournies dans les étiquettes, mais celles-ci devraient être réservées aux instructions plus courtes. Associer l’attribut <code>“for” </code>de l’étiquette à l’attribut <code>“id”</code> de la commande du formulaire.</p>
+				<p>Les agents utilisateurs prennent en charge sans difficulté les instructions fournies dans les étiquettes, mais celles-ci devraient être réservées aux instructions plus courtes. Associer l’attribut <code>"for"</code> de l’étiquette à l’attribut <code>"id"</code> de la commande du formulaire.</p>
 
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-					  <h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing instructions within a label</h4>
+					  <h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple : Fournir des instructions dans une étiquette</h4>
 					  
-					    <p><mark>TODO; The paragraph below needs to be done!</mark></p>
-						<p>The required format for the “<mark><del>Date of Birth</del> <ins>Employee ID</ins></mark>” is indicated by “<mark><del>YYYY/MM/DD</del> <ins>XX-1234</ins></mark></del></mark>” within the same label:</p>
-						<p>Le format requis pour la «&nbsp;Date de naissance&nbsp;» est indiqué par le format «&nbsp;AAAA/MM/JJ&nbsp;» dans la même étiquette&nbsp;:</p>
+						<p>Le format requis pour «&nbsp;l'identification de l'employé&nbsp;» est indiqué par le format «&nbsp;XX-1234&nbsp;» dans la même étiquette&nbsp;:</p>
 
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Example begins</p>
+								<p class="wb-inv">Début de l'exemple</p>
 								<form class="form-inline" role="form" method="get" action="#">
 									<div class="form-group">
-										<label for="employee-id">Employee ID (XX-1234)</label> 
+										<label for="employee-id">Identification de l'employé (XX-1234)</label> 
 										<input type="text" name="employee-id" id="employee-id" class="form-control">
 									</div>
 								</form>
-								<p class="wb-inv">Example ends</p>
+								<p class="wb-inv">Fin de l'exemple</p>
 							</div>
 						</div>
-						<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;label for="employee-id"&gt;Employee ID (XX-1234)&lt;/label&gt; 
 &lt;input type="text" name="employee-id" id="employee-id"&gt;</code></pre>
-						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Fin du code</p>
 					</div>
 				</div>
 				<h3>Fournir des instructions à l’extérieur des étiquettes</h3>
-				<p>Utiliser ARIA pour fournir des instructions à l’extérieur des étiquettes. Associer tout texte descriptif du formulaire à l’élément pertinent du formulaire en utilisant l’attribut <code>aria-labelledby </code>ou <code>aria-descripbedby</code>. </p>
+				<p>Utiliser ARIA pour fournir des instructions à l’extérieur des étiquettes. Associer tout texte descriptif du formulaire à l’élément pertinent du formulaire en utilisant l’attribut <code>aria-labelledby</code> ou <code>aria-descripbedby</code>. </p>
 
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 					
-						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span> &nbsp;Bon exemple&nbsp;1&nbsp;: Fournir des <mark><ins>control</ins></mark>instructions du formulaire en utilisant aria-labelledby</h4>
-						<p>One approach to providing instructions outside of labels uses the <code>aria-labelledby</code> attribute on the control:</p>
+						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span> &nbsp;Bon exemple&nbsp;1&nbsp;: Fournir des instructions de contrôle de formulaire en utilisant aria-labelledby</h4>
+						<p>Une approche pour fournir des instructions en dehors des étiquettes utilise l'attribut <code>aria-labelledby</code> sur le contrôle :</p>
 						<p>L’utilisation de l’attribut aria-labelledby sur la commande constitue une façon de fournir des instructions à l’extérieur des étiquettes.  Cette approche garantit que la description supplémentaire est communiquée à la technologie d’assistance, mais elle ne devrait être utilisée qu’avec de courtes descriptions.</p>
 
 						<ul>
-							<p>Un élément <code>&lt;label&gt; </code>est associé à sa commande au moyen de valeurs d’attribut correspondantes <code>“for”</code> et <code>“id”</code>.</p>
-							<p><mark>TODO: This li section below needs to be done!</mark></p>
-							<li>The <code>aria-labelledby</code> attribute <mark>on the control</mark> references the <code>id</code> attribute values of <mark><del>the <code>&lt;label&gt;</code> element</del> <ins>itself</ins></mark> and the element holding the description.</li>
+							<p>Un élément <code>&lt;label&gt; </code>est associé à sa commande au moyen de valeurs d’attribut correspondantes <code>"for"</code> et <code>"id"</code>.</p>
+							<li>L'attribut <code>aria-labelledby</code> du contrôle fait référence aux valeurs de l'attribut <code>id</code> de l'élément lui-même et de l'élément contenant la description.</li>
 							<li>L’attribut <code>aria-labelledby</code> fait référence aux valeurs de l’attribut id de l’élément étiquette et de l’élément qui contient la description.</li>
 						</ul> 
 						<p>Cette approche garantit que la description supplémentaire est communiquée à la technologie d’assistance, mais elle ne devrait être utilisée qu’avec de courtes descriptions</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-							<p class="wb-inv">Example begins</p>
+							<p class="wb-inv">Début de l'exemple</p>
 								<form class="form-inline" role="form" method="get" action="#">
 									<div class="form-group">
-										<label for="health-card"><mark>Health card number</mark></label>
+										<label for="health-card">Carte assurance maladie</label>
 										<input type="text" name="health-card" id="health-card" aria-labelledby="health-card hc-format" class="form-control">
-										&nbsp;<span id="hc-format"><mark>1234-567-890-XX</mark></span>
+										&nbsp;<span id="hc-format">1234-567-890-XX</span>
 									</div>
 								</form>
-								<p class="wb-inv">Example ends</p>
+								<p class="wb-inv">Fin de l'exemple</p>
 							</div>
 						</div>
 
-						<p class="wb-inv">Code begins</p>
-						<pre><code class="language-html">&lt;label for="health-card"&gt;Health card number&lt;/label&gt;
+						<p class="wb-inv">Début du code</p>
+						<pre><code class="language-html">&lt;label for="health-card"&gt;Carte assurance maladie&lt;/label&gt;
 &lt;input type="text" id="health-card" aria-labelledby="health-card hc-format" name="health-card"&gt;
 &lt;span id="hc-format"&gt;1234-567-890-XX&lt;/span&gt;
 </code></pre>
-						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Fin du code</p>
 
 					</div>
 				</div>
 				
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing form <mark><ins>control</ins></mark> instructions with aria-describedby</h4>
-						<p><mark>check for existing translation</mark></p>
-						<p>The more common approach to providing instructions outside of labels is to use the <code>aria-describedby</code> attribute. The attribute is set on the control and points to the <code>id</code> attribute value of the element containing the description.</p>
+						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple : Fournir des instructions de contrôle de formulaire avec aria-describedby</h4>
+						<p>L'approche la plus courante pour fournir des instructions en dehors des étiquettes consiste à utiliser l'attribut <code>aria-describedby</code>. Cet attribut est défini sur le contrôle et pointe vers la valeur de l'attribut <code>id</code> de l'élément contenant la description.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Example begins</p>
+								<p class="wb-inv">Début de l'exemple</p>
 								<form class="form-inline" role="form" method="get" action="#">
 									<div class="form-group">
-										<label for="password1">Password:</label>
+										<label for="password1">Mot de passe:</label>
 										<input type="password" name="password1" id="password1" aria-describedby="passDesc" class="form-control">
 									</div>
-									<div id="passDesc">Must contain at least 8 characters, one uppercase letter and one special character</div>
+									<div id="passDesc">Doit contenir au moins 8 caractères, une lettre majuscule et un caractère spécial.</div>
 								</form>
-								<p class="wb-inv">Example ends</p>
+								<p class="wb-inv">Fin de l'exemple</p>
 							</div>
 						</div>
 
-						<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;div class="form-group"&gt;
-   &lt;label for="password1"&gt;Password:&lt;/label&gt;
+   &lt;label for="password1"&gt;Mot de passe:&lt;/label&gt;
    &lt;div&gt;
       &lt;input type="password" id="password1" aria-describedby="passDesc" name="password1"&gt;
       &lt;div id="passDesc"&gt;Doit contenir au moins huit caractères, une lettre majuscule et un caractère spécial&lt;&lt;/div&gt;
    &lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Fin du code</p>
 											
 					</div>
 				</div>
 				
 				<h3>Texte d’espace réservé</h3>
-				<p><mark>TODO:Below paragraph needs to be fixed!</mark></p>
-				<p><mark><del>Placeholder text</del><ins>Text in the <code>placeholder</code> attribute</ins></mark> provides instructions or an example of the required data format inside form fields that have not yet been edited by the user. <mark><del>Most browsers’ default placeholder text lacks sufficient contrast.  Also, </del></mark> 
+				<p>Le texte de l'attribut <code>placeholder</code> attribute</ins></mark> fournit des instructions ou un exemple du format de données requis à l'intérieur des champs de formulaire qui n'ont pas encore été modifiés par l'utilisateur.</p>
 				<p>Le texte d’espace réservé fournit des instructions ou un exemple de format de données requis dans les champs de formulaire qui n’ont pas encore été modifiés par l’utilisateur. Le texte d’espace réservé par défaut de la plupart des navigateurs ne présente pas de contraste suffisant. De plus, le texte d’espace réservé disparaît des champs de formulaire lorsque les utilisateurs commencent à entrer du texte. Si le texte d’espace réservé contient de l’information ou des exemples qui disparaissent, il devient plus difficile pour les utilisateurs de vérifier leurs réponses avant de soumettre le formulaire.</p>
 
 				<div class="alert alert-warning">
-				   <p><mark><ins>Note that [Fr: Noter que]</ins></mark> placeholder text disappears from <mark><ins>a form field</ins> <del>form fields</del></mark> when users start entering text. If the placeholder text contains instructional information or examples that disappear, it makes it more difficult for users to check their responses before submitting the form.</p>
+				   <p>Notez que le texte de remplacement disparaît des champs d'un formulaire lorsque les utilisateurs commencent à saisir du texte. Si ce texte contient des informations pédagogiques ou des exemples qui disparaissent, il est plus difficile pour les utilisateurs de vérifier leurs réponses avant de soumettre le formulaire.</p>
 				</div>
 				
 				<p>Le texte d’espace réservé ne remplace pas les étiquettes. Les technologies d’assistance comme les lecteurs d’écran ne traitent pas le texte d’espace réservé comme des étiquettes. </p>
@@ -261,7 +256,7 @@
 					</div>
 				</div>
 
-				<p class="wb-inv">Code begins</p>
+				<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;div&gt;
    &lt;label for="search"&gt;Recherche:&lt;/label&gt; 
    &lt;input type="text" name="search" id="search" placeholder="e.g., cours sur l’accessibilité"&gt;
@@ -270,7 +265,7 @@
    &lt;label for="email"&gt;Courriel: &lt;/label&gt; 
    &lt;input type="email" name="email" id="email" placeholder="jane.doe@gmail.com" autocomplete="email"&gt;
 &lt;/div&gt;</code></pre>
-				<p class="wb-inv">Code ends</p>
+				<p class="wb-inv">Fin du code</p>
 
 
 						
@@ -334,7 +329,7 @@
 					
 					<details class="mrgn-tp-sm">
 						<summary class="bg-info">View HTML </summary>
-<p class="wb-inv">Code begins</p>
+<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;div&gt;
    &lt;label for="search"&gt;Recherche de cours:&lt;/label&gt;  
    &lt;input type="text" name="search" id="search" placeholder="e.g., cours sur l’accessibilité"&gt;
@@ -352,11 +347,11 @@
    &lt;input type="text" name="email" id="email" placeholder="jane.doe@gmail.com"&gt; 
 &lt;/div&gt;</code>
 </pre>
-<p class="wb-inv">Code ends</p>
+<p class="wb-inv">Fin du code</p>
 						</details>	
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">View CSS </summary>
-							<p class="wb-inv">Code begins</p>
+							<p class="wb-inv">Début du code</p>
 <pre><code class="language-css">::-webkit-input-placeholder { 
    color: #767676 !important; 
    opacity: 1;
@@ -375,7 +370,7 @@
    color: #767676  !important; 
    opacity: 1;
 }</code></pre>
-						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Fin du code</p>
 						</details>	
 
 
@@ -383,10 +378,8 @@
 			
 			</section>
 			<section>				
-				<h2 id="instructions-for-groups">Les instructions relatives aux groupes<mark><del> ou aux sections sont associées au groupe par un programme</del></mark></h2> 
-				<p><mark>TODO: The paragraph below needs to be fixed!</mark></p>
-				<p>In “focus mode”, when tabbing through the form, screen reader users <mark><del>will not hear regular text added to the form</del><ins> set focus on form controls and hear their labels and descriptions. Text in a non-focusable <ins>element is missed </ins><del>text will be skipped</del></mark> unless it is programmatically associated with a form control as label or description.</p>
-				<p>En «&nbsp;mode cible&nbsp;», les utilisateurs du lecteur d’écran n’entendront pas le texte ordinaire ajouté au formulaire lorsqu’ils parcourent le formulaire à l’aide de la touche Tab. Le texte non ciblé sera sauté à moins qu’il ne soit associé par un programme à une commande de formulaire comme étiquette ou description.</p>
+				<h2 id="instructions-for-groups">Les instructions relatives aux groupes</h2> 
+				<p>En "mode focus", lors de la tabulation dans le formulaire, les utilisateurs de lecteurs d'écran mettent le focus sur les contrôles de formulaire et entendent leurs étiquettes et descriptions. Le texte d'un élément non focalisable n'est pas pris en compte, sauf s'il est associé par programme à un contrôle de formulaire en tant qu'étiquette ou description.</p>
 
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
@@ -432,7 +425,7 @@
 		
 						<details class="mrgn-tp-sm">
 							<summary class="bg-info">View HTML </summary>
-							<p class="wb-inv">Code begins</p>
+							<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;fieldset&gt;
    &lt;legend class="required"&gt; 
    Renseignements d’ouverture de session (Requis)
@@ -450,13 +443,13 @@
    &lt;input type="tel" id="phone" required auto-complete="tel-national"&gt;
 &lt;/fieldset&gt;</code>
 </pre>
-							<p class="wb-inv">Code ends</p>
+							<p class="wb-inv">Fin du code</p>
 						</details>
 						
 		
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">View CSS </summary>
-							<p class="wb-inv">Code begins</p>
+							<p class="wb-inv">Début du code</p>
 <pre><code class="language-css">label.required:before, 
 legend.required:before {
    content: "* ";
@@ -464,7 +457,7 @@ legend.required:before {
    color: #d3080c;
    font-weight: 700;
 }</code></pre>
-							<p class="wb-inv">Code ends</p>
+							<p class="wb-inv">Fin du code</p>
 						</details>
 					</div>
 				</div>
@@ -472,9 +465,9 @@ legend.required:before {
 				
 			<div class="panel panel-danger mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bon exemple&nbsp;: Instructions associées à l’utilisation d’aria-descripbedby</h3>
-					<p>When instructions are in a <code>&lt;p&gt;</code> element not associated via <code>aria-describedby</code>, they’re easily missed by users navigating the form in the screen reader’s “forms mode”. </p>
-					<p>Dans cet exemple, le paragraphe <code>«&nbsp;</code>Les mots de passe doivent correspondre&nbsp;» est associé aux deux champs de saisie de mot de passe utilisant l’attribut <code>aria-descripbedby</code>.</p>
+					<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Mauvais exemple : Instructions dans un paragraphe non associé à un contrôle</h3>
+					<p>Lorsque les instructions se trouvent dans un élément <code>&lt;p&gt;</code> non associé via <code>aria-describedby</code>, elles sont facilement manquées par les utilisateurs qui naviguent dans le formulaire en "mode formulaire" du lecteur d'écran.</p>
+					
 
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
@@ -488,7 +481,7 @@ legend.required:before {
 											<input type="text" id="username"  class="form-control">
 										</div>
 									</div>
-									<p id="passmatch">Les mots de passe correspondent beaucoup</p>
+									<p id="passmatch">Les mots de passe doivent correspondre.</p>
 									<div class="form-group">
 										<label for="password" class="col-sm-3 control-label">Mot de passe:</label>
 										<div class="col-sm-9">
@@ -515,13 +508,13 @@ legend.required:before {
 									</div>
 								</fieldset>
 							</form>
-							<p class="wb-inv">Example ends</p>
+							<p class="wb-inv">Fin de l'exemple</p>
 						</div>
 					</div>
 
 				<details class="mrgn-tp-sm">
 					<summary class="bg-info">View HTML </summary>
-					<p class="wb-inv">Code begins</p>
+					<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;fieldset&gt;
    &lt;legend&gt; 
    Créer un compte d’utilisateur
@@ -530,7 +523,7 @@ legend.required:before {
       &lt;label for="username"&gt;Nom d’utilisateur:&lt;/label&gt;
       &lt;input type="text" id="username"&gt;
    &lt;/p&gt;
-   &lt;p&gt;Les mots de passe correspondent beaucoup&lt;/p&gt;
+   &lt;p&gt;Les mots de passe doivent correspondre.&lt;/p&gt;
    &lt;p&gt;
       &lt;label for="password"&gt;Mot de passe:&lt;/label&gt;
       &lt;input type="password" id="password"&gt;
@@ -548,7 +541,7 @@ legend.required:before {
       &lt;input type="tel" id="phone"&gt;
    &lt;/p&gt;
 &lt;/fieldset&gt;</code></pre>
-					<p class="wb-inv">Code ends</p>
+					<p class="wb-inv">Fin du code</p>
 				</details>
 			</div>
 		</div>
@@ -556,16 +549,16 @@ legend.required:before {
 		<div class="panel panel-success mrgn-tp-lg">
 			<div class="panel-body">
 		
-		  <h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Mauvais exemple&nbsp;: Instructions dans un paragraphe non associées à une commande</h3>
-		  <p>Lorsque les instructions se trouvent dans un élément &lt;p&gt; qui n’est pas associé par aria-descripbedby, les utilisateurs qui naviguent dans le formulaire en «&nbsp;mode formulaires&nbsp;» du lecteur d’écran peuvent facilement passer à côté de ces instructions. </p>
+		  <h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple : Instructions partagées associées à plusieurs champs de formulaire</h3>
+		  <p>Dans certaines situations, les instructions partagées peuvent être associées à plusieurs champs de formulaire.</p>
 		  <div class="panel panel-primary mrgn-tp-md">
 				<div class="panel-body well mrgn-bttm-0">
-					<p class="wb-inv">Example begins</p>
+					<p class="wb-inv">Début de l'exemple</p>
 					<form class="form-horizontal" role="form" method="get" action="#">
 						<fieldset>
 							<legend><span class="field-name"> Créer un compte d’utilisateur</legend>
 							
-							<p>Username and Password fields <span id="specialchar">must NOT contain special characters</span></p>
+							<p>Les champs Nom d'utilisateur et Mot de passe <span id="specialchar">ne doivent PAS contenir de caractères spéciaux.</span></p>
 							
 							<div class="form-group">
 								<label for="username" class="col-sm-2 control-label">Nom d’utilisateur:</label>
@@ -593,17 +586,17 @@ legend.required:before {
 							</div>
 						</fieldset>
 					</form>
-					<p class="wb-inv">Example ends</p>
+					<p class="wb-inv">Fin de l'exemple</p>
 				</div>
 			</div>
 
 			<details class="mrgn-tp-sm">
 				<summary class="bg-info">View HTML </summary>
-				<p class="wb-inv">Code begins</p>
+				<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;fieldset&gt;
    &lt;legend&gt;Créer un compte d’utilisateur&lt;/legend&gt;
    &lt;p&gt;
-      Username and Password fields &lt;span id="specialchar"&gt;must NOT contain special characters&lt;/span&gt;
+   Les champs Nom d'utilisateur et Mot de passe &lt;span id="specialchar"&gt;ne doivent PAS contenir de caractères spéciaux.&lt;/span&gt;
    &lt;/p&gt;
    &lt;p&gt;
       &lt;label for="username"&gt;Nom d’utilisateur:&lt;/label&gt;
@@ -622,7 +615,7 @@ legend.required:before {
       &lt;input type="tel" id="phone"&gt;
    &lt;/p&gt;
 &lt;/fieldset&gt;</code></pre>
-				<p class="wb-inv">Code ends</p>
+				<p class="wb-inv">Fin du code</p>
 			</details>
 		</div>
 	</div>
@@ -635,7 +628,7 @@ legend.required:before {
 
 			<div class="panel panel-primary mrgn-tp-md">
 				<div class="panel-body well mrgn-bttm-0">
-					<p class="wb-inv">Example begins</p>
+					<p class="wb-inv">Début de l'exemple</p>
 					<form  method="get" action="#" onsubmit="return false;">
 						<fieldset> 
 							<legend><span class="field-name">Virer des fonds</span></legend> 
@@ -674,7 +667,7 @@ legend.required:before {
 			</div>
 			<details class="mrgn-tp-sm">
 				<summary class="bg-info">View HTML </summary>
-				<p class="wb-inv">Code begins</p>
+				<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;form action="/action.php method="get"&gt;
    &lt;fieldset&gt;
       &lt;legend&gt;Virer des fonds&lt;/legend&gt;
@@ -698,7 +691,7 @@ legend.required:before {
       &lt;input type="submit" value="Submit"&gt;
    &lt;/fieldset&gt;
 &lt;/form&gt;</code></pre>
-				<p class="wb-inv">Code ends</p>
+				<p class="wb-inv">Fin du code</p>
 									  </details>
 				</div>
 				</div>
@@ -755,10 +748,10 @@ legend.required:before {
 
 
 			
-				<p class="wb-inv">Code begins</p>
+				<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;p&gt;Choisissez les comptes source et destination ci-dessous pour effectuer votre virement de fonds:&lt;/p&gt; 
 &lt;form action="/action.php" method="get"&gt;[&hellip;]&lt;/form&gt;</code></pre>
-				<p class="wb-inv">Code ends</p>
+				<p class="wb-inv">Fin du code</p>
 					  
 </div>
 </div>
