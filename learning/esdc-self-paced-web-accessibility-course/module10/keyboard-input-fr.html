@@ -155,7 +155,7 @@
 				<p>L’utilisation à la fois des événements clavier et des événements souris permet de rendre le contenu exploitable par un large éventail de dispositifs de saisie.</p>
 				<p>Le tableau suivant suggère les gestionnaires d’événement souris à jumeler aux gestionnaires d’événement clavier&nbsp;:</p>
 				<table class="table table-bordered table-hover" style="max-width: 24em">
-					<caption>[Légende du tableau :] Correspondance des gestionnaires d’événement</caption>
+					<caption>Correspondance des gestionnaires d’événement</caption>
 					<thead>
 						<tr>
 							<th scope="col">
@@ -349,34 +349,26 @@
 &lt;ul id="nameList"&gt;&lt;/ul&gt;</code></pre>
 
 						<p class="wb-inv">Fin du code</p>
-						<p><mark>TODO: move these translations to the JavaScript</mark></p>
-					<p>Gère à la fois les clics de souris et le clavier</p>
-					<p>Activer avec Entrée ou Espace</p>
-					<p>Les pressions sur les touches autres que Entrée et Espace mettent fin au script.</p>
-					<p>Obtenez la nouvelle valeur du nom de l'élément d'entrée</p>
-					<p>Effacer le champ de texte</p>
-					<p>Donner le focus au champ de texte pour permettre la saisie d'un nom supplémentaire</p>
-					<p>N'ajoutez pas d'entrées vides à la liste</p>
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir le JavaScript</summary>
 							<p class="wb-inv">Début du code</p>
 <pre><code class="language-js">function handleCommand(event) {
-   // Handles both mouse clicks and keyboard
-   // activate with Enter or Space
-   // Keypresses other then Enter and Space end the script
+   // Gère à la fois les clics de souris et le clavier
+   // Activer avec Entrée ou Espace
+   // Les pressions sur les touches autres que Entrée et Espace mettent fin au script
    if (event instanceof KeyboardEvent 
              &amp;&amp; event.key !== 'Enter' 
              &amp;&amp; event.key !== ' ') {
       return;
    }
-   // Get the new name value from the input element
+   // Obtenez la nouvelle valeur du nom de l'élément d'entrée
    let newNameInput = document.getElementById('newName');
    let name = newNameInput.value;
-   // clear the text field
+   // Effacer le champ de texte
    newNameInput.value = ''; 
-   // give the text field focus to enable entering an additional name
+   // Donner le focus au champ de texte pour permettre la saisie d'un nom supplémentaire
    newNameInput.focus();  
-   // Don't add blank entries to the list
+   // N'ajoutez pas d'entrées vides à la liste
    if(name.length &gt; 0) {
       listItem = document.createElement('li');
       listItem.appendChild(document.createTextNode(name));
@@ -622,6 +614,10 @@ function onNewPage() {
 								-->
 							</div>
 						</div>
+<p><mark>translate and paste to code comments</mark></p>					
+<p><mark>Trigger/open the modal</mark></p>
+<p><mark>The modal</mark></p>										
+<p><mark>Modal content</mark></p>										
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir le HTML</summary>
 							<p class="wb-inv">Début du code</p>
@@ -638,6 +634,14 @@ function onNewPage() {
 &lt;/div&gt;</code></pre>
 							<p class="wb-inv">Fin du code</p>
 						</details>
+						
+<p><mark>translate and paste to code comments</mark></p>										
+<p><mark>The Modal (background)</mark></p>										
+<p><mark>Hidden by default</mark></p>										
+<p><mark>Sit on top</mark></p>										
+<p><mark>Location of the box</mark></p>										
+<p><mark>Full width</mark></p>										
+<p><mark>Full height</mark></p>																
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir le CSS</summary>	
 							<p class="wb-inv">Début du code</p>
@@ -678,7 +682,13 @@ function onNewPage() {
 }</code></pre>
 							<p class="wb-inv">Fin du code</p>
 						</details>
-						<p><mark>Translate 5 JavaScript comments</mark></p>
+<p><mark>translate and paste to code comments</mark></p>												
+<p><mark>Get the modal</mark></p>										
+<p><mark>Get the button that opens the modal</mark></p>										
+<p><mark>Get the button that closes the modal</mark></p>										
+<p><mark>When the user clicks the button, open the modal </mark></p>										
+<p><mark>When the user clicks the close button, close the modal</mark></p>									
+<p><mark>When the user clicks anywhere outside of the modal, close it</mark></p>
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir le JavaScript</summary>
 							<p class="wb-inv">Début du code</p>

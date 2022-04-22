@@ -114,56 +114,52 @@
 								   <a class="a-and-tooltip" id="parent" href="index.html">
 									lien déclencheur
 									  <span id="popup" role="tooltip">
-										et ce texte donne un contexte supplémentaire à propos du lien déclencheur.
+										Et ce texte donne un contexte supplémentaire à propos du lien déclencheur.
 									  </span>
 								   </a>
 								</p>
 								<style type="text/css">
-[role="tooltip"] {     
-	display: none;     
-	padding: 0.5em;     
-	background:white;     
-	color: black;     
-	border:solid black 2px;     
-	width:10em; 
-}
-.a-and-tooltip {   
-	position: relative; 
-}
-.a-and-tooltip:hover [role="tooltip"],
-.a-and-tooltip:focus [role="tooltip"], 
-[role="tooltip"] {     
-	position: absolute;     
-	left:0;     
-	top:1em; 
-}						
-						</style>
-						<script type="JavaScript">
+									[role="tooltip"] {     
+										visibility: hidden;     
+										padding: 0.5em;     
+										background:white;     
+										color: black;     
+										border:solid black 2px;     
+										width:10em; 
+										position: absolute;  							
+										left:0;     
+										top:1em; 
+									}
+									.a-and-tooltip {   
+										position: relative; 
+									}				
+								</style>
+						<script>
 // trigger and popup inside the same link
 
 var parent = document.getElementById('parent');
 
 parent.onmouseover = function() {
-    document.getElementById('popup').style.display = 'block';
+    document.getElementById('popup').style.visibility = 'visible';
 }
 
 parent.onmouseout = function() {
-    document.getElementById('popup').style.display = 'none';
+    document.getElementById('popup').style.visibility = 'hidden';
 }
 
 parent.onfocus = function() {
-    document.getElementById('popup').style.display = 'block';
+    document.getElementById('popup').style.visibility = 'visible';
 }
 
 parent.onblur = function() {
-    document.getElementById('popup').style.display = 'none';
+    document.getElementById('popup').style.visibility = 'hidden';
 }
 
 // hide when ESC is pressed
 
 document.addEventListener('keydown', (e) => {
   if ((e.keyCode || e.which) === 27)
-       document.getElementById('popup').style.display = 'none';
+       document.getElementById('popup').style.visibility = 'hidden';
 });						
 						</script>
 					</div>
@@ -174,7 +170,7 @@ document.addEventListener('keydown', (e) => {
    &lt;a class="a-and-tooltip" id="parent" href="index.html"&gt;
    lien déclencheur.
       &lt;span id="popup" role="tooltip"&gt;
-	  et ce texte donne un contexte supplémentaire à propos du lien déclencheur.
+         Et ce texte donne un contexte supplémentaire à propos du lien déclencheur.
       &lt;/span&gt;
    &lt;/a&gt;
 &lt;/p&gt;</code></pre>
@@ -200,8 +196,7 @@ document.addEventListener('keydown', (e) => {
 }</code></pre>
 					<p class="wb-inv">Fin du code</p>
 				</details>
-				<p>déclencheur et popup dans le même lien</p>
-				<p>cacher lorsque l'on appuie sur ESC</p>
+
 				<details class="mrgn-tp-md">
 					<summary class="bg-info">Voir le JavaScript</summary>
 					<p class="wb-inv">Début du code</p>
@@ -219,7 +214,7 @@ parent.onfocus = function() {
 parent.onblur = function() {    
    document.getElementById('popup').style.display = 'none'; 
 }
-// hide when ESC is pressed
+// cacher lorsque l'on appuie sur ESC
 document.addEventListener('keydown', (e) =&gt; {   
 if ((e.keyCode || e.which) === 27)      
    document.getElementById('popup').style.display = 'none'; 
