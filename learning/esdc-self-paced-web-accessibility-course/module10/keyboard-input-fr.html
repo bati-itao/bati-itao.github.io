@@ -114,7 +114,7 @@
 					<li>CTRL-L positionne la cible sur-le-champ d’adresse du navigateur.</li>
 					<li>CTRL-W ferme un onglet</li>
 					<li>CTRL-T ouvre un nouvel onglet</li>
-					<li><mark>Spacebar scrolls down one screen at a time (Shift-Spacebar scrolls up)</mark></li>
+					<li>La barre d'espacement fait défiler vers le bas un écran à la fois (Shift-Barre d'espacement fait défiler vers le haut).</li>
 					<li>La barre d’espacement sélectionne les cases d’option et les cases à cocher</li>
 					<li>La touche Entrée active un lien ou envoie un formulaire</li>
 					<li>La barre d’espacement ou la touche Entrée active un bouton</li>
@@ -350,13 +350,13 @@
 
 						<p class="wb-inv">Fin du code</p>
 						
-					<p><mark>Handles both mouse clicks and keyboard</mark></p>
-					<p><mark>activate with Enter or Space</mark></p>
-					<p><mark>Keypresses other then Enter and Space end the script</mark></p>
-					<p><mark>Get the new name value from the input element</mark></p>
-					<p><mark>clear the text field</mark></p>
-					<p><mark>give the text field focus to enable entering an additional name</mark></p>
-					<p><mark>Don't add blank entries to the list</mark></p>
+					<p>Gère à la fois les clics de souris et le clavier</p>
+					<p>Activer avec Entrée ou Espace</p>
+					<p>Les pressions sur les touches autres que Entrée et Espace mettent fin au script.</p>
+					<p>Obtenez la nouvelle valeur du nom de l'élément d'entrée</p>
+					<p>Effacer le champ de texte</p>
+					<p>Donner le focus au champ de texte pour permettre la saisie d'un nom supplémentaire</p>
+					<p>N'ajoutez pas d'entrées vides à la liste</p>
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir le JavaScript</summary>
 							<p class="wb-inv">Début du code</p>
@@ -457,7 +457,7 @@
 					<li>Le contenu ajouté suit le déclencheur dans le DOM. Dans ce cas, il n'est pas nécessaire de gérer le focus. Lorsqu'il est activé, le contrôle déclencheur conserve le focus, et le contenu ajouté est le suivant dans l'ordre de lecture du lecteur d'écran et dans l'ordre des tabulations. Le contenu ajouté peut être positionné de manière absolue par le biais de CSS pour se trouver ailleurs sur la page.</li>
 					<li>Le contenu ajouté ne suit pas le déclencheur dans le DOM. Dans ce cas, la cible doit être déplacée vers le contenu ajouté en utilisant la méthode JavaScript <code>focus()</code>. La cible doit avoir l’attribut <code>tabindex="-1"</code>. De plus, la cible doit avoir un contenu textuel ou un texte déterminé par programmation au moyen d’une étiquette, sinon un utilisateur de lecteur d’écran n’entendra rien à son arrivée. Si le contenu ajouté peut être réduit ou désactivé, la cible revient sur la commande de déclenchement (ou à un autre emplacement logique, selon le contexte). Éviter de perdre la cible ou de la réinitialiser au haut de la page.</li>
 				</ul>
-				<p>Il y a des exceptions si vous mettez en œuvres certains modèles de composants graphiques décrits à la section&nbsp;3 des pratiques de codage WAI-ARIA, <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">Modèles de conception et widgets</a>. <mark><ins>The translation needs to say "Content authors must manage focus within the following container roles"</ins> Les auteurs du contenu doivent se concentrer sur les rôles de conteneur suivants&nbsp;:</mark></p>
+				<p>Il y a des exceptions si vous mettez en œuvres certains modèles de composants graphiques décrits à la section&nbsp;3 des pratiques de codage WAI-ARIA, <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">Modèles de conception et widgets</a>. Les auteurs de contenu doivent gérer le focus dans les rôles de conteneur suivants.</p>
 				<ul lang="en-CA">
 					<li>
 						<a href="https://www.w3.org/TR/wai-aria-1.1/#combobox">combo box</a>
@@ -520,10 +520,11 @@ function onNewPage() {
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Cible déplacée du déclencheur à une boîte de dialogue</h3>
-						<p><mark>In this example, pressing the Ableplayer's transcript button</mark> <img src="images/image4.png" class="" alt="">:
+						<p> Dans cet exemple, le fait d'appuyer sur le bouton de transcription de l'Ableplayer
+						<img src="images/image4.png" class="" alt=""> :</p>
 						<ul>
-							<li><mark>launches an ARIA dialog widget holding the transcript, and</mark> </li>
-							<li><mark>moves focus to the first button inside the dialog, the user preferences button</mark> <img src="images/image5.png" class="" alt="">:
+							<li>lance un widget de dialogue ARIA contenant la transcription, et</li>
+							<li> déplace le focus sur le premier bouton de la boîte de dialogue, celui des préférences de l'utilisateur. <img src="images/image5.png" class="" alt="">:
 								<p class="wb-inv">Début du code</p>
 <pre><code class="language-js">this.$transcriptArea.find('button').first().focus();</code></pre>
 								<p class="wb-inv">Fin du code</p>
@@ -542,7 +543,6 @@ function onNewPage() {
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Cible gérée sur une boîte de dialogue au moyen d’une interaction au clavier</h3> 
 						<p>Dans cet exemple, quand l’utilisateur clique sur le bouton d’envoi, une fenêtre contextuelle s’ouvre et la cible est posée sur le premier élément actif de la fenêtre contextuelle. Quand l’utilisateur clique sur le bouton de fermeture de la fenêtre contextuelle, la cible retourne au bouton déclencheur.</p>
-						<p><mark>TODO: Focus constrained to foreground window</mark></p>
 						<div class="panel panel-primary mrgn-tp-lg">
 							<div class="panel-body well mrgn-bttm-0">
 								<!-- Trigger/Open The Modal -->
@@ -622,9 +622,6 @@ function onNewPage() {
 								-->
 							</div>
 						</div>
-						<p><mark>Trigger/open the modal</mark></p>
-						<p><mark>The modal</mark></p>
-						<p><mark>Modal content</mark></p>
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir le HTML</summary>
 							<p class="wb-inv">Début du code</p>
@@ -641,7 +638,6 @@ function onNewPage() {
 &lt;/div&gt;</code></pre>
 							<p class="wb-inv">Fin du code</p>
 						</details>
-						<p><mark>The Modal (background)</mark></p>
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir le CSS</summary>	
 							<p class="wb-inv">Début du code</p>
@@ -682,12 +678,6 @@ function onNewPage() {
 }</code></pre>
 							<p class="wb-inv">Fin du code</p>
 						</details>
-						<p><mark>Get the modal</mark></p>
-						<p><mark>Get the button that opens the modal</mark></p>
-						<p><mark>Get the button that closes the modal</mark></p>
-						<p><mark>When the user clicks the button, open the modal </mark></p>
-						<p><mark>When the user clicks the close button, close the modal</mark></p>
-						<p><mark>When the user clicks anywhere outside of the modal, close it</mark></p>
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir le JavaScript</summary>
 							<p class="wb-inv">Début du code</p>
