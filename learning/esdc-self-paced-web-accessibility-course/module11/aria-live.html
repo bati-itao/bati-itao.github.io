@@ -101,14 +101,21 @@
 			</section>
 			<section>
 				<h2 id="live">aria-live</h2>
-				<p>Identify a live region with an <code>aria-live</code> attribute on a container element, such as a <code>span</code> or <code>div</code>. Browsers and the accessibility API monitor the container for any script-injected text. As soon as text is injected into the live region, a screen reader will announce it. </p>
+				<p>Identify a live region with an <code>aria-live</code> attribute on a container element, such as a <code>&lt;span&gt;</code> or <code>&lt;div&gt;</code>. Browsers and the accessibility API monitor the container for any script-injected text. As soon as text is injected into the live region, a screen reader will announce it. </p>
 				<p>The live region must be empty on page load or when it’s first added to the DOM.  It’s preferable to add the live region on page load, but if adding the live region to the DOM dynamically, it’s best practice to wait at least 2 seconds for the accessibility API to identify it before injecting any text.</p>
 				<p>The <code>aria-live</code> attribute takes three possible values: assertive, polite or off.</p>
-				<ul>
-					<li><code>aria-live="assertive"</code>: An assertive announcement interrupts whatever a screen reader is reading. Only use assertive announcements when the user needs immediate feedback. </li>
-					<li><code>aria-live="polite"</code>: A polite announcement is delayed until the screen reader finishes its current sentence or until the user pauses typing. Use the polite value most of the time.</li>
-					<li><code>aria-live="off"</code>: tells screen readers to temporarily suspend aria-live interruptions. </li>
-				</ul>
+				<dl>
+					<dt>aria-live="assertive"</dt>
+					<dd class="mrgn-lft-lg">An assertive announcement interrupts whatever a screen reader is reading. Only use assertive announcements when the user needs immediate feedback.</dd>
+					
+					<dt>aria-live="polite"&nbsp;</dt>
+					<dd class="mrgn-lft-lg">A polite announcement is delayed until the screen reader finishes its current sentence or until the user pauses typing. Use the polite value most of the time.</dd>
+					
+					<dt>aria-live="off"</dt>
+					<dd class="mrgn-lft-lg">Tells screen readers to temporarily suspend aria-live interruptions. </dd>
+				</dl>
+
+				
 				<p>The <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">WAI-ARIA Carousel widget</a> described in module 12 uses <code>aria-live="off"</code> on the slide container when advancing slides automatically, and <code>aria-live="polite"</code> when the user is manually advancing the slides. This prevents an automatic slideshow’s announcements from overwhelming a screen reader user trying to read the page, and facilitates the reading of a manually-operated slideshow.</p>
 				<div class="panel panel-success">
 					<div class="panel-body">
@@ -118,7 +125,7 @@
 						<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;div aria-live="polite" class="wb-inv"&gt;&lt;/div&gt;</code></pre>
 						<p class="wb-inv">Code ends</p>
-						<p>After the user clicks a sort button in a table column header, JavaScript populates the div with text. The screen reader announces “Sorted alphabetically by name".</p>
+						<p>After the user clicks a sort button in a table column header, JavaScript populates the <code>&lt;div&gt;</code> with text. The screen reader announces “Sorted alphabetically by name".</p>
 						<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;div aria-live="polite" class="wb-inv"&gt;
    Sorted alphabetically by name
@@ -142,10 +149,13 @@
 			<section>
 				<h2 id="atomic">aria-atomic</h2>
 				<p>Use the <code>aria-atomic</code> attribute to specify if the whole live region should be announced, or only the text that changed.</p>
-				<ul>
-					<li><code>aria-atomic="false"</code>: When a live region is updated, only the updated text is announced. Use this value when the updated text makes sense on its own. This is the default value.</li>
-					<li><code>aria-atomic="true"</code>: When a live region is updated, the entire region is announced. Use this value when the neighbouring static text in the live region provides necessary context to make sense of the updated text.</li>
-				</ul>
+				<dl>
+					<dt>aria-atomic="false"</dt>
+					<dd class="mrgn-lft-lg">When a live region is updated, only the updated text is announced. Use this value when the updated text makes sense on its own. This is the default value.</dd>
+					
+					<dt>aria-atomic="true"</dt>
+					<dd class="mrgn-lft-lg">When a live region is updated, the entire region is announced. Use this value when the neighbouring static text in the live region provides necessary context to make sense of the updated text.</dd>
+				</dl>
 				
 			<div class="panel panel-success">
 				<div class="panel-body">
@@ -173,12 +183,26 @@
 			<section>
 				<h2 id="relevant">aria-relevant</h2>
 				<p>The <code>aria-relevant</code> attribute specifies which types of changes to a live region should be announced.</p>
-				<ul>
-					<li><code>aria-relevant="all"</code>: All changes are announced. Use with caution, as this setting can be verbose.</li>
-					<li><code>aria-relevant="additions"</code>: Insertion of nodes to the live region are announced. </li>
-					<li><code>aria-relevant="removals"</code>: Removal of nodes to the live region are announced. Reserve for important changes, such as a colleague leaving a chat room.</li>
-					<li><code>aria-relevant="text"</code>: Changes to the text content (including text equivalents, such as alt text) in the live region are announced.</li>
-				</ul>
+				<dl>
+				  <dt>aria-relevant="all"</dt>
+				  <dd class="mrgn-lft-lg">
+					All changes are announced. Use with caution, as this setting can be verbose.
+				  </dd>
+				  <dt>aria-relevant="additions"</dt>
+				  <dd class="mrgn-lft-lg">
+					Insertion of nodes to the live region are announced.
+				  </dd>
+			  
+				  <dt>aria-relevant="removals"</dt>
+				  <dd class="mrgn-lft-lg">
+					Removal of nodes to the live region are announced. Reserve for important changes, such as a colleague leaving a chat room.
+				  </dd>
+				  
+				  <dt>aria-relevant="text"</dt>
+				  <dd class="mrgn-lft-lg">
+					Changes to the text content (including text equivalents, such as alt text) in the live region are announced.
+				  </dd>
+				</dl>
 				<p>A live region has an implicit <code>aria-relevant</code> value of “additions" and “text", so the attribute isn’t needed if the design calls for the normal behaviour of announcing added content. Only use the <code>aria-relevant</code> attribute if you need to communicate the removal of content from a live region. </p>
 			</section>
 			<section>
@@ -224,9 +248,9 @@
 				<div class="panel-body">
 					<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Use role="status"</h4>
 					
-					<p>In this example, a paragraph with <code>role="status"</code> displays the number of items in a shopping cart. Because <code>role="status"</code> by default uses <code>aria-atomic="true"</code>, the whole contents of the paragraph are announced. When the count updates, the live announcement kicks in. Screen readers declare the <mark><del>alt text of the shopping cart icon</del> <ins>the visually-hidden text "Shopping cart"</ins></mark>, the revised count, and the word "items".</p>
-					<p><mark>The <code>title</code> attribute on the <code>&lt;span&gt;</code> holding the icon provides a visual label for mouse users. Since support for the <code>title</code> attribute is inconsistent across screen readers, the element is hidden from all of them (using the <code>aria-hidden="true"</code> attribute) and the more reliable visually-hidden text is used to label the icon (using the class <code>.wb-inv</code>).</mark></p>
-					<p><mark><del>To prevent the <code>&lt;br&gt;</code> element from being declared by screen readers it’s given the <code>aria-hidden="true"</code> attribute.</del></mark> The <code>aria-controls="IDREF"</code> attribute is set on the button and given the <code>id</code> attribute value of the <mark><del>span</del></mark> element holding the <mark><del>count</del> <ins><code>role="status"</code> attribute</ins></mark>.</p>
+					<p>In this example, a paragraph with the <code>role="status"</code> attribute displays the number of items in a shopping cart. Because <code>role="status"</code> by default uses <code>aria-atomic="true"</code>, the whole contents of the paragraph are announced. When the count updates, the live announcement kicks in. Screen readers declare the visually-hidden text "Shopping cart", the revised count, and the word "items".</p>
+					<p>The <code>title</code> attribute on the <code>&lt;span&gt;</code> holding the icon provides a visual label for mouse users. Since support for the <code>title</code> attribute is inconsistent across screen readers, the element is hidden from all of them (using the <code>aria-hidden="true"</code> attribute) and the more reliable visually-hidden text is used to label the icon (using the WET CSS class <code>.wb-inv</code>).</p>
+					<p>The <code>aria-controls="IDREF"</code> attribute is set on the button and given the <code>id</code> attribute value of the element holding the <code>role="status"</code> attribute.</p>
 					
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
@@ -256,15 +280,22 @@
    &lt;span id="cart-count"&gt;0&lt;/span&gt; 
    items
 &lt;/p&gt;
-&lt;button id="btn" onclick="buy()" aria-controls="cart"&gt;Add to cart&lt;/button&gt;
-&lt;script&gt;
-   let counter = 0;
-   function buy() {
-      counter += 1;
-      document.getElementById("cart-count").innerHTML = counter;
-   }
-&lt;/script&gt;</code></pre>
+&lt;button id="btn" onclick="buy()" aria-controls="cart"&gt;Add to cart&lt;/button&gt;</code></pre>
+				<p class="wb-inv">Code ends</p>
+				
+				<details class="mrgn-tp-md">
+					<summary class="bg-info">View JavaScript</summary>
+					
+					<p class="wb-inv">Code begins</p>
+					<pre><code class="language-javascript">let counter = 0;
+function buy() {
+   counter += 1;
+   document.getElementById("cart-count").innerHTML = counter;
+}</code></pre>
 					<p class="wb-inv">Code ends</p>
+                </details>		
+                 <details class="mrgn-tp-md">
+					<summary class="bg-info">View CSS</summary>		
 					<p class="wb-inv">Code begins</p>
 <pre><code class="language-css">.wb-inv {
    clip: rect(1px,1px,1px,1px);
@@ -283,8 +314,12 @@
    font-weight: 400;
    line-height: 1;
    -webkit-font-smoothing: antialiased;
+}
+.glyphicon-shopping-cart:before {
+    content: "\e116";
 }</code></pre>
 					<p class="wb-inv">Code ends</p>
+				</details>
 			</div>
 		</div>
 				
@@ -312,38 +347,33 @@
 							<summary class="bg-info">View JavaScript</summary>
 							<p class="wb-inv">Code begins</p>
 <pre><code class="language-js">function decrement() { 
-
-    var numElement = document.getElementById('number'); 
-   
-    var newNumber = parseInt(numElement.textContent - 1); 
-    if (newNumber > -1) { 
-        numElement.textContent = newNumber; 
-    } 
-	
-    if ((newNumber % 15)===0 || newNumber == 0) {
-		setAlert();
-    } 
+   var numElement = document.getElementById('number'); 
+   var newNumber = parseInt(numElement.textContent - 1); 
+   if (newNumber > -1) { 
+      numElement.textContent = newNumber; 
+   } 
+   if ((newNumber % 15)===0 || newNumber == 0) {
+      setAlert();
+   } 
 } 
 
 function setAlert() {
-	var liveRegion = document.getElementById('countdown'); 
-	liveRegion.setAttribute('aria-live', 'assertive'); 
-	liveRegion.setAttribute('role', 'alert'); 
-	setTimeout(function() { 
-		liveRegion.removeAttribute('aria-live'); 
-		liveRegion.setAttribute('role', 'timer'); 
-	}, 999);
+   var liveRegion = document.getElementById('countdown'); 
+   liveRegion.setAttribute('aria-live', 'assertive'); 
+   liveRegion.setAttribute('role', 'alert'); 
+   setTimeout(function() { 
+      liveRegion.removeAttribute('aria-live'); 
+      liveRegion.setAttribute('role', 'timer'); 
+   }, 999);
 }
 
-
 window.setInterval(function() { 
-    decrement(); 
+   decrement(); 
 }, 1000); 
 
 window.addEventListener('load', function () {
-	setAlert(); //alert on 60 seconds (or beginning)
-});</code>
-</pre>
+   setAlert(); //alert on 60 seconds (or beginning)
+});</code></pre>
 
 							<p class="wb-inv">Code ends</p>
 						</details>
