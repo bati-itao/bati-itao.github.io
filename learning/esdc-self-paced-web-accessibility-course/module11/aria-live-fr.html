@@ -84,7 +84,7 @@
               </header>
               <div class="panel-body">
                 <ul>
-                  <li><a href="#overview">Zones live ARIA (aperçu)</a></li>
+                  <li><a href="#overview">Aperçu : Zones live ARIA</a></li>
                   <li><a href="#live">aria-live</a></li>
                   <li><a href="#atomic">aria-atomic</a></li>
                   <li><a href="#relevant">aria-relevant</a></li>
@@ -99,7 +99,7 @@
           </nav>
 
           <section>
-            <h2 id="overview">Zones live ARIA (aperçu)</h2>
+            <h2 id="overview">Aperçu : Zones live ARIA</h2>
             <p>
               Les zones live ARIA, développées afin de rendre les contenus
               dynamiques accessibles aux lecteurs d’écran, sont des zones d’une
@@ -147,8 +147,8 @@
             <h2 id="live">aria-live</h2>
             <p>
               Une zone live est désignée par un attribut
-              <code>aria-live </code>associé à un élément conteneur, p.&nbsp;ex.
-              <code>span</code> ou <code>div</code>. Les navigateurs et l’API
+              <code>aria-live</code> associé à un élément conteneur, p.&nbsp;ex.
+              <code>&lt;span&gt;</code> ou <code>&lt;div&gt;</code>. Les navigateurs et l’API
               d’accessibilité surveillent le conteneur pour détecter tout texte
               injecté par script. Dès que du texte est injecté dans la zone
               live, le lecteur d’écran l’annonce.
@@ -165,24 +165,23 @@
               L’attribut <code>aria-live</code> accepte trois valeurs
               possibles&nbsp;: assertive, polite ou off.
             </p>
-            <ul>
-              <li>
-                <code>aria-live=”assertive”</code>: Une annonce assertive
+            <dl>
+				<dt>aria-live="assertive"</dt>
+                <dd class="mrgn-lft-lg">Une annonce assertive
                 interrompt tout ce que lecteur d’écran lit. Utilisez des
                 annonces assertive seulement lorsque l’utilisateur doit être
-                avisé immédiatement.
-              </li>
-              <li>
-                <code>aria-live=”polite"&nbsp;</code>: Une annonce polie est
+                avisé immédiatement.</dd>
+                
+				<dt>aria-live="polite"&nbsp;</dt>
+                <dd class="mrgn-lft-lg">Une annonce polie est
                 retardée jusqu’à ce que le lecteur d’écran termine sa phrase
                 actuelle ou jusqu’à ce que l’utilisateur arrête de taper. Vous
-                utiliserez la valeur polie la plupart du temps.
-              </li>
-              <li>
-                <code>aria-live="off"</code>: indique au lecteur d’écran de
-                suspendre temporairement les interruptions aria-live.
-              </li>
-            </ul>
+                utiliserez la valeur polie la plupart du temps.</dd>
+                
+				<dt>aria-live="off"</dt>
+				<dd class="mrgn-lft-lg">Indique au lecteur d’écran de
+                suspendre temporairement les interruptions aria-live.</dd>
+            </dl>
             <p>
               Le
               <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">WAI-ARIA Carousel widget</a>
@@ -239,20 +238,19 @@
               toute la zone live doit être annoncé, ou seulement le texte qui a
               changé.
             </p>
-            <ul>
-              <li>
-                <code>aria-atomic=”false”</code>: Lorsqu’une zone live est
+            <dl>
+				<dt>aria-atomic="false"</dt>
+                <dd class="mrgn-lft-lg">Lorsqu’une zone live est
                 actualisée, seul le texte actualisé est annoncé. Utilisez cette
                 valeur lorsque le texte actualisé fait du sens par lui-même. Il
-                s’agit de la valeur par défaut.
-              </li>
-              <li>
-                <code>aria-atomic=”true”&nbsp;</code>: Lorsqu’une zone live est
+                s’agit de la valeur par défaut.</dd>
+                
+				<dt>aria-atomic="true"</dt>
+                <dd class="mrgn-lft-lg">Lorsqu’une zone live est
                 actualisée, toute la zone est annoncée. Utilisez cette valeur
                 lorsque le texte statique voisin dans la zone live fournit le
-                contexte nécessaire pour donner un sens au texte actualisé.
-              </li>
-            </ul>
+                contexte nécessaire pour donner un sens au texte actualisé.</dd>
+            </dl>
 
             <div class="panel panel-success">
               <div class="panel-body">
@@ -303,28 +301,36 @@
               L’attribut <code>aria-relevant</code> spécifie quels types de changement
               apportés à une zone live doivent être annoncés.
             </p>
-            <ul>
-              <li>
-                <code>aria-relevant="all"&nbsp;</code>: Tous les changements
+            <dl>
+              <dt>aria-relevant="all"</dt>
+              <dd class="mrgn-lft-lg">
+                Tous les changements
                 sont annoncés. À utiliser avec prudence, car ce paramètre peut
-                être «&nbsp;verbeux &nbsp;».
-              </li>
-              <li>
-                <code>aria-relevant="additions"&nbsp;</code>: Les insertions de
+                être verbeux.
+              </dd>
+              
+         
+              <dt>aria-relevant="additions"</dt>
+              <dd class="mrgn-lft-lg">
+                Les insertions de
                 nœuds dans la zone live sont annoncées.
-              </li>
-              <li>
-                <code>aria-relevant="removals« </code>: Les suppressions de
+              </dd>
+          
+              <dt>aria-relevant="removals"</dt>
+              <dd class="mrgn-lft-lg">
+                Les suppressions de
                 nœuds dans la zone live sont annoncées. À réserver pour des
                 changements importants, comme un collègue qui quitte une salle
                 de clavardage.
-              </li>
-              <li>
-                <code>aria-relevant="text"&nbsp;</code>: Les modifications au
+              </dd>
+              
+              <dt>aria-relevant="text"</dt>
+              <dd class="mrgn-lft-lg">
+                Les modifications au
                 contenu textuel (y compris les équivalents textuels, comme alt
                 text) dans la zone live sont annoncées.
-              </li>
-            </ul>
+              </dd>
+            </dl>
             <p>Une zone live a une valeur <code>aria-relevant</code> implicite «&nbsp;additions&nbsp;» et «&nbsp;text&nbsp;», donc l’attribut n’est pas nécessaire si la conception suppose le comportement normal, c’est-à-dire l’annonce de contenu ajouté. Utilisez seulement l’attribut <code>aria-relevant</code> si vous devez communiquer la suppression de contenu d’une zone live. </p>
           </section>
           <section>
@@ -362,7 +368,7 @@
 
                 <p>
                     Dans cet exemple, un &eacute;l&eacute;ment <code>&lt;div&gt;</code> utilise l'attribut 
-                    <code>role="alert"</code> et la d&eacute;claration CSS <code>display&nbsp;:
+                    <code>role="alert"</code> et la d&eacute;claration CSS <code>display:
                     none</code>.
                 </p>
 
@@ -380,24 +386,20 @@
                 <p class="wb-inv">Début du code</p>
                 <pre><code class="language-html">&lt;form id="updateProfile" method="post" action="javascript:void(0)"&gt;
    &lt;p&gt;&lt;button&gt;Mettre à jour le profil&lt;button&gt;&lt;/p&gt;
-   &lt;div class="confirm hidden" role="alert"&gt;Votre profil a été mis
-	 à jour.&lt;/div&gt;
+   &lt;div class="confirm hidden" role="alert"&gt;Votre profil a été mis à jour.&lt;/div&gt;
 &lt;/form&gt;</code></pre>
                 <p class="wb-inv">Fin du code</p>
                 <p class="wb-inv">Début du code</p>
                 <pre><code class="language-css">.hidden { display: none; }</code></pre>
                 <p class="wb-inv">Fin du code</p>
                 <p>
-                  The alert is triggered by removing the CSS class name
-                  <code>hidden</code>
                   L’alerte est déclenchée en supprimant le nom de classe CSS
-                  «&nbsp;<code>hidden</code>&nbsp;»&nbsp;:
+                  <code>hidden</code> :
                 </p>
                 <p class="wb-inv">Début du code</p>
                 <pre><code class="language-html">&lt;form id="updateProfile" method="post" action="javascript:void(0)"&gt;
    &lt;p&gt;&lt;button&gt;Mettre à jour le profil&lt;button&gt;&lt;/p&gt;
-   &lt;div class="confirm" role="alert"&gt;Votre profil a été mis à
-	 jour.&lt;/div&gt;
+   &lt;div class="confirm" role="alert"&gt;Votre profil a été mis à jour.&lt;/div&gt;
 &lt;/form&gt;</code></pre>
                 <p class="wb-inv">Fin du code</p>
               </div>
@@ -426,28 +428,16 @@
                   <span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Utilisation de role="status"
                 </h4>
 
+
                 <p>
-                  <mark>Left both paragraph below, not sure which portion to del in
-                    FR</mark>
-                  In this example, a paragraph with
-                  <code>role="status"</code> displays the number of items in a
-                  shopping cart. Because <code>role="status"</code> by default
-                  uses <code>aria-atomic="true"</code>, the whole contents of
-                  the paragraph are announced. When the count updates, the live
-                  announcement kicks in. Screen readers declare the
-                  <mark><del>alt text of the shopping cart icon</del>
-                    <ins>the visually-hidden text "Shopping cart"</ins></mark>, the revised count, and the word "items".
-                </p>
-                <p>
-                  Dans cet exemple, un paragraphe comportant
+                  Dans cet exemple, un paragraphe comportant l'attribut 
                   <code>role="status"</code> affiche le nombre d’articles dans
                   un panier d’achat. Puisque <code>role="status"</code> par
                   défaut utilise <code>aria-atomic="true"</code>, l’ensemble du
                   contenu du paragraphe est annoncé. Lorsque le nombre
                   d’articles est actualisé, l’annonce de la zone live est
-                  activée. Les lecteurs d’écran déclarent le texte alternatif de
-                  l’icône du panier d’achat, le nombre d’articles actualisé et
-                  le mot «&nbsp;articles&nbsp;».
+                  activée. Les lecteurs d’écran déclarent <mark><del>le texte alternatif de
+                  l’icône du panier d’achat</del> <ins>the visually-hidden text "Shopping cart"</ins></mark>, le nombre d’articles actualisé et le mot «&nbsp;articles&nbsp;».
                 </p>
                 <p>
                   <mark>The <code>title</code> attribute on the
@@ -457,29 +447,13 @@
                     readers, the element is hidden from all of them (using the
                     <code>aria-hidden="true"</code> attribute) and the more
                     reliable visually-hidden text is used to label the icon
-                    (using the class <code>.wb-inv</code>).</mark>
+                    (using the WET CSS class <code>.wb-inv</code>).</mark>
                 </p>
 
                 <p>
-                  <mark>Left both paragraph below, not sure which portion to del in
-                    FR</mark>
-                  <mark><del>To prevent the <code>&lt;br&gt;</code> element from being
-                      declared by screen readers it’s given the
-                      <code>aria-hidden="true"</code> attribute.</del></mark>
-                  The <code>aria-controls="IDREF"</code> attribute is set on the
-                  button and given the <code>id</code> attribute value of the
-                  <mark><del>span</del></mark> element holding the
-                  <mark><del>count</del>
-                    <ins><code>role="status"</code> attribute</ins></mark>.
-                </p>
-                <p>
-                  <mark><del>
-                      Pour éviter que l’élément <code>&lt;br&gt;</code> soit
-                      déclaré par les lecteurs d’écran, on lui donne l’attribut
-                      <code>aria-hidden="true"</code></del></mark>. L’attribut <code>aria-controls="IDREF"</code> est associé
+                  L’attribut <code>aria-controls="IDREF"</code> est associé
                   au bouton et reçoit la valeur d’attribut <code>id</code> de
-                  l’élément <mark><del>span</del></mark> qui contient le nombre
-                  d’articles.
+                  l’élément qui utilise l'attribut <code>role="status"</code>.
                 </p>
                 <div class="panel panel-primary mrgn-tp-md">
                   <div class="panel-body well mrgn-bttm-0">
@@ -516,16 +490,22 @@
    &lt;span id="cart-count"&gt;0&lt;/span&gt; 
    articles
 &lt;/p&gt;
-&lt;button id="btn" onclick="buy()" aria-controls="cart"&gt;Ajouter au panier&lt;/button&gt;
-&lt;script&gt;
-   let counter = 0;
-   function buy() {
-      counter += 1;
-      document.getElementById("cart-count").innerHTML = counter;
-   }
-&lt;/script&gt;</code></pre>
-                <p class="wb-inv">Fin du code</p>
-                <p class="wb-inv">Début du code</p>
+&lt;button id="btn" onclick="buy()" aria-controls="cart"&gt;Ajouter au panier&lt;/button&gt;</code></pre>
+				<p class="wb-inv">Fin du code</p>
+				<details class="mrgn-tp-md">
+					<summary class="bg-info">Voir le JavaScript</summary>
+					
+					<p class="wb-inv">Début du code</p>
+					<pre><code class="language-javascript">let counter = 0;
+function buy() {
+   counter += 1;
+   document.getElementById("cart-count").innerHTML = counter;
+}</code></pre>
+					<p class="wb-inv">Fin du code</p>
+                </details>
+                <details class="mrgn-tp-md">
+					<summary class="bg-info">Voir le CSS</summary>
+					<p class="wb-inv">Début du code</p>
                 <pre><code class="language-css">.wb-inv {
    clip: rect(1px,1px,1px,1px);
    height: 1px;
@@ -543,8 +523,12 @@
    font-weight: 400;
    line-height: 1;
    -webkit-font-smoothing: antialiased;
+}
+.glyphicon-shopping-cart:before {
+    content: "\e116";
 }</code></pre>
-                <p class="wb-inv">Fin du code</p>
+					<p class="wb-inv">Fin du code</p>
+				</details>
               </div>
             </div>
 
@@ -600,48 +584,40 @@
                   pratique.
                 </p>
                 <p>
-                  Try visiting the
-                  <a href="example-countdown.html" target="_blank">live demo<span class="wb-inv"> (Opens in new tab)</span></a>
-									with a screen reader running.
-									Faites l’essai en visitant <a href="example-countdown.html" target="_blank">la démonstration <span class="wb-inv">(S'ouvre dans un nouvel onglet)</span></a> avec un lecteur d’écran.
+                  Faites l’essai en visitant <a href="example-countdown.html" target="_blank">la démonstration <span class="wb-inv">(S'ouvre dans un nouvel onglet)</span></a> avec un lecteur d’écran.
                 </p>
-
+			
                 <details class="mrgn-tp-lg">
                   <summary class="bg-info">View JavaScript</summary>
                   <p class="wb-inv">Début du code</p>
-                  <pre><code class="language-js">function decrement() { 
-
-    var numElement = document.getElementById('number'); 
-   
-    var newNumber = parseInt(numElement.textContent - 1); 
-    if (newNumber > -1) { 
-        numElement.textContent = newNumber; 
-    } 
-	
-    if ((newNumber % 15)===0 || newNumber == 0) {
-		setAlert();
-    } 
+<pre><code class="language-js">function decrement() { 
+   var numElement = document.getElementById('number'); 
+   var newNumber = parseInt(numElement.textContent - 1); 
+   if (newNumber > -1) { 
+      numElement.textContent = newNumber; 
+   } 
+   if ((newNumber % 15)===0 || newNumber == 0) {
+      setAlert();
+   } 
 } 
 
 function setAlert() {
-	var liveRegion = document.getElementById('countdown'); 
-	liveRegion.setAttribute('aria-live', 'assertive'); 
-	liveRegion.setAttribute('role', 'alert'); 
-	setTimeout(function() { 
-		liveRegion.removeAttribute('aria-live'); 
-		liveRegion.setAttribute('role', 'timer'); 
-	}, 999);
+   var liveRegion = document.getElementById('countdown'); 
+   liveRegion.setAttribute('aria-live', 'assertive'); 
+   liveRegion.setAttribute('role', 'alert'); 
+   setTimeout(function() { 
+      liveRegion.removeAttribute('aria-live'); 
+      liveRegion.setAttribute('role', 'timer'); 
+   }, 999);
 }
 
-
 window.setInterval(function() { 
-    decrement(); 
+   decrement(); 
 }, 1000); 
 
 window.addEventListener('load', function () {
-	setAlert(); //alert on 60 seconds (or beginning)
-});</code>
-</pre>
+   setAlert(); //alerte &agrave; 60 secondes (ou au d&eacute;but)
+});</code></pre>
 
                   <p class="wb-inv">Fin du code</p>
                 </details>

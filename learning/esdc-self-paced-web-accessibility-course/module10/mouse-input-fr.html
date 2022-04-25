@@ -70,7 +70,7 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#saisie-avec-la-souris-aperçu">Saisie avec la souris (aperçu)</a></li>
+            <li><a href="#saisie-avec-la-souris-aperçu">Aperçu : Saisie avec la souris</a></li>
 			<li><a href="#contenu-sur-survol-ou-cible">Contenu sur survol ou cible</a></li>
 			<li><a href="#annulation-du-pointage">Annulation du pointage</a></li>
 			<li><a href="#resources1">Related WCAG resources</a></li>
@@ -80,7 +80,7 @@
 	</nav>
 	
 			<section>				
-				<h2 id="saisie-avec-la-souris-aperçu">Saisie avec la souris (aperçu)</h2>
+				<h2 id="saisie-avec-la-souris-aperçu">Aperçu : Saisie avec la souris</h2>
 				<p>Il faut s’assurer que toutes les fonctions sont accessibles au moyen d’un dispositif de pointage (p.&nbsp;ex., souris, doigt sur un écran tactile, stylet électronique, pointeur laser). Cette section couvre deux critères de réussite de la saisie avec la souris&nbsp;:</p>
 				<ul>
 					<li>Contenu sur le survol ou cible</li>
@@ -104,78 +104,73 @@
 				<p>Cette exigence s’applique au contenu qui apparaît en plus de l’élément déclencheur lui-même. Elle ne s’applique pas à un élément non visible, tel qu’un lien de retour à la page d’accueil qui est rendu visible par la cible du clavier (sans autre contenu que le déclencheur devenu visible).</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>Un bon exemple&nbsp;: Contenu de lien survolé ou ciblé</h3>
-						Quand le pointeur survole – ou le clavier cible – un lien, un aperçu du contenu lié s’affiche juste au-dessus ou en dessous. </p>
+						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Contenu de lien survolé ou ciblé</h3>
+						<p>Quand le pointeur survole – ou le clavier cible – un lien, un aperçu du contenu lié s’affiche juste au-dessus ou en dessous. </p>
 				<p>Le dispositif de pointage peut quitter la zone sensible du lien et parcourir le contenu supplémentaire sans que la fenêtre contextuelle ne se ferme. Dans cet exemple, ce résultat est obtenu en emboîtant l’infobulle dans l’élément déclencheur. </p>
 				<p>La touche Esc/Échap ferme le contenu supplémentaire.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p>This is the 
+								<p>C'est un  
 								   <a class="a-and-tooltip" id="parent" href="index.html">
-									  trigger.
+									lien déclencheur
 									  <span id="popup" role="tooltip">
-										 And this text gives additional context on the trigger term.
+										Et ce texte donne un contexte supplémentaire à propos du lien déclencheur.
 									  </span>
 								   </a>
 								</p>
 								<style type="text/css">
-[role="tooltip"] {     
-	display: none;     
-	padding: 0.5em;     
-	background:white;     
-	color: black;     
-	border:solid black 2px;     
-	width:10em; 
-}
-.a-and-tooltip {   
-	position: relative; 
-}
-.a-and-tooltip:hover [role="tooltip"],
-.a-and-tooltip:focus [role="tooltip"], 
-[role="tooltip"] {     
-	position: absolute;     
-	left:0;     
-	top:1em; 
-}						
-						</style>
-						<script type="JavaScript">
+									[role="tooltip"] {     
+										visibility: hidden;     
+										padding: 0.5em;     
+										background:white;     
+										color: black;     
+										border:solid black 2px;     
+										width:10em; 
+										position: absolute;  							
+										left:0;     
+										top:1em; 
+									}
+									.a-and-tooltip {   
+										position: relative; 
+									}				
+								</style>
+						<script>
 // trigger and popup inside the same link
 
 var parent = document.getElementById('parent');
 
 parent.onmouseover = function() {
-    document.getElementById('popup').style.display = 'block';
+    document.getElementById('popup').style.visibility = 'visible';
 }
 
 parent.onmouseout = function() {
-    document.getElementById('popup').style.display = 'none';
+    document.getElementById('popup').style.visibility = 'hidden';
 }
 
 parent.onfocus = function() {
-    document.getElementById('popup').style.display = 'block';
+    document.getElementById('popup').style.visibility = 'visible';
 }
 
 parent.onblur = function() {
-    document.getElementById('popup').style.display = 'none';
+    document.getElementById('popup').style.visibility = 'hidden';
 }
 
 // hide when ESC is pressed
 
 document.addEventListener('keydown', (e) => {
   if ((e.keyCode || e.which) === 27)
-       document.getElementById('popup').style.display = 'none';
+       document.getElementById('popup').style.visibility = 'hidden';
 });						
 						</script>
 					</div>
 				</div>
-				<p><mark>This is the trigger</mark></p>
-				<p><mark>And this text gives additional context on the trigger term.</mark></p>
+				<p>C'est un lien déclencheur et ce texte donne un contexte supplémentaire à propos du lien déclencheur.</p>
 				<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;p&gt;This is the 
+<pre><code class="language-html">&lt;p&gt;C'est un  
    &lt;a class="a-and-tooltip" id="parent" href="index.html"&gt;
-      trigger.
+   lien déclencheur.
       &lt;span id="popup" role="tooltip"&gt;
-         And this text gives additional context on the trigger term.
+         Et ce texte donne un contexte supplémentaire à propos du lien déclencheur.
       &lt;/span&gt;
    &lt;/a&gt;
 &lt;/p&gt;</code></pre>
@@ -201,12 +196,11 @@ document.addEventListener('keydown', (e) => {
 }</code></pre>
 					<p class="wb-inv">Fin du code</p>
 				</details>
-				<p><mark>trigger and popup inside the same link</mark></p>
-				<p><mark>hide when ESC is pressed</mark></p>
+
 				<details class="mrgn-tp-md">
 					<summary class="bg-info">Voir le JavaScript</summary>
 					<p class="wb-inv">Début du code</p>
-<pre><code class="language-js">// trigger and popup inside the same link
+<pre><code class="language-js">// déclencheur et popup dans le même lien
 var parent = document.getElementById('parent');
 parent.onmouseover = function() {    
    document.getElementById('popup').style.display = 'block'; 
@@ -220,7 +214,7 @@ parent.onfocus = function() {
 parent.onblur = function() {    
    document.getElementById('popup').style.display = 'none'; 
 }
-// hide when ESC is pressed
+// cacher lorsque l'on appuie sur ESC
 document.addEventListener('keydown', (e) =&gt; {   
 if ((e.keyCode || e.which) === 27)      
    document.getElementById('popup').style.display = 'none'; 

@@ -86,13 +86,13 @@
 				<p>Keyboard accessibility deals with these topics:</p>
 				<ul>	
 					<li><strong>Keyboard focus</strong>
-					  <p>See module 3: Links and navigation > <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/navigation.html#focus-order">What is focus?</a></p>
+					  <p>See module 3 > Navigation > <a href="../module3/navigation.html#focus-order">What is focus?</a></p>
 					</li>
 					<li><strong>Focus order</strong>
-						<p>See module 3: Links and navigation > <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/navigation.html#focus-order">Focus order</a></p>
+						<p>See module 3 > Navigation > <a href="../module3/navigation.html#what-is-focus-order">Focus order</a></p>
 					  </li>
 					  <li><strong>Visual focus indicator</strong>
-						<p>See module 3: Links and navigation > <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module3/links.html#indicator"> Visual focus indicator</a></p>
+						<p>See module 3 > Links > <a href="../module3/links.html#indicator"> Visual focus indicator</a></p>
 					  </li>
 					<li><strong>Keyboard functionality</strong></li>
 					<li><strong>Keyboard traps</strong></li>
@@ -114,6 +114,7 @@
 					<li>CTRL-L takes focus to the browser’s address field</li>
 					<li>CTRL-W closes a tab</li>
 					<li>CTRL-T opens a new tab</li>
+					<li>Spacebar scrolls down one screen at a time (Shift-Spacebar scrolls up)</li>
 					<li>Spacebar selects radio buttons and checkboxes</li>
 					<li>Enter key activates a link or submits a form</li>
 					<li>Spacebar or Enter key activates a button</li>
@@ -132,7 +133,7 @@
 					<li><code>&lt;button&gt;</code></li>
 				</ul>
 				<h3 class="">Use the onclick event of anchors and buttons</h3>
-				<p>To ensure keyboard users can invoke a scripting function, use native HTML links and buttons with the <code>onclick</code> event. The <code>onclick</code> event of both elements is device independent: it maps to a mouse click and the enter and space keys.</p>
+				<p>To ensure keyboard users can invoke a scripting function, use native HTML links and buttons with the <code>onclick</code> event. The <code>onclick</code> event of both elements is device independent: it maps to a mouse click and the Enter and Spacebar keys.</p>
 				<p class="wb-inv">Code begins</p>
 				<pre><code class="language-html">&lt;button onclick="doStuff();"&gt;Do stuff&lt;/button&gt;
 &lt;script&gt;
@@ -210,7 +211,7 @@
 				</table>
 				<p>When using a native HTML button or link, user agents process the <code>click</code> event regardless of whether it was activated with the mouse or the keyboard. It’s not necessary to duplicate this event when adding handlers to natively focusable HTML elements. However, if not using a native button or link, it is necessary to add <code>keypress</code>.</p>
 				<p>Because the <code>keypress</code> event handler reacts to any key, the event handler should first check that the Enter key was pressed before proceeding to handle the event. Otherwise, the event handler will trigger on any key press, even the Tab key to leave the control.</p>
-				<p>If using the ARIA <code>role="button"</code> attribute instead of the native <code>&lt;button&gt;</code> or <code>&lt;input type="button"&gt;</code> elements, you will need to both make the element focusable and define event handlers for click and for the Enter and Space keypresses.</p>
+				<p>If using the ARIA <code>role="button"</code> attribute instead of the native <code>&lt;button&gt;</code> or <code>&lt;input type="button"&gt;</code> elements, you will need to both make the element focusable and define event handlers for click and for the Enter and Spacebar keypresses.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Pairing mouse and keyboard events</h3>
@@ -258,7 +259,7 @@
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body mrgn-bttm-0">
 								
-								<img src="images/image1.png" class="img-link img-responsive" alt="Go to next page" onclick="window.location.href='index.html'">
+								<img src="images/image1.png" class="img-link img-responsive" alt="Next page" onclick="window.location.href='index.html'">
 								<style type="text/css">
 									.img-link:hover { cursor: pointer;  }
 								</style>
@@ -266,20 +267,10 @@
 							</div>
 						</div>
 						<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;img class="img-link" onclick="goToLink(event, 'index.html')" src="arrow.gif" alt="Go to next page"&gt;</code></pre>
+<pre><code class="language-html">&lt;img class="img-link" onclick="goToLink(event, 'index.html')" src="arrow.gif" alt="Next page"&gt;</code></pre>
 						<p class="wb-inv">Code ends</p>
 						<p class="wb-inv">Code begins</p>
-<pre><code class="language-css">.img-link:hover { 
-   cursor: pointer;  
-}</code></pre>
-						<p class="wb-inv">Code ends</p>
-						<p class="wb-inv">Code begins</p>
-<pre><code class="language-js">function goToLink(event, url) {  
-   var type = event.type;  
-   if (type === 'click') {  
-      window.location.href = url;      
-      event.stopPropagation();  
-   }</code></pre>
+<pre><code class="language-css">.img-link:hover { cursor: pointer; }</code></pre>
 						<p class="wb-inv">Code ends</p>
 					</div>
 				</div>
@@ -355,7 +346,7 @@
 						<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;label for="newName"&gt;Add a name: &lt;/label&gt;
 &lt;input type="text" id="newName"&gt;
-&lt;span role="button" tabindex="0" onclick="handleCommand(event)" onKeyDown="handleCommand(event)"&gt;Add Name&lt;/span&gt;
+&lt;span role="button" tabindex="0" onclick="handleCommand(event)" onKeyDown="handleCommand(event)"&gt;Add name&lt;/span&gt;
 &lt;ul id="nameList"&gt;&lt;/ul&gt;</code></pre>
 
 						<p class="wb-inv">Code ends</p>
@@ -458,7 +449,7 @@
 					<li>The added content follows the trigger in the DOM. In this case, the focus does not need to be managed. When activated, the triggering control retains focus, and the added content is next in the screen-reader reading order and tab order. The added content can be absolutely positioned via CSS to be elsewhere on the page.</li>
 					<li>The added content does not follow the trigger in the DOM. In this case, the focus must be moved to the added content using the JavaScript <code>focus()</code> method. The target must have the <code>tabindex="-1"</code> attribute to receive focus. Also, the target must have text content or programmatically-determined text via a label, or screen reader users will hear nothing upon arrival. If the added content can be collapsed/de-activated, collapsing it returns focus to the triggering control (or to another logical location, depending on the context). Prevent focus from being lost or reset to the top of the page.</li>
 				</ul>
-				<p>There are exceptions if you are implementing some widget patterns described in the WAI-ARIA Authoring Practices’ section 3 <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">Design Patterns and Widgets</a>. Content authors must manage focus <mark><del>on</del> <ins>within [Fr: dans]</ins></mark> the following container roles:</p>
+				<p>There are exceptions if you are implementing some widget patterns described in the WAI-ARIA Authoring Practices’ section 3 <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">Design Patterns and Widgets</a>. Content authors must manage focus within the following container roles:</p>
 				<ul>
 					<li>
 						<a href="https://www.w3.org/TR/wai-aria-1.1/#combobox">combo box</a>
@@ -524,7 +515,7 @@ function onNewPage() {
 						<p>In this example, pressing the Ableplayer's transcript button <img src="images/image4.png" class="" alt="">:
 						<ul>
 							<li>launches an ARIA dialog widget holding the transcript, and </li>
-							<li>moves focus to the first <mark><del>interactive element</del> <ins>button [Fr: bouton]</ins></mark> inside the dialog, the user preferences button <img src="images/image5.png" class="" alt="">:
+							<li>moves focus to the first button inside the dialog, the user preferences button <img src="images/image5.png" class="" alt="">:
 								<p class="wb-inv">Code begins</p>
 <pre><code class="language-js">this.$transcriptArea.find('button').first().focus();</code></pre>
 								<p class="wb-inv">Code ends</p>
@@ -543,7 +534,7 @@ function onNewPage() {
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Focus managed on a dialog using keyboard interaction</h3> 
 						<p>In this example, when the user clicks the 'Submit' button a pop-up window opens and focus is sent to the pop-up's first child focusable element. When the user clicks the pop-up window’s ‘Close’ button, focus is sent back to the triggering button.</p>
-						<p><mark>TODO: Implement the full dialog (modal) pattern: role and aria-labelledby, close on ESC key, focus constrained to foreground window. Move focus to close button after triggering modal)</mark></p>
+						<p><mark>TODO: Focus constrained to foreground window</mark></p>
 						<div class="panel panel-primary mrgn-tp-lg">
 							<div class="panel-body well mrgn-bttm-0">
 								<!-- Trigger/Open The Modal -->
@@ -647,6 +638,22 @@ function onNewPage() {
 							</div>
 						</div>
 						<details class="mrgn-tp-md">
+							<summary class="bg-info">View HTML</summary>
+							<p class="wb-inv">Code begins</p>
+<pre><code class="language-html">&lt;h1&gt;Modal Popup Example: &lt;/h1&gt;
+&lt;!-- Trigger/open the modal --&gt;
+&lt;button class="submit" id="myBtn"&gt;Submit&lt;/button&gt;
+&lt;!-- The modal --&gt;
+&lt;div id="myModal" class="modal"&gt;
+   &lt;!-- Modal content --&gt;
+   &lt;div class="modal-content"&gt;
+      &lt;h2&gt;Your form has been submitted.&lt;/h2&gt;
+      &lt;button class="btn-close"&gt;Close&lt;/button&gt;
+   &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+							<p class="wb-inv">Code ends</p>
+						</details>
+						<details class="mrgn-tp-md">
 							<summary class="bg-info">View CSS</summary>	
 							<p class="wb-inv">Code begins</p>
 <pre><code class="language-css">/* The Modal (background) */
@@ -686,22 +693,7 @@ function onNewPage() {
 }</code></pre>
 							<p class="wb-inv">Code ends</p>
 						</details>
-						<details class="mrgn-tp-md">
-							<summary class="bg-info">View HTML</summary>
-							<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;h1&gt;Modal Popup Example: &lt;/h1&gt;
-&lt;!-- Trigger/Open The Modal --&gt;
-&lt;button class="submit" id="myBtn"&gt;Submit&lt;/button&gt;
-&lt;!-- The Modal --&gt;
-&lt;div id="myModal" class="modal"&gt;
-   &lt;!-- Modal content --&gt;
-   &lt;div class="modal-content"&gt;
-      &lt;h2&gt;Your form has been submitted.&lt;/h2&gt;
-      &lt;button class="btn-close"&gt;Close&lt;/button&gt;
-   &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-							<p class="wb-inv">Code ends</p>
-						</details>
+						
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">View JavaScript</summary>
 							<p class="wb-inv">Code begins</p>
