@@ -69,8 +69,8 @@
 				<div class="panel-body">
 					<ul>
 						<li><a href="#designing">Conception avec des images décoratives ou redondantes</a></li>
-						<li><a href="#eg1">Bon exemple 1 : Image décorative</a></li>
-						<li><a href="#eg2">Bon exemple 2 : Image avec équivalent textuel adjacent redondant</a></li>
+						<li><a href="#eg1">Bon exemple : Image décorative</a></li>
+						<li><a href="#eg2">Bon exemple : Image avec équivalent textuel adjacent redondant</a></li>
 						<li><a href="#wcag">Ressources WCAG connexes</a></li>
 					</ul>
 				</div>
@@ -78,7 +78,7 @@
 		</nav>
 		<section>
 			<h2 id="designing">Conception avec des images décoratives ou redondantes</h2>
-			<p>Les images décoratives n’ajoutent pas d’information utile à une page, tandis que les images redondantes ont du contenu déjà transmis dans le texte adjacent.</p>
+			<p>Les images <dfn>décoratives</dfn> n’ajoutent pas d’information utile à une page, tandis que les images <dfn>redondantes</dfn> ont du contenu déjà transmis dans le texte adjacent. Exemples de décoratives:</p>
 			<ul>
 				<li>Images utilisées pour le style visuel comme les bordures et les espaceurs</li>
 				<li>Images utilisées pour ajouter une ambiance ou un intérêt visuel (plaisir des yeux)</li>
@@ -87,20 +87,29 @@
 			
 			<p>Suivez les pratiques exemplaires suivantes pour ce qui a trait aux images décoratives et redondantes:</p>
 			<ul>
-				<li>Utiliser des attributs <code>alt</code> null (<code>alt=""</code>) pour que la technologie d’assistance n’ait pas accès aux images redondantes.</li>
-				<li>L’attribut <code>role=presentation</code> cache également des éléments, même s’il n’est pas aussi largement pris en charge que l’attribut <code>alt</code>.</li>
 				<li>Dans la mesure du possible, utiliser des images décoratives comme arrière-plan des feuilles de style en cascades.</li>
-				<li>Ne pas omettre  <code>alt</code> l’attribut <code>&lt;img&gt;</code> des éléments.</li>
+					<li>Ne pas omettre l’attribut <code>alt</code> des éléments <code>&lt;img&gt;</code>.</li>
+				<li>Utiliser des attributs <code>alt</code> null (<code>alt=""</code>) pour que la technologie d’assistance n’ait pas accès aux images décoratives our redondantes.</li>
+				<li>L’attribut <code>role=presentation</code> cache également des éléments, même s’il n’est pas aussi largement pris en charge que l’attribut <code>alt</code> null.</li>
 			</ul>
 		</section>
 		<section>
 			<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-			<h2 class="text-success mrgn-tp-0" id="eg1">
-				<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple 1 : Image décorative
-			</h2>
-			<p>Dans cet exemple, une photo de banque d’images montrant des employés de bureau est considérée comme décorative puisqu’elle ne contient aucun renseignement pertinent pour la page où elle figure. Une photo de banque d’images montrant des employés de diverses ethnies est instructive si l’intention consiste à montrer que l’employeur valorise l’équité, la diversité et l’inclusivité; dans ce cas, le texte de remplacement pourrait ressembler à « Chez [nom de l’organisation], nous valorisons la diversité. » Mais en général, les photos de banque d’images sont décoratives.</p>
-			<img src="images/decorativeimg1.png"  alt="" class="img-responsive"/>
+					<h2 class="text-success mrgn-tp-0" id="eg1">
+						<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Image décorative
+					</h2>
+					<p>Dans cet exemple, une photo de banque d’images montrant des employés de bureau est considérée comme décorative puisqu’elle ne contient aucun renseignement pertinent pour la page où elle figure. Une photo de banque d’images montrant des employés de diverses ethnies est instructive si l’intention consiste à montrer que l’employeur valorise l’équité, la diversité et l’inclusivité; dans ce cas, le texte de remplacement pourrait ressembler à « Chez [nom de l’organisation], nous valorisons la diversité. » Mais en général, les photos de banque d’images sont décoratives.</p>
+					<div class="panel panel-primary mrgn-tp-md">
+						<div class="panel-body well mrgn-bttm-0">
+							<img src="images/decorativeimg1.png"  alt="" class="img-responsive"/>
+						</div>
+					</div>
+					<p class="wb-inv">Code begins</p>
+			
+<pre><code class="language-html">&lt;img src="staff.jpg" alt=""&gt;</code></pre>
+			
+					<p class="wb-inv">Code ends</p>					
 				</div>
 			</div>
 		</section>
@@ -108,7 +117,7 @@
 			<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
 					<h2 class="text-success mrgn-tp-0" id="eg2">
-						<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple 2 : Image avec équivalent textuel adjacent redondant
+						<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Image avec équivalent textuel adjacent redondant
 					</h2>
 					<p>L’image ci-dessous est déjà suffisamment décrite par le texte adjacent. Une valeur alt nulle (vide) peut être utilisée puisqu’il n’est pas nécessaire de répéter cette information.</p>
 					<div class="panel panel-primary mrgn-tp-md">

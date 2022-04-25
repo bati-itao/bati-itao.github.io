@@ -22,6 +22,7 @@
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
 	<link rel="stylesheet" href="../../../css/leftnav.css">
+	<link rel="stylesheet" href="../../../css/custom-table.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -355,127 +356,87 @@ table thead th {
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h2 id="overflow-table" class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Débordement du tableau avec barre de défilement horizontale.</h2>
-						<p>Dans cet exemple, un grand tableau force une barre de défilement horizontale sur l’élément <code>&lt;div&gt;</code> parent, générée par la déclaration CSS <code>overflow-x: auto</code>. Le div utilise également l’attribut <code>tabindex="0"</code> pour s’assurer que la barre de défilement reçoit la cible du clavier (conformément à la règle W3C-IAW TIA <a href="https://www.w3.org/WAI/standards-guidelines/act/rules/scrollable-element-keyboard-accessible-0ssw9k/">Scrollable element is keyboard accessible (l’élément de défilement est accessible au clavier)</a>).</p>
-				<p>Il est toujours préférable de diviser les grands tableaux en plusieurs petits tableaux.</p>
+						<p>Dans cet exemple, un grand tableau d&eacute;bordant force une barre de défilement horizontale sur l’élément <code>&lt;div&gt;</code> parent, générée par la déclaration CSS <code>overflow-x: auto</code>. Le div utilise également l’attribut <code>tabindex="0"</code> pour s’assurer que la barre de défilement reçoit la cible du clavier (conformément à la règle W3C-IAW TIA <a href="https://www.w3.org/WAI/standards-guidelines/act/rules/scrollable-element-keyboard-accessible-0ssw9k/" lang="en-CA">Scrollable element is keyboard accessible (l’élément de défilement est accessible au clavier)</a>).</p>
+						<p>Il est toujours préférable de diviser les grands tableaux en plusieurs petits tableaux.</p>
+				
+						<div class="panel panel-primary">
+							<div class="panel-body mrgn-bttm-0">
+								<div style="overflow-x:auto;" tabindex="0">
+									 <table class="table table-bordered">
+										 <caption>Sprints</caption>
+										 <thead>
+											<tr>
+											   <th scope="col">Sprint #</th>
+											   <th scope="col">Fermé</th>
+											   <th scope="col">En cours</th>
+											   <th scope="col">Nouveau</th>
+											   <th scope="col">Refaire un test</th>
+											   <th scope="col">Réouverture</th>
+											   <th scope="col">Par sévérité</th>
+											   <th scope="col">Par priorité</th>
+											   <th scope="col">Par sprint</th>
+											   <th scope="col">Par sortie</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+											   <td>101</td>
+											   <td>234</td>
+											   <td>55</td>
+											   <td>75</td>
+											   <td>121</td>
+											   <td>33</td>
+											   <td>566</td>
+											   <td>343</td>
+											   <td>577</td>
+											   <td>976</td>
+											</tr>
+											<tr>
+											   <td>102</td>
+											   <td>344</td>
+											   <td>33</td>
+											   <td>65</td>
+											   <td>887</td>
+											   <td>66</td>
+											   <td>564</td>
+											   <td>344</td>
+											   <td>76</td>
+											   <td>543</td>
+											</tr>
+											<tr>
+											  <td>103</td>
+											  <td>290</td>
+											  <td>32</td>
+											  <td>77</td>
+											  <td>93</td>
+											  <td>82</td>
+											  <td>138</td>
+											  <td>532</td>
+											  <td>293</td>
+											  <td>202</td>
+											</tr>
+										</tbody>
+									 </table>
+								</div>
+							</div>
+						</div>
+						
 						<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;div style="overflow-x:auto;" tabindex="0"&gt;
    &lt;table&gt;[…]&lt;/table&gt;
 &lt;/div&gt;</code></pre>
-				<p class="wb-inv">Fin du code</p>
-<div style="overflow-x:auto;" tabindex="0">
- <table class="table table-bordered">
-    <tr>
-       <th>Sprint #</th>
-       <th>Fermé</th>
-       <th>En cours</th>
-       <th>Nouveau</th>
-       <th>Refaire un test</th>
-       <th>Réouverture<th>
-       <th>Par sévérité<th>
-       <th>Par priorité<th>
-       <th>Par sprint<th>
-       <th>Par sortie<th>
-    </tr>
-    <tr>
-       <td>101</td>
-       <td>234</td>
-       <td>55</td>
-       <td>75</td>
-       <td>121</td>
-       <td>33</td>
-       <td>566</td>
-       <td>343</td>
-       <td>577</td>
-       <td>976</td>
-    </tr>
-    <tr>
-       <td>102</td>
-       <td>344</td>
-       <td>33</td>
-       <td>65</td>
-       <td>887</td>
-       <td>66</td>
-       <td>564</td>
-       <td>344</td>
-       <td>76</td>
-       <td>543</td>
-    </tr>
-    <tr>
-      <td>103</td>
-      <td>290</td>
-      <td>32</td>
-      <td>77</td>
-      <td>93</td>
-      <td>82</td>
-      <td>138</td>
-      <td>532</td>
-      <td>293</td>
-      <td>202</td>
-    </tr>
- </table>
-<div>			
-						<!-- 
-						<img src="images/image19.png" class="img-responsive" alt="Screenshot of large table ">
-						<img src="images/image20.png" class="img-responsive" alt="Screenshot of large table with horizontal scrollbar after resize">
-						-->
-						
-						<details class="mrgn-tp-sm">
-							<summary class="bg-info">Voir le HTML </summary>
-							<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;div style="overflow-x:auto;" tabindex="0"&gt;
- &lt;table&gt;
-    &lt;tr&gt;
-       &lt;th&gt;Sprint #&lt;/th&gt;
-       &lt;th&gt;Fermé&lt;/th&gt;
-       &lt;th&gt;En cours&lt;/th&gt;
-       &lt;th&gt;Nouveau&lt;/th&gt;
-       &lt;th&gt;Refaire un test&lt;/th&gt;
-       &lt;th&gt;Réouverture&lt;/th&gt;
-       &lt;th&gt;Par sévérité&lt;/th&gt;
-       &lt;th&gt;Par priorité&lt;/th&gt;
-       &lt;th&gt;Par sprint&lt;/th&gt;
-       &lt;th&gt;Par sortie&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-       &lt;td&gt;101&lt;/td&gt;
-       &lt;td&gt;234&lt;/td&gt;
-       &lt;td&gt;55&lt;/td&gt;
-       &lt;td&gt;75&lt;/td&gt;
-       &lt;td&gt;121&lt;/td&gt;
-       &lt;td&gt;33&lt;/td&gt;
-       &lt;td&gt;566&lt;/td&gt;
-       &lt;td&gt;343&lt;/td&gt;
-       &lt;td&gt;577&lt;/td&gt;
-       &lt;td&gt;976&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-       &lt;td&gt;102&lt;/td&gt;
-       &lt;td&gt;344&lt;/td&gt;
-       &lt;td&gt;33&lt;/td&gt;
-       &lt;td&gt;65&lt;/td&gt;
-       &lt;td&gt;887&lt;/td&gt;
-       &lt;td&gt;66&lt;/td&gt;
-       &lt;td&gt;564&lt;/td&gt;
-       &lt;td&gt;344&lt;/td&gt;
-       &lt;td&gt;76&lt;/td&gt;
-       &lt;td&gt;543&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;103&lt;/td&gt;
-      &lt;td&gt;290&lt;/td&gt;
-      &lt;td&gt;32&lt;/td&gt;
-      &lt;td&gt;77&lt;/td&gt;
-      &lt;td&gt;93&lt;/td&gt;
-      &lt;td&gt;82&lt;/td&gt;
-      &lt;td&gt;138&lt;/td&gt;
-      &lt;td&gt;532&lt;/td&gt;
-      &lt;td&gt;293&lt;/td&gt;
-      &lt;td&gt;202&lt;/td&gt;
-    &lt;/tr&gt;
- &lt;/table&gt;
-&lt;div&gt;</code></pre>
-							<p class="wb-inv">Fin du code</p>
+				<p class="wb-inv">Fin du code</p>	
+
+						<details class="mrgn-tp-lg">
+							<summary class="bg-info">Voir les captures d'écran</summary>
 							
+							<h3>Bureau</h3>
+									<img src="images/image19-fr.png" class="img-responsive" alt="Capture d'&eacute;cran d'une grande table.">
+
+							<h3>Cellulaire</h3>
+
+									<img src="images/image20-fr.png" class="img-responsive" alt="Capture d'&eacute;cran d'une grande table avec une barre de d�filement horizontale apr�s redimensionnement.">
+
 						</details>	
 					</div>
 				</div>

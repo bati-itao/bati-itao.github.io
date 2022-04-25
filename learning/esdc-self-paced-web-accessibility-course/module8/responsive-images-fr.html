@@ -180,11 +180,20 @@
 				<h2 id="css-src-att">Technique&nbsp;3&nbsp;: Servir différentes tailles d’image à différentes tailles d’écran en utilisant l’attribut srcset</h2>
 				<p>Cette technique sert différentes tailles d’images, plus grande ou plus petite, selon l’appareil.</p>
 				<p>L’attribut <code>srcset</code> contient une liste séparée par des virgules de versions différentes d’une même image, chaque élément de liste comprenant le nom du fichier et la largeur réelle de l’image (l’unité <code>w</code> équivaut aux pixels).</p>
-				<p>L’attribut <code>sizes</code> contient une liste séparée par des virgules de tailles différentes de créneaux pour les images à différentes largeurs d’écran. <ins>La largeur de la fente est souvent exprimée à l'aide de l'unité de largeur de la fenêtre d'affichage <code>Viewport</code> (vw), mais des unités absolues et relatives peuvent également être utilisées. Chaque unité vw représente 1% de la largeur de la fenêtre d'affichage.</ins></p>
-
-				</ins>Une condition média vérifie la largeur de l’écran. La dernière largeur de créneau n’a aucune condition média; c’est la valeur par défaut qui est choisie lorsqu’aucune condition média n’est vraie. Cet exemple comporte un emplacement de 50vw de large (50% de la largeur de la fenêtre d'affichage) pour les écrans de moins de 900 pixels de large, et un emplacement de 700 pixels de large pour les autres.</p>
+				<p>L’attribut <code>sizes</code> contient une liste séparée par des virgules de tailles différentes de créneaux pour les images à différentes largeurs d’écran. La largeur de la fente est souvent exprimée à l'aide de l'unité de largeur de la fenêtre d'affichage <code>Viewport</code> (vw), mais des unités absolues et relatives peuvent également être utilisées. Chaque unité vw représente 1% de la largeur de la fenêtre d'affichage. Une condition média vérifie la largeur de l’écran. La dernière largeur de créneau n’a aucune condition média; c’est la valeur par défaut qui est choisie lorsqu’aucune condition média n’est vraie. Cet exemple comporte un emplacement de 50vw de large (50% de la largeur de la fenêtre d'affichage) pour les écrans de moins de 900 pixels de large, et un emplacement de 700 pixels de large pour les autres.</p>
 				<p>L’attribut <code>src</code> contient le nom du fichier image par défaut.</p>
 				<p>L’attribut <code>alt</code> contient le texte de remplacement.</p>
+				
+				
+				<p class="wb-inv">Début du code</p>
+<pre><code class="language-html">&lt;img srcset="deer-320-labelled.jpg 320w,
+             deer-700-labelled.jpg 700w"
+   sizes="(max-width: 900px) 50vw,
+          700px"
+   src="deer-320.jpg"
+   alt="Un cerf qui pâture dans un petit pré dans une forêt."&gt;</code></pre>
+				<p class="wb-inv">Fin du code</p>					
+
 				<p>Une fois ces attributs en place, le navigateur&nbsp;:</p>
 				<ul>
 					<li>Vérifiera la largeur de l’appareil.</li>
@@ -192,7 +201,7 @@
 					<li>Vérifiera la taille du créneau donné à cette requête média.</li>
 					<li>Chargera l’image mentionnée dans la liste <code>srcset</code> qui a la même taille que le créneau ou, s’il n’y en a pas, la première image qui est plus grande que la taille du créneau choisi.</li>
 				</ul>
-				<p><ins>Pour voir l'échelle de l'image, réduisez la fenêtre du navigateur, effacez le cache du navigateur (si l'image de 700px de large est déjà téléchargée, il faut l'effacer), et rafraîchissez la fenêtre du navigateur.</ins></p>
+				<p>Pour voir l'échelle de l'image, réduisez la fenêtre du navigateur, effacez le cache du navigateur (si l'image de 700px de large est déjà téléchargée, il faut l'effacer), et rafraîchissez la fenêtre du navigateur.</p>
 				
 				<div class="panel panel-primary mrgn-tp-md">
 					<div class="panel-body well mrgn-bttm-0">
@@ -207,14 +216,7 @@
 					</div>
 				</div>
 				
-				<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;img srcset="deer-320-labelled.jpg 320w,
-             deer-700-labelled.jpg 700w"
-   sizes="(max-width: 900px) 50vw,
-          700px"
-   src="deer-320.jpg"
-   alt="Un cerf qui pâture dans un petit pré dans une forêt."&gt;</code></pre>
-				<p class="wb-inv">Fin du code</p>	
+
 					
 					 
 				<h3 class="">Ressource&nbsp;: Générateur d’image adaptée</h3>

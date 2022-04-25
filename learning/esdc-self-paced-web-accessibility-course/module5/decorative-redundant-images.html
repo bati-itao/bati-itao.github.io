@@ -67,8 +67,8 @@
 				<div class="panel-body">
 					<ul>
 						<li><a href="#designing">Designing with decorative or redundant images</a></li>
-						<li><a href="#eg1">Good example 1: Decorative image</a></li>
-						<li><a href="#eg2">Good example 2: Image with redundant adjacent text alternative</a></li>
+						<li><a href="#eg1">Good example: Decorative image</a></li>
+						<li><a href="#eg2">Good example: Image with redundant adjacent text alternative</a></li>
 						<li><a href="#wcag">Related WCAG resources</a></li>
 					</ul>
 				</div>
@@ -76,29 +76,39 @@
 		</nav>
 		<section>
 			<h2 id="designing">Designing with decorative or redundant images</h2>
-			<p>Decorative images do not add useful information to a page, while redundant images have content already conveyed in adjacent text. Examples of decorative and redundant images:</p>
+			<p><dfn>Decorative</dfn> images do not add useful information to a page, while <dfn>redundant</dfn> images have content already conveyed in adjacent text. Examples of decorative:</p>
 			<ul>
 				<li>Images used for visual styling such as borders and spacers</li>
 				<li>Images used to add ambiance or visual interest (eye-candy)</li>
 			</ul>
 			<p>A redundant image is adjacent to text that already communicates the information the image conveys. For example, an image of a product is an online store is directly beneath a heading of the product name. Image alt text identifying the product would be redundant.</p>
 			
-			<p>Follow these best practices for decorative images:</p>
+			<p>Follow these best practices for decorative and redundant images:</p>
 			<ul>
-				<li>Use "null" alt attributes (<code>alt=""</code>) to hide decorative or redundant images from assistive technology.</li>
-				<li>The <code>role=presentation</code> attribute also hides the image, though it's not as widely supported as <code>alt</code>.</li>
 				<li>Implement decorative images as CSS backgrounds if possible.</li>
 				<li>Do not leave out the <code>alt</code> attribute of <code>&lt;img&gt;</code> elements.</li>
+				<li>Use "null" alt attributes (<code>alt=""</code>) to hide decorative or redundant images from assistive technology.</li>
+				<li>The <code>role=presentation</code> attribute also hides the image, though it's not as widely supported as a null <code>alt</code>.</li>
 			</ul>
 		</section>
 		<section>
 			<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
 					<h2 class="text-success mrgn-tp-0" id="eg1">
-						<span class="glyphicon glyphicon-ok-circle"></span> Good example 1: Decorative image
+						<span class="glyphicon glyphicon-ok-circle"></span> Good example: Decorative image
 					</h2>
 					<p>In this example, a stock photo of office employees qualifies as decorative if it contains no information relevant to the accompanying page. A stock photo of employees of various ethnicities would be informative if the intent is to show the employer values equity, diversity and inclusivity; in that case, the alt text might be something like "At [organization name] we value diversity". But generally, stock photos are decorative.</p>
-					<img src="images/decorativeimg1.png"  alt="" class="img-responsive"/>
+					<div class="panel panel-primary mrgn-tp-md">
+						<div class="panel-body well mrgn-bttm-0">
+							<img src="images/decorativeimg1.png"  alt="" class="img-responsive"/>
+													
+			<p class="wb-inv">Code begins</p>
+			
+<pre><code class="language-html">&lt;img src="staff.jpg" alt=""&gt;</code></pre>
+			
+			<p class="wb-inv">Code ends</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -106,7 +116,7 @@
 			<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
 			<h2 class="text-success mrgn-tp-0" id="eg2">
-				<span class="glyphicon glyphicon-ok-circle"></span> Good example 2: Image with redundant adjacent text
+				<span class="glyphicon glyphicon-ok-circle"></span> Good example: Image with redundant adjacent text
 			</h2>
 			<p>The image below is already sufficiently described by the adjacent text. A null (empty) alt value can be used since there is no need to repeat this information.</p>
 			<div class="panel panel-primary">
@@ -118,12 +128,12 @@
 	
 						
 			<p class="wb-inv">Code begins</p>
-			<div style="margin-top: 1em">
+			
 <pre>
 <code class="language-html">&lt;img src="horses.jpg" alt=""&gt;
 &lt;p&gt;In those days, a circus performer could control three horses with their reins, standing on horseback.&lt;/p&gt;</code>
 </pre>
-			</div>
+			
 			<p class="wb-inv">Code ends</p>
 				</div>
 			</div>
