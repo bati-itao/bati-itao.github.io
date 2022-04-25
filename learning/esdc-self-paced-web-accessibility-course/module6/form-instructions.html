@@ -73,7 +73,7 @@
             <li><a href="#form-instructions">Form instructions (overview)</a></li>
 			<li><a href="#overall-instructions">Overall instructions</a></li>
 			<li><a href="#inline-instructions">In-line instructions</a></li>
-			<li><a href="#instructions-for-groups">Instructions for groups <mark><del>or sections are programmatically associated with the group</del></mark></a></li>
+			<li><a href="#instructions-for-groups">Instructions for groups </a></li>
 			<li><a href="#resources">Related WCAG resources</a></li>
           </ul>
         </div>
@@ -91,7 +91,7 @@
 				<div class="alert alert-warning">
 					<p><strong>Note:</strong> Screen reader users could easily miss overall form instructions nested in a <code>&lt;form&gt;</code> element. Screen readers enter “forms mode” once inside a form, disabling text-browsing keyboard shortcuts to enable the screen reader user to type directly into <code>input</code> and <code>textarea</code> fields. Keyboard navigation is limited to just the focusable elements (form inputs, links and other controls) via the Tab key. Text that isn’t programmatically associated with a focusable element &mdash; serving as a label or description &mdash; is easily missed.</p>
 				</div>
-				<p>Form instructions <mark><del>can indicate how required fields are marked, expected format, and where to find extra help. Here are some</del></mark> examples:</p>
+				<p>Here is some forms instructions examples:</p>
 				<ul>
 					<li>All fields marked “required” must be completed.</li>
 					<li>Dates should all be typed in the format yyyy/mm/dd, (as in 2022/01/05).</li>
@@ -101,31 +101,30 @@
 			
 			<section>				
 				<h2 id="inline-instructions">In-line instructions</h2>
-				<p>In-line instructions are provided within or outside the label of the form control. Short instructions can fit in the label along with the control’s name. Long instructions should be outside the label, associated with the control via the <code>aria-describedby</code> attribute. <mark><del>Prioritize using semantic HTML <code>&lt;label&gt;</code> instead of ARIA to provide instructions within labels. Match the <code>for</code> attribute of the label with the <code>id</code> attribute of the form control.</del></mark>
-				</p>
+				<p>In-line instructions are provided within or outside the label of the form control. Short instructions can fit in the label along with the control’s name. Long instructions should be outside the label, associated with the control via the <code>aria-describedby</code> attribute. </p>
 				<h3>Providing instructions within labels</h3>
 				<p>Providing instructions within labels is well-supported by user agents, though it should be reserved for shorter instructions. Match the <code>for</code> attribute of the label with the <code>id</code> attribute of the form control.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 					  <h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing instructions within a label</h4>
 					  
-						<p>The required format for the “<mark><del>Date of Birth</del> <ins>Employee ID</ins></mark>” is indicated by “<mark><del>YYYY/MM/DD</del> <ins>XX-1234</ins></mark></del></mark>” within the same label:</p>
+						<p>The required format for the Employee ID is indicated by XX-1234 within the same label:</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Example begins</p>
+								<p class="wb-inv">Début de l'exemple</p>
 								<form class="form-inline" role="form" method="get" action="#">
 									<div class="form-group">
 										<label for="employee-id">Employee ID (XX-1234)</label> 
 										<input type="text" name="employee-id" id="employee-id" class="form-control">
 									</div>
 								</form>
-								<p class="wb-inv">Example ends</p>
+								<p class="wb-inv">Fin de l'exemple</p>
 							</div>
 						</div>
-						<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;label for="employee-id"&gt;Employee ID (XX-1234)&lt;/label&gt; 
 &lt;input type="text" name="employee-id" id="employee-id"&gt;</code></pre>
-						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Fin du code</p>
 					</div>
 				</div>
 				<h3>Providing instructions outside labels</h3>
@@ -133,44 +132,44 @@
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 					
-						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing form <mark><ins>control</ins></mark> instructions using aria-labelledby</h4>
+						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing form control instructions using aria-labelledby</h4>
 						<p>One approach to providing instructions outside of labels uses the <code>aria-labelledby</code> attribute on the control:</p>
 						<ul>
 							<li>The <code>&lt;label&gt;</code> element is associated with its control using matching <code>for</code> and <code>id</code> attribute values.</li>
-							<li>The <code>aria-labelledby</code> attribute <mark>on the control</mark> references the <code>id</code> attribute values of <mark><del>the <code>&lt;label&gt;</code> element</del> <ins>itself</ins></mark> and the element holding the description.</li>
+							<li>The <code>aria-labelledby</code> attribute on the control references the <code>id</code> attribute values of itself and the element holding the description.</li>
 						</ul> 
 						<p>This approach guarantees the additional description is communicated to assistive tech, but should only be used with short descriptions.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-							<p class="wb-inv">Example begins</p>
+							<p class="wb-inv">Début de l'exemple</p>
 								<form class="form-inline" role="form" method="get" action="#">
 									<div class="form-group">
-										<label for="health-card"><mark>Health card number</mark></label>
+										<label for="health-card">Health card number</label>
 										<input type="text" name="health-card" id="health-card" aria-labelledby="health-card hc-format" class="form-control">
-										&nbsp;<span id="hc-format"><mark>1234-567-890-XX</mark></span>
+										&nbsp;<span id="hc-format">1234-567-890-XX</span>
 									</div>
 								</form>
-								<p class="wb-inv">Example ends</p>
+								<p class="wb-inv">Fin de l'exemple</p>
 							</div>
 						</div>
 
-						<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Début du code</p>
 						<pre><code class="language-html">&lt;label for="health-card"&gt;Health card number&lt;/label&gt;
 &lt;input type="text" id="health-card" aria-labelledby="health-card hc-format" name="health-card"&gt;
 &lt;span id="hc-format"&gt;1234-567-890-XX&lt;/span&gt;
 </code></pre>
-						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Fin du code</p>
 
 					</div>
 				</div>
 				
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing form <mark><ins>control</ins></mark> instructions with aria-describedby</h4>
+						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing form control instructions with aria-describedby</h4>
 						<p>The more common approach to providing instructions outside of labels is to use the <code>aria-describedby</code> attribute. The attribute is set on the control and points to the <code>id</code> attribute value of the element containing the description.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Example begins</p>
+								<p class="wb-inv">Début de l'exemple</p>
 								<form class="form-inline" role="form" method="get" action="#">
 									<div class="form-group">
 										<label for="password1">Password:</label>
@@ -178,11 +177,11 @@
 									</div>
 									<div id="passDesc">Must contain at least 8 characters, one uppercase letter and one special character</div>
 								</form>
-								<p class="wb-inv">Example ends</p>
+								<p class="wb-inv">Fin de l'exemple</p>
 							</div>
 						</div>
 
-						<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;div class="form-group"&gt;
    &lt;label for="password1"&gt;Password:&lt;/label&gt;
    &lt;div&gt;
@@ -191,21 +190,21 @@
    &lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
-						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Fin du code</p>
 											
 					</div>
 				</div>
 				
 				<h3>Placeholder text</h3>
-				<p><mark><del>Placeholder text</del><ins>Text in the <code>placeholder</code> attribute</ins></mark> provides instructions or an example of the required data format inside form fields that have not yet been edited by the user. <mark><del>Most browsers’ default placeholder text lacks sufficient contrast.  Also, </del></mark> 
+				<p>Text in the <code>placeholder</code> attribute provides instructions or an example of the required data format inside form fields that have not yet been edited by the user.
 				<div class="alert alert-warning">
-				   <p><mark><ins>Note that [Fr: Noter que]</ins></mark> placeholder text disappears from <mark><ins>a form field</ins> <del>form fields</del></mark> when users start entering text. If the placeholder text contains instructional information or examples that disappear, it makes it more difficult for users to check their responses before submitting the form.</p>
+				   <p>Note that placeholder text disappears from a form field when users start entering text. If the placeholder text contains instructional information or examples that disappear, it makes it more difficult for users to check their responses before submitting the form.</p>
 				</div>
 				
 				<p>Placeholder text is not a replacement for labels. Assistive technologies such as screen readers do not treat placeholder text as labels. </p>
 				<div class="panel panel-primary mrgn-tp-md">
 					<div class="panel-body well mrgn-bttm-0">	
-						<p class="wb-inv">Example begins</p>
+						<p class="wb-inv">Début de l'exemple</p>
 						<form class="form-horizontal" role="form" method="get" action="#">
 							<div class="form-group">
 								<label for="search"  class="col-sm-2 control-label">Search:</label> 
@@ -241,11 +240,11 @@
 							}						
 													
 						</style>
-						<p class="wb-inv">Example ends</p>
+						<p class="wb-inv">Fin de l'exemple</p>
 					</div>
 				</div>
 
-				<p class="wb-inv">Code begins</p>
+				<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;div&gt;
    &lt;label for="search"&gt;Search:&lt;/label&gt; 
    &lt;input type="text" name="search" id="search" placeholder="e.g., Accessibility courses"&gt;
@@ -254,7 +253,7 @@
    &lt;label for="email"&gt;Email: &lt;/label&gt; 
    &lt;input type="email" name="email" id="email" placeholder="jane.doe@gmail.com" autocomplete="email"&gt;
 &lt;/div&gt;</code></pre>
-				<p class="wb-inv">Code ends</p>
+				<p class="wb-inv">Fin du code</p>
 
 
 						
@@ -263,7 +262,7 @@
 				<p>The example below sets the foreground color to a medium gray (hex #767676) against a white background, which just meets the minimum 4.5:1 contrast ratio requirement.</p>
 				<div class="panel panel-primary mrgn-tp-md mrgn-bttm-lg">
 					<div class="panel-body well mrgn-bttm-0">
-					<p class="wb-inv">Example begins</p>
+					<p class="wb-inv">Début de l'exemple</p>
 						<form class="form-horizontal" role="form" method="get" action="#">
 							<div class="form-group">
 							<label for="search" class="col-sm-3 control-label">Search courses:</label>
@@ -312,13 +311,13 @@
 							}						
 						</style>
 						
-						<p class="wb-inv">Example ends</p>
+						<p class="wb-inv">Fin de l'exemple</p>
 					</div>
 				</div>
 					
 					<details class="mrgn-tp-sm">
 						<summary class="bg-info">View HTML </summary>
-<p class="wb-inv">Code begins</p>
+<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;div&gt;
    &lt;label for="search"&gt;Search courses:&lt;/label&gt;  
    &lt;input type="text" name="search" id="search" placeholder="e.g., Accessibility courses"&gt;
@@ -336,11 +335,11 @@
    &lt;input type="text" name="email" id="email" placeholder="jane.doe@gmail.com"&gt; 
 &lt;/div&gt;</code>
 </pre>
-<p class="wb-inv">Code ends</p>
+<p class="wb-inv">Fin du code</p>
 						</details>	
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">View CSS </summary>
-							<p class="wb-inv">Code begins</p>
+							<p class="wb-inv">Début du code</p>
 <pre><code class="language-css">::-webkit-input-placeholder { 
    color: #767676 !important; 
    opacity: 1;
@@ -359,7 +358,7 @@
    color: #767676  !important; 
    opacity: 1;
 }</code></pre>
-						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Fin du code</p>
 						</details>	
 
 
@@ -367,15 +366,15 @@
 			
 			</section>
 			<section>				
-				<h2 id="instructions-for-groups">Instructions for groups<mark><del> or Sections are programmatically associated with the group</del></mark></h2>
-				<p>In “focus mode”, when tabbing through the form, screen reader users <mark><del>will not hear regular text added to the form</del><ins> set focus on form controls and hear their labels and descriptions. Text in a non-focusable <ins>element is missed </ins><del>text will be skipped</del></mark> unless it is programmatically associated with a form control as label or description.</p>
+				<h2 id="instructions-for-groups">Instructions for groups</h2>
+				<p>In “focus mode”, when tabbing through the form, screen reader users set focus on form controls and hear their labels and descriptions. Text in a non-focusable element is missed unless it is programmatically associated with a form control as label or description.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Group instructions in a legend</h3>
 						<p>In this example, the word “Required” is set within the <code>&lt;legend&gt;</code> to indicate that everything within the related fieldset is required. Depending on the configuration, some screen readers read out the legend either with every form element, once, or, rarely, not at all. Keep legends short and self-explanatory.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Example begins</p>
+								<p class="wb-inv">Début de l'exemple</p>
 								<form class="form-horizontal" role="form" method="get" action="#">
 									<fieldset>
 										<legend class="required mrgn-lft-md"> 
@@ -407,13 +406,13 @@
 										</div>
 									</fieldset>
 								</form>
-								<p class="wb-inv">Example ends</p>
+								<p class="wb-inv">Fin de l'exemple</p>
 							</div>
 						</div>
 		
 						<details class="mrgn-tp-sm">
 							<summary class="bg-info">View HTML </summary>
-							<p class="wb-inv">Code begins</p>
+							<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;fieldset&gt;
    &lt;legend class="required"&gt; 
       User login information (Required)
@@ -431,13 +430,13 @@
    &lt;input type="tel" id="phone" required auto-complete="tel-national"&gt;
 &lt;/fieldset&gt;</code>
 </pre>
-							<p class="wb-inv">Code ends</p>
+							<p class="wb-inv">Fin du code</p>
 						</details>
 						
 		
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">View CSS </summary>
-							<p class="wb-inv">Code begins</p>
+							<p class="wb-inv">Début du code</p>
 <pre><code class="language-css">label.required:before, 
 legend.required:before {
    content: "* ";
@@ -445,7 +444,7 @@ legend.required:before {
    color: #d3080c;
    font-weight: 700;
 }</code></pre>
-							<p class="wb-inv">Code ends</p>
+							<p class="wb-inv">Fin du code</p>
 						</details>
 					</div>
 				</div>
@@ -457,7 +456,7 @@ legend.required:before {
 					<p>When instructions are in a <code>&lt;p&gt;</code> element not associated via <code>aria-describedby</code>, they’re easily missed by users navigating the form in the screen reader’s “forms mode”. </p>
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
-							<p class="wb-inv">Example begins</p>
+							<p class="wb-inv">Début de l'exemple</p>
 							<form class="form-horizontal" role="form" method="get" action="#">
 								<fieldset>
 									<legend><span class="field-name">Create a User Account</span></legend>
@@ -494,13 +493,13 @@ legend.required:before {
 									</div>
 								</fieldset>
 							</form>
-							<p class="wb-inv">Example ends</p>
+							<p class="wb-inv">Fin de l'exemple</p>
 						</div>
 					</div>
 
 				<details class="mrgn-tp-sm">
 					<summary class="bg-info">View HTML </summary>
-					<p class="wb-inv">Code begins</p>
+					<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;fieldset&gt;
    &lt;legend&gt; 
       Create a User Account
@@ -527,7 +526,7 @@ legend.required:before {
       &lt;input type="tel" id="phone"&gt;
    &lt;/p&gt;
 &lt;/fieldset&gt;</code></pre>
-					<p class="wb-inv">Code ends</p>
+					<p class="wb-inv">Fin du code</p>
 				</details>
 			</div>
 		</div>
@@ -539,7 +538,7 @@ legend.required:before {
 			<p>In some situations, shared instructions can be associated with multiple form fields.</p>
 			<div class="panel panel-primary mrgn-tp-md">
 				<div class="panel-body well mrgn-bttm-0">
-					<p class="wb-inv">Example begins</p>
+					<p class="wb-inv">Début de l'exemple</p>
 					<form class="form-horizontal" role="form" method="get" action="#">
 						<fieldset>
 							<legend><span class="field-name"> Create User Account</legend>
@@ -572,13 +571,13 @@ legend.required:before {
 							</div>
 						</fieldset>
 					</form>
-					<p class="wb-inv">Example ends</p>
+					<p class="wb-inv">Fin de l'exemple</p>
 				</div>
 			</div>
 
 			<details class="mrgn-tp-sm">
 				<summary class="bg-info">View HTML </summary>
-				<p class="wb-inv">Code begins</p>
+				<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;fieldset&gt;
    &lt;legend&gt;Create User Account&lt;/legend&gt;
    &lt;p&gt;
@@ -601,7 +600,7 @@ legend.required:before {
       &lt;input type="tel" id="phone"&gt;
    &lt;/p&gt;
 &lt;/fieldset&gt;</code></pre>
-				<p class="wb-inv">Code ends</p>
+				<p class="wb-inv">Fin du code</p>
 			</details>
 		</div>
 	</div>
@@ -612,7 +611,7 @@ legend.required:before {
 			<p>In this example, the instruction “Choose accounts below to complete your funds transfer” is an image of text lacking a text alternative. Also, the instruction is not associated with the fieldset.</p>
 			<div class="panel panel-primary mrgn-tp-md">
 				<div class="panel-body well mrgn-bttm-0">
-					<p class="wb-inv">Example begins</p>
+					<p class="wb-inv">Début de l'exemple</p>
 					<form  method="get" action="#" onsubmit="return false;">
 						<fieldset> 
 							<legend><span class="field-name">Transfer funds</span></legend> 
@@ -646,12 +645,12 @@ legend.required:before {
 					  </form>
 
 
-					<p class="wb-inv">Example ends</p>
+					<p class="wb-inv">Fin de l'exemple</p>
 				</div>
 			</div>
 			<details class="mrgn-tp-sm">
 				<summary class="bg-info">View HTML </summary>
-				<p class="wb-inv">Code begins</p>
+				<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;form action="/action.php method="get"&gt;
    &lt;fieldset&gt;
       &lt;legend&gt;Transfer funds&lt;/legend&gt;
@@ -675,7 +674,7 @@ legend.required:before {
       &lt;input type="submit" value="Submit"&gt;
    &lt;/fieldset&gt;
 &lt;/form&gt;</code></pre>
-				<p class="wb-inv">Code ends</p>
+				<p class="wb-inv">Fin du code</p>
 									  </details>
 				</div>
 				</div>
@@ -692,7 +691,7 @@ legend.required:before {
             <p>
 			Choose the source and destination accounts below to complete your funds transfer:
 			</p> 
-			<p class="wb-inv">Example begins</p>
+			<p class="wb-inv">Début de l'exemple</p>
 			  <form  method="get"  onsubmit="return false;">
 				<fieldset> 
 					<legend> <span class="field-name">Transfer funds</span></legend> 
@@ -725,16 +724,16 @@ legend.required:before {
 					  	
 				</fieldset> 
 			  </form>
-			  <p class="wb-inv">Example ends</p>
+			  <p class="wb-inv">Fin de l'exemple</p>
 		</div>
 	</div>
 
 
 			
-				<p class="wb-inv">Code begins</p>
+				<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;p&gt;Choose the source and destination accounts below to complete your funds transfer:&lt;/p&gt; 
 &lt;form action="/action.php" method="get"&gt;[&hellip;]&lt;/form&gt;</code></pre>
-				<p class="wb-inv">Code ends</p>
+				<p class="wb-inv">Fin du code</p>
 					  
 </div>
 </div>

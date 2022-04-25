@@ -79,12 +79,8 @@
 	
 			<section>
 				<h2 id="overview">Déterminer l’objet de la saisie (overview)</h2>
-				<p><mark>FRENCH: re-arranged sentences below</mark></p>
-				<p>When a form input field collects personal information such as the user’s name, phone number, email and street addresses, <mark><del>you must</del></mark> programmatically define its semantics with the <code>autocomplete</code> attribute. Assistive technologies leverage the <code>autocomplete</code> attribute value to automatically complete forms, drawing on past user input stored in the browser. This saves the user from having to type the information. Assistive technologies also leverage the <code>autocomplete</code> value to pair input fields with icons, for users who prefer using images for communication.</p>
-				<p>The attribute <mark>value</mark> takes one of 53 potential <mark><del>values</del> <ins><dfn>field names</dfn></ins></mark> from WCAG’s list of <a href="https://www.w3.org/TR/WCAG21/#input-purposes">Input Purposes for User Interface Components</a>. <mark><del>The values are granual</del> <ins>The field names are either broad or narrow</ins></mark>. For instance, regarding the user’s name, it’s possible to identify an input’s purpose as full name, given name, family name, or nickname. You can further refine the purpose by adding space-separated <mark><dfn>autofill detail tokens</dfn></mark> to the <code>autocomplete</code> <mark><del>attribute</del> <ins>value</ins></mark>:</p>
-				<p><mark>TODO: Replacing above two lines with the one below</mark></p>
-				<p>Lorsqu’un champ de saisie de formulaire recueille des renseignements personnels comme le nom de l’utilisateur, son numéro de téléphone, son adresse électronique et son adresse municipale, vous devez définir sa sémantique par programmation au moyen de l’attribut autocomplete. L’attribut prend l’une des 53&nbsp;valeurs potentielles parmi la liste <a href="https://www.w3.org/TR/WCAG21/">Input Purposes for User Interface Components</a> des WCAG. Les valeurs sont granulaires; par exemple, en ce qui concerne le nom de l’utilisateur, il est possible d’identifier la fonction d’une saisie comme le nom complet, le prénom, le nom de famille ou le surnom.</p>
-				<p>Les technologies d’assistance tirent parti de la valeur d’attribut autocomplet pour remplir automatiquement les formulaires, en s’appuyant sur les données de saisie antérieures stockées dans le navigateur. Cela évite à l’utilisateur d’avoir à taper l’information. Les technologies d’assistance tirent également parti de la valeur autocomplete pour jumeler les champs de saisie avec des icônes, pour les utilisateurs qui préfèrent utiliser des images à des fins de communication.</p>
+				<p>Lorsqu'un champ de saisie de formulaire recueille des informations personnelles telles que le nom, le numéro de téléphone, l'adresse électronique et l'adresse postale de l'utilisateur, définissez sa sémantique de manière programmatique avec l'attribut <code>autocomplete</code> Les technologies d'assistance s'appuient sur la valeur de l'attribut <code>autocomplete</code> pour remplir automatiquement les formulaires, en s'appuyant sur les entrées antérieures de l'utilisateur stockées dans le navigateur. Cela évite à l'utilisateur d'avoir à taper l'information. Les technologies d'assistance exploitent également la valeur de <code>autocomplete</code> pour associer des icônes aux champs de saisie, pour les utilisateurs qui préfèrent utiliser des images pour communiquer.</p>
+				<p>La valeur de l'attribut prend l'un des 53 noms de champs potentiels de la liste de WCAG: <a  hreflang="en" lang="en" href="https://www.w3.org/TR/WCAG21/#input-purposes">Input Purposes for User Interface Components</a>. Les noms des champs sont soit larges, soit étroits. Par exemple, en ce qui concerne le nom de l'utilisateur, il est possible d'identifier l'objectif d'une entrée comme étant le nom complet, le prénom, le nom de famille ou le surnom. Vous pouvez affiner l'objectif en ajoutant à la valeur de  <code>autocomplete</code> des éléments de détail séparés par des espaces :</p>
 				<ul>
 					<li><code>shipping</code></li>
 					<li><code>billing</code></li>
@@ -94,15 +90,14 @@
 					<li><code>fax</code></li>
 					<li><code>pager</code></li>
 				</ul>
-				<p><mark>Use <code>autocomplete</code> on <code>&lt;input&gt;</code> elements that take a text or numeric value as input, <code>&lt;textarea&gt;</code> elements, <code>&lt;select&gt;</code> elements, and <code>&lt;form&gt;</code> elements. The HTML5 specification lists the <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#inappropriate-for-the-control">appropriate elements to match with each autocomplete field name</a>.</mark></p>
+				<p>Utilisez <code>autocomplete</code> sur les éléments  <code>&lt;input&gt;</code> qui prennent une valeur textuelle ou numérique en entrée, les éléments <code>&lt;textarea&gt;</code>, les éléments <code>&lt;select&gt;</code> et les éléments <code>&lt;form&gt;</code>. La spécification HTML5 énumère les <a hreflang="en" href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#inappropriate-for-the-control"> éléments appropriés à associer à chaque nom de champ autocomplete</a>. (disponible en anglais seulement)</p>
 			</section>	
 			<section>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h2 class="text-success mrgn-tp-0 h3" id="autocomplete-attributes"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple&nbsp;: Utilisation de l’attribut autocomplete</h2>
-						<p>Il s’agit d’un formulaire simple qui <mark><del>recueille</del> <ins>identifies</ins>les coordonnées de l’utilisateur <mark>with the <code>autocomplete</code> attribute. The <code>autocomplete</code> field names use tokens to distinguish between billing and shipping, and land line and mobile phone.</mark>.</p>
-						<p><mark>TODO: Below line needs translation?</mark></p>
-						<p><mark>The fields only auto-populate if the browser has saved values for the field names (e.g., <code>given-name</code>, <code>family-name</code>) from a previous form submission. To test, enter some values and press "Populate browser" to store values for the field names in the browser. The data is not submitted, and we don't store any of it.</mark></p>
+						<p>Il s'agit d'un formulaire simple qui recueille les coordonnées de l'utilisateur à l'aide de l'attribut <code>autocomplete</code>. Les noms des champs <code>autocomplete</code> utilisent des jetons pour faire la distinction entre la facturation et l'expédition, et entre le téléphone fixe et le téléphone mobile.</p>
+						<p>Les champs ne se remplissent automatiquement que si le navigateur a enregistré les valeurs des noms de champs (par exemple, <code>prénom</code>, <code>nom de famille</code>) ors d'une précédente soumission de formulaire. Pour tester, saisissez quelques valeurs et appuyez sur "Remplir le navigateur" pour stocker les valeurs des noms de champs dans le navigateur. Les données ne sont pas soumises, et nous ne les stockons pas.</mark></p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 								<form class="form-horizontal" autocomplete="on" onsubmit="return false;" > 
@@ -129,68 +124,67 @@
 											<input type="text" id="org" class="form-control" autocomplete="organization">
 										</div>
 									</div>
-									<p><mark>TODO: Below form field names needs French translation</mark></p>
 									<fieldset>
-										<legend><mark>Shipping address</mark></legend>
+										<legend>Adresse d'expédition</legend>
 										<div class="form-group">
-											<label for="ship-st" class="col-sm-4 control-label"><mark>Street</mark></label>
+											<label for="ship-st" class="col-sm-4 control-label">Rue</label>
 											<div class="col-sm-8">
 												<input type="text" id="ship-st" class="form-control" autocomplete="shipping street-address">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="ship-city" class="col-sm-4 control-label"><mark>City</mark></label>
+											<label for="ship-city" class="col-sm-4 control-label">Ville</label>
 											<div class="col-sm-8">
 												<input type="text" id="ship-city" class="form-control" autocomplete="shipping address-level2">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="ship-prov" class="col-sm-4 control-label"><mark>Province</mark></label>
+											<label for="ship-prov" class="col-sm-4 control-label">Province</label>
 											<div class="col-sm-8">
 												<input type="text" id="ship-prov" class="form-control" autocomplete="shipping address-level1">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="ship-mobile-phone" class="col-sm-4 control-label"><mark>Mobile phone for delivery</mark></label>
+											<label for="ship-mobile-phone" class="col-sm-4 control-label">Téléphone portable pour la livraison</label>
 											<div class="col-sm-8">
 												<input type="tel" id="ship-mobile-phone" class="form-control" autocomplete="shipping mobile tel-national">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="ship-email" class="col-sm-4 control-label"><mark>Email</mark></label>
+											<label for="ship-email" class="col-sm-4 control-label">Courriel</label>
 											<div class="col-sm-8">
 												<input type="email" id="ship-email" class="form-control" autocomplete="shipping email">
 											</div>
 										</div>
 									</fieldset>
 									<fieldset>
-										<legend><mark>Billing address</mark></legend>
+										<legend>L'adresse de facturation</legend>
 										<div class="form-group">
-											<label for="bill-st" class="col-sm-4 control-label"><mark>Street</mark></label>
+											<label for="bill-st" class="col-sm-4 control-label">Rue</label>
 											<div class="col-sm-8">
 												<input type="text" id="bill-st" class="form-control" autocomplete="billing street-address">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="bill-city" class="col-sm-4 control-label"><mark>City</mark></label>
+											<label for="bill-city" class="col-sm-4 control-label">Ville</label>
 											<div class="col-sm-8">
 												<input type="text" id="bill-city" class="form-control" autocomplete="billing address-level2">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="bill-prov" class="col-sm-4 control-label"><mark>Province</mark></label>
+											<label for="bill-prov" class="col-sm-4 control-label">Province</label>
 											<div class="col-sm-8">
 												<input type="text" id="bill-prov" class="form-control" autocomplete="shipping address-level1">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="bill-phone" class="col-sm-4 control-label"><mark>Phone</mark></label>
+											<label for="bill-phone" class="col-sm-4 control-label">Téléphone</label>
 											<div class="col-sm-8">
 												<input type="tel" id="bill-phone" class="form-control" autocomplete="billing tel-national">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="bill-email" class="col-sm-4 control-label"><mark>Email</mark></label>
+											<label for="bill-email" class="col-sm-4 control-label">Courriel</label>
 											<div class="col-sm-8">
 												<input type="tel" id="bill-email" class="form-control" autocomplete="billing email">
 											</div>
@@ -198,8 +192,8 @@
 									</fieldset>
 									<div class="form-group">
 										<div class="col-sm-offset-4 col-sm-8">
-											<input type="submit" value="Populate browser">
-											<span><mark>Populate browser</mark></span>
+											<input type="submit" value="Remplir le navigateur">
+											<span>Remplir le navigateur</span>
 										</div>
 									</div>
 									
@@ -208,9 +202,9 @@
 							</div>
 						</div>
 						<details class="mrgn-tp-lg">
-							<summary class="bg-info">View HTML <mark>(simplified) [Fr: simplifi&eacute;]</mark></summary>
-							<p class="mrgn-tp-md"><mark>This markup has been simplified by removing grouping <code>&lt;div&gt;</code> elements and class attributes.</mark></p>
-							<p class="wb-inv">Code begins</p>
+							<summary class="bg-info">Visualisation simplifiée du HTML</summary>
+							<p class="mrgn-tp-md">Ce balisage a été simplifié en supprimant les éléments de regroupement  <code>&lt;div&gt;</code> et les attributs de classe.</mark></p>
+							<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;form method="post" action="step1"&gt;  
   &lt;label for="fname"&gt;Prénom&lt;/label&gt;
   &lt;input id="fname" type="text" autocomplete="given-name"&gt;  
@@ -225,46 +219,46 @@
   &lt;input type="text" id="org" autocomplete="organization"&gt;
   
   &lt;fieldset&gt;
-    &lt;legend&gt;Shipping address&lt;/legend&gt;
+    &lt;legend&gt;Adresse d'expédition&lt;/legend&gt;
     
-    &lt;label for="ship-st"&gt;Street&lt;/label&gt;
+    &lt;label for="ship-st"&gt;Rue&lt;/label&gt;
     &lt;input type="text" id="ship-st" autocomplete="shipping street-address"&gt;
     
-    &lt;label for="ship-city"&gt;City&lt;/label&gt;
+    &lt;label for="ship-city"&gt;Ville&lt;/label&gt;
     &lt;input type="text" id="ship-city" autocomplete="shipping address-level2"&gt;
     
     &lt;label for="ship-prov"&gt;Province&lt;/label&gt;
     &lt;input type="text" id="ship-prov" autocomplete="shipping address-level1"&gt;
     
-    &lt;label for="ship-mobile-phone"&gt;Mobile phone for delivery&lt;/label&gt;
+    &lt;label for="ship-mobile-phone"&gt;Téléphone portable pour la livraison&lt;/label&gt;
     &lt;input type="tel" id="ship-mobile-phone" autocomplete="shipping mobile tel-national"&gt;
     
-    &lt;label for="ship-email"&gt;Email&lt;/label&gt;
+    &lt;label for="ship-email"&gt;Courriel&lt;/label&gt;
     &lt;input type="email" id="ship-email" autocomplete="shipping email"&gt;
   &lt;/fieldset&gt;
   
   &lt;fieldset&gt;
-    &lt;legend&gt;Billing address&lt;/legend&gt;
+    &lt;legend&gt;L'adresse de facturation&lt;/legend&gt;
     
-    &lt;label for="bill-st"&gt;Street&lt;/label&gt;
+    &lt;label for="bill-st"&gt;Rue&lt;/label&gt;
     &lt;input type="text" id="bill-st" autocomplete="billing street-address"&gt;
     
-    &lt;label for="bill-city"&gt;City&lt;/label&gt;
+    &lt;label for="bill-city"&gt;Ville&lt;/label&gt;
     &lt;input type="text" id="bill-city" autocomplete="billing address-level2"&gt;
     
     &lt;label for="bill-prov"&gt;Province&lt;/label&gt;
     &lt;input type="text" id="bill-prov" autocomplete="billing address-level1"&gt;
     
-    &lt;label for="bill-phone"&gt;Phone&lt;/label&gt;
+    &lt;label for="bill-phone"&gt;Téléphone&lt;/label&gt;
     &lt;input type="tel" id="bill-phone" autocomplete="billing tel-national"&gt;
     
-    &lt;label for="bill-email"&gt;Email&lt;/label&gt;
+    &lt;label for="bill-email"&gt;Courriel&lt;/label&gt;
     &lt;input type="email" id="bill-email" autocomplete="billing email"&gt;
   &lt;/fieldset&gt;
     
   &lt;input type="submit" value="Continuer"&gt; 
 &lt;/form&gt;</code></pre>
-							<p class="wb-inv">Code ends</p>
+							<p class="wb-inv">Fin du code</p>
 						</details>
 					</div>
 				</div>

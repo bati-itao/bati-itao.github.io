@@ -70,19 +70,17 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#related-form-controls">Grouping related form controls</a></li>
-			<li><a href="#related-checkbox-controls">Exemple&nbsp;1&nbsp;: Regrouper les commandes de cases connexes avec &lt;fieldset&gt; et &lt;legend&gt;</a></li>
-			<li><a href="#related-form-elements">Exemple&nbsp;3&nbsp;: Regrouper les éléments de formulaire connexes avec ARIA</a></li>
-			<li><a href="#related-options">Exemple&nbsp;2&nbsp;: Regrouper les options connexes avec &lt;optgroup&gt;</a></li>
+            <li><a href="#related-form-controls">Regroupement de contrôles de formulaires</a></li>
+			<li><a href="#related-checkbox-controls">Bon exemple : Regrouper les commandes de cases connexes avec fieldset et legend</a></li>
+			<li><a href="#related-form-elements">Bon exemple : Regrouper les éléments de formulaire connexes avec ARIA</a></li>
+			<li><a href="#related-options">Bon exemple : Regrouper les options connexes avec optgroup</a></li>
 			<li><a href="#resources1">Ressources WCAG connexes</a></li>
           </ul>
         </div>
       </div>
 	</nav>
-	<p><mark>French: the last two examples swap positions</mark></p>
 			<section>
-				<p><mark>TODO: French translation for the heading below.</mark></p>				
-				<h2 id="related-form-controls">Grouping related form controls</h2>
+				<h2 id="related-form-controls">Regroupement de contrôles de formulaires</h2>
 				<p>Regrouper les commandes de formulaire pour faciliter la compréhension du formulaire par tous les utilisateurs. Les lecteurs d’écran annoncent le début et la fin du groupe et l’étiquette du groupe au fur et à mesure de la navigation dans les groupes. Le regroupement des commandes est particulièrement important pour les boutons radio et les cases à cocher connexes, car les étiquettes individuelles ne reflètent pas pleinement le sujet du groupe.</p>
 				<p>Suivez les pratiques exemplaires suivantes pour étiqueter les commandes&nbsp;: </p>		   
 				<ul>
@@ -91,7 +89,7 @@
 					<li>Faire en sorte que la <code>légende </code>soit aussi courte que possible, car certains lecteurs d’écran la déclarent avec chaque étiquette.</li>
 					<li>Rendre les étiquettes individuelles explicites, car certaines technologies d’assistance ne déclarepas la <code>&lt;legend&gt;</code>. Ne pas répéter la <code>légende</code> dans une étiquette.</li>
 					<li>Utiliser l’élément <code>&lt;optgroup&gt;</code> pour les éléments <code>&lt;select&gt;</code> avec groupes d’options</li>
-					<li>Utiliser ARIA <code>role=”group” </code>et <code>aria-labelledby</code> pour regrouper et étiqueter les éléments de formulaire connexes lorsque vous ne pouvez pas utiliser les éléments HTML natifs <code>&lt;fieldset&gt;</code> et <code>&lt;legend&gt;</code>.</li>
+					<li>Utiliser ARIA <code>role="group"</code> et <code>aria-labelledby</code> pour regrouper et étiqueter les éléments de formulaire connexes lorsque vous ne pouvez pas utiliser les éléments HTML natifs <code>&lt;fieldset&gt;</code> et <code>&lt;legend&gt;</code>.</li>
 					<li>Utiliser <code>&lt;label&gt;</code> dans la mesure du possible pour prendre en charge le navigateur universel et le lecteur d’écran.</li>
 				</ul>
             </section>
@@ -100,10 +98,10 @@
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 		
-						<h2 class="text-success mrgn-tp-0 h3" id="related-checkbox-controls"><span class="glyphicon glyphicon-ok-circle"></span>Exemple&nbsp;1&nbsp;: Regrouper les commandes de cases connexes avec &lt;fieldset&gt; et &lt;legend&gt;</h2>
+						<h2 class="text-success mrgn-tp-0 h3" id="related-checkbox-controls"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Regrouper les commandes de cases connexes avec fieldset et legend</h2>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Exemple begins</p>
+								<p class="wb-inv">Début de l'exemple</p>
 						
 								<form class="form-horizontal" role="form" method="get" action="#">
 									<fieldset class="chkbxrdio-grp">
@@ -111,28 +109,28 @@
 										<div class="checkbox">
 											<label for="morning"> 
 												<input type="checkbox" id="morning" name="avail" value="a">
-												Morning 
+												Avant-midi 
 										  </label>
 										</div>
 										<div class="checkbox">
 										 <label for="after"> 
 											 <input type="checkbox" id="after" name="avail" value="b">
-											  Afternoon 
+											  Après-midi
 										  </label>
 										 </div>
 										<div class="checkbox">
 										 <label for="even"> 
 											 <input type="checkbox" id="even" name="avail" value="c">
-											  Evening
+											  Soir
 										  </label>
 										</div>
 									</fieldset>  
 								</form>
 							</div>
 						 </div>
-						<p class="wb-inv">Example ends</p>
+						<p class="wb-inv">Fin de l'exemple</p>
 					
-						<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;fieldset class=&quot;chkbxrdio-grp&quot;&gt;
    &lt;legend&gt;
       &lt;span class=&quot;field-name&quot;&gt;   
@@ -142,23 +140,23 @@
    &lt;div class=&quot;checkbox&quot;&gt;
       &lt;label for=&quot;morning&quot;&gt; 
          &lt;input type=&quot;checkbox&quot; id=&quot;morning&quot; name=&quot;avail&quot; value=&quot;a&quot;&gt;
-         Morning 
+         Avant-midi 
       &lt;/label&gt;
    &lt;/div&gt;
    &lt;div class=&quot;checkbox&quot;&gt;
       &lt;label for=&quot;after&quot;&gt; 
          &lt;input type=&quot;checkbox&quot; id=&quot;after&quot; name=&quot;avail&quot; value=&quot;b&quot;&gt;
-         Afternoon 
+         Après-midi
       &lt;/label&gt;
    &lt;/div&gt;
    &lt;div class=&quot;checkbox&quot;&gt;
       &lt;label for=&quot;even&quot;&gt; 
          &lt;input type=&quot;checkbox&quot; id=&quot;even&quot; name=&quot;avail&quot; value=&quot;c&quot;&gt;
-         Evening
+         Soir
       &lt;/label&gt;
    &lt;/div&gt;
 &lt;/fieldset&gt;</code></pre>
-						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Fin du code</p>
 					</div>
 				</div>
 			</section>
@@ -167,16 +165,16 @@
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 		
-						<h2 class="text-success mrgn-tp-0 h3" id="related-form-elements"><span class="glyphicon glyphicon-ok-circle"></span>Exemple&nbsp;3&nbsp;: Regrouper les éléments de formulaire connexes avec ARIA</h2>
+						<h2 class="text-success mrgn-tp-0 h3" id="related-form-elements"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Regrouper les éléments de formulaire connexes avec ARIA</h2>
 						 
-						<p>Regroupez les éléments de formulaire connexes et nommez-les avec ARIA lorsque les éléments HTML natif <code>&lt;fieldset&gt; </code>et <code>&lt;legend&gt;</code> équivalents ne peuvent pas être utilisés. </p>
-						<p>Définissez les champs de formulaire connexes dans un conteneur <code>&lt;div&gt;</code> et attribuez au conteneur l’attribut <code>role=”group”</code>. Nommez le conteneur du groupe avec un attribut <code>aria-labelledby </code>pointant vers la valeur attribut <code>id</code> de l’élément contenant le texte descriptif.</p>
+						<p>Regroupez les éléments de formulaire connexes et nommez-les avec ARIA lorsque les éléments HTML natif <code>&lt;fieldset&gt;</code> et <code>&lt;legend&gt;</code> équivalents ne peuvent pas être utilisés. </p>
+						<p>Définissez les champs de formulaire connexes dans un conteneur <code>&lt;div&gt;</code> et attribuez au conteneur l’attribut <code>role="group"</code>. Nommez le conteneur du groupe avec un attribut <code>aria-labelledby</code> pointant vers la valeur attribut <code>id</code> de l’élément contenant le texte descriptif.</p>
 
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Exemple begins</p>
+								<p class="wb-inv">Début de l'exemple</p>
 								<form class="form-horizontal" role="form" method="get" action="#">
-									<p id="grouplabel" class="col-sm-offset-2"><strong>Contact information</strong></p>
+									<p id="grouplabel" class="col-sm-offset-2"><strong>Informations de contact</strong></p>
 									<div role="group" aria-labelledby="grouplabel"> 
 										<div class="form-group">
 											<label for="name" class="col-sm-4 control-label">Nom: </label> 
@@ -192,29 +190,29 @@
 										<div class="form-group"><label for="postalcode" class="col-sm-4 control-label">Code postal: </label> <div class="col-sm-8"><input type="text" id="postalcode" class="form-control"></div></div>
 									</div>
 								</form>
-								<p class="wb-inv">Exemple ends</p>
+								<p class="wb-inv">Fin de l'exemple</p>
 							</div>
 						</div>
 						
-						<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;p id=&quot;grouplabel&quot;&gt;
-   &lt;strong&gt;Contact information&lt;strong&gt;
+   &lt;strong&gt;Informations de contact&lt;strong&gt;
 &lt;/p&gt;
 &lt;div role=&quot;group&quot; aria-labelledby=&quot;grouplabel&quot;&gt; 
    &lt;div class=&quot;form-group&quot;&gt;
-      &lt;label for=&quot;name&quot; class=&quot;col-sm-4 control-label&quot;&gt;Name: &lt;/label&gt; 
+      &lt;label for=&quot;name&quot; class=&quot;col-sm-4 control-label&quot;&gt;Nom: &lt;/label&gt; 
       &lt;div class=&quot;col-sm-8&quot;&gt;
          &lt;input type=&quot;text&quot; id=&quot;name&quot; class=&quot;form-control&quot;&gt;&lt;/div&gt;
       &lt;/div&gt; 
    &lt;div class=&quot;form-group&quot;&gt;
-      &lt;label for=&quot;phone&quot; class=&quot;col-sm-4 control-label&quot;&gt;Phone: &lt;/label&gt; 
+      &lt;label for=&quot;phone&quot; class=&quot;col-sm-4 control-label&quot;&gt;Téléphone: &lt;/label&gt; 
       &lt;div class=&quot;col-sm-8&quot;&gt;
          &lt;input type=&quot;text&quot; id=&quot;phone&quot; class=&quot;form-control&quot;&gt;
       &lt;/div&gt;
    &lt;/div&gt; 
   [&hellip;]
 &lt;/div&gt;</code></pre>
-						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Fin du code</p>
 					
 					</div>
 				</div>
@@ -224,21 +222,21 @@
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 		
-						<h2 class="text-success mrgn-tp-0 h3" id="related-options"><span class="glyphicon glyphicon-ok-circle"></span>Exemple&nbsp;2&nbsp;: Regrouper les options connexes avec &lt;optgroup&gt;</h2>
+						<h2 class="text-success mrgn-tp-0 h3" id="related-options"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Regrouper les options connexes avec optgroup</h2>
 						  
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-<p class="wb-inv">Exemple begins</p>
+<p class="wb-inv">Début de l'exemple</p>
 					
 								<form class="form-horizontal" role="form" method="get" action="#">
 									<label for="cars">Choisir une voiture:</label>
 									<select  name="cars" id="cars">
-									 <optgroup label="American cars">
+									 <optgroup label="Voitures américaines">
 									 <option value="ford">Ford</option>
 									 <option value="chevrolet">Chevrolet</option>
 									 <option value="tesla">Tesla</option>
 									  </optgroup>
-									  <optgroup label="Japanese cars">
+									  <optgroup label="Voitures japonaises">
 									 <option value="honda">Honda</option>
 									 <option value="toyota">Toyota</option>
 									  </optgroup>
@@ -247,9 +245,9 @@
 								</form>
 							  </div>
 						</div>
-						<p class="wb-inv">Exemple ends</p>
+						<p class="wb-inv">Fin de l'exemple</p>
 						
-						<p class="wb-inv">Code begins</p>
+						<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;label for=&quot;cars&quot;&gt;Choisir une voiture:&lt;/label&gt;
 &lt;select name="cars" id="cars"&gt;
    &lt;optgroup label="Voitures américaines"&gt;
@@ -262,7 +260,7 @@
        &lt;option value="toyota"&gt;Toyota&lt;/option&gt;
    &lt;/optgroup&gt;
 &lt;/select&gt;</code></pre>
-						<p class="wb-inv">Code ends</p>
+						<p class="wb-inv">Fin du code</p>
 					</div>
 				</div>
 				
