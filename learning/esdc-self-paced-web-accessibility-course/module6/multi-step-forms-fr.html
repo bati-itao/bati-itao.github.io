@@ -72,8 +72,7 @@
           <ul>
             <li><a href="#design">Conception de formulaires à plusieurs étapes</a></li>
 			<li><a href="#progress">Indiquer la progression dans un formulaire à étapes multiples</a></li>
-			<li><a href="#example">Example: The WET steps form </a></li>
-			   <li><a href="#steps-form">Exemple&nbsp;: Formulaire des étapes de la BOEW</a></li>
+			   <li><a href="#steps-form">Bon exemple&nbsp;: Formulaire des étapes de la BOEW</a></li>
 			<li><a href="#resources">Ressources WCAG connexes</a></li>
 			 
           </ul>
@@ -120,7 +119,7 @@
 				<div class="panel panel-primary mrgn-tp-md">
 					<div class="panel-body well mrgn-bttm-0">
 					<p class="wb-inv">EXEMPLE&nbsp;:</p>
-					Survey <progress max="7" value="1">(Step 1 of 7)</progress>
+					Sondage <progress max="7" value="1">(Étape 1 de 7)</progress>
 				<p class="wb-inv">Fin de l'exemple</p>
 					</div>
 				</div>
@@ -128,20 +127,21 @@
 				
 							<p class="wb-inv">Début du code</p>
 				<pre><code class="language-html">Sondage &lt;progress max="7" value="1"&gt;(Étape&nbsp;1 de&nbsp;7)&lt;/progress&gt;</code></pre>
-				<pre><code class="language-html">Sondage &lt;progress max="7" value="2"&gt;(Étape&nbsp;2 de&nbsp;7)&lt;/progress&gt;</code></pre>
-				<pre><code class="language-html">Sondage &lt;progress max="7" value="6"&gt;(Étape&nbsp;6 de&nbsp;7)&lt;/progress&gt;</code></pre>
-				<pre><code class="language-html">Sondage &lt;progress max="7" value="7"&gt;(Terminé)&lt;/progress&gt;</code></pre>
+							<p class="wb-inv">Fin du code</p>
 	
 						<p>Certains systèmes d’exploitation animent l’élément <code>&lt;progress&gt;</code>, ce qui contrevient au critère de succès&nbsp;2.2.2 des WCAG&nbsp;: Pause, Stop, Masquer. Vous pouvez arrêter l’animation en utilisant un style personnalisé avec les CSS spécifiques au navigateur, comme illustré ci-dessous.</p>
 
 							<p class="wb-inv">EXTRAIT DE CODE&nbsp;:</p>
-<pre><code class="language-css">/* Microsoft IE */ progress {  
+<pre><code class="language-css">/* Microsoft IE */ 
+progress {  
    color: #036;
 }
-/* Apple Safari and Google Chrome */ progress::-webkit-progress-bar {
+/* Apple Safari et Google Chrome */ 
+progress::-webkit-progress-bar {
    background-color: #036;
 }
-/* Mozilla Firefox */ progress::-moz-progress-bar {
+/* Mozilla Firefox */ 
+progress::-moz-progress-bar {
    background-color: #036;
 }</code>
 </pre>
@@ -265,7 +265,7 @@
 					
 											<li><span>Paiement</span></li>  
 					
-											<li><span>erminer l’achat</span></li>  
+											<li><span>Terminer l’achat</span></li>  
 				
 										</ol> 
 			
@@ -281,11 +281,11 @@
 <pre><code class="language-html">&lt;div class="tlwrapper"&gt;
    &lt;ol class="timeline"&gt;
       &lt;li class="timeline-past"&gt;
-         &lt;span class="wb-inv"&gt;Terminé: &lt;/span&gt;
+         &lt;span class="wb-inv"&gt;Terminé :&lt;/span&gt;
          &lt;a href="billing.html"&gt;Adresse de facturation&lt;/a&gt;
       &lt;/li&gt;
       &lt;li class="timeline-current"&gt;
-         &lt;span class="wb-inv"&gt;État actuel: &lt;/span&gt;
+         &lt;span class="wb-inv"&gt;État actuel :&lt;/span&gt;
          &lt;span&gt;Adresse de livraison&lt;/span&gt;
       &lt;/li&gt;
       &lt;li&gt;&lt;span&gt;Vérification de la commande&lt;/span&gt;&lt;/li&gt;
@@ -297,12 +297,12 @@
 <p class="wb-inv">Fin du code</p>
 <p class="wb-inv">Début du code</p>
 <pre><code class="language-css">.wb-inv {
-	clip: rect(1px,1px,1px,1px);
-	height: 1px;
-	margin: 0;
-	overflow: hidden;
-	position: absolute;
-	width: 1px;
+   clip: rect(1px,1px,1px,1px);
+   height: 1px;
+   margin: 0;
+   overflow: hidden;
+   position: absolute;
+   width: 1px;
 }</code>
 </pre>
 <p class="wb-inv">Fin du code</p>
@@ -314,11 +314,11 @@
 				<div class="panel panel-success mrgn-tp-lg">
 			  <div class="panel-body">
 		
-			    <h2 class="text-success mrgn-tp-0 h3" id="steps-form"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Exemple&nbsp;: Formulaire des étapes de la BOEW</h2>
+			    <h2 class="text-success mrgn-tp-0 h3" id="steps-form"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Formulaire des étapes de la BOEW</h2>
 				<p>Le <a href="https://wet-boew.github.io/v4.0-ci/demos/stepsform/stepsform-fr.html">Formulaire des étapes de la BOEW (exemple)</a> est un formulaire à étapes multiples de même page. La <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/stepsform/stepsform-fr.html">Documentation du formulaire des étapes</a> décrit les exigences en matière de balisage des saisies. </p>
 				<p>Les étapes du formulaire de la BOEW n’appuient pas encore les étapes facultatives au moyen d’un bouton «&nbsp;sauter&nbsp;».</p>
-				<p>Vous définissez chaque étape au sein d’un élément <code>&lt;fieldset&gt;</code>, vous la nommez avec un élément <code>&lt;legend&gt;</code> emboîté, puis imbriquez les éléments de formulaire dans un élément <code>&lt;div&gt;</code> à l’intérieur de <code>&lt;fieldset&gt;</code>. Le JavaScript masque la <code>&lt;div&gt;</code> lorsque l’étape n’est pas sélectionnée. JavaScript ajoute également les boutons de navigation «&nbsp;suivant&nbsp;» et «&nbsp;précédent&nbsp;», qui déclenche la validation au clic.</p>
-				<p>Il s’agit de la structure de base, sans son enveloppe de balisage HTML&nbsp;:</p>
+				<p>Vous définissez chaque étape au sein d’un élément <code>&lt;fieldset&gt;</code> et vous la nommez avec un élément <code>&lt;legend&gt;</code> emboîté.   puis imbriquez les éléments de formulaire dans un élément <code>&lt;div&gt;</code> à l’intérieur de <code>&lt;fieldset&gt;</code>. <mark>You place the step's form elments in <code>&lt;div&gt;</code> following the <code>&lt;legend&gt;</code>.</mark></p>
+				<!-- <p>Il s’agit de la structure de base, sans son enveloppe de balisage HTML&nbsp;:</p> -->
 				<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;fieldset&gt;
    &lt;legend&gt;Coordonnées&lt;/legend&gt;
@@ -330,23 +330,15 @@
 &lt;/fieldset&gt;</code>
 </pre>
 <p class="wb-inv">Fin du code</p>
+						<p>Le JavaScript masque la <code>&lt;div&gt;</code> lorsque l’étape n’est pas sélectionnée. JavaScript ajoute également les boutons de navigation «&nbsp;suivant&nbsp;» et «&nbsp;précédent&nbsp;», qui déclenche la validation au clic.</p>
 					</div>
 					</div>
 			</section>
 			
 			<hr/>
-			<p class="small">The examples of forms validations are from the Web Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a>) 
-					document: <a href="https://www.w3.org/WAI/tutorials/forms/multi-page/">Multi-page Forms</a> from the <a href="https://www.w3.org/WAI/tutorials/forms/">Forms</a>
-					tutorial of the <a href="https://www.w3.org/WAI/tutorials/">Web Accessibility Tutorials</a>. <a herf="https://www.w3.org/People/yatil/">
-					Eric Eggert</a> and <a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a>, Copyright © 2019 W3C ® 
-					(<a href="http://www.csail.mit.edu/">MIT</a>
-					, <a href="http://www.ercim.eu/">ERCIM</a>, 
-					<a href="http://www.keio.ac.jp/">Keio</a>
-					, <a href="http://ev.buaa.edu.cn/">Beihang</a>) 
-					<a href="https://www.w3.org/Consortium/Legal/ipr-notice">Usage policies apply</a>. Updated 27 July 2019 (first published September 2014). 
-					<a href="https://www.w3.org/WAI/tutorials/forms/instructions/">https://www.w3.org/WAI/tutorials/forms/instructions/</a></p>
+					<p class="small">Le balisage HTML pour les approches&nbsp;3 et&nbsp;4 est tiré du document Initiative pour l’accessibilité du Web (<a href="https://www.w3.org/WAI/">IAW</a>)&nbsp;: <a href="https://www.w3.org/WAI/tutorials/forms/multi-page/">Formulaires multipages</a> dans le tutoriel <a href="https://www.w3.org/WAI/tutorials/forms/">Concepts de formulaires</a> du tutoriel <a href="https://www.w3.org/WAI/tutorials/">Tutoriels sur l’accessibilité du Web</a>. <a href="https://www.w3.org/People/yatil/">Eric Eggert</a> et <a href="https://www.w3.org/People/shadi/">Shadi&nbsp;Abou-Zahra</a>.  Copyright © 2019 W3C® (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>). Mis à jour le 27&nbsp;juillet&nbsp;2019 (publié pour la première fois en septembre&nbsp;2014). <a href="https://www.w3.org/WAI/tutorials/forms/multi-page/">https://www.w3.org/WAI/tutorials/forms/multi-page/</a></p>
 			<section>				
-				<h2 id="v" class="wb-inv">Ressources WCAG connexes</h2>
+				<h2 id="resources" class="wb-inv">Ressources WCAG connexes</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Ressources WCAG connexes</summary>
 					<h3>Critères de succès</h3>
@@ -365,7 +357,7 @@
 							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR1">SCR1: Allowing the user to extend the default time limit	</a></li>
 							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR16">SCR16: Providing a script that warns the user a time limit is about to expire	</a></li>							
 					</ul>
-					<p>Le balisage HTML pour les approches&nbsp;3 et&nbsp;4 est tiré du document Initiative pour l’accessibilité du Web (<a href="https://www.w3.org/WAI/">IAW</a>)&nbsp;: <a href="https://www.w3.org/WAI/tutorials/forms/multi-page/">Formulaires multipages</a> dans le tutoriel <a href="https://www.w3.org/WAI/tutorials/forms/">Concepts de formulaires</a> du tutoriel <a href="https://www.w3.org/WAI/tutorials/">Tutoriels sur l’accessibilité du Web</a>. <a href="https://www.w3.org/People/yatil/">Eric Eggert</a> et <a href="https://www.w3.org/People/shadi/">Shadi&nbsp;Abou-Zahra</a>.  Copyright © 2019 W3C® (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>). Mis à jour le 27&nbsp;juillet&nbsp;2019 (publié pour la première fois en septembre&nbsp;2014). <a href="https://www.w3.org/WAI/tutorials/forms/multi-page/">https://www.w3.org/WAI/tutorials/forms/multi-page/</a></p>
+					
 
 				</details>
 			</section>

@@ -111,7 +111,7 @@
                         Cette section donne un aperçu de haut niveau des éléments à prendre en considération lors de l’élaboration de commandes de formulaire personnalisées. La <a href="https://www.w3.org/TR/wai-aria-1.1/">Spécification ARIA</a> et les <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">Pratiques de rédaction ARIA</a> expliquent comment utiliser ARIA (Accessible Rich Internet Applications) pour créer des widgets personnalisés. Les pratiques de rédaction décrivent le comportement attendu des widgets du clavier et de la cible, ainsi que des exemples et le code.
                      </p>
                      <p>
-                        Voir <a href="../module12/index.html">le module 12</a> pour une discussion sur les widgets JavaScript personnalisé.
+                        Voir <a href="../module12/index-fr.html">le module 12</a> pour une discussion sur les widgets JavaScript personnalisé.
                      </p>
                      <p>
                         Suivez les pratiques exemplaires suivantes pour les commandes personnalisées&nbsp;:
@@ -146,8 +146,7 @@
                      <p>
                         Si votre élément de formulaire doit être différent des éléments de formulaire natifs, les éléments de formulaire HTML natifs sont encore un modèle de comportement souhaitable au clavier. Assurez-vous que tous les boutons fonctionnent avec la touche Entrée et la barre d’espacement. Mettez en place des touches fléchées que les utilisateurs pourraient s’attendre à utiliser. Voir les interactions au clavier des modèles de widgets et des rôles ARIA dans les <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">Pratiques de rédaction ARIA</a>.
                      </p>
-                     <p>
-                        Réfléchissez-y à deux fois avant de créer un contrôle personnalisé. Il peut s'agir d'un travail considérable, comme l'indique le document Mozilla Developer Network tutorial <a hreflang="en" lang="en" href="https://developer.mozilla.org/en-US/docs/Learn/Forms/How_to_build_custom_form_controls#making_it_accessible">How to build custom form controls</a>, which steps through building a custom <code>&lt;select&gt;</code> élément.
+                    ément.
                      </p>
                      <p>
                         Réfléchissez à deux fois avant de créer une commande
@@ -197,7 +196,7 @@
                      <h2 id="communicate">
                         Communiquer des mises à jour et des changements d’état par l’entremise de messages en direct sur ARIA lorsqu’ils ne peuvent pas être communiqués par l’entremise de méthodes HTML ou ARIA </h2>
                      <p>
-                        Lorsque les états HTML et ARIA disponibles ne sont pas suffisamment descriptifs, ajouter une zone live ARIA pour décrire aux utilisateurs d’un lecteur d’écran ce qui se passe. Une zone live ARIA peut annoncer une modification personnalisée de la valeur comme «&nbsp;tableau trié par titre, croissant&nbsp;» ou «&nbsp;Résultats filtrés par zone&nbsp;», etc.
+                        Lorsque les états HTML et ARIA disponibles ne sont pas suffisamment descriptifs, ajouter une zone live ARIA pour décrire aux utilisateurs d’un lecteur d’écran ce qui se passe. Une zone live ARIA peut annoncer une modification personnalisée de la valeur comme «&nbsp;Tableau trié par titre, croissant&nbsp;» ou «&nbsp;Résultats filtrés par zone&nbsp;», etc.
                      </p>
                      <div class="panel panel-success">
                         <div class="panel-body">
@@ -218,7 +217,7 @@
                               </li>
                            </ul>
                            <p>
-                              De plus, l’attribut <code>d’action</code> de l’élément <code>&lt;form&gt;</code> fait référence à un script côté serveur qui exécute la même fonctionnalité dans les cas où JavaScript n’est pas pris en charge.
+                              De plus, l’attribut d'<code>action</code> de l’élément <code>&lt;form&gt;</code> fait référence à un script côté serveur qui exécute la même fonctionnalité dans les cas où JavaScript n’est pas pris en charge.
                            </p>
                            <div class="panel panel-default well well-sm col-md-12">
                               <p class="wb-inv">Début de l'exemple</p>
@@ -232,7 +231,7 @@
                                        var count = this.querySelector(".count");
                                        var text = this.querySelector(".text");
                                        count.textContent = parseInt(count.textContent) + 1;
-                                       text.textContent = "Shared ✓";
+                                       text.textContent = "Partages ✓";
                                        this.setAttribute("disabled", "true");
                                      });
                                  };
@@ -270,7 +269,7 @@
                               <form onsubmit="myFunction(); return false;">
                                  <button type="submit" id="share-btn" class="btn-primary">
                                  <span class="count">3</span>
-                                 <span class="text">Shares</span>
+                                 <span class="text">Partages</span>
                                  </button>
                               </form>
                            </div>
@@ -280,7 +279,7 @@
                            <pre><code class="language-html">&lt;form action="path/to/submit"&gt;
    &lt;button type="submit" id="share-btn" class="btn-primary"&gt;
       &lt;span class="count"&gt;3&lt;/span&gt; 
-      &lt;span class="text"&gt;Shares&lt;/span&gt;
+      &lt;span class="text"&gt;Partages&lt;/span&gt;
    &lt;/button&gt; 
 &lt;/form&gt;</code>
 </pre>
@@ -292,7 +291,7 @@
    var count = this.querySelector('.count');
    var text = this.querySelector('.text');
    count.textContent = parseInt(count.textContent) + 1;
-   text.textContent = "Shared ✓"; 
+   text.textContent = "Partag&eacute;s ✓"; 
    this.setAttribute("disabled", "true"); 
 });</code>
 </pre>
@@ -303,7 +302,7 @@
                      <p class="small">
                         Adapté de «&nbsp;Custom Form Inputs&nbsp;» dans le module «&nbsp;Form Labels, Instructions, and Validation&nbsp;». Deque University. 2021 Deque Systems Inc.
                      </p>
-                     <p>
+                     <p class="small">
                         Bon exemple de code tiré du document de l’Initiative
                         d’accessibilité du Web (<a href="https://www.w3.org/WAI/">IAT</a>)&nbsp;: <a href="https://www.w3.org/WAI/tutorials/forms/custom-controls/">Commandes personnalisées</a>, dans <a href="https://www.w3.org/WAI/tutorials/forms/">Concepts de formulaires</a>. Eric Eggert et Shadi&nbsp;Abou-Zahra, éd. Copyright © 2019 <a href="http://www.w3.org/">W3C</a>® (<a href="http://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="http://www.keio.ac.jp/">Keio</a>,
                         <a href="http://ev.buaa.edu.cn/">Beihang</a>). État
