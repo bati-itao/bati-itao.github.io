@@ -70,7 +70,7 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#form-instructions">Instructions du formulaire (overview)</a></li>
+            <li><a href="#form-instructions">Aper&ccedil;u : Instructions du formulaire</a></li>
 			<li><a href="#overall-instructions">Instructions générales</a></li>
 			<li><a href="#inline-instructions">Instructions incluse</a></li>
 			<li><a href="#instructions-for-groups">Les instructions relatives aux groupes</a></li>
@@ -81,7 +81,7 @@
 	</nav>
 
 			<section>						
-				<h2 id="form-instructions">Instructions du formulaire (overview)</h2>
+				<h2 id="form-instructions">Aper&ccedil;u : Instructions du formulaire</h2>
 				<p>Les instructions du formulaire aident les utilisateurs à comprendre la façon de remplir le formulaire et d’utiliser les commandes individuelles du formulaire. Indiquer les saisies, les formats de données et les autres renseignements pertinents requis.</p>
 			</section>
 			
@@ -90,7 +90,7 @@
 				<p>Fournir les instructions du formulaire au-dessus du formulaire avant la balise <code>&lt;form&gt;</code> d’ouverture. Indiquer toute saisie obligatoire et facultative, les formats de données autorisés, les limites de temps et toute instruction générale qui s’appliquent à l’ensemble du formulaire. </p>
 
 				<div class="alert alert-warning">
-					<p><strong>Remarque&nbsp;: </strong>Les utilisateurs du lecteur d’écran pourraient facilement rater les instructions générales du formulaire imbriquées dans un élément <code>&lt;form&gt;</code>. Les lecteurs d’écran entrent en «&nbsp;mode formulaires&nbsp;» une fois dans un formulaire, désactivant ainsi les raccourcis clavier de balayage de texte pour permettre à l’utilisateur de taper directement dans les champs de saisie et de zone de<code> texte</code>. La navigation au clavier se limite aux éléments pouvant être ciblés (saisies de formulaires, liens et autres commandes) au moyen de la touche Tab. Le texte qui n’est pas associé par un programme à un élément pouvant être ciblé – servant d’étiquette ou de description – est facilement omis.</p>
+					<p><strong>Remarque&nbsp;: </strong>Les utilisateurs du lecteur d’écran pourraient facilement rater les instructions générales du formulaire imbriquées dans un élément <code>&lt;form&gt;</code>. Les lecteurs d’écran entrent en «&nbsp;mode formulaires&nbsp;» une fois dans un formulaire, désactivant ainsi les raccourcis clavier de balayage de texte pour permettre à l’utilisateur de taper directement dans les champs <code>input</code> et <code>textarea</code>. La navigation au clavier se limite aux éléments pouvant être ciblés (saisies de formulaires, liens et autres commandes) au moyen de la touche Tab. Le texte qui n’est pas associé par un programme à un élément pouvant être ciblé – servant d’étiquette ou de description – est facilement omis.</p>
 				</div>
 				<p>Voici des exemples d'instructions pour un formulaire :</p>
 
@@ -139,14 +139,11 @@
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 					
-						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span> &nbsp;Bon exemple&nbsp;1&nbsp;: Fournir des instructions de contrôle de formulaire en utilisant aria-labelledby</h4>
+						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span> &nbsp;Bon exemple : Fournir des instructions de contrôle de formulaire en utilisant aria-labelledby</h4>
 						<p>Une approche pour fournir des instructions en dehors des étiquettes utilise l'attribut <code>aria-labelledby</code> sur le contrôle :</p>
-						<p>L’utilisation de l’attribut aria-labelledby sur la commande constitue une façon de fournir des instructions à l’extérieur des étiquettes.  Cette approche garantit que la description supplémentaire est communiquée à la technologie d’assistance, mais elle ne devrait être utilisée qu’avec de courtes descriptions.</p>
-
 						<ul>
-							<p>Un élément <code>&lt;label&gt; </code>est associé à sa commande au moyen de valeurs d’attribut correspondantes <code>"for"</code> et <code>"id"</code>.</p>
+							<li>Un élément <code>&lt;label&gt; </code>est associé à sa commande au moyen de valeurs d’attribut correspondantes <code>for</code> et <code>id</code>.</li>
 							<li>L'attribut <code>aria-labelledby</code> du contrôle fait référence aux valeurs de l'attribut <code>id</code> de l'élément lui-même et de l'élément contenant la description.</li>
-							<li>L’attribut <code>aria-labelledby</code> fait référence aux valeurs de l’attribut id de l’élément étiquette et de l’élément qui contient la description.</li>
 						</ul> 
 						<p>Cette approche garantit que la description supplémentaire est communiquée à la technologie d’assistance, mais elle ne devrait être utilisée qu’avec de courtes descriptions</p>
 						<div class="panel panel-primary mrgn-tp-md">
@@ -193,7 +190,7 @@
 
 						<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;div class="form-group"&gt;
-   &lt;label for="password1"&gt;Mot de passe:&lt;/label&gt;
+   &lt;label for="password1"&gt;Mot de passe :&lt;/label&gt;
    &lt;div&gt;
       &lt;input type="password" id="password1" aria-describedby="passDesc" name="password1"&gt;
       &lt;div id="passDesc"&gt;Doit contenir au moins huit caractères, une lettre majuscule et un caractère spécial&lt;&lt;/div&gt;
@@ -206,8 +203,7 @@
 				</div>
 				
 				<h3>Texte d’espace réservé</h3>
-				<p>Le texte de l'attribut <code>placeholder</code> attribute</ins></mark> fournit des instructions ou un exemple du format de données requis à l'intérieur des champs de formulaire qui n'ont pas encore été modifiés par l'utilisateur.</p>
-				<p>Le texte d’espace réservé fournit des instructions ou un exemple de format de données requis dans les champs de formulaire qui n’ont pas encore été modifiés par l’utilisateur. Le texte d’espace réservé par défaut de la plupart des navigateurs ne présente pas de contraste suffisant. De plus, le texte d’espace réservé disparaît des champs de formulaire lorsque les utilisateurs commencent à entrer du texte. Si le texte d’espace réservé contient de l’information ou des exemples qui disparaissent, il devient plus difficile pour les utilisateurs de vérifier leurs réponses avant de soumettre le formulaire.</p>
+				<p>Le texte de l'attribut <code>placeholder</code> fournit des instructions ou un exemple du format de données requis à l'intérieur des champs de formulaire qui n'ont pas encore été modifiés par l'utilisateur.</p>
 
 				<div class="alert alert-warning">
 				   <p>Notez que le texte de remplacement disparaît des champs d'un formulaire lorsque les utilisateurs commencent à saisir du texte. Si ce texte contient des informations pédagogiques ou des exemples qui disparaissent, il est plus difficile pour les utilisateurs de vérifier leurs réponses avant de soumettre le formulaire.</p>
@@ -219,14 +215,14 @@
 						<p class="wb-inv">Exemple begins</p>
 						<form class="form-horizontal" role="form" method="get" action="#">
 							<div class="form-group">
-								<label for="search"  class="col-sm-2 control-label">Recherche:</label> 
-								<div class="col-sm-10">
+								<label for="search"  class="col-sm-3 control-label">Recherche :</label> 
+								<div class="col-sm-9">
 									<input type="text" name="search" id="search" placeholder="e.g., cours sur l’accessibilité" class="form-control">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="email"  class="col-sm-2 control-label">Courriel: </label> 
-								<div class="col-sm-10">	
+								<label for="email"  class="col-sm-3 control-label">Courriel :</label> 
+								<div class="col-sm-9">	
 									<input type="email" name="email" id="email" placeholder="jane.doe@gmail.com" class="form-control" autocomplete="email">
 								</div>
 							</div>
@@ -258,7 +254,7 @@
 
 				<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;div&gt;
-   &lt;label for="search"&gt;Recherche:&lt;/label&gt; 
+   &lt;label for="search"&gt;Recherche :&lt;/label&gt; 
    &lt;input type="text" name="search" id="search" placeholder="e.g., cours sur l’accessibilité"&gt;
 &lt;/div&gt;
 &lt;div&gt;
@@ -270,33 +266,33 @@
 
 						
 				<h3>Styliser l’espace réservé</h3>
-				<p>Dans de nombreux navigateurs, la couleur d’attribut <code>de l’espace</code> réservé échoue au test de contraste, ce qui empêche de nombreuses personnes de voir distinctement. La couleur de l’espace réservé peut être stylisée à l’aide de CSS.</p>
+				<p>Dans de nombreux navigateurs, la couleur d’attribut <code>placeholder</code> réservé échoue au test de contraste, ce qui empêche de nombreuses personnes de voir distinctement. La couleur de l’espace réservé peut être stylisée à l’aide de CSS.</p>
 				<p> L’extrait de code ci-dessous établit la couleur d’avant-plan à un gris moyen (no&nbsp;hex&nbsp;767676) sur fond blanc, ce qui satisfait tout juste à l’exigence minimale de rapport de contraste de 4,5:1.</p>
 				<div class="panel panel-primary mrgn-tp-md mrgn-bttm-lg">
 					<div class="panel-body well mrgn-bttm-0">
 					<p class="wb-inv">Exemple begins</p>
 						<form class="form-horizontal" role="form" method="get" action="#">
 							<div class="form-group">
-							<label for="search" class="col-sm-3 control-label">Recherche de cours:</label>
-								<div class="col-sm-9">
+							<label for="search" class="col-sm-4 control-label">Recherche de cours :</label>
+								<div class="col-sm-8">
 									<input type="text" name="search1" id="search1" placeholder="e.g., cours sur l’accessibilité" class="form-control">
 								</div>
 								</div>
 							<div class="form-group">
-								<label for="fname" class="col-sm-3 control-label">Prénom: </label>
-								<div class="col-sm-9">
+								<label for="fname" class="col-sm-4 control-label">Prénom :</label>
+								<div class="col-sm-8">
 									<input type="text" name="fname" id="fname" class="form-control" autocomplete="given-name">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="lname" class="col-sm-3 control-label">Nom de famille: </label> 
-								<div class="col-sm-9">
+								<label for="lname" class="col-sm-4 control-label">Nom de famille :</label> 
+								<div class="col-sm-8">
 									<input type="text" name="lname" id="lname" class="form-control" autocomplete="Nom-de-famille">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="email" class="col-sm-3 control-label">Courriel: </label>  
-								<div class="col-sm-9">
+								<label for="email" class="col-sm-4 control-label">Courriel :</label>  
+								<div class="col-sm-8">
 									<input type="email" name="email1" id="email1" placeholder="jane.doe@gmail.com" class="form-control" autocomplete="email"> 
 								</div>
 							</div>
@@ -328,29 +324,29 @@
 				</div>
 					
 					<details class="mrgn-tp-sm">
-						<summary class="bg-info">View HTML </summary>
+						<summary class="bg-info">Voir le HTML </summary>
 <p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;div&gt;
-   &lt;label for="search"&gt;Recherche de cours:&lt;/label&gt;  
+   &lt;label for="search"&gt;Recherche de cours :&lt;/label&gt;  
    &lt;input type="text" name="search" id="search" placeholder="e.g., cours sur l’accessibilité"&gt;
 &lt;/div&gt;
 &lt;div&gt;
-   &lt;label for="fname"&gt;Prénom: &lt;/label&gt;  
+   &lt;label for="fname"&gt;Prénom :&lt;/label&gt;  
    &lt;input type="text" name="fname" id="fname"&gt;
 &lt;/div&gt;
 &lt;div&gt;
-   &lt;label for="lname"&gt;Nom de famille: &lt;/label&gt;  
+   &lt;label for="lname"&gt;Nom de famille :&lt;/label&gt;  
    &lt;input type="text" name="lname" id="lname"&gt;
 &lt;/div&gt;
 &lt;div&gt;
-   &lt;label for="email"&gt;Courriel: &lt;/label&gt;  
+   &lt;label for="email"&gt;Courriel :&lt;/label&gt;  
    &lt;input type="text" name="email" id="email" placeholder="jane.doe@gmail.com"&gt; 
 &lt;/div&gt;</code>
 </pre>
 <p class="wb-inv">Fin du code</p>
 						</details>	
 						<details class="mrgn-tp-md">
-							<summary class="bg-info">View CSS </summary>
+							<summary class="bg-info">Voir le CSS </summary>
 							<p class="wb-inv">Début du code</p>
 <pre><code class="language-css">::-webkit-input-placeholder { 
    color: #767676 !important; 
@@ -391,29 +387,29 @@
 								<form class="form-horizontal" role="form" method="get" action="#">
 									<fieldset>
 										<legend class="required mrgn-lft-md"> 
-											<span class="field-name">Renseignements d’ouverture de session (Requis)</span>  
+											<span class="field-name">Renseignements d’ouverture de session</span>  
 											<strong>(Requis)</strong>
 										</legend>
 										<div class="form-group">		
-											<label for="username" class="col-sm-3 control-label required">Nom d’utilisateur:</label>
-											<div class="col-sm-9">
+											<label for="username" class="col-sm-4 control-label required">Nom d’utilisateur :</label>
+											<div class="col-sm-8">
 												<input type="text" id="username" class="form-control" required autocomplete="username">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="password" class="col-sm-3 control-label required">Mot de passe:</label>
-											<div class="col-sm-9">
+											<label for="password" class="col-sm-4 control-label required">Mot de passe :</label>
+											<div class="col-sm-8">
 												<input type="password" id="password" class="form-control" required autocomplete="current-password">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="email" class="col-sm-3 control-label required">Courriel:</label>
-											<div class="col-sm-9">
+											<label for="email" class="col-sm-4 control-label required">Courriel :</label>
+											<div class="col-sm-8">
 												<input type="email" id="email2" class="form-control" required autocomplete="email"></div>
 											</div>
 										<div class="form-group">
-											<label for="phone" class="col-sm-3 control-label required">Téléphone:</label>
-											<div class="col-sm-9">
+											<label for="phone" class="col-sm-4 control-label required">Téléphone :</label>
+											<div class="col-sm-8">
 												<input type="tel" id="phone" class="form-control" required autocomplete="tel-national">
 											</div>
 										</div>
@@ -424,22 +420,22 @@
 						</div>
 		
 						<details class="mrgn-tp-sm">
-							<summary class="bg-info">View HTML </summary>
+							<summary class="bg-info">Voir le HTML </summary>
 							<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;fieldset&gt;
    &lt;legend class="required"&gt; 
    Renseignements d’ouverture de session (Requis)
    &lt;/legend&gt;
-   &lt;label for="username" class="required"&gt;Nom d’utilisateur:&lt;/label&gt;
+   &lt;label for="username" class="required"&gt;Nom d’utilisateur :&lt;/label&gt;
    &lt;input type="text" id="username" required autocomplete="username"&gt;
    
-   &lt;label for="password" class="required"&gt;Mot de passe:&lt;/label&gt;
+   &lt;label for="password" class="required"&gt;Mot de passe :&lt;/label&gt;
    &lt;input type="password" id="password" required autcomplete="current-password"&gt;
    
-   &lt;label for="email" class="required"&gt;Courriel:&lt;/label&gt;
+   &lt;label for="email" class="required"&gt;Courriel :&lt;/label&gt;
    &lt;input type="email" id="email" required autcomplete="email"&gt;
    
-   &lt;label for="phone" class="required"&gt;Téléphone:&lt;/label&gt;
+   &lt;label for="phone" class="required"&gt;Téléphone :&lt;/label&gt;
    &lt;input type="tel" id="phone" required auto-complete="tel-national"&gt;
 &lt;/fieldset&gt;</code>
 </pre>
@@ -448,7 +444,7 @@
 						
 		
 						<details class="mrgn-tp-md">
-							<summary class="bg-info">View CSS </summary>
+							<summary class="bg-info">Voir le CSS </summary>
 							<p class="wb-inv">Début du code</p>
 <pre><code class="language-css">label.required:before, 
 legend.required:before {
@@ -476,33 +472,33 @@ legend.required:before {
 								<fieldset>
 									<legend><span class="field-name">Créer un compte d’utilisateur</span></legend>
 									<div class="form-group">
-										<label for="username" class="col-sm-3 control-label">Nom d’utilisateur:</label>
-										<div class="col-sm-9">
+										<label for="username" class="col-sm-4 control-label">Nom d’utilisateur :</label>
+										<div class="col-sm-8">
 											<input type="text" id="username"  class="form-control">
 										</div>
 									</div>
 									<p id="passmatch">Les mots de passe doivent correspondre.</p>
 									<div class="form-group">
-										<label for="password" class="col-sm-3 control-label">Mot de passe:</label>
-										<div class="col-sm-9">
+										<label for="password" class="col-sm-4 control-label">Mot de passe :</label>
+										<div class="col-sm-8">
 											<input type="password" id="password" class="form-control">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="retype" class="col-sm-3 control-label">Retapez votre mot de passe:</label>
-										<div class="col-sm-9">
+										<label for="retype" class="col-sm-4 control-label">Retapez votre mot de passe :</label>
+										<div class="col-sm-8">
 											<input type="password" id="retype" class="form-control">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="email" class="col-sm-3 control-label">Courriel:</label>
-										<div class="col-sm-9">
+										<label for="email" class="col-sm-4 control-label">Courriel :</label>
+										<div class="col-sm-8">
 											<input type="email" id="email" class="form-control">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="phone"class="col-sm-3 control-label">Téléphone:</label>
-										<div class="col-sm-9">
+										<label for="phone"class="col-sm-4 control-label">Téléphone :</label>
+										<div class="col-sm-8">
 											<input type="tel" id="phone" class="form-control">
 										</div>
 									</div>
@@ -513,31 +509,31 @@ legend.required:before {
 					</div>
 
 				<details class="mrgn-tp-sm">
-					<summary class="bg-info">View HTML </summary>
+					<summary class="bg-info">Voir le HTML </summary>
 					<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;fieldset&gt;
    &lt;legend&gt; 
    Créer un compte d’utilisateur
    &lt;/legend&gt;
    &lt;p&gt;
-      &lt;label for="username"&gt;Nom d’utilisateur:&lt;/label&gt;
+      &lt;label for="username"&gt;Nom d’utilisateur :&lt;/label&gt;
       &lt;input type="text" id="username"&gt;
    &lt;/p&gt;
    &lt;p&gt;Les mots de passe doivent correspondre.&lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="password"&gt;Mot de passe:&lt;/label&gt;
+      &lt;label for="password"&gt;Mot de passe :&lt;/label&gt;
       &lt;input type="password" id="password"&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="retype"&gt;Retapez votre mot de passe:&lt;/label&gt;
+      &lt;label for="retype"&gt;Retapez votre mot de passe :&lt;/label&gt;
       &lt;input type="password" id="retype"&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="email"&gt;Courriel:&lt;/label&gt;
+      &lt;label for="email"&gt;Courriel :&lt;/label&gt;
       &lt;input type="email" id="email"&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="phone"&gt;Téléphone:&lt;/label&gt;
+      &lt;label for="phone"&gt;Téléphone :&lt;/label&gt;
       &lt;input type="tel" id="phone"&gt;
    &lt;/p&gt;
 &lt;/fieldset&gt;</code></pre>
@@ -561,26 +557,26 @@ legend.required:before {
 							<p>Les champs Nom d'utilisateur et Mot de passe <span id="specialchar">ne doivent PAS contenir de caractères spéciaux.</span></p>
 							
 							<div class="form-group">
-								<label for="username" class="col-sm-2 control-label">Nom d’utilisateur:</label>
-								<div class="col-sm-10">
+								<label for="username" class="col-sm-4 control-label">Nom d’utilisateur :</label>
+								<div class="col-sm-8">
 									<input type="text" id="username" aria-describedby="specialchar" class="form-control" autocomplete="username">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="password" class="col-sm-2 control-label">Mot de passe:</label>
-								<div class="col-sm-10">
+								<label for="password" class="col-sm-4 control-label">Mot de passe :</label>
+								<div class="col-sm-8">
 									<input type="password" id="password" aria-describedby="specialchar" class="form-control" autocomplete="password">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="email" class="col-sm-2 control-label">Courriel:</label>
-								<div class="col-sm-10">
+								<label for="email" class="col-sm-4 control-label">Courriel :</label>
+								<div class="col-sm-8">
 									<input type="email" id="email" class="form-control" autocomplete="email">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="phone" class="col-sm-2 control-label">Téléphone:</label>
-								<div class="col-sm-10">
+								<label for="phone" class="col-sm-4 control-label">Téléphone :</label>
+								<div class="col-sm-8">
 									<input type="tel" id="phone" class="form-control" autocomplete="tel-national">
 								</div>
 							</div>
@@ -591,7 +587,7 @@ legend.required:before {
 			</div>
 
 			<details class="mrgn-tp-sm">
-				<summary class="bg-info">View HTML </summary>
+				<summary class="bg-info">Voir le HTML </summary>
 				<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;fieldset&gt;
    &lt;legend&gt;Créer un compte d’utilisateur&lt;/legend&gt;
@@ -599,19 +595,19 @@ legend.required:before {
    Les champs Nom d'utilisateur et Mot de passe &lt;span id="specialchar"&gt;ne doivent PAS contenir de caractères spéciaux.&lt;/span&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="username"&gt;Nom d’utilisateur:&lt;/label&gt;
+      &lt;label for="username"&gt;Nom d’utilisateur :&lt;/label&gt;
       &lt;input type="text" id="username" aria-describedby="specialchar"&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="password"&gt;Mot de passe:&lt;/label&gt;
+      &lt;label for="password"&gt;Mot de passe :&lt;/label&gt;
       &lt;input type="password" id="password" aria-describedby="specialchar"&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="email"&gt;Courriel:&lt;/label&gt;
+      &lt;label for="email"&gt;Courriel :&lt;/label&gt;
       &lt;input type="email" id="email"&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="phone"&gt;Téléphone:&lt;/label&gt;
+      &lt;label for="phone"&gt;Téléphone :&lt;/label&gt;
       &lt;input type="tel" id="phone"&gt;
    &lt;/p&gt;
 &lt;/fieldset&gt;</code></pre>
@@ -632,9 +628,10 @@ legend.required:before {
 					<form  method="get" action="#" onsubmit="return false;">
 						<fieldset> 
 							<legend><span class="field-name">Virer des fonds</span></legend> 
+							<mark>TODO: create French screenshot: <ins>Choisissez les comptes ci-dessous pour effectuer votre transfert de fonds</ins></mark>
 							<p><img class="img-responsive" src="images/banner.png" alt=""></p>
 							<div class="form-group">
-								<label for="fromacct">Virer des fonds du compte:</label> 
+								<label for="fromacct">Virer des fonds du compte :</label> 
 								<select name="accounts" id="fromacct" class="form-control"> 
 								  <option value="Select account">Sélectionner le compte</option> 
 								  <option value="Saving account - 8888-999">Compte d’épargne – 8888-999</option> 
@@ -642,7 +639,7 @@ legend.required:before {
 								</select>
 							</div>
 						  <div class="form-group">
-							<label for="toacct">Virer des fonds au compte:</label>
+							<label for="toacct">Virer des fonds au compte :</label>
 							  
 							<select name="accounts" id="toacct" class="form-control"> 
 							  <option value="Select account">Sélectionner le compte</option> 
@@ -651,7 +648,7 @@ legend.required:before {
 							</select> 
 						  </div>
 						  <div class="form-group">
-							<label for="amount">Montant:</label> 
+							<label for="amount">Montant :</label> 
 							  
 							<input type="text" id="amount"  class="form-control">
 						  </div>
@@ -666,26 +663,26 @@ legend.required:before {
 				</div>
 			</div>
 			<details class="mrgn-tp-sm">
-				<summary class="bg-info">View HTML </summary>
+				<summary class="bg-info">Voir le HTML </summary>
 				<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;form action="/action.php method="get"&gt;
    &lt;fieldset&gt;
       &lt;legend&gt;Virer des fonds&lt;/legend&gt;
       &lt;p&gt;&lt;img scr="banner.png"&gt;&lt;/p&gt;
-      &lt;label for="fromacct"&gt;Virer des fonds du compte:&lt;/label&gt;
+      &lt;label for="fromacct"&gt;Virer des fonds du compte :&lt;/label&gt;
       &lt;select name="accounts" id="fromaccounts"&gt;
          &lt;option value="Select account"&gt;Sélectionner le compte&lt;/option&gt;
          &lt;option value="Saving account - 8888-999"&gt;Compte d’épargne – 8888-999&lt;/option&gt;
          &lt;option value="Checking account - 9999-9999"&gt;Compte chèques - 9999-9999&lt;/option&gt;
       &lt;/select&gt;
-      &lt;label for="toacct"&gt;Virer des fonds au compte:&lt;/label&gt;
+      &lt;label for="toacct"&gt;Virer des fonds au compte :&lt;/label&gt;
       &lt;select name="accounts" id="toaccounts"&gt;
          &lt;option value="Select account"&gt;Sélectionner le compte&lt;/option&gt;
          &lt;option value="Saving account - 8888-999"&gt;Compte d’épargne - 8888-999&lt;/option&gt;
          &lt;option value="Checking account - 9999-9999"&gt;Compte chèques - 9999-9999&lt;/option&gt;
       &lt;/select&gt;
       &lt;p&gt;
-         &lt;label for="amount"&gt;Montant:&lt;/label&gt;
+         &lt;label for="amount"&gt;Montant :&lt;/label&gt;
          &lt;input type="text" id="amount"&gt;
       &lt;/p&gt;
       &lt;input type="submit" value="Submit"&gt;
@@ -714,7 +711,7 @@ legend.required:before {
 				<fieldset> 
 					<legend> <span class="field-name">Virer des fonds</span></legend> 
 				  <div class="form-group">
-					<label for="fromacct">Virer des fonds du compte:</label> 
+					<label for="fromacct">Virer des fonds du compte :</label> 
 					  
 					<select name="accounts" id="fromacct" class="form-control"> 
 					  <option value="Select account">Sélectionner un compte</option> 
@@ -724,7 +721,7 @@ legend.required:before {
 					  
 				  </div>
 				  <div class="form-group">
-					<label for="toacct">Virer des fonds au compte:</label>
+					<label for="toacct">Virer des fonds au compte :</label>
 					  
 					<select name="accounts" id="toacct" class="form-control"> 
 					  <option value="Select account">Sélectionner un compte</option> 
@@ -733,7 +730,7 @@ legend.required:before {
 				    </select> 
 				  </div>
 				  <div class="form-group">
-					<label for="amount">Montant:</label> 
+					<label for="amount">Montant :</label> 
 					  
 					<input type="text" id="amount"  class="form-control">
 				  </div>
@@ -804,7 +801,7 @@ legend.required:before {
 						</li>					
 					</ul>
 				</details>
-				<p>Les exemples de validations de formulaires proviennent du document de l’Initiative pour l’accessibilité du Web (<a href="https://www.w3.org/WAI/">IAW</a>)&nbsp;: <a href="https://www.w3.org/WAI/tutorials/forms/instructions/">Instructions</a> du tutoriel <a href="https://www.w3.org/WAI/tutorials/forms/">Formulaires</a> des <a href="https://www.w3.org/WAI/tutorials/">Tutoriels sur l’accessibilité du Web</a>. <a href="https://www.w3.org/People/yatil/">Éric Eggert</a> et <a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra,</a> © 2019 W3C ® (<a href="http://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="https://www.w3.org/Consortium/Legal/ipr-notice">Les politiques d’utilisation s’appliquent</a>.Mis à jour le 27&nbsp;juillet&nbsp;2019 (publié pour la première fois en septembre&nbsp;2014). <a href="https://www.w3.org/WAI/tutorials/forms/instructions/">https://www.w3.org/WAI/tutorials/forms/instructions/</a></p>
+
 
 			</section>
 		
