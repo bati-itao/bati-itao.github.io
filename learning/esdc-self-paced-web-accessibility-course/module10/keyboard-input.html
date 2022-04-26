@@ -119,7 +119,7 @@
 					<li>Enter key activates a link or submits a form</li>
 					<li>Spacebar or Enter key activates a button</li>
 				</ul>
-				<h3 class="">Use native HTML links and controls</h3>
+				<h3 id="native-html-links-controls">Use native HTML links and controls</h3>
 				<p>When possible, use native HTML links and form controls rather than custom elements. User agents provide the keyboard operation of native HTML links and form controls and map them to an accessibility API. Assistive technologies use the accessibility API to extract and present useful information, such as the role, name, state and value.</p>
 				<p>The standard HTML controls and links:</p>
 				<ul>
@@ -132,7 +132,7 @@
 					<li><code>&lt;textarea&gt;</code></li>
 					<li><code>&lt;button&gt;</code></li>
 				</ul>
-				<h3 class="">Use the onclick event of anchors and buttons</h3>
+				<h3 id="onclick-event-of-anchors-button">Use the onclick event of anchors and buttons</h3>
 				<p>To ensure keyboard users can invoke a scripting function, use native HTML links and buttons with the <code>onclick</code> event. The <code>onclick</code> event of both elements is device independent: it maps to a mouse click and the Enter and Spacebar keys.</p>
 				<p class="wb-inv">Code begins</p>
 				<pre><code class="language-html">&lt;button onclick="doStuff();"&gt;Do stuff&lt;/button&gt;
@@ -151,7 +151,7 @@
    &lt;button type="submit" &gt;Post your reply&lt;/button&gt;
 &lt;/form&gt;</code></pre>
 				<p class="wb-inv">Code ends</p>
-				<h3 class="">Pair mouse event handlers with keyboard event handlers</h3>
+				<h3 id="mouse-event-handlers-with-keyboard">Pair mouse event handlers with keyboard event handlers</h3>
 				<p>Using both keyboard-specific and mouse-specific events together ensures that content can be operated by a wide range of devices.</p>
 				<p>The following table suggests mouse event handlers to pair with keyboard event handlers:</p>
 				<table class="table table-bordered table-hover" style="max-width: 24em">
@@ -214,7 +214,7 @@
 				<p>If using the ARIA <code>role="button"</code> attribute instead of the native <code>&lt;button&gt;</code> or <code>&lt;input type="button"&gt;</code> elements, you will need to both make the element focusable and define event handlers for click and for the Enter and Spacebar keypresses.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Pairing mouse and keyboard events</h3>
+						<h3 class="text-success mrgn-tp-0" id="good-example-pairing-mouse-keyboard"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Pairing mouse and keyboard events</h3>
 						<p>In this example of an image link, the image is changed when the user positions the pointer over the image. To provide keyboard users with a similar experience, the image is also changed when the user tabs to it. </p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
@@ -252,7 +252,7 @@
 				</div>
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad example: Mouse-dependent link</h3>
+						<h3 class="text-danger mrgn-tp-0" id="bad-example-mouse-dependent-links"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad example: Mouse-dependent link</h3>
 						<p>In this example, a custom image link responds to mouse click only and can’t be activated by keyboard. It lacks an equivalent event handler for the Enter key. The <code>onclick</code> event only responds to keyboard input when applied to a native HTML button or link, and this is an <code>&lt;img&gt;</code> element. </p>
 						<p>The image link also lacks a <code>tabindex="0"</code> attribute so doesn’t receive keyboard focus.</p>
 						<p>Finally, the image link lacks the <code>role="link"</code> attribute, which identifies it to assistive technology as a link.</p>
@@ -411,7 +411,7 @@
 				<p>Ensure the user can get in and out of the interactive elements using only the keyboard.</p>
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: JavaScript focus() traps the keyboard user</h3>
+						<h3 class="text-danger mrgn-tp-0" id="bad-example-javascript-focus"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: JavaScript focus() traps the keyboard user</h3>
 						<p>This example illustrates the keyboard trap dangers of using the JavaScript <code>focus()</code> method. The form input field here uses the <code>onblur</code> event, which is triggered when focus leaves the element. When the keyboard user presses the Tab key to move focus away from the input field, the <code>onblur</code> event kicks in and sets focus back on the input field, trapping the user.</p>
 						<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;label for="lastname"&gt;Last name&lt;/label&gt;
@@ -421,7 +421,7 @@
 				</div>
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: JavaScript keydown() and event.preventDefault() trap the keyboard user</h3> 
+						<h3 class="text-danger mrgn-tp-0" id="bad-example-javascript-keydown"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: JavaScript keydown() and event.preventDefault() trap the keyboard user</h3> 
 						<p>This example illustrates the keyboard trap dangers of a JavaScript key press event. The JavaScript function makes no effort to detect which key has been pressed (it should identify the Enter key), so it will trigger when <em>any</em> key is pressed. Furthermore, the default action associated with any key press is prevented with <code>event.preventDefault()</code>. Consequently, when a user attempts to move focus away from the link by pressing the Tab key, the <code>keydown</code> event fires, the default action of the Tab key (moving focus to the next focusable element) is prevented, focus remains on the link, and a new window opens. The keyboard user is trapped. Even pressing the Ctrl + Alt + Delete keys in Windows to bring up the Task Manager will fail, simply launching more windows in response to the keydown event. The user's computer is hijacked, and unless a colleague or friend can move focus away from the element with a mouse, the user is forced to restart the computer.</p>
 						<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;span class="trap link" role="link" tabindex="0" data-href="some-page.html"&gt;
@@ -482,7 +482,7 @@
 				<p>Managing focus within these composite widgets is a separate concern addressed in <a href="../module12/index.html">module 12</a>.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Focus management in a single-page web application</h3>
+						<h3 class="text-success mrgn-tp-0" id="good-example-focus-mgmt-single-page"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Focus management in a single-page web application</h3>
 						<p>In this example, a single-page web application uses JavaScript to load a full article inside the <code>&lt;main&gt;</code> element, without a page load. Links in the navigation menu trigger the content load. This example has just a few menu items, but sites often have lengthy menus. Moving the focus spares keyboard users of single-page apps the tedious task of tabbing through a menu to get at the main content.</p>
 						<p>The <code>&lt;h1&gt;</code> heading on each page has a <code>tabindex="-1"</code> attribute, to enable it to be targeted by scripts. The JavaScript identifies the <code>&lt;h1&gt;</code> with a query selector and sets focus on it. The script also updates the page’s <code>&lt;title&gt;</code> element to match the heading text. </p>
 						<p>The JavaScript’s first use should be triggered via the menu, not on page load. Screen reader users’ initial interaction with the page should start at the top, as usual.</p>
@@ -511,7 +511,7 @@ function onNewPage() {
 				</div>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Focus moved from trigger to dialog</h3>
+						<h3 class="text-success mrgn-tp-0" id="good-example-focus-from-trigger-dialog"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Focus moved from trigger to dialog</h3>
 						<p>In this example, pressing the Ableplayer's transcript button <img src="images/image4.png" class="" alt="">:
 						<ul>
 							<li>launches an ARIA dialog widget holding the transcript, and </li>
@@ -532,7 +532,7 @@ function onNewPage() {
 
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Focus managed on a dialog using keyboard interaction</h3> 
+						<h3 class="text-success mrgn-tp-0" id="focus-managed-on-dialog-using-keyboard"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Focus managed on a dialog using keyboard interaction</h3> 
 						<p>In this example, when the user clicks the 'Submit' button a pop-up window opens and focus is sent to the pop-up's first child focusable element. When the user clicks the pop-up window’s ‘Close’ button, focus is sent back to the triggering button.</p>
 						<p><mark>TODO: Focus constrained to foreground window</mark></p>
 						<div class="panel panel-primary mrgn-tp-lg">
@@ -742,7 +742,7 @@ document.addEventListener('keyup', function (event) {
 			</section>
 			
 			<section>				
-				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
+				<h2 id="mod10-keyboard-input-wcag" class="wb-inv">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
