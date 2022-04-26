@@ -87,47 +87,47 @@
 				<li>Fournir des étiquettes pour décrire la fonction de commande de formulaire.</li>
 
 					<li>Utiliser l’élément <code>&lt;label&gt;</code> pour associer explicitement une commande de formulaire à une étiquette</li>
-					<li>Associer exactement l’attribut <code>"for"</code> de l’étiquette à l’attribut <code>id</code> de la commande de formulaire.</li>
+					<li>Associer exactement l’attribut <code>for</code> de l’étiquette à l’attribut <code>id</code> de la commande de formulaire.</li>
 
 					<li>Voici les éléments qui utilisent des étiquettes explicitement associées&nbsp;:
-					  <ul>
-					    <li><code>&lt;type d’entrée="text"&gt;</code></li>
-					    <li><code>&lt;type d’entrée="checkbox"&gt;</code></li>
-					    <li><code>&lt;type d'entrée="radio&gt;</code></li>
-					    <li><code>&lt;type d’entrée="file"&gt;</code> (champs de sélection de fichier)</li>
-					    <li><code>&lt;type d’entrée="password"&gt;</code></li>
-					    <li><code>&lt;zone de texte&gt;</code></li>
-					    <li><code>&lt;Sélectionner&gt;</code> (listes déroulantes)</li>
+				      <ul>
+					    <li><code>&lt;input type="text"&gt;</code></li>
+					    <li><code>&lt;input type="checkbox"&gt;</code></li>
+					    <li><code>&lt;input type="radio"&gt;</code></li>
+					    <li><code>&lt;input type="file"&gt;</code> (champs de sélection de fichier)/li>
+					    <li><code>&lt;input type="password"&gt;</code></li>
+					    <li><code>&lt;textarea&gt;</code></li>
+					    <li><code>&lt;select&gt;</code> (listes déroulantes)</li>
 				      </ul>
 					</li>
 					<li>Ne pas utiliser l’élément <code>&lt;label&gt;</code> pour les éléments suivants. 
 					  <ul>
-					    <li>Boutons Soumettre et Réinitialisation (<code>&lt;type d'entrée="submit"&gt;</code> ou <code>&lt;type d’entrée="reset"&gt;</code>)
+					    <li>Boutons Soumettre et Réinitialisation (<code>&lt;input type="submit"&gt;</code> ou <code>&lt;input type="reset"&gt;</code>)
 					      <ul>
-							<li>Étiquette fournie par l’attribut de <code>valeur</code></li>
+							<li>Étiquette fournie par l’attribut <code>value</code></li>
 						</ul>
 					    </li>
-					    <li>Boutons image (<code>&lt;type d’entrée="image"&gt;</code>)
+					    <li>Boutons image (<code>&lt;input type="image"&gt;</code>)
 					      <ul>
 					        <li>Étiquette fournie par l’attribut <code>alt</code></li>
 				          </ul>
 					    </li>
-					    <li>Champs de saisie masqué (<code>&lt;type d'entrée="hidden"&gt;</code>)</li>
-					    <li>Boutons (éléments de bouton ou <code>&lt;nput type="button"&gt;</code>)
+					    <li>Champs de saisie masqué (<code>&lt;input type="hidden"&gt;</code>)</li>
+					    <li>Boutons (éléments de bouton ou <code>&lt;input type="button"&gt;</code>)
 					      <ul>
-							<li>Étiquette fournie par le contenu de l’élément lui-même (bouton) ou par la valeur, <code>aria-label</code> ou <code>aria-labelledby</code></li>
+							<li>Étiquette fournie par le contenu de l’élément lui-même (bouton) ou par l'attribut <code>value</code>, <code>aria-label</code> ou <code>aria-labelledby</code></li>
 						</ul>
 					    </li>
 				      </ul>
 					</li>
-					<li>Utiliser des étiquettes ARIA <code>aria-labelledby</code> et attributs <code>aria-label</code>) lorsqu’il n’est pas possible d’utiliser <code>&lt;label&gt;</code></li>
+					<li>Utiliser des étiquettes ARIA (les attributs <code>aria-labelledby</code> ou <code>aria-label</code>) lorsqu’il n’est pas possible d’utiliser <code>&lt;label&gt;</code></li>
 					<li>Lorsque vous utilisez des étiquettes ARIA, ajouter tout texte visible dans l’étiquette de commande.</li>
-					<li>Utiliser l’attribut <code></code>aria-labelledby</code> pour récupérer une étiquette du contexte ou pour concaténer une étiquette d’un ou de plusieurs éléments du contexte.</li>
+					<li>Utiliser l’attribut <code>aria-labelledby</code> pour récupérer une étiquette du contexte ou pour concaténer une étiquette d’un ou de plusieurs éléments du contexte.</li>
 					<li>Éviter d’utiliser l’attribut <code>title</code> pour identifier les commandes de formulaire. Ce n’est pas largement pris en charge par AT.</li>
 					<li>Le texte de l’étiquette doit être court et concis.</li>
 					<li>Utiliser un texte d’étiquette unique sur une page.</li>
 					<li>Placer les étiquettes visuellement à droite des boutons radio et des cases à cocher.</li>
-					<li>Placer les étiquettes de façon visuelle, directement au-dessus des champs de formulaire (de préférence par la BOEW) ou à gauche (solution de rechange à la BOEW, lorsqu’il faut conserver un espace vertical).</li>
+					<li>Placer les étiquettes de façon visuelle, directement au-dessus des champs de formulaire (de préférence par la BOEW) ou à gauche, align&eacute; &agrave; droite (solution de rechange à la BOEW, lorsqu’il faut conserver un espace vertical).</li>
 			  </ul>
 			</section>
 			
@@ -136,10 +136,10 @@
 				<ul>
 					<li>Utiliser l’élément <code>&lt;fieldset&gt;</code> pour regrouper les commandes connexes dans un formulaire.</li>
 					<li>Utiliser l’élément <code>&lt;legend&gt;</code> pour nommer l’élément <code>&lt;fieldset&gt;</code>.</li>
-					<li>Faire en sorte que la <code>légende </code>soit aussi courte que possible, car certaines technologies d’assistance la déclarent avec l’étiquette chaque fois.</li>
-					<li>Rendre les étiquettes individuelles explicites, car certaines technologies d’assistance ne déclarent pas la <code>&lt;legend&gt;</code>. Ne pas répéter la <code>légende </code>dans chaque étiquette.</li>
+					<li>Faire en sorte que la <code>legend</code> soit aussi courte que possible, car certaines technologies d’assistance la déclarent avec l’étiquette chaque fois.</li>
+					<li>Rendre les étiquettes individuelles explicites, car certaines technologies d’assistance ne déclarent pas la <code>&lt;legend&gt;</code>. Ne pas répéter la <code>legend</code> dans chaque étiquette.</li>
 					<li>Utiliser l’élément <code>&lt;optgroup&gt;</code> pour les éléments <code>&lt;select&gt;</code> avec groupes d’options.</li>
-					<li>Utiliser les attributs <code>ARIA role=”group”</code> et <code>aria-labelledby</code> pour regrouper et étiqueter les éléments de formulaire lorsque vous ne pouvez pas utiliser des éléments HTML natifs <code>&lt;fieldset&gt;</code> et <code>&lt;legend&gt;</code>.</li>
+					<li>Utiliser les attributs ARIA <code>role="group"</code> et <code>aria-labelledby</code> pour regrouper et étiqueter les éléments de formulaire lorsque vous ne pouvez pas utiliser des éléments HTML natifs <code>&lt;fieldset&gt;</code> et <code>&lt;legend&gt;</code>.</li>
 					<li>Utiliser <code>&lt;label&gt;</code> dans la mesure du possible pour prendre en charge le navigateur universel et le lecteur d’écran.</li>
 				</ul>
 
@@ -149,7 +149,7 @@
 				<h2 id="form-instruction">Pratique exemplaire – Instruction relative au formulaire</h2>
 			<ul>
 				<li>Fournir les instructions générales qui s’appliquent à l’ensemble du formulaire et les fournir avant l’élément <code>&lt;form&gt;</code>. Cela permet aux utilisateurs du lecteur d’écran de consulter l’information avant de passer aux modes formulaires.</li>
-				<li>Utiliser <code>aria-labelledby</code> ou <code>aria-descripbedby</code> pour fournir des instructions à l’extérieur des étiquettes. </li>
+				<li>Utiliser <code>aria-labelledby</code> ou <code>aria-describedby</code> pour fournir des instructions à l’extérieur des étiquettes. </li>
 				<li>Indiquer le type de champ de saisie du formulaire (p.&nbsp;ex., <code>type= “email”</code>) afin que les navigateurs et les technologies d’assistance puissent fournir des aides à la saisie comme des claviers personnalisés, des étiquettes de remplissage automatique et des icônes.</li>
 				<li>Indiquer les saisies, les formats de données et les autres renseignements pertinents requis.</li>
 				<li>S’assurer que le texte des attributs d’espace réservé respecte un rapport de contraste minimal de&nbsp;4,5:1.</li>
@@ -163,7 +163,7 @@
 					
 			<ul>
 				<li>Valider les données utilisateur à l’aide des attributs de validation des éléments de formulaire HTML5.</li>
-				<li>Les attributs de validation communs <code>comprennent</code>, <code>le type</code>, <code>la structure</code>, et les attributs <code>min</code> et <code>max</code> requis.</li>
+				<li>Les attributs de validation communs comprennent <code>required</code>, <code>type</code>, <code>pattern</code>, et les attributs <code>min</code> et <code>max</code> requis.</li>
 				<li>Valider les données du côté client et du côté serveur pour assurer la sécurité.</li>
 				<li>Identifier les champs de formulaire requis à la fois visuellement dans l’étiquette et sémantiquement.</li>
 				<li>Utiliser les types de données HTML5 pour valider différents types de données, y compris l’adresse courriel, l’adresse URL, le numéro, le numéro de téléphone, la date et la plage.</li>
@@ -186,7 +186,7 @@
 					<li>Fournir une rétroaction dans l’en-tête principal, dans l’élément du titre, sous forme de liste d’erreurs avant le formulaire, ainsi qu’en ligne, associée au programme à la commande du formulaire.</li>
 					<li>Les erreurs énumérées avant le formulaire devraient&nbsp;:</li>
 					  <ul>
-					    <li>Faire référence à <code>l’étiquette</code> de la commande de formulaire correspondant.</li>
+					    <li>Faire référence au <code>label</code> de la commande de formulaire correspondant.</li>
 						<li>Fournir une description concise et facile à comprendre de l’erreur.</li>
 						<li>Indiquer comment corriger les erreurs et rappeler aux utilisateurs les exigences en matière de format;</li>
 						<li>Inclure dans la page un lien vers la commande de formulaire correspondant pour faciliter l’accès.</li>
