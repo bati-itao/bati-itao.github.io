@@ -103,7 +103,7 @@
 			
 			<section>				
 				<h2 id="inline-instructions">Instructions incluses</h2>
-				<p>Des instructions incluses sont fournies à l’intérieur ou à l’extérieur de l’étiquette de commande du formulaire. De courtes instructions peuvent être insérées dans l’étiquette avec le nom de la commande. Les instructions longues devraient être à l’extérieur de l’étiquette et être associées à la commande par l’entremise de l’attribut <code>aria-descripbedby</code>. </p>
+				<p>Des instructions incluses sont fournies à l’intérieur ou à l’extérieur de l’étiquette de commande du formulaire. De courtes instructions peuvent être insérées dans l’étiquette avec le nom de la commande. Les instructions longues devraient être à l’extérieur de l’étiquette et être associées à la commande par l’aria-describedbyattribut <code>aria-describedby</code>. </p>
 
 				</p>
 				<h3>Fournir des instructions dans les étiquettes</h3>
@@ -134,7 +134,7 @@
 					</div>
 				</div>
 				<h3>Fournir des instructions à l’extérieur des étiquettes</h3>
-				<p>Utiliser ARIA pour fournir des instructions à l’extérieur des étiquettes. Associer tout texte descriptif du formulaire à l’élément pertinent du formulaire en utilisant l’attribut <code>aria-labelledby</code> ou <code>aria-descripbedby</code>. </p>
+				<p>Utiliser ARIA pour fournir des instructions à l’extérieur des étiquettes. Associer tout texte descriptif du formulaire à l’élément pertinent du formulaire en utilisant l’attribut <code>aria-labelledby</code> ou <code>aria-describedby</code>. </p>
 
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
@@ -616,82 +616,6 @@ legend.required:before {
 		</div>
 	</div>
 
-	<div class="panel panel-danger mrgn-tp-lg">
-		<div class="panel-body">
-			<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais exemple&nbsp;: Les instructions pour les groupes ne peuvent pas être déterminées par un programme</h3>
-			<p>Il est important d’utiliser du texte réel ou du texte disponible par d’autres méthodes. Les technologies d’assistance comme les lecteurs d’écran ne pourront pas déterminer le texte qui n’est pas fourni par le texte réel ou par des attributs comme aria-label, aria-labelledby, aria-descripbedby ou alt si des images sont utilisées.</p>
-			<p>Dans cet exemple, l’instruction «&nbsp;Choisir parmi les comptes ci-dessous pour compléter votre virement de fonds&nbsp;» est une image de texte sans équivalent textuel. De plus, l’instruction n’est pas associée au champ.</p>
-
-			<div class="panel panel-primary mrgn-tp-md">
-				<div class="panel-body well mrgn-bttm-0">
-					<p class="wb-inv">Début de l'exemple</p>
-					<form  method="get" action="#" onsubmit="return false;">
-						<fieldset> 
-							<legend><span class="field-name">Virer des fonds</span></legend> 
-							<mark>TODO: create French screenshot: <ins>Choisissez les comptes ci-dessous pour effectuer votre transfert de fonds</ins></mark>
-							<p><img class="img-responsive" src="images/banner.png" alt=""></p>
-							<div class="form-group">
-								<label for="fromacct">Virer des fonds du compte :</label> 
-								<select name="accounts" id="fromacct" class="form-control"> 
-								  <option value="Select account">Sélectionner le compte</option> 
-								  <option value="Saving account - 8888-999">Compte d’épargne – 8888-999</option> 
-								  <option value="Checking account - 9999-9999">Compte chèques - 9999-9999</option> 
-								</select>
-							</div>
-						  <div class="form-group">
-							<label for="toacct">Virer des fonds au compte :</label>
-							  
-							<select name="accounts" id="toacct" class="form-control"> 
-							  <option value="Select account">Sélectionner le compte</option> 
-							  <option value="Saving account - 8888-999">Compte d’épargne - 8888-999</option> 
-							  <option value="Checking account - 9999-9999">Compte chèques - 9999-9999</option> 
-							</select> 
-						  </div>
-						  <div class="form-group">
-							<label for="amount">Montant :</label> 
-							  
-							<input type="text" id="amount"  class="form-control">
-						  </div>
-						
-							<input type="submit" value="Submit" class="btn btn-default">
-								
-						</fieldset> 
-					  </form>
-
-
-					<p class="wb-inv">Exemple ends</p>
-				</div>
-			</div>
-			<details class="mrgn-tp-sm">
-				<summary class="bg-info">Voir le HTML </summary>
-				<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;form action="/action.php method="get"&gt;
-   &lt;fieldset&gt;
-      &lt;legend&gt;Virer des fonds&lt;/legend&gt;
-      &lt;p&gt;&lt;img scr="banner.png"&gt;&lt;/p&gt;
-      &lt;label for="fromacct"&gt;Virer des fonds du compte :&lt;/label&gt;
-      &lt;select name="accounts" id="fromaccounts"&gt;
-         &lt;option value="Select account"&gt;Sélectionner le compte&lt;/option&gt;
-         &lt;option value="Saving account - 8888-999"&gt;Compte d’épargne – 8888-999&lt;/option&gt;
-         &lt;option value="Checking account - 9999-9999"&gt;Compte chèques - 9999-9999&lt;/option&gt;
-      &lt;/select&gt;
-      &lt;label for="toacct"&gt;Virer des fonds au compte :&lt;/label&gt;
-      &lt;select name="accounts" id="toaccounts"&gt;
-         &lt;option value="Select account"&gt;Sélectionner le compte&lt;/option&gt;
-         &lt;option value="Saving account - 8888-999"&gt;Compte d’épargne - 8888-999&lt;/option&gt;
-         &lt;option value="Checking account - 9999-9999"&gt;Compte chèques - 9999-9999&lt;/option&gt;
-      &lt;/select&gt;
-      &lt;p&gt;
-         &lt;label for="amount"&gt;Montant :&lt;/label&gt;
-         &lt;input type="text" id="amount"&gt;
-      &lt;/p&gt;
-      &lt;input type="submit" value="Submit"&gt;
-   &lt;/fieldset&gt;
-&lt;/form&gt;</code></pre>
-				<p class="wb-inv">Fin du code</p>
-									  </details>
-				</div>
-				</div>
 				
 				
 			
