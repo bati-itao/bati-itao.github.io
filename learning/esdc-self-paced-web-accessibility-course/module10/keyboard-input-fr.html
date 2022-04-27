@@ -540,14 +540,19 @@ function onNewPage() {
 								<!-- Déclencher/ouvrir la modal -->
 								<button class="submit" id="myBtn">Soumettre</button>
 								<!-- Le modal -->
-								<div id="myModal" class="modal">
+								<div id="myModal" class="modal" role="dialog" aria-labelledby="modal-title">
 									<!-- Contenu modal -->
 									<div class="modal-content">
-										<h2>Votre formulaire a &eacute;t&eacute; soumis.</h2>
-										<button class="btn-close">Fermer</button>
+										<header class="modal-header">
+											<h2 id="modal-title" class="modal-title">Votre formulaire a &eacute;t&eacute; soumis.</h2>
+										</header>
+										<div class="modal-body">
+											<button class="btn-close">Fermer</button>
+										</div>
 									</div>
 								</div>
 								<script>
+						 
 									// Get the modal
 									var modal = document.getElementById("myModal");
 									// Get the button that opens the modal
@@ -557,31 +562,49 @@ function onNewPage() {
 									// When the user clicks the button, open the modal 
 									btnSubmit.onclick = function() {
 									   modal.style.display = "block";
+									   btnClose.focus();
 									}
+									//prevent tabbing to the page
+									btnClose.addEventListener("keydown", event => {
+										  if (event.shiftKey || event.keyCode === 9) {
+											btnClose.focus();
+											event.preventDefault();
+											false;
+										  }
+										});
 									// When the user clicks the close button, close the modal
 									btnClose.onclick = function() {	  
 									   modal.style.display = "none";
+									   btnSubmit.focus();
 									}
 									// When the user clicks anywhere outside of the modal, close it
 									window.onclick = function(event) {
 									   if (event.target == modal) {
 										  modal.style.display = "none";
+										  btnSubmit.focus();
 									   }
-									}								
-								</script>
+									}	
+
+									document.addEventListener('keyup', function (event) {
+									  if ( event.keyCode == 27 )   { //keycode 27 is escape
+										  modal.style.display = "none";
+										  btnSubmit.focus();
+									  }
+									})									
+																	</script>
 								<style type="text/css">
-									/* Le modal (arrière-plan) */
+									/* The Modal (background) */
 									.modal {
-										display: none; /* Masqué par défaut */
-										position: fixed; /* Reste en place */
-										z-index: 1; /* S'asseoir sur le dessus */
-										padding-top: 100px; /* Emplacement de la boîte */
+										display: none; /* Hidden by default */
+										position: fixed; /* Stay in place */
+										z-index: 1; /* Sit on top */
+										padding-top: 100px; /* Location of the box */
 										left: 0;
 										top: 0;
-										width: 100%; /* Pleine largeur */
-										height: 100%; /* Pleine hauteur */
+										width: 100%; /* Full width */
+										height: 100%; /* Full height */
 									}
-									/* Contenu modal */
+									/* Modal Content */
 									.modal-content {
 										background-color: #fefefe;
 										margin: auto;
@@ -590,7 +613,7 @@ function onNewPage() {
 										width: 25em;
 										height: auto;
 									}
-									/* Le bouton de fermeture */
+									/* The Close Button */
 									.submit {
 										background-color:#e60914;
 										border:0;
@@ -686,6 +709,15 @@ var btnClose = document.getElementsByClassName("btn-close")[0];
 btnSubmit.onclick = function() {
    modal.style.display = "block";
 }
+}
+//prevent tabbing to the page
+btnClose.addEventListener("keydown", event => {
+	  if (event.shiftKey || event.keyCode === 9) {
+		btnClose.focus();
+		event.preventDefault();
+		false;
+	  }
+	});
 // Lorsque l'utilisateur clique sur le bouton de fermeture, fermez le modal
 btnClose.onclick = function() {     
    modal.style.display = "none";
@@ -695,6 +727,13 @@ window.onclick = function(event) {
    if (event.target == modal) {
      modal.style.display = "none";
    }
+
+document.addEventListener('keyup', function (event) {
+  if ( event.keyCode == 27 )   { //keycode 27 is escape
+	  modal.style.display = "none";
+	  btnSubmit.focus();
+  }
+})
 }</code></pre>
 							<p class="wb-inv">Fin du code</p>
 						</details>
