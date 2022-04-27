@@ -215,7 +215,7 @@
 				
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Jumelage des événements souris et clavier</h3>
+						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Jumelage des événements souris et clavier</h3>
 						<p>Dans cet exemple de lien d’image, l’image change lorsque l’utilisateur positionne le pointeur sur elle. Pour offrir aux utilisateurs du clavier une expérience similaire, l’image change également quand l’utilisateur l’atteint avec la touche de tabulation.  </p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
@@ -252,7 +252,7 @@
 				</div>
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Mauvais exemple&nbsp;: Lien dépendant de la souris</h3>
+						<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Mauvais exemple&nbsp;: Lien dépendant de la souris</h3>
 						
 						<p>Dans cet exemple, un lien d’image personnalisé réagit uniquement au clic de la souris et n’est pas activable par le clavier. Il n’y a pas de gestionnaire d’événement équivalent pour la touche Entrée. L’événement <code>onclick</code> ne répond qu’aux saisies clavier appliquées à un bouton ou un lien HTML natif, et il s’agit d’un élément <code>&lt;img&gt;</code>. </p>
 						<p>Le lien de l’image n’a pas d’attribut <code>tabindex="0"</code>, ce qui l’empêche d’être ciblé avec le clavier.</p>
@@ -276,7 +276,7 @@
 
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Gestionnaires d’événement souris et clavier sur un bouton personnalisé</h3>
+						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Gestionnaires d’événement souris et clavier sur un bouton personnalisé</h3>
 						<p>Dans cet exemple, un bouton personnalisé construit à partir d’un élément <code>&lt;span&gt;</code> possède la sémantique et la fonctionnalité d’accessibilité nécessaires&nbsp;:</p>
 						<ul>
 							<li>Un attribut <code>tabindex="0"</code> pour pouvoir être ciblé avec le clavier.</li>
@@ -410,7 +410,7 @@
 				<p>Assurez-vous que l'utilisateur peut entrer et sortir des éléments interactifs en utilisant uniquement le clavier. </p>
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span> Mauvais exemple&nbsp;: JavaScript focus() piège l’utilisateur du clavier</h3>
+						<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span> Mauvais exemple&nbsp;: JavaScript focus() piège l’utilisateur du clavier</h3>
 						<p>Cet exemple illustre les dangers du piège à clavier que représente l'utilisation de la méthode JavaScript <code>focus()</code>. Le champ de saisie du formulaire utilise ici l'événement <code></code>onblur</code>, qui est déclenché lorsque le focus quitte l'élément. Lorsque l'utilisateur du clavier appuie sur la touche Tab pour déplacer le focus du champ de saisie, l'événement <code>onblur</code> se déclenche et remet le focus sur le champ de saisie, piégeant ainsi l'utilisateur.</p>
 						<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;label for="lastname"&gt;Last name&lt;/label&gt;
@@ -420,7 +420,7 @@
 				</div>
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais exemple&nbsp;: JavaScript keydown() et event.preventDefault() piègent l’utilisateur du clavier</h3> 
+						<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais exemple&nbsp;: JavaScript keydown() et event.preventDefault() piègent l’utilisateur du clavier</h3> 
 						<p>Cet exemple illustre les dangers du piège à clavier que représente un événement keypress JavaScript. La fonction JavaScript ne fait aucun effort pour détecter quelle touche a été enfoncée (elle devrait identifier la touche Entrée), elle se déclenche donc lorsque <em>n'importe quelle</em> touche est enfoncée. En outre, l'action par défaut associée à toute pression sur une touche est empêchée par <code>event.preventDefault()</code>. Par conséquent, lorsqu'un utilisateur tente de déplacer le focus du lien en appuyant sur la touche Tab, l'événement <code>keydown</code> se déclenche, l'action par défaut de la touche Tab (déplacement du focus vers l'élément suivant sur lequel le focus est possible) est empêchée, le focus reste sur le lien et une nouvelle fenêtre s'ouvre. L'utilisateur du clavier est pris au piège. Même le fait d'appuyer sur les touches Ctrl + Alt + Suppr dans Windows pour faire apparaître le gestionnaire de tâches échouera, car d'autres fenêtres seront simplement lancées en réponse à l'événement de frappe. L'ordinateur de l'utilisateur est détourné et, à moins qu'un collègue ou un ami ne puisse déplacer le focus de l'élément avec une souris, l'utilisateur est obligé de redémarrer l'ordinateur. </p>
 
 						<p class="wb-inv">Début du code</p>
@@ -482,7 +482,7 @@
 				<p>La gestion de la cible dans ces composants graphiques «&nbsp;composites&nbsp;» est une question distincte abordée dans le <a href="../module12/index.html">module&nbsp;12</a>.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Gestion de la cible dans une application Web monopage</h3>
+						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Gestion de la cible dans une application Web monopage</h3>
 						<p>Dans cet exemple, une application Web monopage utilise JavaScript pour charger un article complet à l’intérieur de l’élément <code>main</code>, sans chargement de la page. Les liens dans le menu de navigation déclenchent le chargement du contenu. Cet exemple ne comporte que quelques éléments de menu, mais les sites ont souvent des menus bien plus longs. Le déplacement de la cible est vite à un utilisateur de clavier la tâche fastidieuse de parcourir un menu avec la touche de tabulation pour accéder au contenu principal d’une application d’une seule page.</p>
 						<p>L’en-tête <code>&lt;h1&gt;</code> de chaque page comporte l’attribut <code>tabindex="-1"</code> qui permet le ciblage par les scripts. JavaScript identifie l’en-tête <code>&lt;h1&gt;</code> au moyen d’un sélecteur de requête et pose la cible sur lui. Le script met également à jour l’élément <code>&lt;title&gt;</code> de la page pour qu’il corresponde au texte de l’en-tête. </p>
 						<p>La première utilisation de JavaScript devrait être déclenchée par le menu et non par le chargement de la page. L’interaction initiale d’un utilisateur de lecteur d’écran avec la page devrait commencer par le haut, comme d’habitude.</p>
@@ -511,7 +511,7 @@ function onNewPage() {
 				</div>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Cible déplacée du déclencheur à une boîte de dialogue</h3>
+						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Cible déplacée du déclencheur à une boîte de dialogue</h3>
 						<p> Dans cet exemple, le fait d'appuyer sur le bouton de transcription de l'Ableplayer
 						<img src="images/image4.png" alt=""> :</p>
 						<ul>
@@ -533,7 +533,7 @@ function onNewPage() {
 
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Cible gérée sur une boîte de dialogue au moyen d’une interaction au clavier</h3> 
+						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Cible gérée sur une boîte de dialogue au moyen d’une interaction au clavier</h3> 
 						<p>Dans cet exemple, quand l’utilisateur clique sur le bouton d’envoi, une fenêtre contextuelle s’ouvre et la cible est posée sur le premier élément actif de la fenêtre contextuelle. Quand l’utilisateur clique sur le bouton de fermeture de la fenêtre contextuelle, la cible retourne au bouton déclencheur.</p>
 						<div class="panel panel-primary mrgn-tp-lg">
 							<div class="panel-body well mrgn-bttm-0">
