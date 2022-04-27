@@ -47,7 +47,7 @@
                 },
 			{
                 "title": "Module 11 – Zones live ARIA et limites de temps",
-                "href" : "index-fr.html"
+                
             }],
             "lngLinks": [{
                 "lang": "en",
@@ -192,7 +192,7 @@
 				<details class="mrgn-tp-sm">
 					<summary class="bg-info">Voir le CSS</summary>
 					<p class="wb-inv">Début du code</p>
-<pre><code class="language-css">#modalOverlay {
+<pre class="mrgn-tp-md"><code class="language-css">#modalOverlay {
    width:100%;
    height:100%;
    top: 50%;
@@ -217,7 +217,7 @@
   &lt;p&gt; after 15 seconds of inactivity JavaScript launches and shifts user focus to a pop-up dialog that uses the role="alertdialog" attribute. The user can choose to Continue Session or End Session. If the user clicks Continue Session, JavaScript resets the 15 second counter. If the user clicks End Session, JavaScript exits the page.&lt;/p&gt;
 &lt;/main&gt;</code></pre>
 -->
-						<p><mark>TODO: The JavaScript references main and [role=alertdialog] but the dialog is not a target of the original script</mark></p>
+						
 						<details class="mrgn-tp-sm">
 							<summary class="bg-info">Voir le Javascript</summary>
 							<p>
@@ -227,9 +227,9 @@
 <pre><code class="language-js">startTimeout();
 function startTimeout(){
    setTimeout(function(){
-      $('main, [role=alertdialog]').attr('aria-hidden','true').css('display','none');
+      $('main').attr('aria-hidden','true').css('display','none');
       setTimeout(function(){
-         $('main, [role=alertdialog]').attr('aria-hidden','true').css('display','inherit');
+         $('main').attr('aria-hidden','true').css('display','inherit');
       }, 1);
       $('body').attr('style','background-color:gray;');
       $('a').attr('tabindex','-1');
@@ -247,7 +247,7 @@ function startTimeout(){
          &lt;button onclick="window.location.href = "https://accessible.canada.ca/"&gt; Terminer la session &lt;/button&gt;').appendTo('#modalOverlay');
       $('#continue').focus();
       $('#continue').click(function(e) {
-         $('main, [role=alertdialog]').attr('aria-hidden','false');
+         $('main').attr('aria-hidden','false');
          $('body, a').removeAttr('style');
          $('a').removeAttr('tabindex');
          $('button').removeAttr('disabled');
@@ -298,7 +298,7 @@ function startTimeout(){
 					<details class="mrgn-tp-sm">
 						<summary class="bg-info">Voir le JavaScript</summary>
 						<p class="wb-inv">Début du code</p>
-<pre><code class="language-js">var IdlelTimeOut = 20; //10 seconds
+<pre class="mrgn-tp-md"><code class="language-js">var IdlelTimeOut = 20; //10 seconds
 var idleSecondsTimer = null;
 var idleSecondsCounter = 0;
 document.onclick = function () { idleSecondsCounter = 0; };
@@ -350,6 +350,7 @@ function CheckIdleTime() {
 				<h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Ressources WCAG connexes</summary>
+                        <p class="mrgn-tp-md">En anglais seulement.</p>
 					<h3>Critères de succès</h3>
 					<ul>
 						<li>
@@ -421,17 +422,17 @@ function CheckIdleTime() {
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Tous les modules</h3>
                      <ul class="list-group menu list-unstyled">
-                        <li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
-                        <li><a class="list-group-item" href="../module2/index-fr.html">Module 2 - Structure et sémantique des pages</a></li>
-                        <li><a class="list-group-item" href="../module3/index-fr.html">Module 3 - Liens et navigation</a></li>
-                        <li><a class="list-group-item" href="../module4/index-fr.html">Module 4 - Tableaux</a></li>
-                        <li><a class="list-group-item" href="../module5/index-fr.html">Module 5 - Images</a></li>
-                        <li><a class="list-group-item" href="../module6/index-fr.html">Module 6 - Formulaires</a></li>
-                        <li><a class="list-group-item" href="../module7/index-fr.html">Module 7 - Conception visuelle et couleurs</a></li>
-                        <li><a class="list-group-item" href="../module8/index-fr.html">Module 8 - Zoom et conception adaptée</a></li>
-                        <li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
-						<li><a class="list-group-item" href="../module10/index-fr.html">Module 10 - Méthodes de saisie de données</a></li>
-						<li><a class="list-group-item active" href="index-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+                        <li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 - Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/links-fr.html">Module 3 - Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/tables-concepts-fr.html">Module 4 - Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/text-alternatives-fr.html">Module 5 - Images</a></li>
+                        <li><a class="list-group-item" href="../module6/forms-concepts-fr.html">Module 6 - Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 - Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item" href="../module8/introduction-fr.html">Module 8 - Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item" href="../module10/introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item active" href="aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
                      </ul>
 			</section>
 	</nav>

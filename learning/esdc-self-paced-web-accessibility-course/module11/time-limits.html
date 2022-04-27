@@ -47,7 +47,7 @@
             },
 			{
                 "title": "Module 11 - ARIA live and time limits",
-                "href" : "index.html"
+                
             }],
             "lngLinks": [{
                 "lang": "fr",
@@ -70,7 +70,7 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#overview">Time limits (overview)</a></li>
+            <li><a href="#overview">Overview – Time limits</a></li>
             <li><a href="#good-session-timeout">Good example: Session timeout</a></li>
             <li><a href="#bad-no-extend">Bad example: Session timeout with no option to extend</a></li>
             <li><a href="#bad-js-refresh">Bad example: JavaScript automatically refreshes a page</a></li>
@@ -81,7 +81,7 @@
 	</nav>
 	
 		<section>	
-			<h2 id="overview">Time limits (overview)</h2>			
+			<h2 id="overview">Overview – Time limits</h2>			
 			<p>Time limits are a potential barrier to people with disabilities such as blindness, low vision, dexterity impairments, and cognitive limitations. These users may require more time to read content or to perform a task such as completing an on-line form. WCAG requires that content with time limits offers one of the following features:</p>
 				<dl>
 					 <dt>Turn off</dt>
@@ -114,7 +114,7 @@
 				<details class="mrgn-tp-sm">
 					<summary class="bg-info">View CSS</summary>
 					<p class="wb-inv">Code begins</p>
-<pre><code class="language-css">#modalOverlay {
+<pre class="mrgn-tp-md"><code class="language-css">#modalOverlay {
    width:100%;
    height:100%;
    top: 50%;
@@ -139,7 +139,6 @@
   &lt;p&gt; after 15 seconds of inactivity JavaScript launches and shifts user focus to a pop-up dialog that uses the role="alertdialog" attribute. The user can choose to Continue Session or End Session. If the user clicks Continue Session, JavaScript resets the 15 second counter. If the user clicks End Session, JavaScript exits the page.&lt;/p&gt;
 &lt;/main&gt;</code></pre>
 -->
-						<p><mark>TODO: The JavaScript references main and [role=alertdialog] but the dialog is not a target of the original script</mark></p>
 						<details class="mrgn-tp-sm">
 							<summary class="bg-info">View Javascript</summary>
 							<p class="mrgn-tp-md">To accommodate a focus bug in VoiceOver, the JavaScript hides the <code>&lt;main&gt;</code> element with <code>aria-hidden="true"</code> and CSS <code>display: none</code>, then a millisecond later cancels that out.</p>
@@ -147,9 +146,9 @@
 <pre><code class="language-js">startTimeout();
 function startTimeout(){
    setTimeout(function(){
-      $('main, [role=alertdialog]').attr('aria-hidden','true').css('display','none');
+      $('main').attr('aria-hidden','true').css('display','none');
       setTimeout(function(){
-         $('main, [role=alertdialog]').attr('aria-hidden','true').css('display','inherit');
+         $('main').attr('aria-hidden','true').css('display','inherit');
       }, 1);
       $('body').attr('style','background-color:gray;');
       $('a').attr('tabindex','-1');
@@ -167,7 +166,7 @@ function startTimeout(){
          &lt;button onclick="window.location.href = "https://accessible.canada.ca/"&gt; End Session &lt;/button&gt;').appendTo('#modalOverlay');
       $('#continue').focus();
       $('#continue').click(function(e) {
-         $('main, [role=alertdialog]').attr('aria-hidden','false');
+         $('main').attr('aria-hidden','false');
          $('body, a').removeAttr('style');
          $('a').removeAttr('tabindex');
          $('button').removeAttr('disabled');
@@ -212,7 +211,7 @@ function startTimeout(){
 					<details class="mrgn-tp-sm">
 						<summary class="bg-info">View Javascript</summary>
 						<p class="wb-inv">Code begins</p>
-<pre><code class="language-js">var IdlelTimeOut = 20; //10 seconds
+<pre class="mrgn-tp-md"><code class="language-js">var IdlelTimeOut = 20; //10 seconds
 var idleSecondsTimer = null;
 var idleSecondsCounter = 0;
 document.onclick = function () { idleSecondsCounter = 0; };
@@ -336,17 +335,17 @@ function CheckIdleTime() {
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">All modules</h3>
 					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
-						<li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>			
-						<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
-						<li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
-						<li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
-						<li><a class="list-group-item" href="../module6/index.html">Module 6 – Forms</a></li>	
-						<li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual design and colours</a></li>
-						<li><a class="list-group-item" href="../module8/index.html">Module 8 – Zoom and responsive design</a></li>
-						<li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
-						<li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
-						<li><a class="list-group-item active" href="index.html">Module 11 - ARIA live and time limits</a></li>
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item active" href="aria-live.html">Module 11 - ARIA live and time limits</a></li>
 					</ul>
 			</section>
 	</nav>

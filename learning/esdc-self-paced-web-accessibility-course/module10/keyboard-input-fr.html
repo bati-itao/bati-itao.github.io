@@ -47,7 +47,7 @@
                 },
 			{
                 "title": "Module 10 - Méthodes de saisie de données",
-                "href" : "index-fr.html"
+                
             }],
             "lngLinks": [{
                 "lang": "en",
@@ -142,7 +142,7 @@
    }
 &lt;/script&gt;</code></pre>
 				<p class="wb-inv">Fin du code</p>
-				<p>Un bouton d’envoi situé à l’intérieur d’un formulaire<code>&lt;form&gt;</code> ne nécessite pas de gestionnaire d’événement. Dans les deux cas suivants, la sélection du bouton d’envoi transmet le formulaire parent sans nécessiter le traitement séparé de l’événement <code>onclick</code>. Ici, la valeur <code>onsubmit </code>du formulaire déclenche la validation.</p>
+				<p>Un bouton d’envoi situé à l’intérieur d’un formulaire<code>&lt;form&gt;</code> ne nécessite pas de gestionnaire d’événement. Dans les deux cas suivants, la sélection du bouton d’envoi transmet le formulaire parent sans nécessiter le traitement séparé de l’événement <code>onclick</code>. Ici, la valeur <code>onsubmit</code> du formulaire déclenche la validation.</p>
 				<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;form onsubmit="handle_form_submission()"&gt;
    […]
@@ -215,7 +215,7 @@
 				
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Jumelage des événements souris et clavier</h3>
+						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Jumelage des événements souris et clavier</h3>
 						<p>Dans cet exemple de lien d’image, l’image change lorsque l’utilisateur positionne le pointeur sur elle. Pour offrir aux utilisateurs du clavier une expérience similaire, l’image change également quand l’utilisateur l’atteint avec la touche de tabulation.  </p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
@@ -252,7 +252,7 @@
 				</div>
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Mauvais exemple&nbsp;: Lien dépendant de la souris</h3>
+						<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Mauvais exemple&nbsp;: Lien dépendant de la souris</h3>
 						
 						<p>Dans cet exemple, un lien d’image personnalisé réagit uniquement au clic de la souris et n’est pas activable par le clavier. Il n’y a pas de gestionnaire d’événement équivalent pour la touche Entrée. L’événement <code>onclick</code> ne répond qu’aux saisies clavier appliquées à un bouton ou un lien HTML natif, et il s’agit d’un élément <code>&lt;img&gt;</code>. </p>
 						<p>Le lien de l’image n’a pas d’attribut <code>tabindex="0"</code>, ce qui l’empêche d’être ciblé avec le clavier.</p>
@@ -276,7 +276,7 @@
 
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Gestionnaires d’événement souris et clavier sur un bouton personnalisé</h3>
+						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Gestionnaires d’événement souris et clavier sur un bouton personnalisé</h3>
 						<p>Dans cet exemple, un bouton personnalisé construit à partir d’un élément <code>&lt;span&gt;</code> possède la sémantique et la fonctionnalité d’accessibilité nécessaires&nbsp;:</p>
 						<ul>
 							<li>Un attribut <code>tabindex="0"</code> pour pouvoir être ciblé avec le clavier.</li>
@@ -292,7 +292,7 @@
 							
 								
 								
-								<label for="newName">Ajouter un nom :</label>
+								<label for="newName">Ajouter un nom</label>
 								<input type="text" id="newName">
 								<span role="button" tabindex="0" onclick="handleCommand(event)" onKeyDown="handleCommand(event)">Ajouter nom</span>
 								<ul id="nameList"></ul>
@@ -343,7 +343,7 @@
 						</div>
 								
 						<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;label for="newName"&gt;Ajouter un nom :&lt;/label&gt;
+<pre><code class="language-html">&lt;label for="newName"&gt;Ajouter un nom&lt;/label&gt;j
 &lt;input type="text" id="newName"&gt;
 &lt;span role="button" tabindex="0" onclick="handleCommand(event)" onKeyDown="handleCommand(event)"&gt;Ajouter nom&lt;/span&gt;
 &lt;ul id="nameList"&gt;&lt;/ul&gt;</code></pre>
@@ -352,7 +352,7 @@
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir le JavaScript</summary>
 							<p class="wb-inv">Début du code</p>
-<pre><code class="language-js">function handleCommand(event) {
+<pre class="mrgn-tp-md"><code class="language-js">function handleCommand(event) {
    // Gère à la fois les clics de souris et le clavier
    // Activer avec Entrée ou Espace
    // Les pressions sur les touches autres que Entrée et Espace mettent fin au script
@@ -382,7 +382,7 @@
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir le CSS</summary>
 							<p class="wb-inv">Début du code</p>
-<pre><code class="language-css">[role="button"] {
+<pre class="mrgn-tp-md"><code class="language-css">[role="button"] {
    padding: 0.25em 0.5em;
    background-color: #CCCCCC;
    color: black;
@@ -410,7 +410,7 @@
 				<p>Assurez-vous que l'utilisateur peut entrer et sortir des éléments interactifs en utilisant uniquement le clavier. </p>
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span> Mauvais exemple&nbsp;: JavaScript focus() piège l’utilisateur du clavier</h3>
+						<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span> Mauvais exemple&nbsp;: JavaScript focus() piège l’utilisateur du clavier</h3>
 						<p>Cet exemple illustre les dangers du piège à clavier que représente l'utilisation de la méthode JavaScript <code>focus()</code>. Le champ de saisie du formulaire utilise ici l'événement <code></code>onblur</code>, qui est déclenché lorsque le focus quitte l'élément. Lorsque l'utilisateur du clavier appuie sur la touche Tab pour déplacer le focus du champ de saisie, l'événement <code>onblur</code> se déclenche et remet le focus sur le champ de saisie, piégeant ainsi l'utilisateur.</p>
 						<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;label for="lastname"&gt;Last name&lt;/label&gt;
@@ -420,7 +420,7 @@
 				</div>
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais exemple&nbsp;: JavaScript keydown() et event.preventDefault() piègent l’utilisateur du clavier</h3> 
+						<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais exemple&nbsp;: JavaScript keydown() et event.preventDefault() piègent l’utilisateur du clavier</h3> 
 						<p>Cet exemple illustre les dangers du piège à clavier que représente un événement keypress JavaScript. La fonction JavaScript ne fait aucun effort pour détecter quelle touche a été enfoncée (elle devrait identifier la touche Entrée), elle se déclenche donc lorsque <em>n'importe quelle</em> touche est enfoncée. En outre, l'action par défaut associée à toute pression sur une touche est empêchée par <code>event.preventDefault()</code>. Par conséquent, lorsqu'un utilisateur tente de déplacer le focus du lien en appuyant sur la touche Tab, l'événement <code>keydown</code> se déclenche, l'action par défaut de la touche Tab (déplacement du focus vers l'élément suivant sur lequel le focus est possible) est empêchée, le focus reste sur le lien et une nouvelle fenêtre s'ouvre. L'utilisateur du clavier est pris au piège. Même le fait d'appuyer sur les touches Ctrl + Alt + Suppr dans Windows pour faire apparaître le gestionnaire de tâches échouera, car d'autres fenêtres seront simplement lancées en réponse à l'événement de frappe. L'ordinateur de l'utilisateur est détourné et, à moins qu'un collègue ou un ami ne puisse déplacer le focus de l'élément avec une souris, l'utilisateur est obligé de redémarrer l'ordinateur. </p>
 
 						<p class="wb-inv">Début du code</p>
@@ -482,7 +482,7 @@
 				<p>La gestion de la cible dans ces composants graphiques «&nbsp;composites&nbsp;» est une question distincte abordée dans le <a href="../module12/index.html">module&nbsp;12</a>.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Gestion de la cible dans une application Web monopage</h3>
+						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Gestion de la cible dans une application Web monopage</h3>
 						<p>Dans cet exemple, une application Web monopage utilise JavaScript pour charger un article complet à l’intérieur de l’élément <code>main</code>, sans chargement de la page. Les liens dans le menu de navigation déclenchent le chargement du contenu. Cet exemple ne comporte que quelques éléments de menu, mais les sites ont souvent des menus bien plus longs. Le déplacement de la cible est vite à un utilisateur de clavier la tâche fastidieuse de parcourir un menu avec la touche de tabulation pour accéder au contenu principal d’une application d’une seule page.</p>
 						<p>L’en-tête <code>&lt;h1&gt;</code> de chaque page comporte l’attribut <code>tabindex="-1"</code> qui permet le ciblage par les scripts. JavaScript identifie l’en-tête <code>&lt;h1&gt;</code> au moyen d’un sélecteur de requête et pose la cible sur lui. Le script met également à jour l’élément <code>&lt;title&gt;</code> de la page pour qu’il corresponde au texte de l’en-tête. </p>
 						<p>La première utilisation de JavaScript devrait être déclenchée par le menu et non par le chargement de la page. L’interaction initiale d’un utilisateur de lecteur d’écran avec la page devrait commencer par le haut, comme d’habitude.</p>
@@ -511,7 +511,7 @@ function onNewPage() {
 				</div>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Cible déplacée du déclencheur à une boîte de dialogue</h3>
+						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Cible déplacée du déclencheur à une boîte de dialogue</h3>
 						<p> Dans cet exemple, le fait d'appuyer sur le bouton de transcription de l'Ableplayer
 						<img src="images/image4.png" alt=""> :</p>
 						<ul>
@@ -533,21 +533,26 @@ function onNewPage() {
 
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Cible gérée sur une boîte de dialogue au moyen d’une interaction au clavier</h3> 
+						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Cible gérée sur une boîte de dialogue au moyen d’une interaction au clavier</h3> 
 						<p>Dans cet exemple, quand l’utilisateur clique sur le bouton d’envoi, une fenêtre contextuelle s’ouvre et la cible est posée sur le premier élément actif de la fenêtre contextuelle. Quand l’utilisateur clique sur le bouton de fermeture de la fenêtre contextuelle, la cible retourne au bouton déclencheur.</p>
 						<div class="panel panel-primary mrgn-tp-lg">
 							<div class="panel-body well mrgn-bttm-0">
 								<!-- Déclencher/ouvrir la modal -->
 								<button class="submit" id="myBtn">Soumettre</button>
 								<!-- Le modal -->
-								<div id="myModal" class="modal">
+								<div id="myModal" class="modal" role="dialog" aria-labelledby="modal-title">
 									<!-- Contenu modal -->
 									<div class="modal-content">
-										<h2>Votre formulaire a &eacute;t&eacute; soumis.</h2>
-										<button class="btn-close">Fermer</button>
+										<header class="modal-header">
+											<h2 id="modal-title" class="modal-title">Votre formulaire a &eacute;t&eacute; soumis</h2>
+										</header>
+										<div class="modal-body">
+											<button class="btn-close">Fermer</button>
+										</div>
 									</div>
 								</div>
 								<script>
+						 
 									// Get the modal
 									var modal = document.getElementById("myModal");
 									// Get the button that opens the modal
@@ -557,31 +562,49 @@ function onNewPage() {
 									// When the user clicks the button, open the modal 
 									btnSubmit.onclick = function() {
 									   modal.style.display = "block";
+									   btnClose.focus();
 									}
+									//prevent tabbing to the page
+									btnClose.addEventListener("keydown", event => {
+										  if (event.shiftKey || event.keyCode === 9) {
+											btnClose.focus();
+											event.preventDefault();
+											false;
+										  }
+										});
 									// When the user clicks the close button, close the modal
 									btnClose.onclick = function() {	  
 									   modal.style.display = "none";
+									   btnSubmit.focus();
 									}
 									// When the user clicks anywhere outside of the modal, close it
 									window.onclick = function(event) {
 									   if (event.target == modal) {
 										  modal.style.display = "none";
+										  btnSubmit.focus();
 									   }
-									}								
-								</script>
+									}	
+
+									document.addEventListener('keyup', function (event) {
+									  if ( event.keyCode == 27 )   { //keycode 27 is escape
+										  modal.style.display = "none";
+										  btnSubmit.focus();
+									  }
+									})									
+																	</script>
 								<style type="text/css">
-									/* Le modal (arrière-plan) */
+									/* The Modal (background) */
 									.modal {
-										display: none; /* Masqué par défaut */
-										position: fixed; /* Reste en place */
-										z-index: 1; /* S'asseoir sur le dessus */
-										padding-top: 100px; /* Emplacement de la boîte */
+										display: none; /* Hidden by default */
+										position: fixed; /* Stay in place */
+										z-index: 1; /* Sit on top */
+										padding-top: 100px; /* Location of the box */
 										left: 0;
 										top: 0;
-										width: 100%; /* Pleine largeur */
-										height: 100%; /* Pleine hauteur */
+										width: 100%; /* Full width */
+										height: 100%; /* Full height */
 									}
-									/* Contenu modal */
+									/* Modal Content */
 									.modal-content {
 										background-color: #fefefe;
 										margin: auto;
@@ -590,7 +613,7 @@ function onNewPage() {
 										width: 25em;
 										height: auto;
 									}
-									/* Le bouton de fermeture */
+									/* The Close Button */
 									.submit {
 										background-color:#e60914;
 										border:0;
@@ -618,7 +641,7 @@ function onNewPage() {
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir le HTML</summary>
 							<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;h1&gt;Modal Popup Example: &lt;/h1&gt;
+<pre class="mrgn-tp-md"><code class="language-html">&lt;h1&gt;Modal Popup Example&lt;/h1&gt;
 &lt;!-- Déclencher/ouvrir le modal --&gt;
 &lt;button class="submit" id="myBtn"&gt;Submit&lt;/button&gt;
 &lt;!-- Le modal --&gt;
@@ -635,7 +658,7 @@ function onNewPage() {
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir le CSS</summary>	
 							<p class="wb-inv">Début du code</p>
-<pre><code class="language-css">/* Le modal (arrière-plan) */
+<pre class="mrgn-tp-md"><code class="language-css">/* Le modal (arrière-plan) */
 .modal {
    display: none; /* Masqué par défaut */
    position: fixed; /* Rester en place */
@@ -676,7 +699,7 @@ function onNewPage() {
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir le JavaScript</summary>
 							<p class="wb-inv">Début du code</p>
-<pre><code class="language-js">// Obtenir le modal
+<pre class="mrgn-tp-md"><code class="language-js">// Obtenir le modal
 var modal = document.getElementById("myModal");
 // Obtenez le bouton qui ouvre le modal
 var btnSubmit = document.getElementById("myBtn");
@@ -686,6 +709,15 @@ var btnClose = document.getElementsByClassName("btn-close")[0];
 btnSubmit.onclick = function() {
    modal.style.display = "block";
 }
+}
+//prevent tabbing to the page
+btnClose.addEventListener("keydown", event => {
+	  if (event.shiftKey || event.keyCode === 9) {
+		btnClose.focus();
+		event.preventDefault();
+		false;
+	  }
+	});
 // Lorsque l'utilisateur clique sur le bouton de fermeture, fermez le modal
 btnClose.onclick = function() {     
    modal.style.display = "none";
@@ -695,6 +727,13 @@ window.onclick = function(event) {
    if (event.target == modal) {
      modal.style.display = "none";
    }
+
+document.addEventListener('keyup', function (event) {
+  if ( event.keyCode == 27 )   { //keycode 27 is escape
+	  modal.style.display = "none";
+	  btnSubmit.focus();
+  }
+})
 }</code></pre>
 							<p class="wb-inv">Fin du code</p>
 						</details>
@@ -707,6 +746,7 @@ window.onclick = function(event) {
 				<h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Ressources WCAG connexes</summary>
+                        <p class="mrgn-tp-md">En anglais seulement.</p>
 					<h3>Critères de succès</h3>
 					<ul>
 						<li>
@@ -783,17 +823,17 @@ window.onclick = function(event) {
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Tous les modules</h3>
                      <ul class="list-group menu list-unstyled">
-                        <li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
-                        <li><a class="list-group-item" href="../module2/index-fr.html">Module 2 - Structure et sémantique des pages</a></li>
-                        <li><a class="list-group-item" href="../module3/index-fr.html">Module 3 - Liens et navigation</a></li>
-                        <li><a class="list-group-item" href="../module4/index-fr.html">Module 4 - Tableaux</a></li>
-                        <li><a class="list-group-item" href="../module5/index-fr.html">Module 5 - Images</a></li>
-                        <li><a class="list-group-item" href="../module6/index-fr.html">Module 6 - Formulaires</a></li>
-                        <li><a class="list-group-item" href="../module7/index-fr.html">Module 7 - Conception visuelle et couleurs</a></li>
-                        <li><a class="list-group-item" href="../module8/index-fr.html">Module 8 - Zoom et conception adaptée</a></li>
-                        <li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
-						<li><a class="list-group-item active" href="index-fr.html">Module 10 - Méthodes de saisie de données</a></li>
-						<li><a class="list-group-item" href="../module11/index-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+                        <li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 - Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/links-fr.html">Module 3 - Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/tables-concepts-fr.html">Module 4 - Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/text-alternatives-fr.html">Module 5 - Images</a></li>
+                        <li><a class="list-group-item" href="../module6/forms-concepts-fr.html">Module 6 - Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 - Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item" href="../module8/introduction-fr.html">Module 8 - Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item active" href="introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
                      </ul>
 			</section>
 	</nav>
