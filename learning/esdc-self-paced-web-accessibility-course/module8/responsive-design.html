@@ -71,25 +71,25 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#section1">Overview – Responsive design</a></li>
-			<li><a href="#section2">CSS media queries</a></li>
-			<li><a href="#section3">Breakpoints</a></li>
-			<li><a href="#section4">Set the viewport</a></li>
-			<li><a href="#section6">Viewport emulators</a></li>
-			<li><a href="#section7">Benefits to low vision users</a></li>
-			<li><a href="#resources1">Related WCAG resources</a></li>
+            <li><a href="#overview-responsive-design">Overview – Responsive design</a></li>
+						<li><a href="#css-media-queries">CSS media queries</a></li>
+						<li><a href="#breakpoints">Breakpoints</a></li>
+						<li><a href="#set-the-viewport">Set the viewport</a></li>
+						<li><a href="#viewport-emulators">Viewport emulators</a></li>
+						<li><a href="#benefits-to-low-vision-users">Benefits to low vision users</a></li>
+						<li><a href="#mod8-responsive-design-wcag">Related WCAG resources</a></li>
           </ul>
         </div>
       </div>
 	</nav>
 	
 			<section>				
-				<h2 id="section1">Overview – Responsive design</h2>
+				<h2 id="overview-responsive-design">Overview – Responsive design</h2>
 				<p>Responsive web design uses HTML and CSS to automatically resize, hide, shrink, or enlarge a website, ensuring the design looks good and the information and functionality are preserved across devices of all screen size.</p>
 			</section>
 			
 			<section>				
-				<h2 id="section2">CSS media queries</h2>
+				<h2 id="css-media-queries">CSS media queries</h2>
 				<p>The technique leverages CSS “media queries”, which run tests to determine users’ screen size then serve distinct layouts to different screen widths. A typical strategy targets the three broad categories of device display: large screens, tablets and phones. The HTML and CSS of the page’s components are tailored to avoid introducing horizontal scrolling, as described in later sections.</p>
 				<p>The points at which a media query is introduced, and the layout changed, are known as “breakpoints”.  This is the syntax: </p>
 				<p class="wb-inv">Code begins</p>
@@ -111,10 +111,10 @@
 			</section>
 			
 			<section>				
-				<h2 id="section3">Breakpoints</h2>
+				<h2 id="breakpoints">Breakpoints</h2>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0 h3">
+						<h3 class="text-success mrgn-tp-0 h3" id="good-example-single-breakpoint">
 							<span class="glyphicon glyphicon-ok-circle"></span> Good example: Single breakpoint
 						</h3>
 						<p>In this example , the media type is <code>screen</code> and the breakpoint is 480px. If the width of a device is 480px or smaller the <code>.button</code> style rule is applied.</p>
@@ -125,7 +125,7 @@
 						<p class="wb-inv">Code ends</p>
 					</div>
 				</div>
-				<h3>Government of Canada breakpoints</h3>
+				<h3 id="gov-canada-breakpoints">Government of Canada breakpoints</h3>
 				<p>The Government of Canada Treasury Board Secretariat <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/web-mobile-presence.html">Technical specifications for the Web and mobile presence</a> specifies two breakpoints for large and small screens at 768 pixels. </p>
 				<p>These media queries target the “screen” type, so their rules are not applied to print output. </p>
 				<p class="wb-inv">Code begins</p>
@@ -136,7 +136,7 @@
    /* styles for small screen device */
 }</code></pre>
 				<p class="wb-inv">Code ends</p>
-				<h3>WET breakpoints</h3>
+				<h3 id="wet-breakpoints">WET breakpoints</h3>
 				<p>The Web Experience Toolkit boasts a mobile friendly responsive design. It implements the Bootstrap 3 breakpoints:</p>
 				<ul>
 					<li>Extra extra small – below 480px</li>
@@ -146,16 +146,16 @@
 					<li>Large – between  1200px to 1600px – Desktop size</li>
 					<li>Extra large –  larger than 1600px</li>
 				</ul>
-				<h3>Common breakpoints</h3>
-				<h4>Small (phones)</h4>
+				<h3 id="common-breakpoints">Common breakpoints</h3>
+				<h4 id="small-phones">Small (phones)</h4>
 				<ul>
 					<li>320px – 480px: Mobile devices</li>
 				</ul>
-				<h4>Medium (tablets)</h4>
+				<h4 id="medium-tablets">Medium (tablets)</h4>
 				<ul>
 					<li>481px – 768px: iPads, Tablets</li>
 				</ul>
-				<h4>Large (desktops)</h4>
+				<h4 id="large-desktops">Large (desktops)</h4>
 				<ul>
 					<li>769px – 1024px: Small screens, laptops</li>
 					<li>1025px – 1200px: Desktops, large screens</li>
@@ -170,21 +170,21 @@
 						<p><a href="example-reflow-2.html" target="_blank">See this example in action<span class="wb-inv"> (Opens in new tab)</span></a>. Narrow your browser window to trigger the responsive layout.</p>
 						<details class="mrgn-tp-lg">
 							<summary class="bg-info">View screenshots of the responsive layout</summary>
-							<h3>Desktop: @media (min-width:960px)</h3>
+							<h3 id="desktop-media">Desktop: @media (min-width:960px)</h3>
 							<div class="panel panel-primary">
 								<div class="panel-body mrgn-bttm-0">
 									<img src="images/image3.png" class="img-responsive" alt="Content is displayed in three columns, with text wrapping around floating images.">
 								</div>
 							</div>
 							
-							<h3>Tablet: @media (min-width:481px) and (max-width:959px)</h3>
+							<h3 id="tablet-media">Tablet: @media (min-width:481px) and (max-width:959px)</h3>
 							<div class="panel panel-primary">
 								<div class="panel-body mrgn-bttm-0">
 									<img src="images/image4.png" class="img-responsive" alt="Content is stacked in one column, with text wrapping around floating images.">
 								</div>
 							</div>
 
-							<h3>Phone: @media (max-width:480px)</h3>
+							<h3 id="phone-media">Phone: @media (max-width:480px)</h3>
 							<p>Note that the float is removed from the images.</p>
 							<div class="panel panel-primary">
 								<div class="panel-body mrgn-bttm-0">
@@ -291,7 +291,7 @@ section img {
 			</section>
 			
 			<section>				
-				<h2 id="section4">Set the viewport</h2>
+				<h2 id="set-the-viewport">Set the viewport</h2>
 					<p>Pages optimized for a variety of devices must include a <code>&lt;meta&gt;</code> element in the <code>&lt;head&gt;</code> of the document, specifying a couple of properties of the viewport. A <code>meta</code> viewport tag instructs the browser on how to control the page’s dimensions and scaling. A page is not responsive on mobile devices without it. </p>
 					<p class="wb-inv">Code begins</p>
 					
@@ -307,7 +307,7 @@ section img {
 					<p>Mobile pages must support the pinch-to-zoom feature to enable users to enlarge small text and controls and to compensate for poor contrast. To enable the pinch-to-zoom feature, set <code>user-scalable=1</code> and <code>maximum-scale=2.0</code>. That’s a 200% value, the minimum zoom required to meet WCAG. You can enable greater zoom by setting <code>maximum-scale</code> to a higher value, or by removing the <code>maximum-scale</code> parameter to remove the zoom limit entirely. </p>
 					<div class="panel panel-success mrgn-tp-lg">
 						<div class="panel-body">
-							<h3 class="text-success mrgn-tp-0 h3">
+							<h3 class="text-success mrgn-tp-0 h3" id="pinch-to-zoom">
 							<span class="glyphicon glyphicon-ok-circle"></span> Good example: Pinch-to-zoom set to 200% magnification</h3>
 							<p>In this example, the page is configured to allow a maximum 200% zoom via the <code>maximum-scale</code> property. 200% is the minimum zoom value required by WCAG.</p>
 							<p class="wb-inv">Code begins</p>
@@ -317,7 +317,7 @@ section img {
 					</div>	
 					<div class="panel panel-success mrgn-tp-lg">
 						<div class="panel-body">
-							<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span> Bad example: Disabling pinch-to-zoom</h3>
+							<h3 class="text-danger mrgn-tp-0 h3" id="disabling-pinch-to-zoom"><span class="glyphicon glyphicon-remove-circle"></span> Bad example: Disabling pinch-to-zoom</h3>
 							<p>Developers often disable the pinch-to-zoom feature by setting two parameters on the <code>meta</code> viewport element: <code>user-scalable=no</code> and <code>maximum-scale=1.0</code>.</p>
 							<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0; user-scalable=no"&gt;</code></pre>
@@ -328,13 +328,13 @@ section img {
 			
 			
 			<section>				
-				<h2 id="section6">Viewport emulators</h2>
+				<h2 id="viewport-emulators">Viewport emulators</h2>
 				
 				<p>You can test breakpoints using viewport emulators to accurately represent your media query and style, bearing in mind that emulators don't represent the functionality or the features of the browser.</p>
 				<p>You can also test breakpoints using the online service <a href="http://www.viewportemulator.com">Viewport Emulator</a>, as per the example below.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0 h3">
+						<h3 class="text-success mrgn-tp-0 h3" id="checking-it-accessibility-office-viewport">
 						<span class="glyphicon glyphicon-ok-circle"></span> Good example: Checking the IT Accessibility Office using the Viewport Emulator</h3>
 						<p>In this example, the <a href="https://bati-itao.github.io/index.html">IT Accessibility Office</a> is tested using the <a href="http://www.viewportemulator.com">online Viewport Emulator</a>.</p>
 						<div class="panel panel-primary mrgn-tp-md">
@@ -349,7 +349,7 @@ section img {
 				
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0 h3">
+						<h3 class="text-success mrgn-tp-0 h3" id="checking-it-accessibility-office-chrome">
 						<span class="glyphicon glyphicon-ok-circle"></span> Good example: Checking the IT Accessibility Office using the Chrome emulator</h3>
 						<p>Chrome mobile emulator can be accessed through its developer tools options by using keyboard shortcuts: Command + Option + I (Mac) OR Ctrl + Shift + I (Windows).</p>
 						<div class="panel panel-primary mrgn-tp-md">
@@ -364,12 +364,12 @@ section img {
 				
 			</section>
 			<section>				
-				<h2 id="section7">Benefits to low vision users</h2>
+				<h2 id="benefits-to-low-vision-users">Benefits to low vision users</h2>
 				<p>Many users with low vision can’t magnify small screens well enough to read them. Instead, they read sites on large devices and magnify the screen. As the user magnifies, the browser window grows smaller relative to the size of the content, eventually triggering CSS breakpoints for smaller screen layouts. On a large device, a small screen layout optimized to display as a single column can take up the entire width of the large screen, enabling quite large text.</p>
 			</section>
 			
 			<section>				
-				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
+				<h2 id="mod8-responsive-design-wcag" class="wb-inv">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
