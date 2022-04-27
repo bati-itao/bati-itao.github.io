@@ -92,7 +92,8 @@
 				<h2 id="css-media-queries">CSS media queries</h2>
 				<p>The technique leverages CSS “media queries”, which run tests to determine users’ screen size then serve distinct layouts to different screen widths. A typical strategy targets the three broad categories of device display: large screens, tablets and phones. The HTML and CSS of the page’s components are tailored to avoid introducing horizontal scrolling, as described in later sections.</p>
 				<p>The points at which a media query is introduced, and the layout changed, are known as “breakpoints”.  This is the syntax: </p>
-				<p class="wb-inv">Code begins</p>
+<p class="lang-label">CSS:</p>
+		<p class="wb-inv">Code begins</p>
 <pre><code class="language-css">@media media type and (condition: breakpoint) {
    // CSS rules
 }</code></pre>
@@ -118,7 +119,8 @@
 							<span class="glyphicon glyphicon-ok-circle"></span> Good example: Single breakpoint
 						</h3>
 						<p>In this example , the media type is <code>screen</code> and the breakpoint is 480px. If the width of a device is 480px or smaller the <code>.button</code> style rule is applied.</p>
-						<p class="wb-inv">Code begins</p>
+<p class="lang-label">CSS:</p>
+		<p class="wb-inv">Code begins</p>
 <pre><code class="language-css">@media screen and (max-width: 480px) {
    .button { background-color: red; }
 }</code></pre>
@@ -128,7 +130,8 @@
 				<h3 id="gov-canada-breakpoints">Government of Canada breakpoints</h3>
 				<p>The Government of Canada Treasury Board Secretariat <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/web-mobile-presence.html">Technical specifications for the Web and mobile presence</a> specifies two breakpoints for large and small screens at 768 pixels. </p>
 				<p>These media queries target the “screen” type, so their rules are not applied to print output. </p>
-				<p class="wb-inv">Code begins</p>
+<p class="lang-label">CSS:</p>
+		<p class="wb-inv">Code begins</p>
 <pre><code class="language-css">@media screen and (min-width: 768px) {
    /* styles for large screen device */
 }
@@ -293,8 +296,8 @@ section img {
 			<section>				
 				<h2 id="set-the-viewport">Set the viewport</h2>
 					<p>Pages optimized for a variety of devices must include a <code>&lt;meta&gt;</code> element in the <code>&lt;head&gt;</code> of the document, specifying a couple of properties of the viewport. A <code>meta</code> viewport tag instructs the browser on how to control the page’s dimensions and scaling. A page is not responsive on mobile devices without it. </p>
-					<p class="wb-inv">Code begins</p>
-					
+<p class="lang-label">HTML:</p>
+		<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;html lang="en"&gt;
    &lt;head&gt;
       […]
@@ -310,7 +313,8 @@ section img {
 							<h3 class="text-success mrgn-tp-0 h3" id="pinch-to-zoom">
 							<span class="glyphicon glyphicon-ok-circle"></span> Good example: Pinch-to-zoom set to 200% magnification</h3>
 							<p>In this example, the page is configured to allow a maximum 200% zoom via the <code>maximum-scale</code> property. 200% is the minimum zoom value required by WCAG.</p>
-							<p class="wb-inv">Code begins</p>
+<p class="lang-label">HTML:</p>
+		<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0; user-scalable=1"&gt;</code></pre>
 							<p class="wb-inv">Code ends</p>
 						</div>
@@ -319,7 +323,8 @@ section img {
 						<div class="panel-body">
 							<h3 class="text-danger mrgn-tp-0 h3" id="disabling-pinch-to-zoom"><span class="glyphicon glyphicon-remove-circle"></span> Bad example: Disabling pinch-to-zoom</h3>
 							<p>Developers often disable the pinch-to-zoom feature by setting two parameters on the <code>meta</code> viewport element: <code>user-scalable=no</code> and <code>maximum-scale=1.0</code>.</p>
-							<p class="wb-inv">Code begins</p>
+<p class="lang-label">HTML:</p>
+		<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0; user-scalable=no"&gt;</code></pre>
 							<p class="wb-inv">Code ends</p>
 						</div>

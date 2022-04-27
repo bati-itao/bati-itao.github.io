@@ -92,7 +92,8 @@
 				<h2 id="section2">Requêtes média CSS</h2>
 				<p>La technique s’appuie sur les « requêtes média » CSS, qui effectue des tests pour déterminer la taille de l’écran des utilisateurs, puis servent des configurations distinctes à différentes largeurs d’écran. Une stratégie typique cible les trois grandes catégories d’affichage des appareils : grands écrans, tablettes et téléphones. Les versions HTML et CSS des composantes de la page sont adaptées pour éviter le défilement horizontal, comme il est décrit dans les sections suivantes.</p>
 				<p>Les points auxquels une requête média est présentée et la configuration est modifiée sont appelés «&nbsp;points d’interruption&nbsp;». Voici la syntaxe&nbsp;:</p>
-				<p class="wb-inv">Début du code</p>
+<p class="lang-label">CSS:</p>
+		<p class="wb-inv">Début du code</p>
 <pre><code class="language-css">@media media type and (condition: breakpoint) {
    // CSS rules
 }</code></pre>
@@ -117,8 +118,9 @@
 						<h3 class="text-success mrgn-tp-0 h3">
 							<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Point d’interruption unique
 						</h3>
-						<p>Dans cet exemple, le type de média est «&nbsp;<code>screen</code>&nbsp;» et le point d’interruption est 480&nbsp;pixels. Si la largeur d’un appareil est de 480&nbsp;pixels ou moins, la r&egrave; de style <code>.button</code> est appliquée.</p>
-						<p class="wb-inv">Début du code</p>
+						<p>Dans cet exemple, le type de média est <code>screen</code> et le point d’interruption est 480&nbsp;pixels. Si la largeur d’un appareil est de 480&nbsp;pixels ou moins, la r&egrave; de style <code>.button</code> est appliquée.</p>
+<p class="lang-label">CSS:</p>
+		<p class="wb-inv">Début du code</p>
 <pre><code class="language-css">@media screen and (max-width: 480px) {
    .button { background-color: red; }
 }</code></pre>
@@ -128,7 +130,8 @@
 				<h3>Points d’interruption du gouvernement du Canada</h3>
 				<p>Les spécifications techniques relatives à la présence Web et mobile du <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/web-mobile-presence.html">Secrétariat du Conseil du Trésor du gouvernement du Canada</a> précisent deux points d’interruption pour les grands et petits écrans à 768&nbsp;pixels. </p>
 				<p>Ces requêtes média ciblent le type «&nbsp;écran&nbsp;», de sorte que leurs règles ne sont pas appliquées à la sortie d’impression. </p>
-				<p class="wb-inv">Début du code</p>
+<p class="lang-label">CSS:</p>
+		<p class="wb-inv">Début du code</p>
 <pre><code class="language-css">@media screen and (min-width: 768px) {
    /* styles pour les appareils à grand écran */
 }
@@ -279,8 +282,8 @@ section img {
 			<section>				
 				<h2 id="section4">Configurer la zone d’affichage</h2>
 					<p>Les pages optimisées pour une variété d’appareils doivent inclure un élément  <code>&lt;meta&gt;</code> dans le <code>&lt;head&gt;</code> du document, précisant quelques propriétés de la zone d’affichage. Une balise <code>meta</code> de zone d’affichage indique au navigateur comment contrôler les dimensions et la mise à l’échelle de la page. Sans cette balise, une page n’est pas adaptée sur les appareils mobiles.</p>
-					<p class="wb-inv">Début du code</p>
-					
+<p class="lang-label">HTML:</p>
+		<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;html lang="fr-CA"&gt;
    &lt;head&gt;
       […]
@@ -296,7 +299,8 @@ section img {
 							<h3 class="text-success mrgn-tp-0 h3">
 							<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Réglage du zoom par pincement à un grossissement de 200&nbsp;%</h3>
 							<p>Dans cet exemple, la page est configurée pour permettre un zoom maximal de 200&nbsp;% au moyen de la propriété <code>maximum-scale</code>. 200&nbsp;% est la valeur minimale de zoom exigée par les WCAG.</p>
-							<p class="wb-inv">Début du code</p>
+<p class="lang-label">HTML:</p>
+		<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0; user-scalable=1"&gt;</code></pre>
 							<p class="wb-inv">Fin du code</p>
 						</div>
@@ -305,7 +309,8 @@ section img {
 						<div class="panel-body">
 							<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Mauvais exemple&nbsp;: D&eacute;sactivation du réglage du zoom par pincement</h3>
 							<p>Les développeurs désactivent souvent la fonction zoom par pincement en réglant deux paramètres sur l’élément <code>meta</code> de la zone d’affichage&nbsp;: <code>user-scalable=no</code> et <code>maximum-scale=1.0</code>. </p>
-							<p class="wb-inv">Début du code</p>
+<p class="lang-label">HTML:</p>
+		<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0; user-scalable=no"&gt;</code></pre>
 							<p class="wb-inv">Fin du code</p>
 						</div>
