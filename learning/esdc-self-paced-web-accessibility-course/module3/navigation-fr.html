@@ -94,18 +94,20 @@
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 
-						<h3 id="pagination" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle">&nbsp;Bon exemple&nbsp;: Pagination</span></h3>
+						<h3 id="pagination" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Pagination</h3>
 						<p>Ici, un menu de pagination pour les résultats de recherche est configuré dans un élément de navigation nommé. Le lien actuel est indiqué visuellement au moyen de CSS, et aux lecteurs d’écran au moyen de l’attribut <code>aria-current="page"</code>. </p>
 						
-<p class="lang-label">CSS:</p>
+		<p class="lang-label">CSS:</p>
 		<p class="wb-inv">Début du code</p>
 <pre><code class="language-css">.current-page {
-	background-color: #ccc;
-	border: 1px solid black;
+   background-color: #ccc;
+   border: 1px solid black;
 }</code>
 </pre>
-<pre><code class="language-html">
-&lt;nav label="Résultats par page"&gt;
+		<p class="wb-inv">Fin du code</p>
+		<p class="lang-label">HTML:</p>
+		<p class="wb-inv">Début du code</p>
+<pre><code class="language-html">&lt;nav label="Résultats par page"&gt;
    &lt;ul&gt;
       &lt;li&gt;
          &lt;a href="[…]" aria-label="page 1"&gt;1&lt;/a&gt;
@@ -200,7 +202,7 @@
 					</li>
 				</ul>
 
-<p class="lang-label">HTML:</p>
+		<p class="lang-label">HTML:</p>
 		<p class="wb-inv">Début du code</p>
 <pre><code class="language-html">&lt;body&gt;
    &lt;a id="skip-nav" class="show-with-focus" href="#main-content"&gt;Passer au contenu&lt;/a&gt;
@@ -208,24 +210,26 @@
    &lt;main id="main-content" tabindex="-1"&gt;Le contenu principal entre ici&lt;/main&gt;
 &lt;/body&gt;</code>
 </pre>
-
-				<pre><code class="language-css">.show-with-focus {
-	position: absolute;
-	left: -1000px;
-	top:-1000px;
-	width: 1px;
-	height: 1px;
-	text-align: center;
-	overflow: hidden;
+		<p class="wb-inv">Fin du code</p>
+		<p class="lang-label">CSS:</p>
+		<p class="wb-inv">Début du code</p>
+<pre><code class="language-css">.show-with-focus {
+   position: absolute;
+   left: -1000px;
+   top:-1000px;
+   width: 1px;
+   height: 1px;
+   text-align: center;
+   overflow: hidden;
 }
 .show-with-focus: focus, .show-with-focus: active {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: auto;
-	overflow: visible;
-	background-color: #FF3;
-	border: 1px dotted #000;
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: auto;
+   overflow: visible;
+   background-color: #FF3;
+   border: 1px dotted #000;
 }</code>
 </pre>
 				<p class="wb-inv">Fin du code</p>
@@ -398,7 +402,7 @@
 						<ul>
 							<li>L'attribut <code>tabindex="0"</code> ajoute l'élément span à l'ordre de cible.</li>
 							<li>L'attribut <code>role="link"</code> l'identifie aux utilisateurs du lecteur d'écran.</li>
-							<li>L’attribut <code>class="link"</code>� permet de mettre le style en correspondance avec les liens par défaut et de fournir un indicateur de cible du clavier très visible.</li>
+							<li>L’attribut <code>class="link"</code> permet de mettre le style en correspondance avec les liens par défaut et de fournir un indicateur de cible du clavier très visible.</li>
 							<li>L’événement <code>click</code> traite la saisie à l'aide de la souris et la saisie tactile.</li>
 							<li>L’événement <code>keydown</code> traite la saisie à l'aide de la touche Entrée.</li>
 						</ul>
@@ -424,49 +428,48 @@
 <pre class="mrgn-tp-md"><code class="language-html">&lt;a href="http://www.bing.com" class="link"&gt;Bing&lt;/a&gt; 
 &lt;a href="http://www.duckduckgo.com" class="link"&gt;DuckDuckGo&lt;/a&gt; 
 &lt;span 
-	tabindex="0" 
-	role="link" 
-	class="link"
-	onclick="goToLink(event, 'http://www.google.ca/')" 
-	onkeydown="goToLink(event, '<a href="http://www.google.ca/">http://www.google.ca/</a>')"&gt;
-		Google
+   tabindex="0" 
+   role="link" 
+   class="link"
+   onclick="goToLink(event, 'http://www.google.ca/')" 
+   onkeydown="goToLink(event, '<a href="http://www.google.ca/">http://www.google.ca/</a>')"&gt;
+      Google
 &lt;/span&gt;</code>
 </pre>
 							<p class="wb-inv">Fin du code</p>
 						</details>
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir le CSS</summary>
+							<p class="wb-inv">Début du code</p>
 <pre><code class="language-css">&lt;style type="text/css"&gt;
-	.link:focus, .link:hover {
-		outline: 3px solid orange;
-	}
-	span.link {
-		cursor: pointer;
-		color: #0000EE;
-		text-decoration: underline;
-	}
-	span.link:active {
-		color: #FF0000;
-	}
+   .link:focus, .link:hover {
+      outline: 3px solid orange;
+   }
+   span.link {
+      cursor: pointer;
+      color: #0000EE;
+      text-decoration: underline;
+   }
+   span.link:active {
+      color: #FF0000;
+   }
 &lt;/style&gt;</code>
 </pre>
+							<p class="wb-inv">Fin du code</p>
 						</details>
 							
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir le Javascript</summary>
-<pre><code class="language-javascript">
-   &lt;script type="text/javascript"&gt;
-		function goToLink (event, url) {
-			var type = event.type;
-			if ((type === 'click') || (type === 'keydown' &amp;&amp; event.keyCode === 13)) {
-				window.location.href = url;    
-				event.preventDefault();
-				event.stopPropagation();
-			}
-		}
-   &lt;/script&gt;
-&lt;/head&gt;</code>
-</pre>
+							<p class="wb-inv">Début du code</p>
+<pre><code class="language-javascript">function goToLink (event, url) {
+   var type = event.type;
+   if ((type === 'click') || (type === 'keydown' &amp;&amp; event.keyCode === 13)) {
+      window.location.href = url;    
+      event.preventDefault();
+      event.stopPropagation();
+   }
+}</code></pre>
+							<p class="wb-inv">Fin du code</p>
 						</details>
 
 						
@@ -511,16 +514,6 @@
 
 						<p>Dans cet exemple, le fait de cliquer sur le bouton cible l’élément <code>div</code>. </p>
 						
-<p class="lang-label">HTML:</p>
-		<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;button type="button" onclick="document.getElementById('target').focus();"&gt;
-	Cliquez sur moi pour cibler la DIV
-&lt;/button&gt;
-&lt;div id="target" tabindex="-1"&gt;
-	Je suis une div
-&lt;/div&gt;</code>
-</pre>
-						<p class="wb-inv">Fin du code</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 								<p class="wb-inv">D&eacute;but de l'exemple</p>
@@ -533,6 +526,17 @@
 								<p class="wb-inv">Fin de l'exemple</p>	
 							</div>
 						</div>
+						
+						<p class="lang-label">HTML:</p>
+		<p class="wb-inv">Début du code</p>
+<pre><code class="language-html">&lt;button type="button" onclick="document.getElementById('target').focus();"&gt;
+   Cliquez sur moi pour cibler la DIV
+&lt;/button&gt;
+&lt;div id="target" tabindex="-1"&gt;
+   Je suis une div
+&lt;/div&gt;</code>
+</pre>
+						<p class="wb-inv">Fin du code</p>
 					</div>
 				</div>
 
