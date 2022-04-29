@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -106,15 +107,15 @@
 				<p>Pour assurer la sécurité, les données doivent également être validées du côté client et du côté serveur. </p>
 				<p>La plupart des données d’utilisateurs peuvent être validées au moyen des attributs de validation des contr&ocirc;les de formulaire&nbsp;HTML5. Voici les attributs de validation communs&nbsp;:</p>
 				<dl>
-					<dt>L'attribut <code>required</code></dt> 
+					<dt>L'attribut <code lang="en-CA">required</code></dt> 
 					<dd class="mrgn-lft-lg">Indique si un champ de formulaire doit être rempli avant que le formulaire puisse être soumis. Voir <a href="#required-input">Validation des saisies requises</a>.</dd>
-					<dt>L'attribut <code>type</code></dt> 
+					<dt>L'attribut <code lang="en-CA">type</code></dt> 
 					<dd class="mrgn-lft-lg">Précise le type de données. Voir <a href="#common-input">Validation des types de saisie commune. </a>.</dd>
-					<dt>L'attribut <code>pattern</code></dt> 
+					<dt>L'attribut <code lang="en-CA">pattern</code></dt> 
 					<dd class="mrgn-lft-lg">Précise une expression régulière qui définit un modèle que les données saisies doivent suivre. Voir <a href="#patterned-input">Validation des saisies de structure</a>.</dd>
-					<dt>L'attribut <code>minlength</code> et <code>maxlength</code></dt> 
+					<dt>L'attribut <code lang="en-CA">minlength</code> et <code lang="en-CA">maxlength</code></dt> 
 					<dd class="mrgn-lft-lg">Indique la longueur minimale et maximale des données textuelles. Voir <a href="#length">Validation de la longueur des saisies</a>.</dd>
-					<dt>L'attribut <code>min</code> et <code>max</code></dt> 
+					<dt>L'attribut <code lang="en-CA">min</code> et <code lang="en-CA">max</code></dt> 
 					<dd class="mrgn-lft-lg">Indique les valeurs minimales et maximales des types de saisies numériques. Voir <a href="#length">Validation de la longueur des saisies</a>.</dd>
 				</dl>
 				<p>Si les règles spécifiées par les attributs de validation ne sont pas suivies, l’élément devient invalide et le navigateur bloque le formulaire et affiche un message d’erreur.</p>
@@ -125,19 +126,19 @@
 				<p>Identifiez les champs de formulaire requis à la fois visuellement dans l’étiquette et sémantiquement&nbsp;:</p>
 				<ul>
 					<li>Pour identifier visuellement les champs requis dans l’étiquette, ajoutez un astérisque&nbsp;(*) à l’étiquette et définissez l’astérisque au-dessus du formulaire, ou ajoutez le mot «&nbsp;requis&nbsp;» entre parenthèses.</li>
-					<li>Pour identifier sémantiquement les champs requis, ajoutez l’attribut <code>required</code> à la commande et, pour prendre en charge les anciens navigateurs, ajoutez l’attribut redondant <code>aria-required="true"</code>.</li>
+					<li>Pour identifier sémantiquement les champs requis, ajoutez l’attribut <code lang="en-CA">required</code> à la commande et, pour prendre en charge les anciens navigateurs, ajoutez l’attribut redondant <code lang="en-CA">aria-required="true"</code>.</li>
 				</ul>
-				<p>L’attribut <code>required</code> déclenche une validation côté client dans le navigateur. Les navigateurs Web actuels prennent en charge l’attribut et avisent l’utilisateur de toute entrée requise manquant au moyen d’une boîte de dialogue standard du navigateur Web. Ces dialogues respectent les paramètres et les préférences de l’utilisateur dans le navigateur et le système d’exploitation, comme la taille de police par défaut, les couleurs et la langue.</p>
-				<p>La présence de l’attribut <code>required</code> permet d’utiliser la pseudoclasse <code>:required</code> pour le style CSS. Si l'<code>&lt;input&gt;</code> requis n’a aucune valeur, il permet d’utiliser la pseudoclasse <code>:invalid</code>. Voir le bon exemple suivant.</p>
+				<p>L’attribut <code lang="en-CA">required</code> déclenche une validation côté client dans le navigateur. Les navigateurs Web actuels prennent en charge l’attribut et avisent l’utilisateur de toute entrée requise manquant au moyen d’une boîte de dialogue standard du navigateur Web. Ces dialogues respectent les paramètres et les préférences de l’utilisateur dans le navigateur et le système d’exploitation, comme la taille de police par défaut, les couleurs et la langue.</p>
+				<p>La présence de l’attribut <code lang="en-CA">required</code> permet d’utiliser la pseudoclasse <code lang="en-CA">:required</code> pour le style CSS. Si l'<code lang="en-CA">&lt;input&gt;</code> requis n’a aucune valeur, il permet d’utiliser la pseudoclasse <code lang="en-CA">:invalid</code>. Voir le bon exemple suivant.</p>
 
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 		
 						<h3 class="text-success mrgn-tp-0 h3" id="validation-required-input"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple&nbsp;: Validation par le navigateur des saisies requises</h3>
-						<p>Dans cet exemple, le navigateur ne permet pas de soumettre le formulaire tant que le texte n’est pas entré dans le champ de saisis requis. La pseudoclasse <code>:required</code> applique un fond rose. La pseudoclasse <code>:invalid</code> applique une bordure pointillée lorsque <code>&lt;input&gt;</code> n’a pas de cible.
+						<p>Dans cet exemple, le navigateur ne permet pas de soumettre le formulaire tant que le texte n’est pas entré dans le champ de saisis requis. La pseudoclasse <code lang="en-CA">:required</code> applique un fond rose. La pseudoclasse <code lang="en-CA">:invalid</code> applique une bordure pointillée lorsque <code lang="en-CA">&lt;input&gt;</code> n’a pas de cible.
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Début de l'exemple</p>
+								<p class="wb-inv">L'exemple commence</p>
 								<form method="post" action="script-here">
 									<label for="org">Organisation (requis)&nbsp;</label> 
 									<input type="text" id="org" required aria-required="true"> 
@@ -147,22 +148,22 @@
 									input:invalid { border: 2px dashed red; }
 									input:required { background-color: pink; }
 								</style>							
-								<p class="wb-inv">Fin de l'exemple</p>
+								<p class="wb-inv">L'exemple finit</p>
 							</div>
 						</div>
 						<div class="clearfix"></div>		
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;form method="post" action="script-here"&gt;
+<pre class="mrgn-tp-0"><code class="language-html">&lt;form method="post" action="script-here"&gt;
    &lt;label for="org"&gt;Organisation (requis)&nbsp;&lt;/label&gt;j 
    &lt;input type="text" id="org" required aria-required="true"&gt; 
    &lt;input type="submit" value="Soumettre"&gt;
 &lt;/form&gt;</code>
 </pre>
 						<p class="wb-inv">Fin du code</p>
-						<p class="lang-label">CSS:</p>
+						<p class="lang-label small">CSS</p>
 						<p class="wb-inv">Début du code</p>
-<pre><code class="language-css">input:invalid { border: 2px dashed red; }
+<pre class="mrgn-tp-0"><code class="language-css">input:invalid { border: 2px dashed red; }
 input:required { background-color: pink; }</code></pre>
 						<p class="wb-inv">Fin du code</p>
           
@@ -172,9 +173,9 @@ input:required { background-color: pink; }</code></pre>
 			
 			<section>				
 				<h2 id="common-input">Validation des types de saisie communs</h2>
-				<p>HTML5 introduit de nouveaux types de données <code>input</code>, notamment <code>email</code>, <code>url</code>, <code>number</code>, <code>tel</code> (téléphone), <code>date</code> et <code>range</code>.  Les navigateurs Web modernes permettent la validation intégrée des erreurs du côté client pour ces nouveaux types de saisie. Par exemple, une adresse URL mal formée déclenche le navigateur pour afficher un dialogue avec le message «&nbsp;Veuillez entrer une adresse URL&nbsp;».</p>
+				<p>HTML5 introduit de nouveaux types de données <code lang="en-CA">input</code>, notamment <code lang="en-CA">email</code>, <code lang="en-CA">url</code>, <code lang="en-CA">number</code>, <code lang="en-CA">tel</code> (téléphone), <code lang="en-CA">date</code> et <code lang="en-CA">range</code>.  Les navigateurs Web modernes permettent la validation intégrée des erreurs du côté client pour ces nouveaux types de saisie. Par exemple, une adresse URL mal formée déclenche le navigateur pour afficher un dialogue avec le message «&nbsp;Veuillez entrer une adresse URL&nbsp;».</p>
 				<p>Pour aider les utilisateurs à saisir des données plus facilement, HTML5 offre des commandes pour certains des nouveaux types de saisie, comme un sélecteur de date et des boutons de défilement pour augmenter ou réduire des chiffres. Par exemple, dans l’exemple ci-dessous, les navigateurs modernes affichent le champ de saisie «&nbsp;Numéro&nbsp;» avec des boutons pour augmenter ou réduire le nombre et affichent le champ de saisie «&nbsp;Plage&nbsp;» comme commande de défilement.</p>
-				<p>Les anciens navigateurs Web qui ne prennent pas en charge les nouveaux types de saisie affichent un champ de <code>texte</code> simple.</p>
+				<p>Les anciens navigateurs Web qui ne prennent pas en charge les nouveaux types de saisie affichent un champ de <code lang="en-CA">texte</code> simple.</p>
 
 				<details class="mrgn-tp-md">
 					<summary class="bg-info">Types de saisie déjà utilisés lors de l'introduction de HTML5</summary>
@@ -232,7 +233,7 @@ input:required { background-color: pink; }</code></pre>
 						<h3 class="text-success mrgn-tp-0 h3" id="input-types"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple&nbsp;: Types de saisie HTML5</h3>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Début de l'exemple</p>
+								<p class="wb-inv">L'exemple commence</p>
 								<form class="form-horizontal" role="form" method="get" action="#">
 									<div class="form-group">
 										<label for="email" class="col-sm-2 control-label">Courriel&nbsp;</label>
@@ -276,7 +277,7 @@ input:required { background-color: pink; }</code></pre>
 										</div>
 									</div>
 								</form>
-								<p class="wb-inv">Fin de l'exemple</p>
+								<p class="wb-inv">L'exemple finit</p>
 							</div>
 						</div>
 						<div class="clearfix"></div>		
@@ -334,26 +335,26 @@ input:required { background-color: pink; }</code></pre>
 			</section>
 			<section>				
 				<h2 id="patterned-input">Validation des saisies structurées</h2>
-				<p>L’attribut <code>pattern</code> offre une autre fonction utile de validation. Il faut une expression régulière (regex) comme valeur, qui est utilisée pour faire correspondre les combinaisons de caractères dans la saisie de texte. Regex est idéal pour la validation des formulaires puisqu’il associe des types particuliers de structures de données comme les numéros de téléphone, les codes postaux et les numéros de série. </p>
-				<p>Dans cet exemple, l’attribut <code>pattern</code> de l’élément <code>&lt;input&gt;</code> utilise regex pour définir un format particulier qui correspond aux caractères d’une plaque d’immatriculation de voiture de l’Ontario (émise depuis&nbsp;1997). La structure se compose de quatre lettres, suivies d’une espace et de trois chiffres. Le modèle ne capturera pas les valeurs des plaques d'immatriculation personnalisées.</p>
+				<p>L’attribut <code lang="en-CA">pattern</code> offre une autre fonction utile de validation. Il faut une expression régulière (regex) comme valeur, qui est utilisée pour faire correspondre les combinaisons de caractères dans la saisie de texte. Regex est idéal pour la validation des formulaires puisqu’il associe des types particuliers de structures de données comme les numéros de téléphone, les codes postaux et les numéros de série. </p>
+				<p>Dans cet exemple, l’attribut <code lang="en-CA">pattern</code> de l’élément <code lang="en-CA">&lt;input&gt;</code> utilise regex pour définir un format particulier qui correspond aux caractères d’une plaque d’immatriculation de voiture de l’Ontario (émise depuis&nbsp;1997). La structure se compose de quatre lettres, suivies d’une espace et de trois chiffres. Le modèle ne capturera pas les valeurs des plaques d'immatriculation personnalisées.</p>
 				<div class="panel panel-success">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple&nbsp;: Utilisation de l’attribut de structure pour obtenir une correspondance avec une plaque d’immatriculation de véhicule</h3>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Début de l'exemple</p>
+								<p class="wb-inv">L'exemple commence</p>
 								<div>
 									<label for="license">Plaque d’immatriculation de l’Ontario (XXXX 999)</label>
 									<input type="text" id="license" class="form-control" pattern="^[A-Z]{4}( )[0-9]{3}$"> 
 								</div>
-								<p class="wb-inv">Fin de l'exemple</p>
+								<p class="wb-inv">L'exemple finit</p>
 							</div>
 						</div>
 						<div class="clearfix"></div>		
 								
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;div&gt;
+<pre class="mrgn-tp-0"><code class="language-html">&lt;div&gt;
    &lt;label for="license"&gt;Plaque d’immatriculation de l’Ontario (XXXX 999)&lt;/label&gt;
    &lt;input type="text" id="license" class="form-control" pattern="^[A-Z]{4}( )[0-9]{3}$"&gt; 
 &lt;/div&gt;</code></pre>
@@ -363,14 +364,14 @@ input:required { background-color: pink; }</code></pre>
 			</section>
 			<section>				
 				<h2 id="length">Validation de la longueur des saisies</h2>
-				<p>La longueur de caractères de tous les champs de texte créé par <code>&lt;input&gt;</code> ou <code>&lt;textarea&gt;</code> peut être limitée en utilisant les attributs <code>minlength</code> et <code>maxlength</code>. Un champ n’est pas valide si la valeur contient moins de caractères que la longueur <code>minlength</code> ou plus de caractères que la longueur <code>maxlength</code>.</p>
-				<p>Pour les champs numériques, les attributs <code>min</code> et <code>max</code> peuvent être utilisés pour fournir une plage de valeurs valides. </p>
+				<p>La longueur de caractères de tous les champs de texte créé par <code lang="en-CA">&lt;input&gt;</code> ou <code lang="en-CA">&lt;textarea&gt;</code> peut être limitée en utilisant les attributs <code lang="en-CA">minlength</code> et <code lang="en-CA">maxlength</code>. Un champ n’est pas valide si la valeur contient moins de caractères que la longueur <code lang="en-CA">minlength</code> ou plus de caractères que la longueur <code lang="en-CA">maxlength</code>.</p>
+				<p>Pour les champs numériques, les attributs <code lang="en-CA">min</code> et <code lang="en-CA">max</code> peuvent être utilisés pour fournir une plage de valeurs valides. </p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 					  <h3 class="text-success mrgn-tp-0 h3" id="length-entries"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple&nbsp;: Validation de la longueur des saisies</h3>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Début de l'exemple</p>
+								<p class="wb-inv">L'exemple commence</p>
 								<form class="form-horizontal" role="form" method="get" action="#">
 								  <div class="form-group">
 									<label for="choose" class="col-sm-3 control-label">Carotte ou orange? </label>
@@ -390,7 +391,7 @@ input:required { background-color: pink; }</code></pre>
 									</div>
 								  </div>
 								</form>
-								<p class="wb-inv">Fin de l'exemple</p>
+								<p class="wb-inv">L'exemple finit</p>
 							</div>
 						</div>
 						<div class="clearfix"></div>		
@@ -462,19 +463,19 @@ input:required { background-color: pink; }</code></pre>
                         <p class="mrgn-tp-md">En anglais seulement.</p>
 					<h3>Critères de succès</h3>
 					<ul>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification">3.3.1 Error Identifications</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/error-prevention-legal-financial-data">3.3.4 Error Prevention (Legal, Financial, Data)</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification" lang="en-CA">3.3.1 Error Identifications</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/error-prevention-legal-financial-data" lang="en-CA">3.3.4 Error Prevention (Legal, Financial, Data)</a></li>
 					</ul>
 					<h3>Techniques</h3>
 					<ul>			
-						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G83">G83: Providing text descriptions to identify required fields that were not completed</a></li>	
-						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G85">G85: Providing a text description when user input falls outside the required format or values</a></li>	
-						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G98">G98: Providing the ability for the user to review and correct answers before submitting</a></li>	
-						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G99">G99: Providing the ability to recover deleted information</a></li>	
-						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G155">G155: Providing a checkbox in addition to a submit button</a></li>	
-						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G164">G164: Providing a stated time within which an online request (or transaction) may be amended or canceled by the user after making the request</a></li>	
-						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G168">G168: Requesting confirmation to continue with selected action</a></li>	
-						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR18">SCR18: Providing client-side validation and alert</a></li>		
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G83" lang="en-CA">G83: Providing text descriptions to identify required fields that were not completed</a></li>	
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G85" lang="en-CA">G85: Providing a text description when user input falls outside the required format or values</a></li>	
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G98" lang="en-CA">G98: Providing the ability for the user to review and correct answers before submitting</a></li>	
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G99" lang="en-CA">G99: Providing the ability to recover deleted information</a></li>	
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G155" lang="en-CA">G155: Providing a checkbox in addition to a submit button</a></li>	
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G164" lang="en-CA">G164: Providing a stated time within which an online request (or transaction) may be amended or canceled by the user after making the request</a></li>	
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G168" lang="en-CA">G168: Requesting confirmation to continue with selected action</a></li>	
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR18" lang="en-CA">SCR18: Providing client-side validation and alert</a></li>		
 					</ul>
 				</details>
 				

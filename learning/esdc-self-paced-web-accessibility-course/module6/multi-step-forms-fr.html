@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -88,7 +89,7 @@
 				<li>Diviser le formulaire en fonction de ses groupes de commandes logiques (p.&nbsp;ex., coordonnées et questionnaire).</li>
 				<li>Valider l’étape en cours avant d’exposer la suivante.</li>
 				<li>Étiqueter les étapes facultatives et permettre aux utilisateurs de les sauter. </li>
-				<li>S’assurer que la cible du clavier se déplace facilement d’une étape à l’autre, vers l’arrière et vers l’avant. À une nouvelle étape, cibler de préférence le prochain élément de formulaire pertinent, ou l’en-tête ou le conteneur pertinent (un en-tête ou un conteneur aurait besoin de l’attribut <code>tabindex="-1"</code> pour recevoir la cible par un programme).</li>
+				<li>S’assurer que la cible du clavier se déplace facilement d’une étape à l’autre, vers l’arrière et vers l’avant. À une nouvelle étape, cibler de préférence le prochain élément de formulaire pertinent, ou l’en-tête ou le conteneur pertinent (un en-tête ou un conteneur aurait besoin de l’attribut <code lang="en-CA">tabindex="-1"</code> pour recevoir la cible par un programme).</li>
 				<li>Éviter une limite de temps pour remplir le formulaire. Si une limite est requise, permettre à l’utilisateur de la modifier ou de la prolonger.</li>
 				<li>Si les étapes se trouvent sur plusieurs pages, répéter les instructions générales sur chaque page.</li>
 				<li>Indiquer la progression dans le formulaire («&nbsp;Étape&nbsp;x de&nbsp;y&nbsp;»).</li>
@@ -99,44 +100,44 @@
 				<h2 id="progress">Indiquer la progression dans un formulaire à étapes multiples</h2>
 				<p>Chaque étape doit indiquer la progression de l’utilisateur. Les approches&nbsp;1 et&nbsp;2 s’appliquent uniquement aux formulaires multipages.</p>
 				<h3>Approche&nbsp;1&nbsp;: Utilisation du titre de la page</h3>
-				<p>Ajoutez une note indiquant la progression (p.&nbsp;ex., «&nbsp;Étape&nbsp;2 de&nbsp;4&nbsp;:&nbsp;») au début de l’élément <code>&lt;title&gt;</code>, avant le nom de l’étape ou tout avis d’erreur. L’élément <code>&lt;title&gt;</code> est la première chose déclarée aux utilisateurs du lecteur d’écran lors du chargement de la page et il fournit une rétroaction immédiate.</p>
+				<p>Ajoutez une note indiquant la progression (p.&nbsp;ex., «&nbsp;Étape&nbsp;2 de&nbsp;4&nbsp;:&nbsp;») au début de l’élément <code lang="en-CA">&lt;title&gt;</code>, avant le nom de l’étape ou tout avis d’erreur. L’élément <code lang="en-CA">&lt;title&gt;</code> est la première chose déclarée aux utilisateurs du lecteur d’écran lors du chargement de la page et il fournit une rétroaction immédiate.</p>
 
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;title&gt;Étape&nbsp;2 de&nbsp;4&nbsp;: Coordonnées – Sondage&nbsp;X – Entreprise&nbsp;Z&lt;/title&gt;</code></pre>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;title&gt;Étape&nbsp;2 de&nbsp;4&nbsp;: Coordonnées – Sondage&nbsp;X – Entreprise&nbsp;Z&lt;/title&gt;</code></pre>
 				<p class="wb-inv">Début du code</p>
 
 				<h3>Approche&nbsp;2&nbsp;: Utilisation de l’en-tête principal</h3>
 				<p>Ajoutez une note indiquant la progression (p.&nbsp;ex., «&nbsp;(Étape&nbsp;2 de&nbsp;4)&nbsp;» à la fin de l’en-tête principal de la page, ce qui rend l’information bien en vue et facilement repérable par balayage visuel.</p>
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;h1&gt;Coordonnées (Étape&nbsp;2 de&nbsp;4)&lt;/h1&gt;</code>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;h1&gt;Coordonnées (Étape&nbsp;2 de&nbsp;4)&lt;/h1&gt;</code>
 </pre>
 <p class="wb-inv">Fin du code</p>
 						
 						
 			<h3>Approche&nbsp;3&nbsp;: Utilisation de l’élément de progression HTML5</h3>
-				<p>Vous pouvez utiliser un élément de <code>&lt;progress&gt;</code> HTML5 pour informer les utilisateurs de leur progression, comme premier élément à chaque étape.</p>
+				<p>Vous pouvez utiliser un élément de <code lang="en-CA">&lt;progress&gt;</code> HTML5 pour informer les utilisateurs de leur progression, comme premier élément à chaque étape.</p>
 				
 				<div class="panel panel-primary mrgn-tp-md">
 					<div class="panel-body well mrgn-bttm-0">
 					<p class="wb-inv">L'exemple commence</p>
 					Sondage <progress max="7" value="1">(Étape 1 de 7)</progress>
-				<p class="wb-inv">Fin de l'exemple</p>
+				<p class="wb-inv">L'exemple finit</p>
 					</div>
 				</div>
 
 				
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">Sondage &lt;progress max="7" value="1"&gt;(Étape&nbsp;1 de&nbsp;7)&lt;/progress&gt;</code></pre>
+<pre class="mrgn-tp-0"><code class="language-html">Sondage &lt;progress max="7" value="1"&gt;(Étape&nbsp;1 de&nbsp;7)&lt;/progress&gt;</code></pre>
 							<p class="wb-inv">Fin du code</p>
 	
-						<p>Certains systèmes d’exploitation animent l’élément <code>&lt;progress&gt;</code>, ce qui contrevient au critère de succès&nbsp;2.2.2 des WCAG&nbsp;: Pause, Stop, Masquer. Vous pouvez arrêter l’animation en utilisant un style personnalisé avec les CSS spécifiques au navigateur, comme illustré ci-dessous.</p>
+						<p>Certains systèmes d’exploitation animent l’élément <code lang="en-CA">&lt;progress&gt;</code>, ce qui contrevient au critère de succès&nbsp;2.2.2 des WCAG&nbsp;: Pause, Stop, Masquer. Vous pouvez arrêter l’animation en utilisant un style personnalisé avec les CSS spécifiques au navigateur, comme illustré ci-dessous.</p>
 
-<p class="lang-label">CSS:</p>
+<p class="lang-label small">CSS</p>
 		<p class="wb-inv">Début du code</p>
-<pre><code class="language-css">/* Microsoft IE */ 
+<pre class="mrgn-tp-0"><code class="language-css">/* Microsoft IE */ 
 progress {  
    color: #036;
 }
@@ -153,7 +154,7 @@ progress::-moz-progress-bar {
 
 
 						<h3>Approche&nbsp;4&nbsp;: Utilisation d’un indicateur étape par étape</h3>
-						<p>Un indicateur étape par étape peut aider les utilisateurs à s’orienter dans un processus par étapes. Cet exemple utilise une liste ordonnée dont chaque étape est un élément de la liste. Le texte visuellement masqué, hors écran, mais encore rencontré par un technicien d’assistance, indique l’état actuel et l’état terminé des étapes (la classe WET <code>.wb-inv</code> masque visuellement le texte). Les étapes précédentes sont liées afin que les utilisateurs puissent les réviser. Toutes les données déjà entrées à l’étape en cours devraient être sauvegardées. </p>
+						<p>Un indicateur étape par étape peut aider les utilisateurs à s’orienter dans un processus par étapes. Cet exemple utilise une liste ordonnée dont chaque étape est un élément de la liste. Le texte visuellement masqué, hors écran, mais encore rencontré par un technicien d’assistance, indique l’état actuel et l’état terminé des étapes (la classe WET <code lang="en-CA">.wb-inv</code> masque visuellement le texte). Les étapes précédentes sont liées afin que les utilisateurs puissent les réviser. Toutes les données déjà entrées à l’étape en cours devraient être sauvegardées. </p>
 
 					
 						<div class="panel panel-primary mrgn-tp-md">
@@ -276,14 +277,14 @@ progress::-moz-progress-bar {
 									</div> 
 								</div>
 								
-								<p class="wb-inv">Fin de l'exemple</p>
+								<p class="wb-inv">L'exemple finit</p>
 							</div> 
 						</div>
 								
 
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;div class="tlwrapper"&gt;
+<pre class="mrgn-tp-0"><code class="language-html">&lt;div class="tlwrapper"&gt;
    &lt;ol class="timeline"&gt;
       &lt;li class="timeline-past"&gt;
          &lt;span class="wb-inv"&gt;Terminé :&lt;/span&gt;
@@ -300,9 +301,9 @@ progress::-moz-progress-bar {
 &lt;/div&gt;</code>
 </pre>
 <p class="wb-inv">Fin du code</p>
-<p class="lang-label">CSS:</p>
+<p class="lang-label small">CSS</p>
 		<p class="wb-inv">Début du code</p>
-<pre><code class="language-css">.wb-inv {
+<pre class="mrgn-tp-0"><code class="language-css">.wb-inv {
    clip: rect(1px,1px,1px,1px);
    height: 1px;
    margin: 0;
@@ -323,11 +324,11 @@ progress::-moz-progress-bar {
 			    <h2 class="text-success mrgn-tp-0 h3" id="steps-form"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Formulaire des étapes de la BOEW</h2>
 				<p>Le <a href="https://wet-boew.github.io/v4.0-ci/demos/stepsform/stepsform-fr.html">Formulaire des étapes de la BOEW (exemple)</a> est un formulaire à étapes multiples de même page. La <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/stepsform/stepsform-fr.html">Documentation du formulaire des étapes</a> décrit les exigences en matière de balisage des saisies. </p>
 				<p>Les étapes du formulaire de la BOEW n’appuient pas encore les étapes facultatives au moyen d’un bouton «&nbsp;sauter&nbsp;».</p>
-				<p>Vous définissez chaque étape au sein d’un élément <code>&lt;fieldset&gt;</code> et vous la nommez avec un élément <code>&lt;legend&gt;</code> emboîté.  Puis, imbriquez les éléments de formulaire dans un élément <code>&lt;div&gt;</code> à l’intérieur de <code>&lt;fieldset&gt;</code>. Vous placez les éléments de formulaire de l'étape dans un <code>&lt;div&gt;</code> suivant la <code>&lt;legend&gt;</code>.</p>
+				<p>Vous définissez chaque étape au sein d’un élément <code lang="en-CA">&lt;fieldset&gt;</code> et vous la nommez avec un élément <code lang="en-CA">&lt;legend&gt;</code> emboîté.  Puis, imbriquez les éléments de formulaire dans un élément <code lang="en-CA">&lt;div&gt;</code> à l’intérieur de <code lang="en-CA">&lt;fieldset&gt;</code>. Vous placez les éléments de formulaire de l'étape dans un <code lang="en-CA">&lt;div&gt;</code> suivant la <code lang="en-CA">&lt;legend&gt;</code>.</p>
 				<!-- <p>Il s’agit de la structure de base, sans son enveloppe de balisage HTML&nbsp;:</p> -->
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;fieldset&gt;
+<pre class="mrgn-tp-0"><code class="language-html">&lt;fieldset&gt;
    &lt;legend&gt;Coordonnées&lt;/legend&gt;
    &lt;div&gt;(Les éléments du formulaire vont ici, masqués lorsqu’ils sont inactifs.)&lt;/div&gt;
 &lt;/fieldset&gt;
@@ -337,7 +338,7 @@ progress::-moz-progress-bar {
 &lt;/fieldset&gt;</code>
 </pre>
 <p class="wb-inv">Fin du code</p>
-						<p>Le JavaScript masque la <code>&lt;div&gt;</code> lorsque l’étape n’est pas sélectionnée. JavaScript ajoute également les boutons de navigation «&nbsp;suivant&nbsp;» et «&nbsp;précédent&nbsp;», qui déclenche la validation au clic.</p>
+						<p>Le JavaScript masque la <code lang="en-CA">&lt;div&gt;</code> lorsque l’étape n’est pas sélectionnée. JavaScript ajoute également les boutons de navigation «&nbsp;suivant&nbsp;» et «&nbsp;précédent&nbsp;», qui déclenche la validation au clic.</p>
 					</div>
 					</div>
 			</section>
@@ -351,19 +352,19 @@ progress::-moz-progress-bar {
                         <p class="mrgn-tp-md">En anglais seulement.</p>
 					<h3>Critères de succès</h3>
 					<ul>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1: Info and Relationships</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable">2.2.1: Timing Adjustable</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions">3.3.2: Labels or Instructions</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships" lang="en-CA">1.3.1: Info and Relationships</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable" lang="en-CA">2.2.1: Timing Adjustable</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions" lang="en-CA">3.3.2: Labels or Instructions</a></li>
 
 					</ul>
 					<h3>Techniques</h3>
 					<ul>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G133">G133: Providing a checkbox on the first page of a multipart form that allows users to ask for longer session time limit or no session time limit	</a></li>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G180">G180: Providing the user with a means to set the time limit to 10 times the default time limit	</a></li>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G198">G198: Providing a way for the user to turn the time limit off	</a></li>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H71">H71: Providing a description for groups of form controls using fieldset and legend elements	</a></li>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR1">SCR1: Allowing the user to extend the default time limit	</a></li>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR16">SCR16: Providing a script that warns the user a time limit is about to expire	</a></li>							
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G133" lang="en-CA">G133: Providing a checkbox on the first page of a multipart form that allows users to ask for longer session time limit or no session time limit	</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G180" lang="en-CA">G180: Providing the user with a means to set the time limit to 10 times the default time limit	</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G198" lang="en-CA">G198: Providing a way for the user to turn the time limit off	</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H71" lang="en-CA">H71: Providing a description for groups of form controls using fieldset and legend elements	</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR1" lang="en-CA">SCR1: Allowing the user to extend the default time limit	</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR16" lang="en-CA">SCR16: Providing a script that warns the user a time limit is about to expire	</a></li>							
 					</ul>
 					
 

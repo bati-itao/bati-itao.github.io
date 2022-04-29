@@ -23,7 +23,8 @@
          <link rel="stylesheet" href="../../../css/a11y-dark.css">
          <script src="../../../scripts/highlight.min.js"></script>
          <script>hljs.highlightAll();</script>
-      </head>
+      	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
       <body vocab="https://schema.org/" typeof="WebPage">
          <div id="def-top">
          </div>
@@ -80,16 +81,16 @@
                      <h2 id="masquer-un-contenu">Masquer un contenu</h2>
                      <p>Il peut l’être pour trois groupes d’utilisateurs :</p>
                      <ul>
-                        <li>pour tous, en utilisant la déclaration <code>display:none</code> ou <code>visibility:hidden</code> de CSS;</li>
-                        <li>pour les utilisateurs d’une technologie d’aide, au moyen de l’attribut <code>aria-hidden="true"</code> pour supprimer l’élément de l’API d’accessibilité;</li>
-                        <li>pour les utilisateurs voyants, par l’entremise de la classe <code>.wb-inv</code> de CSS de la BOEW pour masquer le contenu.</li>
+                        <li>pour tous, en utilisant la déclaration <code lang="en-CA">display:none</code> ou <code lang="en-CA">visibility:hidden</code> de CSS;</li>
+                        <li>pour les utilisateurs d’une technologie d’aide, au moyen de l’attribut <code lang="en-CA">aria-hidden="true"</code> pour supprimer l’élément de l’API d’accessibilité;</li>
+                        <li>pour les utilisateurs voyants, par l’entremise de la classe <code lang="en-CA">.wb-inv</code> de CSS de la BOEW pour masquer le contenu.</li>
                      </ul>
                      <p>Lorsque vous masquez du contenu inactif, comme les fenêtres modales non déclenchées et les sous-menus non sélectionnés, vous devez le masquer pour tous les utilisateurs. Les développeurs introduisent fréquemment un obstacle en dissimulant visuellement ce contenu hors écran par l’entremise du positionnement CSS, ce qui laisse le contenu affiché à l’API d’accessibilité, où les utilisateurs des lecteurs d’écran et d’autres personnes le voient. S’il faut le masquer pour les utilisateurs voyants, il doit également l’être pour les utilisateurs de lecteurs d’écran.</p>
-                     <p>Utilisez l’attribut <code>aria-hidden</code> avec prudence et uniquement pour améliorer l’expérience des utilisateurs de technologies d’aide en éliminant l’information redondante ou superflue. Si vous utilisez <code>aria-hidden</code> pour masquer un contenu visible important, vous devez vous assurer que la signification et les fonctionnalités identiques ou équivalentes sont exposées aux technologies d’aide.</p>
+                     <p>Utilisez l’attribut <code lang="en-CA">aria-hidden</code> avec prudence et uniquement pour améliorer l’expérience des utilisateurs de technologies d’aide en éliminant l’information redondante ou superflue. Si vous utilisez <code lang="en-CA">aria-hidden</code> pour masquer un contenu visible important, vous devez vous assurer que la signification et les fonctionnalités identiques ou équivalentes sont exposées aux technologies d’aide.</p>
                      <p>Le texte masqué visuellement peut :</p>
                      <ul>
                         <li>fournir un nom où les étiquettes ARIA ne fonctionnent pas parce que l’élément n’est pas sélectionné. Ce cas est illustré dans l’exemple du contenu généré par une CSS à la section précédente. La même approche s’appliquerait à une image d’arrière-plan en CSS ayant besoin d’un nom; par exemple, une liste contenant des logos définis comme images d’arrière-plan de CSS pourrait utiliser un nom masqué visuellement dans chaque élément de liste;</li>
-                        <li>nommer ou préciser le nom des éléments comme solution de rechange aux étiquettes ARIA. Par exemple, sur une page comportant plusieurs liens « En savoir plus », pour distinguer la fonction de chacun d’eux, le texte du titre qui précède est inséré comme élément <code>&lt;span&gt;</code> masqué dans le texte du lien.</li>
+                        <li>nommer ou préciser le nom des éléments comme solution de rechange aux étiquettes ARIA. Par exemple, sur une page comportant plusieurs liens « En savoir plus », pour distinguer la fonction de chacun d’eux, le texte du titre qui précède est inséré comme élément <code lang="en-CA">&lt;span&gt;</code> masqué dans le texte du lien.</li>
                      </ul>
                      <div class="panel panel-success mrgn-tp-lg">
 						<div class="panel-body">
@@ -118,9 +119,9 @@
 							</div>
 							
 
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;h3 class="mrgn-tp-0"&gt;Comment présenter une demande&lt;/h3&gt;
+<pre class="mrgn-tp-0"><code class="language-html">&lt;h3 class="mrgn-tp-0"&gt;Comment présenter une demande&lt;/h3&gt;
 &lt;p&gt;[Paragraphe d’accroche.]&lt;/p&gt;
 &lt;a href="article/how-to-apply.html"&gt;
    &lt;span class="wb-inv"&gt;Comment présenter une demande&lt;/span&gt; 
@@ -128,9 +129,9 @@
 &lt;/a&gt;
 </code></pre>
 							<p class="wb-inv">Fin du code</p>
-<p class="lang-label">CSS:</p>
+<p class="lang-label small">CSS</p>
 		<p class="wb-inv">Début du code</p>
-<pre><code class="language-css">.wb-inv {
+<pre class="mrgn-tp-0"><code class="language-css">.wb-inv {
    clip: rect(1px,1px,1px,1px);
    height: 1px;
    margin: 0;
