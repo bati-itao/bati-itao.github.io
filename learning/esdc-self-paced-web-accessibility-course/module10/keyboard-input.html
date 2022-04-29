@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -134,9 +135,9 @@
 				</ul>
 				<h3 id="onclick-event-of-anchors-button">Use the onclick event of anchors and buttons</h3>
 				<p>To ensure keyboard users can invoke a scripting function, use native HTML links and buttons with the <code>onclick</code> event. The <code>onclick</code> event of both elements is device independent: it maps to a mouse click and the Enter and Spacebar keys.</p>
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;button onclick="doStuff();"&gt;Do stuff&lt;/button&gt;
+<pre class="mrgn-tp-0"><code class="language-html">&lt;button onclick="doStuff();"&gt;Do stuff&lt;/button&gt;
 &lt;script&gt;
    function doStuff () {
       alert('Button clicked');
@@ -144,9 +145,9 @@
 &lt;/script&gt;</code></pre>
 				<p class="wb-inv">Code ends</p>
 				<p>A submit button inside a <code>&lt;form&gt;</code> does not require an event handler. In both the following cases, pressing the submit button will submit the parent form without the need for handling the <code>onclick</code> event separately. Here, the form’s <code>onsubmit</code> value triggers validation.</p>
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;form onsubmit="handle_form_submission()"&gt;
+<pre class="mrgn-tp-0"><code class="language-html">&lt;form onsubmit="handle_form_submission()"&gt;
    […]
    &lt;input type="submit" name="submit" value="Post your reply" /&gt;
    Or:
@@ -241,9 +242,9 @@
 							</div>
 						</div>
 						
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;a href="menu.php" 
+<pre class="mrgn-tp-0"><code class="language-html">&lt;a href="menu.php" 
    onmouseover="swapImageOn('menu')" 
    onfocus="swapImageOn('menu')" 
    onmouseout="swapImageOff('menu')" 
@@ -270,13 +271,13 @@
 								
 							</div>
 						</div>
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;img class="img-link" onclick="goToLink(event, 'index.html')" src="arrow.gif" alt="Next page"&gt;</code></pre>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;img class="img-link" onclick="goToLink(event, 'index.html')" src="arrow.gif" alt="Next page"&gt;</code></pre>
 						<p class="wb-inv">Code ends</p>
-<p class="lang-label">CSS:</p>
+<p class="lang-label small">CSS</p>
 		<p class="wb-inv">Code begins</p>
-<pre><code class="language-css">.img-link:hover { cursor: pointer; }</code></pre>
+<pre class="mrgn-tp-0"><code class="language-css">.img-link:hover { cursor: pointer; }</code></pre>
 						<p class="wb-inv">Code ends</p>
 					</div>
 				</div>
@@ -350,9 +351,9 @@
 							</div>
 						</div>
 								
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;label for="newName"&gt;Add a name&lt;/label&gt;j
+<pre class="mrgn-tp-0"><code class="language-html">&lt;label for="newName"&gt;Add a name&lt;/label&gt;j
 &lt;input type="text" id="newName"&gt;
 &lt;span role="button" tabindex="0" onclick="handleCommand(event)" onKeyDown="handleCommand(event)"&gt;Add name&lt;/span&gt;
 &lt;ul id="nameList"&gt;&lt;/ul&gt;</code></pre>
@@ -421,9 +422,9 @@
 					<div class="panel-body">
 						<h3 class="text-danger mrgn-tp-0 h3" id="bad-example-javascript-focus"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: JavaScript focus() traps the keyboard user</h3>
 						<p>This example illustrates the keyboard trap dangers of using the JavaScript <code>focus()</code> method. The form input field here uses the <code>onblur</code> event, which is triggered when focus leaves the element. When the keyboard user presses the Tab key to move focus away from the input field, the <code>onblur</code> event kicks in and sets focus back on the input field, trapping the user.</p>
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;label for="lastname"&gt;Last name&lt;/label&gt;
+<pre class="mrgn-tp-0"><code class="language-html">&lt;label for="lastname"&gt;Last name&lt;/label&gt;
 &lt;input id="lastname" type="text" value="" class="trap" onblur="this.focus();"&gt;</code></pre>
 						<p class="wb-inv">Code ends</p>
 					</div>
@@ -432,15 +433,15 @@
 					<div class="panel-body">
 						<h3 class="text-danger mrgn-tp-0 h3" id="bad-example-javascript-keydown"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: JavaScript keydown() and event.preventDefault() trap the keyboard user</h3> 
 						<p>This example illustrates the keyboard trap dangers of a JavaScript key press event. The JavaScript function makes no effort to detect which key has been pressed (it should identify the Enter key), so it will trigger when <em>any</em> key is pressed. Furthermore, the default action associated with any key press is prevented with <code>event.preventDefault()</code>. Consequently, when a user attempts to move focus away from the link by pressing the Tab key, the <code>keydown</code> event fires, the default action of the Tab key (moving focus to the next focusable element) is prevented, focus remains on the link, and a new window opens. The keyboard user is trapped. Even pressing the Ctrl + Alt + Delete keys in Windows to bring up the Task Manager will fail, simply launching more windows in response to the keydown event. The user's computer is hijacked, and unless a colleague or friend can move focus away from the element with a mouse, the user is forced to restart the computer.</p>
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;span class="trap link" role="link" tabindex="0" data-href="some-page.html"&gt;
+<pre class="mrgn-tp-0"><code class="language-html">&lt;span class="trap link" role="link" tabindex="0" data-href="some-page.html"&gt;
    Some page
 &lt;/a&gt;</code></pre>
 				<p class="wb-inv">Code ends</p>
-				<p class="lang-label">JavaScript:</p>
+				<p class="lang-label small">JavaScript</p>
 				<p class="wb-inv">Code begins</p>
-<pre class="mrgn-tp-md"><code class="language-javascript">$(document).ready(function(){   
+<pre class="mrgn-tp-0"><code class="language-javascript">$(document).ready(function(){   
    $('span.trap').keydown(function(event){ 
       event.preventDefault();
       var href = $(this).attr('data-href');        
@@ -497,9 +498,9 @@
 						<p>In this example, a single-page web application uses JavaScript to load a full article inside the <code>&lt;main&gt;</code> element, without a page load. Links in the navigation menu trigger the content load. This example has just a few menu items, but sites often have lengthy menus. Moving the focus spares keyboard users of single-page apps the tedious task of tabbing through a menu to get at the main content.</p>
 						<p>The <code>&lt;h1&gt;</code> heading on each page has a <code>tabindex="-1"</code> attribute, to enable it to be targeted by scripts. The JavaScript identifies the <code>&lt;h1&gt;</code> with a query selector and sets focus on it. The script also updates the page’s <code>&lt;title&gt;</code> element to match the heading text. </p>
 						<p>The JavaScript’s first use should be triggered via the menu, not on page load. Screen reader users’ initial interaction with the page should start at the top, as usual.</p>
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;nav&gt; 
+<pre class="mrgn-tp-0"><code class="language-html">&lt;nav&gt; 
    &lt;a href="/"&gt;Home&lt;/a&gt; 
    &lt;a href="/policies"&gt;Policies&lt;/a&gt; 
    &lt;a href="/practices"&gt;Practices&lt;/a&gt; 
@@ -510,9 +511,9 @@
           // rest of injected content ... 
 &lt;/main&gt;</code></pre>
 						<p class="wb-inv">Code ends</p>
-						<p class="lang-label">JavaScript:</p>
+						<p class="lang-label small">JavaScript</p>
 						<p class="wb-inv">Code begins</p>
-<pre><code class="language-javascript">// This gets called every time new content loads:  
+<pre class="mrgn-tp-0"><code class="language-javascript">// This gets called every time new content loads:  
 function onNewPage() { 
    var heading = document.querySelector('h1'); 
    heading.focus(); 
@@ -529,9 +530,9 @@ function onNewPage() {
 						<ul>
 							<li>launches an ARIA dialog widget holding the transcript, and </li>
 							<li>moves focus to the first button inside the dialog, the user preferences button <img src="images/image5.png" alt="">:
-								<p class="lang-label">JavaScript:</p>
+								<p class="lang-label small">JavaScript</p>
 								<p class="wb-inv">Code begins</p>
-<pre><code class="language-javascript">this.$transcriptArea.find('button').first().focus();</code></pre>
+<pre class="mrgn-tp-0"><code class="language-javascript">this.$transcriptArea.find('button').first().focus();</code></pre>
 								<p class="wb-inv">Code ends</p>
 							</li>
 						</ul> 

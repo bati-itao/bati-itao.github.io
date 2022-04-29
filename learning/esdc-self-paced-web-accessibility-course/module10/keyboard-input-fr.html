@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -134,9 +135,9 @@
 				</ul>
 				<h3>Utiliser l’événement onclick des ancrages et des boutons</h3>
 				<p>Pour s’assurer que les utilisateurs du clavier puissent invoquer un script, utiliser des liens et des boutons HTML natifs avec l’événement <code lang="en-CA">onclick</code>. L’événement <code lang="en-CA">onclick</code> des deux éléments est indépendant du dispositif de saisie&nbsp;: il est lié à un clic de souris, à la touche Entrée et à la barre d’espacement.</p>
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;button onclick="doStuff();"&gt;Do stuff&lt;/button&gt;
+<pre class="mrgn-tp-0"><code class="language-html">&lt;button onclick="doStuff();"&gt;Do stuff&lt;/button&gt;
 &lt;script&gt;
    function doStuff () {
       alert('Button clicked');
@@ -144,9 +145,9 @@
 &lt;/script&gt;</code></pre>
 				<p class="wb-inv">Fin du code</p>
 				<p>Un bouton d’envoi situé à l’intérieur d’un formulaire<code lang="en-CA">&lt;form&gt;</code> ne nécessite pas de gestionnaire d’événement. Dans les deux cas suivants, la sélection du bouton d’envoi transmet le formulaire parent sans nécessiter le traitement séparé de l’événement <code lang="en-CA">onclick</code>. Ici, la valeur <code lang="en-CA">onsubmit</code> du formulaire déclenche la validation.</p>
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;form onsubmit="handle_form_submission()"&gt;
+<pre class="mrgn-tp-0"><code class="language-html">&lt;form onsubmit="handle_form_submission()"&gt;
    […]
    &lt;input type="submit" name="submit" value="Post your reply" /&gt;
    Or:
@@ -241,9 +242,9 @@
 								<p class="wb-inv">L'exemple finit</p>
 							</div>
 						</div>
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;a href="menu.php" 
+<pre class="mrgn-tp-0"><code class="language-html">&lt;a href="menu.php" 
    onmouseover="swapImageOn('menu')" 
    onfocus="swapImageOn('menu')" 
    onmouseout="swapImageOff('menu')" 
@@ -270,13 +271,13 @@
 								<p class="wb-inv">L'exemple finit</p>
 							</div>
 						</div>
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;img src="images/image1.png" class="img-link img-responsive" alt="Page suivante" onclick="window.location.href='index-fr.html')">&gt;</code></pre>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;img src="images/image1.png" class="img-link img-responsive" alt="Page suivante" onclick="window.location.href='index-fr.html')">&gt;</code></pre>
 						<p class="wb-inv">Fin du code</p>
-<p class="lang-label">CSS:</p>
+<p class="lang-label small">CSS</p>
 		<p class="wb-inv">Début du code</p>
-<pre><code class="language-css">.img-link:hover { cursor: pointer; }</code></pre>
+<pre class="mrgn-tp-0"><code class="language-css">.img-link:hover { cursor: pointer; }</code></pre>
 						<p class="wb-inv">Fin du code</p>
 					</div>
 				</div>
@@ -351,9 +352,9 @@
 							</div>
 						</div>
 								
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;label for="newName"&gt;Ajouter un nom&lt;/label&gt;j
+<pre class="mrgn-tp-0"><code class="language-html">&lt;label for="newName"&gt;Ajouter un nom&lt;/label&gt;j
 &lt;input type="text" id="newName"&gt;
 &lt;span role="button" tabindex="0" onclick="handleCommand(event)" onKeyDown="handleCommand(event)"&gt;Ajouter nom&lt;/span&gt;
 &lt;ul id="nameList"&gt;&lt;/ul&gt;</code></pre>
@@ -422,9 +423,9 @@
 					<div class="panel-body">
 						<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span> Mauvais exemple&nbsp;: JavaScript focus() piège l’utilisateur du clavier</h3>
 						<p>Cet exemple illustre les dangers du piège à clavier que représente l'utilisation de la méthode JavaScript <code lang="en-CA">focus()</code>. Le champ de saisie du formulaire utilise ici l'événement <code lang="en-CA"></code>onblur</code>, qui est déclenché lorsque le focus quitte l'élément. Lorsque l'utilisateur du clavier appuie sur la touche Tab pour déplacer le focus du champ de saisie, l'événement <code lang="en-CA">onblur</code> se déclenche et remet le focus sur le champ de saisie, piégeant ainsi l'utilisateur.</p>
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;label for="lastname"&gt;Last name&lt;/label&gt;
+<pre class="mrgn-tp-0"><code class="language-html">&lt;label for="lastname"&gt;Last name&lt;/label&gt;
 &lt;input id="lastname" type="text" value="" class="trap" onblur="this.focus();"&gt;</code></pre>
 						<p class="wb-inv">Fin du code</p>
 					</div>
@@ -434,15 +435,15 @@
 						<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais exemple&nbsp;: JavaScript keydown() et event.preventDefault() piègent l’utilisateur du clavier</h3> 
 						<p>Cet exemple illustre les dangers du piège à clavier que représente un événement keypress JavaScript. La fonction JavaScript ne fait aucun effort pour détecter quelle touche a été enfoncée (elle devrait identifier la touche Entrée), elle se déclenche donc lorsque <em>n'importe quelle</em> touche est enfoncée. En outre, l'action par défaut associée à toute pression sur une touche est empêchée par <code lang="en-CA">event.preventDefault()</code>. Par conséquent, lorsqu'un utilisateur tente de déplacer le focus du lien en appuyant sur la touche Tab, l'événement <code lang="en-CA">keydown</code> se déclenche, l'action par défaut de la touche Tab (déplacement du focus vers l'élément suivant sur lequel le focus est possible) est empêchée, le focus reste sur le lien et une nouvelle fenêtre s'ouvre. L'utilisateur du clavier est pris au piège. Même le fait d'appuyer sur les touches Ctrl + Alt + Suppr dans Windows pour faire apparaître le gestionnaire de tâches échouera, car d'autres fenêtres seront simplement lancées en réponse à l'événement de frappe. L'ordinateur de l'utilisateur est détourné et, à moins qu'un collègue ou un ami ne puisse déplacer le focus de l'élément avec une souris, l'utilisateur est obligé de redémarrer l'ordinateur. </p>
 
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;span class="trap link" role="link" tabindex="0" data-href="some-page.html"&gt;
+<pre class="mrgn-tp-0"><code class="language-html">&lt;span class="trap link" role="link" tabindex="0" data-href="some-page.html"&gt;
    Une page
 &lt;/a&gt;</code></pre>
 				<p class="wb-inv">Fin du code</p>
-				<p class="lang-label">JavaScript:</p>
+				<p class="lang-label small">JavaScript</p>
 				<p class="wb-inv">Début du code</p>
-<pre class="mrgn-tp-md"><code class="language-javascript">$(document).ready(function(){   
+<pre class="mrgn-tp-0"><code class="language-javascript">$(document).ready(function(){   
    $('span.trap').keydown(function(event){ 
       event.preventDefault();
       var href = $(this).attr('data-href');        
@@ -499,9 +500,9 @@
 						<p>Dans cet exemple, une application Web monopage utilise JavaScript pour charger un article complet à l’intérieur de l’élément <code lang="en-CA">main</code>, sans chargement de la page. Les liens dans le menu de navigation déclenchent le chargement du contenu. Cet exemple ne comporte que quelques éléments de menu, mais les sites ont souvent des menus bien plus longs. Le déplacement de la cible est vite à un utilisateur de clavier la tâche fastidieuse de parcourir un menu avec la touche de tabulation pour accéder au contenu principal d’une application d’une seule page.</p>
 						<p>L’en-tête <code lang="en-CA">&lt;h1&gt;</code> de chaque page comporte l’attribut <code lang="en-CA">tabindex="-1"</code> qui permet le ciblage par les scripts. JavaScript identifie l’en-tête <code lang="en-CA">&lt;h1&gt;</code> au moyen d’un sélecteur de requête et pose la cible sur lui. Le script met également à jour l’élément <code lang="en-CA">&lt;title&gt;</code> de la page pour qu’il corresponde au texte de l’en-tête. </p>
 						<p>La première utilisation de JavaScript devrait être déclenchée par le menu et non par le chargement de la page. L’interaction initiale d’un utilisateur de lecteur d’écran avec la page devrait commencer par le haut, comme d’habitude.</p>
-<p class="lang-label">HTML:</p>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
-<pre><code class="language-html">&lt;nav&gt; 
+<pre class="mrgn-tp-0"><code class="language-html">&lt;nav&gt; 
    &lt;a href="/"&gt;Accueil&lt;/a&gt; 
    &lt;a href="/policies"&gt;Politiques&lt;/a&gt; 
    &lt;a href="/practices"&gt;Pratiques&lt;/a&gt; 
@@ -512,9 +513,9 @@
           // reste du contenu inject&eacute; ... 
 &lt;/main&gt;</code></pre>
 						<p class="wb-inv">Fin du code</p>
-						<p class="lang-label">JavaScript:</p>
+						<p class="lang-label small">JavaScript</p>
 						<p class="wb-inv">Début du code</p>
-<pre><code class="language-javascript">// Cela est appel&eacute; chaque fois que du nouveau contenu est charg&eacute; :  
+<pre class="mrgn-tp-0"><code class="language-javascript">// Cela est appel&eacute; chaque fois que du nouveau contenu est charg&eacute; :  
 function onNewPage() { 
    var heading = document.querySelector('h1'); 
    heading.focus(); 
@@ -532,9 +533,9 @@ function onNewPage() {
 						<ul>
 							<li>lance un widget de dialogue ARIA contenant la transcription, et</li>
 							<li> déplace le focus sur le premier bouton de la boîte de dialogue, celui des préférences de l'utilisateur. <img src="images/image5.png" alt="">:
-								<p class="lang-label">JavaScript:</p>
+								<p class="lang-label small">JavaScript</p>
 								<p class="wb-inv">Début du code</p>
-<pre><code class="language-javascript">this.$transcriptArea.find('button').first().focus();</code></pre>
+<pre class="mrgn-tp-0"><code class="language-javascript">this.$transcriptArea.find('button').first().focus();</code></pre>
 								<p class="wb-inv">Fin du code</p>
 							</li>
 						</ul> 
