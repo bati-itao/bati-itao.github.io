@@ -251,7 +251,7 @@ progress::-moz-progress-bar {
 				
 											<li class="timeline-past"> 
 					
-												<span class="visuallyhidden">Completed: </span> 
+												<span class="wb-inv">Completed: </span> 
 						
 												<a href="billing.html">Billing Address</a>  
 					
@@ -259,7 +259,7 @@ progress::-moz-progress-bar {
 					
 											<li class="timeline-current">  
 					
-												<span class="visuallyhidden">Current: </span>  
+												<span class="wb-inv">Current: </span>  
 						
 												<span>Shipping Address</span>  
 					
@@ -300,18 +300,105 @@ progress::-moz-progress-bar {
 &lt;/div&gt;</code>
 </pre>
 <p class="wb-inv">Code ends</p>
-<p class="lang-label small">CSS</p>
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">View CSS</summary>
 		<p class="wb-inv">Code begins</p>
-<pre class="mrgn-tp-0"><code class="language-css">.wb-inv {
+<pre class="mrgn-tp-md"><code class="language-css">.wb-inv {
    clip: rect(1px,1px,1px,1px);
    height: 1px;
    margin: 0;
    overflow: hidden;
    position: absolute;
    width: 1px;
-}</code>
+}
+.box-content {
+   font-size: .7em;
+   overflow: auto;
+   padding: .5em;
+}
+.tlwrapper {
+   display: table;
+   width: 100%;
+}
+.timeline {
+   display: table-row;
+   counter-reset: timeline;
+}
+.timeline li.timeline-past {
+   background-color: #ccc;
+}
+.timeline li:first-child {
+   padding-left: 0;
+}
+.timeline li {
+   display: table-cell;
+   width: 20%;
+   counter-increment: timeline;
+   list-style: none;
+   text-align: center;
+   padding: .25em .5em;
+   overflow: hidden;
+   position: relative;
+   background-color: #fff;
+   padding-left: 25px;
+   white-space: nowrap;
+}
+.timeline li.timeline-current > span, 
+.timeline li.timeline-current a {
+   color: #036;
+   font-weight: bold;
+}
+.timeline li a, .timeline li > span {
+   z-index: 100;
+   position: relative;
+   display: block;
+   color: #555;
+}
+.timeline li.timeline-current > span:before {
+   color: #fff;
+   background-color: #036;
+   border-color: #036;
+}
+.timeline li a:before, 
+.timeline li > span:before {
+   display: inline-block;
+   color: #555;
+   content: counter(timeline);
+   background-color: none;
+   border: 3px solid #555;
+   margin-right: .25em;
+   border-radius: 5px;
+   padding: 0 .25em;
+}
+.timeline li:after {
+   left: 0;
+   top: 50%;
+   border: solid transparent;
+   content: " ";
+   height: 0;
+   width: 0;
+   position: absolute;
+   pointer-events: none;
+   border-color: rgba(151, 204, 237, 0);
+   border-left-color: #ccc;
+   border-width: 20px;
+   margin-top: -20px;
+}</code></pre>
+					<p class="wb-inv">Code ends</p>
+				</details>
+				<h4>Alternative approach: Using aria-current="step"</h4>
+				<p>This alternative replaces the visually-hidden text "Current" with an <code>aria-current="step"</code> attribute applied to the parent <code>&lt;li&gt;</code> element. Screen readers declare "current step" in addition to the list item text. User agent support for <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-current">aria-current</a> when applied to a non-focusable element like <code>&lt;li&gt;</code> (as opposed to controls) is an open question. Visually-hidden text, on the other hand, is universally supported.</p>
+
+				<p class="lang-label small">HTML</p>
+				<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">[&hellip;]
+   &lt;li class="timeline-current" aria-current="step"&gt;
+      &lt;span&gt;Shipping Address&lt;/span&gt;
+   &lt;/li&gt;
+[&hellip;]</code>
 </pre>
-<p class="wb-inv">Code ends</p>
+				<p class="wb-inv">Code ends</p>
+
 			</section>
 			
 			<section>
