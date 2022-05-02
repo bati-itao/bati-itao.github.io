@@ -57,7 +57,106 @@
             }],
             "menuPath": "../../../ajax/menu-fr.html"
         });
+
+$(function(){
+
+  
+	var getTextNodesIn = function(el) { // Look at all the page elements and returns the text nodes
+	    return $(el).find(":not(iframe,script)").addBack().contents().filter(function() {
+	        return this.nodeType == 3; // Text node types are type 3
+	    });
+	};
+
+	// var textNodes = getTextNodesIn($("p, h1, h2, h3","*"));
+	var textNodes = getTextNodesIn($(".dyslexiaSim p"));
+
+	function isLetter(char) {
+		return /^[\d]$/.test(char);
+	}
+
+	var wordsInTextNodes = [];
+	for (var i = 0; i < textNodes.length; i++) {
+		var node = textNodes[i];
+
+		var words = []
+
+		var re = /\w+/g;
+		var match;
+		while ((match = re.exec(node.nodeValue)) != null) {
+
+			var word = match[0];
+			var position = match.index;
+
+			words.push({
+				length: word.length,
+				position: position
+			});
+		}
+
+		wordsInTextNodes[i] = words;
+	};
+
+	function messUpWords () {
+
+		for (var i = 0; i < textNodes.length; i++) {
+
+			var node = textNodes[i];
+
+			for (var j = 0; j < wordsInTextNodes[i].length; j++) {
+
+				// Only change a tenth of the words each round.
+				if (Math.random() > 1/10) {
+
+					continue;
+				}
+
+				var wordMeta = wordsInTextNodes[i][j];
+
+				var word = node.nodeValue.slice(wordMeta.position, wordMeta.position + wordMeta.length);
+				var before = node.nodeValue.slice(0, wordMeta.position);
+				var after  = node.nodeValue.slice(wordMeta.position + wordMeta.length);
+
+				node.nodeValue = before + messUpWord(word) + after;
+			};
+		};
+	}
+
+	function messUpWord (word) {
+
+		if (word.length < 3) {
+
+			return word;
+		}
+
+		return word[0] + messUpMessyPart(word.slice(1, -1)) + word[word.length - 1];
+	}
+
+	function messUpMessyPart (messyPart) {
+
+		if (messyPart.length < 2) {
+
+			return messyPart;
+		}
+
+		var a, b;
+		while (!(a < b)) {
+
+			a = getRandomInt(0, messyPart.length - 1);
+			b = getRandomInt(0, messyPart.length - 1);
+		}
+
+		return messyPart.slice(0, a) + messyPart[b] + messyPart.slice(a+1, b) + messyPart[a] + messyPart.slice(b+1);
+	}
+
+	// From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+	function getRandomInt(min, max) {
 		
+		return Math.floor(Math.random() * (max - min + 1) + min);
+	}
+
+
+	setInterval(messUpWords, 150);
+});		
     </script>
 <div class="container">
 <div class="row">
@@ -91,10 +190,10 @@
 					<li>Le W3C définit la cécité comme une «&nbsp;perte de vision importante incorrigible aux deux yeux&nbsp;».</li>
 					<li>Les personnes atteintes de cécité&nbsp;:</li>
 						<ul>
-					<li>utilisent un logiciel de lecture d’écran pour convertir le texte en parole ou en braille ;</li>
-					<li>naviguent dans le concept à l’aide du clavier ;</li>
-					<li>écoutent la description auditive de la vidéo ou lisent la transcription ;</li>
-					<li>se fient à des structures de page HTML codées convenablement (comme des listes, des en-têtes et des tableaux) et à des commandes (comme des liens, des boutons et des commandes de formulaire) pour lire et naviguer dans le concept et exploiter ses fonctions.</li>
+							<li>utilisent un logiciel de lecture d’écran pour convertir le texte en parole ou en braille ;</li>
+							<li>naviguent dans le concept à l’aide du clavier ;</li>
+							<li>écoutent la description auditive de la vidéo ou lisent la transcription ;</li>
+							<li>se fient à des structures de page HTML codées convenablement (comme des listes, des en-têtes et des tableaux) et à des commandes (comme des liens, des boutons et des commandes de formulaire) pour lire et naviguer dans le concept et exploiter ses fonctions.</li>
 						</ul>
 					</li>
 				</ul>
@@ -159,11 +258,11 @@
 				</details>
 				<h3 id="302">Concept visant la cécité</h3>
 				<ul>
-					<li>Fournir des textes alternatifs pour les images ;</li>
-					<li>Fournir des transcriptions descriptives ou une audiodescription pour la vidéo ;</li>
-					<li>Ne pas utiliser la couleur comme seul moyen visuel pour transmettre de l’information ;</li>
-					<li>S’assurer que toutes les fonctions sont utilisables à l’aide d’un clavier ;</li>
-					<li>Baliser le contenu avec une structure et une sémantique appropriée (en-têtes, repères, tableaux, listes, etc.) ;</li>
+					<li>Fournir des textes alternatifs pour les images.</li>
+					<li>Fournir des transcriptions descriptives ou une audiodescription pour la vidéo.</li>
+					<li>Ne pas utiliser la couleur comme seul moyen visuel pour transmettre de l’information.</li>
+					<li>S’assurer que toutes les fonctions sont utilisables à l’aide d’un clavier.</li>
+					<li>Baliser le contenu avec une structure et une sémantique appropriée (en-têtes, repères, tableaux, listes, etc.).</li>
 					<li>Fournir le nom, le rôle et la valeur des commandes personnalisés.</li>
 				</ul>
 			</section>
@@ -192,11 +291,11 @@
 						<img src="images/imageb.jpg" class="img-responsive mrgn-bttm-md" alt="">
 					</li>
 					<li>
-						<p>D’autres personnes pourraient voir le centre de l’image, symptôme souvent appelé «&nbsp;vision en tunnel&nbsp;».</p>
-						<img src="images/imagec.jpg" class="img-responsive mrgn-bttm-md" alt="Seulement un cercle avec un montant eleve de detail est visible, a peu pres 20% le l'image.">
+						<p>D’autres personnes pourraient voir le centre de l’image, symptôme souvent appelé «&nbsp;vision en tunnel&nbsp;» :</p>
+						<img src="images/imagec.jpg" class="img-responsive mrgn-bttm-md" alt="Seulement un cercle avec un montant eleve de detail est visible, a peu pres 10% de l'image.">
 					</li>
 					<li>
-						<p>D’autres personnes pourraient voir les bords de l’image qui troublent la « vision périphérique ».</p>
+						<p>D’autres personnes pourraient voir les bords de l’image qui troublent la « vision périphérique » :</p>
 					
 						<img src="images/imaged.jpg" class="img-responsive mrgn-bttm-md" alt="Environ 20% de l'image au centre est obfusquee par un cercle gris.">
 					</li>
@@ -235,10 +334,10 @@
 					
 				<h3 id="304">Concept visant la malvoyance</h3>
 				<ul>
-					<li>Assurer un contraste suffisant entre le texte et la couleur de fond ;</li>
-					<li>S’assurer que la cible et l’état de survol des liens, des boutons et des autres commandes sont bien visibles ;</li>
-					<li>Établir une distinction visuelle claire entre le contenu (p. ex., le texte) et les commandes (p. ex., les boutons, les liens, etc.) ;</li>
-					<li>Placer les étiquettes près de leurs commandes ;</li>
+					<li>Assurer un contraste suffisant entre le texte et la couleur de fond.</li>
+					<li>S’assurer que la cible et l’état de survol des liens, des boutons et des autres commandes sont bien visibles.</li>
+					<li>Établir une distinction visuelle claire entre le contenu (p. ex., le texte) et les commandes (p. ex., les boutons, les liens, etc.).</li>
+					<li>Placer les étiquettes près de leurs commandes.</li>
 					<li>Utiliser éventuellement la couleur pour aider les utilisateurs à distinguer les différentes zones de la page.</li>
 				</ul>
 			</section>
@@ -280,8 +379,8 @@
 				</div>
 				<h3 id="306">Concept visant le daltonisme</h3>
 				<ul>
-					<li>Assurer un contraste suffisant entre le texte et la couleur de fond ;</li>
-					<li>Ne pas utiliser la couleur comme seul moyen visuel pour transmettre de l’information (p. ex., associer une étiquette textuelle ou introduire un motif de fond en plus de la couleur) ;</li>
+					<li>Assurer un contraste suffisant entre le texte et la couleur de fond.</li>
+					<li>Ne pas utiliser la couleur comme seul moyen visuel pour transmettre de l’information (p. ex., associer une étiquette textuelle ou introduire un motif de fond en plus de la couleur).</li>
 					<li>S’assurer qu’il est possible de discerner les liens visuellement par rapport au texte voisin avec plus de couleur.</li>
 				</ul>
 			</section>
@@ -292,13 +391,13 @@
 				<p>La majeure partie du Web est en format visuel ou texte. Il est essentiel de rendre le contenu audio accessible aux utilisateurs ayant une déficience auditive.</p>
 				<h3 id="307">Concept visant la surdité</h3>
 				<ul>
-					<li>Prévoir des sous-titres pour le contenu vidéo ;</li>
-					<li>Fournir une description audio ou une transcription du contenu vidéo ;</li>
-					<li>Fournir une transcription du contenu audio seulement ;</li>
-					<li>Fournir une transcription ou une audiodescription pour le contenu vidéo seulement ;</li>
-					<li>S’assurer que les sous-titres de la vidéo sont synchronisés avec le discours audio et les sons importants ;</li>
+					<li>Prévoir des sous-titres pour le contenu vidéo.</li>
+					<li>Fournir une description audio ou une transcription du contenu vidéo.</li>
+					<li>Fournir une transcription du contenu audio seulement.</li>
+					<li>Fournir une transcription ou une audiodescription pour le contenu vidéo seulement.</li>
+					<li>S’assurer que les sous-titres de la vidéo sont synchronisés avec le discours audio et les sons importants.</li>
 					<li>S’assurer que les sous-titres/légendes codés sont faciles à lire. Le contraste doit être optimal ; la taille doit être appropriée, et les sous-titres sont placés en arrière-plan pour ne pas se perdre dans l’arrière-plan vidéo qui change.</li>
-					<li>Les utilisateurs devraient avoir la possibilité d’arrêter, de mettre en pause et d’ajuster le volume du contenu audio (indépendamment du volume du système) ;</li>
+					<li>Les utilisateurs devraient avoir la possibilité d’arrêter, de mettre en pause et d’ajuster le volume du contenu audio (indépendamment du volume du système).</li>
 					<li>S’assurer que la transcription identifie les haut-parleurs et comprend tous les dialogues, les sons importants et la narration.</li>
 				</ul>
 			</section>
@@ -357,10 +456,10 @@
 				</details>
 				<h3 id="311">Concept visant les handicaps moteurs</h3>
 				<ul>
-					<li>S’assurer que toutes les fonctions sont disponibles au moyen de la souris et du clavier pour les utilisateurs qui pourraient ne pas être en mesure d’utiliser la souris ;</li>
-					<li>Permettre aux utilisateurs de modifier ou de désactiver les raccourcis à touche unique ;</li>
-					<li>Fournir un lien descriptif et un texte de bouton de commande pour ceux qui utilisent un logiciel de saisie vocale ;</li>
-					<li>Un temps de réponse minimal de 2 minutes doit être prévu avant l’expiration du délai ;</li>
+					<li>S’assurer que toutes les fonctions sont disponibles au moyen de la souris et du clavier pour les utilisateurs qui pourraient ne pas être en mesure d’utiliser la souris.</li>
+					<li>Permettre aux utilisateurs de modifier ou de désactiver les raccourcis à touche unique.</li>
+					<li>Fournir un lien descriptif et un texte de bouton de commande pour ceux qui utilisent un logiciel de saisie vocale.</li>
+					<li>Un temps de réponse minimal de 2 minutes doit être prévu avant l’expiration du délai.</li>
 					<li>S’assurer que le contenu fonctionne à la fois en orientation horizontale et verticale et ne pas se fier aux techniques de « balayage » ou « faire glisser ».</li>
 				</ul>
 			</section>
@@ -369,8 +468,8 @@
 				<p>Les personnes ayant des troubles de la parole ont de la difficulté à produire des sons vocaux et à utiliser les muscles de leur bouche.</p>
 				<h3 id="312">Concept visant les troubles de la parole</h3>
 				<ul>
-					<li>S’assurer qu’une solution de rechange aux services vocaux est fournie sous la forme de clavardage, de formulaires, de courriels, etc. ;</li>
-					<li>Si la page « Nous contacter » comporte un numéro de téléphone, fournir également un moyen de contact textuel (courriel ou formulaire « pour nous joindre » accessible) ;</li>
+					<li>S’assurer qu’une solution de rechange aux services vocaux est fournie sous la forme de clavardage, de formulaires, de courriels, etc..</li>
+					<li>Si la page « Nous contacter » comporte un numéro de téléphone, fournir également un moyen de contact textuel (courriel ou formulaire « pour nous joindre » accessible).</li>
 					<li>S’assurer que toute fonction de recherche vocale comporte une option de recherche textuelle.</li>
 				</ul>
 			</section>
@@ -385,17 +484,17 @@
 					<dt>Trouble du Spectre Autistique (TSA)&nbsp;(comprend l’«&nbsp;autisme&nbsp;», le «&nbsp;syndrome d’Asperger&nbsp;» et le «&nbsp;Trouble Envahissant du Développement&nbsp;» [TED])</dt>
 					<dd class="mrgn-lft-lg">Il inclut les déficiences des capacités de communication et d’interaction sociales, et parfois des habitudes et des intérêts restreints.</dd>
 					
-					<dt>Déficiences intellectuelles (parfois appelées «&nbsp;troubles d’apprentissage&nbsp;» en Europe et dans d’autres pays, et «&nbsp;troubles du développement&nbsp;» dans d’autres régions)/dt> 
+					<dt>Déficiences intellectuelles (parfois appelées «&nbsp;troubles d’apprentissage&nbsp;» en Europe et dans d’autres pays, et «&nbsp;troubles du développement&nbsp;» dans d’autres régions)</dt> 
 					<dd class="mrgn-lft-lg">Elles incluent les déficiences de l’intelligence, un apprentissage plus lent ou la difficulté à comprendre des concepts complexes. Le syndrome de Down est l’une des nombreuses causes de déficience intellectuelle.</dd>
 					
 					<dt>Troubles d’apprentissage</dt>
-					<dd class="mrgn-lft-lg">: Il s’agit d’un terme fonctionnel plutôt que d’un problème de santé, et n’est pas défini de manière homogène. En Europe et dans certains autres pays, il s’agit de déficiences intellectuelles, tandis qu’en Australie, au Canada, aux États-Unis et dans d’autres pays, il s’agit de déficiences perceptuelles.</dd>
+					<dd class="mrgn-lft-lg">Il s’agit d’un terme fonctionnel plutôt que d’un problème de santé, et n’est pas défini de manière homogène. En Europe et dans certains autres pays, il s’agit de déficiences intellectuelles, tandis qu’en Australie, au Canada, aux États-Unis et dans d’autres pays, il s’agit de déficiences perceptuelles.</dd>
 					
 					<dt>Troubles de santé mentale</dt>
 					<dd class="mrgn-lft-lg">Ils comprennent l’anxiété, le délire, la dépression, la paranoïa, la schizophrénie et de nombreux autres troubles. Ces états peuvent entraîner des difficultés à se concentrer sur l’information, à traiter l’information ou à la comprendre. En particulier, les médicaments prescrits pour ces troubles peuvent avoir des effets secondaires comme une vision trouble, un tremblement des mains et d’autres déficiences.</dd>
 					
 					<dt>Troubles de la mémoire</dt>
-					<dd class="mrgn-lft-lg">mémoire à court terme limitée ; mémoire à long terme manquante ou capacité limitée à se souvenir du langage. La démence est l’une des nombreuses causes de troubles de la mémoire.</dd>
+					<dd class="mrgn-lft-lg">Mémoire à court terme limitée ; mémoire à long terme manquante ou capacité limitée à se souvenir du langage. La démence est l’une des nombreuses causes de troubles de la mémoire.</dd>
 					
 					<dt>Sclérose en plaques</dt>
 					<dd class="mrgn-lft-lg">Elle cause des lésions aux cellules nerveuses du cerveau et de la moelle épinière et peut affecter les capacités auditives, cognitives, physiques ou visuelles, en particulier pendant les poussées.</dd>
@@ -412,11 +511,11 @@
 				</dl>
 				<h3 id="314">Exemples d’obstacles pour les personnes ayant des troubles cognitifs, d’apprentissage et neurologiques</h3>
 				<ul>
-					<li>Mécanismes de navigation complexes et mises en page difficiles à comprendre et à utiliser;</li>
-					<li>Phrases complexes difficiles à lire et mots inhabituels difficiles à comprendre;</li>
-					<li>Longs passages de texte sans images, graphiques ou autres illustrations pour mettre en évidence le contexte;</li>
-					<li>Contenu en mouvement, clignotant ou scintillant et audio de fond qui ne peut pas être désactivé;</li>
-					<li>Navigateurs Web et lecteurs de médias qui ne fournissent pas de mécanismes pour supprimer les animations et l’audio;</li>
+					<li>Mécanismes de navigation complexes et mises en page difficiles à comprendre et à utiliser.</li>
+					<li>Phrases complexes difficiles à lire et mots inhabituels difficiles à comprendre.</li>
+					<li>Longs passages de texte sans images, graphiques ou autres illustrations pour mettre en évidence le contexte.</li>
+					<li>Contenu en mouvement, clignotant ou scintillant et audio de fond qui ne peut pas être désactivé.</li>
+					<li>Navigateurs Web et lecteurs de médias qui ne fournissent pas de mécanismes pour supprimer les animations et l’audio.</li>
 					<li>Concepts de pages visuelles qui ne peuvent pas être adaptées au moyen de commandes de navigateur Web ou de feuilles de style personnalisées.</li>
 				</ul>
 				<h3 id="315">Concept visant les troubles cognitifs, d’apprentissage et neurologiques</h3>
@@ -426,20 +525,19 @@
 					<li>l’étiquetage uniforme des formulaires, des boutons et des autres parties du contenu;</li>
 					<li>les cibles de lien prévisibles, la fonctionnalité et l’interaction globale;</li>
 					<li>différentes façons de naviguer sur les sites Web, comme le menu hiérarchique et la recherche;</li>
-					<li>Les options de suppression du contenu clignotant, scintillant, étincelant et d’autre contenu distrayant;</li>
-					<li>Texte plus simple complété par des images, des graphiques et d’autres illustrations.</li>
+					<li>les options de suppression du contenu clignotant, scintillant, étincelant et d’autre contenu distrayant;</li>
+					<li>texte plus simple complété par des images, des graphiques et d’autres illustrations.</li>
 				</ul>
 				<p>Le guide de rédaction du contenu Canada.ca exige que les sites qui font face au public aient un contenu qui est au niveau de lecture grade 8, et puis les sites qui font face a l’interne un niveau grade 10. Un outil nommé le Flesch-Kincaid Grade Level test, disponible en anglais exclusivement à l’intérieur de Microsoft Word sous les options d’orthographie et grammaire. L’outil de la mesure de lisibilité <a href="http://www.scolarius.com">www.scolarius.com</a> offre une métrique semblable pour le texte français; une mesure entre 50-89 correspond a le niveau primaire d’éducation, entre 90 et 119 au niveau secondaire, et puis entre 150 a 189 au niveau universitaire.</p>
-				<hr/>
-				<p class="small">La plupart des renseignements contenus dans cet article proviennent du document de l’Initiative d’accessibilité du Web (<a href="https://www.w3.org/WAI/">IAT</a>)&nbsp;: <a href="https://www.w3.org/WAI/people-use-web/abilities-barriers">Capacités et obstacles variés</a> (en anglais seulement). Shadi&nbsp;Abou-Zahra, éd. Copyright © 2017 W3C® (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>). Statut&nbsp;: Mise à jour le 15&nbsp;mai&nbsp;2017. </p>
+				
 				
 				<h3 id="316">Convulsions</h3>
 				<p>Des lumières qui clignotent rapidement ou des effets stroboscopiques dans la vidéo, les graphiques ou l’animation peuvent causer des crises photos épileptiques chez les utilisateurs atteints d’épilepsie photosensible. Ces crises, aussi appelées convulsions, sont des perturbations électriques soudaines et non contrôlées du cerveau qui peuvent causer des préjudices physiques.</p>
 				<p>Les feux clignotants peuvent déclencher une crise si :</p>
 				<ul>
-					<li>Des lumières clignotent plus de 3 fois par seconde ;</li>
+					<li>Des lumières clignotent plus de 3 fois par seconde.</li>
 					<li>Le contenu du clignotant est assez grand. Les DACW fournissent une formule complexe ici, mais la règle générale est qu’un contenu clignotant dépassant 21 824 pixels carrés pose problème.</li>
-					<li>Le contenu clignotant présente un contraste élevé. Les DACW constituent une autre formule complexe ici, mais il est recommandé d’évaluer le contenu clignotant à l’aide d’un outil comme le <a href="http://trace.umd.edu/peat">Photosensitive Epilepsy Analysis Tool (PEAT).</a></li>
+					<li>Le contenu clignotant présente un contraste élevé. Les DACW constituent une autre formule complexe ici, mais il est recommandé d’évaluer le contenu clignotant à l’aide d’un outil comme le <a href="http://trace.umd.edu/peat" lang="en-CA">Photosensitive Epilepsy Analysis Tool (PEAT)</a>.</li>
 				</ul>
 				<p>Comme les utilisateurs peuvent agrandir la page et agrandir la zone clignotante, il est plus sécuritaire de limiter le clignotement de n’importe quelle taille de contenu à un maximum de trois clignotements par période de 1 seconde.</p>
 				<h4>Concept visant les troubles convulsifs</h4>
@@ -470,6 +568,8 @@
 				<ul>
 					<li>Ne pas communiquer uniquement au moyen d’un texte. Compléter le texte avec des images informatives, des vidéos et des enregistrements audios.</li>
 				</ul>
+				<hr/>
+				<p class="small">La plupart des renseignements contenus dans cet article proviennent du document de l’Initiative d’accessibilité du Web (<a href="https://www.w3.org/WAI/">IAT</a>)&nbsp;: <a href="https://www.w3.org/WAI/people-use-web/abilities-barriers">Capacités et obstacles variés</a> (en anglais seulement). Shadi&nbsp;Abou-Zahra, éd. Copyright © 2017 W3C® (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>). Statut&nbsp;: Mise à jour le 15&nbsp;mai&nbsp;2017. </p>				
 			</section>	
 			
 	<nav role="navigation" aria-labelledby="nav-pagination">
