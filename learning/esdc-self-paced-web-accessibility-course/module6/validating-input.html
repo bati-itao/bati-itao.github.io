@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -47,6 +48,7 @@
             },
 			{
                 "title": "Module 6 - Forms",
+                
                 "href" : "index.html"
             }],
             "lngLinks": [{
@@ -70,7 +72,7 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#overview">Validating input (overview)</a></li>
+            <li><a href="#overview">Overview – Validating input</a></li>
 			<li><a href="#required-input">Validating required input</a>
 				<ul>
 					<li><a href="#validation-required-input">Good example: Browser validation of required input</a></li>
@@ -101,10 +103,10 @@
 	</nav>
 	
 			<section>				
-				<h2 id="overview">Validating input (overview)</h2>
+				<h2 id="overview">Overview – Validating input</h2>
 				<p>To help users avoid mistakes, HTML5 defines a range of built-in functionality for validating common types of input, such as email addresses and dates. Some scripting may be necessary for validation when using custom controls or supporting legacy browsers. In these situations, the user notifications should be accessible, as described in the section <a href="user-notifications.html">User notifications</a>.</p>
 				<p>To ensure security, data needs to be validated both on the client-side and on the server-side as well. </p>
-				<p>Most user data can be validated using validation attributes on HTML5 form <mark><del>elements</del> <ins>controls</ins></mark>. The following are common validation attributes:</p>
+				<p>Most user data can be validated using validation attributes on HTML5 form controls. The following are common validation attributes:</p>
 				<dl>
 					<dt><code>required</code> attribute</dt> 
 					<dd class="mrgn-lft-lg">Specifies whether a form field needs to be filled in before the form can be submitted. See <a href="#required-input">Validating required input</a>.</dd>
@@ -128,7 +130,7 @@
 					<li>To identify required fields semantically, add the <code>required</code> attribute to the control and, to support legacy browsers, add the redundant <code>aria-required="true"</code> attribute.</li>
 				</ul>
 				<p>The <code>required</code> attribute triggers client-side validation in the browser. Current web browsers support the attribute and notify the user of missing required input using a standard web browser dialog. These dialogs respect user settings and preferences in the browser and operating system, such as default font-size, colors, and language.</p>
-				<p>The presence of the <code>required</code> attribute enables use of the <code>:required</code> pseudoclass for CSS styling. If the <mark><ins>required</ins></mark> <code>&lt;input&gt;</code> has no value, it enables use of the <code>:invalid</code> pseudoclass. See the following Good example.</p>
+				<p>The presence of the <code>required</code> attribute enables use of the <code>:required</code> pseudoclass for CSS styling. If the required <code>&lt;input&gt;</code> has no value, it enables use of the <code>:invalid</code> pseudoclass. See the following Good example.</p>
 			
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
@@ -139,7 +141,7 @@
 							<div class="panel-body well mrgn-bttm-0">
 								<p class="wb-inv">Example begins</p>
 								<form method="post" action="script-here">
-									<label for="org">Organization (required):</label> 
+									<label for="org">Organization (required)</label> 
 									<input type="text" id="org" required aria-required="true"> 
 									<input type="submit" value="Submit">
 								</form>
@@ -151,17 +153,19 @@
 							</div>
 						</div>
 						<div class="clearfix"></div>		
-						<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;form method="post" action="script-here"&gt;
-   &lt;label for="org"&gt;Organization (required): &lt;/label&gt; 
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;form method="post" action="script-here"&gt;
+   &lt;label for="org"&gt;Organization (required)&lt;/label&gt;j 
    &lt;input type="text" id="org" required aria-required="true"&gt; 
    &lt;input type="submit" value="Submit"&gt;
 &lt;/form&gt;</code>
-</pre>
-<pre><code class="language-css">input:invalid { border: 2px dashed red; }
+</pre><p class="wb-inv">Code ends</p>
+          <p class="lang-label small">CSS</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-css">input:invalid { border: 2px dashed red; }
 input:required { background-color: pink; }</code></pre>
-						<p class="wb-inv">Code ends</p>
-          
+		<p class="wb-inv">Code ends</p>
 					</div>
 				</div>
 			</section>
@@ -172,9 +176,8 @@ input:required { background-color: pink; }</code></pre>
 				<p>To help users input data more easily, HTML5 provides controls for some of the new input types, such as a date picker and spin buttons for incrementing or decrementing numbers. For instance, in the example below, modern browsers display the “Number” input field with buttons to increase or decrease the number and display the “Range” input field as a slider control.</p>
 				<p>Legacy web browsers that don’t support the new input types display a simple <code>text</code> field.</p>
 		
-				<p><mark><del>These <code>&lt;input&gt;</code> types were already in use when HTML5 was introduced:</del></mark></p>
 				<details class="mrgn-tp-md">
-					<summary class="bg-info"><mark>Input types already in use when HTML5 was introduced</mark></summary>
+					<summary class="bg-info">Input types already in use when HTML5 was introduced</summary>
 					<dl class="mrgn-tp-md">
 						<dt>text</dt>
 						<dd class="mrgn-lft-lg">Defines a one-line text input field</dd>
@@ -196,9 +199,8 @@ input:required { background-color: pink; }</code></pre>
 						<dd class="mrgn-lft-lg">Defines a graphical submit button.</dd>
 					</dl>
 				</details>
-				<p><mark><del>These <code>&lt;input&gt;</code>  types were introduced with HTML5:</del></mark></p>
 				<details class="mrgn-tp-md">
-					<summary class="bg-info"><mark>Input types introduced with HTML5</mark></summary>
+					<summary class="bg-info">Input types introduced with HTML5</summary>
 					<dl class="mrgn-tp-md">
 						<dt>color</dt>
 						<dd class="mrgn-lft-lg">Defines an input field with a specific color.</dd>
@@ -212,8 +214,8 @@ input:required { background-color: pink; }</code></pre>
 						<dd class="mrgn-lft-lg">Defines a control with month and year, without time zone.</dd>
 						<dt>number</dt>
 						<dd class="mrgn-lft-lg">Defines an input field to enter a number.</dd>
-						<dt><mark>range</mark></dt>
-						<dd class="mrgn-lft-lg"><mark>Defines a numeric value which must be no less than a given value, and no more than another given value.</mark></dd>
+						<dt>range</dt>
+						<dd class="mrgn-lft-lg">Defines a numeric value which must be no less than a given value, and no more than another given value.</dd>
 						<dt>url</dt>
 						<dd class="mrgn-lft-lg">Defines a field for entering URL.</dd>
 						<dt>week</dt>
@@ -231,7 +233,7 @@ input:required { background-color: pink; }</code></pre>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 								<p class="wb-inv">Example begins</p>
-								<form class="form-horizontal" role="form" method="get" action="#">
+								<form class="form-horizontal" role="form" method="get"  onsubmit="return false;" >
 <!-- these aren't HTML5
 									<div class="form-group">
 										<label for="fname1" class="col-sm-2 control-label">First name</label>
@@ -247,37 +249,37 @@ input:required { background-color: pink; }</code></pre>
 									</div>
 -->
 									<div class="form-group">
-										<label for="email" class="col-sm-2 control-label">Email:</label>
+										<label for="email" class="col-sm-2 control-label">Email</label>
 										<div class="col-sm-10">
 											<input type="email" name="email" class="form-control" id="email">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="url" class="col-sm-2 control-label">URL:</label>
+										<label for="url" class="col-sm-2 control-label">URL</label>
 										<div class="col-sm-10">
 											<input type="url" name="url" class="form-control" id="url">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="number" class="col-sm-2 control-label">Number:</label>
+										<label for="number" class="col-sm-2 control-label">Number</label>
 										<div class="col-sm-10">
 											<input type="number" name="number" class="form-control" id="number" min="0" max="100" step="10" value="0">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="range" class="col-sm-2 control-label">Range:</label>
+										<label for="range" class="col-sm-2 control-label">Range</label>
 										<div class="col-sm-10">
 											<input type="range" name="range" class="form-control" id="range" min="0" max="100" step="10" value="0">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="date" class="col-sm-2 control-label">Date:</label>
+										<label for="date" class="col-sm-2 control-label">Date</label>
 										<div class="col-sm-10">
 											<input type="date" name="date" class="form-control" id="date">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="time" class="col-sm-2 control-label">Time:</label>
+										<label for="time" class="col-sm-2 control-label">Time</label>
 										<div class="col-sm-10">
 											<input type="time" name="time" class="form-control" id="time">
 										</div>
@@ -312,37 +314,37 @@ input:required { background-color: pink; }</code></pre>
 -->							
 <pre><code class="language-html">&lt;form class="form-horizontal" role="form" method="get" action="#"&gt;
    &lt;div class="form-group"&gt;
-      &lt;label for="email" class="col-sm-2 control-label"&gt;Email:&lt;/label&gt;
+      &lt;label for="email" class="col-sm-2 control-label"&gt;Email&lt;/label&gt;j
       &lt;div class="col-sm-10"&gt;
          &lt;input type="email" name="email" class="form-control" id="email"&gt;
       &lt;/div&gt;
    &lt;/div&gt;
    &lt;div class="form-group"&gt;
-      &lt;label for="url" class="col-sm-2 control-label"&gt;URL:&lt;/label&gt;
+      &lt;label for="url" class="col-sm-2 control-label"&gt;URL&lt;/label&gt;j
       &lt;div class="col-sm-10"&gt;
          &lt;input type="url" name="url" class="form-control" id="url"&gt;
       &lt;/div&gt;
    &lt;/div&gt;
    &lt;div class="form-group"&gt;
-      &lt;label for="number" class="col-sm-2 control-label"&gt;Number:&lt;/label&gt;
+      &lt;label for="number" class="col-sm-2 control-label"&gt;Number&lt;/label&gt;j
       &lt;div class="col-sm-10"&gt;
          &lt;input type="number" name="number" class="form-control" id="number" min="0" max="100" step="10" value="0"&gt;
       &lt;/div&gt;
    &lt;/div&gt;
    &lt;div class="form-group"&gt;
-      &lt;label for="range" class="col-sm-2 control-label"&gt;Range:&lt;/label&gt;
+      &lt;label for="range" class="col-sm-2 control-label"&gt;Range&lt;/label&gt;j
       &lt;div class="col-sm-10"&gt;
          &lt;input type="range" name="range" class="form-control" id="range" min="0" max="100" step="10" value="0"&gt;
       &lt;/div&gt;
    &lt;/div&gt;
    &lt;div class="form-group"&gt;
-      &lt;label for="date" class="col-sm-2 control-label"&gt;Date:&lt;/label&gt;
+      &lt;label for="date" class="col-sm-2 control-label"&gt;Date&lt;/label&gt;j
       &lt;div class="col-sm-10"&gt;
          &lt;input type="date" name="date" class="form-control" id="date"&gt;
       &lt;/div&gt;
    &lt;/div&gt;
    &lt;div class="form-group"&gt;
-      &lt;label for="time" class="col-sm-2 control-label"&gt;Time:&lt;/label&gt;
+      &lt;label for="time" class="col-sm-2 control-label"&gt;Time&lt;/label&gt;j
       &lt;div class="col-sm-10"&gt;
          &lt;input type="time" name="time" class="form-control" id="time"&gt;
       &lt;/div&gt;
@@ -361,7 +363,7 @@ input:required { background-color: pink; }</code></pre>
 			<section>				
 				<h2 id="patterned-input">Validating patterned input</h2>
 				<p>The <code>pattern</code> attribute provides another useful validation feature. It takes a regular expression (regex) as its value, which is used to match character combinations in text input. Regex is ideal for form validation, matching specific types of data patterns such as telephone numbers, postal codes, and serial numbers. </p>
-				<p>In this example, the pattern attribute of the <code>&lt;input&gt;</code> element uses regex to define a particular format that matches characters on an Ontario car license plate (issued since 1997). The pattern consists of four letters, followed by a space, followed by three numbers. The pattern won’t capture custom license plate values. </p>
+				<p>In this example, the <code>pattern</code> attribute of the <code>&lt;input&gt;</code> element uses regex to define a particular format that matches characters on an Ontario car license plate (issued since 1997). The pattern consists of four letters, followed by a space, followed by three numbers. The pattern won’t capture custom license plate values. </p>
 				<div class="panel panel-success">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0 h3" id="pattern-attribute-match"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Using the pattern attribute to match a car license plate</h3>
@@ -377,9 +379,10 @@ input:required { background-color: pink; }</code></pre>
 						</div>
 						<div class="clearfix"></div>		
 								
-							<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;div&gt;
-   &lt;label for=”license”&gt;Ontario License Plate (XXXX 999)&lt;/label&gt;
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;div&gt;
+   &lt;label for="license"&gt;Ontario License Plate (XXXX 999)&lt;/label&gt;
    &lt;input type="text" id="license" class="form-control" pattern="^[A-Z]{4}( )[0-9]{3}$"&gt; 
 &lt;/div&gt;</code></pre>
 							<p class="wb-inv">Code ends</p>	
@@ -396,7 +399,7 @@ input:required { background-color: pink; }</code></pre>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 								<p class="wb-inv">Example begins</p>
-								<form class="form-horizontal" role="form" method="get" action="#">
+								<form class="form-horizontal" role="form" method="get"  onsubmit="return false;" >
 								  <div class="form-group">
 									<label for="choose" class="col-sm-3 control-label">Carrot or Orange? </label>
 									<div class="col-sm-9">
@@ -404,7 +407,7 @@ input:required { background-color: pink; }</code></pre>
 									</div>
 								  </div>
 								 <div class="form-group">
-									<label for="range1" class="col-sm-3 control-label">How many? </label>
+									<label for="range1" class="col-sm-3 control-label">How many? (1 to 10)</label>
 									<div class="col-sm-9">
 										<input type="number" class="form-control" name="range1" id="range1" min="1" max="10">
 									</div>
@@ -423,7 +426,7 @@ input:required { background-color: pink; }</code></pre>
 					<details class="mrgn-tp-sm">
 							<summary class="bg-info">View HTML </summary>
 							<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;form class="form-horizontal" role="form" method="get" action="#"&gt;
+<pre class="mrgn-tp-md"><code class="language-html">&lt;form class="form-horizontal" role="form" method="get" action="#"&gt;
    &lt;div class="form-group"&gt;
       &lt;label for="choose" class="col-sm-2 control-label"&gt;Carrot or Orange? &lt;/label&gt;
       &lt;div class="col-sm-10"&gt;
@@ -463,7 +466,7 @@ input:required { background-color: pink; }</code></pre>
 				<p>Where possible, require user confirmation for irreversible actions, such as permanent deletion of data.  </p>
 				<p>For example:</p>
 				<ul>
-					<li>A webmail application with an irreversible submit action for sending dozens of emails prompts the user for confirmation. The confirmation is implemented as a Modal window <mark>(see <a href="../module12/index.html">Module 12</a>)</mark>, which requires the user acknowledge it before continuing.</li>
+					<li>A webmail application with an irreversible submit action for sending dozens of emails prompts the user for confirmation. The confirmation is implemented as a Modal window (see <a href="../module12/index.html">Module 12</a>), which requires the user acknowledge it before continuing.</li>
 					<li>Before an online shopping order is placed, the user reviews and confirms a summary of the products ordered and the shipping and billing addresses.</li>
 				</ul>
 				<h3>Provide undo functionality</h3>
@@ -479,24 +482,22 @@ input:required { background-color: pink; }</code></pre>
 			</section>
 			<hr/>
 			<p class="small">The examples of forms validations are from the Web Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a>) 
-					document: <a href="https://www.w3.org/WAI/tutorials/forms/validation/Validation</a> from the <a href="https://www.w3.org/WAI/tutorials/forms/">Forms</a>
+					document: <a href="https://www.w3.org/WAI/tutorials/forms/validation/">Validating Input</a> from the <a href="https://www.w3.org/WAI/tutorials/forms/">Forms</a>
 					tutorial of the <a href="https://www.w3.org/WAI/tutorials/">Web Accessibility Tutorials</a>. <a herf="https://www.w3.org/People/yatil/">
 					Eric Eggert</a> and <a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a>, Copyright © 2019 W3C ® 
 					(<a href="http://www.csail.mit.edu/">MIT</a>
 					, <a href="http://www.ercim.eu/">ERCIM</a>, 
 					<a href="http://www.keio.ac.jp/">Keio</a>
 					, <a href="http://ev.buaa.edu.cn/">Beihang</a>) 
-					<a href="https://www.w3.org/Consortium/Legal/ipr-notice">Usage policies apply</a>. Updated 27 July 2019 (first published September 2014). 
-					<a href="https://www.w3.org/WAI/tutorials/forms/instructions/">https://www.w3.org/WAI/tutorials/forms/instructions/</a>
-			</p>
+					<a href="https://www.w3.org/Consortium/Legal/ipr-notice">Usage policies apply</a>. Updated 27 July 2019 (first published September 2014).</p>
 			<section>				
 				<h2 id="resources" class="wb-inv">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
 					<ul>
-						<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#error-identification">3.3.1 Error Identifications</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#error-prevention-legal-financial-data">3.3.4 Error Prevention (Legal, Financial, Data)</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification">3.3.1 Error Identifications</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/error-prevention-legal-financial-data">3.3.4 Error Prevention (Legal, Financial, Data)</a></li>
 					</ul>
 					<h3>Techniques</h3>
 					<ul>			
@@ -547,18 +548,32 @@ input:required { background-color: pink; }</code></pre>
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">All modules</h3>
 					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
-						<li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>			
-						<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
-						<li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
-						<li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
-						<li><a class="list-group-item active" href="index.html">Module 6 – Forms</a></li>	
-						<li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual design and colours</a></li>
-						<li><a class="list-group-item" href="../module8/index.html">Module 8 – Zoom and responsive design</a></li>
-						<li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
-						<li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
-						<li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
-					</ul>
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item active" href="forms-concepts.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Site map and best practice</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+					</li>
+
+				</ul>
 			</section>
 	</nav>
 </div>

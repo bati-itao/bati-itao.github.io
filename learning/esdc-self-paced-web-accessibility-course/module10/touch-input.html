@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -47,6 +48,7 @@
             },
 			{
                 "title": "Module 10 - Input modalities",
+                
                 "href" : "index.html"
             }],
             "lngLinks": [{
@@ -70,9 +72,8 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#section1">S1</a></li>
-			<li><a href="#section2">S2</a></li>
-			<li><a href="#section3">S3</a></li>
+            <li><a href="#all-functionality-accessible-via-pointer-input-device">All functionality accessible via pointer input device</a></li>
+			<li><a href="#target-size">Target size (Level AAA, optional)</a></li>
 			<li><a href="#resources1">Related WCAG resources</a></li>
           </ul>
         </div>
@@ -80,34 +81,71 @@
 	</nav>
 	
 			<section>				
-				<h2 id="section1">S1</h2>
-				
+				<h2 id="all-functionality-accessible-via-pointer-input-device">All functionality accessible via pointer input device</h2>
+				<p>All functionality should be accessible via pointer input devices, e.g., via a mouse, a finger on a touch screen, an electronic stylus, or a laser pointer.</p>
+				<p>Write JavaScript event handlers that trigger on both keyboard and mouse click. Generally, if your controls are mouse-accessible with click events, they will be touch-accessible too.</p>
+				<p>Not all touch devices support drag and drop operations and scripted gestures. Scripted gestures won’t work at all if the user is using a screen reader on a touch device; the screen reader itself uses gestures to function and consumes any gestures before they reach the authored content. Consider both drag and drop and scripted gestures optional enhancements that supplement the main click functionality.</p>
+				<p>Some users may not be able to perform path-based or multipoint gestures using a pointer input device. Examples of path-based gestures include swiping and dragging a slider. Examples of multipoint gestures include a two-finger pinch zoom, a split tap where one finger rests on the screen and a second finger taps, or a two- or-three finger tap or swipe.</p>
+				<p>Ensure that your content can be operated without multipoint or path-based gestures. The gestures can be used so long as the functionality can also be operated via a pointer input device method, such as a tap, click, double tap, double click, long press, or click &amp; hold.</p>
+				<h3 id="favpid-examples">Examples</h3>
+				<ul>
+					<li>All functionality can be operated by a single click or tap, double tap, double click, long press, or click &amp; hold.</li>
+					<li>A slider allows the setting of the value of a range via a path-based gesture, i.e., by dragging the slider's thumb control to the desired position and then releasing the finger or mouse. At both ends of the slider, there are redundant buttons to decrease or increase the slider value.</li>
+					<li>A web application supports drag and drop functionality to re-order items in a list. At the end of each list item, there is a redundant pair of icon buttons to move the item up or down the list for re-ordering.</li>
+					<li>A web site includes a map view that supports the multi-point (two finger) pinch gesture for zooming in, and the drag gesture to move the visible area. User interface controls offer the redundant zoom operation via [+] and [-] buttons, and stepwise panning via four arrow buttons</li>
+				</ul>
 			</section>
 			
 			<section>				
-				<h2 id="section2">S2</h2>
-				
+				<h2 id="target-size">Target size (Level AAA, optional)</h2>
+				<p>The target for pointer input (e.g., mouse, pen, touch) should be large enough to easily activate, even if the user is on a small handheld touch screen device, or has limited dexterity, tremors, low vision, or large fingers.</p>
+				<p>Aim for a target size of at least 44px by 44px. </p>
+				<p>There are some exclusions:</p>
+				<dl>
+					<dt>Equivalent</dt>
+					<dd class="mrgn-lft-lg">The target is available through an equivalent link or control on the same page that is at least 44 by 44 CSS pixels;</dd>
+					
+					<dt>Inline</dt>
+					<dd class="mrgn-lft-lg">The target is in a sentence or block of text;</dd>
+					
+					<dt>User Agent Control</dt>
+					<dd class="mrgn-lft-lg">The size of the target is determined by the user agent and is not modified by the author;</dd>
+					
+					<dt>Essential</dt>
+					<dd class="mrgn-lft-lg">A particular presentation of the target is essential to the information being conveyed. </dd>
+				</dl>
+				<p>Target size is a WCAG 2.1 Level AAA concern, so optional for the Government of Canada. We include it here because it can be easily implemented, depending on the design.</p>
 			</section>
 			
-			<section>				
-				<h2 id="section3">S3</h2>
-				
-			</section>
+			
 			
 			
 			<section>				
-				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
+				<h2 id="mod10-touch-input-wcag" class="wb-inv">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
 					<ul>
-						<li><a href="https://www.link1.com">Link 1</a></li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/pointer-gestures">2.5.1: Pointer Gestures</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/target-size">2.5.5: Target Size</a> (Level AAA)</li>
 					</ul>
 					<h3>Techniques</h3>
 					<ul>
 						<li>
-							<a href="https://www.link2.com">Link 2</a>
-						</li>						
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G215">G215: Providing controls to achieve the same result as path based or multipoint gestures</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G216">G216: Providing single point activation for a control slider</a>
+						</li>
+					</ul>
+					<h3>Failures</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F105">F105: Failure of Success Criterion 2.5.1 due to providing functionality via a path-based gesture without simple pointer alternative</a>
+						</li>
 					</ul>
 				</details>
 			</section>
@@ -143,18 +181,32 @@
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">All modules</h3>
 					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
-						<li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>			
-						<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
-						<li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
-						<li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
-						<li><a class="list-group-item" href="../module6/index.html">Module 6 – Forms</a></li>	
-						<li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual design and colours</a></li>
-						<li><a class="list-group-item" href="../module8/index.html">Module 8 – Zoom and responsive design</a></li>
-						<li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
-						<li><a class="list-group-item active" href="index.html">Module 10 - Input modalities</a></li>
-						<li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
-					</ul>
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item active" href="introduction.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Site map and best practice</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+					</li>
+
+				</ul>
 			</section>
 	</nav>
 </div>

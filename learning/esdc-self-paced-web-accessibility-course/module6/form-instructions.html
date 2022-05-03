@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -47,6 +48,7 @@
             },
 			{
                 "title": "Module 6 - Forms",
+                
                 "href" : "index.html"
             }],
             "lngLinks": [{
@@ -70,10 +72,10 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#form-instructions">Form instructions (overview)</a></li>
+            <li><a href="#form-instructions">Overview – Form instructions</a></li>
 			<li><a href="#overall-instructions">Overall instructions</a></li>
 			<li><a href="#inline-instructions">In-line instructions</a></li>
-			<li><a href="#instructions-for-groups">Instructions for groups<mark><del> or sections are programmatically associated with the group</del></mark></a></li>
+			<li><a href="#instructions-for-groups">Instructions for groups </a></li>
 			<li><a href="#resources">Related WCAG resources</a></li>
           </ul>
         </div>
@@ -81,7 +83,7 @@
 	</nav>
 
 			<section>						
-				<h2 id="form-instructions">Form instructions (overview)</h2>
+				<h2 id="form-instructions">Overview – Form instructions</h2>
 				<p>Form instructions help users understand how to complete the form and use individual form controls. Indicate any required input, data formats, and other relevant information.</p>
 			</section>
 			
@@ -91,7 +93,7 @@
 				<div class="alert alert-warning">
 					<p><strong>Note:</strong> Screen reader users could easily miss overall form instructions nested in a <code>&lt;form&gt;</code> element. Screen readers enter “forms mode” once inside a form, disabling text-browsing keyboard shortcuts to enable the screen reader user to type directly into <code>input</code> and <code>textarea</code> fields. Keyboard navigation is limited to just the focusable elements (form inputs, links and other controls) via the Tab key. Text that isn’t programmatically associated with a focusable element &mdash; serving as a label or description &mdash; is easily missed.</p>
 				</div>
-				<p>Form instructions <mark><del>can indicate how required fields are marked, expected format, and where to find extra help. Here are some</del></mark> examples:</p>
+				<p>Example form instructions:</p>
 				<ul>
 					<li>All fields marked “required” must be completed.</li>
 					<li>Dates should all be typed in the format yyyy/mm/dd, (as in 2022/01/05).</li>
@@ -101,30 +103,30 @@
 			
 			<section>				
 				<h2 id="inline-instructions">In-line instructions</h2>
-				<p>In-line instructions are provided within or outside the label of the form control. Short instructions can fit in the label along with the control’s name. Long instructions should be outside the label, associated with the control via the <code>aria-describedby</code> attribute. <mark><del>Prioritize using semantic HTML <code>&lt;label&gt;</code> instead of ARIA to provide instructions within labels. Match the <code>for</code> attribute of the label with the <code>id</code> attribute of the form control.</del></mark>
-				</p>
+				<p>In-line instructions are provided within or outside the label of the form control. Short instructions can fit in the label along with the control’s name. Long instructions should be outside the label, associated with the control via the <code>aria-describedby</code> attribute. </p>
 				<h3>Providing instructions within labels</h3>
 				<p>Providing instructions within labels is well-supported by user agents, though it should be reserved for shorter instructions. Match the <code>for</code> attribute of the label with the <code>id</code> attribute of the form control.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 					  <h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing instructions within a label</h4>
 					  
-						<p>The required format for the “Date of Birth” is indicated by “YYYY/MM/DD” within the same label:</p>
+						<p>The required format for the Employee ID is indicated by XX-1234 within the same label:</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 								<p class="wb-inv">Example begins</p>
 								<form class="form-inline" role="form" method="get" action="#">
 									<div class="form-group">
-										<label for="dob">Date of Birth (YYYY/MM/DD):</label> 
-										<input type="date" name="dob" id="dob" class="form-control">
+										<label for="employee-id">Employee ID (XX-1234)</label> 
+										<input type="text" name="employee-id" id="employee-id" class="form-control">
 									</div>
 								</form>
 								<p class="wb-inv">Example ends</p>
 							</div>
 						</div>
-						<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;label for="dob"&gt;Date of Birth (YYYY/MM/DD): &lt;/label&gt; 
-&lt;input type="date" name="dob" id="dob"&gt;</code></pre>
+						<p class="lang-label small">HTML</p>
+						<p class="wb-inv">Code starts</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;label for="employee-id"&gt;Employee ID (XX-1234)&lt;/label&gt; 
+&lt;input type="text" name="employee-id" id="employee-id"&gt;</code></pre>
 						<p class="wb-inv">Code ends</p>
 					</div>
 				</div>
@@ -133,28 +135,34 @@
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 					
-						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing form <mark><ins>control</ins></mark> instructions using aria-labelledby</h4>
-						<p>One approach to providing instructions outside of labels uses the <code>aria-labelledby</code> attribute on the control. The <code>aria-labelledby</code> attribute references the <code>id</code> attribute values of the <code>&lt;label&gt;</code> element and the element holding the description. This approach guarantees the additional description is communicated to assistive tech, but should only be used with short descriptions.</p>
-						<p>A <code>&lt;label&gt;</code> element is associated with its control using matching <code>for</code> and <code>id</code> attribute values.</p>
+						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing form control instructions using aria-labelledby</h4>
+						<p>One approach to providing instructions outside of labels uses the <code>aria-labelledby</code> attribute on the control:</p>
+						<ul>
+							<li>The <code>&lt;label&gt;</code> element is associated with its control using matching <code>for</code> and <code>id</code> attribute values.</li>
+							<li>The <code>aria-labelledby</code> attribute on the control references the <code>id</code> attribute values of itself and the element holding the description.</li>
+						</ul> 
+						<p>This approach guarantees the additional description is communicated to assistive tech, but should only be used with short descriptions.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-							<p class="wb-inv">Example begins</p>
+								<p class="wb-inv">Example begins</p>							<p class="wb-inv">Example begins</p>
 								<form class="form-inline" role="form" method="get" action="#">
+							<p class="wb-inv">Example ends</p>
 									<div class="form-group">
-							<label id="expLabel" for="expire">Expiration date:</label>
-							<span><input type="text" name="expire" id="expire" aria-labelledby="expLabel expDesc" class="form-control"></span>&nbsp;<span id="expDesc">MM/YYYY</span>
+										<label for="health-card">Health card number</label>
+										<input type="text" name="health-card" id="health-card" aria-labelledby="health-card hc-format" class="form-control">
+										<span id="hc-format">&nbsp;1234-567-890-XX</span>
 									</div>
 								</form>
-								<p class="wb-inv">Example ends</p>
+								<p class="wb-inv">Fin de l'exemple</p>
 							</div>
 						</div>
 
+						<p class="lang-label small">HTML</p>
 						<p class="wb-inv">Code begins</p>
-						<pre><code class="language-html">&lt;label id="exp-label" for="expire"&gt;Expiration date:&lt;/label&gt;
-&lt;span&gt;
-   &lt;input type="text" name="expire" id="expire" aria-labelledby="exp-label exp-desc"&gt;
-   &lt;span id="exp-desc"&gt;MM/YYYY&lt;/span&gt;
-&lt;/span&gt;</code></pre>
+						<pre class="mrgn-tp-0"><code class="language-html">&lt;label for="health-card"&gt;Health card number&lt;/label&gt;
+&lt;input type="text" id="health-card" aria-labelledby="health-card hc-format" name="health-card"&gt;
+&lt;span id="hc-format"&gt;1234-567-890-XX&lt;/span&gt;
+</code></pre>
 						<p class="wb-inv">Code ends</p>
 
 					</div>
@@ -162,30 +170,29 @@
 				
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing form <mark><ins>control</ins></mark> instructions with aria-describedby</h4>
+						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing form control instructions with aria-describedby</h4>
 						<p>The more common approach to providing instructions outside of labels is to use the <code>aria-describedby</code> attribute. The attribute is set on the control and points to the <code>id</code> attribute value of the element containing the description.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Example begins</p>
+								<p class="wb-inv">Example begins</p>								
 								<form class="form-inline" role="form" method="get" action="#">
 									<div class="form-group">
-										<label id="passLabel" for="password1">Password:</label>
-										<input type="text" name="password1" id="password1" aria-labelledby="passLabel" aria-describedby="passDesc" class="form-control">
+										<label for="password1">Password</label>
+										<input type="password" name="password1" id="password1" aria-describedby="passDesc" class="form-control">
 									</div>
 									<div id="passDesc">Must contain at least 8 characters, one uppercase letter and one special character</div>
 								</form>
-								<p class="wb-inv">Example ends</p>
+							<p class="wb-inv">Example ends</p>
 							</div>
 						</div>
 
+						<p class="lang-label small">HTML</p>
 						<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;div class="form-group"&gt;
-   &lt;label id="passLabel" for="password1"&gt;Password:&lt;/label&gt;
+<pre class="mrgn-tp-0"><code class="language-html">&lt;div class="form-group"&gt;
+   &lt;label for="password1"&gt;Password&lt;/label&gt;j
    &lt;div&gt;
-      &lt;input type="text" name="password1" id="password1" aria-labelledby="passLabel" aria-describedby="passDesc"&gt;
-      &lt;div id="passDesc"&gt;
-         Must contain at least 8 characters, one uppercase letter and one special character
-      &lt;/div&gt;
+      &lt;input type="password" id="password1" aria-describedby="passDesc" name="password1"&gt;
+      &lt;div id="passDesc"&gt;Must contain at least 8 characters, one uppercase letter and one special character&lt;/div&gt;
    &lt;/div&gt;
 &lt;/div&gt;</code>
 </pre>
@@ -195,9 +202,9 @@
 				</div>
 				
 				<h3>Placeholder text</h3>
-				<p><mark><del>Placeholder text</del><ins>Text in the <code>placeholder</code> attribute</ins></mark> provides instructions or an example of the required data format inside form fields that have not yet been edited by the user. <mark><del>Most browsers’ default placeholder text lacks sufficient contrast.  Also, </del></mark> 
+				<p>Text in the <code>placeholder</code> attribute provides instructions or an example of the required data format inside form fields that have not yet been edited by the user.
 				<div class="alert alert-warning">
-				   <p><mark><ins>Note that</ins></mark> placeholder text disappears from form fields when users start entering text. If the placeholder text contains instructional information or examples that disappear, it makes it more difficult for users to check their responses before submitting the form.</p>
+				   <p>Note that placeholder text disappears from a form field when users start entering text. If the placeholder text contains instructional information or examples that disappear, it makes it more difficult for users to check their responses before submitting the form.</p>
 				</div>
 				
 				<p>Placeholder text is not a replacement for labels. Assistive technologies such as screen readers do not treat placeholder text as labels. </p>
@@ -206,15 +213,15 @@
 						<p class="wb-inv">Example begins</p>
 						<form class="form-horizontal" role="form" method="get" action="#">
 							<div class="form-group">
-								<label for="search"  class="col-sm-2 control-label">Search:</label> 
+								<label for="search"  class="col-sm-2 control-label">Search</label> 
 								<div class="col-sm-10">
 									<input type="text" name="search" id="search" placeholder="e.g., Accessibility courses" class="form-control">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="email"  class="col-sm-2 control-label">Email: </label> 
+								<label for="email"  class="col-sm-2 control-label">Email</label> 
 								<div class="col-sm-10">	
-									<input type="text" name="email" id="email" placeholder="jane.doe@gmail.com" class="form-control">
+									<input type="email" name="email" id="email" placeholder="jane.doe@gmail.com" class="form-control" autocomplete="email">
 								</div>
 							</div>
 						</form>
@@ -239,18 +246,19 @@
 							}						
 													
 						</style>
-						<p class="wb-inv">Example ends</p>
+						<p class="wb-inv">Fin de l'exemple</p>
 					</div>
 				</div>
 
+				<p class="lang-label small">HTML</p>
 				<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;div&gt;
-   &lt;label for="search"&gt;Search:&lt;/label&gt; 
+<pre class="mrgn-tp-0"><code class="language-html">&lt;div&gt;
+   &lt;label for="search"&gt;Search&lt;/label&gt;j 
    &lt;input type="text" name="search" id="search" placeholder="e.g., Accessibility courses"&gt;
 &lt;/div&gt;
 &lt;div&gt;
-   &lt;label for="email"&gt;Email: &lt;/label&gt; 
-   &lt;input type="text" name="email" id="email" placeholder="jane.doe@gmail.com"&gt;
+   &lt;label for="email"&gt;Email&lt;/label&gt;j 
+   &lt;input type="email" name="email" id="email" placeholder="jane.doe@gmail.com" autocomplete="email"&gt;
 &lt;/div&gt;</code></pre>
 				<p class="wb-inv">Code ends</p>
 
@@ -264,27 +272,27 @@
 					<p class="wb-inv">Example begins</p>
 						<form class="form-horizontal" role="form" method="get" action="#">
 							<div class="form-group">
-							<label for="search" class="col-sm-3 control-label">Search Courses:</label>
+							<label for="search" class="col-sm-3 control-label">Search courses</label>
 								<div class="col-sm-9">
 									<input type="text" name="search1" id="search1" placeholder="e.g., Accessibility courses" class="form-control">
 								</div>
 								</div>
 							<div class="form-group">
-								<label for="fname" class="col-sm-3 control-label">First Name: </label>
+								<label for="fname" class="col-sm-3 control-label">First name</label>
 								<div class="col-sm-9">
-									<input type="text" name="fname" id="fname" class="form-control">
+									<input type="text" name="fname" id="fname" class="form-control" autocomplete="given-name">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="lname" class="col-sm-3 control-label">Last Name: </label> 
+								<label for="lname" class="col-sm-3 control-label">Last name</label> 
 								<div class="col-sm-9">
-									<input type="text" name="lname" id="lname" class="form-control">
+									<input type="text" name="lname" id="lname" class="form-control" autocomplete="family-name">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="email" class="col-sm-3 control-label">Email: </label>  
+								<label for="email" class="col-sm-3 control-label">Email</label>  
 								<div class="col-sm-9">
-									<input type="text" name="email1" id="email1" placeholder="jane.doe@gmail.com" class="form-control"> 
+									<input type="email" name="email1" id="email1" placeholder="jane.doe@gmail.com" class="form-control" autocomplete="email"> 
 								</div>
 							</div>
 						</form>
@@ -310,27 +318,27 @@
 							}						
 						</style>
 						
-						<p class="wb-inv">Example ends</p>
+						<p class="wb-inv">Fin de l'exemple</p>
 					</div>
 				</div>
 					
 					<details class="mrgn-tp-sm">
 						<summary class="bg-info">View HTML </summary>
 <p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;div&gt;
-   &lt;label for="search"&gt;Search Courses:&lt;/label&gt;  
+<pre class="mrgn-tp-md"><code class="language-html">&lt;div&gt;
+   &lt;label for="search"&gt;Search courses&lt;/label&gt;j  
    &lt;input type="text" name="search" id="search" placeholder="e.g., Accessibility courses"&gt;
 &lt;/div&gt;
 &lt;div&gt;
-   &lt;label for="fname"&gt;First Name: &lt;/label&gt;  
+   &lt;label for="fname"&gt;First name&lt;/label&gt;j  
    &lt;input type="text" name="fname" id="fname"&gt;
 &lt;/div&gt;
 &lt;div&gt;
-   &lt;label for="lname"&gt;Last Name: &lt;/label&gt;  
+   &lt;label for="lname"&gt;Last name&lt;/label&gt;j  
    &lt;input type="text" name="lname" id="lname"&gt;
 &lt;/div&gt;
 &lt;div&gt;
-   &lt;label for="email"&gt;Email: &lt;/label&gt;  
+   &lt;label for="email"&gt;Email&lt;/label&gt;j  
    &lt;input type="text" name="email" id="email" placeholder="jane.doe@gmail.com"&gt; 
 &lt;/div&gt;</code>
 </pre>
@@ -339,7 +347,7 @@
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">View CSS </summary>
 							<p class="wb-inv">Code begins</p>
-<pre><code class="language-css">::-webkit-input-placeholder { 
+<pre class="mrgn-tp-md"><code class="language-css">::-webkit-input-placeholder { 
    color: #767676 !important; 
    opacity: 1;
 }
@@ -365,156 +373,93 @@
 			
 			</section>
 			<section>				
-				<h2 id="instructions-for-groups">Instructions for groups<mark><del> or Sections are programmatically associated with the group</del></mark></h2>
-				<p>In “focus mode”, when tabbing through the form, screen reader users <mark><del>will not hear regular text added to the form</del><ins> set focus on form controls and hear their labels and descriptions. Text in a</ins> non-focusable <ins>element is </ins><del>text will be</del></mark> skipped unless it is programmatically associated with a form control as label or description.</p>
+				<h2 id="instructions-for-groups">Instructions for groups</h2>
+				<p>In “focus mode”, when tabbing through the form, screen reader users set focus on form controls and hear their labels and descriptions. Text in a non-focusable element is missed unless it is programmatically associated with a form control as label or description.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Group instructions in a &lt;legend&gt;</h3>
+						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Group instructions in a legend</h3>
 						<p>In this example, the word “Required” is set within the <code>&lt;legend&gt;</code> to indicate that everything within the related fieldset is required. Depending on the configuration, some screen readers read out the legend either with every form element, once, or, rarely, not at all. Keep legends short and self-explanatory.</p>
+						
+								
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 								<p class="wb-inv">Example begins</p>
 								<form class="form-horizontal" role="form" method="get" action="#">
 									<fieldset>
-										<legend> 
+										<legend class="required mrgn-lft-md"> 
 											<span class="field-name">User login information</span>  
-											<strong>(* required)</strong>
+											<strong>(required)</strong>
 										</legend>
 										<div class="form-group">		
-											<label for="username" class="col-sm-3 control-label required">Username:</label>
+											<label for="username" class="col-sm-3 control-label required">Username</label>
 											<div class="col-sm-9">
-												<input type="text" id="username" class="form-control" required>
+												<input type="text" id="username" class="form-control" required autocomplete="username">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="password" class="col-sm-3 control-label required">Password:</label>
+											<label for="password" class="col-sm-3 control-label required">Password</label>
 											<div class="col-sm-9">
-												<input type="password" id="password" class="form-control" required>
+												<input type="password" id="password" class="form-control" required autocomplete="current-password">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="email" class="col-sm-3 control-label required">Email:</label>
+											<label for="email" class="col-sm-3 control-label required">Email</label>
 											<div class="col-sm-9">
-												<input type="email2" id="email2" class="form-control" required></div>
+												<input type="email" id="email2" class="form-control" required autocomplete="email"></div>
 											</div>
 										<div class="form-group">
-											<label for="phone" class="col-sm-3 control-label required">Phone:</label>
+											<label for="phone" class="col-sm-3 control-label required">Phone</label>
 											<div class="col-sm-9">
-												<input type="tel" id="phone" class="form-control" required>
+												<input type="tel" id="phone" class="form-control" required autocomplete="tel-national">
 											</div>
 										</div>
 									</fieldset>
 								</form>
-								<p class="wb-inv">Example ends</p>
+								
+							<p class="wb-inv">Example ends</p>
 							</div>
 						</div>
 		
 						<details class="mrgn-tp-sm">
 							<summary class="bg-info">View HTML </summary>
 							<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;fieldset&gt;
-   &lt;legend&gt; 
+<pre class="mrgn-tp-md"><code class="language-html">&lt;fieldset&gt;
+   &lt;legend class="required"&gt; 
       User login information (Required)
    &lt;/legend&gt;
-   &lt;label for="username"&gt;Username:&lt;/label&gt;
-   &lt;input type="text" id="username" required&gt;&lt;/p&gt;
+   &lt;label for="username" class="required"&gt;Username&lt;/label&gt;j
+   &lt;input type="text" id="username" required autocomplete="username"&gt;
    
-   &lt;label for="password"&gt;Password:&lt;/label&gt;
-   &lt;input type="password" id="password" required&gt;&lt;/p&gt;
+   &lt;label for="password" class="required"&gt;Password&lt;/label&gt;j
+   &lt;input type="password" id="password" required autcomplete="current-password"&gt;
    
-   &lt;label for="email"&gt;Email:&lt;/label&gt;
-   &lt;input type="email" id="email" required&gt;&lt;/p&gt;
+   &lt;label for="email" class="required"&gt;Email&lt;/label&gt;j
+   &lt;input type="email" id="email" required autcomplete="email"&gt;
    
-   &lt;label for="phone"&gt;Phone:&lt;/label&gt;
-   &lt;input type="tel" id="phone" required&gt;&lt;/p&gt;
+   &lt;label for="phone" class="required"&gt;Phone&lt;/label&gt;j
+   &lt;input type="tel" id="phone" required auto-complete="tel-national"&gt;
 &lt;/fieldset&gt;</code>
 </pre>
 							<p class="wb-inv">Code ends</p>
 						</details>
-					</div>
-				</div>
-				<div class="panel panel-success mrgn-tp-lg">
-					<div class="panel-body">
+						
 		
-						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Instructions associated using aria-describedby</h3>
-						<p>In this example, the paragraph “Passwords must match” is associated with the two password input fields using the <code>aria-describedby</code> attribute.</p>
-						<div class="panel panel-primary mrgn-tp-md">
-							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Example begins</p>
-								<form class="form-horizontal" role="form" method="get" action="#">
-									<fieldset>
-										<legend>
-											<span class="field-name">Create a User Account</span>
-										</legend>
-										<div class="form-group">
-											<label for="username" class="col-sm-4 control-label">Username:</label>
-											<div class="col-sm-8">
-												<input type="text" id="username"  class="form-control">
-											</div>
-										</div>
-										<p id="passmatch">Passwords must match</p>
-										<div class="form-group">
-											<label for="password" class="col-sm-4 control-label">Password:</label>
-											<div class="col-sm-8">
-												<input type="password" id="password" aria-describedby="passmatch" class="form-control">
-											</div>
-										</div>
-										<div class="form-group">
-											<label for="retype" class="col-sm-4 control-label">Re-type Password:</label>
-											<div class="col-sm-8">
-												<input type="password" id="retype" aria-describedby="passmatch" class="form-control">
-											</div>
-										</div>
-										<div class="form-group">
-											<label for="email" class="col-sm-4 control-label">Email:</label>
-											<div class="col-sm-8">
-												<input type="email" id="email" class="form-control">
-											</div>
-										</div>
-										<div class="form-group">
-											<label for="phone"class="col-sm-4 control-label">Phone:</label>
-											<div class="col-sm-8">
-												<input type="tel" id="phone" class="form-control">
-											</div>
-										</div>
-									</fieldset>
-								</form>
-								<p class="wb-inv">Example ends</p>
-							</div>
-						</div>
-
-			
-						<details class="mrgn-tp-sm">
-							<summary class="bg-info">View HTML </summary>
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">View CSS </summary>
 							<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;fieldset&gt;
-   &lt;legend&gt;Create a User Account&lt;/legend&gt;
-   &lt;p&gt;
-      &lt;label for="username"&gt;Username:&lt;/label&gt;
-      &lt;input type="text" id="username"&gt;
-   &lt;/p&gt;
-   &lt;p id="passmatch"&gt;Passwords much match&lt;/p&gt;
-   &lt;p&gt;
-      &lt;label for="password"&gt;Password:&lt;/label&gt;
-      &lt;input type="password" id="password" aria-describedby="passmatch"&gt;
-   &lt;/p&gt;
-   &lt;p&gt;
-      &lt;label for="retype"&gt;Re-type Password:&lt;/label&gt;
-      &lt;input type="password" id="retype" aria-describedby="passmatch"&gt;
-   &lt;/p&gt;
-   &lt;p&gt;
-      &lt;label for="email"&gt;Email:&lt;/label&gt;
-      &lt;input type="email" id="email"&gt;
-   &lt;/p&gt;
-   &lt;p&gt;
-      &lt;label for="phone"&gt;Phone:&lt;/label&gt;
-      &lt;input type="tel" id="phone"&gt;
-   &lt;/p&gt;
-&lt;/fieldset&gt;</code></pre>
+<pre class="mrgn-tp-md"><code class="language-css">label.required:before, 
+legend.required:before {
+   content: "* ";
+   margin-left: -0.665em;
+   color: #d3080c;
+   font-weight: 700;
+}</code></pre>
 							<p class="wb-inv">Code ends</p>
 						</details>
-					</div>		
+					</div>
 				</div>
+				
+				
 			<div class="panel panel-danger mrgn-tp-lg">
 				<div class="panel-body">
 					<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Instructions in a paragraph not associated with a control</h3>
@@ -526,32 +471,32 @@
 								<fieldset>
 									<legend><span class="field-name">Create a User Account</span></legend>
 									<div class="form-group">
-										<label for="username" class="col-sm-3 control-label">Username:</label>
+										<label for="username" class="col-sm-3 control-label">Username</label>
 										<div class="col-sm-9">
 											<input type="text" id="username"  class="form-control">
 										</div>
 									</div>
 									<p id="passmatch">Passwords must match</p>
 									<div class="form-group">
-										<label for="password" class="col-sm-3 control-label">Password:</label>
+										<label for="password" class="col-sm-3 control-label">Password</label>
 										<div class="col-sm-9">
 											<input type="password" id="password" class="form-control">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="retype" class="col-sm-3 control-label">Re-type Password:</label>
+										<label for="retype" class="col-sm-3 control-label">Re-type Password</label>
 										<div class="col-sm-9">
 											<input type="password" id="retype" class="form-control">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="email" class="col-sm-3 control-label">Email:</label>
+										<label for="email" class="col-sm-3 control-label">Email</label>
 										<div class="col-sm-9">
 											<input type="email" id="email" class="form-control">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="phone"class="col-sm-3 control-label">Phone:</label>
+										<label for="phone"class="col-sm-3 control-label">Phone</label>
 										<div class="col-sm-9">
 											<input type="tel" id="phone" class="form-control">
 										</div>
@@ -565,29 +510,29 @@
 				<details class="mrgn-tp-sm">
 					<summary class="bg-info">View HTML </summary>
 					<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;fieldset&gt;
+<pre class="mrgn-tp-md"><code class="language-html">&lt;fieldset&gt;
    &lt;legend&gt; 
       Create a User Account
    &lt;/legend&gt;
    &lt;p&gt;
-      &lt;label for="username"&gt;Username:&lt;/label&gt;
+      &lt;label for="username"&gt;Username&lt;/label&gt;j
       &lt;input type="text" id="username"&gt;
    &lt;/p&gt;
    &lt;p&gt;Passwords much match&lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="password"&gt;Password:&lt;/label&gt;
+      &lt;label for="password"&gt;Password&lt;/label&gt;j
       &lt;input type="password" id="password"&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="retype"&gt;Re-type Password:&lt;/label&gt;
+      &lt;label for="retype"&gt;Re-type Password&lt;/label&gt;j
       &lt;input type="password" id="retype"&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="email"&gt;Email:&lt;/label&gt;
+      &lt;label for="email"&gt;Email&lt;/label&gt;j
       &lt;input type="email" id="email"&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="phone"&gt;Phone:&lt;/label&gt;
+      &lt;label for="phone"&gt;Phone&lt;/label&gt;j
       &lt;input type="tel" id="phone"&gt;
    &lt;/p&gt;
 &lt;/fieldset&gt;</code></pre>
@@ -611,57 +556,57 @@
 							<p>Username and Password fields <span id="specialchar">must NOT contain special characters</span></p>
 							
 							<div class="form-group">
-								<label for="username" class="col-sm-2 control-label">Username:</label>
+								<label for="username" class="col-sm-2 control-label">Username</label>
 								<div class="col-sm-10">
-									<input type="text" id="username" aria-describedby="specialchar" class="form-control">
+									<input type="text" id="username" aria-describedby="specialchar" class="form-control" autocomplete="username">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="password" class="col-sm-2 control-label">Password:</label>
+								<label for="password" class="col-sm-2 control-label">Password</label>
 								<div class="col-sm-10">
-									<input type="password" id="password" aria-describedby="specialchar" class="form-control">
+									<input type="password" id="password" aria-describedby="specialchar" class="form-control" autocomplete="password">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="email" class="col-sm-2 control-label">Email:</label>
+								<label for="email" class="col-sm-2 control-label">Email</label>
 								<div class="col-sm-10">
-									<input type="email" id="email" class="form-control">
+									<input type="email" id="email" class="form-control" autocomplete="email">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="phone" class="col-sm-2 control-label">Phone:</label>
+								<label for="phone" class="col-sm-2 control-label">Phone</label>
 								<div class="col-sm-10">
-									<input type="tel" id="phone" class="form-control">
+									<input type="tel" id="phone" class="form-control" autocomplete="tel-national">
 								</div>
 							</div>
 						</fieldset>
 					</form>
-					<p class="wb-inv">Example ends</p>
+					<p class="wb-inv">Fin de l'exemple</p>
 				</div>
 			</div>
 
 			<details class="mrgn-tp-sm">
 				<summary class="bg-info">View HTML </summary>
 				<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;fieldset&gt;
+<pre class="mrgn-tp-md"><code class="language-html">&lt;fieldset&gt;
    &lt;legend&gt;Create User Account&lt;/legend&gt;
    &lt;p&gt;
       Username and Password fields &lt;span id="specialchar"&gt;must NOT contain special characters&lt;/span&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="username"&gt;Username:&lt;/label&gt;
+      &lt;label for="username"&gt;Username&lt;/label&gt;j
       &lt;input type="text" id="username" aria-describedby="specialchar"&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="password"&gt;Password:&lt;/label&gt;
+      &lt;label for="password"&gt;Password&lt;/label&gt;j
       &lt;input type="password" id="password" aria-describedby="specialchar"&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="email"&gt;Email:&lt;/label&gt;
+      &lt;label for="email"&gt;Email&lt;/label&gt;j
       &lt;input type="email" id="email"&gt;
    &lt;/p&gt;
    &lt;p&gt;
-      &lt;label for="phone"&gt;Phone:&lt;/label&gt;
+      &lt;label for="phone"&gt;Phone&lt;/label&gt;j
       &lt;input type="tel" id="phone"&gt;
    &lt;/p&gt;
 &lt;/fieldset&gt;</code></pre>
@@ -669,80 +614,6 @@
 			</details>
 		</div>
 	</div>
-
-	<div class="panel panel-danger mrgn-tp-lg">
-		<div class="panel-body">
-			<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Instructions for groups are not programmatically determinable</h3>
-			<p>In this example, the instruction “Choose accounts below to complete your funds transfer” is an image of text lacking a text alternative. Also, the instruction is not associated with the fieldset.</p>
-			<div class="panel panel-primary mrgn-tp-md">
-				<div class="panel-body well mrgn-bttm-0">
-					<p class="wb-inv">Example begins</p>
-					<form  method="get" action="#">
-						<fieldset> 
-							<legend><span class="field-name">Transfer funds</span></legend> 
-							<p><img class="img-responsive" src="images/banner.png" alt=""></p>
-							<div class="form-group">
-								<label for="fromacct">Transfer funds from account:</label> 
-								<select name="accounts" id="fromacct" class="form-control"> 
-								  <option value="Select account">Select account</option> 
-								  <option value="Saving account - 8888-999">Saving account - 8888-999</option> 
-								  <option value="Checking account - 9999-9999">Checking account - 9999-9999</option> 
-								</select>
-							</div>
-						  <div class="form-group">
-							<label for="toacct">Transfer funds to account:</label>
-							  
-							<select name="accounts" id="toacct" class="form-control"> 
-							  <option value="Select account">Select account</option> 
-							  <option value="Saving account - 8888-999">Saving account - 8888-999</option> 
-							  <option value="Checking account - 9999-9999">Checking account - 9999-9999</option> 
-							</select> 
-						  </div>
-						  <div class="form-group">
-							<label for="amount">Amount:</label> 
-							  
-							<input type="text" id="amount"  class="form-control">
-						  </div>
-						
-							<input type="submit" value="Submit" class="btn btn-default">
-								
-						</fieldset> 
-					  </form>
-
-
-					<p class="wb-inv">Example ends</p>
-				</div>
-			</div>
-			<details class="mrgn-tp-sm">
-				<summary class="bg-info">View HTML </summary>
-				<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;form action="/action.php method="get"&gt;
-   &lt;fieldset&gt;
-      &lt;legend&gt;Transfer funds&lt;/legend&gt;
-      &lt;p&gt;&lt;img scr="banner.png"&gt;&lt;/p&gt;
-      &lt;label for="fromacct"&gt;Transfer funds from account:&lt;/label&gt;
-      &lt;select name="accounts" id="fromaccounts"&gt;
-         &lt;option value="Select account"&gt;Select account&lt;/option&gt;
-         &lt;option value="Saving account - 8888-999"&gt;Saving account - 8888-999&lt;/option&gt;
-         &lt;option value="Checking account - 9999-9999"&gt;Checking account - 9999-9999&lt;/option&gt;
-      &lt;/select&gt;
-      &lt;label for="toacct"&gt;Transfer funds to account:&lt;/label&gt;
-      &lt;select name="accounts" id="toaccounts"&gt;
-         &lt;option value="Select account"&gt;Select account&lt;/option&gt;
-         &lt;option value="Saving account - 8888-999"&gt;Saving account - 8888-999&lt;/option&gt;
-         &lt;option value="Checking account - 9999-9999"&gt;Checking account - 9999-9999&lt;/option&gt;
-      &lt;/select&gt;
-      &lt;p&gt;
-         &lt;label for="amount"&gt;Amount:&lt;/label&gt;
-         &lt;input type="text" id="amount"&gt;
-      &lt;/p&gt;
-      &lt;input type="submit" value="Submit"&gt;
-   &lt;/fieldset&gt;
-&lt;/form&gt;</code></pre>
-				<p class="wb-inv">Code ends</p>
-									  </details>
-				</div>
-				</div>
 				
 				
 			
@@ -754,14 +625,14 @@
 			 <div class="panel panel-primary mrgn-tp-md">
               <div class="panel-body well mrgn-bttm-0">              
             <p>
-			<strong>Choose the source and destination accounts below to complete your funds transfer:</strong>
+			Choose the source and destination accounts below to complete your funds transfer:
 			</p> 
 			<p class="wb-inv">Example begins</p>
-			  <form  method="get" action="#">
+			  <form  method="get"  onsubmit="return false;">
 				<fieldset> 
 					<legend> <span class="field-name">Transfer funds</span></legend> 
 				  <div class="form-group">
-					<label for="fromacct">Transfer funds from account:</label> 
+					<label for="fromacct">Transfer funds from account</label> 
 					  
 					<select name="accounts" id="fromacct" class="form-control"> 
 					  <option value="Select account">Select account</option> 
@@ -771,7 +642,7 @@
 					  
 				  </div>
 				  <div class="form-group">
-					<label for="toacct">Transfer funds to account:</label>
+					<label for="toacct">Transfer funds to account</label>
 					  
 					<select name="accounts" id="toacct" class="form-control"> 
 					  <option value="Select account">Select account</option> 
@@ -780,7 +651,7 @@
 				    </select> 
 				  </div>
 				  <div class="form-group">
-					<label for="amount">Amount:</label> 
+					<label for="amount">Amount</label> 
 					  
 					<input type="text" id="amount"  class="form-control">
 				  </div>
@@ -789,103 +660,65 @@
 					  	
 				</fieldset> 
 			  </form>
-			  <p class="wb-inv">Example ends</p>
+			  <p class="wb-inv">Fin de l'exemple</p>
 		</div>
 	</div>
 
 
-			<details class="mrgn-tp-sm">
-							<summary class="bg-info">View HTML </summary>
-							<p class="wb-inv">Code begins</p>
-							<pre><code class="language-html">&lt;p&gt;
-   &lt;strong&gt;Choose the source and destination accounts below to complete your funds transfer:&lt;/strong&gt;
-&lt;/p&gt; 
-&lt;form action="/action.php method="get"&gt; 
-   &lt;fieldset&gt; 
-     &lt;legend&gt; Transfer Funds&lt;/legend&gt; 
-     &lt;div&gt;
-      &lt;label for="fromacct"&gt;Transfer Funds From Account:&lt;/label&gt; 
-      &lt;select name="accounts" id="fromacct"&gt; 
-        &lt;option value="Select Account"&gt;
-           Select Account
-        &lt;/option&gt; 
-        &lt;option value="Saving account - 8888-999"&gt;
-           Saving account - 8888-999
-        &lt;/option&gt; 
-        &lt;option value="Checking account - 9999-9999"&gt;
-           Checking account - 9999-9999
-        &lt;/option&gt; 
-      &lt;/select&gt; 
-     &lt;/div&gt;
-     &lt;div&gt;
-      &lt;label for="toacct"&gt;Transfer Funds To Account:&lt;/label&gt;
-      &lt;select name="accounts" id="toacct"&gt; 
-        &lt;option value="Select Account"&gt;
-           Select Account
-        &lt;/option&gt; 
-        &lt;option value="Saving account - 8888-999"&gt;
-           Saving account - 8888-999
-        &lt;/option&gt; 
-        &lt;option value="Checking account - 9999-9999"&gt;
-           Checking account - 9999-9999
-        &lt;/option&gt; 
-      &lt;/select&gt; 
-     &lt;/div&gt;
-     &lt;div&gt;
-      &lt;label for="amount"&gt;Amount:&lt;/label&gt; 
-      &lt;input type="text" id="amount"&gt;
-     &lt;/div&gt;
-     &lt;input type="submit" value="Submit"&gt; 
-   &lt;/fieldset&gt; 
-&lt;/form&gt;
-</code>
-</pre>
-<p class="wb-inv">Code ends</p>
-					  </details>
+			
+				<p class="lang-label small">HTML</p>
+				<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;p&gt;Choose the source and destination accounts below to complete your funds transfer:&lt;/p&gt; 
+&lt;form action="/action.php" method="get"&gt;[&hellip;]&lt;/form&gt;</code></pre>
+				<p class="wb-inv">Code ends</p>
+					  
 </div>
 </div>
-					  <hr/>
-					  <p class="small">The examples of forms <mark><del>validations</del> <ins>instructions</ins></mark> are from the Web Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a>) 
-					document: <a href="https://www.w3.org/WAI/tutorials/forms/instructions/">Instruction</a> from the <a href="https://www.w3.org/WAI/tutorials/forms/">Forms</a>
-					tutorial of the <a href="https://www.w3.org/WAI/tutorials/">Web Accessibility Tutorials</a>. <a herf="https://www.w3.org/People/yatil/">
-					Eric Eggert</a> and <a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a>, Copyright © 2019 W3C ® 
-					(<a href="http://www.csail.mit.edu/">MIT</a>
-					, <a href="http://www.ercim.eu/">ERCIM</a>, 
-					<a href="http://www.keio.ac.jp/">Keio</a>
-					, <a href="http://ev.buaa.edu.cn/">Beihang</a>) 
-					<a href="https://www.w3.org/Consortium/Legal/ipr-notice">Usage policies apply</a>. Updated 27 July 2019 (first published September 2014). 
-					<a href="https://www.w3.org/WAI/tutorials/forms/instructions/">https://www.w3.org/WAI/tutorials/forms/instructions/</a></p>
+					 
 				
 			</section>
-			
+
+
 			<section>				
 				<h2 id="resources" class="wb-inv">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
 					<ul>
-						<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#info-and-relationships">1.3.1 Info and Relationships</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#headings-and-labels">2.4.6 Headings and Labels </a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#labels-or-instructions">3.3.2 Labels or Instructions</a></li>
-						<li><a href="https://www.w3.org/WAI/WCAG21/quickref/#name-role-value">4.1.2 Name, Role, Value</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1 Info and Relationships</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels">2.4.6 Headings and Labels </a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions">3.3.2 Labels or Instructions</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages">4.1.2 Name, Role, Value</a></li>
 					</ul>
 					<h3>Techniques</h3>
 					<ul>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G17">G17: Ensuring that a contrast ratio of at least 7:1 exists between text (and images of text) and background behind the text</a>
-						</li>	
-						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G18">G18: Ensuring that a contrast ratio of at least 4.5:1 exists between text (and images of text) and background behind the text</a>
-						</li>
-						<li>
 							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G131">G131: Providing descriptive labels</a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G162">G162: Positioning labels to maximize predictability of relationships</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA10">ARIA10: Using aria-labelledby to provide a text alternative for non-text content</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA9">ARIA9: Using aria-labelledby to concatenate a label from several text nodes</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA1">ARIA1: Using Accessible Rich Internet Application describedby property to provide a descriptive, programmatically determined label</a>
+						</li>
+						
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G89">G89: Providing expected data format and example</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G184">G184: Providing text instructions at the beginning of a form or set of fields that describes the necessary input
+</a>
 						</li>
 						<li>
 							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H44">H44: Using label elements to associate text labels with form controls</a>
 						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H90">H90: Indicating required form controls using label or legend</a>
+						</li>
+						
 						<li>
 							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H93">H93: Ensuring that id attributes are unique on a Web page</a>
 						</li>					
@@ -927,18 +760,32 @@
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">All modules</h3>
 					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
-						<li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>			
-						<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
-						<li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
-						<li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
-						<li><a class="list-group-item active" href="index.html">Module 6 – Forms</a></li>	
-						<li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual design and colours</a></li>
-						<li><a class="list-group-item" href="../module8/index.html">Module 8 – Zoom and responsive design</a></li>
-						<li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
-						<li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
-						<li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
-					</ul>
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item active" href="forms-concepts.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Site map and best practice</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+					</li>
+
+				</ul>
 			</section>
 	</nav>
 </div>

@@ -10,7 +10,7 @@
 	<meta content="width=device-width,initial-scale=1" name="viewport">
 	<!-- Meta data -->
 	<meta name="description"
-		content="">
+		content="Accessibility guidelines related to identifying input purpose. Describes how to define semantics of input fields with the autocomplete attribute.">
 	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -47,6 +48,7 @@
             },
 			{
                 "title": "Module 6 - Forms",
+                
                 "href" : "index.html"
             }],
             "lngLinks": [{
@@ -69,7 +71,7 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#overview">Identifying input purpose (overview)</section></a></li>
+            <li><a href="#overview">Overview – Identifying input purpose</section></a></li>
 			<li><a href="#autocomplete-attributes">Good example: Using the autocomplete attribute</a></li>
 			<li><a href="#wcag-resources">Related WCAG resources</a></li>
           </ul>
@@ -78,78 +80,186 @@
 	</nav>
 	
 			<section>
-				<h2 id="overview">Identifying input purpose (overview)</h2>
-				<p>When a form input field collects personal information such as the user’s name, phone number,
-				email and street addresses, you must programmatically define its semantics with the <code>autocomplete</code> attribute. 
-				The attribute takes one of 53 potential values from WCAG’s list of <a href="https://www.w3.org/TR/WCAG21/#input-purposes">Input Purposes for User Interface Components</a>. 
-				The values are granular; for instance, regarding the user’s name, it’s possible to identify an input’s purpose as full name, 
-				given name, family name, or nickname.</p>
-				<p>Assistive technologies leverage the <code>autocomplete</code> attribute value to automatically complete forms, drawing on past user input stored in the browser. This saves the user from having to type the information. Assistive technologies also leverage the <code>autocomplete</code> value to pair input fields with icons, for users who prefer using images for communication.</p>
-				<p><mark>Use <code>autocomplete</code>  on <code>&lt;input&gt;</code> elements that take a text or numeric value as input, <code>&lt;textarea&gt;</code> elements, <code>&lt;select&gt;</code> elements, and <code>&lt;form&gt;</code> elements.</mark></p>
+				<h2 id="overview">Overview – Identifying input purpose</h2>
+				<p>When a form input field collects personal information such as the user’s name, phone number, email and street addresses, programmatically define its semantics with the <code>autocomplete</code> attribute. Assistive technologies leverage the <code>autocomplete</code> attribute value to automatically complete forms, drawing on past user input stored in the browser. This saves the user from having to type the information. Assistive technologies also leverage the <code>autocomplete</code> value to pair input fields with icons, for users who prefer using images for communication.</p>
+				<p>The attribute value takes one of 53 potential field names from WCAG’s list of <a href="https://www.w3.org/TR/WCAG21/#input-purposes">Input Purposes for User Interface Components</a>. The field names are either broad or narrow. For instance, regarding the user’s name, it’s possible to identify an input’s purpose as full name, given name, family name, or nickname. You can further refine the purpose by adding space-separated <dfn>autofill detail tokens</dfn> to the <code>autocomplete</code> value:</p>
+				<ul>
+					<li><code>shipping</code></li>
+					<li><code>billing</code></li>
+					<li><code>home</code></li>
+					<li><code>work</code></li>
+					<li><code>mobile</code></li>
+					<li><code>fax</code></li>
+					<li><code>pager</code></li>
+				</ul>
+				<p>Use <code>autocomplete</code> on <code>&lt;input&gt;</code> elements that take a text or numeric value as input, <code>&lt;textarea&gt;</code> elements, <code>&lt;select&gt;</code> elements, and <code>&lt;form&gt;</code> elements. The HTML5 specification lists the <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#inappropriate-for-the-control">appropriate elements to match with each autocomplete field name</a>.</p>
 			</section>	
 			<section>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h2 class="text-success mrgn-tp-0 h3" id="autocomplete-attributes"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Using the autocomplete attribute</h2>
-						<p>This is a simple form that collects contact information from the user.</p>				
+						<p>This is a simple form that identifies contact information from the user with the <code>autocomplete</code> attribute. The <code>autocomplete</code> field names use tokens to distinguish between billing and shipping, and land line and mobile phone.</p>
+						<p>The fields only auto-populate if the browser has saved values for the field names (e.g., <code>given-name</code>, <code>family-name</code>) from a previous form submission. To test, enter some values and press "Populate browser" to store values for the field names in the browser. The data is not submitted, and we don't store any of it.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Example begins</p>				
-								<form class="form-horizontal" role="form" method="post" action="step1" autocomplete="on"> 
+								<p class="wb-inv">Example begins</p>								<form class="form-horizontal" autocomplete="on" onsubmit="return false;" > 
 									<div class="form-group">
-										<label for="fname" class="col-sm-2 control-label">First name</label>
-										<div class="col-sm-10">
+										<label for="fname" class="col-sm-4 control-label">First name</label>
+										<div class="col-sm-8">
 											<input id="fname" type="text" class="form-control" autocomplete="given-name">  
 										</div>
 									</div>
 									<div class="form-group"> 
-										<label for="lname" class="col-sm-2 control-label">Last name</label> 
-										<div class="col-sm-10">
-											<input id="lname" type="text" class="form-control"  autocomplete="family-name">    
+										<label for="lname" class="col-sm-4 control-label">Last name</label> 
+										<div class="col-sm-8">
+											<input id="lname" type="text" class="form-control" autocomplete="family-name">    
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="jobtitle" class="col-sm-2 control-label">Job title</label> 
-										<div class="col-sm-10">
-											<input type="text" id="jobtitle" class="form-control"  autocomplete="organization-title"> </div>
+										<label for="jobtitle" class="col-sm-4 control-label">Job title</label> 
+										<div class="col-sm-8">
+											<input type="text" id="jobtitle" class="form-control" autocomplete="organization-title"> </div>
 										</div>
 									<div class="form-group">
-										<label for="org" class="col-sm-2 control-label">Organization</label>
-										<div class="col-sm-10">
-											<input type="text" id="org" class="form-control"  autocomplete="organization">
+										<label for="org" class="col-sm-4 control-label">Organization</label>
+										<div class="col-sm-8">
+											<input type="text" id="org" class="form-control" autocomplete="organization">
 										</div>
 									</div>
+									<fieldset>
+										<legend>Shipping address</legend>
+										<div class="form-group">
+											<label for="ship-st" class="col-sm-4 control-label">Street</label>
+											<div class="col-sm-8">
+												<input type="text" id="ship-st" class="form-control" autocomplete="shipping street-address">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="ship-city" class="col-sm-4 control-label">City</label>
+											<div class="col-sm-8">
+												<input type="text" id="ship-city" class="form-control" autocomplete="shipping address-level2">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="ship-prov" class="col-sm-4 control-label">Province</label>
+											<div class="col-sm-8">
+												<input type="text" id="ship-prov" class="form-control" autocomplete="shipping address-level1">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="ship-mobile-phone" class="col-sm-4 control-label">Mobile phone for delivery</label>
+											<div class="col-sm-8">
+												<input type="tel" id="ship-mobile-phone" class="form-control" autocomplete="shipping mobile tel-national">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="ship-email" class="col-sm-4 control-label">Email</label>
+											<div class="col-sm-8">
+												<input type="email" id="ship-email" class="form-control" autocomplete="shipping email">
+											</div>
+										</div>
+									</fieldset>
+									<fieldset>
+										<legend>Billing address</legend>
+										<div class="form-group">
+											<label for="bill-st" class="col-sm-4 control-label">Street</label>
+											<div class="col-sm-8">
+												<input type="text" id="bill-st" class="form-control" autocomplete="billing street-address">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="bill-city" class="col-sm-4 control-label">City</label>
+											<div class="col-sm-8">
+												<input type="text" id="bill-city" class="form-control" autocomplete="billing address-level2">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="bill-prov" class="col-sm-4 control-label">Province</label>
+											<div class="col-sm-8">
+												<input type="text" id="bill-prov" class="form-control" autocomplete="shipping address-level1">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="bill-phone" class="col-sm-4 control-label">Phone</label>
+											<div class="col-sm-8">
+												<input type="tel" id="bill-phone" class="form-control" autocomplete="billing tel-national">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="bill-email" class="col-sm-4 control-label">Email</label>
+											<div class="col-sm-8">
+												<input type="tel" id="bill-email" class="form-control" autocomplete="billing email">
+											</div>
+										</div>
+									</fieldset>
 									<div class="form-group">
-										<div class="col-sm-offset-2 col-sm-10">
-											<input type="submit" value="Continue">
-										</div>
+										<div class="col-sm-offset-4 col-sm-8">
+											<input type="submit" value="Populate browser">										</div>
 									</div>
+									
 								</form>
 								<p class="wb-inv">Example ends</p>
 							</div>
 						</div>
-						<p class="wb-inv">Code begins</p>
+						<details class="mrgn-tp-lg">
+							<summary class="bg-info">View HTML (simplified)</summary>
+							<p class="mrgn-tp-md">This markup has been simplified by removing grouping <code>&lt;div&gt;</code> elements and class attributes.</p>
+							<p class="wb-inv">Code begins</p>
 <pre><code class="language-html">&lt;form method="post" action="step1"&gt;  
-   &lt;div&gt; 
-      &lt;label for="fname"&gt;First name&lt;/label&gt;
-      &lt;input id="fname" type="text" autocomplete="given-name" […]&gt;  
-   &lt;/div&gt;
-   &lt;div&gt;  
-      &lt;label for="lname"&gt;Last name&lt;/label&gt;  
-      &lt;input id="lname" type="text" autocomplete="family-name" […]&gt;    
-   &lt;/div&gt;
-   &lt;div&gt;
-      &lt;label for="jobtitle"&gt;Job title&lt;/label&gt;  
-      &lt;input type="text" id="jobtitle" autocomplete="organization-title"&gt;
-   &lt;div&gt;
-      &lt;label for="org"&gt;Organization&lt;/label&gt;
-      &lt;input type="text" id="org" autocomplete="organization"&gt;
-   &lt;/div&gt;  
-   &lt;div&gt;  
-      &lt;input type="submit" value="Continue"&gt; 
-   &lt;/div&gt;
+  &lt;label for="fname"&gt;First name&lt;/label&gt;
+  &lt;input id="fname" type="text" autocomplete="given-name"&gt;  
+
+  &lt;label for="lname"&gt;Last name&lt;/label&gt;  
+  &lt;input id="lname" type="text" autocomplete="family-name"&gt;   
+  
+  &lt;label for="jobtitle"&gt;Job title&lt;/label&gt;  
+  &lt;input type="text" id="jobtitle" autocomplete="organization-title"&gt;
+  
+  &lt;label for="org"&gt;Organization&lt;/label&gt;
+  &lt;input type="text" id="org" autocomplete="organization"&gt;
+  
+  &lt;fieldset&gt;
+    &lt;legend&gt;Shipping address&lt;/legend&gt;
+    
+    &lt;label for="ship-st"&gt;Street&lt;/label&gt;
+    &lt;input type="text" id="ship-st" autocomplete="shipping street-address"&gt;
+    
+    &lt;label for="ship-city"&gt;City&lt;/label&gt;
+    &lt;input type="text" id="ship-city" autocomplete="shipping address-level2"&gt;
+    
+    &lt;label for="ship-prov"&gt;Province&lt;/label&gt;
+    &lt;input type="text" id="ship-prov" autocomplete="shipping address-level1"&gt;
+    
+    &lt;label for="ship-mobile-phone"&gt;Mobile phone for delivery&lt;/label&gt;
+    &lt;input type="tel" id="ship-mobile-phone" autocomplete="shipping mobile tel-national"&gt;
+    
+    &lt;label for="ship-email"&gt;Email&lt;/label&gt;
+    &lt;input type="email" id="ship-email" autocomplete="shipping email"&gt;
+  &lt;/fieldset&gt;
+  
+  &lt;fieldset&gt;
+    &lt;legend&gt;Billing address&lt;/legend&gt;
+    
+    &lt;label for="bill-st"&gt;Street&lt;/label&gt;
+    &lt;input type="text" id="bill-st" autocomplete="billing street-address"&gt;
+    
+    &lt;label for="bill-city"&gt;City&lt;/label&gt;
+    &lt;input type="text" id="bill-city" autocomplete="billing address-level2"&gt;
+    
+    &lt;label for="bill-prov"&gt;Province&lt;/label&gt;
+    &lt;input type="text" id="bill-prov" autocomplete="billing address-level1"&gt;
+    
+    &lt;label for="bill-phone"&gt;Phone&lt;/label&gt;
+    &lt;input type="tel" id="bill-phone" autocomplete="billing tel-national"&gt;
+    
+    &lt;label for="bill-email"&gt;Email&lt;/label&gt;
+    &lt;input type="email" id="bill-email" autocomplete="billing email"&gt;
+  &lt;/fieldset&gt;
+    
+  &lt;input type="submit" value="Populate browser"&gt; 
 &lt;/form&gt;</code></pre>
-						<p class="wb-inv">Code ends</p>
+							<p class="wb-inv">Code ends</p>
+						</details>
 					</div>
 				</div>
 			</section>
@@ -172,7 +282,7 @@
 					</ul>
 					<h3>Failures</h3>
 					<ul>
-							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F107.htmll">F107: Failure of Success Criterion 1.3.5 due to incorrect autocomplete attribute values</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F107.htmll">F107: Failure of Success Criterion 1.3.5 due to incorrect autocomplete attribute values</a></li>
 											
 					</ul>
 				</details>
@@ -212,18 +322,32 @@
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">All modules</h3>
 					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
-						<li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>			
-						<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
-						<li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
-						<li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
-						<li><a class="list-group-item active" href="index.html">Module 6 – Forms</a></li>	
-						<li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual design and colours</a></li>
-						<li><a class="list-group-item" href="../module8/index.html">Module 8 – Zoom and responsive design</a></li>
-						<li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
-						<li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
-						<li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
-					</ul>
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item active" href="forms-concepts.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Site map and best practice</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+					</li>
+
+				</ul>
 			</section>
 	</nav>
 </div>

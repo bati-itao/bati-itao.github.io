@@ -21,6 +21,8 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -47,6 +49,7 @@
             },
 			{
                 "title": "Module 8 - Zoom and responsive design",
+                
                 "href" : "index.html"
             }],
             "lngLinks": [{
@@ -90,11 +93,12 @@
 			<section>	
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
-						<h2 id="screen-orientation" class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Screen Orientation Lock</h2>
+						<h2 id="screen-orientation" class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Screen Orientation Lock</h2>
 				<p>In this example, the content is prevented from displaying in landscape mode by a CSS media query that detects landscape orientation and a transform style rule that rotates the content 90 degrees (with supporting styles).</p>
 
-					<p class="wb-inv">Code begins</p>
-<pre><code class="language-css">@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) { 
+<p class="lang-label small">CSS</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-css">@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) { 
    html { 
       transform: rotate(-90deg); 
       transform-origin: left top; 
@@ -109,7 +113,7 @@
 				<p class="wb-inv">Code ends</p>
 
 			<hr/>
-			<p class="small">Source: <a href="https://css-tricks.com/snippets/css/orientation-lock/">https://css-tricks.com/snippets/css/orientation-lock/</a></p>
+			<p class="small">Source: <a href="https://css-tricks.com/snippets/css/orientation-lock/">Orientation lock</a></p>
 			</div>
 			</div>
 			</section>
@@ -117,12 +121,13 @@
 			<section>	
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h2 id="resp-orientation" class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Responsive screen orientation</h2>
+						<h2 id="resp-orientation" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Responsive screen orientation</h2>
 						<p>In this example, the page displaying the Government of Canada’s <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=23601">Standard on Web Accessibility</a> has no code touching screen orientation. The page rotates by default in mobile devices.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body mrgn-bttm-0">
-								<img src="images/image26.png" class="img-responsive" alt="Screen orientation in portrait, with all text legible.">
+								<p class="wb-inv">Example begins</p>								<img src="images/image26.png" class="img-responsive" alt="Screen orientation in portrait, with all text legible.">
 								<img src="images/image27.png" class="img-responsive" alt="Screen orientation in landscape, with all text legible.">
+						<p class="wb-inv">Example ends</p>
 							</div>
 						</div>
 					</div>
@@ -134,13 +139,13 @@
 				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Related WCAG resources</summary>
-					<h3>Success criteria</h3>
+					<h3 id="orientation-success-criteria">Success criteria</h3>
 					<ul>
 						<li>
 							<a href="https://www.w3.org/WAI/WCAG21/Understanding/orientation">1.3.4: Orientation</a>
 						</li>
 					</ul>
-					<h3>Failures</h3>
+					<h3	id="orientation-failures">Failures</h3>
 					<ul>
 						<li>
 							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F97">F97: Failure due to locking the orientation to landscape or portrait view</a>
@@ -168,14 +173,21 @@
 												
 						<li><a class="list-group-item" href="introduction.html">Introduction</a></li>
 						<li><a class="list-group-item" href="zoom.html">Zoom</a></li>
-						<li><a class="list-group-item" href="responsive-design.html">Responsive design</a></li>
-						<li><a class="list-group-item" href="responsive-forms.html">Responsive forms</a></li>
-						<li><a class="list-group-item" href="responsive-images.html">Responsive images</a></li>
-						<li><a class="list-group-item" href="responsive-text.html">Responsive text</a></li>
-						<li><a class="list-group-item" href="responsive-objects.html">Responsive objects and plugins</a></li>
-						<li><a class="list-group-item" href="responsive-tables.html">Responsive tables</a></li>
-						<li><a class="list-group-item" href="responsive-ui.html">Responsive UI components</a></li>
-						<li><a class="list-group-item" href="responsive-video.html">Responsive video</a></li>
+						<li class="collapsed">
+						<a class="list-group-item collapsed" href="responsive-design.html">
+								Responsive design
+								<span class="wb-inv">Collapsed</span>
+						</a>
+							<ul class="list-group menu list-unstyled inner">
+								<li><a class="list-group-item" href="responsive-forms.html">Responsive forms</a></li>
+								<li><a class="list-group-item" href="responsive-images.html">Responsive images</a></li>
+								<li><a class="list-group-item" href="responsive-text.html">Responsive text</a></li>
+								<li><a class="list-group-item" href="responsive-objects.html">Responsive objects and plugins</a></li>
+								<li><a class="list-group-item" href="responsive-tables.html">Responsive tables</a></li>
+								<li><a class="list-group-item" href="responsive-ui.html">Responsive UI components</a></li>
+								<li><a class="list-group-item" href="responsive-video.html">Responsive video</a></li>
+							</ul>
+						</li>
 						<li><a class="list-group-item active" aria-current="page" href="orientation.html">Orientation</a></li>
 						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
 						
@@ -185,18 +197,32 @@
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">All modules</h3>
 					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
-						<li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>			
-						<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
-						<li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
-						<li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
-						<li><a class="list-group-item" href="../module6/index.html">Module 6 – Forms</a></li>	
-						<li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual design and colours</a></li>
-						<li><a class="list-group-item active" href="index.html">Module 8 – Zoom and responsive design</a></li>
-						<li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
-						<li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
-						<li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
-					</ul>
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item active" href="introduction.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Site map and best practice</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+					</li>
+
+				</ul>
 			</section>
 	</nav>
 </div>

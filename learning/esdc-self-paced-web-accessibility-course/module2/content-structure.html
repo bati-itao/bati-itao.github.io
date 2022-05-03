@@ -11,7 +11,6 @@
 	<!-- Meta data -->
 	<meta name="description"
 		content="Accessibility guidelines related to proper page structure. Describes appropriate markup, headings, menus, banners, paragraphs, lists, tables and other features.">
-	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -21,6 +20,7 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -47,6 +47,7 @@
             },
 			{
               "title": "Module 2 – Page structure and semantics",
+                
                 "href" : "index.html"
             }],
             "lngLinks": [{
@@ -69,7 +70,7 @@
         </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#content-structure">Content structure (overview)</a></li>
+            <li><a href="#content-structure">Overview – Content structure</a></li>
               <li><a href="#articles">Articles</a></li>
               <li><a href="#sections">Sections</a></li>
               <li><a href="#paragraphs">Paragraphs</a></li>
@@ -84,7 +85,7 @@
       </div>
     </nav>
     <section>
-		<h2 id="content-structure">Content structure (overview)</h2>
+		<h2 id="content-structure">Overview – Content structure</h2>
 		<p>In order to understand a document, everyone depends on understanding its structure. Screen reader users need to build a mental model of the page, and are dependent on content authors identifying, with the appropriate markup, any headings, menus, banners, paragraphs, lists, tables and other features.</p>
 	</section>
 	<section>
@@ -92,13 +93,13 @@
 		<p>The HTML5 <code>&lt;article&gt;</code> element represents a complete or self-contained composition in a web page. Examples of articles include an item at a shopping site or a news article on a news site.</p>
 		
 		 <span class="wb-prettify"></span>
-		 <p class="wb-inv">Code begins</p>
-<pre>
-<code class="language-html">&lt;article&gt; 
-	&lt;h2&gt;Tooth Paste Classic&lt;/h2&gt;
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;article&gt; 
+   &lt;h2&gt;Tooth Paste Classic&lt;/h2&gt;
 &lt;/article&gt;
 &lt;article&gt;  
-	&lt;h2&gt;Tooth Paste Extreme&lt;/h2&gt;
+   &lt;h2&gt;Tooth Paste Extreme&lt;/h2&gt;
 &lt;/article&gt;</code>
 </pre>
 <p class="wb-inv">Code ends</p>
@@ -108,10 +109,10 @@
 		<p>The HTML5 <code>&lt;section&gt;</code> element marks a general region of a web page or an article. It is used for thematic grouping of content.</p>
 	
 		 <span class="wb-prettify"></span>
-		 <p class="wb-inv">Code begins</p>
-<pre>
-<code class="language-html">&lt;section&gt;
-	&lt;h2&gt;Chapter 2&lt;/h2&gt;
+		 <p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;section&gt;
+   &lt;h2&gt;Chapter 2&lt;/h2&gt;
 &lt;/section&gt;</code>
 </pre>
 <p class="wb-inv">Code ends</p>
@@ -123,7 +124,7 @@
 		<p>Identifying a quotation helps clarify that the content is attributed to another author. Quotes can be marked up as inline or as blocks of text. Assistive technologies can convey to users where a quote starts and ends, which can avoid misunderstandings.</p>
 		<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span> Good example 1: Blockquote</h3>
+					<h3 id="good-example-blockquote" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span> Good example 1: Blockquote</h3>
 					<p>Use the <code>&lt;blockquote&gt;</code> element for longer and more complex quotes. It can contain paragraphs, headings, and other text structure elements. Those should reflect the structure of the cited document. The <code>&lt;cite&gt;</code> element is used to refer to the source of the quote.</p>
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
@@ -135,11 +136,11 @@
 							<p class="wb-inv">Example ends</p>
 						</div>
 					</div>
-					<p class="wb-inv">Code begins</p>
-<pre>
-<code class="language-html">&lt;p&gt;The following is a definition on &lt;cite&gt;Page Structure Concept&lt;/cite&gt; from W3 WAI.&lt;/p&gt;
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;p&gt;The following is a definition on &lt;cite&gt;Page Structure Concept&lt;/cite&gt; from W3 WAI.&lt;/p&gt;
 &lt;blockquote&gt;
-	&lt;p&gt;Well-structured content allows more efficient navigation and processing. Use HTML and WAI-ARIA to improve navigation and orientation on web pages and in applications. &lt;/p&gt;
+   &lt;p&gt;Well-structured content allows more efficient navigation and processing. Use HTML and WAI-ARIA to improve navigation and orientation on web pages and in applications. &lt;/p&gt;
 &lt;/blockquote&gt;</code>
 </pre>
 <p class="wb-inv">Code ends</p>
@@ -149,7 +150,7 @@
 		</div>
 		<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span> Good example 2: Inline quote</h3>
+					<h3 id="good-example-inline-quote" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span> Good example 2: Inline quote</h3>
 					<p>For shorter quotes, that are usually embedded in another sentence, use the <code>&lt;q&gt;</code> element.</p>
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
@@ -158,9 +159,9 @@
 							<p class="wb-inv">Example ends</p>
 						</div>
 					</div>
-					<p class="wb-inv">Code begins</p>			
-<pre>
-<code class="language-html">&lt;p&gt;Helen Keller said, &lt;q&gt;"Self-pity is our worst enemy and if we yield to it, we can never do anything good in the world."&lt;/q&gt;&lt;/p&gt;</code></pre>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;p&gt;Helen Keller said, &lt;q&gt;"Self-pity is our worst enemy and if we yield to it, we can never do anything good in the world."&lt;/q&gt;&lt;/p&gt;</code></pre>
 					<p class="wb-inv">Code ends</p>
 				</div>
 		</div>
@@ -169,13 +170,14 @@
 				<h2 id="figures">Figures</h2>
 		<p>Figures are blocks with additional information set off from the main content of the page - sometimes referenced from the main text. They typically contain diagrams, illustrations, photos, code examples, tables, but can also include other content. For example, an annual report could reference a diagram containing the sales volumes of a product.</p>
 		<p>Each figure is wrapped in a <code>&lt;figure&gt;</code> element and labeled using a nested <code>&lt;figcaption&gt;</code> element.</p>
-		<p class="wb-inv">Code ends</p>
-<pre>
+		<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0">
 <code class="language-html">&lt;p&gt;The sales volume of our PearlyTooth product was steady the first three quarters but had a huge success in quarter four with the introduction of SuperBear in time for the holiday season. See graphic G3 for details.&lt;/p&gt;
 &lt;figure&gt;
-	&lt;figcaption&gt;G3: PearlyTooth sales volume&lt;/figcaption&gt; 
-	&lt;img src="…"alt="PearlyTooth sales diagram, showing the huge success in Q4"&gt;
-	&lt;p&gt;&lt;a href="[…]"&gt;Long Description&lt;/a&gt;&lt;/p&gt;
+   &lt;figcaption&gt;G3: PearlyTooth sales volume&lt;/figcaption&gt; 
+   &lt;img src="…"alt="PearlyTooth sales diagram, showing the huge success in Q4"&gt;
+   &lt;p&gt;&lt;a href="[…]"&gt;Long Description&lt;/a&gt;&lt;/p&gt;
 &lt;/figure&gt;</code>
 </pre>
 <p class="wb-inv">Code ends</p>
@@ -282,20 +284,32 @@
 				</h3>
 				
 					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility Fundamentals</a></li>
-						<li><a class="list-group-item active" href="index.html">Module 2  – Page structure and semantics</a></li>			
-						<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and Navigation</a></li>
-						<li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
-						<li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
-						<li><a class="list-group-item" href="../module6/index.html">Module 6 – Forms</a></li>	
-						<li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual Design and Colours</a></li>
-						<li><a class="list-group-item" href="../module8/index.html">Module 8 – Zoom and Responsive Design</a></li>
-						<li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, Video, Animation and Motion</a></li>
-						<li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
-                        <li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item active" href="landmarks.html">Module 2  – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+                        <li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
 			</ul>
-						
 
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Site map and best practice</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+					</li>
+
+				</ul>
 			</section>
 		
 		</nav>

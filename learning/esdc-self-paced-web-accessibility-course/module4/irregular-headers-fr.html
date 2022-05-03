@@ -11,7 +11,6 @@
 	<!-- Meta data -->
 	<meta name="description"
 		content="Lignes directrices sur l’accessibilité relative aux tableaux dont les en têtes sont irréguliers et qui comportent plusieurs colonnes ou rangées">
-	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -21,6 +20,8 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -47,6 +48,7 @@
             },
 			{
                 "title": "Module 4 - Tableaux",
+                
                 "href" : "index-fr.html"
             }],
             "lngLinks": [{
@@ -71,32 +73,33 @@
 				<div class="panel-body">
 					<ul>
 						<li><a href="#irregular-headers">Conception avec des en-têtes irréguliers</a></li>
-						<li><a href="#scope-attribute">Attribut scope</a></li>
+						<li><a href="#scope-attribute">L'attribut scope</a></li>
 						<li><a href="#group-defining">Éléments définissant le groupe</a></li>
 						<li><a href="#headers">Bon exemple&nbsp;: Tableau avec en-têtes recouvrant des colonnes et des rangées</a></li>
-						<li><a href="#wcag">Ressources WCAG connexes</a></li>
+						<li><a href="#irregular-headers-wcag">Ressources WCAG connexes</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 		
-		<section>
+		<section> 
 			<h2 id="irregular-headers">Conception avec des en-têtes irréguliers</h2>		
 			<p>Un tableau est irrégulier lorsqu’un ou plusieurs de ses en-têtes englobent plusieurs colonnes ou rangées.</p>
 			<p>HTML introduit des attributs et des éléments destinés à représenter les relations entre ces en-têtes couvrant des rangées ou des colonnes et les cellules de données qu’ils définissent.</p>
 		</section>
 		<section>
-			<h2 id="scope-attribute">Attribut scope</h2>
+			<h2 id="scope-attribute">L'attribut scope</h2>
 		
-			<p>Lorsqu’un en-tête couvre plusieurs colonnes, ajouter l’attribut <code>scope="colgroup"</code> à l’élément <code>&lt;th&gt;</code>. Voir l’en-tête <strong>A</strong> dans le tableau ci-dessous.</p>
-			<p>Lorsqu’un en-tête s’étend sur plusieurs rangées, ajouter l’attribut <code>scope="rowgroup"</code> à l’élément th. Voir l’en-tête <strong>B</strong> dans le tableau ci-dessous.</p>
-			<p>Pour les en-têtes de colonne solo, ajouter l’attribut <code>scope="col"</code> à l’élément <code>&lt;th&gt;</code>. Voir les en-têtes&nbsp;<strong>A1</strong>, <strong>A2</strong>, <strong>A3</strong> dans le tableau ci-dessous.</p>
-			<p>Pour les en-têtes de rangée solo, ajouter l’attribut <code>scope="row"</code> à l’élément <code>&lt;th&gt;</code>. Voir les en-têtes&nbsp;<strong>B1</strong> et <strong>B2</strong> dans le tableau ci-dessous.</p>
+			<p>Lorsqu’un en-tête couvre plusieurs colonnes, ajouter l’attribut <code lang="en-CA">scope="colgroup"</code> à l’élément <code lang="en-CA">&lt;th&gt;</code>. Voir l’en-tête <strong>A</strong> dans le tableau ci-dessous.</p>
+			<p>Lorsqu’un en-tête s’étend sur plusieurs rangées, ajouter l’attribut <code lang="en-CA">scope="rowgroup"</code> à l’élément th. Voir l’en-tête <strong>B</strong> dans le tableau ci-dessous.</p>
+			<p>Pour les en-têtes de colonne solo, ajouter l’attribut <code lang="en-CA">scope="col"</code> à l’élément <code lang="en-CA">&lt;th&gt;</code>. Voir les en-têtes&nbsp;<strong>A1</strong>, <strong>A2</strong>, <strong>A3</strong> dans le tableau ci-dessous.</p>
+			<p>Pour les en-têtes de rangée solo, ajouter l’attribut <code lang="en-CA">scope="row"</code> à l’élément <code lang="en-CA">&lt;th&gt;</code>. Voir les en-têtes&nbsp;<strong>B1</strong> et <strong>B2</strong> dans le tableau ci-dessous.</p>
 			<div class="panel panel-primary mrgn-tp-md">
 				<div class="panel-body well mrgn-bttm-0">
-					<p class="wb-inv">D&eacute;but de l'exemple</p>
+					<p class="wb-inv">L'exemple commence</p>
 					<table class="table table-bordered">
-					 <caption>Tableau comportant un en-tête de colonne et un en-tête de rangée</caption>
+						<caption>Tableau comportant un en-tête de colonne et un en-tête de rangée</caption>
+						 <thead>
 							  <tr class="bg-primary">
 								<td colspan="2" rowspan="2">&nbsp;</td>
 								<th colspan="3">A</th>
@@ -106,6 +109,8 @@
 								<th>A2</th>
 								<th>A3</th>
 							  </tr>
+						</thead>
+						<tbody>
 							  <tr>
 								<th rowspan="2" class="bg-primary">B</th>
 								<th class="bg-primary">B1</th>
@@ -119,16 +124,17 @@
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 							  </tr>
+						</tbody>
 					</table>
-					<p class="wb-inv">Fin de l'exemple</p>	
+					<p class="wb-inv">L'exemple finit</p>	
 				</div>
 			</div>
-			<p>Le support du lecteur d’écran pour l’attribut <code>scope="rowgroup"</code> est pire que le support pour l’attribut <code>scope="colgroup"</code>. Lorsque cela est possible, concevoir des tableaux qui utilisent <code>scope="colgroup"</code> et éviter <code>scope="rowgroup"</code>.</p>
+			<p>Le support du lecteur d’écran pour l’attribut <code lang="en-CA">scope="rowgroup"</code> est pire que le support pour l’attribut <code lang="en-CA">scope="colgroup"</code>. Lorsque cela est possible, concevoir des tableaux qui utilisent <code lang="en-CA">scope="colgroup"</code> et éviter <code lang="en-CA">scope="rowgroup"</code>.</p>
 	 		<details class="mrgn-tp-lg">
 				<summary class="bg-info">Voir le HTML</summary>
-				<p class="wb=inv">Code commence</p>
+				<p class="wb=inv">Début du code</p>
 <pre><code class="language-html">&lt;table class=&quot;table table-bordered&quot;&gt;
-   &lt;caption&gt;Table with a column-spanning header and a row-spanning header&lt;/caption&gt;
+   &lt;caption&gt;Tableau comportant un en-tête de colonne et un en-tête de rangée&lt;/caption&gt;
    &lt;tr class=&quot;bg-primary&quot;&gt;
       &lt;td colspan=&quot;2&quot; rowspan=&quot;2&quot;&gt;&amp;nbsp;&lt;/td&gt;
       &lt;th colspan=&quot;3&quot; id=&quot;a&quot;&gt;A&lt;/th&gt;
@@ -153,25 +159,25 @@
    &lt;/tr&gt;
 &lt;/table&gt;</code>
 </pre>
-				<p class="wb-inv">Fins du code</p>
+				<p class="wb-inv">Fin du code</p>
 			</details>
 	
 		</section>
 			
 		<section>
 			<h2 id="group-defining">Éléments définissant le groupe</h2>		
-			<p>Les tableaux irréguliers définissent également leurs colonnes individuelles et colonnes recouvrantes avec, respectivement, les éléments <code>&lt;col&gt;</code> et <code>&lt;colgroup&gt;</code>. Ces éléments sont les premiers enfants de l’élément du tableau et sont énumérés dans l’ordre dans lequel les colonnes apparaissent dans le tableau. L’attribut <code>span</code> de l’élément <code>&lt;colgroup&gt;</code> contient le nombre de colonnes recouvertes. </p>
-				<p>Les tableaux irréguliers définissent des groupes de rangées en utilisant les éléments &<code>lt;thead&gt;</code>, <code>&lt;tbody&gt;</code> et <code>&lt;tfoot&gt;</code>. L’élément &lt;tbody&gt; définit un nouveau groupe de rangées pour chaque utilisation, alors que <code>&lt;thead&gt;</code> et <code>&lt;tfoot&gt;</code> le font aussi, mais ne peuvent être utilisés qu’une seule fois par tableau.</p>
+			<p>Les tableaux irréguliers définissent également leurs colonnes individuelles et colonnes recouvrantes avec, respectivement, les éléments <code lang="en-CA">&lt;col&gt;</code> et <code lang="en-CA">&lt;colgroup&gt;</code>. Ces éléments sont les premiers enfants de l’élément du tableau et sont énumérés dans l’ordre dans lequel les colonnes apparaissent dans le tableau. L’attribut <code lang="en-CA">span</code> de l’élément <code lang="en-CA">&lt;colgroup&gt;</code> contient le nombre de colonnes recouvertes. </p>
+				<p>Les tableaux irréguliers définissent des groupes de rangées en utilisant les éléments <code lang="en-CA">&lt;thead&gt;</code>, <code lang="en-CA">&lt;tbody&gt;</code> et <code lang="en-CA">&lt;tfoot&gt;</code>. L’élément &lt;tbody&gt; définit un nouveau groupe de rangées pour chaque utilisation, alors que <code lang="en-CA">&lt;thead&gt;</code> et <code lang="en-CA">&lt;tfoot&gt;</code> le font aussi, mais ne peuvent être utilisés qu’une seule fois par tableau.</p>
 		</section>
 		<section>
 			<div class="panel panel-success  mrgn-tp-lg">
 				<div class="panel-body">
 					<h2 class="text-success mrgn-tp-0 h3" id="headers"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple&nbsp;: Tableau avec en-têtes recouvrant des colonnes et des rangées</h2>
-					<p>Dans cet exemple, «&nbsp;Pays&nbsp;» et «&nbsp;Propri&eacute;t&eacute;&nbsp;» sont des colonnes, chacune identifi&eacute;e avec un &eacute;l&eacute;ment <code>&lt;col&gt;</code>. «&nbsp;Scenario&nbsp;» couvre les colonnes, identifi&eacute;es avec un &eacute;l&eacute;ment <code>&lt;colgroup span="3"&gt;</code>. Les en-têtes «&nbsp;Canada&nbsp;» et «&nbsp;&Eacute;.-U.&nbsp;» et leurs rangées respectives sont emboîtés dans un élément <code>&lt;tbody&gt;</code>.</p>
+					<p>Dans cet exemple, «&nbsp;Pays&nbsp;» et «&nbsp;Propri&eacute;t&eacute;&nbsp;» sont des colonnes, chacune identifi&eacute;e avec un &eacute;l&eacute;ment <code lang="en-CA">&lt;col&gt;</code>. «&nbsp;Scenario&nbsp;» couvre les colonnes, identifi&eacute;es avec un &eacute;l&eacute;ment <code lang="en-CA">&lt;colgroup span="3"&gt;</code>. Les en-têtes «&nbsp;Canada&nbsp;» et «&nbsp;&Eacute;.-U.&nbsp;» et leurs rangées respectives sont emboîtés dans un élément <code lang="en-CA">&lt;tbody&gt;</code>.</p>
 					
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
-							<p class="wb-inv">D&eacute;but de l'exemple</p>
+							<p class="wb-inv">L'exemple commence</p>
 							<table class="table table-bordered">
 								<col> 
 								<col> 
@@ -220,14 +226,14 @@
 									</tr> 
 								</tbody> 
 							</table>
-							<p class="wb-inv">Fin de l'exemple</p>	
+							<p class="wb-inv">L'exemple finit</p>	
 						</div>
 					</div>
 					<details class="mrgn-tp-lg">
 		
 						<summary class="bg-info">Voir le HTML</summary>
-						<p class="wb-inv">Code commence</p>
-<pre><code class="language-html">&lt;table class="table table-bordered"&gt;
+						<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;table class="table table-bordered"&gt;
    &lt;col&gt; 
    &lt;col&gt; 
    &lt;colgroup span="3"&gt;&lt;/colgroup&gt; 
@@ -279,29 +285,30 @@
 
 
 
-						<p class="wb-inv">Fins du code</p>
+						<p class="wb-inv">Fin du code</p>
 					</details>
 			  	</div>
 			</div>
 		</section>
 		<section>
-			<h2 class="wb-inv" id="wcag">Ressources WCAG connexes</h2>
+			<h2 class="wb-inv" id="irregular-headers-wcag">Ressources WCAG connexes</h2>
 			<details class="mrgn-tp-lg">
 				<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En Anglais seulement.</p>
-				<h3>Critères de réussite</h3>
+                        <p class="mrgn-tp-md">En anglais seulement.</p>
+                        
+				<h3>Critères de succès</h3>
 				<ul>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1: Info and Relationships</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships" lang="en-CA">1.3.1: Info and Relationships</a>
 					</li>
 				</ul>
 				<h3>Techniques</h3>
 				<ul>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H51">H51: Using table markup to present tabular information</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H51" lang="en-CA">H51: Using table markup to present tabular information</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H63">H63: Using the scope attribute to associate header cells and data cells in data tables</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H63" lang="en-CA">H63: Using the scope attribute to associate header cells and data cells in data tables</a>
 					</li>
 				</ul>
 			</details>
@@ -349,18 +356,32 @@
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Tous les modules</h3>
                      <ul class="list-group menu list-unstyled">
-                        <li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
-                        <li><a class="list-group-item" href="../module2/index-fr.html">Module 2 – Structure et sémantique des pages</a></li>
-                        <li><a class="list-group-item" href="../module3/index-fr.html">Module 3 – Liens et navigation</a></li>
-                        <li><a class="list-group-item active" href="index-fr.html">Module 4 – Tableaux</a></li>
-                        <li><a class="list-group-item" href="../module5/index-fr.html">Module 5 – Images</a></li>
-                        <li><a class="list-group-item" href="../module6/index-fr.html">Module 6 – Formulaires</a></li>
-                        <li><a class="list-group-item" href="../module7/index-fr.html">Module 7 – Conception visuelle couleurs</a></li>
-                        <li><a class="list-group-item" href="../module8/index-fr.html">Module 8 – Zoom et conception adaptée</a></li>
-                        <li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
-                     </ul>
-				
+                        <li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 – Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/links-fr.html">Module 3 – Liens et navigation</a></li>
+                        <li><a class="list-group-item active" href="tables-concepts-fr.html">Module 4 – Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/text-alternatives-fr.html">Module 5 – Images</a></li>
+                        <li><a class="list-group-item" href="../module6/forms-concepts-fr.html">Module 6 – Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 – Conception visuelle couleurs</a></li>
+                        <li><a class="list-group-item" href="../module8/introduction-fr.html">Module 8 – Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item" href="../module10/introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+			</ul>
 
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap-fr.html">Plan du site</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
+					</li>
+
+				</ul>
 			</section>
 		
 	</nav>

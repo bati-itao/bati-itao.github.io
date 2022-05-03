@@ -11,7 +11,6 @@
 	<!-- Meta data -->
 	<meta name="description"
 		content="Accessibility guidelines related to images of text. These images should be avoided.">
-	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -22,6 +21,7 @@
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
 	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -46,6 +46,7 @@
                 "href" : "../index.html"
             },{                
                 "title": "Module 5 - images",
+                
                 "href" : "index.html"
             }],
             "lngLinks": [{
@@ -110,9 +111,10 @@
 						<p class="wb-inv">Example ends</p>
 					</div>
 				</div>
-				<div style="padding-top: 1em">
-					<p class="wb-inv">Code begins</p>
- <pre><code class="language-css">&lt;p class="checker"&gt;Accessibility at your fingertips&lt;/p&gt;
+			
+<p class="lang-label small">CSS</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-css">&lt;p class="checker"&gt;Accessibility at your fingertips&lt;/p&gt;
 
 .checker {
   border: 2px solid black;
@@ -126,12 +128,12 @@
   color:white;
 }</code></pre>
 					<p class="wb-inv">Code ends</p>
-				</div>
+			
 			</div>
 		</div>
 		<div class="panel panel-danger mrgn-tp-lg">
 			<div class="panel-body">
-				<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Image of text </h3>
+				<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Image of text </h3>
 				<p>Avoid images of text unless they are essential (like a logo) or customizable. In the example below, three links nest images of text.</p>
 				<img src="images/image28.png" class="img-responsive" alt="">
 				<p>Screen magnification users may have difficulty reading an image of text when enlarged and pixelated, as shown in the image below.</p>
@@ -150,8 +152,8 @@
 			<li>Use an image with alt text or long description describing the math expression.</li>
 			<li>Tag the math expression semantically in MathML and use a JavaScript math library.</li>
 		</ul>
-		<h4 class="">Approach 1: Use an image with alt text describing the math expression</h4>
-		<p>Images of math expressions should only be used when math is an exception to the regular content of the website. In these cases, the &lt;img&gt; element’s alt attribute value should communicate the math expression, unless more than 150 characters is required, in which case a long description should be used.In the example below, the image displays a recurring decimal number and the alt text is “zero point one, recurring”</p>
+		<h4>Approach 1: Use an image with alt text describing the math expression</h4>
+		<p>Images of math expressions should only be used when math is an exception to the regular content of the website. In these cases, the &lt;img&gt; element’s alt attribute value should communicate the math expression, unless more than 150 characters is required, in which case a long description should be used. In the example below, the image displays a recurring decimal number and the alt text is “zero point one, recurring”</p>
 		<div class="panel panel-primary mrgn-tp-md">
 			<div class="panel-body well mrgn-bttm-0">
 				<p class="wb-inv">Example begins</p>
@@ -159,11 +161,12 @@
 				<p class="wb-inv">Example ends</p>
 			</div>
 		</div>
+<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;img src="recurring.png" alt="zero point one, recurring"&gt;</code></pre>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;img src="recurring.png" alt="zero point one, recurring"&gt;</code></pre>
 		<p class="wb-inv">Code ends</p>
 		
-		<h4 class="">Approach 2: Use MathML </h4>
+		<h4>Approach 2: Use MathML </h4>
 		<p>The preferred method for capturing math expressions as semantic, accessible content is with the markup language MathML. MathML markup allows user agents to determine the structure of math expressions in a machine-readable way. </p>
 		<p>Most web browsers need plugins to render MathML correctly for presentation, such as the open-source <a href="http://www.mathjax.org/">MathJax</a> library, which provides support for display and additional <a href="https://docs.mathjax.org/en/latest/basic/accessibility.html">accessibility features</a>. JavaScript math libraries commonly support math expressions written in Tex and LaTeX and AsciiMath, not just MathML.</p>
 		<p>In the example below, MathML communicates a math expression with semantic markup and proper syntax to assistive technologies like screen readers. MathJax renders it for the screen with the correct typesetting.</p>
@@ -216,9 +219,9 @@
 		<details class="mrgn-tp-lg">
 			<summary class="bg-info">View MathML</summary>
 				<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;head&gt;
-	[…]
-	&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"&gt;&lt;/script&gt;
+<pre class="mrgn-tp-md"><code class="language-html">&lt;head&gt;
+   […]
+   &lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
    &lt;math display="block" xmlns="http://www.w3.org/1998/Math/MathML"&gt;
@@ -262,13 +265,13 @@
 			<p class="wb-inv">Code ends</p>	
 		</details>	
 		<hr/>
-		<p class="small">Source: <a href="https://accessibility.psu.edu/math/mathmltest/">https://accessibility.psu.edu/math/mathmltest/</a></p>
+		<p class="small">Source: Penn State <a href="https://accessibility.psu.edu/math/mathmltest/">MathML Test Page</a></p>
 	</section>
 	<section>
 		<h2 class="wb-inv" id="wcag">Related WCAG resources</h2>
 		<details class="mrgn-tp-lg">
 			<summary class="bg-info">Related WCAG resources</summary>
-			<h3 class="">Success criteria</h3>
+			<h3>Success criteria</h3>
 			<ul>
 				<li>
 					<a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a>
@@ -277,7 +280,7 @@
 					<a href="https://www.w3.org/WAI/WCAG21/Understanding/images-of-text.html">1.4.5: Images of Text</a>
 				</li>
 			</ul>
-			<h3 class="">Techniques</h3>
+			<h3>Techniques</h3>
 			<ul>
 				<li>
 					<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C22">C22: Using CSS to control visual presentation of text</a>
@@ -335,19 +338,33 @@
 			</h3>
 			
 			<ul class="list-group menu list-unstyled">
-				<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
-				<li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>			
-				<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
-				<li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
-				<li><a class="list-group-item active" href="index.html">Module 5 – Images</a></li>
-				<li><a class="list-group-item" href="../module6/index.html">Module 6 – Forms</a></li>	
-				<li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual design and colours</a></li>
-				<li><a class="list-group-item" href="../module8/index.html">Module 8 – Zoom and responsive design</a></li>
-				<li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
-				<li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
-				<li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
+				<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+				<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>			
+				<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+				<li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+				<li><a class="list-group-item active" href="text-alternatives.html">Module 5 – Images</a></li>
+				<li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Forms</a></li>	
+				<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+				<li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+				<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+				<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+				<li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
 			</ul>
-		</section>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Site map and best practice</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+					</li>
+
+				</ul>
+			</section>
 	
 	</nav>
 	

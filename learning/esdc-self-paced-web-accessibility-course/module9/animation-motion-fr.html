@@ -10,7 +10,7 @@
 	<meta content="width=device-width,initial-scale=1" name="viewport">
 	<!-- Meta data -->
 	<meta name="description"
-		content="Lignes directrices sur l’accessibilité relatives à l’animation et au mouvement. Permet aux utilisateurs de désactiver l’animation de mouvement déclenchée par une interaction">
+		content="Lignes directrices sur l’accessibilité relative à l’animation et au mouvement. Permet aux utilisateurs de désactiver l’animation de mouvement déclenché par une interaction.">
 	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -47,8 +48,10 @@
                 },
             {
                     "title": "Module 9 - Audio, vidéo, animations et mouvement",
+                    
                     "href" : "index-fr.html"
-                }],
+                    "href" : "index-fr.html"
+            }],
             "lngLinks": [{
                 "lang": "en",
                 "href": "animation-motion.html",
@@ -82,38 +85,40 @@
 	<section>
 		<h2 id="animation-provenant-d’interactions">Animation provenant d’interactions</h2>
 		<p>Les personnes atteintes de troubles vestibulaires (de l’oreille interne) ont besoin de contrôle sur les mouvements déclenchés par des interactions. Les mouvements peuvent déclencher des réactions de troubles vestibulaires, notamment des distractions, des étourdissements, des maux de tête et des nausées.</p>
-		<p>Les directives WCAG exigent (au niveau&nbsp;AAA) que toute les animations de mouvement déclenchent  une interaction puisse être désactivée à moins que l’animation soit essentielle à la fonctionnalité ou à l’information transmise. </p>
-		<p>Il est essentiel de déplacer tout nouveau contenu dans la clôture pour le faire défiler. Comme c’est l’utilisateur qui contrôle le mouvement de défilement essentiel, cette approche est permise. </p>
-		<p>Si le défilement d’une page entraîne le déplacement d’éléments (autre que le mouvement essentiel associé au défilement), cela posera problème. </p>
-		<p>Le «&nbsp;<dfn>défilement par parallaxe</dfn>&nbsp;» pose également problème. Il se produit lorsque l’arrière-plan se déplace à une vitesse différente de celle de l’avant-plan.</p>
-		<p>Les Directives WCAG recommandent de choisir l’une des trois solutions de rechange pour réduire les risques de déclencher un trouble vestibulaire&nbsp;:</p>
+		<p>Les directives WCAG exigent (au niveau AAA) que toute les animations de mouvement déclenchent  une interaction puisse être désactivée à moins que l’animation soit essentielle à la fonctionnalité ou à l’information transmise.</p>
+		<p>Il est essentiel de déplacer tout nouveau contenu dans la clôture pour le faire défiler. Comme c’est l’utilisateur qui contrôle le mouvement de défilement essentiel, cette approche est permise.</p>
+		<p>Si le défilement d’une page entraîne le déplacement d’éléments (autre que le mouvement essentiel associé au défilement), cela posera problème.</p>
+		<p>Le « défilement par parallaxe » pose également problème. Il se produit lorsque l’arrière-plan se déplace à une vitesse différente de celle de l’avant-plan.</p>
+		<p>Les Directives WCAG recommandent de choisir l’une des trois solutions de rechange pour réduire les risques de déclencher un trouble vestibulaire:</p>
 		<ul>
-			<li>Éviter d’utiliser une animation inutile;</li>
+			<li>Évitez d’utiliser une animation inutile;</li>
 			<li>Offrir une commande permettant aux utilisateurs de désactiver les animations non essentielles des interactions avec l’utilisateur (à l’échelle du site);</li>
-			<li>Tirer profit de la fonction de mouvement réduit intégrée au système utilisateur-agent ou au système d’exploitation avec la requête média CSS <code>«&nbsp;prefers-reduced-motion&nbsp;»&nbsp;</code>:
-				<p class="wb-inv">Code begins</p>
-<pre class="mrgn-tp-sm"><code class="language-css">@media (prefers-reduced-motion: reduce) {
+			<li>Tirez profit de la fonction de mouvement réduit intégrée au système utilisateur-agent ou au système d’exploitation avec la requête média CSS <code lang="en-CA">prefers-reduced-motion</code>:
+		<br/>	
+		<p class="lang-label small">CSS</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-css">@media (prefers-reduced-motion: reduce) {
    /* la commande CSS pour désactiver le mouvement est insérée ici */
 }</code></pre>
-				<p class="wb-inv">Code ends</p>
+				<p class="wb-inv">Fin de code</p>
 			</li>
 		</ul>
 		<div class="panel panel-success mrgn-tp-lg">
 			<div class="panel-body">
-				<h3 class="text-success mrgn-tp-0">
+				<h3 class="text-success mrgn-tp-0 h3">
 					<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Combinaison de la fonction de mouvement réduit du système d’exploitation et d’une requête média CSS
 				</h3>			
-				<p>CSS offre une requête média <code>prefers-reduced-motion</code> qui respecte les paramètres de mouvement spécifiés par l’utilisateur.</p>
-				<p>Cet exemple illustre un mouvement de tressautement <code>:hover</code> et <code>:focus</code> sur un bouton. Le mouvement est désactivé lorsque&nbsp;: </p>
+				<p>CSS offre une requête média <code lang="en-CA">prefers-reduced-motion</code> qui respecte les paramètres de mouvement spécifiés par l’utilisateur.</p>
+				<p>Cet exemple illustre un mouvement de tressautement <code lang="en-CA">:hover</code> et <code lang="en-CA">:focus</code> sur un bouton. Le mouvement est désactivé lorsque&nbsp;: </p>
 				<ul>
-					<li>la requête CSS média <code>prefers-reduced-motion</code> est fixée à <code>reduce</code> </li>
+					<li>la requête CSS média <code lang="en-CA">prefers-reduced-motion</code> est fixée à <code lang="en-CA">reduce</code> </li>
 					<li>l’agent utilisateur ou le système d’exploitation intègre les fonctionnalités de mouvement réduit.</li>
 				</ul>
 				<p>Exemple&nbsp;: <a href="https://www.w3.org/WAI/WCAG21/working-examples/css-reduced-motion-query/">Mouvement déclenché par une interaction de l’utilisateur</a></p>
 		
-				<p class="wb-inv">Code begins</p>
-						
-<pre><code class="language-css">button:focus, button:hover {
+<p class="lang-label small">CSS</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-css">button:focus, button:hover {
    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
    }
 @media (prefers-reduced-motion: reduce) {
@@ -121,15 +126,14 @@
       animation: none;
    }
 }</code></pre>
-				<p class="wb-inv">Code ends</p>
+				<p class="wb-inv">Fin de code</p>
 				<p>Veuillez noter que Windows&nbsp;10 permet de désactiver l’affichage des animations.</p>
 				<div class="panel panel-primary">
 					<div class="panel-body mrgn-bttm-0">				
 						<figure>
-							<img src="images/image18.png" class="img-responsive" alt="Screenshot of Windows 10 Ease of Access settings, with the option turned off for Show animations in Windows">
-							<figcaption class="mrgn-tp-md">L’option <strong>Show animations in Windows</strong> est désactivée dans les paramètres <strong>Ease of Access</strong> de Windows&nbsp;10 sous <strong>Display</strong> &gt; <strong>Simplify and personalise Windows</strong>.</figcaption>
+							<img src="images/image18.png" class="img-responsive" alt="Capture d'écran des paramètres de facilité d'accès de Windows 10, avec l'option désactivée pour Afficher les animations dans Windows.">
+							<figcaption class="fig-bottom">L’option <strong lang="en-CA">Show animations in Windows</strong> est désactivée dans les paramètres <strong lang="en-CA">Ease of Access</strong> de Windows&nbsp;10 sous <strong lang="en-CA">Display</strong> &gt; <strong lang="en-CA">Simplify and personalise Windows</strong>.</figcaption>
 						</figure>
-					<p>Alt text: <mark>Screenshot of Windows 10 Ease of Access settings, with the option turned off for Show animations in Windows</mark></p>
 				</div>
 			</div>	
 		
@@ -138,21 +142,21 @@
 		<h2 id="parallax">Parallaxe</h2>
 		<p>Le défilement en parallaxe se produit lorsque l’arrière-plan se déplace à une vitesse différente de celle de l’avant-plan. Il est lié à des animations non essentielles additionnelles qui apparaissent lorsque l’utilisateur fait défiler l’écran. Des éléments décoratifs se déplacent horizontalement tandis que le contenu essentiel de la page défile verticalement. Pour certaines personnes, ce mouvement peut déclencher des troubles vestibulaires comme des étourdissements, des nausées et des maux de tête.</p>
 		<ul>
-			<li>Évitez le défilement en parallaxe ou ajoutez une commande pour le désactiver. </li>
+			<li>Évitez le défilement en parallaxe ou ajoutez une commande pour le désactiver.0</li>
 			<li>Les utilisateurs de clavier doivent pouvoir accéder à la zone cachée d’une zone de défilement en parallaxe et utiliser toutes les fonctionnalités de la page Web.</li>
-			<li>Si dans CSS le contenu caché est réglé à <code>display: none</code>, les utilisateurs de clavier pourraient ne pas avoir accès aux éléments cachés du contenu.</li>
+			<li>Si dans CSS le contenu caché est réglé à <code lang="en-CA">display: none</code>, les utilisateurs de clavier pourraient ne pas avoir accès aux éléments cachés du contenu.</li>
 			<li>Le texte doit être lisible devant l’arrière-plan et doit être conforme aux directives WCAG en matière de contraste, soit 4.5:1 pour le texte de petite taille et 3:1 pour le texte de grande taille ou en caractères gras.</li>
 		</ul>
 		<div class="panel panel-danger mrgn-tp-lg">
-			<div class="panel-body">
-				<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais exemple&nbsp;: Utilisation du défilement en parallaxe.
+		<div class="panel-body">
+				<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais exemple&nbsp;: Utilisation du défilement en parallaxe
 				</h3>
-				<p><mark>Create external page that shows parallax scrolling. Use this example and reference source. Consult with coaches on this.</mark></p>
-				<p><mark><a href="https://techbing.com/training/parallax.html">Example to use</a></mark></p>
-				<p><mark><a href="ttps://media.dequeuniversity.com/courses/generic/web-multimedia-animations-and-motion/2.0/en/html/parallax/bad1.html">Reference: Deque example</a></mark></p>
-				<img src="images/image19.png" class="img-responsive" alt="using parallax scrolling">
+				<br/>
+				<p>Exemple: <a href="parallax_example.html">défilement en parallaxe</a></p>
 				<hr/>
-				<p class="small">URL source&nbsp;:<a href="https://techbing.com/training/parallax.html">https://techbing.com/training/parallax.html</a></p>
+
+				<p class="small">Source: <a href="https://media.dequeuniversity.com/courses/generic/web-multimedia-animations-and-motion/2.0/en/html/parallax/bad1.html">Démo - Comment créer un site Web à défilement parallaxe</a> (en anglais seulement).</p>
+
 			</div>
 		</div>
 	</section>
@@ -161,20 +165,21 @@
 		<p>Les vidéos et les animations en arrière-plan présentent des informations supplémentaires et améliorent le contenu Web. Si des informations essentielles sont communiquées dans une vidéo en arrière-plan, la vidéo doit être entièrement accessible, avec des sous-titres et une transcription descriptive.</p>
 		<ul>
 			<li>Assurez-vous qu’aucun contenu ne commence à jouer automatiquement au chargement de la page.</li>
-			<li>Permettez aux utilisateurs de contrôler la lecture et l’arrêt du contenu en mouvement ou du contenu audio. </li>
+			<li>Permettez aux utilisateurs de contrôler la lecture et l’arrêt du contenu en mouvement ou du contenu audio.</li>
 			<li>Les Directives WCAG de niveau&nbsp;AA permettent la lecture automatique des vidéos pendant un maximum de 5&nbsp;secondes, mais si un contenu doit être joué pendant plus de 5&nbsp;secondes, un mécanisme doit être intégré pour mettre en pause, arrêter ou masquer le contenu.</li>
 		</ul>
 	
 		<div class="panel panel-success mrgn-tp-lg">
 			<div class="panel-body">
-				<h3 class="text-success mrgn-tp-0">
+				<h3 class="text-success mrgn-tp-0 h3">
 				<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Vidéo en arrière-plan avec fonction de lecture/pause</h3>
 				<div class="panel panel-primary mrgn-tp-lg">
 					<div class="panel-body well mrgn-bttm-0">
-						<img src="images/image20.jpg" class="img-responsive" alt="A video has a pause button in the bottom right corner.">
+						<p class="wb-inv">L'exemple commence</p>
+						<img src="images/image20.jpg" class="img-responsive" alt="Une vidéo possède un bouton de pause dans le coin inférieur droit.">
+						<p class="wb-inv">L'exemple finit</p>
 					</div>
 				</div>
-				<p>Alt text: <mark>A video has a pause button in the bottom right corner.</mark></p>
 			</div>
 		</div>	
 	</section>
@@ -183,17 +188,34 @@
 				<h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Ressources WCAG connexes</summary>
+                        <p class="mrgn-tp-md">En anglais seulement.</p>
 					<h3>Critères de succès</h3>
 					<ul>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions.html">2.3.3: Animation from Interactions</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/pause-stop-hide" lang="en-CA">2.2.2: Pause, Stop, Hide</a>
 						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions.html" lang="en-CA">2.3.3: Animation from Interactions</a> (Niveau AAA)
+						</li>
+						
 					</ul>
 					<h3>Techniques</h3>
 					<ul>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C39">C39: Using the CSS reduce-motion query to prevent motion</a>
-						</li>						
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G4" lang="en-CA">G4: Allowing the content to be paused and restarted from where it was paused</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G186" lang="en-CA">G186: Using a control in the Web page that stops moving, blinking, or auto-updating content</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C39" lang="en-CA">C39: Using the CSS reduce-motion query to prevent motion</a>
+						</li>
+					</ul>
+					<h3>Échecs</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F16" lang="en-CA">F16: Failure of Success Criterion 2.2.2 due to including scrolling content where movement is not essential to the activity without also including a mechanism to pause and restart the content</a>
+						</li>
 					</ul>
 				</details>
 			</section>
@@ -234,16 +256,32 @@
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Tous les modules</h3>
                      <ul class="list-group menu list-unstyled">
-                        <li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
-                        <li><a class="list-group-item" href="../module2/index-fr.html">Module 2 - Structure et sémantique des pages</a></li>
-                        <li><a class="list-group-item" href="../module3/index-fr.html">Module 3 - Liens et navigation</a></li>
-                        <li><a class="list-group-item" href="../module4/index-fr.html">Module 4 - Tableaux</a></li>
-                        <li><a class="list-group-item" href="../module5/index-fr.html">Module 5 - Images</a></li>
-                        <li><a class="list-group-item" href="../module6/index-fr.html">Module 6 - Formulaires</a></li>
-                        <li><a class="list-group-item" href="../module7/index-fr.html">Module 7 - Conception visuelle et couleurs</a></li>
-                        <li><a class="list-group-item" href="../module8/index-fr.html">Module 8 - Zoom et conception adaptée</a></li>
-                        <li><a class="list-group-item active" href="index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
-                     </ul>
+                        <li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 - Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/links-fr.html">Module 3 - Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/tables-concepts-fr.html">Module 4 - Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/text-alternatives-fr.html">Module 5 - Images</a></li>
+                        <li><a class="list-group-item" href="../module6/forms-concepts-fr.html">Module 6 - Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 - Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item" href="../module8/introduction-fr.html">Module 8 - Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item active" href="introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item" href="../module10/introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap-fr.html">Plan du site</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
+					</li>
+
+				</ul>
 			</section>
 	</nav>
 </div>

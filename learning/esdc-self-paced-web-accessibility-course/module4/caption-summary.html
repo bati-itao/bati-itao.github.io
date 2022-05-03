@@ -10,8 +10,7 @@
 	<meta content="width=device-width,initial-scale=1" name="viewport">
 	<!-- Meta data -->
 	<meta name="description"
-		content="Accessibility guidelines related to table caption and summary. ">
-	<meta name="robots" content="noindex">
+		content="Accessibility guidelines related to table caption and summary.">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -21,7 +20,8 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
-	<link rel="stylesheet" href="../../../css/custom-table.css">
+	
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -48,6 +48,7 @@
             },
 			{
                 "title": "Module 4 – Tables",
+                
                 "href" : "index.html"
             }],
             "lngLinks": [{
@@ -72,19 +73,19 @@
 			</header>
 			<div class="panel-body">
 			  <ul>
-				<li><a href="#overview">Caption and summary (overview)</a></li>
+				<li><a href="#overview-caption-summary">Overview – Caption and summary</a></li>
 				  <li><a href="#caption">Identifying a table using a caption</a></li>
 				  <li><a href="#summaries">Summaries for complex tables</a></li>
 				  <li><a href="#summary-inside-caption">Good example: Nesting summary inside the &lt;caption&gt; element</a></li>
 				  <li><a href="#aria-describedby">Good example: Using aria-describedby to provide table summary</a></li>
 				  <li><a href="#figcaption">Good example: Using the &lt;figcaption&gt; element to hold the table summary</a></li>
-				  <li><a href="#wcag">Related WCAG resources</a></li>
+				  <li><a href="#caption-summary-wcag">Related WCAG resources</a></li>
 			  </ul>
 			</div>
 		  </div>
 		</nav>
 		<section>
-			<h2 id="overview">Caption and summary (overview)</h2>
+			<h2 id="overview-caption-summary">Overview – Caption and summary</h2>
 			<p>The <code>&lt;caption&gt;</code> element specifies the name or title of a table.</p>
 			<p>A table summary introduces the purpose of the table, outlines its basic cell structure, highlights any trends or patterns, and generally teaches the user how to use the table. </p>  
 		</section>
@@ -94,7 +95,7 @@
 			
 			<div class="panel panel-success  mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Caption</h3>			
+					<h3 id="good-example-caption" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Caption</h3>			
 					<p>In this example &ldquo;Movies Releases&rdquo; tells users what information is in the table.</p>
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
@@ -128,27 +129,27 @@
 					<details class="mrgn-tp-lg">
 						<summary class="bg-info">View HTML</summary>
 						<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;table&gt;
+<pre class="mrgn-tp-md"><code class="language-html">&lt;table&gt;
   &lt;caption&gt;Movies Releases&lt;/caption&gt;
   &lt;tr&gt;
-	&lt;th&gt;Date&lt;/th&gt;
-	&lt;th&gt;Movie&lt;/th&gt;
-	&lt;th&gt;Locations&lt;/th&gt;
+   &lt;th&gt;Date&lt;/th&gt;
+   &lt;th&gt;Movie&lt;/th&gt;
+   &lt;th&gt;Locations&lt;/th&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td&gt;12 Feb&lt;/td&gt;
-	&lt;td&gt;Spiderman - The Dark Fate&lt;/td&gt;
-	&lt;td&gt;AMC Toronto&lt;/td&gt;
+   &lt;td&gt;Spiderman - The Dark Fate&lt;/td&gt;
+   &lt;td&gt;AMC Toronto&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-	&lt;td&gt;24 Mar&lt;/td&gt;
-	&lt;td&gt;Avengers&lt;/td&gt;
-	&lt;td&gt;AMC Mississauga&lt;/td&gt;
+   &lt;td&gt;24 Mar&lt;/td&gt;
+   &lt;td&gt;Avengers&lt;/td&gt;
+   &lt;td&gt;AMC Mississauga&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-	&lt;td&gt;14 Apr&lt;/td&gt;
-	&lt;td&gt;Superman 4&lt;/td&gt;
-	&lt;td&gt;Cineplex London&lt;/td&gt;
+   &lt;td&gt;14 Apr&lt;/td&gt;
+   &lt;td&gt;Superman 4&lt;/td&gt;
+   &lt;td&gt;Cineplex London&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;</code>
 </pre>
@@ -181,7 +182,7 @@
 		<section>
 			<div class="panel panel-success  mrgn-tp-lg">
 				<div class="panel-body">
-					<h2 class="text-success mrgn-tp-0 h3" id="summary-inside-caption"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Nesting summary inside the <code>&lt;caption&gt;</code> element.</h2>
+					<h2 class="text-success mrgn-tp-0 h3" id="summary-inside-caption"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Nesting summary inside the caption element</h2>
 					<p>In the example below, the complex table shows the number of students enrolled in two countries across four semester seasons. The <code>&lt;caption&gt;</code> element acts as a heading for the table and provides a summary that describes the structure of the table.</p>
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
@@ -257,7 +258,7 @@
 					<details class="mrgn-tp-lg">
 						<summary class="bg-info">View HTML</summary>
 						<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;table&gt;
+<pre class="mrgn-tp-md"><code class="language-html">&lt;table&gt;
   &lt;caption&gt;
     Information on number of students enrolled
     &lt;div style="font-weight: normal"&gt;Column one holds the country and the programs, other columns show the semester season. Cells hold the number of students enrolled.&lt;/div&gt;
@@ -332,10 +333,11 @@
 			<section>
 				<div class="panel panel-success  mrgn-tp-lg">
 					<div class="panel-body">
-						<h2 class="text-success mrgn-tp-0 h3" id="aria-describedby"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Using <code>aria-describedby</code> to provide table summary</h2>
+						<h2 class="text-success mrgn-tp-0 h3" id="aria-describedby"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Using aria-describedby to provide table summary</h2>
 						<p>In this example, the summary precedes the table in a paragraph element. The table takes an <code>aria-describedby</code> attribute, which holds the <code>id</code> attribute value of the paragraph.</p>
-						<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;p id=&quot;tblDesc&quot;&gt;Column one holds the country and the programs, other columns show the semester season. Cells hold the number of students enrolled &lt;/p&gt; 
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;p id=&quot;tblDesc&quot;&gt;Column one holds the country and the programs, other columns show the semester season. Cells hold the number of students enrolled &lt;/p&gt; 
 &lt;table aria-describedby=&quot;tblDesc&quot;&gt;[…]&lt;/table&gt;</code>
 </pre>
 						<p class="wb-inv">Code ends</p>
@@ -346,7 +348,7 @@
 			<section>
 				<div class="panel panel-success  mrgn-tp-lg">
 					<div class="panel-body">
-						<h2 class="text-success mrgn-tp-0 h3" id="figcaption"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using the <code>&lt;figcaption&gt;</code> element to hold the table summary</h2>
+						<h2 class="text-success mrgn-tp-0 h3" id="figcaption"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using the figcaption element to hold the table summary</h2>
 						<p>In this example the table is wrapped in a <code>&lt;figure&gt;</code> element while the <code>&lt;figcaption&gt;</code> element contains the caption and summary text.</p>
 						<p>The table title in the <code>&lt;figcaption&gt;</code> element is explicitly associated with the table using the <code>aria-labelledby</code> attribute. </p>
 						<p>The summary paragraph in the <code>&lt;figcaption&gt;</code> element is explicitly associated with the table using the <code>aria-describedby</code> attribute.</p>
@@ -402,7 +404,7 @@
 						<details class="mrgn-tp-lg">
 							<summary class="bg-info">View HTML</summary>
 							<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;figure&gt;
+<pre class="mrgn-tp-md"><code class="language-html">&lt;figure&gt;
    &lt;figcaption&gt;
       &lt;strong id=&quot;studentinfo-caption&quot;&gt;USA: Information on number of students enrolled&lt;/strong&gt;
       &lt;div id=&quot;studentinfo-summary&quot;&gt;Column one has the country and different programs, other columns show    the semester type and number of students enrolled.&lt;/div&gt;
@@ -452,7 +454,7 @@
 				</div>
 			</section>
 			<section>
-				<h2 class="wb-inv" id="wcag">Related WCAG resources</h2>
+				<h2 class="wb-inv" id="caption-summary-wcag">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
@@ -524,22 +526,32 @@
 				
 				
 					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
-						<li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>			
-						<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
-						<li><a class="list-group-item active" href="index.html">Module 4 – Tables</a></li>
-						<li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
-						<li><a class="list-group-item" href="../module6/index.html">Module 6 – Forms</a></li>	
-						<li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual design and colours</a></li>
-						<li><a class="list-group-item" href="../module8/index.html">Module 8 – Zoom and responsive design</a></li>
-						<li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
-						<li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
-						<li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
-					
-					</ul>
-				
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item active" href="tables-concepts.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
 
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Site map and best practice</h3>
 
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+					</li>
+
+				</ul>
 			</section>
 		
 	</nav>

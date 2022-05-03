@@ -21,6 +21,8 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -47,6 +49,7 @@
             },
 			{
                 "title": "Module 8 - Zoom and responsive design",
+                
                 "href" : "index.html"
             }],
             "lngLinks": [{
@@ -109,20 +112,20 @@
 		<p>Note that not all low vision users benefit from magnification. A user with tunnel vision may be able to read paragraph text just fine while benefiting from other design considerations, such as placing form controls close to their labels.</p>
 		<div class="panel panel-success mrgn-tp-lg">
 			<div class="panel-body">
-				<h3 class="text-success mrgn-tp-0">
+				<h3 class="text-success mrgn-tp-0 h3" id="good-example-reflow-content">
 					<span class="glyphicon glyphicon-ok-circle"></span> Good example: Reflow content
 				</h3>
 				<p>In this example, when the page is narrowed to 320 pixels the horizontal navigation bar collapses to a vertical stack in a single column. <a href="example-reflow.html" target="_blank">See this example in action<span class="wb-inv"> (Opens in new tab)</span></a>. Narrow the browser window to trigger the single column layout.</p>
 				
-				<details class="mrgn-tp-lg">
+				<details class="mrgn-tp-md">
 					<summary class="bg-info">View screenshots of the responsive layout</summary>
-					<h4>Desktop view</h4>
+					<h4 id="zoom-desktop-view">Desktop view</h4>
 					<div class="panel panel-primary">
 						<div class="panel-body mrgn-bttm-0">
 							<img src="images/image1.png" class="img-responsive" alt="In desktop view, the four main menu items display horizontally.">
 						</div>
 					</div>
-					<h4>Mobile emulator view at width of 320 pixels</h4>
+					<h4 id="zoom-mobile-emulator-view">Mobile emulator view at width of 320 pixels</h4>
 					<div class="panel panel-primary">
 						<div class="panel-body mrgn-bttm-0">
 							<img src="images/image2.png" class="img-responsive" alt="In mobile view, the four main menu items are stacked atop one another vertically.">
@@ -130,11 +133,11 @@
 					</div>
 				</details>
 				<h4 class="wb-inv">Code</h4>
-				<details class="mrgn-tp-lg">
+				<details class="mrgn-tp-md">
 					<summary class="bg-info">View CSS</summary>
 					<p class="wb-inv">Code begins</p>
 
-<pre><code class="language-css">h1 { 
+<pre class="mrgn-tp-md"><code class="language-css">h1 { 
    font-size: 1.5rem; 
 }
 #navbar { 
@@ -201,11 +204,11 @@
 /* END MEDIA QUERY 2 */</code></pre>
 					<p class="wb-inv">Code ends</p>
 				</details>
-				<details class="mrgn-tp-lg">
+				<details class="mrgn-tp-md">
 					<summary class="bg-info">View HTML</summary>
 					<p class="wb-inv">Code begins</p>
 
-<pre><code class="language-html">&lt;head&gt;
+<pre class="mrgn-tp-md"><code class="language-html">&lt;head&gt;
    &lt;!-- Loads the fontawesome icons --&gt;
    &lt;script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-a11y="true"&gt;&lt;/script&gt;
 &lt;/head&gt;
@@ -244,17 +247,17 @@
 			</div>
 		</div>
 
-		<h3 class="wb-inv">Related WCAG resources</h3>
+		<h3 class="wb-inv" id="zoom-reflow-content-wcag">Related WCAG resources</h3>
 		<details class="mrgn-tp-lg">
 			<summary class="bg-info">Related WCAG resources</summary>
 
-			<h4>Success criteria</h4>
+			<h4 id="reflow-success-criteria">Success criteria</h4>
 			<ul>
 				<li>
 					<a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow">1.4.10: Reflow</a>
 				</li>
 			</ul>
-			<h4>Techniques</h4>
+			<h4 id="reflow-techniques">Techniques</h4>
 			<ul>
 				<li>
 					<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C32">C32: Using media queries and grid CSS to reflow columns</a>
@@ -274,17 +277,17 @@
 			<p>The Working Group has discovered many misunderstandings about how to test this failure. We are planning to revise this failure in a future update. Until then, if the content passes the success criterion using any of the listed sufficient techniques, then it does not meet this failure.</p>
 		</blockquote>
 		<p>One of the Techniques sufficient to meeting 1.4.4: Resize text is simply using HTML5, for which all modern browsers support zoom (WCAG Technique G142, linked below). The default browser zoom is not text-only zoom, but it is sufficient to meet the Success Criterion. However, mobile designs must still enable pinch-to-zoom, as described in the section <a href="responsive-design.html">Responsive design</a> &gt; <a href="responsive-design.html#section4">Set the viewport</a>.</p>
-		<h3 class="wb-inv">Related WCAG resources</h3>
+		<h3 class="wb-inv" id="zoom-resize-text-wcag">Related WCAG resources</h3>
 		<details class="mrgn-tp-lg">
 			<summary class="bg-info">Related WCAG resources</summary>
 			
-			<h4>Success criteria</h4>
+			<h4 id="resize-text-success-criteria">Success criteria</h4>
 			<ul>
 				<li>
 					<a href="https://www.w3.org/WAI/WCAG21/Understanding/resize-text">1.4.4: Resize text</a>
 				</li>
 			</ul>
-			<h4>Techniques</h4>
+			<h4 id="resize-text-techniques">Techniques</h4>
 			<ul>
 				<li>
 					<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G142">G142: Using a technology that has commonly-available user agents that support zoom</a>
@@ -296,13 +299,13 @@
 					<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G179">G179: Ensuring that there is no loss of content or functionality when the text resizes and text containers do not change their width</a>
 				</li>
 			</ul>
-			<h4>Failures</h4>
+			<h4 id="resize-text-failures">Failures</h4>
 			<ul>
 				<li>
 					<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F69">F69: Failure of Success Criterion 1.4.4 when resizing visually rendered text up to 200 percent causes the text, image or controls to be clipped, truncated or obscured</a>
 				</li>
 			</ul>
-			<h4>Test rules</h4>
+			<h4 id="resize-text-test-rules">Test rules</h4>
 			<ul>
 				<li>
 					<a href="https://www.w3.org/WAI/standards-guidelines/act/rules/meta-viewport-b4f0c3/">meta viewport allows for zoom</a>
@@ -330,15 +333,22 @@
 					<ul class="list-group menu list-unstyled">
 												
 						<li><a class="list-group-item" href="introduction.html">Introduction</a></li>
-						<li><a class="list-group-item active" aria-current="page" href="zoom.html">Zoom</a></li>
-						<li><a class="list-group-item" href="responsive-design.html">Responsive design</a></li>
-						<li><a class="list-group-item" href="responsive-forms.html">Responsive forms</a></li>
-						<li><a class="list-group-item" href="responsive-images.html">Responsive images</a></li>
-						<li><a class="list-group-item" href="responsive-text.html">Responsive text</a></li>
-						<li><a class="list-group-item" href="responsive-objects.html">Responsive objects and plugins</a></li>
-						<li><a class="list-group-item" href="responsive-tables.html">Responsive tables</a></li>
-						<li><a class="list-group-item" href="responsive-ui.html">Responsive UI components</a></li>
-						<li><a class="list-group-item" href="responsive-video.html">Responsive video</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="zoom.html">Zoom</a></li>						
+						<li class="collapsed">
+						<a class="list-group-item collapsed" href="responsive-design.html">
+								Responsive design
+								<span class="wb-inv">Collapsed</span>
+						</a>
+							<ul class="list-group menu list-unstyled inner">
+								<li><a class="list-group-item" href="responsive-forms.html">Responsive forms</a></li>
+								<li><a class="list-group-item" href="responsive-images.html">Responsive images</a></li>
+								<li><a class="list-group-item" href="responsive-text.html">Responsive text</a></li>
+								<li><a class="list-group-item" href="responsive-objects.html">Responsive objects and plugins</a></li>
+								<li><a class="list-group-item" href="responsive-tables.html">Responsive tables</a></li>
+								<li><a class="list-group-item" href="responsive-ui.html">Responsive UI components</a></li>
+								<li><a class="list-group-item" href="responsive-video.html">Responsive video</a></li>
+							</ul>
+						</li>						
 						<li><a class="list-group-item" href="orientation.html">Orientation</a></li>
 						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
 						
@@ -348,18 +358,32 @@
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">All modules</h3>
 					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
-						<li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>			
-						<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
-						<li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
-						<li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
-						<li><a class="list-group-item" href="../module6/index.html">Module 6 – Forms</a></li>	
-						<li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual design and colours</a></li>
-						<li><a class="list-group-item active" href="index.html">Module 8 – Zoom and responsive design</a></li>
-						<li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
-						<li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
-						<li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
-					</ul>
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item active" href="introduction.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Site map and best practice</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+					</li>
+
+				</ul>
 			</section>
 	</nav>
 </div>

@@ -23,7 +23,8 @@
          <link rel="stylesheet" href="../../../css/a11y-dark.css">
          <script src="../../../scripts/highlight.min.js"></script>
          <script>hljs.highlightAll();</script>
-      </head>
+      	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
       <body vocab="https://schema.org/" typeof="WebPage">
          <div id="def-top">
          </div>
@@ -48,7 +49,7 @@
                 },
             {
                     "title": "Module 7 – Visual design and colours",
-                    "href" : "index.html"
+                    
                 }],
                 "lngLinks": [{
                     "lang": "fr",
@@ -69,7 +70,7 @@
                         </header>
                         <div class="panel-body">
                            <ul>
-                              <li><a href="#colour-overview">Colour (overview)</a></li>
+                              <li><a href="#colour-overview">Overview – Colour</a></li>
                               <li><a href="#information-conveyed-by-colour">Information conveyed by colour</a></li>
                               <li><a href="#distinguishing-links-and-controls-from-text">Distinguishing links and controls from text</a></li>
                               <li><a href="#resources1">Related WCAG resources</a></li>
@@ -78,7 +79,7 @@
                      </div>
                   </nav>
                   <section>
-                     <h2 id="colour-overview">Colour (overview)</h2>
+                     <h2 id="colour-overview">Overview – Colour</h2>
                      <p>Colour enhances the design of Web content by increasing its aesthetic appeal, its usability, and its accessibility. As useful as it is, colour must not be the only way information is conveyed. Colour conveys information when it emphasizes text, distinguishes between visual elements, and distinguishes interactive elements from static elements. People who are colourblind, have low vision or are blind must be provided a text alternative of the information conveyed by colour. The same is true for those using text-only, limited colour, or monochrome displays.</p>
                      <p>To accommodate the needs of all, ensure colour is not the only way information is conveyed. Also, ensure your CSS colour design is customizable, so users can compensate for painfully bright and low contrast colours via the operating system or browser by applying a custom style sheet.</p>
                   </section>
@@ -87,44 +88,184 @@
                      <p>Information conveyed by colour must have an accurate text alternative.</p>
                      <div class="panel panel-danger mrgn-tp-lg">
                         <div class="panel-body">
-                           <h2 class="text-danger mrgn-tp-0 h3" id="header"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad example: Coloured table data without text labels</h2>
+                           <h3 class="text-danger mrgn-tp-0 h3" id="header"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad example: Coloured table data without text labels</h3>
                            <p>In this bad example, colour alone communicates severity. There are no text labels. A legend / key below the table uses colour to define the severity values.</p>
 							<div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
 									<figure>
-										<img src="images/image1.png" alt="Figure 1: Table with cells assigned CSS background colours “red”, “yellow” and “green”." class="img-responsive"/>
+										<!-- <img src="images/image1.png" alt="Figure 1: Table with cells assigned CSS background colours “red”, “yellow” and “green”." class="img-responsive"/>-->
+										<table class="colour-data">
+											<caption>Defect report</caption>
+											<thead>
+												<tr>
+													<th># of defects</th>
+													<th>Severity</th>
+													<th>Status</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>20</td>
+													<td class="red">&nbsp;</td>
+													<td>Open</td>
+												</tr>
+												<tr>
+													<td>30</td>
+													<td class="yellow">&nbsp;</td>
+													<td>Closed</td>
+												</tr>
+												<tr>
+													<td>15</td>
+													<td class="green">&nbsp;</td>
+													<td>In progress</td>
+												</tr>
+											</tbody>
+										</table>
 										<p>Red = High, Yellow = Medium, Green = Low</p>	
-									   <figcaption>Figure 1: An inaccessible table that uses colour alone to identify severity levels. No text labels are provided.</figcaption>
+									   <figcaption class="fig-bottom">Figure 1: An inaccessible table that uses colour alone to identify severity levels. No text labels are provided.</figcaption>
 									</figure>
+		<style type="text/css">
+            .colour-data { border-collapse: collapse;}
+            .colour-data caption { 
+				font-weight: bold; 
+				text-align: left; 
+				margin-bottom: 0.5em;}
+            th, td { 
+                border: 1px solid black;
+                padding: 0.25em  1.5em;
+                text-align: center;
+                background-color: #fff;
+            }
+            
+            .red { background-color: red; }
+            .yellow { background-color: yellow; }
+            .green { background-color: green; color: #fff;}
+
+            
+            .red-pro { background-color: #908121; }
+            .yellow-pro { background-color: #FFF7D8; }
+            .green-pro { background-color: #7B6E00; }
+
+            
+            .red-deut { background-color: #A27A00; }
+            .yellow-deut { background-color: #FFF5E9; }
+            .green-deut { background-color: #89681C; }
+        </style>
 								</div>
 							</div>
 							<div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
 								   <figure>
-										<img src="images/image2.png" alt="Figure 2: Table from figure 1 with the following change in colours: Bronze instead of red. Beige instead of yellow. Dark bronze instead of green." class="img-responsive"/>
-										<figcaption>Figure 2: The colours from Figure 1 as seen by a user with protanopia (red-blind).</figcaption>
+										<!-- <img src="images/image2.png" alt="Figure 2: Table from figure 1 with the following change in colours: Bronze instead of red. Beige instead of yellow. Dark bronze instead of green." class="img-responsive"/> -->
+										<table class="colour-data">
+
+		<caption>Defect report</caption>
+											<thead>
+												<tr>
+													<th># of defects</th>
+													<th>Severity</th>
+													<th>Status</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>20</td>
+													<td class="red-pro"></td>
+													<td>Open</td>
+												</tr>
+												<tr>
+													<td>30</td>
+													<td class="yellow-pro"></td>
+													<td>Closed</td>
+												</tr>
+												<tr>
+													<td>15</td>
+													<td class="green-pro"></td>
+													<td>In progress</td>
+												</tr>
+											</tbody>
+										</table>
+										<p>Red = High, Yellow = Medium, Green = Low</p>	
+										<figcaption class="fig-bottom">Figure 2: The colours from Figure 1 as seen by a user with protanopia (red-blind). Bronze instead of red. Beige instead of yellow. lightly darker bronze instead of green.</figcaption>
 									</figure>
 								</div>
 							</div>
 							<div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
 									<figure>
-										<img src="images/image3.png" alt="Figure 3: Table from figure 1 with the following change in colours: Brown instead of red. Beige instead of yellow. Dark brown instead of green." class="img-responsive"/>
-										<figcaption>Figure 3: The colours from Figure 1 as seen by a user with deuteranopia (green-blind).</figcaption>
+										<!-- <img src="images/image3.png" alt="Figure 3: Table from figure 1 with the following change in colours: Brown instead of red. Beige instead of yellow. Dark brown instead of green." class="img-responsive"/> -->
+									   <table class="colour-data">
+
+		<caption>Defect report</caption>
+											<thead>
+												<tr>
+													<th># of defects</th>
+													<th>Severity</th>
+													<th>Status</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>20</td>
+													<td class="red-deut"></td>
+													<td>Open</td>
+												</tr>
+												<tr>
+													<td>30</td>
+													<td class="yellow-deut"></td>
+													<td>Closed</td>
+												</tr>
+												<tr>
+													<td>15</td>
+													<td class="green-deut"></td>
+													<td>In progress</td>
+												</tr>
+											</tbody>
+										</table>
+										<p>Red = High, Yellow = Medium, Green = Low</p>	
+										<figcaption class="fig-bottom">Figure 3: The colours from Figure 1 as seen by a user with deuteranopia (green-blind). Brown instead of red. Beige instead of yellow. Slightly darker brown instead of green.</figcaption>
 									</figure>
 								</div>
 							</div>
+
                         </div>
                      </div>
                      <div class="panel panel-success mrgn-tp-lg">
                         <div class="panel-body">
-                           <h2 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Coloured table data with text labels</h2>
+                           <h3 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Coloured table data with text labels</h3>
                            <p>The table uses colours to convey information with text labels that ensure the meaning is perceivable.</p>
                            <div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
 									<figure>
-										<img src="images/image4.png" alt="Figure 4: Table with cells assigned CSS background colours: “red” with text label 'high', “yellow” with text label 'medium' and “green” with text label 'low'." class="img-responsive"/>
-										<figcaption>Figure 4: An accessible table that uses colours and text labels to convey information</figcaption>
+										<!-- <img src="images/image4.png" alt="Figure 4: Table with cells assigned CSS background colours: “red” with text label 'high', “yellow” with text label 'medium' and “green” with text label 'low'." class="img-responsive"/> -->
+										<table class="colour-data">
+											<caption>Defect report</caption>
+											<thead>
+												<tr>
+													<th># of defects</th>
+													<th>Severity</th>
+													<th>Status</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>20</td>
+													<td class="red">High</td>
+													<td>Open</td>
+												</tr>
+												<tr>
+													<td>30</td>
+													<td class="yellow">Medium</td>
+													<td>Closed</td>
+												</tr>
+												<tr>
+													<td>15</td>
+													<td class="green">Low</td>
+													<td>In progress</td>
+												</tr>
+											</tbody>
+										</table>
+										<figcaption class="fig-bottom">Figure 4: An accessible table that combines colour and text label in the same cell to convey information</figcaption>
 									</figure>
 								</div>
 							</div>
@@ -132,7 +273,7 @@
                      </div>
                      <div class="panel panel-danger mrgn-tp-lg">
                         <div class="panel-body">
-                           <h2 class="text-danger mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad example: Error field indicated only with colour</h2>
+                           <h3 class="text-danger mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad example: Error field indicated only with colour</h3>
                            <p>In this bad example, the red text is the only indication of an error. Red and black are practically indiscernible for some users with colour blindness.</p>
                            <p>Also, the red text fails to meet the WCAG’s minimum contrast ratio requirement of 4.5:1 (basic red, or #FF000, has a contrast ratio of 4:1 with background white, #FFFFFF).</p>
                            <p>Finally, without additional semantic markup it would be impossible for screen reader users to identify the problem field.</p>
@@ -144,19 +285,19 @@
 										 User Login Information (Required)
 									  </legend>
 									  <div class="form-group">
-										  <label for="username" class="col-sm-4 control-label">Username:</label>
+										  <label for="username" class="col-sm-4 control-label">Username</label>
 										  <input type="text" id="username" class="form-control">
 									  </div>
 									  <div class="form-group">
-										  <label for="password" class="col-sm-4 control-label">Password:</label>
+										  <label for="password" class="col-sm-4 control-label">Password</label>
 										  <input type="password" id="password" class="form-control">
 									  </div>
 									  <div class="form-group">
-										  <label for="email" style="color:red" class="col-sm-4 control-label">Email:</label>
+										  <label for="email" style="color:red" class="col-sm-4 control-label">Email</label>
 										  <input type="email" id="email" class="form-control">
 									  </div>
 									  <div class="form-group">
-										  <label for="phone"class="col-sm-4 control-label">Phone:</label>
+										  <label for="phone"class="col-sm-4 control-label">Phone</label>
 										  <input type="tel" id="phone" class="form-control">
 									  </div>
 								   </fieldset>
@@ -166,13 +307,13 @@
                      </div>
                      <div class="panel panel-success mrgn-tp-lg">
                         <div class="panel-body">
-                           <h2 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Highlighted form field error with explanatory text</h2>
+                           <h3 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Highlighted form field error with explanatory text</h3>
 							<p>In this example, validation highlights an error with both a colourful background and explanatory text “Error 1: This field is required.”</p>
 							<div class="panel panel-primary">
 								<div class="panel-body mrgn-bttm-0">
 									<figure>
 										<img src="images/image6.png" alt="Screenshot of form fields showing a highlighted validation error" class="img-responsive"/>
-										<figcaption>Figure 5: After validation, a bold text error message on a pinkish grey background displays at the problem field.</figcaption>
+										<figcaption class="fig-bottom">Figure 5: After validation, a bold text error message on a pinkish grey background displays at the problem field.</figcaption>
 									</figure>
 								</div>
 							</div>
@@ -209,12 +350,12 @@
 								</div>
 							</div>
 							<hr/>
-							<p class="small">This example is from WET guide: <a href="https://wet-boew.github.io/v4.0-ci/demos/formvalid/formvalid-en.html">https://wet-boew.github.io/v4.0-ci/demos/formvalid/formvalid-en.html</a></p>
+							<p class="small">This example is from WET guide: <a href="https://wet-boew.github.io/v4.0-ci/demos/formvalid/formvalid-en.html">Form validation</a></p>
                         </div>
                      </div>
                      <div class="panel panel-danger mrgn-tp-lg">
                         <div class="panel-body">
-                           <h2 class="text-danger mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad example: Colour alone communicates information</h2>
+                           <h3 class="text-danger mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad example: Colour alone communicates information</h3>
                            <p>In the bad example below, the chart legend uses colour alone to identify the different bar columns.</p>
                            <div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
@@ -223,26 +364,31 @@
 							</div>
                         </div>
                      </div>
+                     <div class="panel panel-success mrgn-tp-lg">
+                        <div class="panel-body">
+                           <h3 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Information communicated through colour and pattern</h3>
+                           <p>In the good example below, the chart legend uses colour and patterns to identify the different bar columns. The alternative text adequately describes the data conveyed in the bar chart.</p>
+                           <div class="panel panel-primary">
+								<div class="panel-body well mrgn-bttm-0">
+								   <img src="images/image8.png" alt="Bar chart depicting game console sales in first 3 months of 2021: in January 84 Nintendo, 66 PlayStation; in February 48 Nintendo, 22 PlayStation; in March 25 Nintendo, 57 PlayStation." class="img-responsive"/>
+								   <p class="mrgn-tp-md"><strong>Alt text:</strong> Bar chart depicting game console sales in first 3 months of 2021: in January 84 Nintendo, 66 PlayStation; in February 48 Nintendo, 22 PlayStation; in March 25 Nintendo, 57 PlayStation.</p>
+								</div>
+							</div>
+                        </div>
+                     </div>
                      <div class="panel panel-danger mrgn-tp-lg">
                         <div class="panel-body">
-                           <h2 class="text-danger mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad example: Colour-coded information not communicated through alternative text</h2>
+                           <h3 class="text-danger mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad example: Colour-coded information not communicated through alternative text</h3>
                            <p>In the bad example below, the chart legend uses colour and patterns to identify the different bar columns. However, there is no alternative text for screen reader users.</p>
                            <div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
 								   <img src="images/image8.png" alt="Bad example of a bar chart image with no alternate text." class="img-responsive"/>
 								</div>
 							</div>
-                        </div>
-                     </div>
-                     <div class="panel panel-success mrgn-tp-lg">
-                        <div class="panel-body">
-                           <h2 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Colour-coded information communicated through alternative text.</h2>
-                           <p>In the good example below, the chart legend uses colour and patterns to identify the different bar columns. The alternative text adequately describes the data conveyed in the bar chart.</p>
-                           <div class="panel panel-primary">
-								<div class="panel-body well mrgn-bttm-0">
-								   <img src="images/image9.png" alt="Bar chart depicting game console sales in first 3 months of 2021: in January 84 Nintendo, 66 PlayStation; in February 48 Nintendo, 22 PlayStation; in March 25 Nintendo, 57 PlayStation." class="img-responsive"/>
-								</div>
-							</div>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;img src="images/sales-to-march-2021.png" alt=""&gt;</code></pre>							
+							<p class="wb-inv">Code ends</p>
                         </div>
                      </div>
                   </section>
@@ -258,7 +404,7 @@
                      <p>These requirements are in addition to the minimum contrast requirement of 4.5:1 between foreground text and background. It can be difficult to find a link or control colour that has both a 3:1 contrast with black body text and a 4.5:1 contrast with a white background. <a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G183">WCAG Technique G183</a> lists colour values that do, in Example 1.</p>
                      <div class="panel panel-success mrgn-tp-lg">
                         <div class="panel-body">
-                           <h2 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Underline hyperlink text</h2>
+                           <h3 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Underline hyperlink text</h3>
                            <p>In this example, the hyperlink text is differentiated from the surrounding normal text by underlining.</p>
                            <div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
@@ -269,7 +415,7 @@
                      </div>
                      <div class="panel panel-success mrgn-tp-lg">
                         <div class="panel-body">
-                           <h2 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;  Good example: High contrast with a visual effect on hover and focus</h2>
+                           <h3 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;  Good example: High contrast with a visual effect on hover and focus</h3>
                            <p>This example avoids a static underline by:</p>
                            <ul>
                               <li>Using blue (#3333FF) as the link colour, which has </li>
@@ -296,21 +442,21 @@
 </style>
 								</div>
 							</div>
-							<details class="mrgn-tp-lg">
+							<details class="mrgn-tp-md">
 								<summary class="bg-info">Results from the Colour Contrast Analyser</summary>
 <!--								R�sultats de l�analyseur de contraste de couleur -->
 								<figure class="mrgn-tp-lg">
 								   <img src="images/image10.png" alt="Screenshot of Colour Contrast Analyser app showing contrast ratio 3.1:1" class="img-responsive"/>
-								   <figcaption>Figure 6: The Colour Contrast Analyser finds a 3.1:1 contrast ratio between the links’ blue (hex #333FF) and the neighbouring text’s black (hex #000000).</figcaption>
+								   <figcaption class="fig-bottom">Figure 6: The Colour Contrast Analyser finds a 3.1:1 contrast ratio between the links’ blue (hex #333FF) and the neighbouring text’s black (hex #000000).</figcaption>
 								</figure>
 								<figure class="mrgn-tp-lg">
 									   <img src="images/image11.png" alt="Screenshot of Colour Contrast Analyser app showing contrast ratio 6.9:1" class="img-responsive"/>
-									   <figcaption>Figure 7: The Colour Contrast Analyser finds a 6.9:1 contrast ratio between the links’ blue (hex #3333FF) and the background white (hex #FFFFFF).</figcaption>
+									   <figcaption class="fig-bottom">Figure 7: The Colour Contrast Analyser finds a 6.9:1 contrast ratio between the links’ blue (hex #3333FF) and the background white (hex #FFFFFF).</figcaption>
 								</figure>
 								<h3>After receiving keyboard focus or mouse hover</h3>
 								<figure class="mrgn-tp-lg">
 									   <img src="images/image12.png" alt="Screenshot of Colour Contrast Analyser app showing contrast ratio 21:1" class="img-responsive"/>
-									   <figcaption>Figure 8: The Colour Contrast Analyser finds a 21:1 contrast ratio between the links’ white (hex #FFFFFF) and the background’s black (hex #000000).</figcaption>
+									   <figcaption class="fig-bottom">Figure 8: The Colour Contrast Analyser finds a 21:1 contrast ratio between the links’ white (hex #FFFFFF) and the background’s black (hex #000000).</figcaption>
 								</figure>
 								
 							</details>
@@ -318,23 +464,73 @@
                      </div>
                      <div class="panel panel-danger mrgn-tp-lg">
                         <div class="panel-body">
-                           <h2 class="text-danger mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad example: Colour alone distinguishes buttons from text</h2>
-                           <p>In this bad example, the blue foreground colour indicates that the last two icons are buttons. The blue has the required 3:1 contrast with the black of the neighbouring text, but it has no additional visual effect on hover or focus.</p>
+                           <h3 class="text-danger mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad example: Colour alone distinguishes links from text</h3>
+                           <p>In this bad example, the blue foreground colour indicates that the last two icons are links. The blue has the required 3:1 contrast with the black of the neighbouring text, but it has no additional visual effect on hover or focus.</p>
                            <div class="panel panel-primary">
 								<div class="panel-body mrgn-bttm-0">
-								   <img src="images/image13.png" alt="" class="img-responsive"/>
+								   <!-- <img src="images/image13.png" alt="" class="img-responsive"/> -->
+								   <ul class="list-unstyled colour-ex">
+										<li>
+											<img src="images/bulb.png" alt=""> A bright new idea
+										</li>
+										<li>
+											<img src="images/car.png" alt=""> The latest model of Tesla
+										</li>
+										<li>
+											<img src="images/nav-icon.png" alt=""> <a href="">Navigation</a>
+										</li>
+										<li>
+											<img src="images/contact-icon.png" alt=""> <a href="">Contact us</a>
+										</li>
+								   </ul>
+								   <style type="text/css">
+										.colour-ex li {
+											font-weight: bold;
+										}
+										.colour-ex a { 
+											text-decoration: none !important;
+											color: #3F48D5;
+											cursor: auto;
+										}
+								   </style>
 								</div>
 							</div>
                         </div>
                      </div>
                      <div class="panel panel-success mrgn-tp-lg">
                         <div class="panel-body">
-                           <h2 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;  Good example: Border supplements colour to distinguish buttons from basic text</h2>
-                           <p>In this good example, the borders on hover and focus indicate that the last two icons are buttons.</p>
+                           <h3 class="text-success mrgn-tp-0 h3" id="table-into-lists"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;  Good example: Border supplements colour to distinguish links from basic text</h3>
+                           <p>In this good example, the borders on hover and focus indicate that the last two icons are links.</p>
                            <div class="panel panel-primary">
 								<div class="panel-body mrgn-bttm-0">
+								<!--
 								   <img src="images/image14.png" alt="" class="img-responsive"/>
 								   <img src="images/image15.png" alt="" class="img-responsive"/>
+								-->
+								   <ul class="list-unstyled colour-ex hover-ex">
+										<li>
+											<img src="images/bulb.png" alt=""> A bright new idea
+										</li>
+										<li>
+											<img src="images/car.png" alt=""> The latest model of Tesla
+										</li>
+										<li>
+											<img src="images/nav-icon.png" alt=""> <a href="">Navigation</a>
+										</li>
+										<li>
+											<img src="images/contact-icon.png" alt=""> <a href="">Contact us</a>
+										</li>
+								   </ul>
+								   <style type="text/css">
+										.colour-ex a { 
+											border: 2px solid white;
+										}
+										.hover-ex a:hover,
+										.hover-ex a:focus {
+											border: 2px solid red;
+											cursor: pointer;
+										}
+								   </style>
 								</div>
 							</div>
                         </div>
@@ -343,30 +539,63 @@
                      <p>Some users with sensitivity to brightness or with low vision will expect to be able to modify colours. Whenever possible, use native controls and features of HTML. That allows users to customize interface colour and contrast for the visible UI components.</p>
                      <div class="panel panel-success mrgn-tp-lg">
                         <div class="panel-body">
-                           <h2 class="text-success mrgn-tp-0 h3" id="simple-header"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Button using CSS</h2>
+                           <h3 class="text-success mrgn-tp-0 h3" id="simple-header"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Button using CSS</h3>
                            <p>In this example, the appearance of the button is set with CSS rules, including colours. The values are easily overridden by a custom user style sheet.</p>
-                           <style>                        
-                              .button {
-                              background-color: #f44336; /* Dark red */
-                              border: none;
-                              color: white;
-                              padding: 10px 25px;
-                              text-align: center;
-                              text-decoration: none;
-                              display: inline-block;
-                              font-size: 36px;
-                              margin: 4px 2px;
-                              cursor: pointer;
-                              }
-                           </style>
-                           <button class="button">Next</button>
+                           <div class="panel panel-primary">
+								<div class="panel-body mrgn-bttm-0">
+								   <style>                        
+									  .button-ex {
+										  background-color: #0065CB; 
+										  border: none;
+										  color: white;
+										  padding: 10px 25px;
+										  text-align: center;
+										  text-decoration: none;
+										  display: inline-block;
+										  font-size: 36px;
+										  margin: 4px 2px;
+										  cursor: pointer;
+									  }
+								   </style>
+								   <button class="button-ex">Next</button>
+								</div>
+							</div>
+							<details class="mrgn-tp-md">
+								<summary class="bg-info">View the CSS</summary>
+									<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-md"><code class="language-css">.button-ex {
+   background-color: #0065CB;
+   border: none;
+   color: white;
+   padding: 10px 25px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 36px;
+   margin: 4px 2px;
+   cursor: pointer;
+}</code></pre>
+								<p class="wb-inv">Code ends</p>	
+							</details>
                         </div>
                      </div>
                      <div class="panel panel-danger mrgn-tp-lg">
                         <div class="panel-body">
-                           <h2 class="text-danger mrgn-tp-0 h3" id="header"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad example: Button using an image of text</h2>
+                           <h3 class="text-danger mrgn-tp-0 h3" id="header"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Bad example: Button using an image of text</h3>
                            <p>When buttons use an image of text, user style sheets are not able to customize the text properties, including foreground and background colours. Screen magnification pixelates and blurs images of text, diminishing readability.</p>
-                           <img src="images/image17.png" alt="" class="img-responsive"/>
+                           <div class="panel panel-primary">
+								<div class="panel-body mrgn-bttm-0">
+								   <button style="border: none; background: none;">
+									   <img src="images/image17.jpg" alt="Next" class="img-responsive"/>
+									</button>
+								</div>
+							</div>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;button style="border: none; background: none;"&gt;
+   &lt;img src="images/image17.jpg" alt="Next" class="img-responsive"/&gt;
+&lt;/button&gt;</code></pre>
+							<p class="wb-inv">Code ends</p>
                         </div>
                      </div>
                   </section>
@@ -436,7 +665,7 @@
                         <li><a class="list-group-item" href="contrast.html">Contrast</a></li>
                         <li><a class="list-group-item" href="visual-proximity.html">Visual proximity of labels</a></li>
                         <li><a class="list-group-item" href="textspacing.html">Text spacing</a></li>
-                        <li><a class="list-group-item" href="css-generated.html">CSS-generated content</a></li>
+                        <li><a class="list-group-item" href="css-generated.html">CSS-generated text and icons</a></li>
                         <li><a class="list-group-item" href="hiding-content.html">Hiding and exposing content on hover or focus</a></li>
                         <li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
                      </ul>
@@ -444,19 +673,33 @@
                   <section class="list-group menu list-unstyled">
                      <h3 class="wb-navcurr">All modules</h3>
                      <ul class="list-group menu list-unstyled">
-                        <li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
-                        <li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>
-                        <li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
-                        <li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
-                        <li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
-                        <li><a class="list-group-item" href="../module6/index.html">Module 6 – Forms</a></li>
-                        <li><a class="list-group-item active" href="index.html">Module 7 – Visual design and colours</a></li>
-                        <li><a class="list-group-item" href="../module8/index.html">Module 8 – Zoom and responsive design</a></li>
-                        <li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
-                        <li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
-                        <li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
-                     </ul>
-                  </section>
+                        <li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+                        <li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>
+                        <li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+                        <li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+                        <li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Forms</a></li>
+                        <li><a class="list-group-item active" href="introduction.html">Module 7 – Visual design and colours</a></li>
+                        <li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+                        <li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+                        <li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+                        <li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Site map and best practice</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+					</li>
+
+				</ul>
+			</section>
                </nav>
             </div>
             <div id="def-preFooter2"></div>

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Instructions du formulaire - Module 6 - Formulaires</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Lignes directrices sur l’accessibilité relative aux instructions sur les formulaires. Aide les utilisateurs à comprendre la façon de remplir un formulaire et d’en utiliser les commandes individuelles.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.appTop({
+                "appName": [{
+                    "text": "EDSC / Bureau de l’accessibilité des TI",
+                    "href": "../../../index-fr.html"
+                }],
+               "breadcrumbs" : [{
+                    "title": "Accueil",
+                    "href" : "../../../index-fr.html"
+                },{
+                    "title": "Apprentissage",
+                    "href" : "../../index-fr.html"
+                },
+				{
+                    "title": "Cours d'accessibilité Web",
+                    "href" : "../index-fr.html"
+                },
+			{
+                "title": "Module 6 - Formulaires",
+                
+                "href" : "index-fr.html"
+            }],
+            "lngLinks": [{
+                "lang": "en",
+                "href": "form-instructions.html",
+                "text": "English"
+            }],
+            "menuPath": "../../../ajax/menu-fr.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+			
+	<h1 property="name" id="wb-cont">Instructions du formulaire</h1>
+						
+	<nav role="navigation">
+    <div class="panel panel-default mrgn-tp-md">
+      <header class="panel-heading">
+        <h2 class="panel-title">Table des matières</h2>
+      </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#form-instructions">Aper&ccedil;u : Instructions du formulaire</a></li>
+			<li><a href="#overall-instructions">Instructions générales</a></li>
+			<li><a href="#inline-instructions">Instructions incluse</a></li>
+			<li><a href="#instructions-for-groups">Les instructions relatives aux groupes</a></li>
+			<li><a href="#resources">Ressources WCAG connexes</a></li>
+          </ul>
+        </div>
+      </div>
+	</nav>
+
+			<section>						
+				<h2 id="form-instructions">Aper&ccedil;u : Instructions du formulaire</h2>
+				<p>Les instructions du formulaire aident les utilisateurs à comprendre la façon de remplir le formulaire et d’utiliser les commandes individuelles du formulaire. Indiquer les saisies, les formats de données et les autres renseignements pertinents requis.</p>
+			</section>
+			
+			<section>				
+				<h2 id="overall-instructions">Instructions générales</h2>
+				<p>Fournir les instructions du formulaire au-dessus du formulaire avant la balise <code lang="en-CA">&lt;form&gt;</code> d’ouverture. Indiquer toute saisie obligatoire et facultative, les formats de données autorisés, les limites de temps et toute instruction générale qui s’appliquent à l’ensemble du formulaire. </p>
+
+				<div class="alert alert-warning">
+					<p><strong>Remarque&nbsp;:</strong> Les utilisateurs du lecteur d’écran pourraient facilement rater les instructions générales du formulaire imbriquées dans un élément <code lang="en-CA">&lt;form&gt;</code>. Les lecteurs d’écran entrent en «&nbsp;mode formulaires&nbsp;» une fois dans un formulaire, désactivant ainsi les raccourcis clavier de balayage de texte pour permettre à l’utilisateur de taper directement dans les champs <code lang="en-CA">input</code> et <code lang="en-CA">textarea</code>. La navigation au clavier se limite aux éléments pouvant être ciblés (saisies de formulaires, liens et autres commandes) au moyen de la touche Tab. Le texte qui n’est pas associé par un programme à un élément pouvant être ciblé – servant d’étiquette ou de description – est facilement omis.</p>
+				</div>
+				<p>Voici des exemples d'instructions pour un formulaire :</p>
+
+				<ul>
+					<li>Tous les champs marqués «&nbsp;obligatoire&nbsp;» doivent être remplis.</li>
+					<li>Les dates doivent toutes être entrées selon le format aaaa/mm/jj (comme dans 2022/01/05).</li>
+					<li>Vous trouverez de l’aide supplémentaire immédiatement après chaque champ</li>
+				</ul>
+			</section>
+			
+			<section>				
+				<h2 id="inline-instructions">Instructions incluses</h2>
+				<p>Des instructions incluses sont fournies à l’intérieur ou à l’extérieur de l’étiquette de commande du formulaire. De courtes instructions peuvent être insérées dans l’étiquette avec le nom de la commande. Les instructions longues devraient être à l’extérieur de l’étiquette et être associées à la commande par l’aria-describedbyattribut <code lang="en-CA">aria-describedby</code>. </p>
+
+				</p>
+				<h3>Fournir des instructions dans les étiquettes</h3>
+				<p>Les agents utilisateurs prennent en charge sans difficulté les instructions fournies dans les étiquettes, mais celles-ci devraient être réservées aux instructions plus courtes. Associer l’attribut <code lang="en-CA">for</code> de l’étiquette à l’attribut <code lang="en-CA">id</code> de la commande du formulaire.</p>
+
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+					  <h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple : Fournir des instructions dans une étiquette</h4>
+					  
+						<p>Le format requis pour «&nbsp;l'identification de l'employé&nbsp;» est indiqué par le format «&nbsp;XX-1234&nbsp;» dans la même étiquette&nbsp;:</p>
+
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">L'exemple commence</p>
+								<form class="form-inline" role="form" method="get" action="#">
+									<div class="form-group">
+										<label for="employee-id">Identification de l'employé (XX-1234)</label> 
+										<input type="text" name="employee-id" id="employee-id" class="form-control">
+									</div>
+								</form>
+								<p class="wb-inv">L'exemple finit</p>
+							</div>
+						</div>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;label for="employee-id"&gt;Employee ID (XX-1234)&lt;/label&gt; 
+&lt;input type="text" name="employee-id" id="employee-id"&gt;</code></pre>
+						<p class="wb-inv">Fin du code</p>
+					</div>
+				</div>
+				<h3>Fournir des instructions à l’extérieur des étiquettes</h3>
+				<p>Utiliser ARIA pour fournir des instructions à l’extérieur des étiquettes. Associer tout texte descriptif du formulaire à l’élément pertinent du formulaire en utilisant l’attribut <code lang="en-CA">aria-labelledby</code> ou <code lang="en-CA">aria-describedby</code>. </p>
+
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+					
+						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span> &nbsp;Bon exemple : Fournir des instructions de contrôle de formulaire en utilisant aria-labelledby</h4>
+						<p>Une approche pour fournir des instructions en dehors des étiquettes utilise l'attribut <code lang="en-CA">aria-labelledby</code> sur le contrôle :</p>
+						<ul>
+							<li>Un élément <code lang="en-CA">&lt;label&gt;</code> est associé à sa commande au moyen de valeurs d’attribut correspondantes <code lang="en-CA">for</code> et <code lang="en-CA">id</code>.</li>
+							<li>L'attribut <code lang="en-CA">aria-labelledby</code> du contrôle fait référence aux valeurs de l'attribut <code lang="en-CA">id</code> de l'élément lui-même et de l'élément contenant la description.</li>
+						</ul> 
+						<p>Cette approche garantit que la description supplémentaire est communiquée à la technologie d’assistance, mais elle ne devrait être utilisée qu’avec de courtes descriptions</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+							<p class="wb-inv">L'exemple commence</p>
+								<form class="form-inline" role="form" method="get" action="#">
+									<div class="form-group">
+										<label for="health-card">Carte assurance maladie</label>
+										<input type="text" name="health-card" id="health-card" aria-labelledby="health-card hc-format" class="form-control">
+										<span id="hc-format"> 1234-567-890-XX</span>
+									</div>
+								</form>
+								<p class="wb-inv">L'exemple finit</p>
+							</div>
+						</div>
+
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;label for="health-card"&gt;Carte assurance maladie&lt;/label&gt;
+&lt;input type="text" id="health-card" aria-labelledby="health-card hc-format" name="health-card"&gt;
+&lt;span id="hc-format"&gt;1234-567-890-XX&lt;/span&gt;
+</code></pre>
+						<p class="wb-inv">Fin du code</p>
+
+					</div>
+				</div>
+				
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple : Fournir des instructions de contrôle de formulaire avec aria-describedby</h4>
+						<p>L'approche la plus courante pour fournir des instructions en dehors des étiquettes consiste à utiliser l'attribut <code lang="en-CA">aria-describedby</code>. Cet attribut est défini sur le contrôle et pointe vers la valeur de l'attribut <code lang="en-CA">id</code> de l'élément contenant la description.</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">L'exemple commence</p>
+								<form class="form-inline" role="form" method="get" action="#">
+									<div class="form-group">
+										<label for="password1">Mot de passe</label>
+										<input type="password" name="password1" id="password1" aria-describedby="passDesc" class="form-control">
+									</div>
+									<div id="passDesc">Doit contenir au moins 8 caractères, une lettre majuscule et un caractère spécial.</div>
+								</form>
+								<p class="wb-inv">L'exemple finit</p>
+							</div>
+						</div>
+
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;div class="form-group"&gt;
+   &lt;label for="password1"&gt;Mot de passe&lt;/label&gt;
+   &lt;div&gt;
+      &lt;input type="password" id="password1" aria-describedby="passDesc" name="password1"&gt;
+      &lt;div id="passDesc"&gt;Doit contenir au moins huit caractères, une lettre majuscule et un caractère spécial&lt;&lt;/div&gt;
+   &lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+						<p class="wb-inv">Fin du code</p>
+											
+					</div>
+				</div>
+				
+				<h3>Texte d’espace réservé</h3>
+				<p>Le texte de l'attribut <code lang="en-CA">placeholder</code> fournit des instructions ou un exemple du format de données requis à l'intérieur des champs de formulaire qui n'ont pas encore été modifiés par l'utilisateur.</p>
+
+				<div class="alert alert-warning">
+				   <p>Notez que le texte de remplacement disparaît des champs d'un formulaire lorsque les utilisateurs commencent à saisir du texte. Si ce texte contient des informations pédagogiques ou des exemples qui disparaissent, il est plus difficile pour les utilisateurs de vérifier leurs réponses avant de soumettre le formulaire.</p>
+				</div>
+				
+				<p>Le texte d’espace réservé ne remplace pas les étiquettes. Les technologies d’assistance comme les lecteurs d’écran ne traitent pas le texte d’espace réservé comme des étiquettes. </p>
+				<div class="panel panel-primary mrgn-tp-md">
+					<div class="panel-body well mrgn-bttm-0">	
+						<p class="wb-inv">L'exemple commence</p>
+						<form class="form-horizontal" role="form" method="get" action="#">
+							<div class="form-group">
+								<label for="search"  class="col-sm-3 control-label">Recherche</label> 
+								<div class="col-sm-9">
+									<input type="text" name="search" id="search" placeholder="e.g., cours sur l’accessibilité" class="form-control">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="email"  class="col-sm-3 control-label">Courriel</label> 
+								<div class="col-sm-9">	
+									<input type="email" name="email" id="email" placeholder="jane.doe@gmail.com" class="form-control" autocomplete="email">
+								</div>
+							</div>
+						</form>
+						<style type="text/css">
+							::-webkit-input-placeholder { 
+							   color: #767676 !important; 
+							   opacity: 1;
+							}
+							:-moz-placeholder { 
+							   /* Firefox 18- */ 
+							   color: #767676  !important;
+							   opacity: 1;
+							}
+							::-moz-placeholder {  
+							   /* Firefox 19+ */ 
+							   color: #767676 !important 
+							   opacity: 1;
+							}
+							:-ms-input-placeholder { 
+							   color: #767676  !important; 
+							   opacity: 1;
+							}						
+													
+						</style>
+						<p class="wb-inv">L'exemple finit</p>
+					</div>
+				</div>
+
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;div&gt;
+   &lt;label for="search"&gt;Recherche&lt;/label&gt; 
+   &lt;input type="text" name="search" id="search" placeholder="e.g., cours sur l’accessibilité"&gt;
+&lt;/div&gt;
+&lt;div&gt;
+   &lt;label for="email"&gt;Courriel&lt;/label&gt; 
+   &lt;input type="email" name="email" id="email" placeholder="jane.doe@gmail.com" autocomplete="email"&gt;
+&lt;/div&gt;</code></pre>
+				<p class="wb-inv">Fin du code</p>
+
+
+						
+				<h3>Styliser l’espace réservé</h3>
+				<p>Dans de nombreux navigateurs, la couleur d’attribut <code lang="en-CA">placeholder</code> réservé échoue au test de contraste, ce qui empêche de nombreuses personnes de voir distinctement. La couleur de l’espace réservé peut être stylisée à l’aide de CSS.</p>
+				<p> L’extrait de code ci-dessous établit la couleur d’avant-plan à un gris moyen (no&nbsp;hex&nbsp;767676) sur fond blanc, ce qui satisfait tout juste à l’exigence minimale de rapport de contraste de 4,5:1.</p>
+				<div class="panel panel-primary mrgn-tp-md mrgn-bttm-lg">
+					<div class="panel-body well mrgn-bttm-0">
+					<p class="wb-inv">L'exemple commence</p>
+						<form class="form-horizontal" role="form" method="get" action="#">
+							<div class="form-group">
+							<label for="search" class="col-sm-4 control-label">Recherche de cours</label>
+								<div class="col-sm-8">
+									<input type="text" name="search1" id="search1" placeholder="e.g., cours sur l’accessibilité" class="form-control">
+								</div>
+								</div>
+							<div class="form-group">
+								<label for="fname" class="col-sm-4 control-label">Prénom</label>
+								<div class="col-sm-8">
+									<input type="text" name="fname" id="fname" class="form-control" autocomplete="given-name">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="lname" class="col-sm-4 control-label">Nom de famille</label> 
+								<div class="col-sm-8">
+									<input type="text" name="lname" id="lname" class="form-control" autocomplete="Nom-de-famille">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="email" class="col-sm-4 control-label">Courriel</label>  
+								<div class="col-sm-8">
+									<input type="email" name="email1" id="email1" placeholder="jane.doe@gmail.com" class="form-control" autocomplete="email"> 
+								</div>
+							</div>
+						</form>
+
+						<style type="text/css">
+							::-webkit-input-placeholder { 
+							   color: #767676 !important; 
+							   opacity: 1;
+							}
+							:-moz-placeholder { 
+							   /* Firefox 18- */ 
+							   color: #767676  !important;
+							   opacity: 1;
+							}
+							::-moz-placeholder {  
+							   /* Firefox 19+ */ 
+							   color: #767676 !important 
+							   opacity: 1;
+							}
+							:-ms-input-placeholder { 
+							   color: #767676  !important; 
+							   opacity: 1;
+							}						
+						</style>
+						
+						<p class="wb-inv">L'exemple finit</p>
+					</div>
+				</div>
+					
+					<details class="mrgn-tp-sm">
+						<summary class="bg-info">Voir le HTML </summary>
+<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;div&gt;
+   &lt;label for="search"&gt;Recherche de cours&lt;/label&gt;  
+   &lt;input type="text" name="search" id="search" placeholder="e.g., cours sur l’accessibilité"&gt;
+&lt;/div&gt;
+&lt;div&gt;
+   &lt;label for="fname"&gt;Prénom&lt;/label&gt;  
+   &lt;input type="text" name="fname" id="fname"&gt;
+&lt;/div&gt;
+&lt;div&gt;
+   &lt;label for="lname"&gt;Nom de famille&lt;/label&gt;  
+   &lt;input type="text" name="lname" id="lname"&gt;
+&lt;/div&gt;
+&lt;div&gt;
+   &lt;label for="email"&gt;Courriel&lt;/label&gt;  
+   &lt;input type="text" name="email" id="email" placeholder="jane.doe@gmail.com"&gt; 
+&lt;/div&gt;</code>
+</pre>
+<p class="wb-inv">Fin du code</p>
+						</details>	
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">Voir le CSS </summary>
+							<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-css">::-webkit-input-placeholder { 
+   color: #767676 !important; 
+   opacity: 1;
+}
+:-moz-placeholder { 
+   /* Firefox 18- */ 
+   color: #767676  !important;
+   opacity: 1;
+}
+::-moz-placeholder {  
+   /* Firefox 19+ */ 
+   color: #767676 !important 
+   opacity: 1;
+}
+:-ms-input-placeholder { 
+   color: #767676  !important; 
+   opacity: 1;
+}</code></pre>
+						<p class="wb-inv">Fin du code</p>
+						</details>	
+
+
+
+			
+			</section>
+			<section>				
+				<h2 id="instructions-for-groups">Les instructions relatives aux groupes</h2> 
+				<p>En "mode focus", lors de la tabulation dans le formulaire, les utilisateurs de lecteurs d'écran mettent le focus sur les contrôles de formulaire et entendent leurs étiquettes et descriptions. Le texte d'un élément non focalisable n'est pas pris en compte, sauf s'il est associé par programme à un contrôle de formulaire en tant qu'étiquette ou description.</p>
+
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Instructions de groupe dans une &lt;legend&gt;</h3>
+						<p>Dans cet exemple, le mot «&nbsp;Requis&nbsp;» est défini dans la <code lang="en-CA">&lt;legend&gt;</code> pour indiquer que tout ce qui se trouve dans le champ correspondant est requis. Selon la configuration, certains lecteurs d’écran lisent la légende avec chaque élément de forme, une fois ou, rarement, pas du tout. Gardez les légendes courtes et explicites.</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">L'exemple commence</p>
+								<form class="form-horizontal" role="form" method="get" action="#">
+									<fieldset>
+										<legend class="required mrgn-lft-md"> 
+											<span class="field-name">Renseignements d’ouverture de session</span>  
+											<strong>(Requis)</strong>
+										</legend>
+										<div class="form-group">		
+											<label for="username" class="col-sm-4 control-label required">Nom d’utilisateur</label>
+											<div class="col-sm-8">
+												<input type="text" id="username" class="form-control" required autocomplete="username">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="password" class="col-sm-4 control-label required">Mot de passe</label>
+											<div class="col-sm-8">
+												<input type="password" id="password" class="form-control" required autocomplete="current-password">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="email" class="col-sm-4 control-label required">Courriel</label>
+											<div class="col-sm-8">
+												<input type="email" id="email2" class="form-control" required autocomplete="email"></div>
+											</div>
+										<div class="form-group">
+											<label for="phone" class="col-sm-4 control-label required">Téléphone</label>
+											<div class="col-sm-8">
+												<input type="tel" id="phone" class="form-control" required autocomplete="tel-national">
+											</div>
+										</div>
+									</fieldset>
+								</form>
+								<p class="wb-inv">L'exemple finit</p>
+							</div>
+						</div>
+		
+						<details class="mrgn-tp-sm">
+							<summary class="bg-info">Voir le HTML </summary>
+							<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;fieldset&gt;
+   &lt;legend class="required"&gt; 
+   Renseignements d’ouverture de session (Requis)
+   &lt;/legend&gt;
+   &lt;label for="username" class="required"&gt;Nom d’utilisateur&lt;/label&gt;
+   &lt;input type="text" id="username" required autocomplete="username"&gt;
+   
+   &lt;label for="password" class="required"&gt;Mot de passe&lt;/label&gt;
+   &lt;input type="password" id="password" required autcomplete="current-password"&gt;
+   
+   &lt;label for="email" class="required"&gt;Courriel&lt;/label&gt;
+   &lt;input type="email" id="email" required autcomplete="email"&gt;
+   
+   &lt;label for="phone" class="required"&gt;Téléphone&lt;/label&gt;
+   &lt;input type="tel" id="phone" required auto-complete="tel-national"&gt;
+&lt;/fieldset&gt;</code>
+</pre>
+							<p class="wb-inv">Fin du code</p>
+						</details>
+						
+		
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">Voir le CSS </summary>
+							<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-css">label.required:before, 
+legend.required:before {
+   content: "* ";
+   margin-left: -0.665em;
+   color: #d3080c;
+   font-weight: 700;
+}</code></pre>
+							<p class="wb-inv">Fin du code</p>
+						</details>
+					</div>
+				</div>
+				
+				
+			<div class="panel panel-danger mrgn-tp-lg">
+				<div class="panel-body">
+					<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Mauvais exemple : Instructions dans un paragraphe non associé à un contrôle</h3>
+					<p>Lorsque les instructions se trouvent dans un élément <code lang="en-CA">&lt;p&gt;</code> non associé via <code lang="en-CA">aria-describedby</code>, elles sont facilement manquées par les utilisateurs qui naviguent dans le formulaire en "mode formulaire" du lecteur d'écran.</p>
+					
+
+					<div class="panel panel-primary mrgn-tp-md">
+						<div class="panel-body well mrgn-bttm-0">
+							<p class="wb-inv">L'exemple commence</p>
+							<form class="form-horizontal" role="form" method="get" action="#">
+								<fieldset>
+									<legend><span class="field-name">Créer un compte d’utilisateur</span></legend>
+									<div class="form-group">
+										<label for="username" class="col-sm-4 control-label">Nom d’utilisateur</label>
+										<div class="col-sm-8">
+											<input type="text" id="username"  class="form-control">
+										</div>
+									</div>
+									<p id="passmatch">Les mots de passe doivent correspondre.</p>
+									<div class="form-group">
+										<label for="password" class="col-sm-4 control-label">Mot de passe</label>
+										<div class="col-sm-8">
+											<input type="password" id="password" class="form-control">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="retype" class="col-sm-4 control-label">Retapez votre mot de passe</label>
+										<div class="col-sm-8">
+											<input type="password" id="retype" class="form-control">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="email" class="col-sm-4 control-label">Courriel</label>
+										<div class="col-sm-8">
+											<input type="email" id="email" class="form-control">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="phone"class="col-sm-4 control-label">Téléphone</label>
+										<div class="col-sm-8">
+											<input type="tel" id="phone" class="form-control">
+										</div>
+									</div>
+								</fieldset>
+							</form>
+							<p class="wb-inv">L'exemple finit</p>
+						</div>
+					</div>
+
+				<details class="mrgn-tp-sm">
+					<summary class="bg-info">Voir le HTML </summary>
+					<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;fieldset&gt;
+   &lt;legend&gt; 
+   Créer un compte d’utilisateur
+   &lt;/legend&gt;
+   &lt;p&gt;
+      &lt;label for="username"&gt;Nom d’utilisateur&lt;/label&gt;
+      &lt;input type="text" id="username"&gt;
+   &lt;/p&gt;
+   &lt;p&gt;Les mots de passe doivent correspondre.&lt;/p&gt;
+   &lt;p&gt;
+      &lt;label for="password"&gt;Mot de passe&lt;/label&gt;
+      &lt;input type="password" id="password"&gt;
+   &lt;/p&gt;
+   &lt;p&gt;
+      &lt;label for="retype"&gt;Retapez votre mot de passe&lt;/label&gt;
+      &lt;input type="password" id="retype"&gt;
+   &lt;/p&gt;
+   &lt;p&gt;
+      &lt;label for="email"&gt;Courriel&lt;/label&gt;
+      &lt;input type="email" id="email"&gt;
+   &lt;/p&gt;
+   &lt;p&gt;
+      &lt;label for="phone"&gt;Téléphone&lt;/label&gt;j
+      &lt;input type="tel" id="phone"&gt;
+   &lt;/p&gt;
+&lt;/fieldset&gt;</code></pre>
+					<p class="wb-inv">Fin du code</p>
+				</details>
+			</div>
+		</div>
+				
+		<div class="panel panel-success mrgn-tp-lg">
+			<div class="panel-body">
+		
+		  <h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple : Instructions partagées associées à plusieurs champs de formulaire</h3>
+		  <p>Dans certaines situations, les instructions partagées peuvent être associées à plusieurs champs de formulaire.</p>
+		  <div class="panel panel-primary mrgn-tp-md">
+				<div class="panel-body well mrgn-bttm-0">
+					<p class="wb-inv">L'exemple commence</p>
+					<form class="form-horizontal" role="form" method="get" action="#">
+						<fieldset>
+							<legend><span class="field-name"> Créer un compte d’utilisateur</legend>
+							
+							<p>Les champs Nom d'utilisateur et Mot de passe <span id="specialchar">ne doivent PAS contenir de caractères spéciaux.</span></p>
+							
+							<div class="form-group">
+								<label for="username" class="col-sm-4 control-label">Nom d’utilisateur</label>
+								<div class="col-sm-8">
+									<input type="text" id="username" aria-describedby="specialchar" class="form-control" autocomplete="username">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="password" class="col-sm-4 control-label">Mot de passe</label>
+								<div class="col-sm-8">
+									<input type="password" id="password" aria-describedby="specialchar" class="form-control" autocomplete="password">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="email" class="col-sm-4 control-label">Courriel</label>
+								<div class="col-sm-8">
+									<input type="email" id="email" class="form-control" autocomplete="email">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="phone" class="col-sm-4 control-label">Téléphone</label>
+								<div class="col-sm-8">
+									<input type="tel" id="phone" class="form-control" autocomplete="tel-national">
+								</div>
+							</div>
+						</fieldset>
+					</form>
+					<p class="wb-inv">L'exemple finit</p>
+				</div>
+			</div>
+
+			<details class="mrgn-tp-sm">
+				<summary class="bg-info">Voir le HTML </summary>
+				<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;fieldset&gt;
+   &lt;legend&gt;Créer un compte d’utilisateur&lt;/legend&gt;
+   &lt;p&gt;
+   Les champs Nom d'utilisateur et Mot de passe &lt;span id="specialchar"&gt;ne doivent PAS contenir de caractères spéciaux.&lt;/span&gt;
+   &lt;/p&gt;
+   &lt;p&gt;
+      &lt;label for="username"&gt;Nom d’utilisateur&lt;/label&gt;j
+      &lt;input type="text" id="username" aria-describedby="specialchar"&gt;
+   &lt;/p&gt;
+   &lt;p&gt;
+      &lt;label for="password"&gt;Mot de passe&lt;/label&gt;j
+      &lt;input type="password" id="password" aria-describedby="specialchar"&gt;
+   &lt;/p&gt;
+   &lt;p&gt;
+      &lt;label for="email"&gt;Courriel&lt;/label&gt;j
+      &lt;input type="email" id="email"&gt;
+   &lt;/p&gt;
+   &lt;p&gt;
+      &lt;label for="phone"&gt;Téléphone&lt;/label&gt;j
+      &lt;input type="tel" id="phone"&gt;
+   &lt;/p&gt;
+&lt;/fieldset&gt;</code></pre>
+				<p class="wb-inv">Fin du code</p>
+			</details>
+		</div>
+	</div>
+
+				
+				
+			
+<div class="panel panel-success mrgn-tp-lg">
+	    <div class="panel-body">
+		
+		  <h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Fournir des instructions en texte clair avant le formulaire</h3>
+			<p>Dans cet exemple, les instructions générales du formulaire précèdent la balise d’ouverture <code lang="en-CA">&lt;form&gt;</code>, où les utilisateurs du lecteur d’écran peuvent facilement y accéder. Si les instructions en texte clair se trouvaient à l’intérieur de l’élément <code lang="en-CA">&lt;form&gt;</code>, les utilisateurs pourraient facilement les manquer puisque la navigation à l’intérieur d’un formulaire se limite aux éléments faciles à cibler (aussi appelés «&nbsp;mode formulaires&nbsp;»).</p>
+
+			 <div class="panel panel-primary mrgn-tp-md">
+              <div class="panel-body well mrgn-bttm-0">              
+            <p>
+				Choisissez les comptes source et destination ci-dessous pour effectuer votre virement de fonds:
+			</p> 
+			<p class="wb-inv">L'exemple commence</p>
+			  <form  method="get"  onsubmit="return false;">
+				<fieldset> 
+					<legend> <span class="field-name">Virer des fonds</span></legend> 
+				  <div class="form-group">
+					<label for="fromacct">Virer des fonds du compte</label> 
+					  
+					<select name="accounts" id="fromacct" class="form-control"> 
+					  <option value="Select account">Sélectionner un compte</option> 
+					  <option value="Saving account - 8888-999">Compte d’épargne - 8888-999</option> 
+					  <option value="Checking account - 9999-9999">Compte chèques - 9999-9999</option> 
+					</select>
+					  
+				  </div>
+				  <div class="form-group">
+					<label for="toacct">Virer des fonds au compte</label>
+					  
+					<select name="accounts" id="toacct" class="form-control"> 
+					  <option value="Select account">Sélectionner un compte</option> 
+					  <option value="Saving account - 8888-999">Compte d’épargne - 8888-999</option> 
+					  <option value="Checking account - 9999-9999">Compte chèques - 9999-9999</option> 
+				    </select> 
+				  </div>
+				  <div class="form-group">
+					<label for="amount">Montant</label> 
+					  
+					<input type="text" id="amount"  class="form-control">
+				  </div>
+				
+					<input type="submit" value="Submit" class="btn btn-default">
+					  	
+				</fieldset> 
+			  </form>
+			  <p class="wb-inv">L'exemple finit</p>
+		</div>
+	</div>
+
+
+			
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;p&gt;Choisissez les comptes source et destination ci-dessous pour effectuer votre virement de fonds:&lt;/p&gt; 
+&lt;form action="/action.php" method="get"&gt;[&hellip;]&lt;/form&gt;</code></pre>
+				<p class="wb-inv">Fin du code</p>
+					  
+</div>
+</div>
+					 
+				
+			</section>
+			
+			<section>				
+				<h2 id="resources" class="wb-inv">Ressources WCAG connexes</h2>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+                        <p class="mrgn-tp-md">En anglais seulement.</p>
+					<h3>Critères de succès</h3>
+					<ul>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships" lang="en-CA">1.3.1 Info and Relationships</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels" lang="en-CA">2.4.6 Headings and Labels </a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions" lang="en-CA">3.3.2 Labels or Instructions</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages" lang="en-CA">4.1.2 Name, Role, Value</a></li>
+					</ul>
+					<h3>Techniques</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G131" lang="en-CA">G131: Providing descriptive labels</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA10" lang="en-CA">ARIA10: Using aria-labelledby to provide a text alternative for non-text content</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA9" lang="en-CA">ARIA9: Using aria-labelledby to concatenate a label from several text nodes</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA1" lang="en-CA">ARIA1: Using Accessible Rich Internet Application describedby property to provide a descriptive, programmatically determined label</a>
+						</li>
+						
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G89" lang="en-CA">G89: Providing expected data format and example</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G184" lang="en-CA">G184: Providing text instructions at the beginning of a form or set of fields that describes the necessary input
+</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H44" lang="en-CA">H44: Using label elements to associate text labels with form controls</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H90" lang="en-CA">H90: Indicating required form controls using label or legend</a>
+						</li>
+						
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H93" lang="en-CA">H93: Ensuring that id attributes are unique on a Web page</a>
+						</li>					
+					</ul>
+				</details>
+
+
+			</section>
+		
+		
+	<nav role="navigation">
+		<h2 class="wb-inv">Menu de la pagination</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="grouping-controls-fr.html">Précédent - Regroupement des commandes</a></li>
+			<li class="next"><a rel="next" href="identifying-input-fr.html">Suivant - Déterminer l’objet de la saisie</a></li>
+		</ul>
+	</nav>
+	</main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+		<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 6 - Formulaires</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="forms-concepts-fr.html">Concepts des formulaires</a></li>
+						<li><a class="list-group-item" href="labelling-controls-fr.html">Commandes d’étiquetage</a></li>
+						<li><a class="list-group-item" href="grouping-controls-fr.html">Regroupement des commandes</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="form-instructions-fr.html">Instructions du formulaire</a></li>
+						<li><a class="list-group-item" href="identifying-input-fr.html">Déterminer l’objet de la saisie</a></li>
+						<li><a class="list-group-item" href="validating-input-fr.html">Validation des saisies</a></li>
+						<li><a class="list-group-item" href="user-notifications-fr.html">Avis à l’utilisateur</a></li>
+						<li><a class="list-group-item" href="multi-step-forms-fr.html">Formulaires à étapes multiples</a></li>
+						<li><a class="list-group-item" href="custom-controls-fr.html">Commandes personnalisées</a></li>
+						<li><a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Tous les modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 - Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/links-fr.html">Module 3 - Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/tables-concepts-fr.html">Module 4 - Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/text-alternatives-fr.html">Module 5 - Images</a></li>
+                        <li><a class="list-group-item active" href="forms-concepts-fr.html">Module 6 - Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 - Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item" href="../module8/introduction-fr.html">Module 8 - Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item" href="../module10/introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap-fr.html">Plan du site</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
+					</li>
+
+				</ul>
+			</section>
+	</nav>
+</div>
+
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>

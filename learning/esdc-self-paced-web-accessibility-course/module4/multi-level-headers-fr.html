@@ -11,7 +11,6 @@
 	<!-- Meta data -->
 	<meta name="description"
 		content="Lignes directrices sur l’accessibilité relative aux tableaux comportant des en têtes à niveaux multiples. Cela comprend les en têtes à trois niveaux ou les en têtes de colonne qui se répètent ou changent au milieu d’un tableau.">
-	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -21,6 +20,8 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -47,6 +48,7 @@
             },
 			{
                 "title": "Module 4 - Tableaux",
+                
                 "href" : "index-fr.html"
             }],
             "lngLinks": [{
@@ -62,7 +64,7 @@
 	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
 		
 			<h1 property="name" id="wb-cont">En-têtes à plusieurs niveaux</h1>
-			<nav role="navigation" aria-labelledby="nav-table">
+			<nav role="navigation" aria-labelledby="nav-table"> 
 			  <div class="panel panel-default mrgn-tp-lg">
 				<header class="panel-heading">
 				  <h2 id="nav-table" class="panel-title">Table des matières</h2>
@@ -73,7 +75,7 @@
 					<li><a href="#headers-three-deep">Bon exemple&nbsp;: Tableau avec trois en-têtes empilés</a></li>
 					<li><a href="#table-simplified">Bon exemple&nbsp;: Tableau à plusieurs niveaux simplifié</a></li>
 					<li><a href="#three-headers-related">Bon exemple&nbsp;: Tableau avec trois en-têtes liés à chaque cellule de données</a></li>
-					<li><a href="#wcag">Ressources WCAG connexes</a></li>
+					<li><a href="#multi-level-headers-wcag">Ressources WCAG connexes</a></li>
 				  </ul>
 				</div>
 			  </div>
@@ -83,10 +85,10 @@
 				<p>Un tableau comportant des en-têtes à plusieurs niveaux comporte trois en-têtes empilés, ou des en-têtes de colonne qui se répètent ou changent au milieu d’un tableau.</p>
 			<p>Pour associer des en-têtes à plusieurs niveaux avec des cellules de données:</p>
 			<ul>
-				<li>Donner à chaque en-tête une valeur d’attribut <code>id</code> unique.</li>
-				<li>Faire référence à ces valeurs d’attribut <code>id</code> dans l’attribut header des cellules de données.</li>
+				<li>Donner à chaque en-tête une valeur d’attribut <code lang="en-CA">id</code> unique.</li>
+				<li>Faire référence à ces valeurs d’attribut <code lang="en-CA">id</code> dans l’attribut header des cellules de données.</li>
 			</ul>
-			<p>L’utilisation de la technique des attributs <code>id/header</code> est une solution de dernier recours, car elle n’est pas bien prise en charge par les technologies d’assistance à l’heure actuelle (2021). Bien que le « bon » tableau ci-dessous soit techniquement conforme, il donne de mauvais résultats avec les lecteurs d’écran.</p>
+			<p>L’utilisation de la technique des attributs <code lang="en-CA">id/header</code> est une solution de dernier recours, car elle n’est pas bien prise en charge par les technologies d’assistance à l’heure actuelle (2021). Bien que le « bon » tableau ci-dessous soit techniquement conforme, il donne de mauvais résultats avec les lecteurs d’écran.</p>
 			
 			<div class="alert alert-warning">
 				   <p><strong>Important&nbsp;:</strong> Dans la mesure du possible, simplifiez la présentation des données en divisant un tableau complexe en au moins deux tableaux plus simples.</p>
@@ -99,10 +101,10 @@
 					<div class="panel-body">
 		
 						<h2 class="text-success mrgn-tp-0 h3" id="headers-three-deep"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Tableau avec trois en-têtes empilés</h2>
-						<p>Dans cet exemple, les en-têtes de rangée sont empilés par trois, ce qui nécessite l’utilisation d’un balisage <code>id/header</code> pour associer les cellules de données à leurs en-têtes. Le <a href="https://wet-boew.github.io/v4.0-ci/demos/tablevalidator/tablevalidator-en.html">validateur de tableau BOEW</a> fournit le balisage <code>id/header</code>. Une description de tableau visuellement masquée est imbriquée dans la légende.</p>
+						<p>Dans cet exemple, les en-têtes de rangée sont empilés par trois, ce qui nécessite l’utilisation d’un balisage <code lang="en-CA">id/header</code> pour associer les cellules de données à leurs en-têtes. Le <a href="https://wet-boew.github.io/v4.0-ci/demos/tablevalidator/tablevalidator-en.html">validateur de tableau BOEW</a> fournit le balisage <code lang="en-CA">id/header</code>. Une description de tableau visuellement masquée est imbriquée dans la légende.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">D&eacute;but de l'exemple</p>
+								<p class="wb-inv">L'exemple commence</p>
 								<table class="table small">
 									<caption>
 										Véhicules loués par le gouvernement
@@ -179,13 +181,13 @@
 										 </tr>
 									 </tbody>
 								</table>
-								<p class="wb-inv">Fin de l'exemple</p>	
+								<p class="wb-inv">L'exemple finit</p>	
 							</div>
 						</div>
 						<details class="mrgn-tp-lg">
 							<summary class="bg-info">Voir un extrait HTML - Attribuer les attributs id et headers</summary>
-							<p class="wb-inv">Code commence</p>
-<pre><code class="language-html">&lt;tr&gt;
+							<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;tr&gt;
    &lt;th id="tbl6"&gt;Type de véhicule&lt;/th&gt;
    &lt;th id="tbl7"&gt;Pays&lt;/th&gt;
    &lt;th id="tbl8"&gt;Durée du bail&lt;/th&gt;
@@ -202,12 +204,12 @@
 &lt;/tr&gt;</code>
 </pre>      
    					
-							<p class="wb-inv">Fins du code</p>
+							<p class="wb-inv">Fin du code</p>
 						</details>
-						<details class="mrgn-tp-lg">
+						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir le HTML complet</summary>
-							<p class="wb-inv">Code commence</p>
-<pre><code class="language-html">&lt;table class="table small"&gt;
+							<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;table class="table small"&gt;
    &lt;caption&gt;
       éhicules loués par le gouvernement
       &lt;span class="wb-inv"&gt;La colonne&nbsp;1 énumère les véhicules de fonction et les véhicules ne rentrant pas dans la catégorie des véhicules de fonction. La colonne&nbsp;2 indique le pays (le Canada ou les États-Unis). La colonne&nbsp;3 indique la durée du bail (long terme ou court terme). La colonne&nbsp;4 énumère les exigences liées à la politique.&lt;/span&gt;
@@ -284,7 +286,7 @@
    &lt;/tbody&gt;
 &lt;/table&gt;</code>
 </pre>
-							<p class="wb-inv">Fins du code</p>
+							<p class="wb-inv">Fin du code</p>
 						</details>
 					</div>
 				</div>
@@ -293,13 +295,12 @@
 				<div class="panel panel-success  mrgn-tp-lg">
 					<div class="panel-body">
 						<h2 class="text-success mrgn-tp-0 h3" id="table-simplified"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple&nbsp;: Tableau à plusieurs niveaux simplifié</h2>	  
-						<p>Le tableau de l’exemple précédent est trop complexe et nécessite une technique <code>id/header</code> difficilement prise en charge. Une meilleure approche consiste à diviser un tableau complexe en au moins deux tableaux plus petits. Dans cet exemple, le «&nbsp;Type de véhicule&nbsp;» (de fonction ou non) est déplacé de la colonne&nbsp;1 à la légende du tableau, ce qui aboutit à un tableau pour les véhicules de fonction et un deuxième tableau pour les véhicules qui ne sont pas des véhicules de fonction. Les tableaux plus simples sont composés de deux niveaux d’en-têtes; ils peuvent donc être rendus en utilisant l’attribut <code>scope</code> plutôt qu’en utilisant les attributs <code>id/header</code>. L'attribut <code>scope</code> est plus facile à rédiger et à tenir à jour, et elle est mieux prise en charge par les agents utilisateurs que la méthode <code>id/header</code>.</p>
+						<p>Le tableau de l’exemple précédent est trop complexe et nécessite une technique <code lang="en-CA">id/header</code> difficilement prise en charge. Une meilleure approche consiste à diviser un tableau complexe en au moins deux tableaux plus petits. Dans cet exemple, le «&nbsp;Type de véhicule&nbsp;» (de fonction ou non) est déplacé de la colonne&nbsp;1 à la légende du tableau, ce qui aboutit à un tableau pour les véhicules de fonction et un deuxième tableau pour les véhicules qui ne sont pas des véhicules de fonction. Les tableaux plus simples sont composés de deux niveaux d’en-têtes; ils peuvent donc être rendus en utilisant l’attribut <code lang="en-CA">scope</code> plutôt qu’en utilisant les attributs <code lang="en-CA">id/header</code>. L'attribut <code lang="en-CA">scope</code> est plus facile à rédiger et à tenir à jour, et elle est mieux prise en charge par les agents utilisateurs que la méthode <code lang="en-CA">id/header</code>.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">D&eacute;but de l'exemple</p>
+								<p class="wb-inv">L'exemple commence</p>
 								<table class="table table-bordered table-hover small">
-								   <!-- <caption>Non-executive Vehicles leased by the Government</caption> -->
-								   <caption>Véhicules non fonction loués par le gouvernement</caption>
+								   <caption>Les véhicules non exécutif loués par le gouvernement</caption>
 								   <thead>
 									 <tr>
 									   <th scope="col">Pays</th>
@@ -341,16 +342,15 @@
 									 </tr>
 								   </tbody>
 								</table>
-								<p class="wb-inv">Fin de l'exemple</p>	
+								<p class="wb-inv">L'exemple finit</p>	
 							</div>
 						</div>
 						<details class="mrgn-tp-lg">
 							<summary class="bg-info">Voir le HTML</summary>
-							<p class="wb-inv">Code commence</p>
+							<p class="wb-inv">Début du code</p>
 							
-<pre><code class="language-html">&lt;table class="table table-bordered table-hover small"&gt;
-   &lt;!-- &lt;caption&gt;Non-executive Vehicles leased by the Government&lt;/caption&gt; --&gt;
-   &lt;caption&gt;&lt;mark&gt;Véhicules non fonction loués par le gouvernement&lt;/mark&gt;&lt;/caption&gt;
+<pre class="mrgn-tp-md"><code class="language-html">&lt;table class="table table-bordered table-hover small"&gt;
+   &lt;caption&gt;Les véhicules non exécutif loués par le gouvernement&lt;/caption&gt;
    &lt;thead&gt;
     &lt;tr&gt;
       &lt;th scope="col"&gt;Pays&lt;/th&gt;
@@ -393,7 +393,7 @@
    &lt;/tbody&gt;
 &lt;/table&gt;</code>
 </pre>
-							<p class="wb-inv">Fins du code</p>
+							<p class="wb-inv">Fin du code</p>
 						</details>
 					</div>
 				</div>
@@ -402,15 +402,15 @@
 				<div class="panel panel-success  mrgn-tp-lg">
 					<div class="panel-body">
 						<h2 class="text-success mrgn-tp-0 h3" id="three-headers-related"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple&nbsp;: Tableau avec trois en-têtes liés à chaque cellule de données</h2>
-						<p>Dans cet exemple, les en-têtes du tableau «&nbsp;Biologique (1&nbsp;kg)&nbsp;» et «&nbsp;Non biologique (1&nbsp;kg)&nbsp;» servent de sous-titres pour décrire la section suivante du tableau. En utilisant l’attribut <code>header</code>, les trois en-têtes sont correctement associés à la cellule de données.</p>
-						<p>Cet exemple montre comment placer le tableau dans un &eacute;l&eacute;ment <code>&lt;figure&gt;</code>, comme d&eacute;crit dans la section <a href="caption-summary-fr.html">L&eacute;gende et sommaire</a>. Plut&ocirc;t que d'utiliser un &eacute;l&eacute;ment <code>&lt;caption&gt;</code>, <code>&lt;figcaption&gt;</code> contient le titre du tableau, dans un &eacute;l&eacute;ment <code>&lt;strong&gt;</code>, ainsi qu'un r&eacute;sum&eacute; du tableau pour faciliter la compr&eacute;hension. Les attributs <code>aria-labelledby</code> et <code>aria-describedby</code> sur l'&eacute;l&eacute;ment <code>&lt;table&gt;</code> pointe respectivement sur le titre et le r&eacute;sum&eacute;, ce qui rend les associations plus fortes et plus fiables dans les technologies d'assistance.</p>
+						<p>Dans cet exemple, les en-têtes du tableau «&nbsp;Biologique (1&nbsp;kg)&nbsp;» et «&nbsp;Non biologique (1&nbsp;kg)&nbsp;» servent de sous-titres pour décrire la section suivante du tableau. En utilisant l’attribut <code lang="en-CA">header</code>, les trois en-têtes sont correctement associés à la cellule de données.</p>
+						<p>Cet exemple montre comment placer le tableau dans un &eacute;l&eacute;ment <code lang="en-CA">&lt;figure&gt;</code>, comme d&eacute;crit dans la section <a href="caption-summary-fr.html">L&eacute;gende et sommaire</a>. Plut&ocirc;t que d'utiliser un &eacute;l&eacute;ment <code lang="en-CA">&lt;caption&gt;</code>, <code lang="en-CA">&lt;figcaption&gt;</code> contient le titre du tableau, dans un &eacute;l&eacute;ment <code lang="en-CA">&lt;strong&gt;</code>, ainsi qu'un r&eacute;sum&eacute; du tableau pour faciliter la compr&eacute;hension. Les attributs <code lang="en-CA">aria-labelledby</code> et <code lang="en-CA">aria-describedby</code> sur l'&eacute;l&eacute;ment <code lang="en-CA">&lt;table&gt;</code> pointe respectivement sur le titre et le r&eacute;sum&eacute;, ce qui rend les associations plus fortes et plus fiables dans les technologies d'assistance.</p>
 						
-						<p>À noter que la cellule d’en-tête vide reçoit une valeur d’attribut <code>id</code> et un espace insécable comme contenu. La cellule est référencée par des en-têtes de haut niveau dans leur attribut <code>header</code>. Cela empêche certaines technologies d’assistance de lire le contenu de la cellule.</p>
+						<p>À noter que la cellule d’en-tête vide reçoit une valeur d’attribut <code lang="en-CA">id</code> et un espace insécable comme contenu. La cellule est référencée par des en-têtes de haut niveau dans leur attribut <code lang="en-CA">header</code>. Cela empêche certaines technologies d’assistance de lire le contenu de la cellule.</p>
 						
 						
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">D&eacute;but de l'exemple</p>
+								<p class="wb-inv">L'exemple commence</p>
 								<figure> 
 									<figcaption>  
 										<strong id="caption">Coût des produits biologiques et non biologiques, par pays</strong>  
@@ -471,13 +471,13 @@
 										</tbody>  
 									</table>  
 								</figure>
-								<p class="wb-inv">Fin de l'exemple</p>	
+								<p class="wb-inv">L'exemple finit</p>	
 							</div>
 						</div>
 						<details class="mrgn-tp-lg">
-							<summary class="bg-info">Extrait de HTML - Attribution des attributs <code>id</code> aux cellules <code>&lt;th&gt;</code></summary>
-							<p class="wb-inv">Code commence</p>
-<pre><code class="language-html">[…]
+							<summary class="bg-info">Extrait de HTML - Attribution des attributs id aux cellules &lt;th&gt;</summary>
+							<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-html">[…]
     &lt;tr&gt; 
       &lt;td id="blank"&gt;&nbsp;&lt;/td&gt;  
       &lt;th id="can" headers="blank"&gt;Canada&lt;/th&gt; 
@@ -493,24 +493,24 @@
       &lt;th headers="org" id="o-apples"&gt;Pommes&lt;/th&gt; 
 […]</code>
 </pre>
-							<p class="wb-inv">Fins du code</p>
+							<p class="wb-inv">Fin du code</p>
 						</details>
      
-						<details class="mrgn-tp-lg">
-							<summary class="bg-info">Extrait de HTML - Assignation de l’attribut <code>header</code> aux cellules <code>&lt;td&gt;</code></summary>
-							<p class="wb-inv">Code comments</p>
- <pre><code class="language-html">[…]
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">Extrait de HTML - Assignation de l’attribut header aux cellules td</summary>
+							<p class="wb-inv">Début du code</p>
+ <pre class="mrgn-tp-md"><code class="language-html">[…]
 &lt;td headers="org o-apples can"&gt;$3.62&lt;/td&gt; 
 &lt;td headers="org o-apples usa"&gt;$4.87&lt;/td&gt;
 […]</code>
 </pre>
-							<p class="wb-inv">Fins du code</p>
+							<p class="wb-inv">Fin du code</p>
 						</details>
 
-						<details class="mrgn-tp-lg">
+						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir HTML complet</summary>
-							<p class="wb-inv">Code commence</p>
-<pre><code class="language-html">&lt;figure&gt; 
+							<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;figure&gt; 
    &lt;figcaption&gt;  
       &lt;strong id="caption"&gt;Coût des produits biologiques et non biologiques, par pays&lt;/strong&gt;  
       &lt;p id="summary"&gt;La première colonne énumère des produits biologiques suivis par des produits non biologiques; les autres colonnes présentent le coût des produits par pays.&lt;/p&gt;  
@@ -571,29 +571,30 @@
    &lt;/table&gt;  
 &lt;/figure&gt;</code>
 </pre>
-							<p class="wb-inv">Fins du code</p>
+							<p class="wb-inv">Fin du code</p>
 						</details>
 					</div>
 				</div>
 		</section>
 		<section>
-			<h2 class="wb-inv" id="wcag">Ressources WCAG connexes</h2>
+			<h2 class="wb-inv" id="multi-level-headers-wcag">Ressources WCAG connexes</h2>
 			<details class="mrgn-tp-lg">
 				<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En Anglais seulement.</p>
-				<h3>Critères de réussite</h3>
+                        <p class="mrgn-tp-md">En anglais seulement.</p>
+                        
+				<h3>Critères de succès</h3>
 				<ul>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1: Info and Relationships</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships" lang="en-CA">1.3.1: Info and Relationships</a>
 					</li>
 				</ul>
 				<h3 id="idelem4x11532">Techniques</h3>
 				<ul>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H51">H51: Using table markup to present tabular information</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H51" lang="en-CA">H51: Using table markup to present tabular information</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H43">H43: Using id and headers attributes to associate data cells with header cells in data tables</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H43" lang="en-CA">H43: Using id and headers attributes to associate data cells with header cells in data tables</a>
 					</li>
 				</ul>
 			</details>
@@ -641,18 +642,32 @@
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Tous les modules</h3>
                      <ul class="list-group menu list-unstyled">
-                        <li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
-                        <li><a class="list-group-item" href="../module2/index-fr.html">Module 2 – Structure et sémantique des pages</a></li>
-                        <li><a class="list-group-item" href="../module3/index-fr.html">Module 3 – Liens et navigation</a></li>
-                        <li><a class="list-group-item active" href="index-fr.html">Module 4 – Tableaux</a></li>
-                        <li><a class="list-group-item" href="../module5/index-fr.html">Module 5 – Images</a></li>
-                        <li><a class="list-group-item" href="../module6/index-fr.html">Module 6 – Formulaires</a></li>
-                        <li><a class="list-group-item" href="../module7/index-fr.html">Module 7 – Conception visuelle couleurs</a></li>
-                        <li><a class="list-group-item" href="../module8/index-fr.html">Module 8 – Zoom et conception adaptée</a></li>
-                        <li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
-                     </ul>
-			
+                        <li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 – Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/links-fr.html">Module 3 – Liens et navigation</a></li>
+                        <li><a class="list-group-item active" href="tables-concepts-fr.html">Module 4 – Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/text-alternatives-fr.html">Module 5 – Images</a></li>
+                        <li><a class="list-group-item" href="../module6/forms-concepts-fr.html">Module 6 – Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 – Conception visuelle couleurs</a></li>
+                        <li><a class="list-group-item" href="../module8/introduction-fr.html">Module 8 – Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item" href="../module10/introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+			</ul>
 
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap-fr.html">Plan du site</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
+					</li>
+
+				</ul>
 			</section>
 		
 		</nav>

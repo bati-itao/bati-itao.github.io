@@ -22,7 +22,8 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
-	<link rel="stylesheet" href="../../../css/custom-table.css">
+	
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -49,11 +50,12 @@
             },
 			{
                 "title": "Module 6 - Forms",
+                
                 "href" : "index.html"
             }],
             "lngLinks": [{
                 "lang": "fr",
-                "href": "labelling-fr.html",
+                "href": "labelling-controls-fr.html",
                 "text": "Français"
             }],
             "menuPath": "../../ajax/menu-en.html"
@@ -102,7 +104,7 @@
 				  <li><code>input type=&quot;file&quot;</code> (file-select fields) </li>
 				  <li><code>input type=&quot;password&quot;</code> </li>
 				  <li><code>textarea</code> </li>
-				  <li>Select (drop-down lists) </li>
+				  <li><code>select</code> (drop-down lists) </li>
 				</ul>
 			  </li>
 			  <li>Do not use the <code>&lt;label&gt;</code> element for the following elements. 
@@ -114,15 +116,13 @@
 				  </li>
 				  <li>Image buttons (<code>input type=&quot;image&quot;</code>) 
 					<ul>
-					  <li>Label provided by the alt attribute</li>
+					  <li>Label provided by the <code>alt</code> attribute</li>
 					</ul>
 				  </li>
 				  <li>Hidden input fields (<code>input type=&quot;hidden&quot;</code>) </li>
 				  <li>Buttons (button elements or <code>&lt;input type=&quot;button&quot;&gt;</code>) 
 					<ul>
-					  <li>Label provided by the element content itself (<mark><code>&lt;button&gt;</code>label text<code>&lt;/button&gt;</code></mark>) or the <code>value</code>, <code>aria-label</code>, or <code>aria-labelledby</code> attribute.</li>
-			   
-				
+					  <li>Label provided by the element content itself (<code>&lt;button&gt;</code>text<code>&lt;/button&gt;</code>) or the <code>value</code>, <code>aria-label</code>, or <code>aria-labelledby</code> attribute.</li>
 					</ul>
 				  </li>
 				</ul>
@@ -130,9 +130,9 @@
 			  <li>Use ARIA labels (<code>aria-labelledby</code> and <code>aria-label</code> attributes) when it is not possible to use <code>&lt;label&gt;</code> </li>
 			  <li>When using ARIA labels, include any visible text in the control label. </li>
 			  <li>Use the <code>aria-labelledby</code> attribute to retrieve a label from the context, drawing on one or more elements in the context. </li>
-			  <li>Avoid using the <code>title</code> attribute to identify form controls. It is not widely supported by <mark><del>AT</del> <ins>assistive technology</ins></mark>.</li>
+			  <li>Avoid using the <code>title</code> attribute to identify form controls. It is not widely supported by assistive technology.</li>
 			  <li>Keep label text short and concise. </li>
-			  <li>Use unique label <mark><del>text</del> <ins>values</ins></mark> on a page. </li>
+			  <li>Use unique label values on a page. </li>
 			  <li>Position labels visually to the right of radio buttons and checkboxes.</li>
 			  <li>Position labels visually directly above their form fields (preferred by WET) or to the left (WET alternative, when there&rsquo;s a need to conserve vertical space). </li>
 			</ul>
@@ -146,12 +146,12 @@
 				<div class="panel-body">
 	
 					<h2 class="text-success mrgn-tp-0 h3" id="labels-attributes"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Associating labels explicitly using for/id attributes</h2>
-					<p>Use the <code>&lt;label&gt;</code> element to associate text with form elements explicitly, whenever possible. The <code>for</code> attribute of the label must exactly match the <code>id</code> of the form control. Prioritize using the HTML <code>&lt;label&gt;</code> element to <mark><del>associate</del> <ins>name</ins></mark> form controls <mark><del>using</del> <ins>over</ins></mark> using <mark>an</mark> ARIA <mark>label</mark>.</p>
+					<p>Use the <code>&lt;label&gt;</code> element to associate text with form elements explicitly, whenever possible. The <code>for</code> attribute of the label must exactly match the <code>id</code> of the form control. Prioritize using the HTML <code>&lt;label&gt;</code> element to name form controls over using an ARIA label.</p>
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
 <p class="wb-inv">Example begins</p>
 							<div class="form-group">
-								<label for="firstname">First name:</label> 
+								<label for="firstname">First name</label> 
 								<input type="text" name="firstname" id="firstname">
 							</div>
 							<div class="form-group">
@@ -164,14 +164,16 @@
 					<div class="clearfix"></div>		
 								
 					
-					<p class="wb-inv">Code begins</p>
-					
-<pre><code class="language-html">&lt;label for="firstname"&gt;First name:&lt;/label&gt;
-&lt;input type="text" name="firstname" id="firstname"&gt;
-&lt;br&gt;
-&lt;input type="checkbox" name="married" id="married"&gt;
-&lt;label for="married"&gt;Married&lt;/label&gt;</code>
-</pre>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;div class="form-group"&gt;
+   &lt;label for="firstname"&gt;First name&lt;/label&gt;j
+   &lt;input type="text" name="firstname" id="firstname"&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+   &lt;input type="checkbox" name="married" id="married"&gt;
+   &lt;label for="married"&gt;Married&lt;/label&gt;
+&lt;/div&gt;</code></pre>
 					<p class="wb-inv">Code ends</p>
 							
           
@@ -183,25 +185,29 @@
 			<div class="panel panel-success mrgn-tp-lg">
 			  <div class="panel-body">
 	
-				<h2 class="text-success mrgn-tp-0 h3" id="hiding-label-element"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Visually hiding the <code>label</code> element</h2>
-				<p>Visually hide the <code>&lt;label&gt;</code> element to avoid redundancy for users who can identify the purpose visually. In this example, The WET class <code>.wb-inv</code> effectively hides the label "Search" from sighted users but the element is still in the HTML and is encountered by assistive technology users.</p>
+				<h2 class="text-success mrgn-tp-0 h3" id="hiding-label-element"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Visually hiding the label element</h2>
+				<p>Visually hide the <code>&lt;label&gt;</code> element to avoid redundancy for users who can identify the purpose visually. In this example, the WET class <code>.wb-inv</code> effectively hides the label "Search" from sighted users but the element is still in the HTML and is encountered by assistive technology users.</p>
 				<div class="panel panel-primary mrgn-tp-md">
 					<div class="panel-body well mrgn-bttm-0">
-							
+						<p class="wb-inv">Example begins</p>							
 						<label for="search" class="wb-inv">Search</label> 
 						<input type="text" name="search" id="search"> 
 						<button type="submit">Search</button>
+						<p class="wb-inv">End of example</p>
 					</div>
 				</div>
 				<div class="clearfix"></div>
 				
-				<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;label for="search" class="wb-inv"&gt;Search&lt;/label&gt; 
+				<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;label for="search" class="wb-inv"&gt;Search&lt;/label&gt; 
 &lt;input type="text" name="search" id="search"&gt; 
 &lt;button type="submit"&gt;Search&lt;/button&gt;</code>
 </pre>
-
-<pre><code class="language-css">.wb-inv {
+				<p class="wb-inv">Code ends</p>	
+				<p class="lang-label small">CSS</p>
+				<p class="wb-inv">Code begins</p>	
+<pre class="mrgn-tp-0"><code class="language-css">.wb-inv {
    clip: rect(1px,1px,1px,1px);
    height: 1px;
    margin: 0;
@@ -212,7 +218,7 @@
 </pre>
 				<p class="wb-inv">Code ends</p>		 
 									 
-				<p class="mrgn-tp-md">Use the WET class <code>.wb-inv</code> to visually-hide an element, as per the WET style guide: <a href="https://wet-boew.github.io/wet-boew-styleguide/design/visible-en.html">Invisible and visible content</a></p>
+				<p class="mrgn-tp-md">Use the WET class <code>.wb-inv</code> to visually-hide an element, as per the WET style guide: <a href="https://wet-boew.github.io/wet-boew-styleguide/design/visible-en.html">Invisible and visible content</a>.</p>
 				</div>
 			</div>
 		</section>
@@ -223,7 +229,7 @@
 					<h2 class="text-success mrgn-tp-0 h3" id="aria-label"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Using aria-label</h2>
 					<p>Use an <code>aria-label</code> attribute to name form inputs and other controls directly with non-visual text. This approach should only be used when the label of the control is clear from the surrounding content. The information in <code>aria-label</code> is not displayed visually.
 		</p>
-					<p>In this example, a search input field needs no visual label since the submit button right beside it is labelled "Search". Since non-sighted users encounter content linearly, <mark><del>one element at a time</del> <ins>reading the input field before the button</ins></mark>, we name the <mark><del>control</del> <ins>input field</ins></mark> with the <code>aria-label</code> attribute. </p>
+					<p>In this example, a search input field needs no visual label since the submit button right beside it is labelled "Search". Since non-sighted users encounter content linearly, reading the input field before the button, we name the input field with the <code>aria-label</code> attribute. </p>
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
 							<p class="wb-inv">Example begins</p>
@@ -237,8 +243,9 @@
 					</div>
 					<div class="clearfix"></div>
 				
-						<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;input type="text" name="search" aria-label="Search"&gt;  
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;input type="text" name="search" aria-label="Search"&gt;  
 &lt;button type="submit"&gt;Search&lt;/button&gt;</code></pre>
 						<p class="wb-inv">Code ends</p>
 					  
@@ -258,11 +265,14 @@
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
 							<p class="wb-inv">Example begins</p>
-							<h3  class="mrgn-tp-0" id="option1">Service 1</h3>
+							<h3  class="mrgn-tp-0" id="service1">Service 1</h3>
+							<p>[paragraphe descriptif]</p>
 							<button type="submit" class="btn btn-primary btn-lg" id="add1" aria-labelledby="add1 option1">Add to cart</button>
-							<h3 id="option2">Service 2</h3>
+							<h3 id="service2">Service 2</h3>
+							<p>[paragraphe descriptif]</p>
 							<button type="submit" class="btn btn-primary btn-lg" id="add2" aria-labelledby="add2 option2">Add to cart</button>
-							<h3 id="option3">Service 3</h3>
+							<h3 id="service3">Service 3</h3>
+							<p>[paragraphe descriptif]</p>
 							<button type="submit" class="btn btn-primary btn-lg" id="add3" aria-labelledby="add3 option3">Add to cart</button>
 							<p class="wb-inv">Example ends</p>
 						</div>
@@ -270,13 +280,25 @@
 				   
 													   
 					<div class="clearfix"></div>
-					<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;h3 id=”option1”&gt;Service 1&lt;/h3&gt;
-&lt;button type=”submit” id=”add1” aria-labelledby=”add1 option1”&gt;Add to cart&lt;/button&gt;
-&lt;h3 id=”option2”&gt;Service 2&lt;/h3&gt;
-&lt;button type=”submit” id=”add2” aria-labelledby=”add2 option2”&gt;Add to cart&lt;/button&gt;
-&lt;h3 id=”option3”&gt;Service 3&lt;/h3&gt;
-&lt;button type=”submit” id=”add3” aria-labelledby=”add3 option3”&gt;Add to cart&lt;/button&gt;</code></pre>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;h3 id="service1"&gt;Service 1&lt;/h3&gt;
+&lt;p&gt;[paragraphe descriptif]&lt;/p&gt;
+&lt;button id="add1" aria-labelledby="add1 service1" type="submit"&gt;
+   Add to cart
+&lt;/button&gt;
+
+&lt;h3 id="service2"&gt;Service 2&lt;/h3&gt;
+&lt;p&gt;[paragraphe descriptif]&lt;/p&gt;
+&lt;button id="add2" aria-labelledby="add2 service2" type="submit"&gt;
+   Add to cart
+&lt;/button&gt;
+
+&lt;h3 id="service3"&gt;Service 3&lt;/h3&gt;
+&lt;p&gt;[paragraphe descriptif]&lt;/p&gt;
+&lt;button id="add3" aria-labelledby="add3 service3" type="submit"&gt;
+   Add to cart
+&lt;/button&gt;</code></pre>
 					<p class="wb-inv">Code ends</p>
 				</div>
 			</div>
@@ -290,7 +312,8 @@
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
 							<p class="wb-inv">Example begins</p>
-							<table class="table">
+							<table class="table table-bordered">
+	<caption>Office and phone numbers</caption>
 								<thead>
 									<tr>
 										<th scope="col">Name</th>
@@ -324,7 +347,7 @@
 					<details class="mrgn-tp-sm">
 						<summary class="bg-info">View HTML </summary>
 						<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;table&gt;
+<pre class="mrgn-tp-md"><code class="language-html">&lt;table&gt;
    &lt;thead&gt;
       &lt;tr&gt;
          &lt;th scope="col"&gt;Name&lt;/th&gt;
@@ -373,12 +396,14 @@
 				<div class="panel-body">
 		
 					<h2 class="text-success mrgn-tp-0 h3" id="labelling-buttons"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Labelling buttons</h2>
-					<p>The <code>&lt;button&gt;</code> element creates a clickable button. Within the button element content, you can put text and tags like <code>&lt;i&gt;, </code><code>&lt;b&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;img&gt;</code>, etc.</p> 
-					<p>You can also use the <code>&lt;input&gt;</code> element to create buttons<mark>, in which case</mark> the label is set in the <code>value</code> attribute of the element.</p> 
-					<p>If <mark>you use</mark> <code>&lt;input type="image"&gt;</code> <mark><del>is used</del></mark>, the label is set in the <code>alt</code> attribute.</p>
+
+					<p>The <code>&lt;button&gt;</code> element creates a clickable button. Within the button element content, you can put text and tags like <code>&lt;i&gt;</code>, <code>&lt;b&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;img&gt;</code>, etc.</p> 
+					<p>You can also use the <code>&lt;input&gt;</code> element to create buttons, in which case the label is set in the <code>value</code> attribute of the element.</p> 
+					<p>If you use <code>&lt;input type="image"&gt;</code>, the label is set in the <code>alt</code> attribute.</p>
 			
-					<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;button type="submit"&gt;Submit&lt;/button&gt; 
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;button type="submit"&gt;Submit&lt;/button&gt; 
 &lt;button type="button"&gt;Cancel&lt;/button&gt; 
 &lt;button&gt;Activate&lt;/button&gt;
 
@@ -409,8 +434,9 @@
 							<p class="wb-inv">Example ends</p>
 						</div>
 					</div>
-					<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;button aria-label="Next"&gt;
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;button aria-label="Next"&gt;
    &lt;img src="images/next.png" alt=""&gt;
 &lt;/button&gt;</code>
 </pre>
@@ -469,16 +495,16 @@
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Module 6 - Forms</h3>
 					<ul class="list-group menu list-unstyled">
-												
+
 						<li><a class="list-group-item" href="forms-concepts.html">Forms concepts</a></li>
 						<li><a class="list-group-item active" aria-current="page" href="labelling-controls.html">Labelling controls</a></li>
 						<li><a class="list-group-item" href="grouping-controls.html">Grouping controls</a></li>
 						<li><a class="list-group-item" href="form-instructions.html">Form instructions</a></li>
-						<li><a class="list-group-item" href="identifying.html">Identifying input purpose</a></li>
-						<li><a class="list-group-item" href="validating.html">Validating input</a></li>
-						<li><a class="list-group-item" href="user.html">User notifications</a></li>
-						<li><a class="list-group-item" href="multi.html">Multi-step forms</a></li>
-						<li><a class="list-group-item" href="custom.html">Custom controls</a></li>
+						<li><a class="list-group-item" href="identifying-input.html">Identifying input purpose</a></li>
+						<li><a class="list-group-item" href="validating-input.html">Validating input</a></li>
+						<li><a class="list-group-item" href="user-notifications.html">User notifications</a></li>
+						<li><a class="list-group-item" href="multi-step-forms.html">Multi-step forms</a></li>
+						<li><a class="list-group-item" href="custom-controls.html">Custom controls</a></li>
 						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
 						
 					</ul>
@@ -487,18 +513,32 @@
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">All modules</h3>
 					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
-						<li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>			
-						<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
-						<li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
-						<li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
-						<li><a class="list-group-item active" href="index.html">Module 6 – Forms</a></li>	
-						<li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual design and colours</a></li>
-						<li><a class="list-group-item" href="../module8/index.html">Module 8 – Zoom and responsive design</a></li>
-						<li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
-						<li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
-						<li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
-					</ul>
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item active" href="forms-concepts.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Site map and best practice</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+					</li>
+
+				</ul>
 			</section>
 	</nav>
 </div>

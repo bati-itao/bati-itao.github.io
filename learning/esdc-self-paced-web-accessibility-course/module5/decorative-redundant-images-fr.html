@@ -10,8 +10,7 @@
 	<meta content="width=device-width,initial-scale=1" name="viewport">
 	<!-- Meta data -->
 	<meta name="description"
-		content="Lignes directrices sur l’accessibilité relatives aux images décoratives et redondantes. Ces images n’ajoutent pas d’information utile à une page ou ont déjà du contenu compris dans le texte adjacent.">
-	<meta name="robots" content="noindex">
+		content="Lignes directrices sur l’accessibilité relative aux images décoratives et redondantes. Ces images n’ajoutent pas d’information utile à une page ou ont déjà du contenu compris dans le texte adjacent.">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -21,6 +20,7 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -47,6 +47,7 @@
             },
 			{
                 "title": "Module 5 –  Images",
+                
                 "href" : "index-fr.html"
             }],
             "lngLinks": [{
@@ -70,8 +71,8 @@
 				<div class="panel-body">
 					<ul>
 						<li><a href="#designing">Conception avec des images décoratives ou redondantes</a></li>
-						<li><a href="#eg1">Bon exemple 1 : Image décorative</a></li>
-						<li><a href="#eg2">Bon exemple 2 : Image avec équivalent textuel adjacent redondant</a></li>
+						<li><a href="#eg1">Bon exemple : Image décorative</a></li>
+						<li><a href="#eg2">Bon exemple : Image avec équivalent textuel adjacent redondant</a></li>
 						<li><a href="#wcag">Ressources WCAG connexes</a></li>
 					</ul>
 				</div>
@@ -79,7 +80,7 @@
 		</nav>
 		<section>
 			<h2 id="designing">Conception avec des images décoratives ou redondantes</h2>
-			<p>Les images décoratives n’ajoutent pas d’information utile à une page, tandis que les images redondantes ont du contenu déjà transmis dans le texte adjacent.</p>
+			<p>Les images <dfn>décoratives</dfn> n’ajoutent pas d’information utile à une page, tandis que les images <dfn>redondantes</dfn> ont du contenu déjà transmis dans le texte adjacent. Exemples de décoratives:</p>
 			<ul>
 				<li>Images utilisées pour le style visuel comme les bordures et les espaceurs</li>
 				<li>Images utilisées pour ajouter une ambiance ou un intérêt visuel (plaisir des yeux)</li>
@@ -88,48 +89,56 @@
 			
 			<p>Suivez les pratiques exemplaires suivantes pour ce qui a trait aux images décoratives et redondantes:</p>
 			<ul>
-				<li>Utiliser des attributs <code>alt</code> null (<code>alt=""</code>) pour que la technologie d’assistance n’ait pas accès aux images redondantes.</li>
-				<li>L’attribut <code>role=presentation</code> cache également des éléments, même s’il n’est pas aussi largement pris en charge que l’attribut <code>alt</code>.</li>
 				<li>Dans la mesure du possible, utiliser des images décoratives comme arrière-plan des feuilles de style en cascades.</li>
-				<li>Ne pas omettre  <code>alt</code> l’attribut <code>&lt;img&gt;</code> des éléments.</li>
+					<li>Ne pas omettre l’attribut <code lang="en-CA">alt</code> des éléments <code lang="en-CA">&lt;img&gt;</code>.</li>
+				<li>Utiliser des attributs <code lang="en-CA">alt</code> null (<code lang="en-CA">alt=""</code>) pour que la technologie d’assistance n’ait pas accès aux images décoratives our redondantes.</li>
+				<li>L’attribut <code lang="en-CA">role=presentation</code> cache également des éléments, même s’il n’est pas aussi largement pris en charge que l’attribut <code lang="en-CA">alt</code> null.</li>
 			</ul>
 		</section>
 		<section>
 			<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-			<h2 class="text-success mrgn-tp-0" id="eg1">
-				<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple 1 : Image décorative
-			</h2>
-			<p>Dans cet exemple, une photo de banque d’images montrant des employés de bureau est considérée comme décorative puisqu’elle ne contient aucun renseignement pertinent pour la page où elle figure. Une photo de banque d’images montrant des employés de diverses ethnies est instructive si l’intention consiste à montrer que l’employeur valorise l’équité, la diversité et l’inclusivité; dans ce cas, le texte de remplacement pourrait ressembler à « Chez [nom de l’organisation], nous valorisons la diversité. » Mais en général, les photos de banque d’images sont décoratives.</p>
-			<img src="images/decorativeimg1.png"  alt="" class="img-responsive"/>
+					<h2 class="text-success mrgn-tp-0 h3" id="eg1">
+						<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Image décorative
+					</h2>
+					<p>Dans cet exemple, une photo de banque d’images montrant des employés de bureau est considérée comme décorative puisqu’elle ne contient aucun renseignement pertinent pour la page où elle figure. Une photo de banque d’images montrant des employés de diverses ethnies est instructive si l’intention consiste à montrer que l’employeur valorise l’équité, la diversité et l’inclusivité; dans ce cas, le texte de remplacement pourrait ressembler à « Chez [nom de l’organisation], nous valorisons la diversité. » Mais en général, les photos de banque d’images sont décoratives.</p>
+					<div class="panel panel-primary mrgn-tp-md">
+						<div class="panel-body well mrgn-bttm-0">
+							<img src="images/decorativeimg1.png"  alt="" class="img-responsive"/>
+						</div>
+					</div>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;img src="staff.jpg" alt=""&gt;</code></pre>
+			
+					<p class="wb-inv">Fin du code</p>					
 				</div>
 			</div>
 		</section>
 		<section>
 			<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-					<h2 class="text-success mrgn-tp-0" id="eg2">
-						<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple 2 : Image avec équivalent textuel adjacent redondant
+					<h2 class="text-success mrgn-tp-0 h3" id="eg2">
+						<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Image avec équivalent textuel adjacent redondant
 					</h2>
 					<p>L’image ci-dessous est déjà suffisamment décrite par le texte adjacent. Une valeur alt nulle (vide) peut être utilisée puisqu’il n’est pas nécessaire de répéter cette information.</p>
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
-						<p class="wb-inv">D&eacute;but de l'exemple</p>
+						<p class="wb-inv">L'exemple commence</p>
 							<img src="images/decorativeimg2.png"  alt="" class="img-responsive"/>
 							<p>À cette époque, un artiste de cirque pouvait contrôler trois chevaux avec leurs rênes, debout sur le dos d’un cheval.</p>
-						<p class="wb-inv">Fin de l'exemple</p>	
+						<p class="wb-inv">L'exemple finit</p>	
 						</div>
 					</div>
 					
-								
-					<p class="wb-inv">Code commence</p>
-					<div style="margin-top: 1em">
-<pre>
+					<p class="lang-label small">HTML</p>	
+					<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0">
 <code class="language-html">&lt;img src="horses.jpg" alt=""&gt;
 &lt;p&gt;À cette époque, un artiste de cirque pouvait contrôler trois chevaux avec leurs rênes, debout sur le dos d’un cheval.&lt;/p&gt;</code>
 </pre>
-					</div>
-					<p class="wb-inv">Fins du code</p>
+					
+					<p class="wb-inv">Fin du code</p>
 				</div>
 			</div>
 		</section>
@@ -137,15 +146,16 @@
 			<h2 id="wcag" class="wb-inv">Ressources WCAG connexes</h2>
 			<details class="mrgn-tp-lg">
 				<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En Anglais seulement.</p>
+                        <p class="mrgn-tp-md">En anglais seulement.</p>
+                        
 				<h3>Critères de succès</h3>
 				<ul>
-					<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a></li>
+					<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content" lang="en-CA">1.1.1: Non-text Content</a></li>
 				</ul>
 				<h3>Techniques</h3>
 				<ul>
-					<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H2">H2: Combining adjacent image and text links for the same resource</a></li>
-					<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H67">H67: Using null alt text and no title attribute on img elements for images that AT should ignore</a></li>
+					<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H2" lang="en-CA">H2: Combining adjacent image and text links for the same resource</a></li>
+					<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H67" lang="en-CA">H67: Using null alt text and no title attribute on img elements for images that AT should ignore</a></li>
 				</ul>
 			</details>
 		</section>
@@ -187,17 +197,33 @@
 			Tous les modules
 			</h3>
 			<ul class="list-group menu list-unstyled">
-				<li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
-				<li><a class="list-group-item" href="../module2/index-fr.html">Module 2 – Structure et sémantique des pages</a></li>			
-				<li><a class="list-group-item" href="../module3/index-fr.html">Module 3 – Liens et navigation</a></li>
-				<li><a class="list-group-item" href="../module4/index-fr.html">Module 4 – Tableaux</a></li>
-				<li><a class="list-group-item active" href="index-fr.html">Module 5 – Images</a></li>
-				<li><a class="list-group-item" href="../module6/index-fr.html">Module 6 – Formulaires</a></li>	
-				<li><a class="list-group-item" href="../module7/index-fr.html">Module 7 – Conception visuelle couleurs</a></li>
-				<li><a class="list-group-item" href="../module8/index-fr.html">Module 8 – Zoom et conception adaptée</a></li>
-				<li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
-			</ul>	
-		</section>
+				<li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+				<li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 – Structure et sémantique des pages</a></li>			
+				<li><a class="list-group-item" href="../module3/links-fr.html">Module 3 – Liens et navigation</a></li>
+				<li><a class="list-group-item" href="../module4/tables-concepts-fr.html">Module 4 – Tableaux</a></li>
+				<li><a class="list-group-item active" href="text-alternatives-fr.html">Module 5 – Images</a></li>
+				<li><a class="list-group-item" href="../module6/forms-concepts-fr.html">Module 6 – Formulaires</a></li>	
+				<li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 – Conception visuelle couleurs</a></li>
+				<li><a class="list-group-item" href="../module8/introduction-fr.html">Module 8 – Zoom et conception adaptée</a></li>
+				<li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item" href="../module10/introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap-fr.html">Plan du site</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
+					</li>
+
+				</ul>
+			</section>
 	</nav>		
 </div>
 

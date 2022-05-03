@@ -11,7 +11,6 @@
 	<!-- Meta data -->
 	<meta name="description"
 		content="Accessibility guidelines related to links. It is important for links to be descriptive and to make sense without the surrounding sentences or content.">
-	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -21,6 +20,7 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -48,6 +48,7 @@
 			{
                 
                 "title": "Module 3 – Links and Navigation",
+                
                 "href" : "index.html"
             }],
             "lngLinks": [{
@@ -107,12 +108,13 @@
 					<li>Add visually-hidden text to the link text (example follows).</li>
 				</ul>
 				
-				<h3>Link vs Button</h3>
+				<h3 id="link-vs-button">Link vs Button</h3>
 				<p>Developers frequently confuse the link and button roles, passing the confusion on to screen reader users. Users expect links to navigate (across pages or within a page), and buttons to trigger a local effect (or submit a form). A screen reader user can be disorientated when activating a button and instead navigating to a new page, or when activating a link and instead interpreting a local button effect. </p>
 				
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Vague link text</h3>
+						<h3 id="vague-link-text" class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Vague link text</h3>
+
 						<p>In this example, the link text &ldquo;<q>how much</q>&rdquo;communicates nothing useful:</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
@@ -127,7 +129,8 @@
 				</div>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Descriptive link text</h3>
+						<h3 id="descriptive-link-text" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Descriptive link text</h3>
+
 						<p>In this example, the purpose of the link is perfectly clear.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
@@ -145,10 +148,12 @@
 				</div>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using aria-label for link purpose</h3>
+
+						<h3 id="aria-label-link-purpose" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using aria-label for link purpose</h3>
 						<p>In this example, the visible link text &ldquo;<q>Access</q>&rdquo; is repeated for each resource. When there's no avoiding duplicated, visible link text, you can distinguish each instance with the <code>aria-label</code> attribute.</p>
-						<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;h1&gt;Tools and resources&lt;/h1&gt;
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;h1&gt;Tools and resources&lt;/h1&gt;
 
 &lt;h2&gt;Planning Accessible Virtual Events – Job Aid&lt;/h2&gt;
 &lt;p&gt;[Description of the resource]&lt;/p&gt;
@@ -167,14 +172,16 @@
 				</div>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using aria-labelledby for link purpose</h3>
+						<h3 id="aria-labelledby-link-purpose" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using aria-labelledby for link purpose</h3>
+
 						<p>Again, the visible link text &ldquo;<q>Access</q>&rdquo; is repeated for each resource. You can distinguish each instance with the <code>aria-labelledby</code> attribute, pointing to one or more id attribute values of elements containing the desired label. In this example, the label concatenates the link text + the preceding heading. </p>
 		
 						<div class="alert alert-info">
 							<p>Note that one instance of the link text &ldquo;<q>Access</q>&rdquo; with an <code>id</code> attribute can be referenced by multiple ARIA labels, which may be more convenient than creating an <code>id</code> attribute for each instance of the link &ldquo;Access&rdquo;.</p>
 						</div>
-						<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;h1&gt;Tools and resources&lt;/h1&gt;
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;h1&gt;Tools and resources&lt;/h1&gt;
 
 &lt;h2 id="planning-virtual"&gt;Planning Accessible Virtual Events – Job Aid&lt;/h2&gt;
 &lt;p&gt;[Description of the resource]&lt;/p&gt;
@@ -193,10 +200,12 @@
 				</div>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using visually-hidden text for link purpose</h3>
+						<h3 id="visually-hidden-link-purpose" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using visually-hidden text for link purpose</h3>
+
 						<p>In this example, the duplicated link text &ldquo;<q>Access</q>&rdquo; is extended with text that’s been visually-hidden using the CSS "clip" method. The text is invisible, but it’s still in the HTML and so is encountered by assistive technology.</p>
-						<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;h1&gt;Tools and resources&lt;/h1&gt;
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;h1&gt;Tools and resources&lt;/h1&gt;
 
 &lt;h2&gt;Planning Accessible Virtual Events – Job Aid&lt;/h2&gt;
 &lt;p&gt;[Description of the resource]&lt;/p&gt;
@@ -216,7 +225,11 @@
    &lt;/a&gt;
 &lt;/p&gt;</code>
 </pre>
-<pre><code class="language-css">.wb-inv {
+						<p class="wb-inv">Code ends</p>
+						
+						<p class="lang-label small">CSS</p>
+						<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-css">.wb-inv {
    clip: rect(1px,1px,1px,1px);
    height: 1px;
    margin: 0;
@@ -228,7 +241,7 @@
 						<p class="wb-inv">Code ends</p>
 					</div>
 				</div>	
-			<h3 class="wb-inv">Related WCAG resources</h3>
+			<h3 id="link-purpose-wcag-resources" class="wb-inv">Related WCAG resources</h3>
 
 <details class="mrgn-tp-lg">
 
@@ -294,7 +307,7 @@
 				
 				<p>To activate a link using voice input, the user declares the name of the link as visible. When using <code>aria-label</code> or <code>aria-labelledby</code> to name a link, ensure the link's visible text matches or is included in the ARIA label. Otherwise, voice input users won't be able to target the link by name, forcing them to switch to less efficient techniques to activate the link.</p>
 				
-					<h3 class="wb-inv">Related WCAG resources</h3>
+					<h3 id="link-activation-wcag-resources" class="wb-inv">Related WCAG resources</h3>
 
 <details class="mrgn-tp-lg">
 
@@ -362,7 +375,8 @@
 				</ul>
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Visual focus indicator is removed</h3>
+						<h3 id="visual-focus-indicator-removed" class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Visual focus indicator is removed</h3>
+
 						<p>All browsers display a visible outline around the element that currently has keyboard focus, which can be disabled using the <code>outline: 0</code> or <code>outline: none</code> CSS property. If the visual focus indicator is removed, sighted keyboard users will have no idea which link has the focus, making it difficult or impossible to navigate the web page.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
@@ -376,24 +390,24 @@
 								<p class="wb-inv">Example ends</p>
 							</div>
 						</div>
-						<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;style&gt; 
-a:focus {
-	outline: none;
-}
-&lt;/style&gt;</code>
-</pre>
+<p class="lang-label small">CSS</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-css">a:focus {
+   outline: none;
+}</code></pre>
 						<p class="wb-inv">Code ends</p>
 					</div>
 				</div>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Canada.ca visual focus indicator</h3>
+						<h3 id="canada-visual-focus-indicator" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Canada.ca visual focus indicator</h3>
+
 						<p>In this example, the first link in a menu of three has a visual focus indicator consisting of a thick black outline, set closely to the text.</p>
-						<p class="wb-inv">Code begins</p>
-<pre><code class="language-css">a:focus { 
-	outline: 2px auto -webkit-focus-ring-color; 
-	outline-offset: -2px; 
+<p class="lang-label small">CSS</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-css">a:focus { 
+   outline: 2px auto -webkit-focus-ring-color; 
+   outline-offset: -2px; 
 }</code>
 </pre>
 						<p class="wb-inv">Code ends</p>
@@ -401,7 +415,7 @@ a:focus {
 					</div>
 				</div>
 
-		<h3 class="wb-inv">Related WCAG resources</h3>
+		<h3 id="visual-indicator-wcag-resources" class="wb-inv">Related WCAG resources</h3>
 
 <details class="mrgn-tp-lg">
 
@@ -459,7 +473,7 @@ a:focus {
 				<p>Note that this is only an issue when the link and the body text appear together. It doesn’t apply to links in the header or stacked in a menu, where they’re understood to be links by their position on the page.</p></div>
 				<p>These requirements are in addition to the minimum text contrast requirement of 4.5:1 (see tutorial module 7 Visual design and colours &gt; Contrast). It can be difficult to find a link colour that has both a 3:1 contrast with black body text and a 4.5:1 contrast with a white background. WCAG Technique G182 lists colour values that do, in Example 1 (see Related WCAG resources, below).</p>
 				
-					<h3 class="wb-inv">Related WCAG resources</h3>
+					<h3 id="links-text-wcag-resources" class="wb-inv">Related WCAG resources</h3>
 
 <details class="mrgn-tp-lg">
 
@@ -492,14 +506,16 @@ a:focus {
 				
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Warn users link opens in a new window by revealing a visually-hidden message on focus and hover</h3>
+						<h3 id="link-window-visually-hidden" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Warn users link opens in a new window by revealing a visually-hidden message on focus and hover</h3>
+            <p class="lang-label small">HTML</p>
 						<p class="wb-inv">Code begins</p>
-<pre><code class="language-html">&lt;p&gt;
-	This is an example of an 
-	&lt;a class="info" href="[...]" target="_blank"&gt;
-		&lt;strong&gt;External link&lt;/strong&gt;
-		&lt;span&gt;Opens a new window&lt;/span&gt;
-	&lt;/a&gt;          
+
+<pre class="mrgn-tp-0"><code class="language-html">&lt;p&gt;
+   This is an example of an 
+   &lt;a class="info" href="[...]" target="_blank"&gt;
+      &lt;strong&gt;External link&lt;/strong&gt;
+      &lt;span&gt;Opens a new window&lt;/span&gt;
+   &lt;/a&gt;          
 &lt;/p&gt;</code>
 </pre>
 						<p class="wb-inv">Code begins</p>
@@ -507,7 +523,7 @@ a:focus {
 						<p>Consider styling the warning to appear like the <code>title</code> attribute tooltip.</p>
 					</div>
 				</div>
-				<h3 class="wb-inv">Related WCAG resources</h3>
+				<h3 id="links-window-wcag-resources" class="wb-inv">Related WCAG resources</h3>
 				
 				<details class="mrgn-tp-lg">
 				
@@ -567,19 +583,32 @@ a:focus {
 				</h3>
 				
 					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
-                        <li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>
-                        <li><a class="list-group-item active" href="index.html">Module 3 – Links and navigation</a></li>
-                        <li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
-                        <li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
-                        <li><a class="list-group-item" href="../module6/index.html">Module 6 – Forms</a></li>
-                        <li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual design and colours</a></li>
-                        <li><a class="list-group-item" href="../module8/index.html">Module 8 – Zoom and responsive design</a></li>
-                        <li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
-                        <li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
-                        <li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+                        <li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>
+                        <li><a class="list-group-item active" href="links.html">Module 3 – Links and navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+                        <li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+                        <li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Forms</a></li>
+                        <li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+                        <li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+                        <li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+                        <li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+                        <li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
 			</ul>
 
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Site map and best practice</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+					</li>
+
+				</ul>
 			</section>
 		
 		</nav>

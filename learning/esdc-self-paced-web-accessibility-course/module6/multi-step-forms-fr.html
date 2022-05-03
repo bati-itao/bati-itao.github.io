@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Formulaires à étapes multiples - Module 6 - Formulaires</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Lignes directrices sur l’accessibilité relative aux formulaires à étapes multiples. Divise un long formulaire en une série de formulaires plus petits.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.appTop({
+                "appName": [{
+                    "text": "EDSC / Bureau de l’accessibilité des TI",
+                    "href": "../../../index-fr.html"
+                }],
+               "breadcrumbs" : [{
+                    "title": "Accueil",
+                    "href" : "../../../index-fr.html"
+                },{
+                    "title": "Apprentissage",
+                    "href" : "../../index-fr.html"
+                },
+				{
+                    "title": "Cours d'accessibilité Web",
+                    "href" : "../index-fr.html"
+                },
+			{
+                "title": "Module 6 - Formulaires",
+                
+                "href" : "index-fr.html"
+            }],
+            "lngLinks": [{
+                "lang": "en",
+                "href": "multi-step-forms.html",
+                "text": "English"
+            }],
+            "menuPath": "../../../ajax/menu-fr.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+			
+	<h1 property="name" id="wb-cont">Formulaires à étapes multiples</h1>
+						
+	<nav role="navigation">
+    <div class="panel panel-default mrgn-tp-md">
+      <header class="panel-heading">
+        <h2 class="panel-title">Table des matières</h2>
+      </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#design">Conception de formulaires à plusieurs étapes</a></li>
+			<li><a href="#progress">Indiquer la progression dans un formulaire à étapes multiples</a></li>
+			   <li><a href="#steps-form">Bon exemple&nbsp;: Formulaire des étapes de la BOEW</a></li>
+			<li><a href="#resources">Ressources WCAG connexes</a></li>
+			 
+          </ul>
+        </div>
+      </div>
+	</nav>
+	
+			<section>				
+				<h2 id="design">Conception de formulaires à plusieurs étapes</h2>
+				<p>Il est préférable de diviser un formulaire long en une série de formulaires plus petits avec validation à chaque étape. Les formulaires à étapes multiples peuvent être moins intimidants et plus faciles à comprendre et à corriger qu’un formulaire long. Les formulaires à étapes multiples peuvent être conçus d’une page à l’autre ou sur une même page. </p>
+			<p>Suivez les pratiques exemplaires suivantes pour les formulaires à étapes multiples&nbsp;:</p>
+			<ul>
+				<li>Diviser le formulaire en fonction de ses groupes de commandes logiques (p.&nbsp;ex., coordonnées et questionnaire).</li>
+				<li>Valider l’étape en cours avant d’exposer la suivante.</li>
+				<li>Étiqueter les étapes facultatives et permettre aux utilisateurs de les sauter. </li>
+				<li>S’assurer que la cible du clavier se déplace facilement d’une étape à l’autre, vers l’arrière et vers l’avant. À une nouvelle étape, cibler de préférence le prochain élément de formulaire pertinent, ou l’en-tête ou le conteneur pertinent (un en-tête ou un conteneur aurait besoin de l’attribut <code lang="en-CA">tabindex="-1"</code> pour recevoir la cible par un programme).</li>
+				<li>Éviter une limite de temps pour remplir le formulaire. Si une limite est requise, permettre à l’utilisateur de la modifier ou de la prolonger.</li>
+				<li>Si les étapes se trouvent sur plusieurs pages, répéter les instructions générales sur chaque page.</li>
+				<li>Indiquer la progression dans le formulaire («&nbsp;Étape&nbsp;x de&nbsp;y&nbsp;»).</li>
+			</ul>
+			</section>
+			
+			<section>				
+				<h2 id="progress">Indiquer la progression dans un formulaire à étapes multiples</h2>
+				<p>Chaque étape doit indiquer la progression de l’utilisateur. Les approches&nbsp;1 et&nbsp;2 s’appliquent uniquement aux formulaires multipages.</p>
+				<h3>Approche&nbsp;1&nbsp;: Utilisation du titre de la page</h3>
+				<p>Ajoutez une note indiquant la progression (p.&nbsp;ex., «&nbsp;Étape&nbsp;2 de&nbsp;4&nbsp;:&nbsp;») au début de l’élément <code lang="en-CA">&lt;title&gt;</code>, avant le nom de l’étape ou tout avis d’erreur. L’élément <code lang="en-CA">&lt;title&gt;</code> est la première chose déclarée aux utilisateurs du lecteur d’écran lors du chargement de la page et il fournit une rétroaction immédiate.</p>
+
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;title&gt;Étape&nbsp;2 de&nbsp;4&nbsp;: Coordonnées – Sondage&nbsp;X – Entreprise&nbsp;Z&lt;/title&gt;</code></pre>
+				<p class="wb-inv">Début du code</p>
+
+				<h3>Approche&nbsp;2&nbsp;: Utilisation de l’en-tête principal</h3>
+				<p>Ajoutez une note indiquant la progression (p.&nbsp;ex., «&nbsp;(Étape&nbsp;2 de&nbsp;4)&nbsp;» à la fin de l’en-tête principal de la page, ce qui rend l’information bien en vue et facilement repérable par balayage visuel.</p>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;h1&gt;Coordonnées (Étape&nbsp;2 de&nbsp;4)&lt;/h1&gt;</code>
+</pre>
+<p class="wb-inv">Fin du code</p>
+						
+						
+			<h3>Approche&nbsp;3&nbsp;: Utilisation de l’élément de progression HTML5</h3>
+				<p>Vous pouvez utiliser un élément de <code lang="en-CA">&lt;progress&gt;</code> HTML5 pour informer les utilisateurs de leur progression, comme premier élément à chaque étape.</p>
+				
+				<div class="panel panel-primary mrgn-tp-md">
+					<div class="panel-body well mrgn-bttm-0">
+					<p class="wb-inv">L'exemple commence</p>
+					Sondage <progress max="7" value="1">(Étape 1 de 7)</progress>
+				<p class="wb-inv">L'exemple finit</p>
+					</div>
+				</div>
+
+				
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">Sondage &lt;progress max="7" value="1"&gt;(Étape&nbsp;1 de&nbsp;7)&lt;/progress&gt;</code></pre>
+							<p class="wb-inv">Fin du code</p>
+	
+						<p>Certains systèmes d’exploitation animent l’élément <code lang="en-CA">&lt;progress&gt;</code>, ce qui contrevient au critère de succès&nbsp;2.2.2 des WCAG&nbsp;: Pause, Stop, Masquer. Vous pouvez arrêter l’animation en utilisant un style personnalisé avec les CSS spécifiques au navigateur, comme illustré ci-dessous.</p>
+
+<p class="lang-label small">CSS</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-css">/* Microsoft IE */ 
+progress {  
+   color: #036;
+}
+/* Apple Safari et Google Chrome */ 
+progress::-webkit-progress-bar {
+   background-color: #036;
+}
+/* Mozilla Firefox */ 
+progress::-moz-progress-bar {
+   background-color: #036;
+}</code>
+</pre>
+<p class="wb-inv">Fin du code</p>
+
+
+						<h3>Approche&nbsp;4&nbsp;: Utilisation d’un indicateur étape par étape</h3>
+						<p>Un indicateur étape par étape peut aider les utilisateurs à s’orienter dans un processus par étapes. Cet exemple utilise une liste ordonnée dont chaque étape est un élément de la liste. Le texte visuellement masqué, hors écran, mais encore rencontré par un technicien d’assistance, indique l’état actuel et l’état terminé des étapes (la classe WET <code lang="en-CA">.wb-inv</code> masque visuellement le texte). Les étapes précédentes sont liées afin que les utilisateurs puissent les réviser. Toutes les données déjà entrées à l’étape en cours devraient être sauvegardées. </p>
+
+					
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">EXAMPLE:</p>
+								 <style type="text/css">
+								.box-content {
+								  font-size: .7em;
+								  overflow: auto;
+								  padding: .5em;
+								}
+								.tlwrapper {
+								  display: table;
+								  width: 100%;
+								}
+								.timeline {
+								  display: table-row;
+								  counter-reset: timeline;
+								}
+								.timeline li.timeline-past {
+								  background-color: #ccc;
+								}
+								.timeline li:first-child {
+								  padding-left: 0;
+								}
+								.timeline li {
+								  display: table-cell;
+								  width: 20%;
+								  counter-increment: timeline;
+								  list-style: none;
+								  text-align: center;
+								  padding: .25em .5em;
+								  overflow: hidden;
+								  position: relative;
+								  background-color: #fff;
+								  padding-left: 25px;
+								  white-space: nowrap;
+								}
+								.timeline li.timeline-current > span, .timeline li.timeline-current a {
+								  color: #036;
+								  font-weight: bold;
+								}
+								.timeline li a, .timeline li > span {
+								  z-index: 100;
+								  position: relative;
+								  display: block;
+								  color: #555;
+								}
+								.timeline li.timeline-current > span:before {
+								  color: #fff;
+								  background-color: #036;
+								  border-color: #036;
+								}
+								.timeline li a:before, .timeline li > span:before {
+								  display: inline-block;
+								  color: #555;
+								  content: counter(timeline);
+								  background-color: none;
+								  border: 3px solid #555;
+								  margin-right: .25em;
+								  border-radius: 5px;
+								  padding: 0 .25em;
+								}
+								.timeline li:after {
+								  left: 0;
+								  top: 50%;
+								  border: solid transparent;
+								  content: " ";
+								  height: 0;
+								  width: 0;
+								  position: absolute;
+								  pointer-events: none;
+								  border-color: rgba(151, 204, 237, 0);
+								  border-left-color: #ccc;
+								  border-width: 20px;
+								  margin-top: -20px;
+								}
+								.visuallyhidden {
+								  border: 0;
+								  clip: rect(0 0 0 0);
+								  height: 1px;
+								  margin: -1px;
+								  overflow: hidden;
+								  padding: 0;
+								  position: absolute;
+								  width: 1px;
+								}
+		
+								  </style>
+								<div class="box-content">
+		
+									<div class="tlwrapper"> 
+			
+										<ol class="timeline"> 
+				
+											<li class="timeline-past"> 
+					
+												<span class="wb-inv">Terminé: </span> 
+						
+												<a href="billing.html">Adresse de facturation</a>  
+					
+											</li>  
+					
+											<li class="timeline-current">  
+					
+												<span class="wb-inv">État actuel: </span>  
+						
+												<span>Adresse de livraison</span>  
+					
+											</li>  
+					
+											<li><span>Vérification de la commande</span></li>  
+					
+											<li><span>Paiement</span></li>  
+					
+											<li><span>Terminer l’achat</span></li>  
+				
+										</ol> 
+			
+									</div> 
+								</div>
+								
+								<p class="wb-inv">L'exemple finit</p>
+							</div> 
+						</div>
+								
+
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;div class="tlwrapper"&gt;
+   &lt;ol class="timeline"&gt;
+      &lt;li class="timeline-past"&gt;
+         &lt;span class="wb-inv"&gt;Terminé :&lt;/span&gt;
+         &lt;a href="billing.html"&gt;Adresse de facturation&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class="timeline-current"&gt;
+         &lt;span class="wb-inv"&gt;État actuel :&lt;/span&gt;
+         &lt;span&gt;Adresse de livraison&lt;/span&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;Vérification de la commande&lt;/span&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;Paiement&lt;/span&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;Terminer l’achat&lt;/span&gt;&lt;/li&gt;
+   &lt;/ol&gt;
+&lt;/div&gt;</code>
+</pre>
+						<p class="wb-inv">Fin du code</p>
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">Voir le CSS</summary>
+							<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-css">.wb-inv {
+   clip: rect(1px,1px,1px,1px);
+   height: 1px;
+   margin: 0;
+   overflow: hidden;
+   position: absolute;
+   width: 1px;
+}
+.box-content {
+   font-size: .7em;
+   overflow: auto;
+   padding: .5em;
+}
+.tlwrapper {
+   display: table;
+   width: 100%;
+}
+.timeline {
+   display: table-row;
+   counter-reset: timeline;
+}
+.timeline li.timeline-past {
+   background-color: #ccc;
+}
+.timeline li:first-child {
+   padding-left: 0;
+}
+.timeline li {
+   display: table-cell;
+   width: 20%;
+   counter-increment: timeline;
+   list-style: none;
+   text-align: center;
+   padding: .25em .5em;
+   overflow: hidden;
+   position: relative;
+   background-color: #fff;
+   padding-left: 25px;
+   white-space: nowrap;
+}
+.timeline li.timeline-current > span, 
+.timeline li.timeline-current a {
+   color: #036;
+   font-weight: bold;
+}
+.timeline li a, .timeline li > span {
+   z-index: 100;
+   position: relative;
+   display: block;
+   color: #555;
+}
+.timeline li.timeline-current > span:before {
+   color: #fff;
+   background-color: #036;
+   border-color: #036;
+}
+.timeline li a:before, 
+.timeline li > span:before {
+   display: inline-block;
+   color: #555;
+   content: counter(timeline);
+   background-color: none;
+   border: 3px solid #555;
+   margin-right: .25em;
+   border-radius: 5px;
+   padding: 0 .25em;
+}
+.timeline li:after {
+   left: 0;
+   top: 50%;
+   border: solid transparent;
+   content: " ";
+   height: 0;
+   width: 0;
+   position: absolute;
+   pointer-events: none;
+   border-color: rgba(151, 204, 237, 0);
+   border-left-color: #ccc;
+   border-width: 20px;
+   margin-top: -20px;
+}</code></pre>
+					<p class="wb-inv">Fin du code</p>
+				</details>
+				
+				<h4><mark>Alternative approach: Using aria-current="step"</mark></h4>
+				<p><mark>This alternative replaces the visually-hidden text "Current" with an <code>aria-current="step"</code> attribute applied to the parent <code>&lt;li&gt;</code> element. Screen readers declare "current step" in addition to the list item text. User agent support for <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-current">aria-current</a> (en anglais seulement) when applied to a non-focusable element like <code>&lt;li&gt;</code> (as opposed to controls) is an open question. Visually-hidden text, on the other hand, is universally supported.</mark></p>
+
+				<p class="lang-label small">HTML</p>
+				<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">[&hellip;]
+   &lt;li class="timeline-current" aria-current="step"&gt;
+      &lt;span&gt;Shipping Address&lt;/span&gt;
+   &lt;/li&gt;
+[&hellip;]</code>
+</pre>
+				<p class="wb-inv">Fin du code</p>
+			</section>
+			
+			<section>
+				
+				<section>				
+				<div class="panel panel-success mrgn-tp-lg">
+			  <div class="panel-body">
+		
+			    <h2 class="text-success mrgn-tp-0 h3" id="steps-form"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Formulaire des étapes de la BOEW</h2>
+				<p>Le <a href="https://wet-boew.github.io/v4.0-ci/demos/stepsform/stepsform-fr.html">Formulaire des étapes de la BOEW (exemple)</a> est un formulaire à étapes multiples de même page. La <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/stepsform/stepsform-fr.html">Documentation du formulaire des étapes</a> décrit les exigences en matière de balisage des saisies. </p>
+				<p>Les étapes du formulaire de la BOEW n’appuient pas encore les étapes facultatives au moyen d’un bouton «&nbsp;sauter&nbsp;».</p>
+				<p>Vous définissez chaque étape au sein d’un élément <code lang="en-CA">&lt;fieldset&gt;</code> et vous la nommez avec un élément <code lang="en-CA">&lt;legend&gt;</code> emboîté.  Puis, imbriquez les éléments de formulaire dans un élément <code lang="en-CA">&lt;div&gt;</code> à l’intérieur de <code lang="en-CA">&lt;fieldset&gt;</code>. Vous placez les éléments de formulaire de l'étape dans un <code lang="en-CA">&lt;div&gt;</code> suivant la <code lang="en-CA">&lt;legend&gt;</code>.</p>
+				<!-- <p>Il s’agit de la structure de base, sans son enveloppe de balisage HTML&nbsp;:</p> -->
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;fieldset&gt;
+   &lt;legend&gt;Coordonnées&lt;/legend&gt;
+   &lt;div&gt;(Les éléments du formulaire vont ici, masqués lorsqu’ils sont inactifs.)&lt;/div&gt;
+&lt;/fieldset&gt;
+&lt;fieldset&gt;
+   &lt;legend&gt;Questionnaire&lt;/legend&gt;
+   &lt;div&gt;(Les éléments du formulaire vont ici, masqués lorsqu’ils sont inactifs.)&lt;/div&gt;
+&lt;/fieldset&gt;</code>
+</pre>
+<p class="wb-inv">Fin du code</p>
+						<p>Le JavaScript masque la <code lang="en-CA">&lt;div&gt;</code> lorsque l’étape n’est pas sélectionnée. JavaScript ajoute également les boutons de navigation «&nbsp;suivant&nbsp;» et «&nbsp;précédent&nbsp;», qui déclenche la validation au clic.</p>
+					</div>
+					</div>
+			</section>
+			
+			<hr/>
+					<p class="small">Le balisage HTML pour les approches&nbsp;3 et&nbsp;4 est tiré du document Initiative pour l’accessibilité du Web (<a href="https://www.w3.org/WAI/">IAW</a>)&nbsp;: <a href="https://www.w3.org/WAI/tutorials/forms/multi-page/">Formulaires multipages</a> (en anglais seulement) dans le tutoriel <a href="https://www.w3.org/WAI/tutorials/forms/">Concepts de formulaires</a> du tutoriel <a href="https://www.w3.org/WAI/tutorials/">Tutoriels sur l’accessibilité du Web</a>. <a href="https://www.w3.org/People/yatil/">Eric Eggert</a> et <a href="https://www.w3.org/People/shadi/">Shadi&nbsp;Abou-Zahra</a>.  Copyright © 2019 W3C® (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>). Mis à jour le 27&nbsp;juillet&nbsp;2019 (publié pour la première fois en septembre&nbsp;2014).</p>
+			<section>				
+				<h2 id="resources" class="wb-inv">Ressources WCAG connexes</h2>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+                        <p class="mrgn-tp-md">En anglais seulement.</p>
+					<h3>Critères de succès</h3>
+					<ul>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships" lang="en-CA">1.3.1: Info and Relationships</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable" lang="en-CA">2.2.1: Timing Adjustable</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions" lang="en-CA">3.3.2: Labels or Instructions</a></li>
+
+					</ul>
+					<h3>Techniques</h3>
+					<ul>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G133" lang="en-CA">G133: Providing a checkbox on the first page of a multipart form that allows users to ask for longer session time limit or no session time limit	</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G180" lang="en-CA">G180: Providing the user with a means to set the time limit to 10 times the default time limit	</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G198" lang="en-CA">G198: Providing a way for the user to turn the time limit off	</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H71" lang="en-CA">H71: Providing a description for groups of form controls using fieldset and legend elements	</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR1" lang="en-CA">SCR1: Allowing the user to extend the default time limit	</a></li>
+							<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR16" lang="en-CA">SCR16: Providing a script that warns the user a time limit is about to expire	</a></li>							
+					</ul>
+					
+
+				</details>
+			</section>
+		
+		
+	<nav role="navigation">
+		<h2 class="wb-inv">Menu de la pagination</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="user-notifications-fr.html">Précédent - Avis à l’utilisateur</a></li>
+			<li class="next"><a rel="next" href="custom-controls-fr.html">Suivant - Commandes personnalisées</a></li>
+		</ul>
+	</nav>
+	</main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+		<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 6 - Formulaires</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="forms-concepts-fr.html">Concepts des formulaires</a></li>
+						<li><a class="list-group-item" href="labelling-controls-fr.html">Commandes d’étiquetage</a></li>
+						<li><a class="list-group-item" href="grouping-controls-fr.html">Regroupement des commandes</a></li>
+						<li><a class="list-group-item" href="form-instructions-fr.html">Instructions du formulaire</a></li>
+						<li><a class="list-group-item" href="identifying-input-fr.html">Déterminer l’objet de la saisie</a></li>
+						<li><a class="list-group-item" href="validating-input-fr.html">Validation des saisies</a></li>
+						<li><a class="list-group-item" href="user-notifications-fr.html">Avis à l’utilisateur</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="multi-step-forms-fr.html">Formulaires à étapes multiples</a></li>
+						<li><a class="list-group-item" href="custom-controls-fr.html">Commandes personnalisées</a></li>
+						<li><a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Tous les modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 - Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/links-fr.html">Module 3 - Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/tables-concepts-fr.html">Module 4 - Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/text-alternatives-fr.html">Module 5 - Images</a></li>
+                        <li><a class="list-group-item active" href="forms-concepts-fr.html">Module 6 - Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 - Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item" href="../module8/introduction-fr.html">Module 8 - Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item" href="../module10/introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap-fr.html">Plan du site</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
+					</li>
+
+				</ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>

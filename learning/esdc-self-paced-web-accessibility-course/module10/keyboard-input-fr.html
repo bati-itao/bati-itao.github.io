@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Saisie avec clavier - Module 10 - Méthodes de saisie de données</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Lignes directrices sur l’accessibilité relative à la saisie au moyen du clavier. Les sujets comprennent la cible du clavier, l’ordre de la cible, l’indicateur visuel de la cible, les fonctionnalités du clavier et les pièges.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.appTop({
+                "appName": [{
+                    "text": "EDSC / Bureau de l’accessibilité des TI",
+                    "href": "../../../index-fr.html"
+                }],
+               "breadcrumbs" : [{
+                    "title": "Accueil",
+                    "href" : "../../../index-fr.html"
+                },{
+                    "title": "Apprentissage",
+                    "href" : "../../index-fr.html"
+                },
+				{
+                    "title": "Cours d'accessibilité Web",
+                    "href" : "../index-fr.html"
+                },
+			{
+                "title": "Module 10 - Méthodes de saisie de données",
+                
+                "href" : "index-fr.html"
+            }],
+            "lngLinks": [{
+                "lang": "en",
+                "href": "keyboard-input.html",
+                "text": "English"
+            }],
+            "menuPath": "../../../ajax/menu-fr.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+			
+	<h1 property="name" id="wb-cont">Saisie avec clavier</h1>
+						
+	<nav role="navigation" aria-labelledby="nav-table">
+    <div class="panel panel-default mrgn-tp-md">
+      <header class="panel-heading">
+        <h2 id="nav-table" class="panel-title">Table of contents</h2>
+      </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#keyboard-input-overview">Aperçu : Saisie avec clavier</a></li>
+			<li><a href="#keyboard-functionality">Fonctionnalité du clavier</a></li>
+			<li><a href="#keyboard-trap">Piège de clavier</a></li>
+			<li><a href="#focus-management-with-javascript-injected-content">Gestion de cible avec contenu injecté de JavaScript</a></li>
+			<li><a href="#resources1">Ressources WCAG connexes</a></li>
+          </ul>
+        </div>
+      </div>
+	</nav>
+	
+			<section>				
+				<h2 id="keyboard-input-overview">Aperçu : Saisie avec clavier</h2>
+				<p>De nombreux types de technologies d’aide permettent de reproduire les fonctions d’un clavier, notamment les logiciels de reconnaissance vocale, les logiciels de commande au souffle et les claviers virtuels à l’écran, pour ne citer que ces exemples. En adoptant une conception de clavier accessible, vous assurez sa compatibilité avec un large éventail de technologies d’aide et de groupes d’utilisateurs.</p>
+				<p>L’accessibilité du clavier recoupe les sujets suivants&nbsp;:</p>
+				<ul>
+					<li><strong>Ciblage clavier</strong>
+						<p>Voir le module&nbsp;3 &gt; Navigation &gt; Cible et ordre de cible &gt; <a href="../module3/navigation-fr.html#focus-order">Quelle est la cible?</a></p>
+					</li>
+					<li><strong>Ordre de cible</strong>
+						<p>Voir le module&nbsp;3 &gt; Navigation &gt; Cible et ordre de cible &gt; <a href="../module3/navigation-fr.html#what-is-focus-order">Ordre de cible</a></p>
+					</li>
+					<li><strong>Indicateur visuel de la cible</strong>
+						<p>Voir module&nbsp;3 &gt; Liens &gt; <a href="../module3/links-fr.html#indicator"> Indicateur visuel de la cible</a></p>
+					</li>
+					<li><strong>Fonctionnalité du clavier</strong></li>
+					<li><strong>Pièges de clavier</strong></li>
+				</ul>
+			</section>
+			
+			<section>				
+				<h2 id="keyboard-functionality">Fonctionnalité du clavier</h2>
+				<p>S’assurer que tout le contenu de la page peut être utilisé au moyen d’un clavier. La plupart des actions exécutées avec une souris ou un autre dispositif de pointage peuvent aussi être exécutées à partir du clavier (p.&nbsp;ex., cliquer, sélectionner, déplacer, dimensionner). Exemples de fonctionnalités&nbsp;:</p>
+				<ul>
+					<li>Utiliser des contrôles physiques tels que des liens, des menus, des boutons et des contrôles de formulaires (cases à cocher, boutons radio, saisie de texte, etc.).</li>
+					<li>Utiliser des fonctions telles que le glisser-déposer, sélectionner du texte, le redimensionnement des zones ou l'affichage de menus contextuels.</li>
+					<li>Exécuter des tâches telles que l'ajout ou le retrait d'un article dans un panier d'achat ou le lancement d'une session de chat avec un représentant commercial.</li>
+				</ul>
+				<p>L'exception de toute action qui dépend de la trajectoire du mouvement de l'utilisateur (par exemple, un dessin à main levée tel qu'une signature). Ces actions ne peuvent pas être effectuées à partir du clavier.</p>
+				<p>L’utilisateur du clavier appuie normalement sur la touche de tabulation pour passer d’un élément interactif à l’autre – liens, boutons, champs texte, etc. Quand l’utilisateur accède à un élément avec la touche de tabulation, cet élément est «&nbsp;ciblé&nbsp;» et devient manipulable avec le clavier. D’autres touches, principalement les touches fléchées, déplacent la cible à l’intérieur des éléments complexes, ou groupes, composés de plusieurs sous-éléments actifs. D'autres touches, principalement les touches fléchées, permettent de déplacer le centre d'intérêt à l'intérieur des composants qui comprennent plusieurs éléments pouvant être mis au point. Par exemple, après avoir appuyé sur la touche Tab pour déplacer le focus sur un bouton radio d'un groupe, l'appui sur les touches fléchées déplace le focus parmi les boutons radio du groupe, et l'appui sur la touche Tab déplace le focus hors du groupe radio vers l'élément suivant dans la séquence de tabulation.  Le chemin que suit le curseur quand l’utilisateur appuie sur la touche de tabulation est appelé la séquence de tabulation ou la boucle de tabulation.</p>
+				<p>Autres commandes clavier importantes&nbsp;:</p>
+				<ul>
+					<li>CTRL-L positionne la cible sur-le-champ d’adresse du navigateur.</li>
+					<li>CTRL-W ferme un onglet</li>
+					<li>CTRL-T ouvre un nouvel onglet</li>
+					<li>La barre d'espacement fait défiler vers le bas un écran à la fois (Shift-Barre d'espacement fait défiler vers le haut).</li>
+					<li>La barre d’espacement sélectionne les cases d’option et les cases à cocher</li>
+					<li>La touche Entrée active un lien ou envoie un formulaire</li>
+					<li>La barre d’espacement ou la touche Entrée active un bouton</li>
+				</ul>
+				<h3 id="native-html-links-controls">Utilisation des liens et commandes HTML natifs</h3>
+				<p>Dans la mesure du possible, utilisez des liens HTML et des contrôles de formulaires natifs plutôt que des éléments personnalisés. Les agents utilisateur fournissent le fonctionnement du clavier des liens HTML, des contrôles de formulaires, et les mappent à une API d'accessibilité. Les technologies d'assistance utilisent l'API d'accessibilité pour extraire et présenter des informations utiles, telles que le rôle, le nom, l'état et la valeur.</p>
+				<p>Commandes et liens HTML standard&nbsp;:</p>
+				<ul>
+					<li><code lang="en-CA">&lt;a&gt;</code></li>
+					<li><code lang="en-CA">&lt;fieldset&gt;</code></li>
+					<li><code lang="en-CA">&lt;input&gt;</code>
+						<p>Plusieurs types; voir le module&nbsp;6&nbsp;: Formulaires &gt; <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module6/validating-input-fr.html#common-input">Validation des types de saisie communs)</a>.</p>
+					</li>
+					<li><code lang="en-CA">&lt;select&gt;</code></li>
+					<li><code lang="en-CA">&lt;textarea&gt;</code></li>
+					<li><code lang="en-CA">&lt;button&gt;</code></li>
+				</ul>
+				<h3 id="onclick-event-of-anchors-button">Utiliser l’événement onclick des ancrages et des boutons</h3>
+				<p>Pour s’assurer que les utilisateurs du clavier puissent invoquer un script, utiliser des liens et des boutons HTML natifs avec l’événement <code lang="en-CA">onclick</code>. L’événement <code lang="en-CA">onclick</code> des deux éléments est indépendant du dispositif de saisie&nbsp;: il est lié à un clic de souris, à la touche Entrée et à la barre d’espacement.</p>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;button onclick="doStuff();"&gt;Do stuff&lt;/button&gt;
+&lt;script&gt;
+   function doStuff () {
+      alert('Button clicked');
+   }
+&lt;/script&gt;</code></pre>
+				<p class="wb-inv">Fin du code</p>
+				<p>Un bouton d’envoi situé à l’intérieur d’un formulaire<code lang="en-CA">&lt;form&gt;</code> ne nécessite pas de gestionnaire d’événement. Dans les deux cas suivants, la sélection du bouton d’envoi transmet le formulaire parent sans nécessiter le traitement séparé de l’événement <code lang="en-CA">onclick</code>. Ici, la valeur <code lang="en-CA">onsubmit</code> du formulaire déclenche la validation.</p>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;form onsubmit="handle_form_submission()"&gt;
+   […]
+   &lt;input type="submit" name="submit" value="Post your reply" /&gt;
+   Or:
+   &lt;button type="submit" &gt;Post your reply&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+				<p class="wb-inv">Fin du code</p>
+				<h3 id="mouse-event-handlers-with-keyboard">Jumeler les gestionnaires d’événement souris et les gestionnaires d’événement clavier</h3>
+				<p>L’utilisation à la fois des événements clavier et des événements souris permet de rendre le contenu exploitable par un large éventail de dispositifs de saisie.</p>
+				<p>Le tableau suivant suggère les gestionnaires d’événement souris à jumeler aux gestionnaires d’événement clavier&nbsp;:</p>
+				<table class="table table-bordered table-hover" style="max-width: 24em">
+					<caption>Correspondance des gestionnaires d’événement</caption>
+					<thead>
+						<tr>
+							<th scope="col">
+								<p>Utiliser &hellip;</p>
+							</th>
+							<th scope="col">
+								<p>&hellip; avec</p>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<p>mousedown</p>
+							</td>
+							<td>
+								<p>keydown</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p>mouseup</p>
+							</td>
+							<td>
+								<p>keyup</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p>click</p>
+							</td>
+							<td>
+								<p>keypress</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p>mouseover</p>
+							</td>
+							<td>
+								<p>focus</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p>mouseout</p>
+							</td>
+							<td>
+								<p>blur</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>			
+				<p>Lorsqu’ils utilisent un bouton ou un lien HTML natif, les agents utilisateurs traitent l’événement <code lang="en-CA">click</code>, qu’il a été activé avec la souris ou le clavier. Il n’est pas nécessaire de reproduire cet événement quand on ajoute des gestionnaires à des éléments HTML ciblables. Toutefois, à défaut de bouton ou de lien natif, il faut ajouter un événement <code lang="en-CA">keypress</code>.</p>
+				<p>Comme le gestionnaire d’événement <code lang="en-CA">keypress</code> réagit à n’importe quelle touche du clavier, il devrait d’abord vérifier si l’utilisateur a appuyé sur la touche Entrée avant de traiter l’événement. Autrement, il sera déclenché par n’importe quelle touche, même la touche de tabulation qui aurait été utilisée pour sortir de la commande.</p>
+				<p>En cas d’utilisation de l’attribut ARIA <code lang="en-CA">role="button"</code> au lieu des éléments natifs <code lang="en-CA">&lt;button&gt;</code> ou <code lang="en-CA">&lt;input type="button"&gt;</code>, il faudra à la fois rendre l’élément ciblable et définir les gestionnaires d’événement pour le clic et les touches Entrée et barre d’espacement.</p>
+				
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0 h3" id="good-example-pairing-mouse-keyboard"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Jumelage des événements souris et clavier</h3>
+						<p>Dans cet exemple de lien d’image, l’image change lorsque l’utilisateur positionne le pointeur sur elle. Pour offrir aux utilisateurs du clavier une expérience similaire, l’image change également quand l’utilisateur l’atteint avec la touche de tabulation.  </p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">L'exemple commence</p>
+								<p>
+									<a href="" onmouseover="swapImageOn('menu')" 
+									   onfocus="swapImageOn('menu')" 
+									   onmouseout="swapImageOff('menu')" 
+									   onblur="swapImageOff('menu')">
+										<img id="menu" src="images/menu_off.PNG" alt="Menu" width="100px" height="100px"/>
+									</a>
+								</p>
+								<script>
+								function swapImageOn(id){
+									document.getElementById(id).src='images/menu_on.PNG'
+								}
+								function swapImageOff(id){
+									document.getElementById(id).src='images/menu_off.PNG'
+								}	
+								</script>
+								<p class="wb-inv">L'exemple finit</p>
+							</div>
+						</div>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;a href="menu.php" 
+   onmouseover="swapImageOn('menu')" 
+   onfocus="swapImageOn('menu')" 
+   onmouseout="swapImageOff('menu')" 
+   onblur="swapImageOff('menu')"&gt; 
+   &lt;img id="menu" src="menu_off.gif" alt="Menu" /&gt;
+&lt;/a&gt;</code></pre>
+						<p class="wb-inv">Fin du code</p>
+					</div>
+				</div>
+				<div class="panel panel-danger mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-danger mrgn-tp-0 h3" id="bad-example-mouse-dependent-links"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Mauvais exemple&nbsp;: Lien dépendant de la souris</h3>
+						
+						<p>Dans cet exemple, un lien d’image personnalisé réagit uniquement au clic de la souris et n’est pas activable par le clavier. Il n’y a pas de gestionnaire d’événement équivalent pour la touche Entrée. L’événement <code lang="en-CA">onclick</code> ne répond qu’aux saisies clavier appliquées à un bouton ou un lien HTML natif, et il s’agit d’un élément <code lang="en-CA">&lt;img&gt;</code>. </p>
+						<p>Le lien de l’image n’a pas d’attribut <code lang="en-CA">tabindex="0"</code>, ce qui l’empêche d’être ciblé avec le clavier.</p>
+						<p>Enfin, le lien de l’image ne comporte pas l’attribut <code lang="en-CA">role="link"</code>, qui indique sa nature de lien à la technologie d’aide.</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body mrgn-bttm-0">
+								<p class="wb-inv">L'exemple commence</p>
+								<img src="images/image1.png" class="img-link img-responsive" alt="Page suivante" onclick="window.location.href='index-fr.html'">
+								<style type="text/css">
+									.img-link:hover { cursor: pointer;  }
+								</style>
+								<p class="wb-inv">L'exemple finit</p>
+							</div>
+						</div>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;img src="images/image1.png" class="img-link img-responsive" alt="Page suivante" onclick="window.location.href='index-fr.html')">&gt;</code></pre>
+						<p class="wb-inv">Fin du code</p>
+<p class="lang-label small">CSS</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-css">.img-link:hover { cursor: pointer; }</code></pre>
+						<p class="wb-inv">Fin du code</p>
+					</div>
+				</div>
+
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0 h3" id="good-example-mouse-keyboard-event-handler"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Gestionnaires d’événement souris et clavier sur un bouton personnalisé</h3>
+						<p>Dans cet exemple, un bouton personnalisé construit à partir d’un élément <code lang="en-CA">&lt;span&gt;</code> possède la sémantique et la fonctionnalité d’accessibilité nécessaires&nbsp;:</p>
+						<ul>
+							<li>Un attribut <code lang="en-CA">tabindex="0"</code> pour pouvoir être ciblé avec le clavier.</li>
+							<li>Un attribut <code lang="en-CA">role="button"</code> pour indiquer sa fonction à la technologie d’aide.</li>
+							<li>Un indicateur visuel de ciblage clavier et de survol par la souris au moyen du CSS.</li>
+							<li>Un gestionnaire d’événement <code lang="en-CA">onclick</code> pour l’activation par la souris.</li>
+							<li>Un gestionnaire d’événement <code lang="en-CA">OnKeyDown</code> pour l’activation par le clavier. La fonction s’arrête si la touche actionnée n’est pas la barre d’espacement ou la touche Entrée.</li>
+						</ul>
+						<p>Le JavaScript ajoute des noms à une liste sous le formulaire.</p>
+						
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">L'exemple commence</p>
+							
+								
+								
+								<label for="newName">Ajouter un nom</label>
+								<input type="text" id="newName">
+								<span role="button" tabindex="0" onclick="handleCommand(event)" onKeyDown="handleCommand(event)">Ajouter nom</span>
+								<ul id="nameList"></ul>
+								
+								<style type="text/css">
+									[role="button"] {
+										padding: 0.25em 0.5em;
+										background-color: #CCCCCC;
+										color: black;
+										margin-left: 5px;
+										outline: 2px solid white;
+									}
+									#newName:focus,
+									#newName:hover {
+										background-color: rgb(186, 228, 253);
+									}
+									[role="button"]:focus,
+									[role="button"]:hover {
+										outline: 2px dotted rgb(81, 81, 250);
+									}								
+								</style>
+								<script>
+									function handleCommand(event) {
+										// Handles both mouse clicks and keyboard
+										// activate with Enter or Space
+										// Keypresses other then Enter and Space end the script
+										if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+											return;
+										}
+										// Get the new name value from the input element
+										let newNameInput = document.getElementById('newName');
+										let name = newNameInput.value;
+										// clear the text field
+										newNameInput.value = '';
+										// give the text field focus to enable entering an additional name
+										newNameInput.focus();  
+										// Don't add blank entries to the list
+										if(name.length > 0) {
+											listItem = document.createElement('li');
+											listItem.appendChild(document.createTextNode(name));
+											// Add the new name to the list
+											let list = document.getElementById('nameList');
+											list.appendChild(listItem);
+										}
+									}								
+								</script>
+								<p class="wb-inv">L'exemple finit</p>
+							</div>
+						</div>
+								
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;label for="newName"&gt;Ajouter un nom&lt;/label&gt;j
+&lt;input type="text" id="newName"&gt;
+&lt;span role="button" tabindex="0" onclick="handleCommand(event)" onKeyDown="handleCommand(event)"&gt;Ajouter nom&lt;/span&gt;
+&lt;ul id="nameList"&gt;&lt;/ul&gt;</code></pre>
+
+						<p class="wb-inv">Fin du code</p>
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">Voir le JavaScript</summary>
+							<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-javascript">function handleCommand(event) {
+   // Gère à la fois les clics de souris et le clavier
+   // Activer avec Entrée ou Espace
+   // Les pressions sur les touches autres que Entrée et Espace mettent fin au script
+   if (event instanceof KeyboardEvent 
+             &amp;&amp; event.key !== 'Enter' 
+             &amp;&amp; event.key !== ' ') {
+      return;
+   }
+   // Obtenez la nouvelle valeur du nom de l'élément d'entrée
+   let newNameInput = document.getElementById('newName');
+   let name = newNameInput.value;
+   // Effacer le champ de texte
+   newNameInput.value = ''; 
+   // Donner le focus au champ de texte pour permettre la saisie d'un nom supplémentaire
+   newNameInput.focus();  
+   // N'ajoutez pas d'entrées vides à la liste
+   if(name.length &gt; 0) {
+      listItem = document.createElement('li');
+      listItem.appendChild(document.createTextNode(name));
+      // Add the new name to the list
+      let list = document.getElementById('nameList');
+      list.appendChild(listItem);
+   }
+}</code></pre>
+							<p class="wb-inv">Fin du code</p>
+						</details>						
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">Voir le CSS</summary>
+							<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-css">[role="button"] {
+   padding: 0.25em 0.5em;
+   background-color: #CCCCCC;
+   color: black;
+   margin-left: 5px;
+   outline: 2px solid white;
+}
+#newName:focus,
+#newName:hover {
+   background-color: rgb(186, 228, 253);
+}
+[role="button"]:focus,
+[role="button"]:hover {
+   outline: 2px dotted rgb(81, 81, 250);
+}</code></pre>
+							<p class="wb-inv">Fin du code</p>
+						</details>
+
+					</div>
+				</div>
+			</section>
+			
+			<section>				
+				<h2 id="keyboard-trap">Piège de clavier</h2>
+				<p>Un piège à clavier se produit lorsqu'un utilisateur peut naviguer dans un composant ou un élément d'une page Web mais ne peut pas en sortir. Un exemple simple est une fenêtre pop-up (fenêtre modale ou lightbox) qui ne se ferme pas lorsque l'utilisateur appuie sur la touche Esc et dont le bouton de fermeture ne répond pas au clavier. </p>
+				<p>Assurez-vous que l'utilisateur peut entrer et sortir des éléments interactifs en utilisant uniquement le clavier. </p>
+				<div class="panel panel-danger mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-danger mrgn-tp-0 h3" id="bad-example-javascript-focus"><span class="glyphicon glyphicon-remove-circle"></span> Mauvais exemple&nbsp;: JavaScript focus() piège l’utilisateur du clavier</h3>
+						<p>Cet exemple illustre les dangers du piège à clavier que représente l'utilisation de la méthode JavaScript <code lang="en-CA">focus()</code>. Le champ de saisie du formulaire utilise ici l'événement <code lang="en-CA"></code>onblur</code>, qui est déclenché lorsque le focus quitte l'élément. Lorsque l'utilisateur du clavier appuie sur la touche Tab pour déplacer le focus du champ de saisie, l'événement <code lang="en-CA">onblur</code> se déclenche et remet le focus sur le champ de saisie, piégeant ainsi l'utilisateur.</p>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;label for="lastname"&gt;Last name&lt;/label&gt;
+&lt;input id="lastname" type="text" value="" class="trap" onblur="this.focus();"&gt;</code></pre>
+						<p class="wb-inv">Fin du code</p>
+					</div>
+				</div>
+				<div class="panel panel-danger mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-danger mrgn-tp-0 h3" id="bad-example-javascript-keydown"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais exemple&nbsp;: JavaScript keydown() et event.preventDefault() piègent l’utilisateur du clavier</h3> 
+						<p>Cet exemple illustre les dangers du piège à clavier que représente un événement keypress JavaScript. La fonction JavaScript ne fait aucun effort pour détecter quelle touche a été enfoncée (elle devrait identifier la touche Entrée), elle se déclenche donc lorsque <em>n'importe quelle</em> touche est enfoncée. En outre, l'action par défaut associée à toute pression sur une touche est empêchée par <code lang="en-CA">event.preventDefault()</code>. Par conséquent, lorsqu'un utilisateur tente de déplacer le focus du lien en appuyant sur la touche Tab, l'événement <code lang="en-CA">keydown</code> se déclenche, l'action par défaut de la touche Tab (déplacement du focus vers l'élément suivant sur lequel le focus est possible) est empêchée, le focus reste sur le lien et une nouvelle fenêtre s'ouvre. L'utilisateur du clavier est pris au piège. Même le fait d'appuyer sur les touches Ctrl + Alt + Suppr dans Windows pour faire apparaître le gestionnaire de tâches échouera, car d'autres fenêtres seront simplement lancées en réponse à l'événement de frappe. L'ordinateur de l'utilisateur est détourné et, à moins qu'un collègue ou un ami ne puisse déplacer le focus de l'élément avec une souris, l'utilisateur est obligé de redémarrer l'ordinateur. </p>
+
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;span class="trap link" role="link" tabindex="0" data-href="some-page.html"&gt;
+   Une page
+&lt;/a&gt;</code></pre>
+				<p class="wb-inv">Fin du code</p>
+				<p class="lang-label small">JavaScript</p>
+				<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-javascript">$(document).ready(function(){   
+   $('span.trap').keydown(function(event){ 
+      event.preventDefault();
+      var href = $(this).attr('data-href');        
+      var text = $(this).text();
+      window.open(href, text);    
+   });
+});</code></pre>
+						<p class="wb-inv">Fin du code</p>
+					</div>
+				</div>
+			</section>
+			
+			<section>				
+				<h2 id="focus-management-with-javascript-injected-content">Gestion de cible avec contenu injecté de JavaScript</h2>
+				<p>Le contenu ajouté à une page avec JavaScript peut se trouver à l’un des deux endroits suivants&nbsp;:</p>
+				<ul>
+					<li>Le contenu ajouté suit le déclencheur dans le DOM. Dans ce cas, il n'est pas nécessaire de gérer le focus. Lorsqu'il est activé, le contrôle déclencheur conserve le focus, et le contenu ajouté est le suivant dans l'ordre de lecture du lecteur d'écran et dans l'ordre des tabulations. Le contenu ajouté peut être positionné de manière absolue par le biais de CSS pour se trouver ailleurs sur la page.</li>
+					<li>Le contenu ajouté ne suit pas le déclencheur dans le DOM. Dans ce cas, la cible doit être déplacée vers le contenu ajouté en utilisant la méthode JavaScript <code lang="en-CA">focus()</code>. La cible doit avoir l’attribut <code lang="en-CA">tabindex="-1"</code>. De plus, la cible doit avoir un contenu textuel ou un texte déterminé par programmation au moyen d’une étiquette, sinon un utilisateur de lecteur d’écran n’entendra rien à son arrivée. Si le contenu ajouté peut être réduit ou désactivé, la cible revient sur la commande de déclenchement (ou à un autre emplacement logique, selon le contexte). Éviter de perdre la cible ou de la réinitialiser au haut de la page.</li>
+				</ul>
+				<p>Il y a des exceptions si vous mettez en œuvres certains modèles de composants graphiques décrits à la section&nbsp;3 des pratiques de codage WAI-ARIA, <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">Modèles de conception et widgets</a>. Les auteurs de contenu doivent gérer le focus dans les rôles de conteneur suivants.</p>
+				<ul lang="en-CA">
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#combobox" lang="en-CA">combo box</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#grid" lang="en-CA">grid</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#Listbox" lang="en-CA">listbox</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#menu" lang="en-CA">menu</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#menubar" lang="en-CA">menubar</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#radiobutton" lang="en-CA">radio group</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#tabpanel" lang="en-CA">tabs</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#TreeView" lang="en-CA">tree view</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#treegrid" lang="en-CA">treegrid</a>
+					</li>
+				</ul>
+				<p>La gestion de la cible dans ces composants graphiques «&nbsp;composites&nbsp;» est une question distincte abordée dans le <a href="../module12/index-fr.html">module&nbsp;12</a>.</p>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0 h3" id="good-example-focus-mgmt-single-page"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Gestion de la cible dans une application Web monopage</h3>
+						<p>Dans cet exemple, une application Web monopage utilise JavaScript pour charger un article complet à l’intérieur de l’élément <code lang="en-CA">main</code>, sans chargement de la page. Les liens dans le menu de navigation déclenchent le chargement du contenu. Cet exemple ne comporte que quelques éléments de menu, mais les sites ont souvent des menus bien plus longs. Le déplacement de la cible est vite à un utilisateur de clavier la tâche fastidieuse de parcourir un menu avec la touche de tabulation pour accéder au contenu principal d’une application d’une seule page.</p>
+						<p>L’en-tête <code lang="en-CA">&lt;h1&gt;</code> de chaque page comporte l’attribut <code lang="en-CA">tabindex="-1"</code> qui permet le ciblage par les scripts. JavaScript identifie l’en-tête <code lang="en-CA">&lt;h1&gt;</code> au moyen d’un sélecteur de requête et pose la cible sur lui. Le script met également à jour l’élément <code lang="en-CA">&lt;title&gt;</code> de la page pour qu’il corresponde au texte de l’en-tête. </p>
+						<p>La première utilisation de JavaScript devrait être déclenchée par le menu et non par le chargement de la page. L’interaction initiale d’un utilisateur de lecteur d’écran avec la page devrait commencer par le haut, comme d’habitude.</p>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;nav&gt; 
+   &lt;a href="/"&gt;Accueil&lt;/a&gt; 
+   &lt;a href="/policies"&gt;Politiques&lt;/a&gt; 
+   &lt;a href="/practices"&gt;Pratiques&lt;/a&gt; 
+&lt;/nav&gt; 
+&lt;main&gt; 
+   // inject&eacute;:
+          &lt;h1 tabindex="-1"&gt;Politiques&lt;/h1&gt; 
+          // reste du contenu inject&eacute; ... 
+&lt;/main&gt;</code></pre>
+						<p class="wb-inv">Fin du code</p>
+						<p class="lang-label small">JavaScript</p>
+						<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-javascript">// Cela est appel&eacute; chaque fois que du nouveau contenu est charg&eacute; :  
+function onNewPage() { 
+   var heading = document.querySelector('h1'); 
+   heading.focus(); 
+   // Mettre &agrave; jour le titre de la page
+   document.title = heading.textContent; 
+  }</code></pre>
+						<p class="wb-inv">Fin du code</p>
+					</div>
+				</div>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0 h3" id="good-example-focus-from-trigger-dialog"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Cible déplacée du déclencheur à une boîte de dialogue</h3>
+						<p> Dans cet exemple, le fait d'appuyer sur le bouton de transcription de l'Ableplayer
+						<img src="images/image4.png" alt=""> :</p>
+						<ul>
+							<li>lance un widget de dialogue ARIA contenant la transcription, et</li>
+							<li> déplace le focus sur le premier bouton de la boîte de dialogue, celui des préférences de l'utilisateur. <img src="images/image5.png" alt="">:
+								<p class="lang-label small">JavaScript</p>
+								<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-javascript">this.$transcriptArea.find('button').first().focus();</code></pre>
+								<p class="wb-inv">Fin du code</p>
+							</li>
+						</ul> 
+						<div class="panel panel-primary mrgn-tp-lg">
+							<div class="panel-body well mrgn-bttm-0">
+								<img src="images/image6.png" class="img-responsive" alt="Screenshot of Able Player">
+								<p class="mrgn-tp-lg">Exemple externe : <a href="https://ableplayer.github.io/ableplayer/demos/video3.html">Able Player Video Demo #3</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0 h3" id="focus-managed-on-dialog-using-keyboard"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Cible gérée sur une boîte de dialogue au moyen d’une interaction au clavier</h3> 
+						<p>Dans cet exemple, quand l’utilisateur clique sur le bouton d’envoi, une fenêtre contextuelle s’ouvre et la cible est posée sur le premier élément actif de la fenêtre contextuelle. Quand l’utilisateur clique sur le bouton de fermeture de la fenêtre contextuelle, la cible retourne au bouton déclencheur.</p>
+						<div class="panel panel-primary mrgn-tp-lg">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">L'exemple commence</p>
+								<!-- Déclencher/ouvrir la modal -->
+								<button class="submit" id="myBtn">Soumettre</button>
+								<!-- Le modal -->
+								<div id="myModal" class="modal" role="dialog" aria-labelledby="modal-title">
+									<!-- Contenu modal -->
+									<div class="modal-content">
+										<header class="modal-header">
+											<h2 id="modal-title" class="modal-title">Votre formulaire a &eacute;t&eacute; soumis</h2>
+										</header>
+										<div class="modal-body">
+											<button class="btn-close">Fermer</button>
+										</div>
+									</div>
+								</div>
+								<script>
+						 
+									// Get the modal
+									var modal = document.getElementById("myModal");
+									// Get the button that opens the modal
+									var btnSubmit = document.getElementById("myBtn");
+									// Get the button that closes the modal
+									var btnClose = document.getElementsByClassName("btn-close")[0];
+									// When the user clicks the button, open the modal 
+									btnSubmit.onclick = function() {
+									   modal.style.display = "block";
+									   btnClose.focus();
+									}
+									//prevent tabbing to the page
+									btnClose.addEventListener("keydown", event => {
+										  if (event.shiftKey || event.keyCode === 9) {
+											btnClose.focus();
+											event.preventDefault();
+											false;
+										  }
+										});
+									// When the user clicks the close button, close the modal
+									btnClose.onclick = function() {	  
+									   modal.style.display = "none";
+									   btnSubmit.focus();
+									}
+									// When the user clicks anywhere outside of the modal, close it
+									window.onclick = function(event) {
+									   if (event.target == modal) {
+										  modal.style.display = "none";
+										  btnSubmit.focus();
+									   }
+									}	
+
+									document.addEventListener('keyup', function (event) {
+									  if ( event.keyCode == 27 )   { //keycode 27 is escape
+										  modal.style.display = "none";
+										  btnSubmit.focus();
+									  }
+									})									
+																	</script>
+								<style type="text/css">
+									/* The Modal (background) */
+									.modal {
+										display: none; /* Hidden by default */
+										position: fixed; /* Stay in place */
+										z-index: 1; /* Sit on top */
+										padding-top: 100px; /* Location of the box */
+										left: 0;
+										top: 0;
+										width: 100%; /* Full width */
+										height: 100%; /* Full height */
+									}
+									/* Modal Content */
+									.modal-content {
+										background-color: #fefefe;
+										margin: auto;
+										padding: 20px;
+										border: 1px solid #888;
+										width: 25em;
+										height: auto;
+									}
+									/* The Close Button */
+									.submit {
+										background-color:#e60914;
+										border:0;
+										border-radius: 5px;
+										box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+										color:#fff;
+										font-size: 15px;
+										padding: 10px 25px;
+									}
+									.submit:hover,
+									.submit:focus {
+										color: #000;
+										text-decoration: none;
+										cursor: pointer;
+									}	
+											
+								</style>
+								<!-- 
+						<img src="images/image7.png" class="img-responsive" alt="">
+						<img src="images/image8.png" class="img-responsive" alt="">
+								-->
+								<p class="wb-inv">L'exemple finit</p>
+							</div>
+						</div>			
+									
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">Voir le HTML</summary>
+							<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;h1&gt;Modal Popup Example&lt;/h1&gt;
+&lt;!-- Déclencher/ouvrir le modal --&gt;
+&lt;button class="submit" id="myBtn"&gt;Submit&lt;/button&gt;
+&lt;!-- Le modal --&gt;
+&lt;div id="myModal" class="modal"&gt;
+   &lt;!-- Le contenu modal --&gt;
+   &lt;div class="modal-content"&gt;
+      &lt;h2&gt;Votre formulaire a &eacute;t&eacute; soumis.&lt;/h2&gt;
+      &lt;button class="btn-close"&gt;Fermer&lt;/button&gt;
+   &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+							<p class="wb-inv">Fin du code</p>
+						</details>
+																														
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">Voir le CSS</summary>	
+							<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-css">/* Le modal (arrière-plan) */
+.modal {
+   display: none; /* Masqué par défaut */
+   position: fixed; /* Rester en place */
+   z-index: 1; /* S'asseoir sur le dessus */
+   padding-top: 100px; /* Emplacement de la boîte */
+   left: 0;
+   top: 0;
+   width: 100%; /* Pleine largeur */
+   height: 100%; /* Pleine hauteur */
+}
+/* Contenu modal */
+.modal-content {
+   background-color: #fefefe;
+   margin: auto;
+   padding: 20px;
+   border: 1px solid #888;
+   width: 25%;
+   height:25%;
+}
+.submit {
+   background-color:#e60914;
+   border:0;
+   border-radius: 5px;
+   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+   color:#fff;
+   font-size: 15px;
+   padding: 10px 25px;
+}
+.submit:hover,
+.submit:focus {
+   color: #000;
+   text-decoration: none;
+   cursor: pointer;
+}</code></pre>
+							<p class="wb-inv">Fin du code</p>
+						</details>
+
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">Voir le JavaScript</summary>
+							<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-javascript">// Obtenir le modal
+var modal = document.getElementById("myModal");
+// Obtenez le bouton qui ouvre le modal
+var btnSubmit = document.getElementById("myBtn");
+// Obtenez le bouton qui ferme le modal
+var btnClose = document.getElementsByClassName("btn-close")[0];
+// Lorsque l'utilisateur clique sur le bouton, ouvrez le modal. 
+btnSubmit.onclick = function() {
+   modal.style.display = "block";
+}
+}
+//prevent tabbing to the page
+btnClose.addEventListener("keydown", event => {
+	  if (event.shiftKey || event.keyCode === 9) {
+		btnClose.focus();
+		event.preventDefault();
+		false;
+	  }
+	});
+// Lorsque l'utilisateur clique sur le bouton de fermeture, fermez le modal
+btnClose.onclick = function() {     
+   modal.style.display = "none";
+}
+// Lorsque l'utilisateur clique n'importe où en dehors de la modale, le fermer
+window.onclick = function(event) {
+   if (event.target == modal) {
+     modal.style.display = "none";
+   }
+
+document.addEventListener('keyup', function (event) {
+  if ( event.keyCode == 27 )   { //keycode 27 is escape
+	  modal.style.display = "none";
+	  btnSubmit.focus();
+  }
+})
+}</code></pre>
+							<p class="wb-inv">Fin du code</p>
+						</details>
+					</div>
+				</div>
+
+			</section>
+			
+			<section>				
+				<h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+                        <p class="mrgn-tp-md">En anglais seulement.</p>
+					<h3 id="keyboard-input-success-criteria">Critères de succès</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard" lang="en-CA">2.1.1: Keyboard</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/no-keyboard-trap" lang="en-CA">2.1.2: No Keyboard Trap</a>
+						</li>
+					</ul>
+					<h3 id="keyboard-input-techniques">Techniques</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G202" lang="en-CA">G202: Ensuring keyboard control for all functionality</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G90" lang="en-CA">G90: Providing keyboard-triggered event handlers</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G21" lang="en-CA">G21: Ensuring that users are not trapped in content</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H91" lang="en-CA">H91: Using HTML form controls and links</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR20" lang="en-CA">SCR20: Using both keyboard and other device-specific functions</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR29" lang="en-CA">SCR29: Adding keyboard-accessible actions to static HTML elements</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR35" lang="en-CA">SCR35: Making actions keyboard accessible by using the onclick event of anchors and buttons</a>
+						</li>
+					</ul>
+					<h3 id="keyboard-input-failures">Échecs</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F54" lang="en-CA">F54: Failure of Success Criterion 2.1.1 due to using only pointing-device-specific event handlers (including gesture) for a function</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F42" lang="en-CA">F42: Failure of Success Criteria 1.3.1, 2.1.1, 2.1.3, or 4.1.2 when emulating links</a>
+						</li>
+					</ul>
+				</details>
+			</section>
+		
+		
+	<nav role="navigation" aria-labelledby="nav-document">
+		<h2 id="nav-document" class="wb-inv">Menu de la pagination</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="mouse-input-fr.html">Précédent - Saisie avec la souris</a></li>
+			<li class="next"><a rel="next" href="touch-input-fr.html">Suivant - Saisie avec un dispositif de pointage</a></li>
+		</ul>
+	</nav>
+	</main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation" aria-labelledby="wb-sec-h">	
+		<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 10 - Méthodes de saisie de données</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
+						<li><a class="list-group-item" href="mouse-input-fr.html">Saisie avec la souris</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="keyboard-input-fr.html">Saisie avec clavier</a></li>
+						<li><a class="list-group-item" href="touch-input-fr.html">Saisie avec un dispositif de pointage</a></li>
+						<li><a class="list-group-item" href="voice-input-fr.html">Saisie vocale</a></li>
+						<li><a class="list-group-item" href="motion-actuation-fr.html">Commande par le mouvement</a></li>						
+						<li><a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Tous les modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 - Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/links-fr.html">Module 3 - Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/tables-concepts-fr.html">Module 4 - Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/text-alternatives-fr.html">Module 5 - Images</a></li>
+                        <li><a class="list-group-item" href="../module6/forms-concepts-fr.html">Module 6 - Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 - Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item" href="../module8/introduction-fr.html">Module 8 - Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item active" href="introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap-fr.html">Plan du site</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
+					</li>
+
+				</ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>

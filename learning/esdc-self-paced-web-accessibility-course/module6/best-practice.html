@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -47,6 +48,7 @@
             },
 			{
                 "title": "Module 6 - Forms",
+                
                 "href" : "index.html"
             }],
             "lngLinks": [{
@@ -61,7 +63,7 @@
 <div class="row">
 	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
 			
-	<h1 property="name" id="wb-cont">Heading title</h1>
+	<h1 property="name" id="wb-cont">Best practice</h1>
 						
 	<nav role="navigation">
     <div class="panel panel-default mrgn-tp-md">
@@ -70,68 +72,69 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#labelling-controls">Best practice – Labelling controls</a></li>
-			<li><a href="#grouping-controls">Best practice – Grouping controls</a></li>
-			<li><a href="#form-instruction">Best practice – Form instruction</a></li>
-			<li><a href="#validating-input">Best practice – Validating input</a></li>
-			<li><a href="#multi-step">Best practice – Multi-step forms</a></li>
-			<li><a href="#custom-control">Best practice – Custom controls</a></li>
+            <li><a href="#labelling-controls">Labelling controls<span class="wb-inv"> (best practice)</span></a></li>
+			<li><a href="#grouping-controls">Grouping controls<span class="wb-inv"> (best practice)</span></a></li>
+			<li><a href="#form-instruction">Form instruction<span class="wb-inv"> (best practice)</span></a></li>
+			<li><a href="#validating-input">Validating input<span class="wb-inv"> (best practice)</span></a></li>
+			<li><a href="#multi-step">Multi-step forms<span class="wb-inv"> (best practice)</span></a></li>
+			<li><a href="#custom-control">Custom controls<span class="wb-inv"> (best practice)</span></a></li>
           </ul>
         </div>
       </div>
 	</nav>
 	
 			<section>				
-				<h2 id="labelling-controls">Best practice – Labelling controls</h2>
+				<h2 id="labelling-controls">Labelling controls<span class="wb-inv"> (best practice)</span></h2>
 			  <ul><li>Provide labels to describe the purpose of the form control.</li>
 				
 					<li>Use the <code>&lt;label&gt;</code> element to explicitly associate a form control with a label</li>
 					<li>Match exactly the <code>for</code> attribute of the label with the <code>id</code> attribute of the form control</li>
 					<li>Elements that use explicitly associated labels are:
 					  <ul>
-					    <li><code>input type="text"</code></li>
-					    <li><code>input type="checkbox"</code></li>
-					    <li><code>input type="radio"</code></li>
-					    <li><code>input type="file"</code> (file-select fields)</li>
-					    <li><code>input type="password"</code></li>
-					    <li><code>textarea</code></li>
-					    <li>Select (drop-down lists)</li>
+					    <li><code>&lt;input type="text"&gt;</code></li>
+					    <li><code>&lt;input type="checkbox"&gt;</code></li>
+					    <li><code>&lt;input type="radio"&gt;</code></li>
+					    <li><code>&lt;input type="file"&gt;</code> (file-select fields)</li>
+					    <li><code>&lt;input type="password"&gt;</code></li>
+					    <li><code>&lt;textarea&gt;</code></li>
+					    <li><code>&lt;select&gt;</code> (drop-down lists)</li>
 				      </ul>
 					</li>
 					<li>Do not use the <code>&lt;label&gt;</code> element for the following elements. 
 					  <ul>
-					    <li>Submit and Reset buttons (<code>input type="submit"</code> or <code>input type="reset"</code>)
+					    <li>Submit and Reset buttons (<code>&lt;input type="submit"&gt;</code> or <code>&lt;input type="reset"&gt;</code>)
 					      <ul>
-					        <li>Label provided by the value attribute</li>
+					        <li>Label provided by the <code>value</code> attribute</li>
 				          </ul>
 					    </li>
-					    <li>Image buttons (<code>input type="image"</code>)
+					    <li>Image buttons (<code>&lt;input type="image"&gt;</code>)
 					      <ul>
 					        <li>Label provided by the <code>alt</code> attribute</li>
 				          </ul>
 					    </li>
-					    <li>Hidden input fields (<code>input type="hidden"</code>)</li>
+					    <li>Hidden input fields (<code>&lt;input type="hidden"&gt;</code>)</li>
 					    <li>Buttons (button elements or <code>&lt;input type="button"&gt;</code>)
 					      <ul>
-					        <li>Label provided by the element content itself (button) or the value, <code>aria-label</code>, or <code>aria-labelledby</code> attribute</li>
+					        <li>Label provided by the element content itself (button) or the <code>value</code>, <code>aria-label</code>, or <code>aria-labelledby</code> attribute</li>
 				          </ul>
 					    </li>
 				      </ul>
 					</li>
-					<li>Use ARIA labels (<code>aria-labelledby</code> and <code>aria-label</code> attributes) when it is not possible to use <code>&lt;label&gt;</code></li>
+					<li>Use ARIA labels (<code>aria-labelledby</code> or <code>aria-label</code> attributes) when it is not possible to use <code>&lt;label&gt;</code></li>
 					<li>When using ARIA labels, include any visible text in the control label.</li>
 					<li>Use the <code>aria-labelledby</code> attribute to retrieve a label from the context or to concatenate a label out of one or more elements in the context.</li>
-					<li>Avoid using the title attribute to identify form controls. It is not widely supported by AT.</li>
+					<li>Avoid using the <code>title</code> attribute to identify form controls. It is not widely supported by AT.</li>
 					<li>Keep label text short and concise.</li>
 					<li>Use unique label text on a page.</li>
 					<li>Position labels visually to the right of radio buttons and checkboxes.</li>
-					<li>Position labels visually directly above their form fields (preferred by WET) or to the left (WET alternative, when there’s a need to conserve vertical space). </li>
+					<li>Position labels visually directly above their form fields (preferred by WET) or to the left, aligned right (WET alternative, when there’s a need to conserve vertical space). </li>
 			  </ul>
 			</section>
 			
 			<section>				
-				<h2 id="grouping-controls">Best practice – Grouping controls</h2>
-				<ul><li>Use <code>&lt;fieldset&gt;</code> element to group related controls in a form. </li>
+				<h2 id="grouping-controls">Grouping controls<span class="wb-inv"> (best practice)</span></h2>
+				<ul>
+					<li>Use the <code>&lt;fieldset&gt;</code> element to group related controls in a form. </li>
 					<li>Use the <code>&lt;legend&gt;</code> element to name the <code>&lt;fieldset&gt;</code> element</li>
 					<li>Make the <code>legend</code> as short as possible as some assistive technology declares the <code>legend</code> together with the label every time.</li>
 					<li>Make the individual labels self-explanatory as some assistive technology does not declare the <code>&lt;legend&gt;</code>. Do not repeat the <code>legend</code> in every label.</li>
@@ -142,7 +145,7 @@
 			</section>
 			
 			<section>				
-				<h2 id="form-instruction">Best practice – Form instruction</h2>
+				<h2 id="form-instruction">Form instruction<span class="wb-inv"> (best practice)</span></h2>
 			<ul>			
 				<li>Provide overall instructions that apply to the entire form and provide them before the <code>&lt;form&gt;</code>  element. This ensures screen reader users encounter the information before switching to “Forms Mode.”</li>
 				<li>Use <code>aria-labelledby</code> or <code>aria-describedby</code> to provide instructions outside of labels. </li>
@@ -154,15 +157,15 @@
 			
 				
 			<section>				
-			<h2 id="validating-input">Best practice – Validating input</h2>
+			<h2 id="validating-input">Validating input<span class="wb-inv"> (best practice)</span></h2>
 			<ul>	
 				<li>Validate user data using validation attributes on HTML5 form elements.</li>
-				<li>Common validation attributes include required, <code>type</code>, <code>pattern</code>, <code>min</code> and <code>max</code> attributes.</li>
+				<li>Common validation attributes include <code>required</code>, <code>type</code>, <code>pattern</code>, <code>min</code> and <code>max</code> attributes.</li>
 				<li>Validate data on client-side and server-side to ensure security.</li>
 				<li>Identify required form fields both visually in the label and semantically.</li>
 				<li>Use HTML5 input types to validate different types of data, including email, URL, number, telephone, date and range.</li>
 				<li>Validate patterned input using the pattern attribute to specify a regular expression for matching</li>
-				<li>Validate length of entries using minlength, maxlength, <code>min</code> and <code>max</code> attributes</li>
+				<li>Validate length of entries using <code>minlength</code>, <code>maxlength</code>, <code>min</code> and <code>max</code> attributes</li>
 				<li>Be accommodating as possible of different input formats</li>
 				<li>Enable your users to check and correct their input to reduce errors.</li>
 				<li>Require user confirmation for irreversible actions.</li>
@@ -173,7 +176,7 @@
 			
 				
 			<section>				
-			  <h2 id="user-notifications">Best practice – User notifications</h2>
+			  <h2 id="user-notifications">User notifications<span class="wb-inv"> (best practice)</span></h2>
 				<ul>	
 					<li>Upon form submission, notify the user of success or of any errors.</li>
 					<li>Ensure error messages are clear and concise and provide simple instructions for resolving the error. </li>
@@ -193,12 +196,12 @@
 			
 				
 			<section>				
-				<h2 id="multi-step">Best practice – Multi-step forms</h2>
+				<h2 id="multi-step">Multi-step forms<span class="wb-inv"> (best practice)</span></h2>
 				<ul>
 					<li>Split the form up according to its logical groups of controls (e.g., contact information and questionnaire).</li>
 					<li>Validate the current step before exposing the next.</li>
 					<li>Label optional steps and enable users to skip them. </li>
-					<li>Ensure keyboard focus moves smoothly from step to step, backwards and forwards. At a new step, set the focus preferably on the next relevant form element, or relevant heading or container (a heading or container would need the <code>tabindex="-1"</code> attribute to programmatically receive focus).</li>
+					<li>Ensure keyboard focus moves smoothly from step to step, backwards and forwards. At a new step, set the focus preferably on the next relevant form element, or relevant heading or container.</li>
 					<li>Avoid a time limit to fill out the form. If a limit is required, enable the user to adjust or extend it.</li>
 					<li>If the steps are across pages, repeat overall instructions on every page.</li>
 					<li>Indicate progress in the form (“Step x of y”).</li>
@@ -206,11 +209,11 @@
 			</section>
 			
 			<section>				
-				<h2 id="custom-control">Best practice – Custom controls</h2>
+				<h2 id="custom-control">Custom controls<span class="wb-inv"> (best practice)</span></h2>
 				<ul>
 					<li>Whenever possible, use native HTML form elements rather than custom controls.</li>
 					<li>Model the behaviour after native HTML form elements.</li>
-					<li>Add appropriate ARIA <code>name</code>, <code>role</code>, and values if necessary.</li>
+					<li>Add appropriate ARIA name, role, and values if necessary.</li>
 					<li>Communicate updates and state changes via ARIA live messages when they can’t be communicated through HTML or ARIA methods</li>
 				</ul>
 
@@ -251,18 +254,32 @@
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">All modules</h3>
 					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
-						<li><a class="list-group-item" href="../module2/index.html">Module 2 – Page structure and semantics</a></li>			
-						<li><a class="list-group-item" href="../module3/index.html">Module 3 – Links and navigation</a></li>
-						<li><a class="list-group-item" href="../module4/index.html">Module 4 – Tables</a></li>
-						<li><a class="list-group-item" href="../module5/index.html">Module 5 – Images</a></li>
-						<li><a class="list-group-item active" href="index.html">Module 6 – Forms</a></li>	
-						<li><a class="list-group-item" href="../module7/index.html">Module 7 – Visual design and colours</a></li>
-						<li><a class="list-group-item" href="../module8/index.html">Module 8 – Zoom and responsive design</a></li>
-						<li><a class="list-group-item" href="../module9/index.html">Module 9 - Audio, video, animation and motion</a></li>
-						<li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
-						<li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
-					</ul>
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item active" href="forms-concepts.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Site map and best practice</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+					</li>
+
+				</ul>
 			</section>
 	</nav>
 </div>

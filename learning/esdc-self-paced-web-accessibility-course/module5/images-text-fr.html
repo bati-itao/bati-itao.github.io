@@ -10,8 +10,7 @@
 	<meta content="width=device-width,initial-scale=1" name="viewport">
 	<!-- Meta data -->
 	<meta name="description"
-		content="Lignes directrices sur l’accessibilité relatives aux images de texte. Il faut éviter ces images.">
-	<meta name="robots" content="noindex">
+		content="Lignes directrices sur l’accessibilité relative aux images de texte. Il faut éviter ces images.">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -21,6 +20,7 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -47,6 +47,7 @@
             },
 			{
                 "title": "Module 5 –  Images",
+                
                 "href" : "index-fr.html"
             }],
             "lngLinks": [{
@@ -92,7 +93,7 @@
 		
 				<div class="panel panel-primary mrgn-tp-md">
 					<div class="panel-body well mrgn-bttm-0">
-						<p class="wb-inv">D&eacute;but de l'exemple</p>				
+						<p class="wb-inv">L'exemple commence</p>				
 						<p class="checker">L&apos;accessibilit&eacute; au bout de vos doigts</p>
 						<style type="text/css">
 .checker {						
@@ -108,12 +109,13 @@
   color:white;
 }						
 						</style>
-						<p class="wb-inv">Fin de l'exemple</p>	
+						<p class="wb-inv">L'exemple finit</p>	
 					</div>
 				</div>
-				<div style="padding-top: 1em">
-					<p class="wb-inv">Code commence</p>
- <pre><code class="language-css">&lt;p class="checker"&gt;L&apos;accessibilit&eacute; au bout de vos doigts&lt;/p&gt;
+			
+<p class="lang-label small">CSS</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-css">&lt;p class="checker"&gt;L&apos;accessibilit&eacute; au bout de vos doigts&lt;/p&gt;
 
 .checker {
   border: 2px solid black;
@@ -126,13 +128,13 @@
   font-size:35px;
   color:white;
 }</code></pre>
-					<p class="wb-inv">Fins du code</p>
-				</div>
+					<p class="wb-inv">Fin du code</p>
+			
 			</div>
 		</div>
 		<div class="panel panel-danger mrgn-tp-lg">
 			<div class="panel-body">
-				<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais exemple : Image de texte </h3>
+				<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais exemple : Image de texte </h3>
 				<p>Éviter les images de texte à moins qu’elles ne soient essentielles (comme un logo) ou personnalisables. Dans l’exemple ci-dessous, trois liens emboîtent des images de texte.</p>
 				<img src="images/image28.png" class="img-responsive" alt="">
 				<p>Les utilisateurs de dispositifs de grossissement d’écran peuvent avoir de la difficulté à lire une image de texte lorsqu’elle est agrandie et pixélisée, comme le montre l’image ci-dessous.</p>
@@ -150,20 +152,21 @@
 			<li>Utiliser une image avec texte de remplacement ou une longue description de l’expression mathématique.</li>
 			<li>Étiqueter l’expression mathématique sémantiquement dans MathML et utiliser une bibliothèque mathématique JavaScript.</li>
 		</ul>
-		<h4 class="">Stratégie 1 : Utiliser une image avec texte de remplacement décrivant l’expression mathématique</h4>
-		<p>Les images d’expressions mathématiques ne doivent être utilisées que lorsque les mathématiques font exception au contenu ordinaire du site Web. Dans ce cas, la valeur de l’attribut alt de l’élément <code>img</code> doit communiquer l’expression mathématique, sauf si plus de 150 caractères sont requis, auquel cas il faut utiliser une description longue.</p>
+		<h4>Stratégie 1 : Utiliser une image avec texte de remplacement décrivant l’expression mathématique</h4>
+		<p>Les images d’expressions mathématiques ne doivent être utilisées que lorsque les mathématiques font exception au contenu ordinaire du site Web. Dans ce cas, la valeur de l’attribut alt de l’élément <code lang="en-CA">img</code> doit communiquer l’expression mathématique, sauf si plus de 150 caractères sont requis, auquel cas il faut utiliser une description longue.</p>
 		<div class="panel panel-primary mrgn-tp-md">
 			<div class="panel-body well mrgn-bttm-0">
-				<p class="wb-inv">D&eacute;but de l'exemple</p>
+				<p class="wb-inv">L'exemple commence</p>
 				<img src="images/image2e.png" class="img-responsive" alt="zéro point un, récurrent">
-				<p class="wb-inv">Fin de l'exemple</p>	
+				<p class="wb-inv">L'exemple finit</p>	
 			</div>
 		</div>
-		<p class="wb-inv">Code commence</p>
-		<pre><code class="language-html">&lt;img src="recurring.png" alt="zéro point un, récurrent"&gt;</code></pre>
-		<p class="wb-inv">Fins du code</p>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;img src="recurring.png" alt="zéro point un, récurrent"&gt;</code></pre>
+		<p class="wb-inv">Fin du code</p>
 		
-		<h4 class="">Stratégie 2 : Utiliser MathML </h4>
+		<h4>Stratégie 2 : Utiliser MathML </h4>
 		<p>La méthode privilégiée pour saisir des expressions mathématiques en tant que contenu sémantique et accessible est le langage de balisage MathML. Le balisage MathML permet aux agents utilisateurs de déterminer la structure des expressions mathématiques d’une façon lisible par machine.</p>
 		<p>La plupart des navigateurs Web ont besoin de modules d’extension pour bien rendre MathML aux fins de présentation, comme la bibliothèque de source ouverte <a href="http://www.mathjax.org/">MathJax</a> de source ouverte, qui offre un soutien pour l’affichage et d’autres <a href="https://docs.mathjax.org/en/latest/basic/accessibility.html">fonctions d’accessibilité</a>. Les bibliothèques de mathématiques de JavaScript prennent généralement en charge les expressions mathématiques rédigées en Tex et LaTeX et AsciiMath, pas seulement MathML.</p>
 		<p>Dans l’exemple ci-dessous, MathML communique une expression mathématique avec un balisage sémantique et une syntaxe adaptée aux technologies d’assistance comme les lecteurs d’écran. MathJax offre un bon rendu pour l’écran avec la composition appropriée.</p>
@@ -171,7 +174,7 @@
 		
 		<div class="panel panel-primary mrgn-tp-md">
 			<div class="panel-body well mrgn-bttm-0">
-				<p class="wb-inv">D&eacute;but de l'exemple</p>
+				<p class="wb-inv">L'exemple commence</p>
 				   <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
 					  <mrow>
 						 <mi>E</mi><mo>=</mo>
@@ -210,13 +213,13 @@
 						 </mfrac>
 					  </mrow>                                                   
 				   </math>	
-				<p class="wb-inv">Fin de l'exemple</p>		
+				<p class="wb-inv">L'exemple finit</p>		
 			</div>
 		</div>
 		<details class="mrgn-tp-lg">
 			<summary class="bg-info">Voir le MathML</summary>
-			<p class="wb-inv">Code commence</p>
-<pre><code class="language-html">&lt;head&gt;
+			<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;head&gt;
    […]
    &lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"&gt;&lt;/script&gt;
 &lt;/head&gt;
@@ -260,32 +263,33 @@
       &lt;/mrow&gt;                                                   
    &lt;/math&gt;
 &lt;/body&gt;</code></pre>
-			<p class="wb-inv">Fins du code</p>		
+			<p class="wb-inv">Fin du code</p>		
 		</details>
 		<hr/>
-		<p class="small">Source: <a href="https://accessibility.psu.edu/math/mathmltest/">https://accessibility.psu.edu/math/mathmltest/</a></p>
+		<p class="small">Source: <a href="https://accessibility.psu.edu/math/mathmltest/" lang="en-CA">MathML test page</a> (en anglais seulement)</p>
 	</section>
 	<section>
 		<h2 class="wb-inv" id="wcag">Ressources WCAG connexes</h2>
 		<details class="mrgn-tp-ls">
 			<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En Anglais seulement.</p>
-		<h3 class="">Critères de succès</h3>
+                        <p class="mrgn-tp-md">En anglais seulement.</p>
+                        
+		<h3>Critères de succès</h3>
 		<ul>
 			<li>
-				<a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a>
+				<a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content" lang="en-CA">1.1.1: Non-text Content</a>
 			</li>
 			<li>
-				<a href="https://www.w3.org/WAI/WCAG21/Understanding/images-of-text.html">1.4.5: Images of Text</a>
+				<a href="https://www.w3.org/WAI/WCAG21/Understanding/images-of-text.html" lang="en-CA">1.4.5: Images of Text</a>
 			</li>
 		</ul>
-		<h3 class="">Techniques</h3>
+		<h3>Techniques</h3>
 		<ul>
 			<li>
-				<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C22">C22: Using CSS to control visual presentation of text</a>
+				<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C22" lang="en-CA">C22: Using CSS to control visual presentation of text</a>
 			</li>
 			<li>
-				<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G94">G94: Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content</a>
+				<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G94" lang="en-CA">G94: Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content</a>
 			</li>
 		</ul>
 		</details>
@@ -337,17 +341,33 @@
 			Tous les modules
 			</h3>
 			<ul class="list-group menu list-unstyled">
-				<li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
-				<li><a class="list-group-item" href="../module2/index-fr.html">Module 2 – Structure et sémantique des pages</a></li>			
-				<li><a class="list-group-item" href="../module3/index-fr.html">Module 3 – Liens et navigation</a></li>
-				<li><a class="list-group-item" href="../module4/index-fr.html">Module 4 – Tableaux</a></li>
-				<li><a class="list-group-item active" href="index-fr.html">Module 5 – Images</a></li>
-				<li><a class="list-group-item" href="../module6/index-fr.html">Module 6 – Formulaires</a></li>	
-				<li><a class="list-group-item" href="../module7/index-fr.html">Module 7 – Conception visuelle couleurs</a></li>
-				<li><a class="list-group-item" href="../module8/index-fr.html">Module 8 – Zoom et conception adaptée</a></li>
-				<li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
-			</ul>	
-		</section>
+				<li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+				<li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 – Structure et sémantique des pages</a></li>			
+				<li><a class="list-group-item" href="../module3/links-fr.html">Module 3 – Liens et navigation</a></li>
+				<li><a class="list-group-item" href="../module4/tables-concepts-fr.html">Module 4 – Tableaux</a></li>
+				<li><a class="list-group-item active" href="text-alternatives-fr.html">Module 5 – Images</a></li>
+				<li><a class="list-group-item" href="../module6/forms-concepts-fr.html">Module 6 – Formulaires</a></li>	
+				<li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 – Conception visuelle couleurs</a></li>
+				<li><a class="list-group-item" href="../module8/introduction-fr.html">Module 8 – Zoom et conception adaptée</a></li>
+				<li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item" href="../module10/introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap-fr.html">Plan du site</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
+					</li>
+
+				</ul>
+			</section>
 	
 	</nav>
 	

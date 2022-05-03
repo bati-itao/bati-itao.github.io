@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -47,6 +48,7 @@
             },
 			{
                 "title": "Module 9 - Audio, video, animation and motion",
+                
                 "href" : "index.html"
             }],
             "lngLinks": [{
@@ -73,7 +75,7 @@
             <li><a href="#animation-from-interactions">Animation from interactions</a></li>
 			<li><a href="#parallax">Parallax</a></li>
 			<li><a href="#background-videos-or-animations">Background videos or animations</a></li>
-			<li><a href="#resources1">Related WCAG resources</a></li>
+			<li><a href="#mod9-animation-motion-wcag">Related WCAG resources</a></li>
           </ul>
         </div>
       </div>
@@ -91,8 +93,10 @@
 			<li>Avoid using unnecessary animation. </li>
 			<li>Provide a control for users to turn off non-essential animations from user interaction (site wide)</li>
 			<li>Take advantage of the reduced motion feature in the user-agent or operating system with the CSS <code>prefers-reduced-motion</code> media query:
-				<p class="wb-inv">Code begins</p>
-<pre class="mrgn-tp-sm"><code class="language-css">@media (prefers-reduced-motion: reduce) {
+			<br/>
+<p class="lang-label small">CSS</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-css">@media (prefers-reduced-motion: reduce) {
    /* CSS to disable motion goes here */
 }</code></pre>
 				<p class="wb-inv">Code ends</p>
@@ -100,7 +104,7 @@
 		</ul>
 		<div class="panel panel-success mrgn-tp-lg">
 			<div class="panel-body">
-				<h3 class="text-success mrgn-tp-0">
+				<h3 class="text-success mrgn-tp-0 h3" id="combining-operating-system">
 					<span class="glyphicon glyphicon-ok-circle"></span> Good example: Combining operating system reduced motion feature with CSS media query
 				</h3>
 			
@@ -112,9 +116,9 @@
 				</ul>
 				<p>Example: <a href="https://www.w3.org/WAI/WCAG21/working-examples/css-reduced-motion-query/">Motion triggered by user interaction</a></p>
 		
-				<p class="wb-inv">Code begins</p>
-						
-<pre><code class="language-css">button:focus, button:hover {
+<p class="lang-label small">CSS</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-css">button:focus, button:hover {
    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
    }
 @media (prefers-reduced-motion: reduce) {
@@ -128,7 +132,7 @@
 					<div class="panel-body mrgn-bttm-0">				
 						<figure>
 							<img src="images/image18.png" class="img-responsive" alt="Screenshot of Windows 10 Ease of Access settings, with the option turned off for Show animations in Windows">
-							<figcaption class="mrgn-tp-md">The <strong>Show animations in Windows</strong> option is turned off in the Windows 10 <strong>Ease of Access</strong> settings, under <strong>Display</strong> &gt; <strong>Simplify and personalise Windows</strong>.</figcaption>
+							<figcaption class="fig-bottom">The <strong>Show animations in Windows</strong> option is turned off in the Windows 10 <strong>Ease of Access</strong> settings, under <strong>Display</strong> &gt; <strong>Simplify and personalise Windows</strong>.</figcaption>
 						</figure>
 				</div>
 			</div>	
@@ -145,14 +149,12 @@
 		</ul>
 		<div class="panel panel-danger mrgn-tp-lg">
 			<div class="panel-body">
-				<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Using Parallax scrolling.
+				<h3 class="text-danger mrgn-tp-0 h3" id="bad-example-using-parallax-scrolling"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Using parallax scrolling.
 				</h3>
-				<p><mark>Create external page that shows parallax scrolling. Use this example and reference source. Consult with coaches on this.</mark></p>
-				<p><mark><a href="https://techbing.com/training/parallax.html">Example to use</a></mark></p>
-				<p><mark><a href="ttps://media.dequeuniversity.com/courses/generic/web-multimedia-animations-and-motion/2.0/en/html/parallax/bad1.html">Reference: Deque example</a></mark></p>
-				<img src="images/image19.png" class="img-responsive" alt="using parallax scrolling">
+				<br/>
+				<p>Example: <a href="parallax_example.html">Parallax Scrolling</a></p>
 				<hr/>
-				<p class="small">Source URL:<a href="https://techbing.com/training/parallax.html">https://techbing.com/training/parallax.html</a></p>
+				<p class="small">Source: Deque <a href="https://media.dequeuniversity.com/courses/generic/web-multimedia-animations-and-motion/2.0/en/html/parallax/bad1.html">Bad example: Parallax</a></p>
 			</div>
 		</div>
 	</section>
@@ -167,11 +169,12 @@
 	
 		<div class="panel panel-success mrgn-tp-lg">
 			<div class="panel-body">
-				<h3 class="text-success mrgn-tp-0">
+				<h3 class="text-success mrgn-tp-0 h3" id="background-video-with-play-pause">
 				<span class="glyphicon glyphicon-ok-circle"></span> Good example: Background video with play / pause feature</h3>
 				<div class="panel panel-primary mrgn-tp-lg">
 					<div class="panel-body well mrgn-bttm-0">
-						<img src="images/image20.jpg" class="img-responsive" alt="A video has a pause button in the bottom right corner.">
+						<p class="wb-inv">Example begins</p>						<img src="images/image20.jpg" class="img-responsive" alt="A video has a pause button in the bottom right corner.">
+						<p class="wb-inv">Example ends</p>
 					</div>
 				</div>
 			</div>
@@ -179,20 +182,36 @@
 	</section>
 				
 			<section>				
-				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
+				<h2 id="mod9-animation-motion-wcag" class="wb-inv">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
 					<ul>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions.html">2.3.3: Animation from Interactions</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/pause-stop-hide">2.2.2: Pause, Stop, Hide</a>
 						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions.html">2.3.3: Animation from Interactions</a> (Level AAA)
+						</li>
+						
 					</ul>
 					<h3>Techniques</h3>
 					<ul>
 						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G4">G4: Allowing the content to be paused and restarted from where it was paused</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G186">G186: Using a control in the Web page that stops moving, blinking, or auto-updating content</a>
+						</li>
+						<li>
 							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C39">C39: Using the CSS reduce-motion query to prevent motion</a>
-						</li>						
+						</li>
+					</ul>
+					<h3>Failures</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F16">F16: Failure of Success Criterion 2.2.2 due to including scrolling content where movement is not essential to the activity without also including a mechanism to pause and restart the content</a>
+						</li>
 					</ul>
 				</details>
 			</section>
@@ -233,18 +252,32 @@
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">All modules</h3>
 					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
-						<li><a class="list-group-item" href="../module2/index.html">Module 2 - Page structure and semantics</a></li>			
-						<li><a class="list-group-item" href="../module3/index.html">Module 3 - Links and navigation</a></li>
-						<li><a class="list-group-item" href="../module4/index.html">Module 4 - Tables</a></li>
-						<li><a class="list-group-item" href="../module5/index.html">Module 5 - Images</a></li>
-						<li><a class="list-group-item" href="../module6/index.html">Module 6 - Forms</a></li>	
-						<li><a class="list-group-item" href="../module7/index.html">Module 7 - Visual design and colours</a></li>
-						<li><a class="list-group-item" href="../module8/index.html">Module 8 - Zoom and responsive design</a></li>
-						<li><a class="list-group-item active" href="index.html">Module 9 - Audio, video, animation and motion</a></li>
-						<li><a class="list-group-item" href="../module10/index.html">Module 10 - Input modalities</a></li>
-						<li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
-					</ul>
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 - Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/links.html">Module 3 - Links and navigation</a></li>
+						<li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 - Tables</a></li>
+						<li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 - Images</a></li>
+						<li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 - Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction.html">Module 7 - Visual design and colours</a></li>
+						<li><a class="list-group-item" href="../module8/introduction.html">Module 8 - Zoom and responsive design</a></li>
+						<li><a class="list-group-item active" href="introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Site map and best practice</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+					</li>
+
+				</ul>
 			</section>
 	</nav>
 </div>

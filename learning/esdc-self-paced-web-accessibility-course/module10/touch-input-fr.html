@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Saisie avec un dispositif de pointage - Module 10 - Méthodes de saisie de données</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Lignes directrices sur l’accessibilité relative à la saisie au moyen d’une touche ou du pointeur. Les sujets comprennent les gestes de commande du pointeur et la taille de la cible.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.appTop({
+                "appName": [{
+                    "text": "EDSC / Bureau de l’accessibilité des TI",
+                    "href": "../../../index-fr.html"
+                }],
+               "breadcrumbs" : [{
+                    "title": "Accueil",
+                    "href" : "../../../index-fr.html"
+                },{
+                    "title": "Apprentissage",
+                    "href" : "../../index-fr.html"
+                },
+				{
+                    "title": "Cours d'accessibilité Web",
+                    "href" : "../index-fr.html"
+                },
+			{
+                "title": "Module 10 - Méthodes de saisie de données",
+                
+                "href" : "index-fr.html"
+            }],
+            "lngLinks": [{
+                "lang": "en",
+                "href": "touch-input.html",
+                "text": "English"
+            }],
+            "menuPath": "../../../ajax/menu-fr.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+			
+	<h1 property="name" id="wb-cont">Saisie avec un dispositif de pointage</h1>
+						
+	<nav role="navigation" aria-labelledby="nav-table">
+    <div class="panel panel-default mrgn-tp-md">
+      <header class="panel-heading">
+        <h2 id="nav-table" class="panel-title">Table des matières</h2>
+      </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#toutes-les-fonctionnalités-sont-accessibles-au-moyen-d’un-dispositif-de-pointage">Toutes les fonctionnalités sont accessibles au moyen d’un dispositif de pointage</a></li>
+			<li><a href="#taille-de-la-cible">Taille de la cible (niveau AAA, facultatif)</a></li>
+			<li><a href="#resources1">Ressources WCAG connexes</a></li>
+          </ul>
+        </div>
+      </div>
+	</nav>
+	
+			<section>				
+				<h2 id="toutes-les-fonctionnalités-sont-accessibles-au-moyen-d’un-dispositif-de-pointage">Toutes les fonctionnalités sont accessibles au moyen d’un dispositif de pointage</h2>
+				<p>Toutes les fonctionnalités doivent être accessibles au moyen d’un dispositif de pointage (p.&nbsp;ex., souris, doigt sur un écran tactile, stylet électronique, pointeur laser).</p>
+				<p>Codez les gestionnaires d'événements JavaScript qui se déclenchent à la fois sur le clavier et sur le clic de la souris. En général, si les commandes sont accessibles par événement clic, elles sont également accessibles par toucher.</p>
+				<p>Ce ne sont pas tous les appareils tactiles ne prennent pas en charge les opérations de glisser-déposer et les gestes définit par un script. Les scripts ne fonctionneront pas du tout si l'utilisateur utilise un lecteur d'écran sur un périphérique tactile. Le lecteur d'écran lui-même utilise les gestes pour fonctionner et consomme tous les gestes avant qu'ils n'atteignent le contenu écrit. Considérez que le glisser-déposer et les gestes scriptés comme des améliorations facultatives qui complètent la principale fonctionnalité de clic. </p>
+				<p>Certains utilisateurs peuvent ne pas être capables d’effectuer des gestes-trajectoires ou multipoints avec un dispositif de pointage. Par exemple, il ne peuvent pas faire des gestes-trajectoires,  de balayage ou  le glissement d’un curseur. Si on prend par  exemple,  les gestes multipoints, on compte le zoom par pincement à deux doigts, une touche fractionnée où un doigt repose sur un point précis l’écran et une autre tape un autre point, ou un toucher ou glissement à deux ou trois doigts.</p>
+				<p>Il faut s’assurer que le contenu est utilisable sans gestes multipoints ou gestes-trajectoires. Les gestes sont utilisables dans la mesure où la fonctionnalité se commande également par dispositif de pointage. Ceci peut être un toucher, un clic, un double-clic, un double toucher, une pression longue ou un clic maintenu.</p>
+				<h3 id="favpid-examples">Exemples</h3>
+				<ul>
+					<li>Toutes les fonctionnalités peuvent être commandées par toucher ou clic simple, par double toucher, par double-clic, par pression longue ou par clic maintenu.</li>
+					<li>Un curseur permet de régler une valeur sur une plage par un geste-trajectoire simple, c’est-à-dire la sélection et le glissement d’un curseur à la position désirée avant de relâcher le doigt ou le bouton de la souris. Aux deux extrémités du curseur se trouvent des boutons redondants pour diminuer ou augmenter la valeur du curseur.</li>
+					<li>Une application Web prend en charge la fonction glisser-déplacer pour réordonner des éléments sur une liste. À la fin de chaque élément de liste, paire redondante de boutons à icône permettent de déplacer l’élément vers le haut ou vers le bas de la liste pour réordonner ses éléments.</li>
+					<li>Un site Web comprend une vue en plan qui prend en charge le geste de pincement multipoint (deux doigts) pour faire un zoom grossissant et le geste de glissement pour déplacer la zone visible. Les commandes de l’interface utilisateur offrent une fonction de zoom redondante commandée avec les boutons [+] et [– ] et un déplacement dans les quatre directions au moyen des touches fléchées.</li>
+				</ul>
+			</section>
+			
+			<section>				
+				<h2 id="taille-de-la-cible">Taille de la cible (niveau AAA, facultatif)</h2>
+				<p>La cible du pointeur (souris, stylet, toucher, etc.) doit être suffisamment grande pour permettre une activation facile, même si l’utilisateur utilise un écran tactile portatif de petite taille ou s’il a une dextérité réduite, des tremblements, une faible vision ou de gros doigts.</p>
+				<p>La taille de la cible devrait faire au moins 44px sur 44px. </p>
+				<p>Il existe quelques exclusions&nbsp;:</p>
+				<dl>
+					<dt>Élément équivalent</dt>
+					<dd class="mrgn-lft-lg">La cible est également disponible à partir d’un lien ou d’une commande sur la même page, qui mesure au moins 44&nbsp;pixels CSS.</dd>
+					
+					<dt>Intégration</dt>
+					<dd class="mrgn-lft-lg">La cible se trouve dans une phrase ou un bloc de texte.</dd>
+					
+					<dt>Contrôle par agent utilisateur</dt>
+					<dd class="mrgn-lft-lg">La taille de la cible est déterminée par l’agent utilisateur et n’est pas modifiée par l’auteur.</dd>
+					
+					<dt>Caractère essentiel</dt>
+					<dd class="mrgn-lft-lg">Une présentation particulière de la cible est essentielle à l’information transmise. </dd>
+				</dl>
+				<p>La taille de la cible est un paramètre de niveau AAA du WCAG&nbsp;2.1, donc d’application facultative pour le gouvernement du Canada. Il est inclus ici parce qu’il est facile à mettre en œuvre, selon la conception.</p>
+			</section>
+			
+			
+			
+			
+			<section>				
+				<h2 id="mod10-touch-input-wcag" class="wb-inv">Ressources WCAG connexes</h2>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+                        <p class="mrgn-tp-md">En anglais seulement.</p>
+					<h3>Critères de succès</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/pointer-gestures" lang="en-CA">2.5.1: Pointer Gestures</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/target-size" lang="en-CA">2.5.5: Target Size</a> (Niveau AAA)</li>
+					</ul>
+					<h3>Techniques</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G215" lang="en-CA">G215: Providing controls to achieve the same result as path based or multipoint gestures</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G216" lang="en-CA">G216: Providing single point activation for a control slider</a>
+						</li>
+					</ul>
+					<h3>Échecs</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F105" lang="en-CA">F105: Failure of Success Criterion 2.5.1 due to providing functionality via a path-based gesture without simple pointer alternative</a>
+						</li>
+					</ul>
+				</details>
+			</section>
+		
+		
+	<nav role="navigation" aria-labelledby="nav-document">
+		<h2 id="nav-document" class="wb-inv">Menu de la pagination</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="keyboard-input-fr.html">Précédent - Saisie avec clavier</a></li>
+			<li class="next"><a rel="next" href="voice-input-fr.html">Suivant - Saisie vocale</a></li>
+		</ul>
+	</nav>
+	</main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation" aria-labelledby="wb-sec-h">	
+		<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 10 - Méthodes de saisie de données</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
+						<li><a class="list-group-item" href="mouse-input-fr.html">Saisie avec la souris</a></li>
+						<li><a class="list-group-item" href="keyboard-input-fr.html">Saisie avec clavier</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="touch-input-fr.html">Saisie avec un dispositif de pointage</a></li>
+						<li><a class="list-group-item" href="voice-input-fr.html">Saisie vocale</a></li>
+						<li><a class="list-group-item" href="motion-actuation-fr.html">Commande par le mouvement</a></li>						
+						<li><a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Tous les modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 - Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/links-fr.html">Module 3 - Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/tables-concepts-fr.html">Module 4 - Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/text-alternatives-fr.html">Module 5 - Images</a></li>
+                        <li><a class="list-group-item" href="../module6/forms-concepts-fr.html">Module 6 - Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 - Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item" href="../module8/introduction-fr.html">Module 8 - Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item active" href="introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap-fr.html">Plan du site</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
+					</li>
+
+				</ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>

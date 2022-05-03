@@ -6,12 +6,11 @@
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-	<title>Images cliquables – Module 5 - Images</title>
+	<title>Images Iconocartes – Module 5 - Images</title>
 	<meta content="width=device-width,initial-scale=1" name="viewport">
 	<!-- Meta data -->
 	<meta name="description"
-		content="Lignes directrices sur l’accessibilité relatives aux iconocartes. Une iconocarte relie les zones géométriques d’une image. Elle comprend un élément img et un élément map.">
-	<meta name="robots" content="noindex">
+		content="Lignes directrices sur l’accessibilité relative aux iconocartes. Une iconocarte relie les zones géométriques d’une image. Elle comprend un élément img et un élément map.">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -21,6 +20,7 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -47,6 +47,7 @@
             },
 			{
                 "title": "Module 5 – Images",
+                
                 "href" : "index-fr.html"
             }],
             "lngLinks": [{
@@ -80,22 +81,22 @@
 
 	<section>
 		<h2 id="designing">Conception avec des images cliquables</h2>
-		<p>Une image cliquable relie les zones géométriques d’une image. Elle comprend un élément <code>&lt;img&gt;</code> et un élément <code>&lt;map&gt;</code>. L’élément <code>&lt;map&gt;</code> utilise son attribut <code>usemap="IDREF"</code> pour faire référence à la valeur d’attribut <code>id</code> de l’élément <code>&lt;map&gt;</code>. Les éléments <code>&lt;map&gt;</code> contiennent à leur tour des éléments <code>&lt;area&gt;</code>qui définissent chacun une zone cliquable de l’image et servent de liens.</p>
+		<p>Une image cliquable relie les zones géométriques d’une image. Elle comprend un élément <code lang="en-CA">&lt;img&gt;</code> et un élément <code lang="en-CA">&lt;map&gt;</code>. L’élément <code lang="en-CA">&lt;map&gt;</code> utilise son attribut <code lang="en-CA">usemap="IDREF"</code> pour faire référence à la valeur d’attribut <code lang="en-CA">id</code> de l’élément <code lang="en-CA">&lt;map&gt;</code>. Les éléments <code lang="en-CA">&lt;map&gt;</code> contiennent à leur tour des éléments <code lang="en-CA">&lt;area&gt;</code>qui définissent chacun une zone cliquable de l’image et servent de liens.</p>
 		<p>Suivez les pratiques exemplaires suivantes pour ce qui a trait aux images cliquables:</p>
 		<ul>
-			<li>Décrire le contexte dans l’attribut <code>alt</code> de l’élément source <code>&lt;img&gt;</code></li>
-			<li>Describe each clickable region in the <code>&lt;area&gt;</code> element’s <code>alt</code> attribute.</li>
+			<li>Décrire le contexte dans l’attribut <code lang="en-CA">alt</code> de l’élément source <code lang="en-CA">&lt;img&gt;</code></li>
+			<li>Describe each clickable region in the <code lang="en-CA">&lt;area&gt;</code> element’s <code lang="en-CA">alt</code> attribute.</li>
 		</ul>
 	</section>
 	<section>
 		<div class="panel panel-success mrgn-tp-lg">
 			<div class="panel-body">
-				<h2 id="example" class="text-success mrgn-tp-0">
+				<h2 id="example" class="text-success mrgn-tp-0 h3">
 					<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Images cliquables
 				</h2>
 				<div class="panel panel-primary mrgn-tp-md">
 					<div class="panel-body well mrgn-bttm-0">
-						<p class="wb-inv">D&eacute;but de l'exemple</p>
+						<p class="wb-inv">L'exemple commence</p>
 						<p> Veuillez sélectionner une forme : 
 							<img src="images/shapes.png" usemap="#shapes" alt="FQuatre formes sont disponibles&nbsp;: une boîte creuse rouge, un cercle vert, un triangle bleu et une étoile jaune à quatre pointes."> 
 							<map name="shapes"> 
@@ -106,13 +107,13 @@
 								<area shape=poly coords="450,25,435,60,400,75,435,90,450,125,465,90,500,75,465,60" href="yellow.html" alt="Étoile jaune"> 
 							</map> 
 						</p>
-						<p class="wb-inv">Fin de l'exemple</p>	
+						<p class="wb-inv">L'exemple finit</p>	
 					</div>
 				</div>
 				
-				<p class="wb-inv">Code commence</p>
-<pre>
-<code class="language-html">&lt;p&gt; Veuillez sélectionner une forme :  
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;p&gt; Veuillez sélectionner une forme :  
    &lt;img src="shapes.png" usemap="#shapes" alt="Quatre formes sont disponibles : une boîte creuse rouge, un cercle vert, un triangle bleu et une étoile jaune à quatre pointes."&gt; 
    &lt;map name="shapes"&gt; 
       &lt;area shape=rect coords="50,50,100,100"&gt; &lt;!-- the hole in the red box --&gt; 
@@ -123,30 +124,31 @@
    &lt;/map&gt; 
 &lt;/p&gt;</code>
 </pre>
-				<p class="wb-inv">Fins du code</p>	
+				<p class="wb-inv">Fin du code</p>	
 			</div>
 		</div>	
 		<hr/>
-		<p class="small">L’exemple d’image cliquable provient du document WHATWG :<a href="https://html.spec.whatwg.org/">4.8.15 Image maps</a> tiré de<a href="https://html.spec.whatwg.org">HTML Living Standard</a>. Statut : Ébauche mise à jour le 12 octobre 2021.  <a href="https://html.spec.whatwg.org/">https://html.spec.whatwg.org/#image-map</a></p>
+		<p class="small">L’exemple d’image cliquable provient du document WHATWG : <a href="https://html.spec.whatwg.org/#image-map" lang="en-CA">4.8.15 Image maps</a> tiré de <a href="https://html.spec.whatwg.org" lang="en-CA">HTML Living Standard</a> (en anglais seulement). Statut : Ébauche mise à jour le 12 octobre 2021.</p>
 	</section>
 	<section>
 		<h2 id="wcag" class="wb-inv">Ressources WCAG connexes</h2>
 		<details class="mrgn-tp-lg">
 			<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En Anglais seulement.</p>
-			<h3 class="">Critères de succès</h3>
+                        <p class="mrgn-tp-md">En anglais seulement.</p>
+                        
+			<h3>Critères de succès</h3>
 			<ul>
 				<li>
-					<a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a>
+					<a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content" lang="en-CA">1.1.1: Non-text Content</a>
 				</li>
 				<li>
-					<a href="https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context">2.4.4: Link Purpose (In Context)</a>
+					<a href="https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context" lang="en-CA">2.4.4: Link Purpose (In Context)</a>
 				</li>
 			</ul>
 			<p>Techniques</p>
 			<ul>
 				<li>
-					<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H24">H24: Providing text alternatives for the area elements of image maps</a>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H24" lang="en-CA">H24: Providing text alternatives for the area elements of image maps</a>
 				</li>
 			</ul>
 		</details>
@@ -196,17 +198,33 @@
 			Tous les modules
 			</h3>
 			<ul class="list-group menu list-unstyled">
-				<li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
-				<li><a class="list-group-item" href="../module2/index-fr.html">Module 2 – Structure et sémantique des pages</a></li>			
-				<li><a class="list-group-item" href="../module3/index-fr.html">Module 3 – Liens et navigation</a></li>
-				<li><a class="list-group-item" href="../module4/index-fr.html">Module 4 – Tableaux</a></li>
-				<li><a class="list-group-item active" href="index-fr.html">Module 5 – Images</a></li>
-				<li><a class="list-group-item" href="../module6/index-fr.html">Module 6 – Formulaires</a></li>	
-				<li><a class="list-group-item" href="../module7/index-fr.html">Module 7 – Conception visuelle couleurs</a></li>
-				<li><a class="list-group-item" href="../module8/index-fr.html">Module 8 – Zoom et conception adaptée</a></li>
-				<li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
-			</ul>	
-		</section>
+				<li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+				<li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 – Structure et sémantique des pages</a></li>			
+				<li><a class="list-group-item" href="../module3/links-fr.html">Module 3 – Liens et navigation</a></li>
+				<li><a class="list-group-item" href="../module4/tables-concepts-fr.html">Module 4 – Tableaux</a></li>
+				<li><a class="list-group-item active" href="text-alternatives-fr.html">Module 5 – Images</a></li>
+				<li><a class="list-group-item" href="../module6/forms-concepts-fr.html">Module 6 – Formulaires</a></li>	
+				<li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 – Conception visuelle couleurs</a></li>
+				<li><a class="list-group-item" href="../module8/introduction-fr.html">Module 8 – Zoom et conception adaptée</a></li>
+				<li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item" href="../module10/introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap-fr.html">Plan du site</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
+					</li>
+
+				</ul>
+			</section>
 	</nav>
 	
 	

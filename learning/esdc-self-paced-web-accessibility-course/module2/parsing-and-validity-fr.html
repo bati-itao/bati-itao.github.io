@@ -11,7 +11,6 @@
 	<!-- Meta data -->
 	<meta name="description"
 		content="Lignes directrices sur l’accessibilité relative à l’analyse syntaxique et à la validité. Les défauts de balisage peuvent faire en sorte que les agents utilisateurs ne parviennent pas à analyser le contenu ou à le présenter différemment.">
-	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -21,6 +20,7 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -47,6 +47,7 @@
             },
 			{
                 "title": "Module 2 – Structure et sémantique des pages",
+                
                 "href" : "index-fr.html"
             }],
             "lngLinks": [{
@@ -98,22 +99,22 @@
 				<h2 id="elements-tags">Les éléments ont des balises de début et de fin complètes</h2>
 				<p>Les balises doivent contenir tous les caractères requis par la syntaxe HTML, par exemple, </p>
 				<ul>
-					<li>les balises de début consistent en un nom d’élément entouré des caractères «&nbsp;inférieur à&nbsp;» et «&nbsp;supérieur à&nbsp;»&nbsp;: <code>&lt;h1&gt;</code></li>
-					<li>dans les balises de fermeture, il faut ajouter une barre oblique inverse&nbsp;: <code>&lt;/h1&gt;</code></li>
+					<li>les balises de début consistent en un nom d’élément entouré des caractères «&nbsp;inférieur à&nbsp;» et «&nbsp;supérieur à&nbsp;»&nbsp;: <code lang="en-CA">&lt;h1&gt;</code></li>
+					<li>dans les balises de fermeture, il faut ajouter une barre oblique inverse&nbsp;: <code lang="en-CA">&lt;/h1&gt;</code></li>
 				</ul>
 			</section>
 			<section>
 				<h2 id="elements-specifications">Les éléments sont imbriqués selon leurs spécifications</h2>
 				<p>Les éléments ayant une relation parent-enfant sont nettement imbriqués, les balises de début et de fin de l’élément enfant étant complètement à l’intérieur des balises de début et de fin de l’élément parent.</p>
-				<div class="panel panel-success mrgn-tp-lg">
+				<div id="list-item-tags" class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Les balises de début et de fin d’éléments de la liste se trouvent à l’intérieur des balises de la liste parent</h3>
-						<p class="wb-inv">Code commence</p>
-<pre>
-<code class=”language-html”>&lt;ul&gt;
-	&lt;li&gt;aïs&lt;/li&gt;
-	&lt;li&gt;Tomates&lt;/li&gt;
-	&lt;li&gt;Haricots&lt;/li&gt;
+						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Les balises de début et de fin d’éléments de la liste se trouvent à l’intérieur des balises de la liste parent</h3>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;ul&gt;
+   &lt;li&gt;aïs&lt;/li&gt;
+   &lt;li&gt;Tomates&lt;/li&gt;
+   &lt;li&gt;Haricots&lt;/li&gt;
 &lt;/ul&gt;</code>
 </pre>
 						<p class="wb-inv">Fins de code</p>
@@ -121,26 +122,28 @@
 				</div>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Les balises d’un élément fort inclus par référence sont entièrement emboîtées à l’intérieur des balises du paragraphe parent</h3>
-						<p class="wb-inv">Code commence</p>
-<pre><code class=”language-html”>&lt;p&gt;&lt;strong&gt;Important:&lt;/strong&gt; Verrouillez la porte en partant.&lt;/p&gt;</code></pre>
+						<h3 id="inline-strong-element-tags" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Les balises d’un élément fort inclus par référence sont entièrement emboîtées à l’intérieur des balises du paragraphe parent</h3>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;p&gt;&lt;strong&gt;Important:&lt;/strong&gt; Verrouillez la porte en partant.&lt;/p&gt;</code></pre>
 						<p class="wb-inv">Fins de code</p>
 					</div>
 				</div>
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-danger mrgn-tp-0"><span class="glyphicon glyphicon-remove-circle"></span> Mauvais exemple&nbsp;: Liste défectueuse</h3>
+						<h3 id="bad-example-broken-list" class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span> Mauvais exemple&nbsp;: Liste défectueuse</h3>
 
 				<p>Les «&nbsp;éléments de liste sans élément de liste parent&nbsp;» et les «&nbsp;éléments de texte sans élément de liste parent&nbsp;» sont relevés par le validateur&nbsp;W3C.</p>
-				<p class="wb-inv">Code commence</p>
-<pre><code class=”language-html”>&lt;body&gt;
-	&lt;h1&gt;En-tête avec toutes les balises nécessaires&lt;/h1&gt;
-	&lt;p&gt;Paragraphe avec toutes les balises nécessaires&lt;/p&gt;
-	&lt;p&gt;Paragraphe sans balise finale (valide en HTML5)
-	&lt;li&gt;Élément de liste dans élément de liste parent&lt;/li&gt;
-	&lt;ul&gt;
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;body&gt;
+   &lt;h1&gt;En-tête avec toutes les balises nécessaires&lt;/h1&gt;
+   &lt;p&gt;Paragraphe avec toutes les balises nécessaires&lt;/p&gt;
+   &lt;p&gt;Paragraphe sans balise finale (valide en HTML5)
+   &lt;li&gt;Élément de liste dans élément de liste parent&lt;/li&gt;
+   &lt;ul&gt;
 	Texte sans élément de liste parent
-	&lt;/ul&gt;
+   &lt;/ul&gt;
 &lt;/body&gt;</code>
 </pre>
 <p class="wb-inv">Fins de code</p>
@@ -153,14 +156,15 @@
 			</section>
 			<section>
 				<p id="idunique">Assurez-vous qu’aucune valeur d’attribut d’identification n’est répétée dans une vue de page.</p>
-				<p>Les valeurs des identificateurs sont utilisées par les technologies d’assistance pour associer les étiquettes et les descriptions avec les éléments, pour les associations d’en-têtes et de cellules dans les tableaux complexes et pour définir les relations dans les widgets d’ARIA (<code>aria-owns</code>, <code>aria-controls</code>, etc.). Les valeurs d’attribut d’identification en double peuvent semer de la confusion et, dans le cas des formulaires, peuvent entraîner des erreurs de saisie par l’utilisateur, les champs de saisie étant mal identifiés ou mal décrits.</p>
+				<p>Les valeurs des identificateurs sont utilisées par les technologies d’assistance pour associer les étiquettes et les descriptions avec les éléments, pour les associations d’en-têtes et de cellules dans les tableaux complexes et pour définir les relations dans les widgets d’ARIA (<code lang="en-CA">aria-owns</code>, <code lang="en-CA">aria-controls</code>, etc.). Les valeurs d’attribut d’identification en double peuvent semer de la confusion et, dans le cas des formulaires, peuvent entraîner des erreurs de saisie par l’utilisateur, les champs de saisie étant mal identifiés ou mal décrits.</p>
 			</section>
 			<section>
 				
 				<h2 id="resources-7" class="wb-inv">Ressources WCAG connexes</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En Anglais seulement.</p>
+                        <p class="mrgn-tp-md">En anglais seulement.</p>
+                        
 					<h3>Critères de succès</h3>
 					<p>
 						<a href="https://www.w3.org/WAI/WCAG21/Understanding/parsing" >4.1.1: Parsing</a> </p>
@@ -230,16 +234,33 @@
 				</h3>
 				
 					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
-						<li><a class="list-group-item active" href="index-fr.html">Module 2 – Structure et sémantique des pages</a></li>			
-						<li><a class="list-group-item" href="../module3/index-fr.html">Module 3 – Liens et navigation</a></li>
-						<li><a class="list-group-item" href="../module4/index-fr.html">Module 4 – Tableaux</a></li>
-						<li><a class="list-group-item" href="../module5/index-fr.html">Module 5 – Images</a></li>
-						<li><a class="list-group-item" href="../module6/index-fr.html">Module 6 – Formulaires</a></li>	
-						<li><a class="list-group-item" href="../module7/index-fr.html">Module 7 – Conception visuelle couleurs</a></li>
-						<li><a class="list-group-item" href="../module8/index-fr.html">Module 8 – Zoom et conception adaptée</a></li>
-						<li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+						<li><a class="list-group-item active" href="landmarks-fr.html">Module 2 – Structure et sémantique des pages</a></li>			
+						<li><a class="list-group-item" href="../module3/links-fr.html">Module 3 – Liens et navigation</a></li>
+						<li><a class="list-group-item" href="../module4/tables-concepts-fr.html">Module 4 – Tableaux</a></li>
+						<li><a class="list-group-item" href="../module5/text-alternatives-fr.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/forms-concepts-fr.html">Module 6 – Formulaires</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 – Conception visuelle couleurs</a></li>
+						<li><a class="list-group-item" href="../module8/introduction-fr.html">Module 8 – Zoom et conception adaptée</a></li>
+						<li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+							<li><a class="list-group-item" href="../module10/introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+							<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
 			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap-fr.html">Plan du site</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
+					</li>
+
+				</ul>
+			</section>
 						
 
 			</section>

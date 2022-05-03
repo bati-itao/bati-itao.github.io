@@ -10,7 +10,7 @@
 	<meta content="width=device-width,initial-scale=1" name="viewport">
 	<!-- Meta data -->
 	<meta name="description"
-		content="Lignes directrices sur l’accessibilité relatives aux formulaires adaptés. Décrit la façon de concevoir des formulaires qui sont compatibles avec des fenêtres d’affichage de différentes tailles">
+		content="Lignes directrices sur l’accessibilité relative aux formulaires adaptés. Décrit la façon de concevoir des formulaires qui sont compatibles avec des fenêtres d’affichage de différentes tailles.">
 	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
@@ -21,6 +21,8 @@
 	<link rel="stylesheet" href="../../../css/a11y-dark.css">
 	<script src="../../../scripts/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -47,6 +49,7 @@
                 },
             {
                     "title": "Module 8 - Zoom et conception adaptée",
+                    
                     "href" : "index-fr.html"
                 }],
 				"lngLinks": [{
@@ -80,97 +83,95 @@
 	
 			<section>				
 				<h2 id="conception-de-formulaires-adaptes">Conception de formulaires adaptés</h2>
-				<p>À mesure que la taille de la zone d’affichage change, assurez-vous que&nbsp;:</p>
+				<p>À mesure que la taille de la zone d’affichage change, assurez-vous que:</p>
 				<ul>
-					<li>les champs de formulaire ne débordent pas, et </li>
+					<li>les champs de formulaire ne débordent pas, et</li>
 					<li>les champs de formulaire et les étiquettes ne sont pas séparés par de larges zones d’espace blanc. Il s’agit d’un obstacle pour les utilisateurs ayant une vision tubulaire et pour les utilisateurs de grossissement d’écran.</li>
 				</ul>	
 			
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h2 class="text-success mrgn-tp-0" id="good-example">
+						<h2 class="text-success mrgn-tp-0 h3" id="good-example">
 						<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Formulaire adapté</h2>
 				
-						<p>Dans cet exemple, un point d’interruption CSS à 768&nbsp;pixels introduit les styles pour les grands écrans. Les différences essentielles&nbsp;: </p>
+						<p>Dans cet exemple, un point d’interruption CSS à 768 pixels introduit les styles pour les grands écrans. Les différences essentielles:</p>
 						<ul>
-							<li>En mode petit écran, les étiquettes sont positionnées directement au-dessus de la commande afin de maximiser la zone de l’écran pour chaque étiquette. </li>
+							<li>En mode petit écran, les étiquettes sont positionnées directement au-dessus de la commande afin de maximiser la zone de l’écran pour chaque étiquette.</li>
 							<li>En mode bureau, les étiquettes sont positionnées à gauche de la commande, alignées à droite, pour maximiser l’espace vertical.</li>
 						</ul>
-						<p>Rétrécissez l’écran de votre navigateur à moins de 768&nbsp;pixels pour voir les styles de petit écran (par défaut).</p>
-						<p>Cet exemple utilise le formulaire HTML de la BOEW (avec l’ajout d’une enveloppe div. <code>.forms-group</code> à l’élément <code>&lt;fieldset&gt;</code> mais des CSS différents et simplifiés pour établir les règles adaptées.</p>
+						<p>Rétrécissez l’écran de votre navigateur à moins de 768 pixels pour voir les styles de petit écran (par défaut).</p>
+						<p>Cet exemple utilise le formulaire HTML de la BOEW (avec l’ajout d’une enveloppe div. <code lang="en-CA">.forms-group</code> à l’élément <code lang="en-CA">&lt;fieldset&gt;</code> mais des CSS différents et simplifiés pour établir les règles adaptées.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
-								<p class="wb-inv">Example begins</p>
-								<p><mark>Form labels, options, checkboxes need translation</mark></p>
+								<p class="wb-inv">L'exemple commence</p>
 								<form action="#" method="get" id="validation-example"> 
 									<div class="form-group">
 										<label for="title1" class="required">
-											<span class="field-name">Title</span> 
-											<strong class="required">(required)</strong>
+											<span class="field-name">Titre</span> 
+											<strong class="required">(requis)</strong>
 										</label>
 										<select class="form-control" id="title1" name="title1" autocomplete="honorific-prefix" required="required">
-											<option label="Select a title"></option>
-											<option value="dr">Dr.</option>
-											<option value="esq">Esq.</option>
-											<option value="mr">Mr.</option>
-											<option value="ms">Ms.</option>
+											<option label="Choisissez votre titre"></option>
+											<option value="Monsieur">Monsieur</option>
+											<option value="Madame">Madame</option>
+											<option value="Mademoiselle">Mademoiselle</option>
 										</select>
 									</div>
 									<div class="form-group">
-										<label for="fname1" class="required">
-											<span class="field-name">First name</span> 
-											<strong class="required">(required)</strong>
+										<label for="prenom1" class="required">
+											<span class="field-name">Prénom</span> 
+											<strong class="required">(requis)</strong>
 										</label>
-										<input class="form-control" id="fname1" name="fname1" type="text" autocomplete="given-name" required="required" data-rule-minlength="2">
+										<input class="form-control" id="prenom1" name="prenom1" type="text" autocomplete="given-name" required="required" data-rule-minlength="2">
 									</div>
 									<div class="form-group">
-										<label for="lname1" class="required">
-											<span class="field-name">Last name</span> 
-											<strong class="required">(required)</strong>
+										<label for="nom1" class="required">
+											<span class="field-name">Nom</span> 
+											<strong class="required">(requis)</strong>
 										</label>
-										<input class="form-control" id="lname1" name="lname1" type="text" autocomplete="family-name" required="required" data-rule-minlength="2">
+										<input class="form-control" id="nom1" name="nom1" type="text" autocomplete="nom" required="required" data-rule-minlength="2">
 									</div>
 									<div class="form-group">
-										<label for="email1">
-											<span class="field-name">Email address</span> 
-											(yourname@domain.com)
+										<label for="courriel1">
+											<span class="field-name">Courriel</span> 
+											(tonnom@courriel.com)
 										</label>
-										<input class="form-control" id="email1" name="email1" type="email" autocomplete="email">
+										<input class="form-control" id="courriel1" name="courriel1" type="courriel" autocomplete="email">
 									</div>
 									<div class="form-group">
 										<fieldset class="chkbxrdio-grp">
 											<legend class="required">
-												<span class="field-name">Favourite pets</span> 
-												<strong class="required">(required)</strong>
+												<span class="field-name">Animal préféré</span> 
+												<strong class="required">(requis)</strong>
 											</legend>
 											<div class="checkbox">
 												<label for="animal1">
 													<input type="checkbox" name="animal" value="1" id="animal1">
-													Dog
+													Chien
 												</label>
 											</div>
 											<div class="checkbox">
 												<label for="animal2">
 													<input type="checkbox" name="animal" value="2" id="animal2"> 
-													Cat
+													Chat
 												</label>
 											</div>
 											<div class="checkbox">
 												<label for="animal3">
 													<input type="checkbox" name="animal" value="3" id="animal3">
-													Fish
+													Poisson
 												</label>
 											</div>
 											<div class="checkbox">
 												<label for="animal4">
 													<input type="checkbox" name="animal" value="4" id="animal4"> 
-													Other
+													Autres
 												</label>
 											</div>
 										</fieldset> 
 									</div>
 									<input type="submit" value="Submit" class="btn btn-default"> 
-									<input type="reset" value="Reset page to defaults" class="btn btn-link btn-sm show p-0 mrgn-tp-md">
+									<input type="reset" value="Réinitialiser la page aux valeurs par défaut" class="btn btn-link btn-sm show p-0 mrgn-tp-md">
 								</form> 
 
 <style type="text/css">
@@ -213,91 +214,90 @@ strong.required {
 	}
 }
 </style>
-								<p class="wb-inv">End of example</p>
+								<p class="wb-inv">L'exemple finit</p>
 							</div>
 						</div>
 						<details class="mrgn-tp-lg">
-							<summary class="bg-info">View HTML</summary>
-							<p><mark>Add French</mark></p>
-							<p class="wb-inv">Code commence</p>
-<pre><code class="language-html">&lt;form action="#" method="get" id="validation-example"&gt; 
+							<summary class="bg-info">Voir le HTML</summary>
+							
+							<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;form action="#" method="get" id="validation-example"&gt; 
    &lt;div class="form-group"&gt;
       &lt;label for="title1" class="required"&gt;
-         &lt;span class="field-name"&gt;Title&lt;/span&gt; 
-         &lt;strong class="required"&gt;(required)&lt;/strong&gt;
+         &lt;span class="field-name"&gt;Titre&lt;/span&gt; 
+         &lt;strong class="required"&gt;(requis)&lt;/strong&gt;
       &lt;/label&gt;
       &lt;select class="form-control" id="title1" name="title1" autocomplete="honorific-prefix" required="required"&gt;
-          &lt;option label="Select a title"&gt;&lt;/option&gt;
-          &lt;option value="dr"&gt;Dr.&lt;/option&gt;
-          &lt;option value="esq"&gt;Esq.&lt;/option&gt;
-          &lt;option value="mr"&gt;Mr.&lt;/option&gt;
-          &lt;option value="ms"&gt;Ms.&lt;/option&gt;
+          &lt;option label="Choisissez votre titre"&gt;&lt;/option&gt;
+           &lt;option value="Monsieur"&gt;Monsieur&lt;/option&gt;
+	  &lt;option value="Madame"&gt;Madame&lt;/option&gt;
+	  &lt;option value="Mademoiselle"&gt;Mademoiselle&lt;/option&gt;
       &lt;/select&gt;
    &lt;/div&gt;
    &lt;div class="form-group"&gt;
-     &lt;label for="fname1" class="required"&gt;
-         &lt;span class="field-name"&gt;First name&lt;/span&gt; 
-         &lt;strong class="required"&gt;(required)&lt;/strong&gt;
+     &lt;label for="prenom1" class="required"&gt;
+         &lt;span class="field-name"&gt;Prénom&lt;/span&gt; 
+         &lt;strong class="required"&gt;(requis)&lt;/strong&gt;
      &lt;/label&gt;
-     &lt;input class="form-control" id="fname1" name="fname1" type="text" autocomplete="given-name" required="required" data-rule-minlength="2"&gt;
+     &lt;input class="form-control" id="prenom1" name="prenom1" type="text" autocomplete="given-name" required="required" data-rule-minlength="2"&gt;
    &lt;/div&gt;
    &lt;div class="form-group"&gt;
-     &lt;label for="lname1" class="required"&gt;
-         &lt;span class="field-name"&gt;Last name&lt;/span&gt; 
-         &lt;strong class="required"&gt;(required)&lt;/strong&gt;
+     &lt;label for="nom1" class="required"&gt;
+         &lt;span class="field-name"&gt;Nom&lt;/span&gt; 
+         &lt;strong class="required"&gt;(requis)&lt;/strong&gt;
      &lt;/label&gt;
-     &lt;input class="form-control" id="lname1" name="lname1" type="text" autocomplete="family-name" required="required" data-rule-minlength="2"&gt;
+     &lt;input class="form-control" id="nom1" name="nom1" type="text" autocomplete="family-name" required="required" data-rule-minlength="2"&gt;
    &lt;/div&gt;
    &lt;div class="form-group"&gt;
-     &lt;label for="email1"&gt;
+     &lt;label for="courriel1"&gt;
          &lt;span class="field-name"&gt;Email address&lt;/span&gt; 
-         (yourname@domain.com)
+         (tonnom@courriel.com)
       &lt;/label&gt;
-     &lt;input class="form-control" id="email1" name="email1" type="email" autocomplete="email"&gt;
+     &lt;input class="form-control" id="courriel1" name="courriel1" type="courriel" autocomplete="email"&gt;
    &lt;/div&gt;
    &lt;div class="form-group"&gt;
       &lt;fieldset class="chkbxrdio-grp"&gt;
          &lt;legend class="required"&gt;
-            &lt;span class="field-name"&gt;Favourite pets&lt;/span&gt; 
-            &lt;strong class="required"&gt;(required)&lt;/strong&gt;
+            &lt;span class="field-name"&gt;Animal préféré&lt;/span&gt; 
+            &lt;strong class="required"&gt;(requis)&lt;/strong&gt;
          &lt;/legend&gt;
          &lt;div class="checkbox"&gt;
             &lt;label for="animal1"&gt;
                &lt;input type="checkbox" name="animal" value="1" id="animal1"&gt;
-               Dog
+               Chien
             &lt;/label&gt;
          &lt;/div&gt;
          &lt;div class="checkbox"&gt;
             &lt;label for="animal2"&gt;
                &lt;input type="checkbox" name="animal" value="2" id="animal2"&gt; 
-               Cat
+               Chat
             &lt;/label&gt;
          &lt;/div&gt;
          &lt;div class="checkbox"&gt;
             &lt;label for="animal3"&gt;
                &lt;input type="checkbox" name="animal" value="3" id="animal3"&gt;
-               Fish
+               Poisson
             &lt;/label&gt;
          &lt;/div&gt;
          &lt;div class="checkbox"&gt;
             &lt;label for="animal4"&gt;
                &lt;input type="checkbox" name="animal" value="4" id="animal4"&gt; 
-               Other
+               Autres
             &lt;/label&gt;
          &lt;/div&gt;
       &lt;/fieldset&gt; 
    &lt;/div&gt;
    &lt;input type="submit" value="Submit" class="btn btn-default"&gt; 
-   &lt;input type="reset" value="Reset page to defaults" class="btn btn-link btn-sm show p-0 mrgn-tp-md"&gt; 
+   &lt;input type="reset" value="Réinitialiser la page aux valeurs par défaut" class="btn btn-link btn-sm show p-0 mrgn-tp-md"&gt; 
 &lt;/form&gt;</code></pre>
-							<p class="wb-inv">Fins du code</p>	
+							<p class="wb-inv">Fin du code</p>	
 					
 						</details>
 		
-						<details class="mrgn-tp-lg">
+						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir le CSS</summary>
-							<p class="wb-inv">Code commence</p>
-<pre><code class="language-css">.form-group { 
+							<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-css">.form-group { 
    margin-bottom: 1em;
 }
 strong.required {
@@ -336,7 +336,7 @@ strong.required {
    }
 }</code>
 </pre>
-							<p class="wb-inv">Fins du code</p>	
+							<p class="wb-inv">Fin du code</p>	
 						
 						</details>
 					</div>
@@ -345,13 +345,13 @@ strong.required {
 			
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
-						<h2 class="text-danger mrgn-tp-0" id="bad-example"><span class="glyphicon glyphicon-remove-circle"></span> Mauvais exemple&nbsp;: Formulaire non adapté</h2>
+						<h2 class="text-danger mrgn-tp-0 h3" id="bad-example"><span class="glyphicon glyphicon-remove-circle"></span> Mauvais exemple&nbsp;: Formulaire non adapté</h2>
 						<p>Dans cet exemple, les étiquettes sont positionnées à gauche des champs de formulaire et alignées à gauche, tandis que les champs de formulaire sont flottés à droite, ce qui crée un grand écart entre les champs d’étiquette et de formulaire. L’écart est un obstacle pour les utilisateurs ayant une vision tubulaire ou les utilisateurs malvoyants qui agrandissent considérablement l’écran.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body mrgn-bttm-0">
-								<p class="wb-inv">Example begins</p>
+								<p class="wb-inv">Début du code</p>
 								<img src="images/image11.png" class="img-responsive" alt="Exemple de formulaire non adapté. Les étiquettes sont positionnées à gauche et alignées à gauche, tandis que les champs de formulaire sont flottés à droite, ce qui crée un grand écart entre les champs d’étiquette et de formulaire.">
-								<p class="wb-inv">Example ends</p>
+								<p class="wb-inv">Fin du code</p>
 							</div>
 						</div>
 					</div>
@@ -378,8 +378,12 @@ strong.required {
 												
 						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
 						<li><a class="list-group-item" href="zoom-fr.html">Zoom</a></li>
-						<li><a class="list-group-item" href="responsive-design-fr.html">Conception adaptée</a>
-							<ul class="list-group menu list-unstyled">
+						<li class="expanded-black">
+						<a class="list-group-item expanded-black" href="responsive-design-fr.html">
+							Conception adaptée
+							<span class="wb-inv" lang="en-CA">Expanded</span>
+						</a>
+							<ul class="list-group menu list-unstyled inner">
 								<li><a class="list-group-item active" aria-current="page" href="responsive-forms-fr.html">Formulaires adaptés</a></li>
 								<li><a class="list-group-item" href="responsive-images-fr.html">Images adaptées</a></li>
 								<li><a class="list-group-item" href="responsive-text-fr.html">Texte adapté</a></li>
@@ -398,16 +402,32 @@ strong.required {
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Tous les modules</h3>
                      <ul class="list-group menu list-unstyled">
-                        <li><a class="list-group-item" href="../module1/index-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
-                        <li><a class="list-group-item" href="../module2/index-fr.html">Module 2 – Structure et sémantique des pages</a></li>
-                        <li><a class="list-group-item" href="../module3/index-fr.html">Module 3 – Liens et navigation</a></li>
-                        <li><a class="list-group-item" href="../module4/index-fr.html">Module 4 – Tableaux</a></li>
-                        <li><a class="list-group-item" href="../module5/index-fr.html">Module 5 – Images</a></li>
-                        <li><a class="list-group-item" href="../module6/index-fr.html">Module 6 – Formulaires</a></li>
-                        <li><a class="list-group-item" href="../module7/index-fr.html">Module 7 – Conception visuelle et couleurs</a></li>
-                        <li><a class="list-group-item active" href="index-fr.html">Module 8 – Zoom et conception adaptée</a></li>
-                        <li><a class="list-group-item" href="../module9/index-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
-                     </ul>
+                        <li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 – Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/links-fr.html">Module 3 – Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/tables-concepts-fr.html">Module 4 – Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/text-alternatives-fr.html">Module 5 – Images</a></li>
+                        <li><a class="list-group-item" href="../module6/forms-concepts-fr.html">Module 6 – Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 – Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item active" href="introduction-fr.html">Module 8 – Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item" href="../module10/introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap-fr.html">Plan du site</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
+					</li>
+
+				</ul>
 			</section>
 	</nav>
 </div>

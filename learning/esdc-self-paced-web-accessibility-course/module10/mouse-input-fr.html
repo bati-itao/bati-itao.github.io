@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Saisie avec la souris - Module 10 - Méthodes de saisie de données</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Lignes directrices sur l’accessibilité relative à la saisie au moyen de la souris. Cette page aborde deux critères : le contenu accessible lorsqu’on le survole avec le pointeur ou qu’on le sélectionne et l’annulation du pointeur.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.appTop({
+                "appName": [{
+                    "text": "EDSC / Bureau de l’accessibilité des TI",
+                    "href": "../../../index-fr.html"
+                }],
+               "breadcrumbs" : [{
+                    "title": "Accueil",
+                    "href" : "../../../index-fr.html"
+                },{
+                    "title": "Apprentissage",
+                    "href" : "../../index-fr.html"
+                },
+				{
+                    "title": "Cours d'accessibilité Web",
+                    "href" : "../index-fr.html"
+                },
+			{
+                "title": "Module 10 - Méthodes de saisie de données",
+                
+                "href" : "index-fr.html"
+            }],
+            "lngLinks": [{
+                "lang": "en",
+                "href": "mouse-input.html",
+                "text": "English"
+            }],
+            "menuPath": "../../../ajax/menu-fr.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+			
+	<h1 property="name" id="wb-cont">Saisie avec la souris</h1>
+						
+	<nav role="navigation" aria-labelledby="nav-table">
+    <div class="panel panel-default mrgn-tp-md">
+      <header class="panel-heading">
+        <h2 id="nav-table" class="panel-title">Table of contents</h2>
+      </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#saisie-avec-la-souris-aperçu">Aperçu : Saisie avec la souris</a></li>
+			<li><a href="#contenu-sur-survol-ou-cible">Contenu sur survol ou cible</a></li>
+			<li><a href="#annulation-du-pointage">Annulation du pointage</a></li>
+			<li><a href="#resources1">Ressources WCAG connexes</a></li>
+          </ul>
+        </div>
+      </div>
+	</nav>
+	
+			<section>				
+				<h2 id="saisie-avec-la-souris-aperçu">Aperçu : Saisie avec la souris</h2>
+				<p>Il faut s’assurer que toutes les fonctions sont accessibles au moyen d’un dispositif de pointage (p.&nbsp;ex., souris, doigt sur un écran tactile, stylet électronique, pointeur laser). Cette section couvre deux critères de réussite de la saisie avec la souris&nbsp;:</p>
+				<ul>
+					<li>Contenu sur le survol ou cible</li>
+					<li>Annulation du pointeur </li>
+				</ul>
+			</section>
+			
+			<section>				
+				<h2 id="contenu-sur-survol-ou-cible">Contenu sur survol ou cible</h2>
+				<p>Le contenu supplémentaire qui apparaît quand l’utilisateur passe le pointeur ou la cible du clavier sur l’élément déclencheur (p.&nbsp;ex. infobulles, fenêtres contextuelles) cause souvent des problèmes d’accessibilité. L’utilisateur n’avait peut-être pas l’intention de déclencher l’interaction ou peut ne pas s’apercevoir que du nouveau contenu est apparu. Cette action peut également nuire à l’utilisateur dans la tâche qu’il cherche à effectuer.</p>
+				<p>Les aides de lecture pour malvoyants utilisant un fort grossissement ne laissent voir qu’une petite partie de l’écran à la fois. Le contenu d’une infobulle peut être rogné par la zone de lecture, ce qui oblige l’utilisateur à déplacer son pointeur pour lire le contenu supplémentaire. Dans le cas où il faut placer le pointeur ou la cible du clavier sur une zone sensible pour ouvrir un contenu supplémentaire, puis l’enlever pour le faire disparaître, les règles suivantes sont vraies&nbsp;:</p>
+				<dl>
+					<dt>Possibilité de rejet</dt>
+					<dd class="mrgn-lft-lg">Un mécanisme (habituellement la touche Esc/Échap) permet de rejeter le contenu supplémentaire sans déplacer le curseur ou la cible du clavier, sauf si le contenu supplémentaire communique une erreur de saisie ou ne cache pas ou ne remplace pas un autre contenu.</dd>
+					<dt>Possibilité de survol</dt>
+					<dd class="mrgn-lft-lg">Si le survol du pointeur peut déclencher le contenu supplémentaire, il est ensuite possible de déplacer le pointeur sur le contenu supplémentaire sans le faire disparaître.</dd>
+					<dt>Persistance</dt>
+					<dd class="mrgn-lft-lg">Le contenu supplémentaire demeure visible jusqu’à ce que le pointeur ou la cible sorte de la zone sensible, que l’utilisateur le rejette ou qu’il ne soit plus pertinent.</dd>
+				</dl>
+				<p>Le contenu pouvant être déclenché par le survol du pointeur devrait également pouvoir être déclenché par le positionnement de la cible du clavier.</p>
+				<p>Cette exigence s’applique au contenu qui apparaît en plus de l’élément déclencheur lui-même. Elle ne s’applique pas à un élément non visible, tel qu’un lien de retour à la page d’accueil qui est rendu visible par la cible du clavier (sans autre contenu que le déclencheur devenu visible).</p>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0 h3" id="good-example-link-content-on-hover"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Contenu de lien survolé ou ciblé</h3>
+						<p>Quand le pointeur survole – ou le clavier cible – un lien, un aperçu du contenu lié s’affiche juste au-dessus ou en dessous. </p>
+				<p>Le dispositif de pointage peut quitter la zone sensible du lien et parcourir le contenu supplémentaire sans que la fenêtre contextuelle ne se ferme. Dans cet exemple, ce résultat est obtenu en emboîtant l’infobulle dans l’élément déclencheur. </p>
+				<p>La touche Esc/Échap ferme le contenu supplémentaire.</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv">L'exemple commence</p>
+								<p>C'est un  
+								   <a class="a-and-tooltip" id="parent" href="introduction.html">
+									lien déclencheur
+									  <span id="popup" role="tooltip">
+										Et ce texte donne un contexte supplémentaire à propos du lien déclencheur.
+									  </span>
+								   </a>
+								</p>
+								<style type="text/css">
+									[role="tooltip"] {     
+										visibility: hidden;     
+										padding: 0.5em;     
+										background:white;     
+										color: black;     
+										border:solid black 2px;     
+										width:10em; 
+										position: absolute;  							
+										left:0;     
+										top:1em; 
+									}
+									.a-and-tooltip {   
+										position: relative; 
+									}				
+								</style>
+						<script>
+// trigger and popup inside the same link
+
+var parent = document.getElementById('parent');
+
+parent.onmouseover = function() {
+    document.getElementById('popup').style.visibility = 'visible';
+}
+
+parent.onmouseout = function() {
+    document.getElementById('popup').style.visibility = 'hidden';
+}
+
+parent.onfocus = function() {
+    document.getElementById('popup').style.visibility = 'visible';
+}
+
+parent.onblur = function() {
+    document.getElementById('popup').style.visibility = 'hidden';
+}
+
+// hide when ESC is pressed
+
+document.addEventListener('keydown', (e) => {
+  if ((e.keyCode || e.which) === 27)
+       document.getElementById('popup').style.visibility = 'hidden';
+});						
+						</script>
+								<p class="wb-inv">L'exemple finit</p>
+					</div>
+				</div>
+				<p>C'est un lien déclencheur et ce texte donne un contexte supplémentaire à propos du lien déclencheur.</p>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;p&gt;C'est un  
+   &lt;a class="a-and-tooltip" id="parent" href="introduction.html"&gt;
+   lien déclencheur.
+      &lt;span id="popup" role="tooltip"&gt;
+         Et ce texte donne un contexte supplémentaire à propos du lien déclencheur.
+      &lt;/span&gt;
+   &lt;/a&gt;
+&lt;/p&gt;</code></pre>
+				<p class="wb-inv">Fin du code</p>
+				<details class="mrgn-tp-md">
+					<summary class="bg-info">Voir le CSS</summary>
+					<p class="wb-inv">Début du code</p>	
+<pre class="mrgn-tp-md"><code class="language-css">[role="tooltip"] {     
+   display: none;     
+   padding: 0.5em;     
+   background:white;     
+   color: black;     
+   border:solid black 2px;     
+   width:10em; 
+}
+.a-and-tooltip {   
+   position: relative; 
+}
+[role="tooltip"] {     
+   position: absolute;     
+   left:0;     
+   top:1em; 
+}</code></pre>
+					<p class="wb-inv">Fin du code</p>
+				</details>
+
+				<details class="mrgn-tp-md">
+					<summary class="bg-info">Voir le JavaScript</summary>
+					<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-javascript">// déclencheur et popup dans le même lien
+var parent = document.getElementById('parent');
+parent.onmouseover = function() {    
+   document.getElementById('popup').style.display = 'block'; 
+}
+parent.onmouseout = function() {    
+   document.getElementById('popup').style.display = 'none'; 
+}
+parent.onfocus = function() {    
+   document.getElementById('popup').style.display = 'block'; 
+}
+parent.onblur = function() {    
+   document.getElementById('popup').style.display = 'none'; 
+}
+// cacher lorsque l'on appuie sur ESC
+document.addEventListener('keydown', (e) =&gt; {   
+if ((e.keyCode || e.which) === 27)      
+   document.getElementById('popup').style.display = 'none'; 
+});</code></pre>
+					<p class="wb-inv">Fin du code</p>	
+				</details>
+				<hr/>
+				<p class="small">Cet exemple provient du guide technique&nbsp;SCR39 du DACW&nbsp;2.1&nbsp;: <a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR39">Rendre possible le survol, le rejet et la persistance de l’affichage contextuel ouvert par survol ou ciblage clavier</a> (en anglais seulement). Initiative pour l’accessibilité du Web&nbsp;W3C Extrait le 17&nbsp;décembre&nbsp;2021.</p>
+			</div>
+
+		</div>
+	</section>
+			
+			<section>				
+				<h2 id="pointer-cancellation">Annulation du pointage</h2>
+				<p>Cette exigence vise à aider l’utilisateur à éviter les erreurs de pointage. Il peut arriver que l’utilisateur déclenche accidentellement des événements par commande tactile ou avec la souris et obtienne des résultats indésirables. Il est important de permettre à l’utilisateur d’annuler un pointage indésirable.</p>
+				<p>Un pointeur simple est une entrée de pointeur qui fonctionne avec un seul point de contact avec l'écran. Il peut s'agir d'une simple tape ou d'un clic, d'une double tape ou d'un clic, d'une pression longue ou d'un geste basé sur la trajectoire.</p>
+				<p>Pour toute fonctionnalité qui se commande par pointage unique, au moins un des énoncés suivants est vrai&nbsp;:</p>
+				<dl>
+					<dt>Pas d’événement de pression</dt>
+					<dd class="mrgn-lft-lg">L’événement de pression (sur le bouton de sélection du dispositif de pointage) n’est pas utilisé pour exécuter une partie de la fonction.</dd>
+					<dt>Abandon ou annulation</dt>
+					<dd class="mrgn-lft-lg">L’exécution de la fonction se fait à l’événement de relâchement de la sélection, et un mécanisme est prévu pour abandonner la fonction avant exécution ou pour l’annuler après exécution.</dd>
+					<dt>Annulation sur relâchement</dt>
+					<dd class="mrgn-lft-lg">L’événement de relâchement du bouton de sélection annule tout résultat de l’événement de pression.</dd>
+					<dt>Obligation</dt>
+					<dd class="mrgn-lft-lg">L’exécution de la fonction est obligatoire en réponse à l’événement de pression.</dd>
+				</dl>
+				<p>The easiest way to meet this requirement is to use the default behaviour of controls and not override that behaviour with an explicit down-event trigger. The up-event (e.g. <code lang="en-CA">onclick</code> or <code lang="en-CA">mouseup</code> event) is the default behaviour for most controls in any programming or markup language.</p>
+				<p>Le moyen le plus simple de répondre à cette exigence est d'utiliser le comportement par défaut des contrôles et de ne pas remplacer ce comportement par un déclencheur explicite d'événement descendant. L'événement de relâchement (par exemple, l'événement <code lang="en-CA">onclick</code> ou <code lang="en-CA">mouseup</code>) est le comportement par défaut de la plupart des contrôles dans tout langage de programmation ou de balisage.</p>
+				<h3>Examples</h3>
+				<dl>
+					<dt>Pas d’événement de pression</dt>
+					<dd class="mrgn-lft-lg">Utiliser un événement <code lang="en-CA">onclick</code> natif en JavaScript.</dd>
+					<dd class="mrgn-lft-lg">Utiliser un bouton ou lien natif en HTML, iOS ou Android.</dd>
+					<dt>Abandon ou annulation</dt>
+					<dd class="mrgn-lft-lg">Rendre possible l’annulation des actions glisser-déposer. </dd>
+					<dd class="mrgn-lft-lg">Par exemple, lorsque l’utilisateur utilise l’action glisser-déposer pour déplacer un objet vers une cible de dépôt, il peut annuler l’action après avoir saisi l’objet en le relâchant à l’extérieur de la cible de dépôt. Une autre possibilité est qu’on peut ajouter une commande d’annulation ou un dialogue demandant la confirmation de l’action après que le dépôt de l’objet sur la cible.</dd>
+					<dt>Annulation sur relâchement</dt>
+					<dd class="mrgn-lft-lg">Voici différents contextes dans lequel on utilise les actions de type "appuyer et maintenir":</dd>
+					<dd class="mrgn-lft-lg">Lorsqu'une fenêtre contextuelle apparaît (ou qu'une vidéo est diffusée);</dd>
+					<dd class="mrgn-lft-lg">Lorsque l'utilisateur appuie sur un objet (événement descendant), mais que la fenêtre contextuelle (ou la vidéo) disparaît lorsque l'utilisateur relâche le pointeur (événement ascendant).</dd>
+					<dt>Essential</dt>
+					<dd class="mrgn-lft-lg">Clavier virtuel – le comportement attendu consiste à faire apparaître des lettres et des chiffres quand l’utilisateur appuie sur la touche (activité de pression).</dd>
+					<dd class="mrgn-lft-lg">Clavier virtuel à l’écran.</dd>
+				</dl>
+			</section>
+			
+			
+			<section>				
+				<h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
+				<details class="mrgn-tp-lg">
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+                        <p class="mrgn-tp-md">En anglais seulement.</p>
+					<h3>Critères de succès</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus" lang="en-CA">1.4.13: Content on Hover or Focus</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/pointer-cancellation" lang="en-CA">2.5.2: Pointer Cancellation</a>
+						</li>
+					</ul>
+					<h3>Techniques</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR39" lang="en-CA">SCR39: Making content on focus or hover hoverable, dismissible, and persistent</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G210" lang="en-CA">G210: Ensuring that drag-and-drop actions can be cancelled</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G212" lang="en-CA">G212: Using native controls to ensure functionality is triggered on the up-event.</a>
+						</li>
+					</ul>
+				</details>
+			</section>
+		
+		
+	<nav role="navigation" aria-labelledby="nav-document">
+		<h2 id="nav-document" class="wb-inv">Menu de la pagination</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="introduction-fr.html">Précédent - Introduction</a></li>
+			<li class="next"><a rel="next" href="keyboard-input-fr.html">Suivant - Saisie avec clavier</a></li>
+		</ul>
+	</nav>
+	</main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation" aria-labelledby="wb-sec-h">	
+		<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 10 - Méthodes de saisie de données</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="mouse-input-fr.html">Saisie avec la souris</a></li>
+						<li><a class="list-group-item" href="keyboard-input-fr.html">Saisie avec clavier</a></li>
+						<li><a class="list-group-item" href="touch-input-fr.html">Saisie avec un dispositif de pointage</a></li>
+						<li><a class="list-group-item" href="voice-input-fr.html">Saisie vocale</a></li>
+						<li><a class="list-group-item" href="motion-actuation-fr.html">Commande par le mouvement</a></li>						
+						<li><a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Tous les modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 - Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/links-fr.html">Module 3 - Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/tables-concepts-fr.html">Module 4 - Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/text-alternatives-fr.html">Module 5 - Images</a></li>
+                        <li><a class="list-group-item" href="../module6/forms-concepts-fr.html">Module 6 - Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 - Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item" href="../module8/introduction-fr.html">Module 8 - Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item active" href="introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap-fr.html">Plan du site</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
+					</li>
+
+				</ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>
