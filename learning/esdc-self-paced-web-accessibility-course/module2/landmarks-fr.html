@@ -50,20 +50,27 @@
                 "title": "Module 2 – Structure et sémantique des pages",
                 
                 "href" : "index-fr.html"
-            }],
-            "lngLinks": [{
-                "lang": "en",
-                "href": "landmarks.html",
-                "text": "English"
-            }],
-            "menuPath": "../../../ajax/menu-fr.html"
-        });
+            },
+          {
+            "title": "Points de repère",
+            
+          },
+        ],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "landmarks.html",
+            "text": "English",
+          },
+        ],
+        "menuPath": "../../../ajax/menu-fr.html",
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
-			
-		<h1 property="name" id="wb-cont">Points de repère</h1>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Points de repère</h1>
 		<nav role="navigation"  aria-label="Table des matières">
 		  <div class="panel panel-default mrgn-tp-lg">
 			<header class="panel-heading">
@@ -72,8 +79,8 @@
 			<div class="panel-body">
 			  <ul>
 				<li><a href="#designing-landmarks">Conception utilisant les points de repère</a></li>
+				  <li><a href="#example-common-landmarks">Bon exemple&nbsp;: Points de repère communs</a></li>
 				  <li><a href="#regions-landmarks">Pratiques exemplaires pour les régions de page et les points de repère</a></li>
-				  <li><a href="#example-1">Bon exemple&nbsp;: Points de repère communs</a></li>
 				  <li><a href="#resources-1">Ressources WCAG connexes</a></li>
 			  </ul>
 			</div>
@@ -185,48 +192,17 @@
 							<code lang="en-CA">role="region"</code>
 					  </td>
 						<td>
-							L’élément <section> représente une section indépendante d’un document qui n’a pas un élément sémantique plus spécifique pour le représenter. Les sections doivent toujours avoir des entêtes, sauf dans quelques exceptions.
+							L’élément représente une section indépendante d’un document qui n’a pas un élément sémantique plus spécifique pour le représenter. Les sections doivent toujours avoir des entêtes, sauf dans quelques exceptions.
 					  </td>
 					</tr>
 			    </tbody>
 				</table>
 			</section>
-			<section><h2 id="regions-landmarks">Pratiques exemplaires pour les régions de page et les points de repère&nbsp;</h2>
-				<ul>
-					<li>Utiliser les éléments de section HTML5 (de préférence) pour identifier les régions sur une page. Utiliser des attributs de rôle de point de repère ARIA  si c’est impossible d’utiliser des éléments de section HTML5.
-						<ul>
-							<li>Exception&nbsp;: pour prendre en charge IE 11, ajouter l’attribut role="main" à l’élément <code lang="en-CA">&lt;main&gt;</code></li>
-						</ul>
-					</li>
-					<li>S’assurer que tout le contenu de la page se trouve dans une région de page ou un point de repère.</li>
-					<li>S’assurer de la présence d’un seul cas de :&nbsp;:
-						<ul>
-							<li><code lang="en-CA">&lt;header&gt;</code> seulement comme enfant de <code lang="en-CA">&lt;body&gt;</code>, ou <code lang="en-CA">role="banner"</code>. Un <code lang="en-CA">&lt;header&gt;</code> n’est pas considéré comme une bannière lorsqu’il s’agit de l’enfant de <code lang="en-CA">&lt;article&gt;</code>, <code lang="en-CA">&lt;aside&gt;</code>, <code lang="en-CA">&lt;main&gt;</code>, <code lang="en-CA">&lt;nav&gt;</code> ou <code lang="en-CA">&lt;section&gt;</code>.</li>
-							<li> <code lang="en-CA">&lt;footer&gt;</code></li>
-							<li><code lang="en-CA">&lt;main&gt;</code></li>
-						</ul>
-					</li>
-					<li>S’assurer que <code lang="en-CA">&lt;header&gt;</code> (quand il s’agit de la bannière), <code lang="en-CA">&lt;footer&gt;</code>, <code lang="en-CA">&lt;main&gt;</code> sont des enfants directs de <code lang="en-CA">&lt;body&gt;</code>.</li>
-					<li>Limiter l’utilisation de <code lang="en-CA">&lt;nav&gt;</code> aux navigations primaires et secondaires.
-						<ul>
-							<li>Utiliser <code lang="en-CA">aria-label</code> pour différencier plusieurs éléments<code lang="en-CA">&lt;nav&gt;</code> (différents).</li>
-							<li>Utiliser <code lang="en-CA">aria-labelledby</code> l’attribut pour étiqueter une  <code lang="en-CA">&lt;nav&gt;</code> région qui commence par un élément d’en-tête.</li>
-							<li>Fournir des étiquettes courtes et descriptives. </li>
-						</ul>
-					</li>
-					<li>Le rôle du point de repère est énoncé par un lecteur d’écran avec le nom, le cas échéant. Ne pas utiliser le rôle de point de repère (p.&nbsp;ex., «&nbsp;navigation&nbsp;») dans le nom; par exemple, l’étiquette est «&nbsp;site&nbsp;» et non «&nbsp;navigation du site&nbsp;» pour un point de repère de navigation. </li>
-					<li>Utiliser <code lang="en-CA">role="search"</code> plutôt que <code lang="en-CA">role="form"</code> lorsque le formulaire est utilisé pour la fonction de recherche.</li>
-					<li>Si un élément <code lang="en-CA">&lt;form&gt;</code> est nommé (utilisant <code lang="en-CA">aria-label</code>, <code lang="en-CA">aria-labelledby</code> ou un <code lang="en-CA">title</code> attribut), il sera désigné comme point de repère.</li>
-					<li>Si vous utilisez <code lang="en-CA">role="form"</code>, fournissez un nom bref (utilisant <code lang="en-CA">aria-label</code>, <code lang="en-CA">aria-labelledby</code> ou un <code lang="en-CA">title</code> attribut) qui décrit l’objectif du formulaire.</li>
-					<li>Si un élément <code lang="en-CA">&lt;section&gt;</code> est nommé (utilisant <code lang="en-CA">aria-label</code>, <code lang="en-CA">aria-labelledby</code> ou un <code lang="en-CA">title</code> attribut), il sera designé comme point de repère.</li>
-					<li>Si vous utilisez <code lang="en-CA">role="region"</code>, fournissez un nom bref (utilisant <code lang="en-CA">aria-label</code>, <code lang="en-CA">aria-labelledby</code> ou un <code lang="en-CA">title</code> attribut) qui décrit l’objectif du contenu dans la région.</li>
-				</ul>
-			</section>
 			<section>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 				    		<h2 id="example-common-landmarks" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Points de repère communs</h2>
-						<p>Dans cet exemple, les éléments de section&nbsp;HTML5 définissent les points de repère, pour la plupart. L’attribut <code lang="en-CA">role="search"</code> est unique et descriptif, et le rôle <code lang="en-CA">role="main"</code> prend en charge le navigateur IE&nbsp;11.</p>
+						<p>Dans cet exemple, les éléments de section&nbsp;HTML5 définissent les points de repère, pour la plupart. L’attribut <code lang="en-CA">role="search"</code> est unique et descriptif.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body mrgn-bttm-0">
 								<p class="wb-inv">L'exemple commence</p>
@@ -240,15 +216,64 @@
    &lt;nav aria-label="global"&gt;[…]&lt;/nav&gt;
    &lt;form role="search"&gt;[…]&lt;/form&gt;
 &lt;/header&gt;
-&lt;nav aria-label="main"&gt;[…]&lt;/nav&gt;
-&lt;main role="main"&gt;[…]&lt;/main&gt;
-&lt;aside&gt;[…]&lt;/aside&gt;
-&lt;footer aria-label="footer"&gt;[…]&lt;/footer&gt;</code>
+&lt;div&gt;
+   &lt;nav aria-label="principal"&gt;[…]&lt;/nav&gt;
+   &lt;main&gt;[…]&lt;/main&gt;
+   &lt;aside&gt;[…]&lt;/aside&gt;
+&lt;/div&gt;
+&lt;footer&gt;[…]&lt;/footer&gt;</code>
 </pre>
 								<p class="wb-inv">Fin du code</p>
+								<p>Ci-dessous, le balisage HTML utilise des attributs de rôle de point de repère ARIA pour identifier les régions.</p>
+								
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;div role="banner"&gt;
+   &lt;div role="navigation" aria-label="global"&gt;[…]&lt;/div&gt;
+   &lt;form role="search"&gt;[…]&lt;/form&gt;
+&lt;/div&gt;
+&lt;div&gt;
+   &lt;div role="navigation" aria-label="principal"&gt;[…]&lt;/div&gt;
+   &lt;div role="main"&gt;[…]&lt;/div&gt;
+   &lt;div role="complementary"&gt;[…]&lt;/div&gt;
+&lt;/div&gt;
+&lt;div role="contentinfo"&gt;[…]&lt;/div&gt;</code>
+</pre>
+								<p class="wb-inv">Fin du code</p>							
+								
 					</div>
 				</div>
+			</section>			
+			
+			
+			<section><h2 id="regions-landmarks">Pratiques exemplaires pour les régions de page et les points de repère&nbsp;</h2>
+				<ul>
+					<li>Utiliser les éléments de section HTML5 (de préférence) pour identifier les régions sur une page. Utiliser des attributs de rôle de point de repère ARIA  si c’est impossible d’utiliser des éléments de section HTML5.</li>
+					<li>S’assurer que tout le contenu de la page se trouve dans une région de page ou un point de repère.</li>
+					<li>S’assurer de la présence d’un seul cas de :
+						<ul>
+							<li><code lang="en-CA">&lt;header&gt;</code> seulement comme enfant de <code lang="en-CA">&lt;body&gt;</code>, ou <code lang="en-CA">role="banner"</code>. Un <code lang="en-CA">&lt;header&gt;</code> n’est pas considéré comme une bannière lorsqu’il s’agit de l’enfant de <code lang="en-CA">&lt;article&gt;</code>, <code lang="en-CA">&lt;aside&gt;</code>, <code lang="en-CA">&lt;main&gt;</code>, <code lang="en-CA">&lt;nav&gt;</code> ou <code lang="en-CA">&lt;section&gt;</code>.</li>
+							<li> <code lang="en-CA">&lt;footer&gt;</code></li>
+							<li><code lang="en-CA">&lt;main&gt;</code></li>
+						</ul>
+					</li>
+					<li>S’assurer que <code lang="en-CA">&lt;header&gt;</code> (quand il s’agit de la bannière), <code lang="en-CA">&lt;footer&gt;</code>, <code lang="en-CA">&lt;main&gt;</code> sont des enfants directs de <code lang="en-CA">&lt;body&gt;</code>.</li>
+					<li>Limiter l’utilisation de <code lang="en-CA">&lt;nav&gt;</code> aux navigations primaires et secondaires.
+						<ul>
+							<li>Utiliser <code lang="en-CA">aria-label</code> our <code>aria-labelledby</code> pour différencier plusieurs éléments <code lang="en-CA">&lt;nav&gt;</code>.</li>
+							<li>Utiliser <code lang="en-CA">aria-labelledby</code> l’attribut pour étiqueter une  <code lang="en-CA">&lt;nav&gt;</code> région qui commence par un élément d’en-tête.</li>
+							<li>Fournir des étiquettes courtes et descriptives. </li>
+						</ul>
+					</li>
+					<li>Le rôle du point de repère est énoncé par un lecteur d’écran avec le nom, le cas échéant. Ne pas utiliser le rôle de point de repère (p.&nbsp;ex., «&nbsp;navigation&nbsp;») dans le nom; par exemple, l’étiquette est «&nbsp;site&nbsp;» et non «&nbsp;navigation du site&nbsp;» pour un point de repère de navigation. </li>
+					<li>Utiliser <code lang="en-CA">role="search"</code> plutôt que <code lang="en-CA">role="form"</code> lorsque le formulaire est utilisé pour la fonction de recherche.</li>
+					<li>Si un élément <code lang="en-CA">&lt;form&gt;</code> est nommé (utilisant <code lang="en-CA">aria-label</code>, <code lang="en-CA">aria-labelledby</code> ou un <code lang="en-CA">title</code> attribut), il sera désigné comme point de repère.</li>
+					<li>Si vous utilisez <code lang="en-CA">role="form"</code>, fournissez un nom bref (utilisant <code lang="en-CA">aria-label</code>, <code lang="en-CA">aria-labelledby</code> ou un <code lang="en-CA">title</code> attribut) qui décrit l’objectif du formulaire.</li>
+					<li>Si un élément <code lang="en-CA">&lt;section&gt;</code> est nommé (utilisant <code lang="en-CA">aria-label</code>, <code lang="en-CA">aria-labelledby</code> ou un <code lang="en-CA">title</code> attribut), il sera designé comme point de repère.</li>
+					<li>Si vous utilisez <code lang="en-CA">role="region"</code>, fournissez un nom bref (utilisant <code lang="en-CA">aria-label</code>, <code lang="en-CA">aria-labelledby</code> ou un <code lang="en-CA">title</code> attribut) qui décrit l’objectif du contenu dans la région.</li>
+				</ul>
 			</section>
+
 			<section>				
 				<h2 id="resources-1" class="wb-inv">Ressources WCAG connexes</h2>
 				<details class="mrgn-tp-lg">

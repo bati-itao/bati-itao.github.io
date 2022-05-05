@@ -50,20 +50,27 @@
                 "title": "Module 6 - Forms",
                 
                 "href" : "index.html"
-            }],
-            "lngLinks": [{
-                "lang": "fr",
-                "href": "form-instructions-fr.html",
-                "text": "Français"
-            }],
-            "menuPath": "../../../ajax/menu-en.html"
-        });
+            },
+          {
+            "title": "Form instructions",
+            
+          },
+        ],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "form-instructions-fr.html",
+            "text": "Français",
+          },
+        ],
+        "menuPath": "../../../ajax/menu-en.html",
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-			
-	<h1 property="name" id="wb-cont">Form instructions</h1>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Form instructions</h1>
 						
 	<nav role="navigation">
     <div class="panel panel-default mrgn-tp-md">
@@ -76,7 +83,7 @@
 			<li><a href="#overall-instructions">Overall instructions</a></li>
 			<li><a href="#inline-instructions">In-line instructions</a></li>
 			<li><a href="#instructions-for-groups">Instructions for groups </a></li>
-			<li><a href="#resources">Related WCAG resources</a></li>
+			<li><a href="#form-instructions-wcag">Related WCAG resources</a></li>
           </ul>
         </div>
       </div>
@@ -104,11 +111,11 @@
 			<section>				
 				<h2 id="inline-instructions">In-line instructions</h2>
 				<p>In-line instructions are provided within or outside the label of the form control. Short instructions can fit in the label along with the control’s name. Long instructions should be outside the label, associated with the control via the <code>aria-describedby</code> attribute. </p>
-				<h3>Providing instructions within labels</h3>
+				<h3 id="providing-instructions-with-labels">Providing instructions within labels</h3>
 				<p>Providing instructions within labels is well-supported by user agents, though it should be reserved for shorter instructions. Match the <code>for</code> attribute of the label with the <code>id</code> attribute of the form control.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-					  <h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing instructions within a label</h4>
+					  <h4 class="text-success mrgn-tp-0 h3" id="good-example-providing-instructions"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing instructions within a label</h4>
 					  
 						<p>The required format for the Employee ID is indicated by XX-1234 within the same label:</p>
 						<div class="panel panel-primary mrgn-tp-md">
@@ -130,12 +137,12 @@
 						<p class="wb-inv">Code ends</p>
 					</div>
 				</div>
-				<h3>Providing instructions outside labels</h3>
+				<h3 id="providing-instructions-outside-labels">Providing instructions outside labels</h3>
 				<p>Use ARIA to provide instructions outside of labels. Associate any descriptive text in the form with the relevant form element using the <code>aria-labelledby</code> or <code>aria-describedby</code> attribute. </p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 					
-						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing form control instructions using aria-labelledby</h4>
+						<h4 class="text-success mrgn-tp-0 h3" id="example-providing-aira-labelledby"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing form control instructions using aria-labelledby</h4>
 						<p>One approach to providing instructions outside of labels uses the <code>aria-labelledby</code> attribute on the control:</p>
 						<ul>
 							<li>The <code>&lt;label&gt;</code> element is associated with its control using matching <code>for</code> and <code>id</code> attribute values.</li>
@@ -170,7 +177,7 @@
 				
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing form control instructions with aria-describedby</h4>
+						<h4 class="text-success mrgn-tp-0 h3" id="example-providing-aira-describedby"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Providing form control instructions with aria-describedby</h4>
 						<p>The more common approach to providing instructions outside of labels is to use the <code>aria-describedby</code> attribute. The attribute is set on the control and points to the <code>id</code> attribute value of the element containing the description.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
@@ -201,7 +208,7 @@
 					</div>
 				</div>
 				
-				<h3>Placeholder text</h3>
+				<h3 id="placeholder-text">Placeholder text</h3>
 				<p>Text in the <code>placeholder</code> attribute provides instructions or an example of the required data format inside form fields that have not yet been edited by the user.
 				<div class="alert alert-warning">
 				   <p>Note that placeholder text disappears from a form field when users start entering text. If the placeholder text contains instructional information or examples that disappear, it makes it more difficult for users to check their responses before submitting the form.</p>
@@ -264,7 +271,7 @@
 
 
 						
-				<h3>Styling the placeholder</h3>
+				<h3 id="styling-the-placeholder">Styling the placeholder</h3>
 				<p>In many browsers, the default <code>placeholder</code> attribute colour fails a contrast check, making it difficult for many people to see. The colour of the placeholder can be styled using CSS.</p>
 				<p>The example below sets the foreground color to a medium gray (hex #767676) against a white background, which just meets the minimum 4.5:1 contrast ratio requirement.</p>
 				<div class="panel panel-primary mrgn-tp-md mrgn-bttm-lg">
@@ -377,7 +384,7 @@
 				<p>In “focus mode”, when tabbing through the form, screen reader users set focus on form controls and hear their labels and descriptions. Text in a non-focusable element is missed unless it is programmatically associated with a form control as label or description.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Group instructions in a legend</h3>
+						<h3 class="text-success mrgn-tp-0 h3" id="form-instruction-in-legend"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Group instructions in a legend</h3>
 						<p>In this example, the word “Required” is set within the <code>&lt;legend&gt;</code> to indicate that everything within the related fieldset is required. Depending on the configuration, some screen readers read out the legend either with every form element, once, or, rarely, not at all. Keep legends short and self-explanatory.</p>
 						
 								
@@ -462,7 +469,7 @@ legend.required:before {
 				
 			<div class="panel panel-danger mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Instructions in a paragraph not associated with a control</h3>
+					<h3 class="text-danger mrgn-tp-0 h3" id="instruction-in-paragraph"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Bad example: Instructions in a paragraph not associated with a control</h3>
 					<p>When instructions are in a <code>&lt;p&gt;</code> element not associated via <code>aria-describedby</code>, they’re easily missed by users navigating the form in the screen reader’s “forms mode”. </p>
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
@@ -544,7 +551,7 @@ legend.required:before {
 		<div class="panel panel-success mrgn-tp-lg">
 			<div class="panel-body">
 		
-		  <h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Shared instructions associated with multiple form fields</h3>
+		  <h3 class="text-success mrgn-tp-0 h3" id="shared-instructions"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Shared instructions associated with multiple form fields</h3>
 			<p>In some situations, shared instructions can be associated with multiple form fields.</p>
 			<div class="panel panel-primary mrgn-tp-md">
 				<div class="panel-body well mrgn-bttm-0">
@@ -620,7 +627,7 @@ legend.required:before {
 <div class="panel panel-success mrgn-tp-lg">
 	    <div class="panel-body">
 		
-		  <h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Provide instructions in plain text before the form</h3>
+		  <h3 class="text-success mrgn-tp-0 h3" id="provide-instructions"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Provide instructions in plain text before the form</h3>
 			<p>In this example, general form instructions precede the opening <code>&lt;form&gt;</code> tag, where screen reader users can easily access them. If the plain text instructions were inside the <code>&lt;form&gt;</code> element, users could easily miss them since navigation inside a form is limited to focusable elements (aka ”forms mode”).</p>
 			 <div class="panel panel-primary mrgn-tp-md">
               <div class="panel-body well mrgn-bttm-0">              
@@ -680,7 +687,7 @@ legend.required:before {
 
 
 			<section>				
-				<h2 id="resources" class="wb-inv">Related WCAG resources</h2>
+				<h2 id="form-instructions-wcag" class="wb-inv">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>

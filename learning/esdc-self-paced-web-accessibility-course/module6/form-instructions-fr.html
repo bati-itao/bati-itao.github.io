@@ -50,20 +50,27 @@
                 "title": "Module 6 - Formulaires",
                 
                 "href" : "index-fr.html"
-            }],
-            "lngLinks": [{
-                "lang": "en",
-                "href": "form-instructions.html",
-                "text": "English"
-            }],
-            "menuPath": "../../../ajax/menu-fr.html"
-        });
+            },
+          {
+            "title": "Instructions du formulaire",
+            
+          },
+        ],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "form-instructions.html",
+            "text": "English",
+          },
+        ],
+        "menuPath": "../../../ajax/menu-fr.html",
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-			
-	<h1 property="name" id="wb-cont">Instructions du formulaire</h1>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Instructions du formulaire</h1>
 						
 	<nav role="navigation">
     <div class="panel panel-default mrgn-tp-md">
@@ -108,12 +115,12 @@
 				<p>Des instructions incluses sont fournies à l’intérieur ou à l’extérieur de l’étiquette de commande du formulaire. De courtes instructions peuvent être insérées dans l’étiquette avec le nom de la commande. Les instructions longues devraient être à l’extérieur de l’étiquette et être associées à la commande par l’aria-describedbyattribut <code lang="en-CA">aria-describedby</code>. </p>
 
 				</p>
-				<h3>Fournir des instructions dans les étiquettes</h3>
+				<h3 id="providing-instructions-with-labels">Fournir des instructions dans les étiquettes</h3>
 				<p>Les agents utilisateurs prennent en charge sans difficulté les instructions fournies dans les étiquettes, mais celles-ci devraient être réservées aux instructions plus courtes. Associer l’attribut <code lang="en-CA">for</code> de l’étiquette à l’attribut <code lang="en-CA">id</code> de la commande du formulaire.</p>
 
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-					  <h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple : Fournir des instructions dans une étiquette</h4>
+					  <h4 class="text-success mrgn-tp-0 h3" id="good-example-providing-instructions"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple : Fournir des instructions dans une étiquette</h4>
 					  
 						<p>Le format requis pour «&nbsp;l'identification de l'employé&nbsp;» est indiqué par le format «&nbsp;XX-1234&nbsp;» dans la même étiquette&nbsp;:</p>
 
@@ -136,13 +143,13 @@
 						<p class="wb-inv">Fin du code</p>
 					</div>
 				</div>
-				<h3>Fournir des instructions à l’extérieur des étiquettes</h3>
+				<h3 id="providing-instructions-outside-labels">Fournir des instructions à l’extérieur des étiquettes</h3>
 				<p>Utiliser ARIA pour fournir des instructions à l’extérieur des étiquettes. Associer tout texte descriptif du formulaire à l’élément pertinent du formulaire en utilisant l’attribut <code lang="en-CA">aria-labelledby</code> ou <code lang="en-CA">aria-describedby</code>. </p>
 
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 					
-						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span> &nbsp;Bon exemple : Fournir des instructions de contrôle de formulaire en utilisant aria-labelledby</h4>
+						<h4 class="text-success mrgn-tp-0 h3" id="example-providing-aira-labelledby"><span class="glyphicon glyphicon-ok-circle"></span> &nbsp;Bon exemple : Fournir des instructions de contrôle de formulaire en utilisant aria-labelledby</h4>
 						<p>Une approche pour fournir des instructions en dehors des étiquettes utilise l'attribut <code lang="en-CA">aria-labelledby</code> sur le contrôle :</p>
 						<ul>
 							<li>Un élément <code lang="en-CA">&lt;label&gt;</code> est associé à sa commande au moyen de valeurs d’attribut correspondantes <code lang="en-CA">for</code> et <code lang="en-CA">id</code>.</li>
@@ -176,7 +183,7 @@
 				
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h4 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple : Fournir des instructions de contrôle de formulaire avec aria-describedby</h4>
+						<h4 class="text-success mrgn-tp-0 h3" id="example-providing-aira-describedby"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple : Fournir des instructions de contrôle de formulaire avec aria-describedby</h4>
 						<p>L'approche la plus courante pour fournir des instructions en dehors des étiquettes consiste à utiliser l'attribut <code lang="en-CA">aria-describedby</code>. Cet attribut est défini sur le contrôle et pointe vers la valeur de l'attribut <code lang="en-CA">id</code> de l'élément contenant la description.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
@@ -207,7 +214,7 @@
 					</div>
 				</div>
 				
-				<h3>Texte d’espace réservé</h3>
+				<h3 id="placeholder-text">Texte d’espace réservé</h3>
 				<p>Le texte de l'attribut <code lang="en-CA">placeholder</code> fournit des instructions ou un exemple du format de données requis à l'intérieur des champs de formulaire qui n'ont pas encore été modifiés par l'utilisateur.</p>
 
 				<div class="alert alert-warning">
@@ -271,7 +278,7 @@
 
 
 						
-				<h3>Styliser l’espace réservé</h3>
+				<h3 id="styling-the-placeholder">Styliser l’espace réservé</h3>
 				<p>Dans de nombreux navigateurs, la couleur d’attribut <code lang="en-CA">placeholder</code> réservé échoue au test de contraste, ce qui empêche de nombreuses personnes de voir distinctement. La couleur de l’espace réservé peut être stylisée à l’aide de CSS.</p>
 				<p> L’extrait de code ci-dessous établit la couleur d’avant-plan à un gris moyen (no&nbsp;hex&nbsp;767676) sur fond blanc, ce qui satisfait tout juste à l’exigence minimale de rapport de contraste de 4,5:1.</p>
 				<div class="panel panel-primary mrgn-tp-md mrgn-bttm-lg">
@@ -385,7 +392,7 @@
 
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Instructions de groupe dans une &lt;legend&gt;</h3>
+						<h3 class="text-success mrgn-tp-0 h3" id="form-instruction-in-legend"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Instructions de groupe dans une &lt;legend&gt;</h3>
 						<p>Dans cet exemple, le mot «&nbsp;Requis&nbsp;» est défini dans la <code lang="en-CA">&lt;legend&gt;</code> pour indiquer que tout ce qui se trouve dans le champ correspondant est requis. Selon la configuration, certains lecteurs d’écran lisent la légende avec chaque élément de forme, une fois ou, rarement, pas du tout. Gardez les légendes courtes et explicites.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
@@ -467,7 +474,7 @@ legend.required:before {
 				
 			<div class="panel panel-danger mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Mauvais exemple : Instructions dans un paragraphe non associé à un contrôle</h3>
+					<h3 class="text-danger mrgn-tp-0 h3" id="instruction-in-paragraph"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Mauvais exemple : Instructions dans un paragraphe non associé à un contrôle</h3>
 					<p>Lorsque les instructions se trouvent dans un élément <code lang="en-CA">&lt;p&gt;</code> non associé via <code lang="en-CA">aria-describedby</code>, elles sont facilement manquées par les utilisateurs qui naviguent dans le formulaire en "mode formulaire" du lecteur d'écran.</p>
 					
 
@@ -551,7 +558,7 @@ legend.required:before {
 		<div class="panel panel-success mrgn-tp-lg">
 			<div class="panel-body">
 		
-		  <h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple : Instructions partagées associées à plusieurs champs de formulaire</h3>
+		  <h3 class="text-success mrgn-tp-0 h3" id="shared-instructions"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple : Instructions partagées associées à plusieurs champs de formulaire</h3>
 		  <p>Dans certaines situations, les instructions partagées peuvent être associées à plusieurs champs de formulaire.</p>
 		  <div class="panel panel-primary mrgn-tp-md">
 				<div class="panel-body well mrgn-bttm-0">
@@ -628,7 +635,7 @@ legend.required:before {
 <div class="panel panel-success mrgn-tp-lg">
 	    <div class="panel-body">
 		
-		  <h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Fournir des instructions en texte clair avant le formulaire</h3>
+		  <h3 class="text-success mrgn-tp-0 h3" id="provide-instructions"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Fournir des instructions en texte clair avant le formulaire</h3>
 			<p>Dans cet exemple, les instructions générales du formulaire précèdent la balise d’ouverture <code lang="en-CA">&lt;form&gt;</code>, où les utilisateurs du lecteur d’écran peuvent facilement y accéder. Si les instructions en texte clair se trouvaient à l’intérieur de l’élément <code lang="en-CA">&lt;form&gt;</code>, les utilisateurs pourraient facilement les manquer puisque la navigation à l’intérieur d’un formulaire se limite aux éléments faciles à cibler (aussi appelés «&nbsp;mode formulaires&nbsp;»).</p>
 
 			 <div class="panel panel-primary mrgn-tp-md">
@@ -688,7 +695,7 @@ legend.required:before {
 			</section>
 			
 			<section>				
-				<h2 id="resources" class="wb-inv">Ressources WCAG connexes</h2>
+				<h2 id="form-instructions-wcag" class="wb-inv">Ressources WCAG connexes</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Ressources WCAG connexes</summary>
                         <p class="mrgn-tp-md">En anglais seulement.</p>

@@ -51,20 +51,27 @@
                     "title": "Module 8 - Zoom et conception adaptée",
                     
                     "href" : "index-fr.html"
-                }],
-            "lngLinks": [{
-                "lang": "en",
-                "href": "responsive-design.html",
-                "text": "English"
-            }],
-            "menuPath": "../../../ajax/menu-fr.html"
-        });
+                },
+          {
+            "title": "Conception adaptée",
+            
+          },
+        ],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "responsive-design.html",
+            "text": "English",
+          },
+        ],
+        "menuPath": "../../../ajax/menu-fr.html",
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-			
-	<h1 property="name" id="wb-cont">Conception adaptée</h1>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Conception adaptée</h1>
 						
 	<nav role="navigation">
     <div class="panel panel-default mrgn-tp-md">
@@ -73,25 +80,25 @@
       </header>
         <div class="panel-body">
           <ul>
-            <li><a href="#section1">Aperçu – Conception adaptée</a></li>
-			<li><a href="#section2">Requêtes média CSS</a></li>
-			<li><a href="#section3">Points d’interruption</a></li>
-			<li><a href="#section4">Configurer la zone d’affichage</a></li>
-			<li><a href="#section6">Émulateurs de zone d’affichage</a></li>
-			<li><a href="#section7">Avantages d’une conception adaptative pour les utilisateurs malvoyants</a></li>
-			<li><a href="#resources1">Ressources WCAG connexes</a></li>
+            <li><a href="#overview-responsive-design">Aperçu – Conception adaptée</a></li>
+			<li><a href="#css-media-queries">Requêtes média CSS</a></li>
+			<li><a href="#breakpoints">Points d’interruption</a></li>
+			<li><a href="#set-the-viewport">Configurer la zone d’affichage</a></li>
+			<li><a href="#viewport-emulators">Émulateurs de zone d’affichage</a></li>
+			<li><a href="#benefits-to-low-vision-users">Avantages d’une conception adaptative pour les utilisateurs malvoyants</a></li>
+			<li><a href="#mod8-responsive-design-wcag">Ressources WCAG connexes</a></li>
           </ul>
         </div>
       </div>
 	</nav>
 	
 			<section>				
-				<h2 id="section1">Aperçu – Conception adaptée</h2>
+				<h2 id="overview-responsive-design">Aperçu – Conception adaptée</h2>
 				<p>La conception Web adaptée utilise HTML et CSS pour redimensionner, masquer, réduire ou agrandir automatiquement un site Web, en s’assurant que la conception est bonne et que l’information et la fonctionnalité sont préservées pour tous les appareils de toutes tailles d’écran.</p>
 			</section>
 			
 			<section>				
-				<h2 id="section2">Requêtes média CSS</h2>
+				<h2 id="css-media-queries">Requêtes média CSS</h2>
 				<p>La technique s’appuie sur les « requêtes média » CSS, qui effectue des tests pour déterminer la taille de l’écran des utilisateurs, puis servent des configurations distinctes à différentes largeurs d’écran. Une stratégie typique cible les trois grandes catégories d’affichage des appareils : grands écrans, tablettes et téléphones. Les versions HTML et CSS des composantes de la page sont adaptées pour éviter le défilement horizontal, comme il est décrit dans les sections suivantes.</p>
 				<p>Les points auxquels une requête média est présentée et la configuration est modifiée sont appelés «&nbsp;points d’interruption&nbsp;». Voici la syntaxe&nbsp;:</p>
 <p class="lang-label small">CSS</p>
@@ -114,10 +121,10 @@
 			</section>
 			
 			<section>				
-				<h2 id="section3">Points d’interruption</h2>
+				<h2 id="breakpoints">Points d’interruption</h2>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0 h3">
+						<h3 class="text-success mrgn-tp-0 h3" id="good-example-single-breakpoint">
 							<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Point d’interruption unique
 						</h3>
 						<p>Dans cet exemple, le type de média est <code lang="en-CA">screen</code> et le point d’interruption est 480&nbsp;pixels. Si la largeur d’un appareil est de 480&nbsp;pixels ou moins, la r&egrave; de style <code lang="en-CA">.button</code> est appliquée.</p>
@@ -129,7 +136,7 @@
 						<p class="wb-inv">Fin du code</p>
 					</div>
 				</div>
-				<h3>Points d’interruption du gouvernement du Canada</h3>
+				<h3 id="gov-canada-breakpoints">Points d’interruption du gouvernement du Canada</h3>
 				<p>Les spécifications techniques relatives à la présence Web et mobile du <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/web-mobile-presence.html">Secrétariat du Conseil du Trésor du gouvernement du Canada</a> précisent deux points d’interruption pour les grands et petits écrans à 768&nbsp;pixels. </p>
 				<p>Ces requêtes média ciblent le type «&nbsp;écran&nbsp;», de sorte que leurs règles ne sont pas appliquées à la sortie d’impression. </p>
 <p class="lang-label small">CSS</p>
@@ -142,7 +149,7 @@
 }</code></pre>
 				<p class="wb-inv">Fin du code</p>
 				<p>Styles pour les appareils à grand écran et les petits écrans</p>
-				<h3>Points d’interruption de la BOEW</h3>
+				<h3 id="wet-breakpoints">Points d’interruption de la BOEW</h3>
 				<p>La Boîte à outils de l’expérience Web offre une conception adaptée aux appareils mobiles. Elle met en œuvre les points d’interruption de Bootstrap&nbsp;3&nbsp;:</p>
 				<ul>
 					<li>Très très petit – inférieur à 480&nbsp;pixels</li>
@@ -152,7 +159,7 @@
 					<li>Grand – entre 1&nbsp;200&nbsp;pixels et 1&nbsp;600&nbsp;pixels – Format ordinateur de bureau</li>
 					<li>Très grand – supérieur à 1&nbsp;600&nbsp;pixels</li>
 				</ul>
-				<h3>Points d’interruption courants</h3>
+				<h3 id="common-breakpoints">Points d’interruption courants</h3>
 				<h4>Petit (téléphones)</h4>
 				<ul>
 					<li>320&nbsp;pixels à 480&nbsp;pixels&nbsp;: Appareils mobiles</li>
@@ -170,17 +177,17 @@
 				
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0 h3">
+						<h3 class="text-success mrgn-tp-0 h3" id="good-example-reflow-conent">
 							<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Reformater le contenu
 						</h3>
 						<p><a href="example-reflow-2-fr.html" target="_blank">Voir cet exemple en action<span class="wb-inv"> (S'ouvre dans un nouvel onglet)</span></a>. Rétrécir la fenêtre de votre navigateur pour déclencher les configurations adaptées.</p>
 						<details class="mrgn-tp-lg">
 							<summary class="bg-info">Voir les captures d'écran de la mise en page réactive</summary>
-							<h3>Ordinateur de bureau&nbsp;: @media (min-width:960px)</h3>
+							<h3 id="desktop-media">Ordinateur de bureau&nbsp;: @media (min-width:960px)</h3>
 							<img src="images/image3-fr.png" class="img-responsive" alt="La configuration du bureau affiche le contenu sur trois colonnes. Les flotteurs sont utilisés sur deux icônes d’accessibilité.">
-							<h3>Tablette&nbsp;: @media (min-width:481px) and (max-width:959px)</h3>
+							<h3 id="tablet-media">Tablette&nbsp;: @media (min-width:481px) and (max-width:959px)</h3>
 							<img src="images/image4-fr.png" class="img-responsive" alt="La configuration de la tablette affiche le contenu dans une seule colonne. Les flotteurs sont utilisés sur deux icônes d’accessibilité.">
-							<h3>Téléphone&nbsp;: @media (max-width:480px)</h3>
+							<h3 id="phone-media">Téléphone&nbsp;: @media (max-width:480px)</h3>
 							<p>Notez que le flotteur est retiré des images.</p>
 							<img src="images/image5-fr.png" class="img-responsive" alt="La configuration du téléphone affiche le contenu dans une seule colonne. Les icônes ne flottent plus.">
 						
@@ -282,7 +289,7 @@ section img {
 				</div>
 			</section>
 			<section>				
-				<h2 id="section4">Configurer la zone d’affichage</h2>
+				<h2 id="set-the-viewport">Configurer la zone d’affichage</h2>
 					<p>Les pages optimisées pour une variété d’appareils doivent inclure un élément  <code lang="en-CA">&lt;meta&gt;</code> dans le <code lang="en-CA">&lt;head&gt;</code> du document, précisant quelques propriétés de la zone d’affichage. Une balise <code lang="en-CA">meta</code> de zone d’affichage indique au navigateur comment contrôler les dimensions et la mise à l’échelle de la page. Sans cette balise, une page n’est pas adaptée sur les appareils mobiles.</p>
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
@@ -298,7 +305,7 @@ section img {
 					<p>Les pages mobiles doivent prendre en charge la fonction «&nbsp;zoom par pincement&nbsp;» afin de permettre aux utilisateurs d’agrandir les petits textes et les commandes et de compenser le faible contraste. Pour activer la fonction zoom par pincement, réglez <code lang="en-CA">user-scalable=1</code> et <code lang="en-CA">maximum-scale=2.0</code>. Il s’agit d’une valeur de 200&nbsp;%, soit le zoom minimum requis pour respecter les WCAG. Vous pouvez activer un zoom plus important en réglant <code lang="en-CA">maximum-scale</code> à une valeur plus élevée ou en supprimant le paramètre <code lang="en-CA">maximum-scale</code> pour supprimer entièrement la limite de zoom. </p>
 					<div class="panel panel-success mrgn-tp-lg">
 						<div class="panel-body">
-							<h3 class="text-success mrgn-tp-0 h3">
+							<h3 class="text-success mrgn-tp-0 h3" id="pinch-to-zoom">
 							<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Réglage du zoom par pincement à un grossissement de 200&nbsp;%</h3>
 							<p>Dans cet exemple, la page est configurée pour permettre un zoom maximal de 200&nbsp;% au moyen de la propriété <code lang="en-CA">maximum-scale</code>. 200&nbsp;% est la valeur minimale de zoom exigée par les WCAG.</p>
 <p class="lang-label small">HTML</p>
@@ -309,7 +316,7 @@ section img {
 					</div>	
 					<div class="panel panel-success mrgn-tp-lg">
 						<div class="panel-body">
-							<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Mauvais exemple&nbsp;: D&eacute;sactivation du réglage du zoom par pincement</h3>
+							<h3 class="text-danger mrgn-tp-0 h3" id="disabling-pinch-to-zoom"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Mauvais exemple&nbsp;: D&eacute;sactivation du réglage du zoom par pincement</h3>
 							<p>Les développeurs désactivent souvent la fonction zoom par pincement en réglant deux paramètres sur l’élément <code lang="en-CA">meta</code> de la zone d’affichage&nbsp;: <code lang="en-CA">user-scalable=no</code> et <code lang="en-CA">maximum-scale=1.0</code>. </p>
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
@@ -321,13 +328,13 @@ section img {
 			
 			
 			<section>				
-				<h2 id="section6">Émulateurs de zone d’affichage</h2>
+				<h2 id="viewport-emulators">Émulateurs de zone d’affichage</h2>
 				
 				<p>Vous pouvez tester les points d’interruption à l’aide d’émulateurs de zone d’affichage pour représenter correctement votre requête média et votre style, en gardant à l’esprit que les émulateurs ne représentent pas la fonctionnalité ou les caractéristiques du navigateur.</p>
 				<p>Vous pouvez également tester les points d’interruption à l’aide du service en ligne <a hreflang="en" lang="en" href="http://www.viewportemulator.com">Viewport Emulator</a>, comme dans l’exemple ci-dessous.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0 h3">
+						<h3 class="text-success mrgn-tp-0 h3" id="checking-it-accessibility-office-viewport">
 						<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Vérification du Bureau de l’accessibilité des TI à l’aide de l’émulateur de zone d’affichage</h3>
 						<p>Dans cet exemple, le <a href="https://bati-itao.github.io/index.html">Bureau de l’accessibilité des TI</a> est testé au moyen de l’ <a hreflang="en" href="http://www.viewportemulator.com">Émulateur de zone d’affichage en ligne</a>.</p>
 						<div class="panel panel-primary mrgn-tp-md">
@@ -342,7 +349,7 @@ section img {
 				
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0 h3">
+						<h3 class="text-success mrgn-tp-0 h3" id="checking-it-accessibility-office-chrome">
 						<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Vérification du Bureau de l’accessibilité des TI à l’aide de l’émulateur Chrome</h3>
 						<p>Il est possible d’accéder à l’émulateur mobile Chrome à partir de ses options d’outils de développement en utilisant des raccourcis clavier: Commande + Option + I (Mac) OU Ctrl + Shift + I (Windows).</p>
 						<div class="panel panel-primary mrgn-tp-md">
@@ -357,12 +364,12 @@ section img {
 				
 			</section>
 			<section>				
-				<h2 id="section7">Avantages d’une conception adaptative pour les utilisateurs malvoyants</h2>
+				<h2 id="benefits-to-low-vision-users">Avantages d’une conception adaptative pour les utilisateurs malvoyants</h2>
 				<p>De nombreux utilisateurs malvoyants ne peuvent pas agrandir suffisamment les petits écrans pour les lire. Ils lisent plutôt des sites sûrs de gros appareils et agrandissent l’écran. Au fur et à mesure que l’utilisateur agrandit, la fenêtre du navigateur devient plus petite par rapport à la taille du contenu, ce qui déclenche des points d’interruption CSS pour des configurations d’écran plus petites. Sur un grand appareil, une configuration de petit écran optimisée pour afficher en une seule colonne peut prendre toute la largeur du grand écran, ce qui permet un texte assez volumineux.</p>
 			</section>
 			
 			<section>				
-				<h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
+				<h2 id="mod8-responsive-design-wcag" class="wb-inv">Ressources WCAG connexes</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Ressources WCAG connexes</summary>
                         <p class="mrgn-tp-md">En anglais seulement.</p>
