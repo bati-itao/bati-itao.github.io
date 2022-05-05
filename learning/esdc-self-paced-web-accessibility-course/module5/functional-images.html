@@ -96,7 +96,7 @@
 		<p>Missing or empty alt values in functional images create significant problems for screen reader users. Buttons and custom controls declare only their role (e.g., “button”, “tab”) and state (e.g., “expanded”). Linked images declare their role (“link”), and in the absence of an <code>alt</code> attribute value, screen readers take a guess and instead declare the image file name or link URL, neither of which may be descriptive.</p>
 		<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-success mrgn-tp-0 h3">
+					<h3 class="text-success mrgn-tp-0 h3" id="linked-image">
 			<span class="glyphicon glyphicon-ok-circle"></span> Good example: Linked image</h3>
 		<p>In the example below, the Canada.ca logo in the banner links to the Canada.ca homepage. The <code>&lt;img&gt;</code> element is nested in the link. The alt text “Government of Canada home page” provides the link text.</p>
 		<div class="panel panel-primary mrgn-tp-md">
@@ -117,7 +117,7 @@
 		</div>
 		<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-success mrgn-tp-0 h3">
+					<h3 class="text-success mrgn-tp-0 h3" id="icon-meaningful">
 			<span class="glyphicon glyphicon-ok-circle"></span> Good example: Icon with meaningful alt text nested in link text</h3>
 		<p>In this example, an icon with the meaningful alt text “Opens in new window” is nested inside the link along with the link text “W3C Homepage”.  Screen reader users experience the link as “W3C homepage, opens in new window.”</p>
 		<div class="panel panel-primary mrgn-tp-md">
@@ -143,7 +143,7 @@
 		</div>
 		<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-success mrgn-tp-0 h3">
+					<h3 class="text-success mrgn-tp-0 h3" id="functional-icon">
 			<span class="glyphicon glyphicon-ok-circle"></span> Good example: Functional icon</h3>
 		<p>In this example, a clickable icon representing a printer denotes print functionality. Its text alternative is “Print this page”, rather than the literal “Printer”, because the purpose is to activate the print dialog.</p>
 		<div class="panel panel-primary mrgn-tp-md">
@@ -164,7 +164,7 @@
 		</div>
 		<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-success mrgn-tp-0 h3">
+					<h3 class="text-success mrgn-tp-0 h3" id="icon-used-in-button">
 			<span class="glyphicon glyphicon-ok-circle"></span> Good example: Image used in a button
 		</h3>
 		<p>The following image is used to give the button a distinct style. In this case, it is the button to initiate a search request and the nested icon is a magnifying lens. The text alternative for the image is “search” to convey the purpose of the button, rather than the literal “magnifying lens”.</p>
@@ -189,7 +189,7 @@
 		</div>
 		<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-success mrgn-tp-0 h3">
+					<h3 class="text-success mrgn-tp-0 h3" id="redundant-image">
 			<span class="glyphicon glyphicon-ok-circle"></span> Good example: Redundant image within link text</h3>
 		<p>In this example, the Company XYZ logo accompanies a text link that leads to the Company XYZ home page. The image does not represent different functionality or convey other information than that already provided in the link text. In effect the image is a simple visual assist to the link text. A null (empty) alt value is applied, (<code>alt=""</code>), to avoid redundancy and repetition.</p>
 		<div class="panel panel-primary mrgn-tp-md">
@@ -223,7 +223,7 @@
 		<p>The child <code>&lt;img&gt;</code> element's <abbr>alt</abbr> attribute could hold any value and it wouldn’t matter. It’s overridden by the <code>aria-label</code> or <code>aria-labelledby</code> attribute, which take precedence over child text when naming an element.</p>
 		<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-success mrgn-tp-0 h3">
+					<h3 class="text-success mrgn-tp-0 h3" id="naming-functional-image">
 			<span class="glyphicon glyphicon-ok-circle"></span> Good example: Naming a functional image using the <code>aria-label</code> attribute</h3>
 		<p>In this example, an <code>aria-label</code> attribute names the button, rather than the child <code>&lt;img&gt;</code> element's <code>alt</code> attribute. The <code>alt</code> attribute is set to null (empty): <code>alt=""</code>.</p>
 				
@@ -245,7 +245,7 @@
 		</div>
 		<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-success mrgn-tp-0 h3">
+					<h3 class="text-success mrgn-tp-0 h3" id="functional-images-using-attributes">
 			<span class="glyphicon glyphicon-ok-circle"></span> Good example: Naming functional images using the <code>aria-label</code> and <code>aria-labelledby</code> attributes</h3>
 		<p>In this example, two text-styling buttons are each accompanied by an identical “more” details button. The styling buttons are named with the <code>aria-label</code> attribute. The “more” buttons are named with the <code>aria-labelledby</code> attribute, pointing to the <code>id</code> attribute values of the elements holding the desired label fragments: “More” + either “Bullets” or “Text alignment”. The <code>alt</code> attribute of each button <code>&lt;img&gt;</code> element is set to null (empty): <code>alt=""</code>.</p>
 	<div class="panel panel-primary mrgn-tp-md">
