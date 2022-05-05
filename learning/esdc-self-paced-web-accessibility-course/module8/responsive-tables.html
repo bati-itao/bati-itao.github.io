@@ -443,6 +443,355 @@ table thead th {
 					</div>
 				</div>
 			</section>
+
+			<section>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h2 id="reflow-table" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Reflow table to nested list</h2>
+						<p>In the example below the table reflows to a nested list if the width of the browser is less than 768 pixels, maintaining readability without the need for horizontal scrolling. </p>
+						
+
+					
+						<p>Resize the browser window to see the effect.</p>
+
+						<div class="panel panel-primary">
+							<div class="panel-body mrgn-bttm-0">
+ 
+<!--								<table id="desktop-table" class="example table table-hover"> 
+-->
+									<table id="desktop-table"> 
+									<caption>Account Summary</caption>
+									<thead>
+										<tr>
+											<th scope="col">Accounts</th>
+											<th scope="col">Due Date</th>
+											<th scope="col">Balance</th>
+											<th scope="col">Statement Date</th>
+										</tr>
+									</thead>
+									<tbody> 
+										<tr> 
+											<th scope="row" data-label="Account">Mastercard - 5555</th> 
+											<td data-label="Due Date">04/01/2021</td> 
+											<td data-label="Amount">$5,390</td> 
+											<td data-label="Period">03/01/2021 - 03/31/2021</td> 
+										</tr> 
+										<tr> 
+											<th scope="row" data-label="Account">Visa - 5155</th> 
+											<td data-label="Due Date">03/01/2020</td> 
+											<td data-label="Amount">$2,013</td> 
+											<td data-label="Period">02/01/2020 - 02/29/2020</td> 
+										</tr> 
+										<tr> 
+											<th scope="row" data-label="Account">AMEX - 9010</th> 
+											<td data-label="Due Date">03/01/2020</td> 
+											<td data-label="Amount">$3,251</td> 
+											<td data-label="Period">02/01/2020 - 02/29/2020</td> 
+										</tr> 
+										<tr> 
+											<th scope="row" data-label="Acount">Capital One - 8800</th> 
+											<td data-label="Due Date">02/01/2021</td> 
+											<td data-label="Amount">$4,842</td> 
+											<td data-label="Period">01/01/2021 - 01/31/2021</td> 
+										</tr> 
+									</tbody>
+								</table>
+								
+								<div id="mobile-list">
+								  <h2>Account Summary</h2>
+								  <ul>
+									<li>Mastercard – 5555 
+									  <ul>
+										<li>Due date: 04/01/2021</li>
+										<li>Balance: $5,390</li>
+										<li>Statement date: 03/01/2021 - 03/31/2021/li>
+										
+									  </ul>
+									</li>
+									<li>Visa – 5155
+									  <ul>
+										<li>Due date: 03/01/2020</li>
+										<li>Balance: $2,013</li>
+										<li>Statement date: 02/01/2020 - 02/29/2020</li>
+										
+									  </ul>
+									</li>
+									<li>AMEX – 9010
+									  <ul>
+										<li>Due date: 03/01/2020</li>
+										<li>Balance: $3,251</li>
+										<li>Statement date: 02/01/2020 - 02/29/2020</li>
+										
+									  </ul>
+									</li>
+									<li>Capital One – 8800 
+									  <ul>
+										<li>Due date: 02/01/2021</li>
+										<li>Balance: $4,842</li>
+										<li>Statement date: 01/01/2021 - 01/31/2021</li>
+										
+									  </ul>
+									</li>
+									
+								  </ul>
+								</div>								
+<style type="text/css">
+
+#desktop-table {
+    display:none;
+}
+
+#mobile-list {
+    display:block;
+}
+
+#mobile-list ul {
+    position: relative;
+    margin-right: 20px;
+}
+#mobile-list ul {
+  list-style-type: none;
+}
+#mobile-list ul li {
+    font-weight:bold;
+}
+#mobile-list ul li ul li {
+    font-weight:normal;
+}
+
+#desktop-table table, th, td {
+    border:1px #000 solid;
+}
+
+
+
+
+#desktop-table th {
+    background-color:#ccc;
+}
+#desktop-table th, td {
+    padding: 3px;
+}
+<!--
+table.example { 
+   border: 1px solid #777; 
+   border-collapse: collapse; 
+   margin: 0; 
+   padding: 0;
+   width: 100%;
+   table-layout: fixed; 
+} 
+table.example caption { 
+   font-size: 1.2em; 
+   margin: .5em 0 .75em;
+} 
+table.example th, 
+table.example td,
+table.example>thead>tr>th {
+   padding: .625em; 
+   text-align: center; 
+   border: 1px solid #777;
+} 
+table.example>thead>tr>th {
+   border-bottom: 3px solid #777;
+} 
+table.example thead th {
+   letter-spacing: .1em;
+   text-transform: uppercase; 
+} 
+-->
+@media screen and (min-width: 767px) {
+
+    #desktop-table {
+        display:block;
+    }
+
+    #mobile-list {
+        display:none;
+    }
+
+}
+<!--
+@media screen and (max-width: 767px) { 
+   table.example { 
+      border: 0; 
+   } 
+   table.example caption { 
+      font-size: 1.2em; 
+   } 
+   table.example thead { 
+      border: none;
+      clip: rect(0 0 0 0); 
+      height: 1px; 
+      margin: -1px; 
+      overflow: hidden; 
+      padding: 0;
+      position: absolute; 
+      width: 1px;
+   } 
+   table.example tr { 
+      border-bottom: 3px solid #777;
+      display: block;
+      margin-bottom: 1em;
+   }
+   table.example td, table.example tbody th { 
+      border-bottom: 1px solid #777; 
+      display: block; 
+      text-align: right; 
+      width:95%;
+   } 
+   table.example td::before, 
+   table.example tbody th::before { 
+      content: attr(data-label); 
+      float: left; 
+      font-weight: bold; 
+      text-transform: uppercase; 
+   }
+   table.example td:last-child { 
+      border-bottom: 0; 
+   } 
+}
+-->
+</style>					
+							</div>
+						</div>
+
+						<details class="mrgn-tp-lg">
+							<summary class="bg-info">View screenshots of the responsive layout</summary>
+							
+							<h3 id="rtables-desktop">Desktop</h3>
+							<div class="panel panel-primary">
+								<div class="panel-body well mrgn-bttm-0">
+									<img src="images/table-desktop.png" class="img-responsive" alt="A conventional table with four column headers and four row headers."/>
+								</div>
+							</div>
+							
+							<h3 id="rtables-mobile">Mobile</h3>
+							<div class="panel panel-primary">
+								<div class="panel-body well mrgn-bttm-0">
+									<img src="images/table-mobile.png" class="img-responsive" alt=""/>
+								</div>
+							</div>
+						</details>						
+						
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">View CSS </summary>
+							<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-md"><code class="language-css">table { 
+   border: 1px solid #ccc; 
+   border-collapse: collapse; 
+   margin: 0; 
+   padding: 0;
+   width: 100%;
+   table-layout: fixed; 
+} 
+table caption { 
+   font-size: 1.2em; 
+   margin: .5em 0 .75em;
+} 
+table th, 
+table td {
+   padding: .625em; 
+   text-align: center; 
+   border: 1px solid #CCC;
+} 
+table thead th {
+   letter-spacing: .1em;
+   text-transform: uppercase; 
+} 
+@media screen and (max-width: 767px) { 
+   table { 
+      border: 0; 
+   } 
+   table caption { 
+      font-size: 1.2em; 
+   } 
+   table thead { 
+      border: none;
+      clip: rect(0 0 0 0); 
+      height: 1px; 
+      margin: -1px; 
+      overflow: hidden; 
+      padding: 0;
+      position: absolute; 
+      width: 1px;
+   } 
+   table tr { 
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: 1em;
+   }
+   table td, table tbody th { 
+      border-bottom: 1px solid #ddd; 
+      display: block; 
+      text-align: right; 
+      width:95%;
+   } 
+   table td::before, 
+   table tbody th::before { 
+      content: attr(data-label); 
+      float: left; 
+      font-weight: bold; 
+      text-transform: uppercase; 
+   }
+   table td:last-child { 
+      border-bottom: 0; 
+   } 
+}</code></pre>
+							<p class="wb-inv">Code ends</p>
+						</details>	
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">View HTML </summary>
+							<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;table&gt;
+   &lt;caption&gt;Account Summary&lt;/caption&gt;
+   &lt;thead&gt;
+      &lt;tr&gt;
+         &lt;th scope="col"&gt;Accounts&lt;/th&gt;
+         &lt;th scope="col"&gt;Due Date&lt;/th&gt;
+         &lt;th scope="col"&gt;Balance&lt;/th&gt;
+         &lt;th scope="col"&gt;Statement Date&lt;/th&gt;
+      &lt;/tr&gt;
+   &lt;/thead&gt;
+   &lt;tbody&gt; 
+      &lt;tr&gt; 
+         &lt;th scope="row" data-label="Account"&gt;Mastercard - 5555&lt;/th&gt; 
+         &lt;td data-label="Due Date"&gt;04/01/2021&lt;/td&gt; 
+         &lt;td data-label="Amount"&gt;$5,390&lt;/td&gt; 
+         &lt;td data-label="Period"&gt;03/01/2021 - 03/31/2021&lt;/td&gt; 
+      &lt;/tr&gt; 
+      &lt;tr&gt; 
+         &lt;th scope="row" data-label="Account"&gt;Visa - 5155&lt;/th&gt; 
+         &lt;td data-label="Due Date"&gt;03/01/2020&lt;/td&gt; 
+         &lt;td data-label="Amount"&gt;$2,013&lt;/td&gt; 
+         &lt;td data-label="Period"&gt;02/01/2020 - 02/29/2020&lt;/td&gt; 
+      &lt;/tr&gt; 
+      &lt;tr&gt; 
+         &lt;th scope="row" data-label="Account"&gt;AMEX - 9010&lt;/th&gt; 
+         &lt;td data-label="Due Date"&gt;03/01/2020&lt;/td&gt; 
+         &lt;td data-label="Amount"&gt;$3,251&lt;/td&gt; 
+         &lt;td data-label="Period"&gt;02/01/2020 - 02/29/2020&lt;/td&gt; 
+      &lt;/tr&gt; 
+      &lt;tr&gt; 
+         &lt;th scope="row" data-label="Acount"&gt;Capital One - 8800&lt;/th&gt; 
+         &lt;td data-label="Due Date"&gt;02/01/2021&lt;/td&gt; 
+         &lt;td data-label="Amount"&gt;$4,842&lt;/td&gt; 
+         &lt;td data-label="Period"&gt;01/01/2021 - 01/31/2021&lt;/td&gt; 
+      &lt;/tr&gt; 
+   &lt;/tbody&gt;
+&lt;/table&gt;</code>
+</pre>
+								<p class="wb-inv">Code ends</p>
+							</details>	
+					
+					</div>
+				</div>
+						
+	
+			
+			</section>
+
+
 		
 		
 	<nav role="navigation">
