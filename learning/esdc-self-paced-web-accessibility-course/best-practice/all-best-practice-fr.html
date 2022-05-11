@@ -209,13 +209,13 @@
 			<section>
 				<h3 id="best-practice-landmarks">Points de repère</h3>
 				<ul>
+					<li>S’assurer que tout le contenu de la page se trouve dans un point de repère.</li>
 					<li>Identifier les points de repère sur la page:
 						<ul>
 							<li>Utiliser des éléments de section HTML5 équivalents (préférable).</li>
 							<li>Utiliser des attributs de rôle de point de repère ARIA s’il est impossible d’utiliser des éléments de section HTML5.</li>
 						</ul>
 					</li>
-					<li>S’assurer que tout le contenu de la page se trouve dans une région de point de repère.</li>
 					<li>S’assurer de la présence d’un seul cas de:
 						<ul>							
 							<li><code lang="en-CA">role="banner"</code> ou <code lang="en-CA">&lt;header&gt;</code> (lorsque <code lang="en-CA">&lt;header&gt;</code> est un enfant de <code lang="en-CA">&lt;body&gt;</code>). Un <code lang="en-CA">&lt;header&gt;</code> n’est pas considéré comme une bannière lorsqu’il s’agit de l’enfant de <code lang="en-CA">&lt;article&gt;</code>, <code lang="en-CA">&lt;aside&gt;</code>, <code lang="en-CA">&lt;main&gt;</code>, <code lang="en-CA">&lt;nav&gt;</code> ou <coode>&lt;section&gt;</code>.</li>
@@ -223,7 +223,13 @@
 							<li><code lang="en-CA">&lt;main&gt;</code></li>
 						</ul>
 					</li>
-					<li>S’assurer que <code lang="en-CA">&lt;header&gt;</code> (quand il s’agit de la bannière), <code lang="en-CA">&lt;footer&gt;</code>, <code lang="en-CA">&lt;main&gt;</code> sont des enfants directs de <code lang="en-CA">&lt;body&gt;</code>.</li>
+					<li>S’assurer que ces points de repère sont des enfants directs de <code lang="en-CA">&lt;body&gt;</code>:
+						<ul>
+							<li><code lang="en-CA">&lt;header&gt;</code> (quand il s’agit de la bannière)</li>
+							<li><code lang="en-CA">&lt;footer&gt;</code></li>
+							<li><code lang="en-CA">&lt;main&gt;</code></li>
+						</ul>
+					</li>
 					<li>Limiter l’utilisation de &lt;nav&gt; aux navigations primaires et secondaires.
 						<ul>
 							<li>Utiliser l’attribut <code lang="en-CA">aria-label</code> pour différencier plusieurs éléments <code lang="en-CA">&lt;nav&gt;</code> (différents).</li>
@@ -369,7 +375,7 @@
 					<li>Placez le lien de saut de navigation au haut de la page avant tout autre élément ciblable (lien, bouton ou commande personnalisée).</li>
 					<li>Le lien de saut n’a pas besoin d’être visible avant d’avoir reçu la cible.</li>
 					<li>Utilisez un texte de lien clair – p. ex. &ldquo;Passer au contenu principal&rdquo; ou  &ldquo;Passer au contenu&rdquo;</li>
-					<li>Utilisez un lien de même page en ciblant la valeur de l’attribut d'identification de la destination (habituellement  <code lang="en-CA">&lt;main&gt;</code>l’élément.</li>
+					<li>Utilisez un lien de même page en ciblant la valeur de l’attribut d'identification de la destination (habituellement l’élément <code lang="en-CA">&lt;main&gt;</code>.</li>
 					<li>Attribuez l'attribut<code lang="en-CA">tabindex="-1"</code> à la destination. Cela corrige les lacunes de certains navigateurs qui déplacent la fenêtre d'affichage vers la destination, mais pas vers la cible.</li>
 					<li>Ne masquez pas le lien de saut en utilisant l’une des options suivantes:
 						<ul>
@@ -431,7 +437,7 @@
 				    </li>
 					<li>Définir les groupes dans le tableau avec les éléments <code lang="en-CA">&lt;colgroup&gt;</code> et <code lang="en-CA">&lt;tbody&gt;</code> :
 					  <ul>
-						<li>Définir des groupes de colonnes avec l’élément <code lang="en-CA">&lt;colgroup&gt;</code>et des colonnes individuelles avec <code lang="en-CA">&lt;col&gt;</code> comme premier enfant de l’élément de tableau;</li>
+						<li>Définir des groupes de colonnes avec l’élément <code lang="en-CA">&lt;colgroup&gt;</code> et des colonnes individuelles avec <code lang="en-CA">&lt;col&gt;</code> comme premier enfant de l’élément de tableau;</li>
 						<li>Définir des groupes de rangée avec l’élément <code lang="en-CA">&lt;tbody&gt;</code>. Les éléments individuels <code lang="en-CA">&lt;thead&gt;</code> et <code lang="en-CA">&lt;tfoot&gt;</code> définissent leurs propres groupes</li>
 				      </ul>
 					</li>
@@ -452,7 +458,8 @@
 			<section>
 				<h3 id="captions-summary">Légendes et sommaire</h3>
 				<ul>
-					<li>Utiliser l’élément <code lang="en-CA">&lt;caption&gt;</code> pour fournir un nom ou un titre visible pour le tableau.</li>
+					<li>Utiliser l’élément <code lang="en-CA">&lt;caption&gt;</code> pour fournir un nom ou un titre pour le tableau.</li>
+					<li><mark>If the caption duplicates the preceding heading, visually-hide the <code lang="en-CA">&lt;caption&gt;</code> with the WET CSS class <code>.wb-inv</code>.</mark></li>
 					<li>Placer l’élément <code lang="en-CA">&lt;caption&gt;</code> comme enfant direct de l’élément <code lang="en-CA">&lt;table&gt;</code></li>
 					<li>Fournir un sommaire pour les tableaux complexes comprenant le but, la composition, les tendances ou l’utilisation.</li>
 					<li>Dans la mesure du possible, convertir des tableaux complexes en tableaux ou listes simples, de sorte qu’une explication moindre ou nulle ne soit requise.</li>
@@ -560,7 +567,7 @@
 			<section>
 				<h3 id="figure">Figure and figcaption</h3>
 				<ul>			
-					<li>Utilisez l’élément <code lang="en-CA">&lt;figcaption&gt;</code>pour décrire l’information contextuelle qui n’est pas apparente en regardant l’image. Cela comprend les qui, quoi, quand, où et/ou pourquoi d’une image.</li>
+					<li>Utilisez l’élément <code lang="en-CA">&lt;figcaption&gt;</code> pour décrire l’information contextuelle qui n’est pas apparente en regardant l’image. Cela comprend les qui, quoi, quand, où et/ou pourquoi d’une image.</li>
 					<li>N’utilisez pas exactement les mêmes mots pour le texte de remplacement et l’élément <code lang="en-CA">&lt;figcaption&gt;</code>. Les logiciels de lecture à l’écran traiteront l’information deux fois.</li>
 					<li>Fournissez toujours un texte de remplacement pour les images même si elles ont un élément <code lang="en-CA">&lt;figcaption&gt;</code>. Si vous fournissez un attribut alt vide ou nul, les logiciels de lecture à l’écran ne seront pas en mesure d’annoncer la présence d’une image.</li>
 				</ul>
@@ -1357,7 +1364,9 @@
 		</article>
  
     
-        </main>
+        	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>
+		<script src="../../../scripts/esdc-course.js"></script>
+	</main>
 
         <nav
           id="wb-sec"
