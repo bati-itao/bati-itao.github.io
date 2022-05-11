@@ -198,13 +198,13 @@
 			<section>				
 				<h3 id="best-practice-landmarks">Landmarks</h3>
 				<ul>
+					<li>Ensure all content on the page is contained within a landmark.</li>
 					<li>Identify landmarks on the page:
 						<ul>
 							<li>Use equivalent HTML5 sectioning elements (preferred) </li>
 							<li>Use ARIA landmark <code>role</code> attributes if HTML5 sectioning elements cannot be used.</li>
 						</ul>
 					</li>
-					<li>Ensure all content on the page is contained within a landmark region</li>
 					<li>Ensure only one instance of:
 						<ul>
 							<li><code>role="banner"</code>  or <code>&lt;header&gt;</code> (when <code>&lt;header&gt;</code> is a child of <code>&lt;body&gt;</code>). A <code>&lt;header&gt;</code> is not considered a banner when it is the child of <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code> or <code>&lt;section&gt;</code>.</li>
@@ -212,7 +212,13 @@
 							<li><code>&lt;main&gt;</code></li>
 						</ul>
 					</li>
-					<li>Ensure <code>&lt;header&gt;</code> (when the banner), <code>&lt;footer&gt;</code>, <code>&lt;main&gt;</code> are direct children of <code>&lt;body&gt;</code></li>
+					<li>Ensure these landmarks are direct children of <code>&lt;body&gt;</code>:
+						<ul>
+							<li><code>&lt;header&gt;</code> (when the banner)</li>
+							<li><code>&lt;footer&gt;</code></li>
+							<li><code>&lt;main&gt;</code></li>
+						</ul>
+					</li>
 					<li>Limit the use of <code>&lt;nav&gt;</code> to primary and secondary navigations
 						<ul>
 							<li>Use the <code>aria-label</code> attribute to differentiate multiple (different) <code>&lt;nav&gt;</code> items.</li>
@@ -419,7 +425,7 @@
 					<li>Define groups in the table with <code>&lt;colgroup&gt;</code> and <code>&lt;tbody&gt;</code> elements:
 					  <ul>
 					    <li>Define column groups with the <code>&lt;colgroup&gt;</code> element, solo columns with <code>&lt;col&gt;</code>, as first children of the table element.</li>
-					    <li>Define row groups with the <code>&lt;tbody&gt;</code>element. The solo <code>&lt;thead&gt;</code> and <code>&lt;tfoot&gt;</code> elements define their own groups.</li>
+					    <li>Define row groups with the <code>&lt;tbody&gt;</code> element. The solo <code>&lt;thead&gt;</code> and <code>&lt;tfoot&gt;</code> elements define their own groups.</li>
 				      </ul>
 					</li>
 				</ul>
@@ -439,9 +445,10 @@
 			<section>
 				<h3 id="captions-summary">Captions and Summary</h3>
 				<ul>
-					<li>Use the <code>&lt;caption&gt;</code> element to provide a visible name or title for the table</li>
+					<li>Use the <code>&lt;caption&gt;</code> element to provide a name or title for the table</li>
+					<li>If the caption duplicates the preceding heading, visually-hide the <code>&lt;caption&gt;</code> with the WET CSS class <code>.wb-inv</code>.</li>
 					<li>Place the <code>&lt;caption&gt;</code> element as a direct child of the <code>&lt;table&gt;</code> element</li>
-					<li>Provide a summary for complex tables that include purpose, composition, trends and/or usage</li>
+					<li>Provide a summary for complex tables that includes purpose, composition, trends and/or usage</li>
 					<li>Wherever possible, convert complex tables into simple tables or lists, so that less or no explanation is required.</li>
 					<li>Do no duplicate caption information in the summary.</li>
 					<li>Pick a method for presenting table summaries:
@@ -567,8 +574,9 @@
 						</ul>
 					</li>
 					<li>For complex images with extended alt text description
+						<ul>
 							<li>Use <code>&lt;svg&gt;</code> element</li>
-							<li>Add role=image" to improve accessibility support</li>
+							<li>Add role="image" to improve accessibility support</li>
 							<li>Provide text alternative that conveys the same intent and meaning as the image.</li>
 							<li>Use <code>&lt;title&gt;</code> element to provide short alt text
 								<ul>
@@ -1033,7 +1041,10 @@
 					<li>When the speech is unintelligible or inaudible, transcribe [inaudible]</li>
 					<li>Indicate large silences as (silence).</li>
 					<li>Include background music if it’s important to understand the content:
-					<li>Identify music with the uppercase label MUSIC (or a verb implying music), followed by a colon and the title in quotation marks followed by the artist.</li>
+						<ul>
+							<li>Identify music with the uppercase label MUSIC (or a verb implying music), followed by a colon and the title in quotation marks followed by the artist.</li>
+						</ul>
+					</li>
 					<li>Transcribe important lyrics with musical notes to either side, e.g.,
 						<blockquote class="mrgn-bttm-sm">
 							<p>♪ A long, long time ago ♪</p>
@@ -1245,46 +1256,43 @@
 		</article>
  
     
-        </main>
+        	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>
+		<script src="../../../scripts/esdc-course.js"></script>
+	</main>
 
-        <nav
-          id="wb-sec"
-          class="wb-sec col-md-3 col-md-pull-9"
-          typeof="SiteNavigationElement"
-          role="navigation"
-          aria-labelledby="wb-sec-h">
-			<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+        <nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation" aria-labelledby="wb-sec-h">
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
 
 
 		<section class="list-group menu list-unstyled">
-            <h3 class="wb-navcurr">All modules</h3>
-					<ul class="list-group menu list-unstyled">
-						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
-						<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>			
-						<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
-						<li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
-						<li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
-						<li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Forms</a></li>	
-						<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
-						<li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
-						<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
-						<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
-						<li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
-						<li><a class="list-group-item" href="../module12/introduction.html">Module 12 - ARIA widgets</a></li>
-					</ul>
-		</article>
+	           	<h3 class="wb-navcurr">All modules</h3>
+			<ul class="list-group menu list-unstyled">
+				<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+				<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>			
+				<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+				<li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+				<li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+				<li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Forms</a></li>	
+				<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+				<li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+				<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+				<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+				<li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
+				<li><a class="list-group-item" href="../module12/introduction.html">Module 12 - ARIA widgets</a></li>
+			</ul>
+		</section>
 		<section class="list-group menu list-unstyled">
-            <h3 class="wb-navcurr">Site map</h3>
-            <ul class="list-group menu list-unstyled">
-              <li>
-                <a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
-              </li>
-              
-              <li>
-                <a class="list-group-item active" aria-current="page" href="all-best-practice.html">All best practices</a>
-              </li>
-            </ul>
-		</article>
+	            <h3 class="wb-navcurr">Site map</h3>
+	            <ul class="list-group menu list-unstyled">
+	              <li>
+	                <a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+	              </li>
+	              
+	              <li>
+	                <a class="list-group-item active" aria-current="page" href="all-best-practice.html">All best practices</a>
+	              </li>
+	            </ul>
+		</section>
         </nav>
       </div>
 	<div id="def-preFooter2"></div>

@@ -76,7 +76,7 @@
           <ul>
             <li><a href="#designing-landmarks">Designing with landmarks</a></li>
 			  <li><a href="#example-common-landmarks">Good example: Common landmarks</a></li>
-               <li><a href="#regions-landmarks">Best practice for page regions and landmarks</a></li>
+               <li><a href="#regions-landmarks">Best practice for landmarks</a></li>
                <li><a href="#resources-1">Related WCAG resources</a></li>
           </ul>
         </div>
@@ -104,7 +104,7 @@
 				  <tbody>
 					<tr>
 						<td>
-							<code>&lt;header&gt;</code>when child of <code>&lt;body&gt;</code>
+							<code>&lt;header&gt;</code> when child of <code>&lt;body&gt;</code>
 					  </td>
 						<td>
 							<code>role="banner"</code>
@@ -143,7 +143,7 @@
 							<code>role="navigation"</code>
 					  </td>
 						<td>
-							Navigation Menu
+							Navigation menu
 					  </td>
 					</tr>
 					<tr>
@@ -198,7 +198,7 @@
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 				    		<h2 id="example-common-landmarks" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span> Good example: Common landmarks</h2>
-						<p>In this example, HTML5 sectioning elements define the landmarks for the most part. The <code>role="search"</code> attribute is unique and descriptive</p>
+						<p>In this example, HTML5 sectioning elements define the landmarks for the most part. The <code>role="search"</code> attribute is unique and descriptive.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body mrgn-bttm-0">
 								<p class="wb-inv">Example begins</p>
@@ -221,7 +221,7 @@
 </pre>
 								<p class="wb-inv">Code ends</p>
 								
-								<p>Below, the markup uses ARIA landmark role attributes to define the landmarks.</p>
+								<p>Below, the markup uses ARIA landmark role attributes to define the regions.</p>
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
 <pre class="mrgn-tp-0"><code class="language-html">&lt;div role="banner"&gt;
@@ -240,18 +240,24 @@
 					</div>
 				</div>
 			</section>
-			<section><h2 id="regions-landmarks">Best practice for page regions and landmarks</h2>
+			<section><h2 id="regions-landmarks">Best practice for landmarks</h2>
 				<ul>
+					<li>Ensure all content on the page is contained within a landmark.</li>
 					<li>Use HTML5 sectioning elements (preferred) to identify regions on a page. Use ARIA landmark role attributes if HTML5 sectioning elements cannot be used.</li>
-					<li>Ensure all content on the page is contained within a page/landmark region.</li>
 					<li>Ensure only one instance of:
 						<ul>
-							<li><code>&lt;header&gt;</code> only as child of <code>&lt;body&gt;</code>, or <code>role="banner"</code>. A <code>&lt;header&gt;</code> is not considered a banner when it is the child of <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code> or <code>&lt;section&gt;</code>.</li>
+							<li><code>&lt;header&gt;</code> as child of <code>&lt;body&gt;</code>, or <code>role="banner"</code>. A <code>&lt;header&gt;</code> is not considered a banner when it is the child of <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code> or <code>&lt;section&gt;</code>.</li>
 							<li> <code>&lt;footer&gt;</code></li>
 							<li><code>&lt;main&gt;</code></li>
 						</ul>
 					</li>
-					<li>Ensure <code>&lt;header&gt;</code> (when the banner), <code>&lt;footer&gt;</code>, <code>&lt;main&gt;</code> are direct children of <code>&lt;body&gt;</code>.</li>
+					<li>Ensure these landmarks are direct children of <code>&lt;body&gt;</code>:
+						<ul>
+							<li><code>&lt;header&gt;</code> (when the banner)</li>
+							<li><code>&lt;footer&gt;</code></li>
+							<li><code>&lt;main&gt;</code></li>
+						</ul>
+					</li>
 					<li>Limit the use of <code>&lt;nav&gt;</code> to primary and secondary navigations.
 						<ul>
 							<li>Use the <code>aria-label</code> or <code>aria-labelledby</code> attribute to differentiate multiple <code>&lt;nav&gt;</code> items.</li>
@@ -296,6 +302,10 @@
 						<li>
 							<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA13">ARIA13: Using aria-labelledby to name regions and landmarks</a>
 						</li>
+					</ul>
+					<h3>WAI-ARIA Authoring Practices</h3>
+					<ul>
+						<li><a href="https://www.w3.org/TR/wai-aria-practices-1.2/#aria_landmark">Landmark Regions</a></li>
 					</ul>
 				</details>
 			</section>
