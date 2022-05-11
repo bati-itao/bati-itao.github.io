@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="fr" dir="ltr">
-<!--<![endif]-->
+<html class="no-js" lang="fr-CA" dir="ltr">
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -662,7 +659,9 @@ $(function(){
 <div id="def-preFooter2"></div>
 		<script src="../../../scripts/preFooter2-fr.min.js"></script>
 <div id="def-preFooter"></div>
-		<script src="../../../scripts/preFooter.min.js"></script>
+		<script>
+			const modified=new Date(document.lastModified),year=modified.getFullYear(),date=modified.getDate()<10?"0"+modified.getDate():modified.getDate(),monthIndex=modified.getMonth(),months={0:"01",1:"02",2:"03",3:"04",4:"05",5:"06",6:"07",7:"08",8:"09",9:"10",10:"11",11:"12"},monthNumber=months[monthIndex],dateModified=`${year}-${monthNumber}-${date}`;var defPreFooter=document.getElementById("def-preFooter");defPreFooter.outerHTML=wet.builder.preFooter({dateModified:dateModified,showFeedback:!1,showShare:!1});
+		</script>
 </div>
 		
 		
