@@ -78,8 +78,8 @@
 			  <ul>
 					<li><a href="#resp-tables">Conception de tableaux adaptés</a></li>
 					<li><a href="#overflow-table">Bon exemple : Reformater le tableau en une seule colonne</a></li>
-					<li><a href="#reflow-list">Technique 1: Reflow table to nested list</a></li>
-					<li><a href="#reflow-table">Technique 2: Reflow table to single column</a></li>
+					<li><a href="#reflow-list"><mark>Technique 1: Reflow table to nested list</mark></a></li>
+					<li><a href="#reflow-table"><mark>Technique 2: Reflow table to single column</mark></a></li>
 			  </ul>
 			</div>
 		</div>
@@ -104,17 +104,403 @@
 					</li>
 				</ul>
 
-				<p>T<mark>he following techniques transform tables at small viewports to prevent horizontal scrolling:</mark></p>
+				<p><mark>The following techniques transform tables at small viewports to prevent horizontal scrolling:</mark></p>
 				<ul>
-					<li><a href="#reflow-list"><code>Technique 1: Reflow table to nested list</code></a></li>
-					<li><a href="#reflow-table"><code>Technique 2: Reflow table to single column table<</code></a></li>
+					<li><a href="#reflow-list"><mark>Technique 1: Reflow table to nested list</mark></a></li>
+					<li><a href="#reflow-table"><mark>Technique 2: Reflow table to single column table</mark></a></li>
 				</ul>
 
-				<p><code>Note that WCAG success criterion <a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html">1.4.10 Reflow</a> exempts data tables from content reflow. It is acceptable to provide scrolling for data tables. The Canada.ca design system and WET do not include any functionality to transform and reorganize tables, as shown as in the techniques below.</code></p>				
-
+				<p><mark>Note that WCAG success criterion <a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html">1.4.10 Reflow</a> exempts data tables from content reflow. It is acceptable to provide scrolling for data tables. The Canada.ca design system and WET do not include any functionality to transform and reorganize tables, as shown as in the techniques below.</mark></p>				
+			</section>
+						
+			<section>				
+				
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h2 id="reflow-table" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Reformater le tableau en une seule colonne</h2>
+						<h2 id="overflow-table" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Débordement du tableau avec barre de défilement horizontale</h2>
+						<p>Dans cet exemple, un grand tableau d&eacute;bordant force une barre de défilement horizontale sur l’élément <code lang="en-CA">&lt;div&gt;</code> parent, générée par la déclaration CSS <code lang="en-CA">overflow-x: auto</code>. Le div utilise également l’attribut <code lang="en-CA">tabindex="0"</code> pour s’assurer que la barre de défilement reçoit la cible du clavier (conformément à la règle W3C-IAW TIA <a href="https://www.w3.org/WAI/standards-guidelines/act/rules/scrollable-element-keyboard-accessible-0ssw9k/" lang="en-CA">Scrollable element is keyboard accessible (l’élément de défilement est accessible au clavier)</a>).</p>
+						<p>Il est toujours préférable de diviser les grands tableaux en plusieurs petits tableaux.</p>
+				
+						<div class="panel panel-primary">
+							<div class="panel-body mrgn-bttm-0">
+								<div style="overflow-x:auto;" tabindex="0">
+									 <table class="table table-bordered">
+										 <caption>Sprints</caption>
+										 <thead>
+											<tr>
+											   <th scope="col">Sprint #</th>
+											   <th scope="col">Fermé</th>
+											   <th scope="col">En cours</th>
+											   <th scope="col">Nouveau</th>
+											   <th scope="col">Refaire un test</th>
+											   <th scope="col">Réouverture</th>
+											   <th scope="col">Par sévérité</th>
+											   <th scope="col">Par priorité</th>
+											   <th scope="col">Par sprint</th>
+											   <th scope="col">Par sortie</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+											   <td>101</td>
+											   <td>234</td>
+											   <td>55</td>
+											   <td>75</td>
+											   <td>121</td>
+											   <td>33</td>
+											   <td>566</td>
+											   <td>343</td>
+											   <td>577</td>
+											   <td>976</td>
+											</tr>
+											<tr>
+											   <td>102</td>
+											   <td>344</td>
+											   <td>33</td>
+											   <td>65</td>
+											   <td>887</td>
+											   <td>66</td>
+											   <td>564</td>
+											   <td>344</td>
+											   <td>76</td>
+											   <td>543</td>
+											</tr>
+											<tr>
+											  <td>103</td>
+											  <td>290</td>
+											  <td>32</td>
+											  <td>77</td>
+											  <td>93</td>
+											  <td>82</td>
+											  <td>138</td>
+											  <td>532</td>
+											  <td>293</td>
+											  <td>202</td>
+											</tr>
+										</tbody>
+									 </table>
+								</div>
+							</div>
+						</div>
+						
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;div style="overflow-x:auto;" tabindex="0"&gt;
+   &lt;table&gt;[…]&lt;/table&gt;
+&lt;/div&gt;</code></pre>
+				<p class="wb-inv">Fin du code</p>	
+
+						<details class="mrgn-tp-lg">
+							<summary class="bg-info">Voir les captures d'écran</summary>
+							
+							<h3 id="rtables-desktop1">Bureau</h3>
+							<img src="images/image19-fr.png" class="img-responsive" alt="Capture d'&eacute;cran d'une grande table.">
+
+							<h3 id="rtables-mobile1">Cellulaire</h3>
+
+							<img src="images/image20-fr.png" class="img-responsive" alt="Capture d'&eacute;cran d'une grande table avec une barre de d&eacute;filement horizontale apr&egrave;s redimensionnement.">
+
+						</details>	
+					</div>
+				</div>
+
+			</section>
+			<section>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+										
+						<h2 id="reflow-list" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Technique 1: Reflow table to nested list</h2>
+
+						<p><mark>In the example below, the table reflows to a nested list if the width of the browser is less than 768 pixels. The nested list stays within the viewport to avoid horizontal scrolling.</mark></p>
+
+						<p><mark>Resize the browser window to see the effect.</mark></p>
+											
+
+						<div class="panel panel-primary">
+							<div class="panel-body mrgn-bttm-0">
+
+									<table id="desktop-table"> 
+									<caption>Account Summary</caption>
+									<thead>
+										<tr>
+											<th scope="col">Accounts</th>
+											<th scope="col">Due Date</th>
+											<th scope="col">Balance</th>
+											<th scope="col">Statement Date</th>
+										</tr>
+									</thead>
+									<tbody> 
+										<tr> 
+											<th scope="row">Mastercard - 5555</th> 
+											<td data-label="Due Date">04/01/2021</td> 
+											<td data-label="Amount">$5,390</td> 
+											<td data-label="Period">03/01/2021 - 03/31/2021</td> 
+										</tr> 
+										<tr> 
+											<th scope="row">Visa - 5155</th> 
+											<td data-label="Due Date">03/01/2020</td> 
+											<td data-label="Amount">$2,013</td> 
+											<td data-label="Period">02/01/2020 - 02/29/2020</td> 
+										</tr> 
+										<tr> 
+											<th scope="row">AMEX - 9010</th> 
+											<td data-label="Due Date">03/01/2020</td> 
+											<td data-label="Amount">$3,251</td> 
+											<td data-label="Period">02/01/2020 - 02/29/2020</td> 
+										</tr> 
+										<tr> 
+											<th scope="row">Capital One - 8800</th> 
+											<td data-label="Due Date">02/01/2021</td> 
+											<td data-label="Amount">$4,842</td> 
+											<td data-label="Period">01/01/2021 - 01/31/2021</td> 
+										</tr> 
+									</tbody>
+									</table>
+								
+								<div id="mobile-list">
+								  <h3>Account Summary</h3>
+								  <ul>
+									<li>Mastercard – 5555 
+									  <ul>
+										<li>Due date: 04/01/2021</li>
+										<li>Balance: $5,390</li>
+										<li>Statement date: 03/01/2021 - 03/31/2021</li>
+										
+									  </ul>
+									</li>
+									<li>Visa – 5155
+									  <ul>
+										<li>Due date: 03/01/2020</li>
+										<li>Balance: $2,013</li>
+										<li>Statement date: 02/01/2020 - 02/29/2020</li>
+										
+									  </ul>
+									</li>
+									<li>AMEX – 9010
+									  <ul>
+										<li>Due date: 03/01/2020</li>
+										<li>Balance: $3,251</li>
+										<li>Statement date: 02/01/2020 - 02/29/2020</li>
+										
+									  </ul>
+									</li>
+									<li>Capital One – 8800 
+									  <ul>
+										<li>Due date: 02/01/2021</li>
+										<li>Balance: $4,842</li>
+										<li>Statement date: 01/01/2021 - 01/31/2021</li>
+										
+									  </ul>
+									</li>
+									
+								  </ul>
+								</div>	
+								
+								<style type="text/css">
+
+								#desktop-table {
+									display:none;
+								}
+
+								#mobile-list {
+									display:block;
+								}
+
+								#mobile-list ul {
+									position: relative;
+								}
+
+								#mobile-list ul {
+								  list-style-type: none;
+								}
+
+								#mobile-list ul li {
+									font-weight:bold;
+								}
+
+								#mobile-list ul li ul li {
+									font-weight:normal;
+								}
+
+								#desktop-table {
+								   border: 0px solid #777; 
+								   border-collapse: collapse; 
+								   padding: 0px;
+								   width: 100%;
+								   table-layout: fixed; 
+								}
+
+								#desktop-table caption {
+								   font-size: 1.2em; 
+								   margin: .5em 0 .75em;
+								}
+
+								#desktop-table th,td {
+								   padding: .625em; 
+								   text-align: center; 
+								   border: 1px solid #777;
+								   background-color:white;
+								}
+
+								#desktop-table thead th{
+								   letter-spacing: .1em;
+								   text-transform: uppercase; 
+								   border-bottom: 3px solid #777;
+								}
+
+								@media screen and (min-width: 767px) {
+
+									#desktop-table {
+										display:block;
+									}
+
+									#mobile-list {
+										display:none;
+									}
+								}
+
+								</style>					
+							</div>
+						</div>
+
+						<details class="mrgn-tp-lg">
+							<summary class="bg-info">View screenshots of the responsive layout</summary>
+							
+							<h3 id="rtables-desktop2">Desktop</h3>
+							<div class="panel panel-primary">
+								<div class="panel-body well mrgn-bttm-0">
+									<img src="images/table-desktop.png" class="img-responsive" alt="A conventional table with four column headers and four row headers."/>
+								</div>
+							</div>
+							
+							<h3 id="rtables-mobile2">Mobile</h3>
+							<div class="panel panel-primary">
+								<div class="panel-body well mrgn-bttm-0">
+									<img src="images/table-list.png" class="img-responsive" alt="Table transformed into a nested list"/>
+								</div>
+							</div>
+						</details>						
+						
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">View CSS </summary>
+							<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-md"><code class="language-css">
+#desktop-table {
+    display:none;
+}
+
+#mobile-list {
+    display:block;
+}
+
+#mobile-list ul {
+    position: relative;
+}
+
+#mobile-list ul {
+  list-style-type: none;
+}
+
+#mobile-list ul li {
+    font-weight:bold;
+}
+
+#mobile-list ul li ul li {
+    font-weight:normal;
+}
+
+#desktop-table {
+   border: 0px solid #777; 
+   border-collapse: collapse; 
+   padding: 0px;
+   width: 100%;
+   table-layout: fixed; 
+}
+
+#desktop-table caption {
+   font-size: 1.2em; 
+   margin: .5em 0 .75em;
+}
+
+#desktop-table th,td {
+   padding: .625em; 
+   text-align: center; 
+   border: 1px solid #777;
+   background-color:white;
+}
+
+#desktop-table thead th{
+   letter-spacing: .1em;
+   text-transform: uppercase; 
+   border-bottom: 3px solid #777;
+}
+
+@media screen and (min-width: 767px) {
+
+    #desktop-table {
+        display:block;
+    }
+
+    #mobile-list {
+        display:none;
+    }
+}</code></pre>
+							<p class="wb-inv">Code ends</p>
+						</details>	
+						<details class="mrgn-tp-md">
+							<summary class="bg-info">View HTML </summary>
+							<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;table&gt;
+   &lt;caption&gt;Account Summary&lt;/caption&gt;
+   &lt;thead&gt;
+      &lt;tr&gt;
+         &lt;th scope="col"&gt;Accounts&lt;/th&gt;
+         &lt;th scope="col"&gt;Due Date&lt;/th&gt;
+         &lt;th scope="col"&gt;Balance&lt;/th&gt;
+         &lt;th scope="col"&gt;Statement Date&lt;/th&gt;
+      &lt;/tr&gt;
+   &lt;/thead&gt;
+   &lt;tbody&gt; 
+      &lt;tr&gt; 
+         &lt;th scope="row"&gt;Mastercard - 5555&lt;/th&gt; 
+         &lt;td data-label="Due Date"&gt;04/01/2021&lt;/td&gt; 
+         &lt;td data-label="Amount"&gt;$5,390&lt;/td&gt; 
+         &lt;td data-label="Period"&gt;03/01/2021 - 03/31/2021&lt;/td&gt; 
+      &lt;/tr&gt; 
+      &lt;tr&gt; 
+         &lt;th scope="row"&gt;Visa - 5155&lt;/th&gt; 
+         &lt;td data-label="Due Date"&gt;03/01/2020&lt;/td&gt; 
+         &lt;td data-label="Amount"&gt;$2,013&lt;/td&gt; 
+         &lt;td data-label="Period"&gt;02/01/2020 - 02/29/2020&lt;/td&gt; 
+      &lt;/tr&gt; 
+      &lt;tr&gt; 
+         &lt;th scope="row"&gt;AMEX - 9010&lt;/th&gt; 
+         &lt;td data-label="Due Date"&gt;03/01/2020&lt;/td&gt; 
+         &lt;td data-label="Amount"&gt;$3,251&lt;/td&gt; 
+         &lt;td data-label="Period"&gt;02/01/2020 - 02/29/2020&lt;/td&gt; 
+      &lt;/tr&gt; 
+      &lt;tr&gt; 
+         &lt;th scope="row"&gt;Capital One - 8800&lt;/th&gt; 
+         &lt;td data-label="Due Date"&gt;02/01/2021&lt;/td&gt; 
+         &lt;td data-label="Amount"&gt;$4,842&lt;/td&gt; 
+         &lt;td data-label="Period"&gt;01/01/2021 - 01/31/2021&lt;/td&gt; 
+      &lt;/tr&gt; 
+   &lt;/tbody&gt;
+&lt;/table&gt;</code>
+</pre>
+								<p class="wb-inv">Code ends</p>
+						</details>	
+					
+					</div>
+				</div>
+						
+	
+			
+			</section>			
+			<section>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h2 id="reflow-table" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Technique 2&nbsp;: Reformater le tableau en une seule colonne</h2>
 						<p>Dans l’exemple ci-dessous, le tableau est reformaté à une colonne si la largeur du navigateur est inférieure à 768 pixels, ce qui maintient la lisibilité sans qu’un défilement horizontal soit nécessaire.</p>
 				<p>La technique consiste à empiler les cellules du tableau les unes sur les autres, à masquer les en-têtes au haut de la colonne et à les reproduire à gauche de la cellule comme des en-têtes de rangée visuels. Le problème avec cette technique est que les en-têtes de rangée sont créés avec le contenu généré par CSS, en s’appuyant sur la valeur d’un attribut personnalisé d’étiquette de données:</p>
 						
@@ -251,13 +637,13 @@ table.example thead th {
 						<details class="mrgn-tp-lg">
 							<summary class="bg-info">Voir les captures d'écran de la mise en page réactive</summary>
 							
-							<h3 id="rtables-desktop">Bureau</h3>
+							<h3 id="rtables-desktop3">Bureau</h3>
 							<div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
 									<img src="images/table-desktop.png" class="img-responsive" alt="Un tableau classique avec quatre en-têtes de colonne et quatre en-têtes de ligne."/>
 								</div>
 							</div>
-							<h3 id="rtables-mobile">Cellulaire</h3>
+							<h3 id="rtables-mobile3">Cellulaire</h3>
 							<div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
 									<img src="images/table-mobile.png" class="img-responsive" alt="Les en-têtes de colonne sont maintenant des en-têtes de ligne, empilés par groupes de quatre, chaque groupe contenant une ligne de données."/>
@@ -380,99 +766,7 @@ table thead th {
 					</div>
 				</div>
 			</section>
-			
-			<section>				
-				
-				<div class="panel panel-success mrgn-tp-lg">
-					<div class="panel-body">
-						<h2 id="overflow-table" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Débordement du tableau avec barre de défilement horizontale</h2>
-						<p>Dans cet exemple, un grand tableau d&eacute;bordant force une barre de défilement horizontale sur l’élément <code lang="en-CA">&lt;div&gt;</code> parent, générée par la déclaration CSS <code lang="en-CA">overflow-x: auto</code>. Le div utilise également l’attribut <code lang="en-CA">tabindex="0"</code> pour s’assurer que la barre de défilement reçoit la cible du clavier (conformément à la règle W3C-IAW TIA <a href="https://www.w3.org/WAI/standards-guidelines/act/rules/scrollable-element-keyboard-accessible-0ssw9k/" lang="en-CA">Scrollable element is keyboard accessible (l’élément de défilement est accessible au clavier)</a>).</p>
-						<p>Il est toujours préférable de diviser les grands tableaux en plusieurs petits tableaux.</p>
-				
-						<div class="panel panel-primary">
-							<div class="panel-body mrgn-bttm-0">
-								<div style="overflow-x:auto;" tabindex="0">
-									 <table class="table table-bordered">
-										 <caption>Sprints</caption>
-										 <thead>
-											<tr>
-											   <th scope="col">Sprint #</th>
-											   <th scope="col">Fermé</th>
-											   <th scope="col">En cours</th>
-											   <th scope="col">Nouveau</th>
-											   <th scope="col">Refaire un test</th>
-											   <th scope="col">Réouverture</th>
-											   <th scope="col">Par sévérité</th>
-											   <th scope="col">Par priorité</th>
-											   <th scope="col">Par sprint</th>
-											   <th scope="col">Par sortie</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-											   <td>101</td>
-											   <td>234</td>
-											   <td>55</td>
-											   <td>75</td>
-											   <td>121</td>
-											   <td>33</td>
-											   <td>566</td>
-											   <td>343</td>
-											   <td>577</td>
-											   <td>976</td>
-											</tr>
-											<tr>
-											   <td>102</td>
-											   <td>344</td>
-											   <td>33</td>
-											   <td>65</td>
-											   <td>887</td>
-											   <td>66</td>
-											   <td>564</td>
-											   <td>344</td>
-											   <td>76</td>
-											   <td>543</td>
-											</tr>
-											<tr>
-											  <td>103</td>
-											  <td>290</td>
-											  <td>32</td>
-											  <td>77</td>
-											  <td>93</td>
-											  <td>82</td>
-											  <td>138</td>
-											  <td>532</td>
-											  <td>293</td>
-											  <td>202</td>
-											</tr>
-										</tbody>
-									 </table>
-								</div>
-							</div>
-						</div>
-						
-<p class="lang-label small">HTML</p>
-		<p class="wb-inv">Début du code</p>
-<pre class="mrgn-tp-0"><code class="language-html">&lt;div style="overflow-x:auto;" tabindex="0"&gt;
-   &lt;table&gt;[…]&lt;/table&gt;
-&lt;/div&gt;</code></pre>
-				<p class="wb-inv">Fin du code</p>	
 
-						<details class="mrgn-tp-lg">
-							<summary class="bg-info">Voir les captures d'écran</summary>
-							
-							<h3 id="rtables-desktop">Bureau</h3>
-									<img src="images/image19-fr.png" class="img-responsive" alt="Capture d'&eacute;cran d'une grande table.">
-
-							<h3 id="rtables-mobile>Cellulaire</h3>
-
-									<img src="images/image20-fr.png" class="img-responsive" alt="Capture d'&eacute;cran d'une grande table avec une barre de d&eacute;filement horizontale apr&egrave;s redimensionnement.">
-
-						</details>	
-					</div>
-				</div>
-
-			</section>
 		
 		
 	<nav role="navigation">
