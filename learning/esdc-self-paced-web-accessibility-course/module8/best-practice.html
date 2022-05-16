@@ -68,10 +68,10 @@
         <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
           <h1 property="name" id="wb-cont">Best practice</h1>
 						
-	<nav role="navigation">
+	<nav role="navigation" aria-labelledby="nav-table">
     <div class="panel panel-default mrgn-tp-md">
       <header class="panel-heading">
-        <h2 class="panel-title">Table of contents</h2>
+        <h2 id="nav-table" class="panel-title">Table of contents</h2>
       </header>
         <div class="panel-body">
           <ul>
@@ -168,9 +168,27 @@
 	<section>
 		<h2 id="bp-tables">Responsive tables<span class="wb-inv"> (best practice)</span></h2>
 		<ul>
-			<li>Responsive tables resize as the viewport size changes to ensure they do not require horizontal scrolling.</li>
-			<li>For tables with a few columns, give each column a percentage width and give the table a <code>max-width</code> of 100%. </li>
-			<li>Large tables require transforming and reorganizing the table into one column. <strong>Note that the Government of Canada does not require responsive tables.</strong></li>
+			<li>Wide tables that overflow the viewport are not responsive. Follow these tips to help prevent overflow:
+				<ul>
+					<li>Use percentage instead of fixed pixels to set the width of columns and tables</li>
+					<li>Break large or wide tables into multiple small or narrow tables</li>
+					<li>Display a horizontal scroll bar if the table overflows the screen</li>
+					<li>Make tables more narrow by:
+						<ul>
+							<li>Reducing the number of columns</li>
+							<li>Merging columns </li>
+							<li>Using acronyms or abbreviations for long words </li>
+							<li>Inserting soft hyphen markup <code>&amp;shy;</code> to break long words</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>The following techniques transform tables at small viewports to prevent horizontal scrolling:
+				<ul>
+					<li>Technique 1: Reflow table to nested list</li>
+					<li>Technique 2: Reflow table to single column table</li>
+				</ul>
+			</li>
 		</ul>
 	</section>
 	<section>
@@ -194,8 +212,8 @@
 		</ul>
 	</section>
 		
-	<nav role="navigation">
-		<h2 class="wb-inv">Document navigation</h2>
+	<nav role="navigation" aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
 		<ul class="pager">
 			<li class="previous"><a rel="prev" href="orientation.html">Previous - Orientation</a></li>
 		</ul>
@@ -203,7 +221,7 @@
 	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 			
 
-	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation" aria-labelledby="wb-sec-h">	
 		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Module 8 - Zoom and responsive design</h3>
