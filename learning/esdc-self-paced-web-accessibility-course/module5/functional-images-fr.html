@@ -93,7 +93,7 @@
 		<p>Les valeurs alt manquantes ou vides dans les images fonctionnelles créent des problèmes importants pour les utilisateurs de lecteurs d’écran. Les boutons et les commandes personnalisées indiquent uniquement leur rôle (p. ex., « bouton », « onglet ») et leur état (p. ex., « élargi »). Les images liées indiquent leur rôle (« lien ») et, en l’absence d’une valeur d’attribut <code lang="en-CA">alt</code>, les lecteurs d’écran essaient de deviner et indiquent plutôt le nom du fichier d’image ou le localisateur de ressources uniformes du lien, lequel ne sont pas descriptifs.</p>
 		<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-success mrgn-tp-0 h3">
+					<h3 class="text-success mrgn-tp-0 h3" id="linked-image">
 			<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Image liée</h3>
 		<p>Dans l’exemple ci-dessous, le logo Canada.ca de la bannière renvoie à la page d’accueil Canada.ca. <code lang="en-CA">&lt;img&gt;</code> L’élément est imbriqué dans le lien. Le texte de remplacement « Page d’accueil du gouvernement du Canada » fournit le texte du lien.</p>
 		<div class="panel panel-primary mrgn-tp-md">
@@ -113,7 +113,7 @@
 		</div>
 		<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-success mrgn-tp-0 h3">
+					<h3 class="text-success mrgn-tp-0 h3" id="icon-meaningful">
 			<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Icône avec texte de remplacement utile imbriqué dans le texte du lien</h3>
 		<p>Dans cet exemple, une icône avec le texte de remplacement utile « S’ouvre dans une nouvelle fenêtre » est imbriquée dans le lien avec le texte de lien « Page d’accueil du W3C ». Les utilisateurs du lecteur d’écran entendront « Page d’accueil du W3C, s’ouvre dans une nouvelle fenêtre ».</p>
 		<div class="panel panel-primary mrgn-tp-md">
@@ -137,7 +137,7 @@
 		</div>
 		<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-success mrgn-tp-0 h3">
+					<h3 class="text-success mrgn-tp-0 h3" id="functional-icon">
 			<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Icône fonctionnelle</h3>
 		<p>Dans cet exemple, une icône cliquable représentant une imprimante indique une fonction d’impression. Son équivalent textuel est « Imprimer cette page » plutôt que le mot littéral «Imprimante», car le but est d’activer la boîte de dialogue d’impression.</p>
 		<div class="panel panel-primary mrgn-tp-md">
@@ -157,7 +157,7 @@
 		</div>
 		<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-success mrgn-tp-0 h3">
+					<h3 class="text-success mrgn-tp-0 h3" id="icon-used-in-button">
 			<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Image utilisée dans un bouton
 		</h3>
 		<p>L’image suivante est utilisée pour donner au bouton un style distinct. Dans ce cas, il s’agit du bouton permettant de lancer une demande de recherche, et l’icône imbriquée est une loupe. L’équivalent textuel de l’image est « Recherche », pour indiquer la fonction du bouton, plutôt que « loupe ».</p>
@@ -178,7 +178,7 @@
 		</div>
 		<div class="panel panel-success mrgn-tp-lg">
 			<div class="panel-body">
-				<h3 class="text-success mrgn-tp-0 h3">
+				<h3 class="text-success mrgn-tp-0 h3" id="redundant-image">
 					<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Image redondante dans le texte du lien
 				</h3>
 				<p>Dans cet exemple, le logo de la société XYZ accompagne un lien texte qui mène à la page d’accueil de la société XYZ. L’image ne représente pas une fonctionnalité différente et ne transmet pas d’autres renseignements que ceux déjà fournis dans le texte du lien. En fait, l’image est une simple aide visuelle associée au texte du lien. Une valeur alt nulle (vide) est appliquée, (<code lang="en-CA">alt=""</code>), pour éviter la redondance et la répétition.</p>
@@ -208,7 +208,7 @@
 		<p>L’attribut <abbr>alt</abbr> de l’élément enfant <code lang="en-CA">&lt;img&gt;</code> pourrait contenir n’importe quelle valeur et cela n’aurait pas d’importance, car cette valeur serait supplantée par l’attribut <code lang="en-CA">aria-label</code> ou <code lang="en-CA">aria-labelledby</code>, qui a préséance sur le texte enfant lorsqu’on nomme une commande</p>
 		<div class="panel panel-success mrgn-tp-lg">
 			<div class="panel-body">
-				<h3 class="text-success mrgn-tp-0 h3">
+				<h3 class="text-success mrgn-tp-0 h3" id="naming-functional-image">
 					<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Nommer une image fonctionnelle à l’aide de l’attribut <code lang="en-CA">aria-label</code>
 				</h3>
 				<p>Dans cet exemple, un attribut <code lang="en-CA">aria-label</code> nomme le bouton plutôt que l’attribut <code lang="en-CA">alt</code> de l’élément enfant <code lang="en-CA">&lt;img&gt;</code>. L’attribut <code lang="en-CA">alt</code> est réglé sur null (vide)&nbsp;: <code lang="en-CA">alt=""</code>.</p>
@@ -228,7 +228,7 @@
 		</div>
 		<div class="panel panel-success mrgn-tp-lg">
 			<div class="panel-body">
-				<h3 class="text-success mrgn-tp-0 h3">
+				<h3 class="text-success mrgn-tp-0 h3" id="functional-images-using-attributes">
 					<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Nommer des images fonctionnelles à l’aide des attributs <code lang="en-CA">aria-label</code> et <code lang="en-CA">aria-labelled</code>
 				</h3>
 				<p>Dans cet exemple, chacun des deux boutons de formatage du texte est accompagné d’un bouton « More » (Lire la suite) identique. Les boutons de formatage sont nommés avec l’attribut <code lang="en-CA">aria-label</code>. Les boutons « More » (Lire la suite) sont nommés avec l’attribut <code lang="en-CA">aria-labelledby</code>, pointant vers les valeurs <code lang="en-CA">id</code> des éléments contenant les fragments d’étiquette souhaités : « Lire la suite » + soit « Bullets » (Puces) soit « Text alignment » (Alignement du texte). L’attribut <code lang="en-CA">alt</code> de chaque élément de bouton <code lang="en-CA">&lt;img&gt;</code> est réglé sur null (vide) : <code lang="en-CA">alt=””</code>.</p>
