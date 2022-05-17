@@ -79,13 +79,25 @@
                   </nav>
                   <section>
                      <h2 id="designing-with-CSS-generated-content">Designing with CSS-generated content</h2>
-                     <p>CSS can generate text and icons through the <code>:before</code> and <code>:after</code> pseudo-classes. However, CSS-generated content is not in the DOM and consequently not easily accessible to assistive technology. While the NVDA and VoiceOver screen readers recognize CSS-generated content, the JAWS and Narrator screen readers don’t.</p>
-                     <p>Consequently, meaningful CSS-generated content can be used on print style sheets to print the URL of links, but otherwise it should be avoided.</p>
-                     <p>If you use CSS-generated content, hide it from screen readers with the <code>aria-hidden="true"</code> attribute. If the CSS-generated content is informative, provide a text alternative. To provide a text alternative:</p>
-                     <ul>
-                        <li>If the content is a link or control, use the <code>aria-label</code> attribute.</li>
-                        <li>If the content can't receive focus, use the WET <code>.wb-inv</code> class to visually hide the text alternative.</li>
-                     </ul>
+                     <p>CSS can generate text and icons through the <code>:before</code> and <code>:after</code> pseudo-classes. However, CSS-generated content is not in the DOM and consequently not easily accessible to assistive technology. Currently, there's documented full <a href="https://a11ysupport.io/tests/tech__css__css_generated_content_span">accessibility support for CSS-generated content on the &lt;span&gt; element</a>, but not on buttons, links, or form labels since the voice input tests fail. To see the latest support, visit <a href="https://a11ysupport.io/tests/">Accessibility Support tests</a> and search for "CSS".</p>
+
+                    <ul>
+						<li>If the CSS-generated content is decorative, hide it</ins> from screen readers with the <code>aria-hidden="true"</code> attribute.</li>
+						<li>If the CSS-generated content content is an informative icon, provide a name:
+							<ul>
+								<li>If the element is a link or control, use the <code>aria-label</code> attribute.</li>
+								<li>Otherwise, hide the icon from screen readers with the <code>aria-hidden="true"</code> attribute and apply the WET <code>.wb-inv</code> class to visually hide a text alternative.</li>
+							</ul>
+						</li>
+						<li>If the CSS-generated content content is text:
+							<ul>
+								<li>Use a <code>&lt;span&gt;</code> element.</li>
+								<li>Otherwise, hide the generated text from screen readers with the <code>aria-hidden="true"</code> attribute and apply the WET <code>.wb-inv</code> class to visually hide a text alternative.</li>
+							</ul>
+						</li>
+                    </ul>
+					                     
+
                     <div class="panel panel-success mrgn-tp-lg">
 						<div class="panel-body">
 							<h2 class="text-success mrgn-tp-0 h3" id="informative-css"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Informative CSS icon

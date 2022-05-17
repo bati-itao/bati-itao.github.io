@@ -79,13 +79,29 @@
                   </nav>
                   <section>
                      <h2 id="contenu-genere-par-une-CSS">Conception avec du contenu généré par une CSS</h2>
-                     <p>Une CSS peut générer du texte et des icône au moyen des pseudo-classes <code lang="en-CA">:before</code> et <code lang="en-CA">:after</code>. Cependant, le contenu généré par une CSS ne figure pas dans le modèle DOM et n’est donc pas facilement accessible aux technologies d’assistance. Bien que les lecteurs d’écran NVDA et VoiceOver reconnaissent le contenu produit par une CSS, ce n’est pas le cas des lecteurs d’écran JAWS et Narrator.</p>
-                     <p>Par conséquent, on peut utiliser un contenu important généré par une CSS sur des feuilles de style d’impression pour imprimer l’adresse URL des liens, mais autrement il faut l’éviter.</p>
-                     <p>Si vous utilisez du contenu produit par une CSS, masquez-le pour les lecteurs d’écran au moyen de l’attribut <code lang="en-CA">aria-hidden="true"</code>. Si le contenu généré par une CSS est informatif, fournissez un équivalent textuel. Pour ce faire :</p>
-                     <ul>
-                        <li>Si le contenu est un lien ou une commande, utilisez l’attribut <code lang="en-CA">aria-label</code>.</li>
-                        <li>Si le contenu ne peut être ciblé, utilisez la classe <code lang="en-CA">.wb-inv</code> de la BOEW pour masquer visuellement l’équivalent textuel.</li>
-                     </ul>
+                     <p>Une CSS peut générer du texte et des icône au moyen des pseudo-classes <code lang="en-CA">:before</code> et <code lang="en-CA">:after</code>. Cependant, le contenu généré par une CSS ne figure pas dans le modèle DOM et n’est donc pas facilement accessible aux technologies d’assistance.</p>
+                     
+                     <!-- RESTORE ME -- This must all be translated
+
+                    <p><mark>Currently, there's documented full <a href="https://a11ysupport.io/tests/tech__css__css_generated_content_span">accessibility support for CSS-generated content on the &lt;span&gt; element</a>, but not on buttons, links, or form labels since the voice input tests fail. To see the latest support, visit <a href="https://a11ysupport.io/tests/">Accessibility Support tests</a> and search for "CSS".</mark></p>
+
+                    <ul>
+						<li>If the CSS-generated content is decorative, hide it</ins> from screen readers with the <code>aria-hidden="true"</code> attribute.</li>
+						<li>If the CSS-generated content content is an informative icon, provide a name:
+							<ul>
+								<li>If the element is a link or control, use the <code>aria-label</code> attribute.</li>
+								<li>Otherwise, hide the icon from screen readers with the <code>aria-hidden="true"</code> attribute and apply the WET <code>.wb-inv</code> class to visually hide a text alternative.</li>
+							</ul>
+						</li>
+						<li>If the CSS-generated content content is text:
+							<ul>
+								<li>Use a <code>&lt;span&gt;</code> element.</li>
+								<li>Otherwise, hide the generated text from screen readers with the <code>aria-hidden="true"</code> attribute and apply the WET <code>.wb-inv</code> class to visually hide a text alternative.</li>
+							</ul>
+						</li>
+                    </ul>
+                     -->
+
                      <div class="panel panel-success mrgn-tp-lg">
 						<div class="panel-body">
 							<h2 class="text-success mrgn-tp-0 h3" id="informative-css"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple : Icône CSS informative</h2>
