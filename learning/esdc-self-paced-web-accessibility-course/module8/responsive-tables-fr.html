@@ -221,6 +221,8 @@
 						<p><mark>In the example below, the table reflows to a nested list if the width of the browser is less than 768 pixels. The nested list stays within the viewport to avoid horizontal scrolling.</mark></p>
 
 						<p><mark>Resize the browser window to see the effect.</mark></p>
+			
+						<p><mark>Since there's documented full <a href="https://a11ysupport.io/tests/tech__css__css_generated_content_span">accessibility support for CSS-generated content on the &lt;span&gt; element</a>, and no test yet of the &lt;td&gt; element, it's safer to nest a &lt;span&gt; in each cell, and assign it the data-label attribute and the ::before and ::after style rules.</mark></p>
 -->							
 
 						<div class="panel panel-primary">
@@ -512,7 +514,7 @@
 					<div class="panel-body">
 						<h2 id="reflow-table" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Technique 2&nbsp;: Reformater le tableau en une seule colonne</h2>
 						<p>Dans l’exemple ci-dessous, le tableau est reformaté à une colonne si la largeur du navigateur est inférieure à 768 pixels, ce qui maintient la lisibilité sans qu’un défilement horizontal soit nécessaire.</p>
-				<p>La technique consiste à empiler les cellules du tableau les unes sur les autres, à masquer les en-têtes au haut de la colonne et à les reproduire à gauche de la cellule comme des en-têtes de rangée visuels. Le problème avec cette technique est que les en-têtes de rangée sont créés avec le contenu généré par CSS, en s’appuyant sur la valeur d’un attribut personnalisé <code>data-label</code>:</p>
+				<p>La technique consiste à empiler les cellules du tableau les unes sur les autres, à masquer les en-têtes au haut de la colonne et à les reproduire à gauche de la cellule comme des en-têtes de rangée visuels. Les en-têtes de rangée sont créés avec le <a href="../module7/css-generated-fr.html">contenu généré par CSS</a>, en s’appuyant sur la valeur d’un attribut personnalisé <code>data-label</code>:</p>
 						
 		<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
@@ -530,7 +532,6 @@
 }</code></pre>
 						<p class="wb-inv">Fin du code</p>
 						
-						<p>Malheureusement, le contenu généré par CSS n’est pas encore déclaré par les lecteurs d’écran JAWS et Narrator. Une fois qu’ils pourront le faire, cette technique sera viable.</p>
 						<p>Redimensionner la fenêtre du navigateur pour voir l’effet.</p>
 
 						<div class="panel panel-primary">
