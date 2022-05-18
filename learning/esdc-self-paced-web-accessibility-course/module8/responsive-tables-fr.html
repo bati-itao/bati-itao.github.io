@@ -77,12 +77,8 @@
 			  <ul>
 					<li><a href="#resp-tables">Conception de tableaux adaptés</a></li>
 					<li><a href="#overflow-table">Bon exemple : Reformater le tableau en une seule colonne</a></li>
-					<li><a href="#reflow-list">Technique 1: Reflow table to nested list</a></li>
-					<li><a href="#reflow-table">Technique 2: Reflow table to single column</a></li>
-<!-- RESTORE ME					
-					<li><a href="#reflow-list"><mark>Technique 1: Reflow table to nested list</mark></a></li>
-					<li><a href="#reflow-table"><mark>Technique 2: Reflow table to single column</mark></a></li>
--->
+					<li><a href="#reflow-list">Technique 1: Reformater en une liste imbriquée</a></li>
+					<li><a href="#reflow-table">Technique 2: Reformater en une seule colonne</a></li>
 			  </ul>
 			</div>
 		</div>
@@ -90,33 +86,31 @@
 	
 			<section>				
 				<h2 id="resp-tables">Conception de tableaux adaptés</h2>
-<!-- RESTORE ME			
-				<p><mark>Wide tables that overflow the viewport are not responsive. It is difficult for users to remember what information they&rsquo;re looking at if the row and column headers scroll out of view. Follow these tips to help prevent overflow:</mark></p>
+		
+				<p>Les tableaux de grande taille qui débordent de la zone d’affichage ne sont pas adaptés. Il est difficile pour les utilisateurs de se rappeler quelle information ils regardent si les en-têtes de ligne et de colonne défilent hors de vue. Suivre ces conseils pour éviter les débordements:</p>
 
 				<ul>
-					<li><mark>Use percentage instead of fixed pixels to set the width of columns and tables</mark></li>
-					<li><mark>Break large or wide tables into multiple small or narrow tables</mark></li>
-					<li><mark>Display a horizontal scroll bar if the table overflows the screen (<a href="#overflow-table">overflow example</a>)</mark></li>
-					<li><mark>Make tables more narrow by:</mark>
+					<li>Utiliser un pourcentage plutôt que des pixels fixes pour définir la largeur des colonnes et des tableaux</li>
+					<li>Diviser les tableaux de grande taille ou largeur en plusieurs tableaux plus petits ou étroits</li>
+					<li>Afficher une barre de défilement horizontale si l’écran est trop petit ou afficher le tableau complet (<a href="#overflow-table">exemple de débordement</a>)</li>
+					<li>Rendre les tableaux plus étroits comme suit:
 						<ul>
-							<li><mark>Reducing the number of columns</mark></li>
-							<li><mark>Merging columns </mark></li>
-							<li><mark>Using acronyms or abbreviations for long words</mark> </li>
-							<li><mark>Inserting soft hyphen markup <code>&amp;shy;</code> to break long words</mark></li>
+							<li>Réduire le nombre de colonnes</li>
+							<li>Fusionner des colonnes</li>
+							<li>Utiliser des acronymes ou des abréviations pour les mots longs </li>
+							<li>Ajouter d’un tiret conditionnel <code>&amp;shy;</code> pour couper les mots longs</li>
 						</ul>
 					</li>
 				</ul>
 
-				<p><mark>The following techniques transform tables at small viewports to prevent horizontal scrolling:</mark></p>
+				<p>Afin d’éviter le défilement horizontal, les techniques suivantes redimensionnent les tableaux en fonction de la zone d’affichage:</p>
 				<ul>
-					<li><a href="#reflow-list"><mark>Technique 1: Reflow table to nested list</mark></a></li>
-					<li><a href="#reflow-table"><mark>Technique 2: Reflow table to single column table</mark></a></li>
+					<li><a href="#reflow-list">Technique 1: Reformater en une liste imbriquée</a></li>
+					<li><a href="#reflow-table">Technique 2: Reformater en une seule colonne</a></li>
 				</ul>
 
-				<p><mark>Note that WCAG success criterion <a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html">1.4.10 Reflow</a> exempts data tables from content reflow. It is acceptable to provide scrolling for data tables. The Canada.ca design system and WET do not include any functionality to transform and reorganize tables, as shown as in the techniques below.</mark></p>				
--->				
-				<p>Les tableaux adaptés sont redimensionnés à mesure que la taille de la zone d’affichage change pour s’assurer qu’ils ne nécessitent pas de défilement horizontal. Pour les tableaux comportant quelques colonnes, on peut le faire en donnant à chaque colonne un pourcentage de largeur et en donnant au tableau une largeur maximale de 100 %. Les tableaux plus grands doivent être transformés et réorganisés en une seule colonne. <strong>Veuillez noter que le gouvernement du Canada n’a pas besoin de tableaux adaptés</strong> : ni le système de conception de Canada.ca ni la BOEW ne comportent de fonctionnalité permettant de transformer et de réorganiser les tableaux, comme le montre l’exemple ci-dessous.</p>
-				<p>Si l’écran est trop petit pour afficher le tableau complet, une barre de défilement horizontale s’affiche.</p>						
+				<p>Veuillez noter que le critère de succès des WCAG <a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html">1.4.10 Reflow</a> exempte les tableaux de données des exigences de reformatage. Il est acceptable de faire défiler les tableaux de données. Le système de conception de Canada.ca et la BOEW ne comportent aucune fonctionnalité permettant de transformer et de réorganiser les tableaux, comme le montrent les techniques ci-dessous.</p>
+			
 	
 			</section>
 
@@ -216,14 +210,11 @@
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 										
-						<h2 id="reflow-list" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Technique 1: Reflow table to nested list</h2>
-<!-- RESTORE ME
-						<p><mark>In the example below, the table reflows to a nested list if the width of the browser is less than 768 pixels. The nested list stays within the viewport to avoid horizontal scrolling.</mark></p>
+						<h2 id="reflow-list" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Technique 1: Reformater en une liste imbriquée</h2>
 
-						<p><mark>Resize the browser window to see the effect.</mark></p>
-			
-						<p><mark>Since there's documented full <a href="https://a11ysupport.io/tests/tech__css__css_generated_content_span">accessibility support for CSS-generated content on the &lt;span&gt; element</a>, and no test yet of the &lt;td&gt; element, it's safer to nest a &lt;span&gt; in each cell, and assign it the data-label attribute and the ::before and ::after style rules.</mark></p>
--->							
+						<p>Dans l’exemple ci-dessous, le tableau est reformaté en une liste imbriquée si la largeur de l’affichage du navigateur est inférieure à 768 pixels. La liste imbriquée demeure dans la zone d’affichage pour éviter le défilement horizontal.</p>
+
+						<p>Redimensionner la fenêtre du navigateur pour voir l’effet.</p>			
 
 						<div class="panel panel-primary">
 							<div class="panel-body mrgn-bttm-0">
