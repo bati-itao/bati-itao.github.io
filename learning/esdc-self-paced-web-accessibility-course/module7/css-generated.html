@@ -77,27 +77,68 @@
                         </div>
                      </div>
                   </nav>
-                  <section>
+				  <section>
                      <h2 id="designing-with-CSS-generated-content">Designing with CSS-generated content</h2>
-                     <p>CSS can generate text and icons through the <code>:before</code> and <code>:after</code> pseudo-classes. However, CSS-generated content is not in the DOM and consequently not easily accessible to assistive technology. Currently, there's documented full <a href="https://a11ysupport.io/tests/tech__css__css_generated_content_span">accessibility support for CSS-generated content on the &lt;span&gt; element</a>, but not on buttons, links, or form labels since the voice input tests fail. To see the latest support, visit <a href="https://a11ysupport.io/tests/">Accessibility Support tests</a> and search for "CSS".</p>
-
-                    <ul>
-						<li>If the CSS-generated content is decorative, hide it</ins> from screen readers with the <code>aria-hidden="true"</code> attribute.</li>
-						<li>If the CSS-generated content content is an informative icon, provide a name:
+                     <p>CSS can generate text and icons through the <code>:before</code> and <code>:after</code> pseudo-classes. Strictly intepreted, WCAG 2.1 fails any use of non-decorative CSS-generated content, since it can be overwritten by user style sheets (used by users with low vision) and is invisible to browser find functionality. However, some sensible use cases exist for <a href="https://adrianroselli.com/2019/02/f87-css-generated-content-and-wcag-conformance.html">CSS-generated content for non-essential text</a>. The first example below illustrates one of the cases.</p>
+                     
+                    <p>Follow these best pratices with CSS-generated content:</p>
+					<ul>
+						<li>Don't use CSS-generated text.</li>
+						<li>Exception: Use CSS-generated text to expose <code>mark</code>, <code>del</code>, <code>ins</code>, and <code>s</code> elements to screen reader users.</li>
+						<li>Hide decorative CSS-generated content from screen readers with the <code>aria-hidden="true"</code> attribute.</li>
+						<li>For informative CSS-generated icons:
 							<ul>
-								<li>If the element is a link or control, use the <code>aria-label</code> attribute.</li>
-								<li>Otherwise, hide the icon from screen readers with the <code>aria-hidden="true"</code> attribute and apply the WET <code>.wb-inv</code> class to visually hide a text alternative.</li>
+								<li>Set the icon on a <code>&lt;span&gt;</code> element, and:
+									<ul>
+										<li>Hide it from screen reader users with the <code>aria-hidden</code> attribute.</li>
+										<li>Add a visible label for mouse users with the <code>title</code> attribute.</li>
+									</ul>
+								<li>Add a label for screen-reader users in a second <code>&lt;span&gt;</code> element, visually-hidden with the WET CSS class <code>.wb-inv</code>.</li>
 							</ul>
 						</li>
-						<li>If the CSS-generated content content is text:
-							<ul>
-								<li>Use a <code>&lt;span&gt;</code> element.</li>
-								<li>Otherwise, hide the generated text from screen readers with the <code>aria-hidden="true"</code> attribute and apply the WET <code>.wb-inv</code> class to visually hide a text alternative.</li>
-							</ul>
-						</li>
-                    </ul>
-					                     
+					</ul>
+                                    
+					 <div class="panel panel-success mrgn-tp-lg">
+						<div class="panel-body">
+							<h2 class="text-success mrgn-tp-0 h3" id="informative-css"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: CSS-generated boundary declarations for elements not exposed to screen readers
+							</h2>
+							
+							<p>The <code>&lt;mark&gt;</code> element and the editorial elements <code>&lt;del&gt;</code>, <code>&lt;ins&gt;</code> and <code>&lt;s&gt;</code> are not declared by screen readers. To alert screen reader users to their presence, visually-hidden CSS-generated text flags the start and end of each.</p>
+<p class="lang-label small">CSS</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-css">mark::before	{	content: " [highlight start] "; }
+mark::after	{	content: " [highlight end] "; }
 
+del::before	{	content: " [deletion start] "; }
+del::after	{	content: " [deletion end] "; }
+
+ins::before	{	content: " [insertion start] "; }
+ins::after	{	content: " [insertion end] "; }
+
+s::before	{	content: " [start of stricken text] "; }
+s::after	{	content: " [end stricken text] "; }
+
+/* visually hide the generated content */
+mark::before, mark::after,
+del::before, del::after,
+ins::before, ins::after,
+s::before, s::after {
+   clip-path: inset(100%);
+   clip: rect(1px, 1px, 1px, 1px);
+   height: 1px;
+   width: 1px;
+   overflow: hidden;
+   position: absolute;
+   white-space: nowrap;
+}</code></pre>
+
+							<p class="wb-inv">Code ends</p>
+						</div>
+					</div>
+					<hr/>
+					<p class="small">Source: Adrian Roselli's blog post <a href="https://adrianroselli.com/2019/02/f87-css-generated-content-and-wcag-conformance.html">F87: CSS Generated Content and WCAG Conformance</a>. February 24, 2019.</p>
+				</section>
+				<section>
                     <div class="panel panel-success mrgn-tp-lg">
 						<div class="panel-body">
 							<h2 class="text-success mrgn-tp-0 h3" id="informative-css"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Informative CSS icon
@@ -109,6 +150,7 @@
 								<li>Its <code>aria-hidden="true"</code> attribute hides the element from screen readers, since their support for the <code>title</code> attribute is inconsistent.</li>
 								<li>Directly following the icon is the visually-hidden name “Task”, which declares in all screen readers.</li>
 							</ul>
+							<p>This example differs from the <a href="https://wet-boew.github.io/wet-boew-styleguide/design/icons-en.html">WET Style Guide's Icons</a> pattern by adding the <code>title</code> and <code>aria-hidden</code> attributes.</p>
 							<div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
 									 <style type="text/css">
@@ -176,6 +218,13 @@
                               <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA6">ARIA6: Using aria-label to provide labels for objects</a>
                            </li>
                         </ul>
+						<h3>Failures</h3>
+						<ul>
+						   <li>
+							  <a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F87
+		">F87: Failure of Success Criterion 1.3.1 due to inserting non-decorative content by using :before and :after pseudo-elements and the 'content' property in CSS</a>
+						   </li>
+						</ul>
                      </details>
                   </section>
                   <nav role="navigation" aria-labelledby="nav-pagination">
