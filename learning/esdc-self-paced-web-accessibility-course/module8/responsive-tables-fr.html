@@ -77,8 +77,9 @@
 			  <ul>
 					<li><a href="#resp-tables">Conception de tableaux adaptés</a></li>
 					<li><a href="#overflow-table">Bon exemple : Reformater le tableau en une seule colonne</a></li>
-					<li><a href="#reflow-list">Technique 1: Reformater en une liste imbriquée</a></li>
-					<li><a href="#reflow-table">Technique 2: Reformater en une seule colonne</a></li>
+					<li><a href="#reflow-list">Bon exemple : Reformater en une liste imbriquée</a></li>
+					<li><a href="#reflow-table">Mauvais exemple : Reformater en une seule colonne</a></li>
+					<li><a href="#wcag">Ressources WCAG connexes<</a></li>
 			  </ul>
 			</div>
 		</div>
@@ -101,15 +102,9 @@
 							<li>Ajouter d’un tiret conditionnel <code>&amp;shy;</code> pour couper les mots longs</li>
 						</ul>
 					</li>
-				</ul>
+					<li>Redimensionner les tableaux en fonction de la zone d’affichage (<a href="#reflow-list">exemple de redimensionnement</a>)</li>
 
-				<p>Afin d’éviter le défilement horizontal, les techniques suivantes redimensionnent les tableaux en fonction de la zone d’affichage:</p>
-				<ul>
-					<li><a href="#reflow-list">Technique 1: Reformater en une liste imbriquée</a></li>
-					<li><a href="#reflow-table">Technique 2: Reformater en une seule colonne</a></li>
-				</ul>
-
-				<p>Veuillez noter que le critère de succès des WCAG <a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html">1.4.10 Reflow</a> exempte les tableaux de données des exigences de reformatage. Il est acceptable de faire défiler les tableaux de données. Le système de conception de Canada.ca et la BOEW ne comportent aucune fonctionnalité permettant de transformer et de réorganiser les tableaux, comme le montrent les techniques ci-dessous.</p>
+				<p>Veuillez noter que le critère de succès des WCAG <a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html" lang="en-CA">1.4.10 Reflow</a> exempte les tableaux de données des exigences de reformatage. Il est acceptable de faire défiler les tableaux de données. Le système de conception de Canada.ca et la BOEW ne comportent aucune fonctionnalité permettant de transformer et de réorganiser les tableaux, comme le montrent les exemples ci-dessous.</p>
 			
 	
 			</section>
@@ -208,9 +203,8 @@
 			</section>
 			<section>
 				<div class="panel panel-success mrgn-tp-lg">
-					<div class="panel-body">
-										
-						<h2 id="reflow-list" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Technique 1: Reformater en une liste imbriquée</h2>
+					<div class="panel-body">										
+						<h2 id="reflow-list" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple : Reformater en une liste imbriquée</h2>
 
 						<p>Dans l’exemple ci-dessous, le tableau est reformaté en une liste imbriquée si la largeur de l’affichage du navigateur est inférieure à 768 pixels. La liste imbriquée demeure dans la zone d’affichage pour éviter le défilement horizontal.</p>
 
@@ -501,11 +495,11 @@
 			
 			</section>			
 			<section>
-				<div class="panel panel-success mrgn-tp-lg">
+				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
-						<h2 id="reflow-table" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Technique 2&nbsp;: Reformater le tableau en une seule colonne</h2>
+						<h2 id="reflow-table" class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais example: Reformater le tableau en une seule colonne</h2>
 						<p>Dans l’exemple ci-dessous, le tableau est reformaté à une colonne si la largeur du navigateur est inférieure à 768 pixels, ce qui maintient la lisibilité sans qu’un défilement horizontal soit nécessaire.</p>
-				<p>La technique consiste à empiler les cellules du tableau les unes sur les autres, à masquer les en-têtes au haut de la colonne et à les reproduire à gauche de la cellule comme des en-têtes de rangée visuels. Les en-têtes de rangée sont créés avec le <a href="../module7/css-generated-fr.html">contenu généré par CSS</a>, en s’appuyant sur la valeur d’un attribut personnalisé <code>data-label</code>:</p>
+				<p>La technique consiste à empiler les cellules du tableau les unes sur les autres, à masquer les en-têtes de colonne et à les reproduire à gauche de la cellule comme des en-têtes de rangée. Malheureusement, les en-têtes de rangée sont créés avec le <a href="../module7/css-generated-fr.html">contenu généré par CSS</a>, en s’appuyant sur la valeur d’un attribut personnalisé <code>data-label</code>. Le contenu généré par CSS ne peut pas &#234;tre utilis&#233; pour l'information essentielle.</p>
 						
 		<p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
@@ -769,6 +763,25 @@ table thead th {
 				</div>
 			</section>
 
+		  <section>
+			 <h2 id="wcag" class="wb-inv">Ressources WCAG connexes</h2>
+			 <details class="mrgn-tp-lg">
+				<summary class="bg-info">Ressources WCAG connexes</summary>
+				<p>En anglais seulement.</p>
+				<h3>Critères de succès</h3>
+				<ul>
+				   <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships
+" lang="en-CA">1.3.1: Info and Relationships</a></li>
+				</ul>
+				 <h3>Échecs</h3>
+				<ul>
+				   <li>
+					  <a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F87
+" lang="en-CA">F87: Failure of Success Criterion 1.3.1 due to inserting non-decorative content by using :before and :after pseudo-elements and the 'content' property in CSS</a>
+				   </li>
+				</ul>
+			 </details>
+		  </section>
 		
 		
 	<nav role="navigation" aria-labelledby="nav-pagination">
