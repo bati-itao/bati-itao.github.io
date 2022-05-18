@@ -79,7 +79,7 @@
                   </nav>
 				  <section>
                      <h2 id="designing-with-CSS-generated-content">Designing with CSS-generated content</h2>
-                     <p>CSS can generate text and icons through the <code>:before</code> and <code>:after</code> pseudo-classes. Strictly intepreted, WCAG 2.1 fails any use of non-decorative CSS-generated content, since it can be overwritten by user style sheets (used by users with low vision) and is invisible to browser find functionality. However, some sensible use cases exist for <a href="https://adrianroselli.com/2019/02/f87-css-generated-content-and-wcag-conformance.html">CSS-generated content for non-essential text</a>. The first example below illustrates one of the cases.</p>
+                     <p>CSS can generate text and icons through the <code>::before</code> and <code>::after</code> pseudo-classes. Strictly intepreted, WCAG 2.1 fails any use of non-decorative CSS-generated content, since it can be overwritten by user style sheets (used by users with low vision) and is invisible to browser find functionality. However, some sensible use cases exist for <a href="https://adrianroselli.com/2019/02/f87-css-generated-content-and-wcag-conformance.html">CSS-generated content for non-essential text</a>. The first example below illustrates one of the cases.</p>
                      
                     <p>Follow these best pratices with CSS-generated content:</p>
 					<ul>
@@ -95,9 +95,12 @@
 									</ul>
 								<li>Add a label for screen-reader users in a second <code>&lt;span&gt;</code> element, visually-hidden with the WET CSS class <code>.wb-inv</code>.</li>
 							</ul>
+							<p>This approach differs from the <a href="https://wet-boew.github.io/wet-boew-styleguide/design/icons-en.html">WET Style Guide's Icons</a> pattern by adding the <code>title</code> and <code>aria-hidden</code> attributes.</p>
+							<p>Note that WCAG 2.1 also offers an informative icon technique, <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA24">ARIA24: Semantically identifying a font icon with role="img"</a>, but it requires a specific style declaration in the <em>user's</em> stylesheet, intended to protect the icon font family declaration from being overwritten. Though not mentioned in WCAG 2.1, using ARIA24 entails promoting its existence to your audience with low vision.</p>
 						</li>
 					</ul>
-                                    
+                </section>
+                <section>
 					 <div class="panel panel-success mrgn-tp-lg">
 						<div class="panel-body">
 							<h2 class="text-success mrgn-tp-0 h3" id="informative-css"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: CSS-generated boundary declarations for elements not exposed to screen readers
@@ -106,17 +109,17 @@
 							<p>The <code>&lt;mark&gt;</code> element and the editorial elements <code>&lt;del&gt;</code>, <code>&lt;ins&gt;</code> and <code>&lt;s&gt;</code> are not declared by screen readers. To alert screen reader users to their presence, visually-hidden CSS-generated text flags the start and end of each.</p>
 <p class="lang-label small">CSS</p>
 		<p class="wb-inv">Code begins</p>
-<pre class="mrgn-tp-0"><code class="language-css">mark::before	{	content: " [highlight start] "; }
-mark::after	{	content: " [highlight end] "; }
+<pre class="mrgn-tp-0"><code class="language-css">mark::before	{ content: " [highlight start] "; }
+mark::after	{ content: " [highlight end] "; }
 
-del::before	{	content: " [deletion start] "; }
-del::after	{	content: " [deletion end] "; }
+del::before	{ content: " [deletion start] "; }
+del::after	{ content: " [deletion end] "; }
 
-ins::before	{	content: " [insertion start] "; }
-ins::after	{	content: " [insertion end] "; }
+ins::before	{ content: " [insertion start] "; }
+ins::after	{ content: " [insertion end] "; }
 
-s::before	{	content: " [start of stricken text] "; }
-s::after	{	content: " [end stricken text] "; }
+s::before	{ content: " [start of stricken text] "; }
+s::after	{ content: " [end stricken text] "; }
 
 /* visually hide the generated content */
 mark::before, mark::after,
@@ -145,12 +148,12 @@ s::before, s::after {
 							</h2>
 							<p>In this example, the Font Awesome hammer icon is used to represent a task.</p>
 							<ul>
-								<li>The <code>&lt;span&gt;</code> element with classes <code>.fas</code> and <code>.fa-hammer</code> displays the icon via a CSS <code>:before</code> pseudo-class.</li>
+								<li>The <code>&lt;span&gt;</code> element with classes <code>.fas</code> and <code>.fa-hammer</code> displays the icon via a CSS <code>::before</code> pseudo-class.</li>
 								<li>Its <code>title</code> attribute holds a tooltip for mouse users, "Task".</li>	
 								<li>Its <code>aria-hidden="true"</code> attribute hides the element from screen readers, since their support for the <code>title</code> attribute is inconsistent.</li>
 								<li>Directly following the icon is the visually-hidden name “Task”, which declares in all screen readers.</li>
 							</ul>
-							<p>This example differs from the <a href="https://wet-boew.github.io/wet-boew-styleguide/design/icons-en.html">WET Style Guide's Icons</a> pattern by adding the <code>title</code> and <code>aria-hidden</code> attributes.</p>
+							
 							<div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
 									 <style type="text/css">
@@ -208,6 +211,7 @@ s::before, s::after {
                         <h3>Success criteria</h3>
                         <ul>
                            <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a></li>
+                           <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1: Info and Relationships</a></li>
                         </ul>
                         <h3>Techniques</h3>
                         <ul>
@@ -216,6 +220,9 @@ s::before, s::after {
                            </li>
                            <li>
                               <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA6">ARIA6: Using aria-label to provide labels for objects</a>
+                           </li>
+                           <li>
+							   <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA24">ARIA24: Semantically identifying a font icon with role="img"</a>
                            </li>
                         </ul>
 						<h3>Failures</h3>
