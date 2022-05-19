@@ -74,7 +74,7 @@
                               <li><a href="#bp-contrast">Contrast </a></li>
                               <li><a href="#visual-proximity-of-labels">Visual proximity of labels</a></li>
                               <li><a href="#text-spacing">Text spacing</a></li>
-                              <li><a href="#CSS-generated-content">CSS-generated content</a></li>
+                              <li><a href="#css-generated-content">CSS-generated content</a></li>
                               <li><a href="#hiding-content">Hiding content</a></li>
                               <li><a href="#exposing-content-on-hover-or-focus">Exposing content on hover or focus</a></li>
                            </ul>
@@ -128,22 +128,26 @@
                      </ul>
                   </section>
                   <section>
-                     <h2 id="CSS-generated-content">CSS-generated content<span class="wb-inv"> (best practice)</span></h2>
-                     <ul>
-                        <li>Avoid CSS-generated content.</li>
-                        <li>If you do use CSS-generated content:</li>
-                        <li class="lst-none">
+                     <h2 id="css-generated-content">CSS-generated content<span class="wb-inv"> (best practice)</span></h2>
+					<ul>
+						
+						<li>Hide decorative CSS-generated content from screen readers with the <code>aria-hidden="true"</code> attribute.</li>
+						<li>Don't use CSS-generated text.
 							<ul>
-							   <li>Hide it from screen readers with the <code>aria-hidden="true"</code> attribute.</li>
-							   <li>If the CSS-generated content is informative, provide a text alternative:
-									 <ul>
-										<li>If the content is a link or control, use the <code>aria-label</code> attribute.</li>
-										<li>If the content can't receive focus, use the WET <code>.wb-inv</code> class to visually hide the text alternative.</li>
-									 </ul>
-								</li>
+								<li>Exception: Use CSS-generated text to expose <code>mark</code>, <code>del</code>, <code>ins</code>, and <code>s</code> elements to screen reader users.</li>
 							</ul>
 						</li>
-                     </ul>
+						<li>For informative CSS-generated icons:
+							<ul>
+								<li>Set the icon on a <code>&lt;span&gt;</code> element, and:
+									<ul>
+										<li>Hide it from screen reader users with the <code>aria-hidden</code> attribute.</li>
+										<li>Add a visible label for mouse users with the <code>title</code> attribute.</li>
+									</ul>
+								<li>Add a label for screen-reader users in a second <code>&lt;span&gt;</code> element, visually-hidden with the WET CSS class <code>.wb-inv</code>.</li>
+							</ul>
+						</li>
+					</ul>
                   </section>
                   <section>
                      <h2 id="hiding-content">Hiding content<span class="wb-inv"> (best practice)</span></h2>
