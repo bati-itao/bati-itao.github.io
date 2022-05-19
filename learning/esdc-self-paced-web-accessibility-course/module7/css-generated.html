@@ -79,13 +79,17 @@
                   </nav>
 				  <section>
                      <h2 id="designing-with-CSS-generated-content">Designing with CSS-generated content</h2>
-                     <p>CSS can generate text and icons through the <code>::before</code> and <code>::after</code> pseudo-classes. Strictly intepreted, WCAG 2.1 fails any use of non-decorative CSS-generated content, since it can be overwritten by user style sheets (used by users with low vision) and is invisible to browser find functionality. However, some sensible use cases exist for <a href="https://adrianroselli.com/2019/02/f87-css-generated-content-and-wcag-conformance.html">CSS-generated content for non-essential text</a>. The first example below illustrates one of the cases.</p>
+                     <p>CSS can generate text and icons through the <code>::before</code> and <code>::after</code> pseudo-classes. However, WCAG 2.1 fails any use of non-decorative CSS-generated content, since it can be overwritten by user style sheets (used by users with low vision) and is invisible to browser find functionality, among other reasons mentioned in this <a href="https://docs.google.com/document/d/1kvz0D3Au1R6c6q8iKZNH3KqyBt3d6WaJNUCwV35BDX8/edit">defense of WCAG Failure F87</a>. That said, there is one use case for supplemental, CSS-generated text intended for screen reader users (described in the first example, below).</p>
                      
                     <p>Follow these best pratices with CSS-generated content:</p>
 					<ul>
-						<li>Don't use CSS-generated text.</li>
-						<li>Exception: Use CSS-generated text to expose <code>mark</code>, <code>del</code>, <code>ins</code>, and <code>s</code> elements to screen reader users.</li>
+						
 						<li>Hide decorative CSS-generated content from screen readers with the <code>aria-hidden="true"</code> attribute.</li>
+						<li>Don't use CSS-generated text.
+							<ul>
+								<li>Exception: Use CSS-generated text to expose <code>mark</code>, <code>del</code>, <code>ins</code>, and <code>s</code> elements to screen reader users.</li>
+							</ul>
+						</li>
 						<li>For informative CSS-generated icons:
 							<ul>
 								<li>Set the icon on a <code>&lt;span&gt;</code> element, and:
@@ -96,7 +100,8 @@
 								<li>Add a label for screen-reader users in a second <code>&lt;span&gt;</code> element, visually-hidden with the WET CSS class <code>.wb-inv</code>.</li>
 							</ul>
 							<p>This approach differs from the <a href="https://wet-boew.github.io/wet-boew-styleguide/design/icons-en.html">WET Style Guide's Icons</a> pattern by adding the <code>title</code> and <code>aria-hidden</code> attributes.</p>
-							<p>Note that WCAG 2.1 also offers an informative icon technique, <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA24">ARIA24: Semantically identifying a font icon with role="img"</a>, but it requires a specific style declaration in the <em>user's</em> stylesheet, intended to protect the icon font family declaration from being overwritten. Though not mentioned in WCAG 2.1, using ARIA24 entails promoting its existence to your audience with low vision.</p>
+							<p>WCAG 2.1 also offers an informative icon technique, <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA24">ARIA24: Semantically identifying a font icon with role="img"</a>, but it requires a specific style declaration in the <em>user's</em> stylesheet, intended to protect the icon font family declaration from being overwritten. Though not mentioned in WCAG 2.1, using ARIA24 entails promoting its existence to your audience with low vision. Also, the <a href="https://docs.google.com/document/d/1kvz0D3Au1R6c6q8iKZNH3KqyBt3d6WaJNUCwV35BDX8/edit">defense of WCAG Failure F87</a> suggests that ARIA24's solution lacks necessary semantics.</p>
+							<p>There is no ideal technique for CSS-generated icon fonts.</p>
 						</li>
 					</ul>
                 </section>
@@ -151,7 +156,7 @@ s::before, s::after {
 								<li>The <code>&lt;span&gt;</code> element with classes <code>.fas</code> and <code>.fa-hammer</code> displays the icon via a CSS <code>::before</code> pseudo-class.</li>
 								<li>Its <code>title</code> attribute holds a tooltip for mouse users, "Task".</li>	
 								<li>Its <code>aria-hidden="true"</code> attribute hides the element from screen readers, since their support for the <code>title</code> attribute is inconsistent.</li>
-								<li>Directly following the icon is the visually-hidden name “Task”, which declares in all screen readers.</li>
+								<li>Directly following the icon is a visually-hidden <code>&lt;span&gt;</code> element holding the name “Task”, which declares in all screen readers.</li>
 							</ul>
 							
 							<div class="panel panel-primary">
