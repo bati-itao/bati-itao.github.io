@@ -71,6 +71,7 @@
                         <div class="panel-body">
                            <ul>
                               <li><a href="#designing-with-CSS-generated-content">Designing with CSS-generated content</a></li>
+                              <li><a href="#css-boundaries">Good example: CSS-generated boundary declarations for elements not exposed to screen readers</a></li>
                               <li><a href="#informative-css">Good example: Informative CSS icon</a></li>
                               <li><a href="#css-generated-wcag">Related WCAG resources</a></li>
                            </ul>
@@ -79,7 +80,7 @@
                   </nav>
 				  <section>
                      <h2 id="designing-with-CSS-generated-content">Designing with CSS-generated content</h2>
-                     <p>CSS can generate text and icons through the <code>::before</code> and <code>::after</code> pseudo-classes. However, WCAG 2.1 fails any use of non-decorative CSS-generated content, since it can be overwritten by user style sheets (used by users with low vision) and is invisible to browser find functionality, among other reasons mentioned in this <a href="https://docs.google.com/document/d/1kvz0D3Au1R6c6q8iKZNH3KqyBt3d6WaJNUCwV35BDX8/edit">defense of WCAG Failure F87</a>. That said, there is one use case for supplemental, CSS-generated text intended for screen reader users (described in the first example, below).</p>
+                     <p>CSS can generate text and icons through the <code>::before</code> and <code>::after</code> pseudo-classes. However, WCAG 2.1 fails any use of non-decorative CSS-generated content, since it can be overwritten by user style sheets (used by users with low vision) and is invisible to browser find functionality, among other reasons mentioned in this <a href="https://docs.google.com/document/d/1kvz0D3Au1R6c6q8iKZNH3KqyBt3d6WaJNUCwV35BDX8/edit">defense of WCAG Failure F87</a>. That said, there is a use case for supplemental, CSS-generated text and a mostly-accessible technique for  informative icons.</p>
                      
                     <p>Follow these best pratices with CSS-generated content:</p>
 					<ul>
@@ -99,7 +100,7 @@
 									</ul>
 								<li>Add a label for screen-reader users in a second <code>&lt;span&gt;</code> element, visually-hidden with the WET CSS class <code>.wb-inv</code>.</li>
 							</ul>
-							<p>This approach differs from the <a href="https://wet-boew.github.io/wet-boew-styleguide/design/icons-en.html">WET Style Guide's Icons</a> pattern by adding the <code>title</code> and <code>aria-hidden</code> attributes.</p>
+							<p>This approach differs from the <a href="https://wet-boew.github.io/wet-boew-styleguide/design/icons-en.html">WET Style Guide's Icons</a> pattern by adding the <code>title</code> and <code>aria-hidden</code> attributes. It doesn't address the needs of low vision keyboard users.</p>
 							<p>WCAG 2.1 also offers an informative icon technique, <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA24">ARIA24: Semantically identifying a font icon with role="img"</a>, but it requires a specific style declaration in the <em>user's</em> stylesheet, intended to protect the icon font family declaration from being overwritten. Though not mentioned in WCAG 2.1, using ARIA24 entails promoting its existence to your audience with low vision. Also, the <a href="https://docs.google.com/document/d/1kvz0D3Au1R6c6q8iKZNH3KqyBt3d6WaJNUCwV35BDX8/edit">defense of WCAG Failure F87</a> suggests that ARIA24's solution lacks necessary semantics.</p>
 							<p>There is no ideal technique for CSS-generated icon fonts.</p>
 						</li>
@@ -108,10 +109,10 @@
                 <section>
 					 <div class="panel panel-success mrgn-tp-lg">
 						<div class="panel-body">
-							<h2 class="text-success mrgn-tp-0 h3" id="informative-css"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: CSS-generated boundary declarations for elements not exposed to screen readers
+							<h2 class="text-success mrgn-tp-0 h3" id="css-boundaries"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: CSS-generated boundary declarations for elements not exposed to screen readers
 							</h2>
 							
-							<p>The <code>&lt;mark&gt;</code> element and the editorial elements <code>&lt;del&gt;</code>, <code>&lt;ins&gt;</code> and <code>&lt;s&gt;</code> are not declared by screen readers. To alert screen reader users to their presence, visually-hidden CSS-generated text flags the start and end of each.</p>
+							<p>The roles of the <code>&lt;mark&gt;</code> element and the editorial elements <code>&lt;del&gt;</code>, <code>&lt;ins&gt;</code> and <code>&lt;s&gt;</code> are not declared by screen readers. To alert screen reader users to their presence, visually-hidden CSS-generated text flags the start and end of each.</p>
 <p class="lang-label small">CSS</p>
 		<p class="wb-inv">Code begins</p>
 <pre class="mrgn-tp-0"><code class="language-css">mark::before	{ content: " [highlight start] "; }
@@ -182,6 +183,19 @@ s::before, s::after {
 									
 								</div>
 							</div>
+							
+							<p>If their custom style sheets overwrite the icon's font-family declaration, mouse users with low vision can access the icon name by hovering over the placeholder square, triggering the title attribute's tooltip.</p>
+							
+							<div class="panel panel-primary">
+								<div class="panel-body well mrgn-bttm-0">
+									 <p>
+										 <!-- alt value here would be redundant -->
+										<img alt="" src="images/icon-mouse-hover.png" class="img-responsive"/>
+									 </p>
+									
+								</div>
+							</div>
+							
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
 <pre class="mrgn-tp-0"><code class="language-html">&lt;p&gt;
