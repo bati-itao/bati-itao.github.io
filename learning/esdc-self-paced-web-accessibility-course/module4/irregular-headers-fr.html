@@ -101,27 +101,27 @@
 					<p class="wb-inv">L'exemple commence</p>
 					<table class="table table-bordered">
 						<caption>Tableau comportant un en-tête de colonne et un en-tête de rangée</caption>
-						 <thead>
-							  <tr class="bg-primary">
+						<thead class="bg-primary">
+							  <tr>
 								<td colspan="2" rowspan="2">&nbsp;</td>
-								<th colspan="3">A</th>
+								<th colspan="3" scope="colgroup">A</th>
 							  </tr>
-							  <tr class="bg-primary">
-								<th>A1</th>
-								<th>A2</th>
-								<th>A3</th>
+							  <tr>
+								<th scope="col">A1</th>
+								<th scope="col">A2</th>
+								<th scope="col">A3</th>
 							  </tr>
 						</thead>
 						<tbody>
 							  <tr>
-								<th rowspan="2" class="bg-primary">B</th>
-								<th class="bg-primary">B1</th>
+								<th rowspan="2" class="bg-primary" scope="rowgroup">B</th>
+								<th class="bg-primary" scope="row">B1</th>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 							  </tr>
 							  <tr>
-								<th class="bg-primary">B2</th>
+								<th class="bg-primary" scope="row">B2</th>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
@@ -134,31 +134,36 @@
 			<p>Le support du lecteur d’écran pour l’attribut <code lang="en-CA">scope="rowgroup"</code> est pire que le support pour l’attribut <code lang="en-CA">scope="colgroup"</code>. Lorsque cela est possible, concevoir des tableaux qui utilisent <code lang="en-CA">scope="colgroup"</code> et éviter <code lang="en-CA">scope="rowgroup"</code>.</p>
 	 		<details class="mrgn-tp-lg">
 				<summary class="bg-info">Voir le HTML</summary>
-				<p class="wb=inv">Début du code</p>
-<pre><code class="language-html">&lt;table class=&quot;table table-bordered&quot;&gt;
+
+				<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;table class=&quot;table table-bordered&quot;&gt;
    &lt;caption&gt;Tableau comportant un en-tête de colonne et un en-tête de rangée&lt;/caption&gt;
-   &lt;tr class=&quot;bg-primary&quot;&gt;
-      &lt;td colspan=&quot;2&quot; rowspan=&quot;2&quot;&gt;&amp;nbsp;&lt;/td&gt;
-      &lt;th colspan=&quot;3&quot; id=&quot;a&quot;&gt;A&lt;/th&gt;
-   &lt;/tr&gt;
-   &lt;tr class=&quot;bg-primary&quot;&gt;
-      &lt;th id=&quot;a1&quot;&gt;A1&lt;/th&gt;
-      &lt;th id=&quot;a2&quot;&gt;A2&lt;/th&gt;
-      &lt;th id=&quot;a3&quot;&gt;A3&lt;/th&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-      &lt;th rowspan=&quot;2&quot; class=&quot;bg-primary&quot; id=&quot;b&quot;&gt;B&lt;/th&gt;
-      &lt;th class=&quot;bg-primary&quot; id=&quot;b1&quot;&gt;B1&lt;/th&gt;
-      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
-      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
-      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-      &lt;th class=&quot;bg-primary&quot; id=&quot;b2&quot;&gt;B2&lt;/th&gt;
-      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
-      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
-      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
-   &lt;/tr&gt;
+   &lt;thead class="bg-primary"&gt;
+      &lt;tr&gt;
+        &lt;td colspan=&quot;2&quot; rowspan=&quot;2&quot;&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;th colspan=&quot;3&quot; scope="colgroup"&gt;A&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th scope="col"&gt;A1&lt;/th&gt;
+        &lt;th scope="col"&gt;A2&lt;/th&gt;
+        &lt;th scope="col"&gt;A3&lt;/th&gt;
+      &lt;/tr&gt;
+   &lt;/thead&gt;
+   &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;th rowspan=&quot;2&quot; class=&quot;bg-primary&quot; scope="rowgroup"&gt;B&lt;/th&gt;
+        &lt;th class=&quot;bg-primary&quot; scope="row"&gt;B1&lt;/th&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th class=&quot;bg-primary&quot; scope="row"&gt;B2&lt;/th&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+      &lt;/tr&gt;
+   &lt;/tbody&gt;
 &lt;/table&gt;</code>
 </pre>
 				<p class="wb-inv">Fin du code</p>
