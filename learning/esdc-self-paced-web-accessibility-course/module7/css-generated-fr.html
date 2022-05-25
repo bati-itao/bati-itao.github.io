@@ -87,27 +87,27 @@
                      <!-- RESTORE ME -- 
 						<mark>Translate the first two sections of css-generated</mark>
 					
-                     <p>CSS can generate text and icons through the <code>::before</code> and <code>::after</code> pseudo-classes. However, WCAG 2.1 fails any use of non-decorative CSS-generated content, since it can be overwritten by user style sheets (used by users with low vision) and is invisible to browser find functionality, among other reasons mentioned in this <a href="https://docs.google.com/document/d/1kvz0D3Au1R6c6q8iKZNH3KqyBt3d6WaJNUCwV35BDX8/edit">defense of WCAG Failure F87</a>. That said, there is a use case for supplemental, CSS-generated text and a mostly-accessible technique for  informative icons.</p>
+                     <p>CSS can generate text and icons through the <code lang="en-CA">::before</code> and <code lang="en-CA">::after</code> pseudo-classes. However, WCAG 2.1 fails any use of non-decorative CSS-generated content, since it can be overwritten by user style sheets (used by users with low vision) and is invisible to browser find functionality, among other reasons mentioned in this <a href="https://docs.google.com/document/d/1kvz0D3Au1R6c6q8iKZNH3KqyBt3d6WaJNUCwV35BDX8/edit">defense of WCAG Failure F87</a>. That said, there is a use case for supplemental, CSS-generated text and a mostly-accessible technique for  informative icons.</p>
                      
                     <p>Follow these best pratices with CSS-generated content:</p>
 					<ul>
 						
-						<li>Hide decorative CSS-generated content from screen readers with the <code>aria-hidden="true"</code> attribute.</li>
+						<li>Hide decorative CSS-generated content from screen readers with the <code lang="en-CA">aria-hidden="true"</code> attribute.</li>
 						<li>Don't use CSS-generated text.
 							<ul>
-								<li>Exception: Use CSS-generated text to expose <code>mark</code>, <code>del</code>, <code>ins</code>, and <code>s</code> elements to screen reader users.</li>
+								<li>Exception: Use CSS-generated text to expose <code lang="en-CA">mark</code>, <code lang="en-CA">del</code>, <code lang="en-CA">ins</code>, and <code lang="en-CA">s</code> elements to screen reader users.</li>
 							</ul>
 						</li>
 						<li>For informative CSS-generated icons:
 							<ul>
-								<li>Set the icon on a <code>&lt;span&gt;</code> element, and:
+								<li>Set the icon on a <code lang="en-CA">&lt;span&gt;</code> element, and:
 									<ul>
-										<li>Hide it from screen reader users with the <code>aria-hidden</code> attribute.</li>
-										<li>Add a visible label for mouse users with the <code>title</code> attribute.</li>
+										<li>Hide it from screen reader users with the <code lang="en-CA">aria-hidden</code> attribute.</li>
+										<li>Add a visible label for mouse users with the <code lang="en-CA">title</code> attribute.</li>
 									</ul>
-								<li>Add a label for screen-reader users in a second <code>&lt;span&gt;</code> element, visually-hidden with the WET CSS class <code>.wb-inv</code>.</li>
+								<li>Add a label for screen-reader users in a second <code lang="en-CA">&lt;span&gt;</code> element, visually-hidden with the WET CSS class <code lang="en-CA">.wb-inv</code>.</li>
 							</ul>
-							<p>This approach differs from the <a href="https://wet-boew.github.io/wet-boew-styleguide/design/icons-en.html">WET Style Guide's Icons</a> pattern by adding the <code>title</code> and <code>aria-hidden</code> attributes. It doesn't address the needs of low vision keyboard users.</p>
+							<p>This approach differs from the <a href="https://wet-boew.github.io/wet-boew-styleguide/design/icons-en.html">WET Style Guide's Icons</a> pattern by adding the <code lang="en-CA">title</code> and <code lang="en-CA">aria-hidden</code> attributes. It doesn't address the needs of low vision keyboard users.</p>
 							<p>WCAG 2.1 also offers an informative icon technique, <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA24">ARIA24: Semantically identifying a font icon with role="img"</a>, but it requires a specific style declaration in the <em>user's</em> stylesheet, intended to protect the icon font family declaration from being overwritten. Though not mentioned in WCAG 2.1, using ARIA24 entails promoting its existence to your audience with low vision. Also, the <a href="https://docs.google.com/document/d/1kvz0D3Au1R6c6q8iKZNH3KqyBt3d6WaJNUCwV35BDX8/edit">defense of WCAG Failure F87</a> suggests that ARIA24's solution lacks necessary semantics.</p>
 							<p>There is no ideal technique for CSS-generated icon fonts.</p>
 						</li>
@@ -119,7 +119,7 @@
 							<h2 class="text-success mrgn-tp-0 h3" id="css-boundaries"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: CSS-generated boundary declarations for elements not exposed to screen readers
 							</h2>
 							
-							<p>The roles of the <code>&lt;mark&gt;</code> element and the editorial elements <code>&lt;del&gt;</code>, <code>&lt;ins&gt;</code> and <code>&lt;s&gt;</code> are not declared by screen readers. To alert screen reader users to their presence, visually-hidden CSS-generated text flags the start and end of each.</p>
+							<p>The roles of the <code lang="en-CA">&lt;mark&gt;</code> element and the editorial elements <code lang="en-CA">&lt;del&gt;</code>, <code lang="en-CA">&lt;ins&gt;</code> and <code lang="en-CA">&lt;s&gt;</code> are not declared by screen readers. To alert screen reader users to their presence, visually-hidden CSS-generated text flags the start and end of each.</p>
 <p class="lang-label small">CSS</p>
 		<p class="wb-inv">Code begins</p>
 <pre class="mrgn-tp-0"><code class="language-css">mark::before	{ content: " [highlight start] "; }
