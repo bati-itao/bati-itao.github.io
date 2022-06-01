@@ -71,9 +71,7 @@
                         <div class="panel-body">
                            <ul>
                               <li><a href="#contenu-genere-par-une-CSS">Conception avec du contenu généré par une CSS</a></li>
-  <!-- RESTORE ME -- 
-							  <li><a href="#css-boundaries"><mark>Good example: CSS-generated boundary declarations for elements not exposed to screen readers</mark></a></li>
--->                              
+							  <li><a href="#css-boundaries">Bon exemple : Déclarations de limite générées par CSS pour des éléments non présentés aux lecteurs d’écran</a></li>                            
                               <li><a href="#informative-css">Bon exemple : Icône CSS informative</a></li>
                               <li><a href="#css-generated-wcag">Ressources WCAG connexes</a></li>
                            </ul>
@@ -84,78 +82,7 @@
                      <h2 id="contenu-genere-par-une-CSS">Conception avec du contenu généré par une CSS</h2>
                      <p>Une CSS peut générer du texte et des icône au moyen des pseudo-classes <code lang="en-CA">::before</code> et <code lang="en-CA">::after</code>. Cependant, les DACW 2.1 ne permettent pas d’utiliser du contenu non décoratif généré par des feuilles de style en cascade (CSS), car il peut être écrasé par des feuilles de style d’utilisateur (utilisées par des utilisateurs malvoyants) et il est invisible pour la fonctionnalité de recherche du navigateur; voici, entre autres, les raisons évoquées dans le document <a href="https://docs.google.com/document/d/1kvz0D3Au1R6c6q8iKZNH3KqyBt3d6WaJNUCwV35BDX8/edit">defense of WCAG Failure F87</a>. Cela dit, il existe un scénario d’utilisation pour du texte supplémentaire généré par des feuilles de style en cascade ainsi qu’une technique généralement accessible pour les icônes d’information.</p>
                      
-                     <!-- RESTORE ME -- 
-						<mark>Translate the first two sections of css-generated</mark>
-					
-                     <p>CSS can generate text and icons through the <code lang="en-CA">::before</code> and <code lang="en-CA">::after</code> pseudo-classes. However, WCAG 2.1 fails any use of non-decorative CSS-generated content, since it can be overwritten by user style sheets (used by users with low vision) and is invisible to browser find functionality, among other reasons mentioned in this <a href="https://docs.google.com/document/d/1kvz0D3Au1R6c6q8iKZNH3KqyBt3d6WaJNUCwV35BDX8/edit">defense of WCAG Failure F87</a>. That said, there is a use case for supplemental, CSS-generated text and a mostly-accessible technique for  informative icons.</p>
-                     
-                    <p>Follow these best pratices with CSS-generated content:</p>
-					<ul>
-						
-						<li>Hide decorative CSS-generated content from screen readers with the <code lang="en-CA">aria-hidden="true"</code> attribute.</li>
-						<li>Don't use CSS-generated text.
-							<ul>
-								<li>Exception: Use CSS-generated text to expose <code lang="en-CA">mark</code>, <code lang="en-CA">del</code>, <code lang="en-CA">ins</code>, and <code lang="en-CA">s</code> elements to screen reader users.</li>
-							</ul>
-						</li>
-						<li>For informative CSS-generated icons:
-							<ul>
-								<li>Set the icon on a <code lang="en-CA">&lt;span&gt;</code> element, and:
-									<ul>
-										<li>Hide it from screen reader users with the <code lang="en-CA">aria-hidden</code> attribute.</li>
-										<li>Add a visible label for mouse users with the <code lang="en-CA">title</code> attribute.</li>
-									</ul>
-								<li>Add a label for screen-reader users in a second <code lang="en-CA">&lt;span&gt;</code> element, visually-hidden with the WET CSS class <code lang="en-CA">.wb-inv</code>.</li>
-							</ul>
-							<p>This approach differs from the <a href="https://wet-boew.github.io/wet-boew-styleguide/design/icons-en.html">WET Style Guide's Icons</a> pattern by adding the <code lang="en-CA">title</code> and <code lang="en-CA">aria-hidden</code> attributes. It doesn't address the needs of low vision keyboard users.</p>
-							<p>WCAG 2.1 also offers an informative icon technique, <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA24">ARIA24: Semantically identifying a font icon with role="img"</a>, but it requires a specific style declaration in the <em>user's</em> stylesheet, intended to protect the icon font family declaration from being overwritten. Though not mentioned in WCAG 2.1, using ARIA24 entails promoting its existence to your audience with low vision. Also, the <a href="https://docs.google.com/document/d/1kvz0D3Au1R6c6q8iKZNH3KqyBt3d6WaJNUCwV35BDX8/edit">defense of WCAG Failure F87</a> suggests that ARIA24's solution lacks necessary semantics.</p>
-							<p>There is no ideal technique for CSS-generated icon fonts.</p>
-						</li>
-					</ul>
-                </section>
-                <section>
-					 <div class="panel panel-success mrgn-tp-lg">
-						<div class="panel-body">
-							<h2 class="text-success mrgn-tp-0 h3" id="css-boundaries"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: CSS-generated boundary declarations for elements not exposed to screen readers
-							</h2>
-							
-							<p>The roles of the <code lang="en-CA">&lt;mark&gt;</code> element and the editorial elements <code lang="en-CA">&lt;del&gt;</code>, <code lang="en-CA">&lt;ins&gt;</code> and <code lang="en-CA">&lt;s&gt;</code> are not declared by screen readers. To alert screen reader users to their presence, visually-hidden CSS-generated text flags the start and end of each.</p>
-<p class="lang-label small">CSS</p>
-		<p class="wb-inv">Code begins</p>
-<pre class="mrgn-tp-0"><code class="language-css">mark::before	{ content: " [highlight start] "; }
-mark::after	{ content: " [highlight end] "; }
-
-del::before	{ content: " [deletion start] "; }
-del::after	{ content: " [deletion end] "; }
-
-ins::before	{ content: " [insertion start] "; }
-ins::after	{ content: " [insertion end] "; }
-
-s::before	{ content: " [start of stricken text] "; }
-s::after	{ content: " [end stricken text] "; }
-
-/* visually hide the generated content */
-mark::before, mark::after,
-del::before, del::after,
-ins::before, ins::after,
-s::before, s::after {
-   clip-path: inset(100%);
-   clip: rect(1px, 1px, 1px, 1px);
-   height: 1px;
-   width: 1px;
-   overflow: hidden;
-   position: absolute;
-   white-space: nowrap;
-}</code></pre>
-
-							<p class="wb-inv">Code ends</p>
-						</div>
-					</div>
-					<hr/>
-					<p class="small">Source: Adrian Roselli's blog post <a href="https://adrianroselli.com/2019/02/f87-css-generated-content-and-wcag-conformance.html">F87: CSS Generated Content and WCAG Conformance</a>. February 24, 2019.</p>
--->
-
-                     <p></p>
+                    
                     <p>Veuillez suivre les pratiques exemplaires suivantes en présence d’un contenu généré par des feuilles de style en cascade :</p>
 					<ul>
 						
@@ -184,7 +111,7 @@ s::before, s::after {
                 <section>
 					 <div class="panel panel-success mrgn-tp-lg">
 						<div class="panel-body">
-							<h2 class="text-success mrgn-tp-0 h3" id="css-boundaries"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Exemple type : Déclarations de limite générées par CSS pour des éléments non présentés aux lecteurs d’écran
+							<h2 class="text-success mrgn-tp-0 h3" id="css-boundaries"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple : Déclarations de limite générées par CSS pour des éléments non présentés aux lecteurs d’écran
 							</h2>
                      <p>Les rôles de l’élément <code>&lt;mark&gt;</code> et des éléments rédactionnels <code>&lt;del&gt;</code>, <code>&lt;ins&gt;</code> et <code>&lt;s&gt;</code> ne sont pas déclarés par les lecteurs d’écran. Pour signaler leur présence aux utilisateurs de lecteur d’écran, un texte visuellement masqué généré par CSS signale le début et la fin de chaque rôle.</p>
 <p class="lang-label small">CSS</p>
