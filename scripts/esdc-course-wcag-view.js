@@ -1,18 +1,14 @@
 	$(document).ready(
 
     function() {
-      // To make this work, I added a dataset value to each input button.
-      // using data-class='...' you can now have the input button tell which
-      // class to toggle without having to hard code it in your functions.
-
-      // This does the job of those repeated change() functions below
       $('form input').change(function(){
         console.log($(this).attr('id'));
         var dataClass = '.' + $(this).data('class');
-        $(dataClass).toggle();
-        if ($(this).attr('id') != 'wcag21-label') {
-          $('form select#components').changeComponent();
-        }
+		//toggle doesnt work in this scenario since the acoordion content is hidden already so messes up the logic
+        if($(this).is(':checked'))
+			$(dataClass).show();  // checked
+		else
+			$(dataClass).hide();  // unchecked
       });
 
       $("#showAll").click(function(){
