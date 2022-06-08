@@ -119,6 +119,40 @@ nav[aria-labelledby="nav-table"] a {
 nav[aria-labelledby="nav-table"] a:hover {
 	text-decoration: underline; 
 }
+/* wcag view links to understanding and how to implement */
+ul.inline-list > li {
+	display: inline-block;
+}
+
+.link-desc {
+    position: absolute;
+    left: -9000px;
+    width: 0;
+    overflow: hidden;
+}
+.link-desc.en {
+    width: 9em;
+    font-size: 80%;
+}
+.link-desc.fr {
+    width: 15.5em;
+    font-size: 80%;
+}
+.tabInfo:hover span.link-desc, 
+.tabInfo:focus span.link-desc, 
+.tabInfo:active span.link-desc {
+    display: block;
+    left: inherit;
+    z-index: 99;
+    color: #626562;
+    background-color: #ffffe7;
+    border: 1px solid #626562;
+    position: absolute;
+    margin-left: 20px;
+    text-transform: initial;
+    padding-left: 5px
+}
+
 /* print style sheet override */
 @media print {
 	body, li, p, dt, dd, th, td, caption, label, legend, figcaption, pre, button, select, option, summary, div {
