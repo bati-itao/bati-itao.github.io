@@ -119,11 +119,9 @@ nav[aria-labelledby="nav-table"] a {
 nav[aria-labelledby="nav-table"] a:hover {
 	text-decoration: underline; 
 }
-/* wcag view links to understanding and how to implement */
-ul.inline-list > li {
-	display: inline-block;
-}
 
+
+/* "opens in new tab" link message on hover or focus */
 .link-desc {
     position: absolute;
     left: -9000px;
@@ -151,6 +149,31 @@ ul.inline-list > li {
     margin-left: 20px;
     text-transform: initial;
     padding-left: 5px
+}
+
+/* wcag view links to understanding and how to implement */
+
+#wcag-view ul.inline-list > li {
+	display: inline-block;
+}
+#wcag-view a.wcag-doc {
+	margin-right: 0.5em;
+}
+/* wcag view filter control panel */
+#wcag-view form label,
+#wcag-view form button {
+	margin-right: 0.5em;
+	margin-bottom: 0.5em;
+}
+#wcag-view form input {
+	margin-right: 0.25em;
+}
+
+/* remove WCAG view TOC list bullets on large screen */
+@media (min-width:768px){
+	#wcag-view nav[aria-labelledby="nav-table"] li {
+		list-style: none;
+	}
 }
 
 /* print style sheet override */
