@@ -73,7 +73,7 @@
 							<ul>
 								<li><a href="#content-structure">Overview - Content structure</a></li>
 								<li>
-									<a href="#semantic"><span>Semantic markup</span></a>
+									<a href="#common"><span>Common page structures</span></a>
 									<ul>
 										<li>
 											<a href="#articles">Articles</a>
@@ -96,9 +96,6 @@
 											</ul>
 										</li>
 										<li>
-											<a href="#figures">Figures</a>
-										</li>
-										<li>
 											<a href="#tags">Strong (bold) and em (italics)</a>
 										</li>
 										<li>
@@ -118,8 +115,12 @@
 								<li>
 									<a href="#title"><mark>Page title</mark></a>
 									<ul>
+									
 										<li>
-											<a href="#wcag-title">Related WCAG resources<span class="wb-inv"> (Page title)</span></a>
+											<a href="#good-example-page-title"><mark>Good example: Descriptive page title</mark></a>
+										</li>
+										<li>
+											<a href="#wcag-titled">Related WCAG resources<span class="wb-inv"> (Page title)</span></a>
 										</li>
 									</ul>
 								</li>
@@ -139,12 +140,14 @@
 		<p>In order to understand a document, everyone depends on understanding its structure. Screen reader users need to build a mental model of the page, and are dependent on content authors to:</p>
 		<ul>
 			 <li>identify, with the appropriate markup, any headings, menus, banners, paragraphs, lists, <mark>quotes, code,</mark> tables and other features; and,</li>
-			 <li><mark>write instructions for understanding and operating content that identify items by name.</mark></li>
+			 <li><mark>when writing instructions for understanding and operating content, identify items by their visible names</mark></li>
 		 </ul>
 	</section>
 	<section>
-		<h2 id="semantic">Semantic markup</h2>
-
+		<h2 id="common">Common page structures</h2>
+		
+		<p>Define the basics of your page structure with the right HTML element for the job, aka using semantic markup. This is a partial list of structure-defining semantic HTML elements. Others -- such as lists, links, tables, forms and images -- are described elsewhere in this course</p>
+		
 		<h3 id="articles">Articles</h3>
 		<p>The HTML5 <code>&lt;article&gt;</code> element represents a complete or self-contained composition in a web page. Examples of articles include an item at a shopping site or a news article on a news site.</p>
 		
@@ -161,8 +164,10 @@
 <p class="wb-inv">Code ends</p>
 
 		<h3 id="sections">Sections</h3>
-		<p>The HTML5 <code>&lt;section&gt;</code> element marks a general region of a web page or an article. It is used for thematic grouping of content.</p>
-	
+		<p>The HTML5 <code>&lt;section&gt;</code> element marks a general region of a web page or an article. It is used for thematic grouping of content <mark>and should open with a heading</mark>.</p>
+		
+		<p>If the <code>&lt;section&gt;</code> element is named (using <code>aria-label</code>, <code>aria-labelledby</code> or <code>title</code> attribute), it is identified as a <a href="landmarks.html">Landmark</a>.</p>
+		<p><mark>This is the French for the preceding paragraph. </mark>Si un élément <code lang="en-CA">&lt;section&gt;</code> est nommé (utilisant <code lang="en-CA">aria-label</code>, <code lang="en-CA">aria-labelledby</code> ou un <code lang="en-CA">title</code> attribut), il sera designé comme <a href="landmarks-fr.html">point de repère</a>.</p>
 		 <span class="wb-prettify"></span>
 		 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
@@ -221,21 +226,6 @@
 				</div>
 		</div>
 
-		<h3 id="figures">Figures</h3>
-		<p>Figures are blocks with additional information set off from the main content of the page - sometimes referenced from the main text. They typically contain diagrams, illustrations, photos, code examples, tables, but can also include other content. For example, an annual report could reference a diagram containing the sales volumes of a product.</p>
-		<p>Each figure is wrapped in a <code>&lt;figure&gt;</code> element and labeled using a nested <code>&lt;figcaption&gt;</code> element.</p>
-		<p class="lang-label small">HTML</p>
-		<p class="wb-inv">Code begins</p>
-<pre class="mrgn-tp-0">
-<code class="language-html">&lt;p&gt;The sales volume of our PearlyTooth product was steady the first three quarters but had a huge success in quarter four with the introduction of SuperBear in time for the holiday season. See graphic G3 for details.&lt;/p&gt;
-&lt;figure&gt;
-   &lt;figcaption&gt;G3: PearlyTooth sales volume&lt;/figcaption&gt; 
-   &lt;img src="…"alt="PearlyTooth sales diagram, showing the huge success in Q4"&gt;
-   &lt;p&gt;&lt;a href="[…]"&gt;Long Description&lt;/a&gt;&lt;/p&gt;
-&lt;/figure&gt;</code>
-</pre>
-<p class="wb-inv">Code ends</p>
-
 		<h3 id="tags">Strong (bold) and em (italics) tags</h3>
 		<p><code>STRONG</code> and <code>EM</code> are semantic tags meaning the author wishes to provide emphasis, which is rendered as bold (<code>&lt;strong&gt;</code>) or italic (<code>&lt;em&gt;</code>) on a visual browser. The <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code> elements should not be used.</p>
 		<p>The <code>&lt;strong&gt;</code> and <code>&lt;em&gt;</code> elements are often used to highlight words or phrases in a paragraph of text. For example:</p>
@@ -266,13 +256,6 @@
 				<li>
 					<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H49">H49: Using semantic markup to mark emphasized or special text</a>
 				</li>
-				<li>
-					<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H40">H40: Using definition lists</a>
-				</li>
-				<li>
-					<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H48">H48: Using ol, ul and dl for lists or groups of links</a>
-				</li>
-				
 			</ul>
 		</details>	
 		
@@ -304,10 +287,35 @@
 	
 	<section>
 		<h2 id="title"><mark>Page title</mark></h2>
-
-		<p><mark></mark></p>
 		
-		<h3 id="resources-3" class="wb-inv">Related WCAG resources</h3>
+		<p><mark>The page title is the first thing declared by screen readers on page load. Browsers display it in the page tab, in the back button history list, and as a bookmark name. The title can also appear in site maps, search results and link text. This one piece of information helps all users find content, orient themselves within it, and navigate through it.</mark></p>
+		
+		<p><mark>Best practice for page titles:</mark></p>
+		
+		<ul>
+			<li><mark>Ensure each web page defines its topic or purpose in a descriptive title.</mark></li>
+			<li><mark>Set the title in a <code>&lt;title&gt;</code> element in the HTML <code>&lt;head&gt;</code> element.</mark></li>
+			<li><mark>Optionally, identify the larger collection of Web pages after the page description.</mark></li>
+		</ul>
+		
+		<div class="panel panel-success mrgn-tp-lg">
+			<div class="panel-body">
+				<h3 id="good-example-page-title" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span> <mark>Good example: Descriptive page title</mark></h3>
+				<p>In this example, the title of a page holding an available job position moves from specific to general: it starts with the name of the job position, then moves to the the name of the larger collection and finally the organization.</p>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0">
+<code class="language-html">&lt;head&gt;
+   &lt;title&gt;Java developer - Job board - Company XYZ&lt;/title&gt; 
+&lt;/head&gt;</code>
+</pre>
+<p class="wb-inv">Code ends</p>
+
+			</div>
+		</div>		
+		
+
+		<h3 id="wcag-titled" class="wb-inv">Related WCAG resources</h3>
 		<details class="mrgn-tp-lg">
 			<summary class="bg-info">Related WCAG resources</summary>
 			<h4>Success criteria</h4>
@@ -319,7 +327,13 @@
 			<h4 id="idelem4x6086">Techniques</h4>
 			<ul>
 				<li>
-					<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G127">G127: Identifying a Web page's relationship to a larger collection of Web pages</a>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G88">G88: Providing descriptive titles for Web pages</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H25">H25: Providing a title using the title element</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G127">G127: Identifying a Web page's relationship to a larger collection of Web pages</a> (Advisory/optional)
 				</li>
 			</ul>
 			<h4>Failures</h4>
@@ -335,7 +349,7 @@
 	<section>
 		<h2 id="instructions"><mark>Orientation instructions</mark></h2>
 
-		<p><mark>When phrasing instructions on where to find or how to use content, avoid descriptions that rely exclusively on being able to see or hear. Sensory characteristics of things on the page, such as their shape, color, size, visual location, orientation, or sound, are useless to people with certain sensory disabilities. "Read the review to the right" and "Click the red button" are both barriers since they rely on sensory characteristics. Instead, be sure to include a text label; for instance, "Read the review <cite>A Night at the Opera</cite>, to the right" and "Click the red Preview button."</mark></p>
+		<p><mark>When phrasing instructions on where to find or how to use content, avoid descriptions that rely exclusively on being able to see or hear. Sensory characteristics of things on the page, such as their shape, color, size, visual location, orientation, or sound, is useless information to people with related sensory disabilities. The instructions "Read the review to the right" and "Click the red button, below" are both barriers since they rely on sensory characteristics. Instead, be sure to include a text label in the instruction and at the item of interest; for instance, "Read the review <cite>A Night at the Opera</cite>, to the right" and "Click the red Preview button, below."</mark></p>
 		<h3 id="resources-3" class="wb-inv">Related WCAG resources</h3>
 		<details class="mrgn-tp-lg">
 			<summary class="bg-info">Related WCAG resources</summary>
