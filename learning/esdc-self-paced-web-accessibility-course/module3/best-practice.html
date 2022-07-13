@@ -72,59 +72,69 @@
 						<details class="grouped mrgn-bttm-lg on" open="open">
 							<summary class="bg-info">Table of contents</summary>
 							<ul>
-						<li>
-							<a href="../module3/best-practice.html#links">Links<span class="wb-inv"> (best practice)</span>
-							</a>
-							<ul>
 								<li>
-									<a href="../module3/best-practice.html#purpose">Link purpose<span class="wb-inv"> (best practice)</span>
+									<a href="#links">Links<span class="wb-inv"> (best practice)</span>
 									</a>
+									<ul>
+										<li>
+											<a href="#purpose">Link purpose<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#activation">Link activation<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#indicator">Visual focus indicator<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#distinguish">Distinguishing links from text<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#window">Link opens in new window<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+									</ul>
 								</li>
 								<li>
-									<a href="../module3/best-practice.html#activation">Link activation<span class="wb-inv"> (best practice)</span>
+									<a href="#navigation">Navigation<span class="wb-inv"> (best practice)</span>
 									</a>
+									<ul>
+										<li>
+											<a href="#blocks">Blocks of navigation<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#skip">Skip navigation links<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#multiple">Multiple ways<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#toc">Table of contents<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#focus">Focus and focus order<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#shortcuts">Character key shortcuts<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+									</ul>
 								</li>
 								<li>
-									<a href="../module3/best-practice.html#indicator">Visual focus indicator<span class="wb-inv"> (best practice)</span>
-									</a>
+									<a href="#context">Changing context<span class="wb-inv"> (best practice)</span></a>
 								</li>
 								<li>
-									<a href="../module3/best-practice.html#distinguish">Distinguishing links from text<span class="wb-inv"> (best practice)</span>
-									</a>
-								</li>
-								<li>
-									<a href="../module3/best-practice.html#window">Link opens in new window<span class="wb-inv"> (best practice)</span>
-									</a>
+									<a href="#consistency">Consistency<span class="wb-inv"> (best practice)</span></a>
 								</li>
 							</ul>
-						</li>
-						<li>
-							<a href="../module3/best-practice.html#navigation">Navigation<span class="wb-inv"> (best practice)</span>
-							</a>
-							<ul>
-								<li>
-									<a href="../module3/best-practice.html#blocks">Blocks of navigation<span class="wb-inv"> (best practice)</span>
-									</a>
-								</li>
-								<li>
-									<a href="../module3/best-practice.html#consistency">Consistency across pages<span class="wb-inv"> (best practice)</span>
-									</a>
-								</li>
-								<li>
-									<a href="../module3/best-practice.html#skip">Skip navigation links<span class="wb-inv"> (best practice)</span>
-									</a>
-								</li>
-								<li>
-									<a href="../module3/best-practice.html#toc">Table of contents<span class="wb-inv"> (best practice)</span>
-									</a>
-								</li>
-								<li>
-									<a href="../module3/best-practice.html#focus">Focus and focus order<span class="wb-inv"> (best practice)</span>
-									</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
 						</details>
 					</nav>
 			<section>
@@ -172,10 +182,6 @@
 					<li>When there are two or more navigation regions on the page, name each with <code>aria-label</code> or <code>aria-labelledby</code> to differentiate them.</li>
 					<li>Indicate the current location visually, using CSS, and semantically, using the <code>aria-current="page"</code> attribute.</li>
 				</ul>
-				<h3 id="consistency">Consistency across pages</h3>
-				<ul>
-					<li>Ensure the relative order of components on the page and links within navigation blocks remains unchanged across pages.</li>
-				</ul>
 				<h3 id="skip">Skip navigation links</h3>
 				<ul>
 					<li>Place the skip navigation link at the top of the page before any other focusable element (link, button, or custom control).</li>
@@ -191,6 +197,16 @@
 						</ul>
 					</li>
 				</ul>
+				<h3 id="multiple">Multiple ways</h3>
+				<p>Provide more than one way to locate a Web page within a set of Web pages. Use two or more of the following techniques:</p>
+				<ul>
+					<li>Provide links to navigate to related Web pages.</li>
+					<li>Provide a Table of Contents.</li>
+					<li>Provide a site map.</li>
+					<li>Provide a search function to help users find content.</li>
+					<li>Provide a list of links to all other Web pages.</li>
+					<li>Link to all of the pages on the site from the home page.</li>	
+				</ul>
 				<h3 id="toc">Table of contents</h3>
 				<ul>
 					<li>Ensure Table of contents reflects the document's heading hierarchy </li>
@@ -202,11 +218,39 @@
 					<li>Ensure the keyboard navigation order is logical and intuitive. Typically, this means ensuring the navigation follows the visual flow of the page, left to right, top to bottom. It moves through the banner, main navigation, page navigation and controls, then footer on a typical page.</li>
 					<li>Avoid using <code>tabindex</code> values greater than 0.</li>
 				</ul>
+				<h3 id="shortcuts">Character key shortcuts</h3> 
+				<p>If a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters, then at least one of the following is true:</p>
+				<dl>
+					<dt>Turn off</dt>
+					<dd class="mrgn-lft-lg">A mechanism is available to turn the shortcut off.</dd>
+					<dt>Remap</dt>
+					<dd class="mrgn-lft-lg">A mechanism is available to remap the shortcut to include one or more non-printable keyboard keys (e.g., Ctrl, Alt).</dd>
+					<dt>Active only on focus</dt>
+					<dd class="mrgn-lft-lg">The keyboard shortcut for a user interface component is only active when that component has focus.</dd>
+				</dl>
+			</section>
+			<section>
+				<h2 id="context">Changes of context</h2>
+				<p>Whenever possible, give the user control over changes of context with an explicit user action that's generally understood to cause a change of context; e.g, clicking a link or pressing a submit button.</p>
+				<p>Changes of context:</p>
+				<ul>
+					<li>must never be triggered <em>on focus</em>.</li>
+					<li>must be anticipated by the user if triggered by changing the setting of a control (<em>on input</em>).</li>
+				</ul>
+			</section>
+			<section>
+				<h2 id="consistency">Consistency</h2>
+				<dl>
+					<dt>Consistent navigation</dt>
+					<dd class="mrgn-lft-lg">From one page to the next, the relative order of components on the page and of links within navigation blocks should remain unchanged. Components or links may be removed or inserted, but the relative order should stay the same.</dd>
+					<dt>Consistent identification</dt>
+					<dd class="mrgn-lft-lg">From one page to the next, identical functional components should be consistently named. For instance, a widget named "Search" on one page is named "Search" on the other pages, not sometimes "Find". This includes the alt text of icons and other non-text items with identical functionality.</dd>
+				</dl>
 			</section>
 		<nav aria-labelledby="nav-pagination">
 	<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
 	<ul class="pager">
-	 <li class="previous"> <a rel="prev" href="navigation.html">Previous - Navigation</a> </li>
+	 <li class="previous"> <a rel="prev" href="consistency.html">Previous - Consistency</a> </li>
 	</ul>
   </nav>
 					
@@ -228,8 +272,10 @@
 					<ul class="list-group menu list-unstyled">
 						<li><a class="list-group-item" href="links.html">Links</a></li>
 						<li><a class="list-group-item" href="navigation.html">Navigation</a></li>
+						<li><a class="list-group-item" href="context.html">Changing context</a></li>
+						<li><a class="list-group-item" href="consistency.html">Consistency</a></li>
 						<li><a class="list-group-item active" aria-current="page" href="best-practice.html">Best practice</a></li>
-				</ul>
+					</ul>
 			
 			</section>
 			
@@ -265,7 +311,7 @@
 						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
 					</li>
 					<li>
-						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">WCAG view</a>
 					</li>
 				</ul>
 			</section>
