@@ -71,47 +71,84 @@
 						<details class="grouped mrgn-bttm-lg on" open="open">
 							<summary class="bg-info">Table of contents</summary>
 							<ul>
-						<li>
-							<a href="../module2/content-structure.html#articles">Articles</a>
-						</li>
-						<li>
-							<a href="../module2/content-structure.html#sections">Sections</a>
-						</li>
-						<li>
-							<a href="../module2/content-structure.html#paragraphs">Paragraphs</a>
-						</li>
-						<li>
-							<a href="../module2/content-structure.html#quotes">Quotes</a>
-							<ul>
+								<li><a href="#content-structure">Overview - Content structure</a></li>
 								<li>
-									<a href="../module2/content-structure.html#good-example-blockquote">Good example: Blockquote</a>
+									<a href="#common">Common page structures</a>
+									<ul>
+										<li>
+											<a href="#articles">Articles</a>
+										</li>
+										<li>
+											<a href="#sections">Sections</a>
+										</li>
+										<li>
+											<a href="#paragraphs">Paragraphs</a>
+										</li>
+										<li>
+											<a href="#quotes">Quotes</a>
+											<ul>
+												<li>
+													<a href="#good-example-blockquote">Good example: Blockquote</a>
+												</li>
+												<li>
+													<a href="#good-example-inline-quote">Good example: Inline quote</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="#tags">Strong (bold) and em (italics)</a>
+										</li>
+										<li>
+											<a href="#wcag-semantic">Related WCAG resources<span class="wb-inv"> (Semantic markup)</span></a>
+										</li>
+									</ul>
+								</li>
+								
+								<li>
+									<a href="#abbreviations">Abbreviations</a>
+									<ul>
+										<li>
+											<a href="#wcag-abbr">Related WCAG resources<span class="wb-inv"> (Abbreviations)</span></a>
+										</li>
+									</ul>
 								</li>
 								<li>
-									<a href="../module2/content-structure.html#good-example-inline-quote">Good example: Inline quote</a>
+									<a href="#title">Page title</a>
+									<ul>
+									
+										<li>
+											<a href="#good-example-page-title">Good example: Descriptive page title</a>
+										</li>
+										<li>
+											<a href="#wcag-titled">Related WCAG resources<span class="wb-inv"> (Page title)</span></a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#instructions">Orientation instructions</a>
+									<ul>
+										<li>
+											<a href="#wcag-instructions">Related WCAG resources<span class="wb-inv"> (Orientation instructions)</span></a>
+										</li>
+									</ul>
 								</li>
 							</ul>
-						</li>
-						<li>
-							<a href="../module2/content-structure.html#figures">Figures</a>
-						</li>
-						<li>
-							<a href="../module2/content-structure.html#tags">Strong (bold) and em (italics) tags</a>
-						</li>
-						<li>
-							<a href="../module2/content-structure.html#abbreviations">Abbreviations</a>
-						</li>
-						<li>
-							<a href="../module2/content-structure.html#resources-3">Related WCAG resources<span class="wb-inv"> (Content structure)</span></a>
-						</li>
-					</ul>
 						</details>
 					</nav>
     <section>
 		<h2 id="content-structure">Overview – Content structure</h2>
-		<p>In order to understand a document, everyone depends on understanding its structure. Screen reader users need to build a mental model of the page, and are dependent on content authors identifying, with the appropriate markup, any headings, menus, banners, paragraphs, lists, tables and other features.</p>
+		<p>In order to understand a document, everyone depends on understanding its structure. Screen reader users need to build a mental model of the page, and are dependent on content authors to:</p>
+		<ul>
+			 <li>identify, with the appropriate markup, any headings, menus, banners, paragraphs, lists, quotes, code, tables and other features; and,</li>
+			 <li>when writing instructions for understanding and operating content, identify items by their visible names</li>
+		 </ul>
 	</section>
 	<section>
-		<h2 id="articles">Articles</h2>
+		<h2 id="common">Common page structures</h2>
+		
+		<p>Define the basics of your page structure with the right HTML element for the job, aka using semantic markup. This is a partial list of structure-defining semantic HTML elements. Others -- such as lists, links, tables, forms and images -- are described elsewhere in this course</p>
+		
+		<h3 id="articles">Articles</h3>
 		<p>The HTML5 <code>&lt;article&gt;</code> element represents a complete or self-contained composition in a web page. Examples of articles include an item at a shopping site or a news article on a news site.</p>
 		
 		 <span class="wb-prettify"></span>
@@ -125,12 +162,12 @@
 &lt;/article&gt;</code>
 </pre>
 <p class="wb-inv">Code ends</p>
-	</section>
-	<section>
-		<h2 id="sections">Sections</h2>
-		<p>The HTML5 <code>&lt;section&gt;</code> element marks a general region of a web page or an article. It is used for thematic grouping of content.</p>
-	
-		 <span class="wb-prettify"></span>
+
+		<h3 id="sections">Sections</h3>
+		<p>The HTML5 <code>&lt;section&gt;</code> element marks a general region of a web page or an article. It is used for thematic grouping of content and should open with a heading.</p>
+		
+		<p>If the <code>&lt;section&gt;</code> element is named (using <code>aria-label</code>, <code>aria-labelledby</code> or <code>title</code> attribute), it is identified as a <a href="landmarks.html">Landmark</a>.</p>
+		
 		 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
 <pre class="mrgn-tp-0"><code class="language-html">&lt;section&gt;
@@ -138,13 +175,11 @@
 &lt;/section&gt;</code>
 </pre>
 <p class="wb-inv">Code ends</p>
-	</section>
-	<section>
-		<h2 id="paragraphs">Paragraphs</h2>
+
+		<h3 id="paragraphs">Paragraphs</h3>
 		<p>Use the paragraph element (<code>&lt;p&gt;</code>) to markup paragraphs of text, such as this one. The consistent styling of paragraphs improves text readability. It also gives users more control when customizing their view.</p>
-	</section>
-	<section>
-		<h2 id="quotes">Quotes</h2>
+
+		<h3 id="quotes">Quotes</h3>
 		<p>Identifying a quotation helps clarify that the content is attributed to another author. Quotes can be marked up as inline or as blocks of text. Assistive technologies can convey to users where a quote starts and ends, which can avoid misunderstandings.</p>
 		<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
@@ -189,27 +224,8 @@
 					<p class="wb-inv">Code ends</p>
 				</div>
 		</div>
-	</section>
-	<section>
-				<h2 id="figures">Figures</h2>
-		<p>Figures are blocks with additional information set off from the main content of the page, and sometimes referenced from the main text. For example, an annual report could reference a diagram containing the sales volumes of a product. Figures typically contain diagrams, illustrations, photos, code examples, tables, but can also include other content.</p>
-		<p>The content is wrapped in a <code>&lt;figure&gt;</code> element and labeled using a nested <code>&lt;figcaption&gt;</code> element.</p>
-		<p class="lang-label small">HTML</p>
-		<p class="wb-inv">Code begins</p>
-<pre class="mrgn-tp-0">
-<code class="language-html">&lt;p&gt;The sales volume of our PearlyTooth product was steady the first three quarters but had a huge success in quarter four with the introduction of SuperBear in time for the holiday season. See graphic G3 for details.&lt;/p&gt;
-&lt;figure&gt;
-   &lt;figcaption&gt;G3: PearlyTooth sales volume&lt;/figcaption&gt; 
-   &lt;img src="…"alt="PearlyTooth sales diagram, showing the huge success in Q4"&gt;
-   &lt;p&gt;&lt;a href="[…]"&gt;Long Description&lt;/a&gt;&lt;/p&gt;
-&lt;/figure&gt;</code>
-</pre>
-<p class="wb-inv">Code ends</p>
 
-		
-	</section>
-	<section>
-		<h2 id="tags">Strong (bold) and em (italics) tags</h2>
+		<h3 id="tags">Strong (bold) and em (italics) tags</h3>
 		<p><code>STRONG</code> and <code>EM</code> are semantic tags meaning the author wishes to provide emphasis, which is rendered as bold (<code>&lt;strong&gt;</code>) or italic (<code>&lt;em&gt;</code>) on a visual browser. The <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code> elements should not be used.</p>
 		<p>The <code>&lt;strong&gt;</code> and <code>&lt;em&gt;</code> elements are often used to highlight words or phrases in a paragraph of text. For example:</p>
 		<div class="panel panel-primary mrgn-tp-md">
@@ -221,38 +237,152 @@
 			</div>
 		</div>
 		<p>Screen reader support for <code>&lt;strong&gt;</code> and <code>&lt;em&gt;</code> is weak. </p>
-	</section>
-	<section>
-		<h2 id="abbreviations">Abbreviations</h2>
-		<p>The Canada.ca Style Guide requires that abbreviations be expanded on first use on the page, with the abbreviation accompanying the expansion, one or the other in brackets, e.g., “Employment and Social Development Canada (ESDC)” or “ESDC (Employment and Social Development Canada).”</p>
-	</section>
-	<section>
-		<h2 id="resources-3" class="wb-inv">Related WCAG resources</h2>
+		
+		<h3 id="wcag-semantic" class="wb-inv">Related WCAG resources</h3>
 		<details class="mrgn-tp-lg">
 			<summary class="bg-info">Related WCAG resources</summary>
-			<h3>Success criteria</h3>
+			<h4>Success criteria</h4>
 			<ul>
 				<li>
 					<a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1: Info and Relationships</a>
 				</li>
+			</ul>
+			<h4>Techniques</h4>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G115">G115: Using semantic elements to mark up structure</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H49">H49: Using semantic markup to mark emphasized or special text</a>
+				</li>
+			</ul>
+		</details>	
+		
+		<hr />
+		<p class="small">The description of the page structures is from the Web Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a>) document: <a href="https://www.w3.org/WAI/tutorials/page-structure/content/">Content Structure<span class="wb-inv"> (WAI)</span></a> in the <a href="https://www.w3.org/WAI/tutorials/page-structure/">Page Structure Tutorial</a> of the <a href="https://www.w3.org/WAI/tutorials/">Web Accessibility Tutorials</a>. <a href="https://www.w3.org/People/yatil/">Eric Eggert</a> and <a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a>. Contributors: The Education and Outreach Working Group (<a href="https://www.w3.org/WAI/EO/">EOWG</a>). Copyright  © 2019 W3C® (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>). Updated 27 July 2019 (first published April 2017). <a href="https://www.w3.org/WAI/tutorials/page-structure/content/">https://www.w3.org/WAI/tutorials/page-structure/content/</a></p>		
+		
+	</section>
+	
+	<section>
+		<h2 id="abbreviations">Abbreviations</h2>
+		<p>The Canada.ca Style Guide requires that abbreviations be expanded on first use on the page, with the abbreviation accompanying the expansion, one or the other in brackets, e.g., “Employment and Social Development Canada (ESDC)” or “ESDC (Employment and Social Development Canada).”</p>
+		<h3 id="wcag-abbr" class="wb-inv">Related WCAG resources</h3>
+		<details class="mrgn-tp-lg">
+			<summary class="bg-info">Related WCAG resources</summary>
+			<h4>Success criteria</h4>
+			<ul>
 				<li>
 					<a href="https://www.w3.org/WAI/WCAG21/Understanding/abbreviations">3.1.4: Abbreviations</a>
 				</li>
 			</ul>
-			<h3 id="idelem4x6086">Techniques</h3>
+			<h4 id="idelem4x6086">Techniques</h4>
 			<ul>
-				<li>
-					<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H49">H49: Using semantic markup to mark emphasized or special text</a>
-				</li>
 				<li>
 					<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G97">G97: Providing the first use of an abbreviation immediately before or after the expanded form</a>
 				</li>
 			</ul>
 		</details>
-		<hr />
-		<p class="small">The description of the page structures is from the Web Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a>) document: <a href="https://www.w3.org/WAI/tutorials/page-structure/content/">Content Structure<span class="wb-inv"> (WAI)</span></a> in the <a href="https://www.w3.org/WAI/tutorials/page-structure/">Page Structure Tutorial</a> of the <a href="https://www.w3.org/WAI/tutorials/">Web Accessibility Tutorials</a>. <a href="https://www.w3.org/People/yatil/">Eric Eggert</a> and <a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a>. Contributors: The Education and Outreach Working Group (<a href="https://www.w3.org/WAI/EO/">EOWG</a>). Copyright  © 2019 W3C® (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>). Updated 27 July 2019 (first published April 2017). <a href="https://www.w3.org/WAI/tutorials/page-structure/content/">https://www.w3.org/WAI/tutorials/page-structure/content/</a></p>
 	</section>
-			<nav aria-labelledby="nav-pagination">
+	
+	<section>
+		<h2 id="title">Page title</h2>
+		
+		<p>The page title is the first thing declared by screen readers on page load. Browsers display it in the page tab, in the back button history list, and as a bookmark name. The title can also appear in site maps, search results and link text. This one piece of information helps all users find content, orient themselves within it, and navigate through it.</p>
+		
+		<p>Best practice for page titles:</p>
+		
+		<ul>
+			<li>Ensure each web page defines its topic or purpose in a descriptive title.</li>
+			<li>Set the title in a <code>&lt;title&gt;</code> element in the HTML <code>&lt;head&gt;</code> element.</li>
+			<li>Optionally, identify the larger collection of Web pages after the page description.</li>
+		</ul>
+		
+		<div class="panel panel-success mrgn-tp-lg">
+			<div class="panel-body">
+				<h3 id="good-example-page-title" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span> Good example: Descriptive page title</h3>
+				<p>In this example, the title of a page holding an available job position moves from specific to general: it starts with the name of the job position, then moves to the the name of the larger collection and finally the organization.</p>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0">
+<code class="language-html">&lt;head&gt;
+   &lt;title&gt;Java developer - Job board - Company XYZ&lt;/title&gt; 
+&lt;/head&gt;</code>
+</pre>
+<p class="wb-inv">Code ends</p>
+
+			</div>
+		</div>		
+		
+
+		<h3 id="wcag-titled" class="wb-inv">Related WCAG resources</h3>
+		<details class="mrgn-tp-lg">
+			<summary class="bg-info">Related WCAG resources</summary>
+			<h4>Success criteria</h4>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Understanding/page-titled">2.4.2: Page Titled</a>
+				</li>	
+			</ul>
+			<h4 id="idelem4x6086">Techniques</h4>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G88">G88: Providing descriptive titles for Web pages</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H25">H25: Providing a title using the title element</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G127">G127: Identifying a Web page's relationship to a larger collection of Web pages</a> (Advisory/optional)
+				</li>
+			</ul>
+			<h4>Failures</h4>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F25">F25: Failure of Success Criterion 2.4.2 due to the title of a Web page not identifying the contents</a>
+				</li>
+			</ul>
+		</details>		
+		
+	</section>
+	
+	<section>
+		<h2 id="instructions">Orientation instructions</h2>
+
+		<p>When phrasing instructions on where to find or how to use content, avoid descriptions that rely exclusively on being able to see or hear. Sensory characteristics of things on the page, such as their shape, color, size, visual location, orientation, or sound, is useless information to people with related sensory disabilities. The instructions "Read the review to the right" and "Click the red button, below" are both barriers since they rely on sensory characteristics. Instead, be sure to include a text label in the instruction and at the item of interest; for instance, "Read the review <cite>A Night at the Opera</cite>, to the right" and "Click the red Preview button, below."</p>
+		<h3 id="resources-3" class="wb-inv">Related WCAG resources</h3>
+		<details class="mrgn-tp-lg">
+			<summary class="bg-info">Related WCAG resources</summary>
+			<h4>Success criteria</h4>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Understanding/sensory-characteristics">1.3.3: Sensory Characteristics</a>
+				</li>
+			</ul>
+			<h4 id="idelem4x6086">Techniques</h4>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G96">G96: Providing textual identification of items that otherwise rely only on sensory information to be understood</a>
+				</li>
+			</ul>
+			<h4>Failures</h4>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F114">F14: Failure of Success Criterion 1.3.3 due to identifying content only by its shape or location</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F26">F26: Failure of Success Criterion 1.3.3 due to using a graphical symbol alone to convey information</a>
+				</li>
+			</ul>
+		</details>
+		
+	</section>
+		
+
+
+	
+	
+	
+<nav aria-labelledby="nav-pagination">
 	<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
 	<ul class="pager">
 		<li class="previous"> <a rel="prev" href="headings.html">Previous - Headings</a></li>
@@ -288,7 +418,7 @@
 					
 						<li><a class="list-group-item" href="parsing-and-validity.html">Parsing and validity</a></li>
 					
-						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-2.html">Best practice</a></li>
 				</ul>
 			
 			</section>
@@ -325,7 +455,7 @@
 						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
 					</li>
 					<li>
-						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">WCAG view</a>
 					</li>
 				</ul>
 			</section>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Best practice – Module 5 - Images</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Summary of best practices in Module 5 - Images">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../../index.html"
+            },{
+                "title": "Web accessibility course",
+                "href" : "../index.html"
+            },{            
+                "title": "Module 5 – Images",
+                
+                "href" : "index.html"
+            },
+          {
+            "title": "Best practice",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "best-practice-mod-5-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
+    </script>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Best practice</h1>
+		                
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+						<details class="grouped mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table of contents</summary>
+							<ul>
+						<li>
+							<a href="#informative">Informative images<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#decorative">Decorative and redundant images<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#functional">Functional images<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#images-text">Images of text<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#linked">Linked images<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#animated">Animated images<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#complex">Complex images<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#groups">Groups of images<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#maps">Image maps<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#figure">Figure and figcaption<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#svg">SVG images<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#captcha">CAPTCHA<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#tips">Additional tips and tricks for images<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+
+	<section>
+		<h2 id="informative">Informative images</h2>
+		<ul>
+			<li>Use the <code>alt</code> attribute on the <code>&lt;img&gt;</code> element</li>
+			<li>Provide meaningful text alternatives that serve the equivalent purpose to convey the intent, purpose and meaning of the image.</li>
+			<li>Do not include words like “image of” or “graphic of” in the alt text. </li>
+			<li>Keep alternative text concise and less than 150 characters.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="decorative">Decorative and redundant images</h2>
+		<ul>
+			<li>Use "null" alt attributes (<code>alt=""</code>) to hide decorative or redundant images from assistive technology.</li>
+			<li>The <code>role=presentation</code> attribute also hide the image role, though it’s not as widely supported as <code>alt</code>.</li>
+			<li>Implement decorative images as CSS backgrounds if possible.</li>
+			<li>Do not leave out the <code>alt</code> attribute of <code>&lt;img&gt;</code> elements.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="functional">Functional images</h2>
+		<ul>
+			<li>When linking an image and accompanying text, use a null (empty) <code>alt</code> attribute (<code>alt=""</code>) on the image if it adds no information to the link text. </li>
+			<li>If using an icon to indicate that links open in a new window, provide the text alternative "new window".</li> 
+			<li>Provide alternative text for stand-alone icon images that have a function.</li>
+			<li>Use text alternative for images that are used in a button</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="images-text">Images of text</h2>
+		<ul>
+			<li>Avoid using images of text unless it is essential or customizable.</li>
+			<li>Text that is part of a logo or brand name is considered essential.</li>
+			<li>Use actual text styled with CSS to avoid distortion and pixelation when resized.</li>
+			<li>Images of text used as logos are exempt from accessibility requirements like minimum colour contrast and no images of text .</li>
+			<li>Use images of math expressions only when math is the exception to the website content. Provide a text alternative in the <code>alt</code> attribute or in a long description.  </li>
+			<li>Use MathML with MathJax to render math expressions semantically.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="linked">Linked images</h2>
+		<ul>
+			<li>Always provide alt text for any image serving as a link. Even if the image is considered decorative, write the alt text if the image is a link. </li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="animated">Animated images</h2>
+		<ul>
+			<li>Ensure the animation stops after five seconds or provide users with a pause button. </li>
+			<li>Ensure the animation doesn’t flash more than three times per second.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="complex">Complex images</h2>
+		<p>A complex image requires both a short and a long description:</p>
+		<ul>
+			<li>A short description or title identifies the image and indicates the location of the long description. This is stored in the <code>&lt;img&gt;</code> element’s <code>alt</code> attribute and shouldn’t exceed 150 characters.</li>
+			<li>A long description of the image contains the essential information conveyed by the image. It can consist of nothing but text or it can require structural markup – headings, paragraphs, lists, and/or tables.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="groups">Groups of images</h2>
+		<ul>
+			<li>When a group of images represent a single piece of information: one image holds the message in its <abbr>alt</abbr> attribute, the other images use a null <code>alt</code> attributes (alt=""), ensuring they’re ignored by assistive technology .</li>
+			<li>When a group of images represent a collection: nest each image in a <code>&lt;figure&gt;</code> element with a <code>&lt;figcaption&gt;</code> child element, and nest all the figures in a single parent <code>&lt;figure&gt;</code> element. Use its <code>&lt;figcaption&gt;</code> to describe the context.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="maps">Image maps</h2>
+		<ul>
+			<li>Describe the context in the source <code>&lt;img&gt;</code> element’s <code>alt</code> attribute. </li>
+			<li>Describe each clickable region in the <code>&lt;area&gt;</code> element’s <code>alt</code> attribute.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="figure">Figure and figcaption</h2>
+		<ul>
+			<li>Use <code>&lt;figcaption&gt;</code> element to describe contextual information that isn’t apparent from looking at the image. This includes the who, what, when, where, and/or why of an image.</li>
+			<li>Do not use the exact same words for both alt text and <code>&lt;figcaption&gt;</code>. Screen readers will read the information twice.</li>
+			<li>Always provide an alt text for images even if they have a <code>&lt;figcaption&gt;</code>. Providing an empty or null alt attribute will prevent a screen reader from announcing that an image is present.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="svg">SVG</h2>
+		<ul>
+			<li>Use the <code>&lt;img&gt;</code> element and reference the SVG via the <code>src</code> attribute.</li>
+			<li>Use the <code>&lt;svg&gt;</code> element to embed the SVG directly into the HTML code.</li>
+			<li>Do not embed SVG using <code>&lt;object&gt;</code> or <code>&lt;iframe&gt;</code></li>
+			<li>For simple, uncomplicated images with basic alt text description
+				<ul>
+					<li>Use <code>&lt;img&gt;</code> and <code>src</code> attribute</li>
+					<li>Add <code>role="img"</code> to improve accessibility support</li>
+					<li>Provide text alternative that conveys the same intent and meaning as the image.</li>
+					<li>Use the <code>alt</code> attribute to provide alt text (preferred)</li>
+					<li>Can also use <code>aria-label</code> or <code>aria-labelledby</code> to provide alt text</li>
+				</ul>
+			</li>
+			<li>For complex images with extended alt text description
+				<ul>
+					<li>Use <code>&lt;svg&gt;</code> element</li>
+					<li>Add role=image" to improve accessibility support</li>
+					<li>Provide text alternative that conveys the same intent and meaning as the image.</li>
+					<li>Use <code>&lt;title&gt;</code> element to provide short alt text
+						<ul>
+							<li><code>&lt;title&gt;</code> must be the first child of its parent element</li>
+							<li><code>&lt;title&gt;</code> text will appear as tooltip when user moves mouse pointer over it</li>
+						</ul>
+					</li>
+					<li>Use <code>&lt;desc&gt;</code> element to provide longer text description if needed, for complex images. </li>
+					<li>Text in a <code>&lt;desc&gt;</code> element is not visible. </li>
+					<li>To improve accessibility support:
+						<ul>
+							<li>Add appropriate, unique ID values to the <code>&lt;title&gt;</code> and <code>&lt;desc&gt;</code></li>
+							<li>Use <code>aria-labelledby</code> to reference the ID values</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>Hide decorative SVG images by using <code>aria-hidden="true"</code></li>
+			<li>For text in SVG:
+				<ul>
+					<li>Avoid text within <code>&lt;svg&gt;</code> elements or keep text to a minimum</li>
+					<li>Add <code>role="img"</code> to improve accessibility support</li>
+					<li>Provide text alternative that conveys the same intent and meaning as the image.</li>
+					<li>Use <code>&lt;title&gt;</code> element to provide short alt text
+						<ul>
+							<li><code>&lt;title&gt;</code> must be the first child of its parent element</li>
+							<li><code>&lt;title&gt;</code> text will appear as tooltip when user moves mouse pointer over it</li>
+						</ul>
+					</li>
+					<li>Use <code>&lt;text&gt;</code> element to provide text in SVG</li>
+					<li>To ensure accessjibility support:
+						<ul>
+							<li>Add appropriate, unique ID values to the <code>&lt;title&gt;</code> and <code>&lt;text&gt;</code></li>
+							<li>Use <code>aria-labelledby</code> to reference the ID values</li>
+						</ul>
+					</li>
+					<li>Put text outside the SVG instead of inside (preferred)</li>
+				</ul>
+			</li>
+			<li>Include a background colour behind text and other important parts of the image</li>
+			<li>For SVG animation:
+				<ul>
+					<li>Use JavaScript or CSS, not <code>&lt;animate&gt;</code></li>
+					<li>Avoid SVG that flash or blink more than 3 times per second</li>
+					<li>Avoid SVG that auto-play to avoid distracting users</li>
+					<li>Allow users to play and pause SVG animations</li>
+					<li>Use animated SVG to serve a specific purpose, not distract</li>
+				</ul>
+			</li>
+			<li>For interactive SVG:
+				<ul>
+					<li>Ensure interactive <code>&lt;svg&gt;</code> objects are keyboard accessible</li>
+					<li>Ensure interactive <code>&lt;svg&gt;</code> objects are touchscreen accessible</li>
+					<li>Ensure interactive <code>&lt;svg&gt;</code> objects convey applicable name, role and value</li>
+					<li>Ensure interactive <code>&lt;svg&gt;</code> objects meet all applicable WCAG 2.1 guidelines</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="captcha">CAPTCHA</h2>
+		<ul>
+			<li>Provide two different modalities of CAPTCHA (e.g., a visual task and an audio task).</li>
+			<li>Provide alt text saying the CAPTCHA requires completing a task and what type of task it is. When an alternate version of a CAPTCHA is available, include instructions in the alt text on how to find it.</li>
+			<li>Optional steps to reach edge cases:
+				<ol>
+					<li>Provide more than two modalities of CAPTCHAs.</li>
+					<li>Provide access to a human customer service representative who can bypass CAPTCHA.</li>
+					<li>Don't require CAPTCHAs for authorized users.</li>
+				</ol>
+			</li>
+			<li>Use Google's reCAPTCHA v3, if possible.</li>
+		</ul>		
+	</section>
+	<section>
+		<h2 id="tips">Additional tips and tricks for images</h2>
+		<ul>
+			<li>Prioritize information in text alternative. Put the most important information at the beginning.</li>
+			<li>Use punctuation in the text alternative to make information easier to understand. </li>
+			<li>Ensure there is no space character in between the quotes of null (empty) text alternative (<code>alt=""</code>).</li>
+		</ul>
+	</section>
+			
+	<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+		<ul class="pager">
+			<li class="previous">
+				<a rel="prev" href="tips-and-tricks.html">Previous - Tips and tricks</a>
+			</li>
+		</ul>
+	</nav>					
+
+<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
+		
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+		
+		
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+		<section class="list-group menu list-unstyled">
+			<h3 class="wb-navcurr">
+			Module 5 –  Images
+			</h3>
+			<ul class="list-group menu list-unstyled">
+				<li><a class="list-group-item" href="text-alternatives.html">Text alternatives</a></li>
+				<li><a class="list-group-item" href="informative-images.html">Informative images</a></li>
+				<li><a class="list-group-item" href="decorative-redundant-images.html">Decorative or redundant images</a></li>
+				<li><a class="list-group-item" href="functional-images.html">Functional images</a></li>
+				<li><a class="list-group-item" href="images-text.html">Images of text</a></li>
+				<li><a class="list-group-item" href="animated-images.html">Animated images</a></li>
+				<li><a class="list-group-item" href="complex-images.html">Complex images</a></li>
+				<li><a class="list-group-item" href="figcaption.html">Figure and figcaption</a></li>
+				<li><a class="list-group-item" href="groups-images.html">Groups of images</a></li>
+				<li><a class="list-group-item" href="image-maps.html">Image maps</a></li>
+				<li><a class="list-group-item" href="alt-decision-tree.html">Alt text decision tree</a></li>
+				<li><a class="list-group-item" href="svg-images.html">SVG images</a></li>
+				<li><a class="list-group-item" href="captcha.html">CAPTCHA</a></li>
+				<li><a class="list-group-item" href="tips-and-tricks.html">Tips and tricks</a></li>
+				<li><a class="list-group-item active" aria-current="page" href="best-practice-mod-5.html">Best practice</a></li>
+			</ul>
+		</section>
+		
+		<section class="list-group menu list-unstyled">
+			<h3 class="wb-navcurr">
+			All modules
+			</h3>
+			
+			<ul class="list-group menu list-unstyled">
+				<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+				<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>			
+				<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+				<li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+				<li><a class="list-group-item active" href="text-alternatives.html">Module 5 – Images</a></li>
+				<li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Forms</a></li>	
+				<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+				<li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+				<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+				<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+				<li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Appendix</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">WCAG view</a>
+					</li>
+				</ul>
+			</section>
+	
+	</nav>
+	
+	
+</div>
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+</div>	
+		
+		
+	<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+</body>
+	
+</html>

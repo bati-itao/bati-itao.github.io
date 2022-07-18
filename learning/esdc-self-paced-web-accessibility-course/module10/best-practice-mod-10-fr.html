@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Pratique exemplaire - Module 10 - Méthodes de saisie de données</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Résumé des pratiques exemplaires du module 10 – Méthodes de saisie">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+       var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.appTop({
+                "appName": [{
+                    "text": "EDSC / Bureau de l’accessibilité des TI",
+                    "href": "../../../index-fr.html"
+                }],
+               "breadcrumbs" : [{
+                    "title": "Accueil",
+                    "href" : "../../../index-fr.html"
+                },{
+                    "title": "Apprentissage",
+                    "href" : "../../index-fr.html"
+                },
+            {
+                    "title": "Cours d'accessibilité Web",
+                    "href" : "../index-fr.html"
+                },
+			{
+                "title": "Module 10 - Méthodes de saisie de données",
+                "href" : "index-fr.html"
+                
+            },
+          {
+            "title": "Pratique exemplaire",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "best-practice-mod-10.html",
+            "text": "English",
+          }],
+        "menuPath": "../../../ajax/menu-fr.html"
+      });
+
+    </script>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Pratique exemplaire</h1>
+						
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table des matières</h2>
+						<details class="grouped mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table des matières</summary>
+							<ul>
+						<li>
+							<a href="#best-practice-mouse-input">Saisie avec la souris<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#best-practice-keyboard-input">Saisie avec clavier<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+							<ul>
+								<li>
+									<a href="#focus-and-focus-order">Cible et ordre de cible<span class="wb-inv"> (pratique exemplaire)</span>
+									</a>
+								</li>
+								<li>
+									<a href="#visual-focus-indicator">Indicateur visuel de la cible<span class="wb-inv"> (pratique exemplaire)</span>
+									</a>
+								</li>
+								<li>
+									<a href="#keyboard-functionality">Fonctionnalité du clavier<span class="wb-inv"> (pratique exemplaire)</span>
+									</a>
+								</li>
+								<li>
+									<a href="#keyboard-trap">Piège de clavier<span class="wb-inv"> (pratique exemplaire)</span>
+									</a>
+								</li>
+								<li>
+									<a href="#focus-mgmt-with-javascript">Gestion de cible avec contenu injecté de JavaScript<span class="wb-inv"> (pratique exemplaire)</span>
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#best-practice-touch-input">Saisie avec un dispositif de pointage<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#best-practice-voice-input">Saisie vocale<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#best-practice-motion-actuation">Commande par le mouvement<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+	
+			<section>				
+				<h2 id="best-practice-mouse-input">Saisie avec la souris</h2>
+				<ul>
+					<li>Lorsque la réception puis la suppression du survol du curseur ou de la cible du clavier déclenchent un contenu supplémentaire pour le rendre visible puis masqué, ce contenu supplémentaire est&nbsp;:
+						<ul>
+							<li>Rejetable</li>
+							<li>Survolable</li>
+							<li>Persistant </li>
+						</ul>
+					</li>
+					<li>Le contenu pouvant être déclenché par le survol du curseur devrait également pouvoir être déclenché par le positionnement de la cible du clavier.</li>
+					<li>Pour toute fonctionnalité qui se commande par pointage unique, au moins un des énoncés suivants est vrai&nbsp;:
+						<ul>
+							<li>Pas d’événement de pression</li>
+							<li>Abandon ou annulation</li>
+							<li>Annulation sur relâchement</li>
+							<li>Obligation</li>
+						</ul>
+					</li>
+					<li>Utiliser le comportement par défaut des commandes (p.&nbsp;ex., événement <code lang="en-CA">onclick</code> ou <code lang="en-CA">mouseup</code>) et éviter d’annuler ce comportement par un déclencheur explicite par événement de pression.</li>
+				</ul>
+			</section>
+			
+			<section>				
+				<h2 id="best-practice-keyboard-input">Saisie avec clavier</h2>
+				<h3 id="focus-and-focus-order">Cible et ordre de cible</h3>
+				<ul>
+					<li>Assurer un ordre de tabulation significatif en positionnant le contenu ciblable dans la même séquence que le code sous-jacent.</li>
+					<li>S’assurer que l’ordre de navigation au clavier est logique et intuitif. Habituellement, il faut pour cela s’assurer que la navigation suit le flux visuel de la page, de gauche à droite et de haut en bas. Il passe successivement par la bannière, la navigation principale, la navigation et les commandes des pages, puis le pied de page d’une page type.</li>
+					<li>Éviter d’utiliser des valeurs <code lang="en-CA">tabindex</code> supérieures à&nbsp;0.</li>
+				</ul>
+				<h3 id="visual-focus-indicator">Indicateur visuel de la cible</h3>
+				<ul>
+					<li>Toujours éviter les styles qui éliminent ou limitent la visibilité des indicateurs de cible du clavier.</li>
+					<li>Utiliser CSS pour concevoir un indicateur de cible très visible avec un fort contraste.</li>
+					<li>Les liens doivent avoir un état ciblé visible.</li>
+				</ul>
+				<h3 id="keyboard-functionality">Fonctionnalité du clavier</h3>
+				<ul>
+					<li>S’assurer que tout le contenu de la page puisse se commander à partir du clavier. </li>
+					<li>Dans la mesure du possible, utiliser des liens et des commandes de formulaire HTML natifs plutôt que des éléments personnalisés.</li>
+					<li>Utiliser l’événement <code lang="en-CA">onclick</code> des ancrages et des boutons.</li>
+					<li>Jumeler les gestionnaires d’événement souris et les gestionnaires d’événement clavier.</li>
+				</ul>
+				<h3 id="keyboard-trap">Piège de clavier</h3>
+				<ul>
+					<li>S’assurer que l’utilisateur puisse entrer et sortir des éléments interactifs en utilisant uniquement le clavier.</li>
+				</ul>
+				<h3 id="focus-mgmt-with-javascript">Gestion de cible avec contenu injecté de JavaScript</h3>
+				<ul>
+					<li>Chaque fois qu’une fenêtre contextuelle apparaît sur la page en réponse à une action de l’utilisateur ou l’invocation d’une commande, s’assurer que l’utilisateur retourner au point de départ de l’interaction.</li>
+				</ul>
+			</section>
+			
+			<section>				
+				<h2 id="best-practice-touch-input">Saisie tactile</h2>
+				<ul>
+					<li>Toutes les fonctionnalités doivent être accessibles au moyen d’un dispositif de pointage (p.&nbsp;ex., souris, doigt sur un écran tactile, stylet électronique, pointeur laser). </li>
+					<li>Toutes les fonctionnalités peuvent être commandées par toucher ou clic simple, par double toucher, par double-clic, par pression longue ou par clic maintenu. </li>
+					<li>Coder des gestionnaires d’événement JavaScript qui se déclenchent à la fois en réaction aux clics de clavier et de souris. Une interface accessible par souris est généralement accessible au toucher.</li>
+					<li>La taille de la cible devrait faire au moins 44px sur 44px (niveau&nbsp;AAA, facultatif).</li>
+				</ul>
+			</section>
+
+			<section>				
+				<h2 id="best-practice-voice-input">Saisie vocale</h2>
+				<ul>
+					<li>Lorsqu’une commande a un nom accessible défini au moyen d’une étiquette ARIA et d’une étiquette visible, le texte de l’étiquette visible doit faire partie de l’étiquette ARIA ou y correspondre.</li>
+				</ul>
+			</section>
+
+			<section>				
+				<h2 id="best-practice-motion-actuation">Commande par le mouvement</h2>
+				<ul>
+					<li>Si des fonctions sont déclenchées par le mouvement (par exemple, par des secousses), il faut faire en sorte qu’elles se commandent également par des éléments d’interfaces utilisateurs classiques.</li>
+					<li>S’assurer que l’utilisateur puisse désactiver la commande par le mouvement.</li>
+				</ul>
+			</section>	
+		
+	<nav aria-labelledby="nav-pagination">
+		<h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="motion-actuation-fr.html">Précédent - Commande par le mouvement</a></li>
+		</ul>
+	</nav>
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+		<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 10 - Méthodes de saisie de données</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
+						<li><a class="list-group-item" href="mouse-input-fr.html">Saisie avec la souris</a></li>
+						<li><a class="list-group-item" href="keyboard-input-fr.html">Saisie avec clavier</a></li>
+						<li><a class="list-group-item" href="touch-input-fr.html">Saisie avec un dispositif de pointage</a></li>
+						<li><a class="list-group-item" href="voice-input-fr.html">Saisie vocale</a></li>
+						<li><a class="list-group-item" href="motion-actuation-fr.html">Commande par le mouvement</a></li>						
+						<li><a class="list-group-item active" aria-current="page" href="best-practice-mod-10-fr.html">Pratique exemplaire</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Tous les modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 - Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/links-fr.html">Module 3 - Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/tables-concepts-fr.html">Module 4 - Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/text-alternatives-fr.html">Module 5 - Images</a></li>
+                        <li><a class="list-group-item" href="../module6/forms-concepts-fr.html">Module 6 - Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 - Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item" href="../module8/introduction-fr.html">Module 8 - Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item active" href="introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Appendice</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap-fr.html">Plan du site</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">Vue WCAG</a>
+					</li>
+				</ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>

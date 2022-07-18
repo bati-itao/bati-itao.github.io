@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Pratique exemplaire – Module 3 - Liens et navigation</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Résumé des pratiques exemplaires du module 3 – Liens et navigation">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "EDSC / Bureau de l’accessibilité des TI",
+                "href": "../../../index-fr.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Accueil",
+                "href" : "../../../index-fr.html"
+            },{
+                "title": "Apprentissage",
+                "href" : "../../index-fr.html"
+            },
+			{
+                "title": "Cours d'accessibilité Web",
+                "href" : "../index-fr.html"
+            },
+			{
+                "title": "Module 3 –  Liens et navigation",
+                
+                "href" : "index-fr.html"
+            },
+          {
+            "title": "Pratique exemplaire",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "best-practice-mod-3.html",
+            "text": "English",
+          }],
+        "menuPath": "../../../ajax/menu-fr.html"
+      });
+
+    </script>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Pratique exemplaire</h1>
+		                
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table des matières</h2>
+						<details class="grouped mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table des matières</summary>
+							<ul>
+								<li>
+									<a href="#links">Liens<span class="wb-inv"> (pratique exemplaire)</span>
+									</a>
+									<ul>
+										<li>
+											<a href="#purpose">Fonction du lien<span class="wb-inv"> (pratique exemplaire)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#activation">Activation du lien<span class="wb-inv"> (pratique exemplaire)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#indicator">Indicateur visuel de la cible<span class="wb-inv"> (pratique exemplaire)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#distinguish">Distinguer les liens du texte<span class="wb-inv"> (pratique exemplaire)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#window">Le lien s'ouvre dans une nouvelle fenêtre<span class="wb-inv"> (pratique exemplaire)</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#navigation">Navigation<span class="wb-inv"> (pratique exemplaire)</span>
+									</a>
+									<ul>
+										<li>
+											<a href="#blocks">Blocs de navigation<span class="wb-inv"> (pratique exemplaire)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#skip">Liens de saut navigation<span class="wb-inv"> (pratique exemplaire)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#multiple">Acc&#232;s multiples<span class="wb-inv"> (pratique exemplaire)</span>
+											</a>
+										</li>
+										
+										<li>
+											<a href="#toc">Table des matières<span class="wb-inv"> (pratique exemplaire)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#focus">Cible et ordre de cible<span class="wb-inv"> (pratique exemplaire)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#shortcuts">Raccourcis clavier de caract&#232;res<span class="wb-inv"> (pratique exemplaire)</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#context">Changement de contexte<span class="wb-inv"> (pratique exemplaire)</span></a>
+								</li>
+								<li>
+									<a href="#consistency">Cohérence<span class="wb-inv"> (pratique exemplaire)</span></a>
+								</li>
+					</ul>
+						</details>
+					</nav>
+			<section>
+				<h2 id="links">Liens</h2> 
+				<h3 id="purpose">Fonction du lien</h3>
+				<ul>
+					<li>Fournir le lien du texte de lien qui indique la fonction du lien sans ajout de contexte additionnel.</li>
+					<li>Si le texte du lien n’est pas autodescriptif, assurez-vous que le contexte du lien décrit la fonction du lien.</li>
+					<li>Ne pas utiliser de texte de lien vide comme &ldquo;<q>Cliquer ici</q>&rdquo; ou &ldquo;<q>Lire plus</q>&rdquo; etc.</li>
+					<li>Faire la distinction entre les liens dont le texte est identique, mais dont les destinations sont différentes soit en 
+						<ul>
+							<li>reformulant le texte du lien, </li>
+							<li>utilisant une étiquette ARIA, ou </li>
+							<li>ajoutant du texte visuellement caché au texte du lien.</li>
+						</ul>
+					</li>
+				</ul>
+				<h3 id="activation">Activation du lien</h3>
+				<ul>
+					<li>Les liens personnalisés ont besoin de <code lang="en-CA">tabindex="0"</code> pour recevoir la cible du clavier et un événement <code lang="en-CA">onkeypress</code> pour être activé par la touche Entrée.</li>
+					<li>Le nom visible d’un lien correspond au nom accessible du lien ou est y inclus.</li>
+				</ul>
+				<h3 id="indicator">Indicateur visuel de la cible</h3>
+				<ul>
+					<li>Les liens doivent avoir un état de cible visible.</li>
+				</ul>
+				<h3 id="distinguish">Distinguer les liens du texte</h3>
+				<ul>
+					<li>Assurez-vous que les liens comportent des indicateurs visuels pour permettre aux utilisateurs de les identifier rapidement.</li>
+					<li>La couleur ne doit pas être le seul moyen de différencier un lien du texte ordinaire. Accompagnez la couleur d’un autre indice visuel (p. ex. soulignement, italique, gras) pour différencier le texte du lien du texte ordinaire.</li>
+				</ul>
+				<h3 id="window">Le lien s'ouvre dans une nouvelle fenêtre</h3>
+				<ul>
+					<li>En général, évitez d’ouvrir des liens dans une nouvelle fenêtre.</li>
+					<li>Lorsque les liens s’ouvrent dans une nouvelle fenêtre, avertissez les utilisateurs.</li>
+				</ul>
+			</section>
+			<section>
+				<h2 id="navigation">Navigation</h2>
+				<h3 id="blocks">Blocs de navigation</h3>
+				<ul>
+					<li>Identifiez les blocs de navigation importants au moyen de l’élément  <code lang="en-CA">&lt;nav&gt;</code> ou  de l'attribut <code lang="en-CA">role="navigation"</code>.</li>
+					<li>Lorsqu’il y a deux régions de navigation ou plus sur la page, nommez chaque région avec <code lang="en-CA">aria-label</code> ou  <code lang="en-CA">aria-labelledby</code> pour les différencier.</li>
+					<li>Indiquez visuellement l’emplacement actuel en utilisant CSS, et sémantiquement, en utilisant <code lang="en-CA">aria-current="page"</code> l’attribut.</li>
+				</ul>
+				<h3 id="skip">Liens de saut navigation</h3>
+				<ul>
+					<li>Placez le lien de saut de navigation au haut de la page avant tout autre élément ciblable (lien, bouton ou commande personnalisée).</li>
+					<li>Le lien de saut n’a pas besoin d’être visible avant d’avoir reçu la cible.</li>
+					<li>Utilisez un texte de lien clair – p. ex. &ldquo;Passer au contenu principal&rdquo; ou  &ldquo;Passer au contenu&rdquo;</li>
+					<li>Utilisez un lien de même page en ciblant la valeur de l’attribut d'identification de la destination (habituellement l’élément <code lang="en-CA">&lt;main&gt;</code>.</li>
+					<li>Attribuez l'attribut<code lang="en-CA">tabindex="-1"</code> à la destination. Cela corrige les lacunes de certains navigateurs qui déplacent la fenêtre d'affichage vers la destination, mais pas vers la cible.</li>
+					<li>Ne masquez pas le lien de saut en utilisant l’une des options suivantes:
+						<ul>
+							<li>Utiliser CSS pour positionner de façon permanente l’écran de renvoi</li>
+							<li>Régler <code lang="en-CA">display: none</code></li>
+							<li>Régler <code lang="en-CA">visibility: invisible</code></li>
+						</ul>
+					</li>
+				</ul>
+				
+				
+				<h3 id="multiple">Acc&#232;s multiples</h3>
+				<p>Fournir plus d’une façon de localiser une page Web dans un ensemble de pages Web. Utiliser au moins deux des techniques suivantes :</p>
+				<ul>
+					<li>Fournir des liens de navigation vers les pages Web reli&#233;es (en anglais)</li>
+					<li>Fournir une table des mati&#232;res (en anglais)</li>
+					<li>Fournir un plan du site (en anglais)</li>
+					<li>Fournir une fonction de recherche pour aider l'utilisateur &#224; trouver le contenu (en anglais)</li>
+					<li>Fournir une liste de liens vers toutes les autres pages Web (en anglais)</li>
+					<li>Fournir des liens vers toutes les autres pages du site &#224; partir de la page d'accueil (en anglais)</li>
+				</ul>
+				
+				
+				<h3 id="toc">Table des matières</h3>
+				<ul>
+					<li>S’assurer que la table des matières reflète la hiérarchie des en-têtes du document.</li>
+					<li>S’assurer que chaque sujet de la table des matières est lié à l’endroit approprié.</li>
+				</ul>
+				<h3 id="focus">Cible et ordre de cible</h3>
+				<ul>
+					<li>Assurez un ordre de tabulation significatif en positionnant le contenu ciblable dans la même séquence que le code sous-jacent.</li>
+					<li>S’assurer que l’ordre de navigation au clavier est logique et intuitif. Habituellement, cela signifie qu’il faut s’assurer que la navigation suit le flux visuel de la page, de gauche à droite, de haut en bas. Il passe par la bannière, la navigation principale, la navigation et les commandes des pages, puis le pied de page d’une page type.</li>
+					<li>Éviter d’utiliser des valeurs <code lang="en-CA">tabindex</code> supérieures à 0.</li>
+				</ul>
+				<h3 id="shortcuts">Raccourcis clavier de caract&#232;res</h3>
+				<p><cite>Critère de succès 2.1.4 :</cite> Si un raccourci clavier est utilis&#233; dans un contenu utilisant uniquement des lettres (y compris des majuscules et des minuscules), des signes de ponctuation, des chiffres ou des symboles, au moins un des &#233;nonc&#233;s suivants est vrai :</p>
+				<dl>
+					<dt>D&#233;sactiver</dt>
+					<dd class="mrgn-lft-lg">Un m&#233;canisme permet de d&#233;sactiver le raccourci;</dd>
+					<dt>Remapper</dt>
+					<dd class="mrgn-lft-lg">Un m&#233;canisme permet de remapper le raccourci pour y inclure une ou plusieurs touches de clavier non imprimables (p. ex., Ctrl, Alt);</dd>
+					<dt>Actif seulement sur la cible</dt>
+					<dd class="mrgn-lft-lg">Le raccourci clavier d&#8217;un composant d&#8217;interface utilisateur n&#8217;est actif que lorsque ce composant a une cible.</dd>
+				</dl>
+			</section>
+			
+			<section>
+				<h2 id="context">Changement de contexte</h2>
+				<p>Dans la mesure du possible, donner à l’utilisateur le contrôle des changements de contexte au moyen d’une action explicite de l’utilisateur généralement connue pour provoquer un changement de contexte; p. ex., cliquer sur un lien ou appuyer sur un bouton de validation.</p>
+				<p>Les changement de contexte :</p>
+				<ul>
+					<li>ne doivent jamais être déclenchés <em>sur la cible</em></li>
+					<li>doivent être anticipés par l’utilisateur s’ils sont déclenchés par la modification du paramètre d’une commande (<em>à la saisie</em>).</li>
+				</ul>
+			</section>
+			<section>
+				<h2 id="consistency">Cohérence</h2>
+				<dl>
+					<dt>Navigation cohérente</dt>
+					<dd class="mrgn-lft-lg">D’une page à l’autre, l’ordre relatif des composants de la page et des liens dans les blocs de navigation devrait demeurer inchangé. D’autres composants ou liens peuvent être retirés ou insérés, mais l’ordre relatif doit demeurer le même.</dd>
+					<dt>Identification cohérente</dt>
+					<dd class="mrgn-lft-lg">D’une page à l’autre, les composantes fonctionnelles identiques doivent être nommées de façon uniforme. Par exemple, une vignette nommée « Rechercher » sur une page est nommée « Rechercher » sur les autres pages et non, comme c’est le cas parfois, « Trouver ». Cela inclut le texte alt des icônes et autres éléments non textuels ayant une fonctionnalité identique.</dd>
+				</dl>
+			</section>
+		<nav aria-labelledby="nav-pagination">
+	<h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
+	<ul class="pager">
+	 <li class="previous"> <a rel="prev" href="consistency-fr.html">Précédent - Cohérence</a> </li>
+	</ul>
+  </nav>
+					
+
+<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	  <script src="../../../scripts/esdc-course.js"></script></main>
+		
+		
+
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+			
+			
+
+				<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				Module 3 –  Liens et navigation
+				</h3>
+				
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="links-fr.html">Liens</a></li>
+						<li><a class="list-group-item" href="navigation-fr.html">Navigation</a></li>
+						<li><a class="list-group-item" href="context-fr.html">Changement de contexte</a></li>
+						<li><a class="list-group-item" href="consistency-fr.html">Cohérence</a></li>	
+						<li><a class="list-group-item active" aria-current="page" href="best-practice-mod-3-fr.html">Pratique exemplaire</a></li>
+				</ul>
+			
+			</section>
+			
+			
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				Tous les modules
+				</h3>
+				
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+						<li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 – Structure et sémantique des pages</a></li>			
+						<li><a class="list-group-item active" href="links-fr.html">Module 3 – Liens et navigation</a></li>
+						<li><a class="list-group-item" href="../module4/tables-concepts-fr.html">Module 4 – Tableaux</a></li>
+						<li><a class="list-group-item" href="../module5/text-alternatives-fr.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/forms-concepts-fr.html">Module 6 – Formulaires</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 – Conception visuelle couleurs</a></li>
+						<li><a class="list-group-item" href="../module8/introduction-fr.html">Module 8 – Zoom et conception adaptée</a></li>
+						<li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item" href="../module10/introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Appendice</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap-fr.html">Plan du site</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">Vue WCAG</a>
+					</li>
+				</ul>
+			</section>
+		
+		</nav>
+	
+		
+
+		
+		
+	
+			
+</div>
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+</div>	
+		
+		
+	<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+</body>
+	
+</html>
