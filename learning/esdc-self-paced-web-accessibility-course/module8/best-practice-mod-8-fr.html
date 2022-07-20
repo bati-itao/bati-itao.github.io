@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Pratique exemplaire - Module 8 - Zoom et conception adaptée</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Résumé des pratiques exemplaires du module 8 – Conception adaptée et zoom">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.appTop({
+                "appName": [{
+                    "text": "EDSC / Bureau de l’accessibilité des TI",
+                    "href": "../../../index-fr.html"
+                }],
+               "breadcrumbs" : [{
+                    "title": "Accueil",
+                    "href" : "../../../index-fr.html"
+                },{
+                    "title": "Apprentissage",
+                    "href" : "../../index-fr.html"
+                },
+            {
+                    "title": "Cours d'accessibilité Web",
+                    "href" : "../index-fr.html"
+                },
+            {
+                    "title": "Module 8 - Zoom et conception adaptée",
+                    
+                    "href" : "index-fr.html"
+                },
+          {
+            "title": "Pratique exemplaire",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "best-practice-mod-8.html",
+            "text": "English",
+          }],
+        "menuPath": "../../../ajax/menu-fr.html"
+      });
+
+    </script>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Pratique exemplaire</h1>
+						
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table des matières</h2>
+						<details class="grouped mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table des matières</summary>
+							<ul>
+						<li>
+							<a href="#bp-zoom">Zoom<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#bp-design">Conception adaptée<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#bp-forms">Formulaires adaptés<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#bp-images">Images adaptées<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#bp-text">Texte adapté<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#bp-objects">Objets et modules d’extension adaptés<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#bp-tables">Tableaux adaptés<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#bp-uicomp">Composantes d’interface utilisateur adaptées<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#bp-videos">Vidéo adaptée<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#bp-orientation">Orientation<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+	
+	<section>
+		<h2 id="bp-zoom">Zoom</h2>
+		<p>Le contenu devrait apparaître dans une seule colonne sans défilement horizontal et sans perte d’information ou de fonctionnalité lors du réglage de la fenêtre de votre navigateur&nbsp;:</p>
+		<ul>
+			<li>à 320&nbsp;pixels de largeur sur 256&nbsp;pixels de hauteur, ou </li>
+			<li>à 1280&nbsp;pixels de largeur sur 1024&nbsp;pixels de hauteur, puis zoomer le contenu à 400&nbsp;%. </li>
+		</ul>
+		<p>Mettre en œuvre une conception adaptative.</p>
+		<p>Lorsque vous concevez du contenu à reformater dans une seule colonne&nbsp;:</p>
+		<ul>
+			<li>Le contenu principal remplit la zone d’affichage.</li>
+			<li>Le défilement horizontal ne se fait pas.</li>
+			<li>Évitez d’utiliser plusieurs colonnes. La longueur de ligne courte est difficile à lire.</li>
+			<li>Évitez d’utiliser des flotteurs CSS. Ils créent également une longueur de ligne courte, sauf si l’élément flotté est très petit.</li>
+			<li>Évitez d’utiliser des largeurs fixes et minimales CSS. Elles ont tendance à provoquer un défilement horizontal.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="bp-design">Conception adaptée</h2>
+		<ul>
+			<li>Utilisez les «&nbsp;requêtes média&nbsp;» CSS pour déterminer la taille de l’écran de l’utilisateur et servir des configurations distinctes selon différentes largeurs d’écran aux points d’interruption.</li>
+			<li>Réglez la zone d’affichage à l’aide du méta-élément dans l’en-tête&nbsp;:
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">DÃ©but du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0; user-scalable=1"&gt;</code></pre>
+				<p class="wb-inv">Fin du code</p>	
+				<ul>
+					<li><code lang="en-CA">width=device-width</code> indique que la page correspond à la largeur de l’appareil, ce qui permet à la page de recharger le contenu pour qu’il corresponde à différentes tailles d’écran.</li>
+					<li><code lang="en-CA">initial-scale=1.0</code> établit le niveau de zoom par défaut de la page.</li>
+					<li><code lang="en-CA">maximum-scale=2.0</code> établit un zoom maximal de 200&nbsp;% sur le zoom par pincement pour l’appareil mobile.</li>
+					<li><code lang="en-CA">user-scalable=1</code> permet à l’utilisateur de zoomer par pincement sur son mobile.</li>
+				</ul>
+			</li>
+			<li>Testez les points d’interruption à l’aide d’émulateurs de zone d’affichage.</li>
+			<li>Les utilisateurs malvoyants font souvent un zoom pour déclencher des configurations mobiles sur de grands affichages, ce qui donne du texte assez volumineux.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="bp-forms">Formulaires adaptés</h2>
+		<p>À mesure que la taille de la zone d’affichage change, assurez-vous que&nbsp;:</p>
+		<ul>
+			<li>les champs de formulaire ne débordent pas, et</li>
+			<li>les champs de formulaire et les étiquettes ne sont pas séparés par de larges zones d’espace blanc&nbsp;:
+				<ul>
+					<li>Dans le mode bureau par défaut, les étiquettes sont positionnées à gauche de la commande et sont alignées à droite. (Cette disposition est préférable lorsqu’il est nécessaire de conserver un espace vertical.)</li>
+					<li>En mode petit écran, les étiquettes sont positionnées directement au-dessus de la commande afin de maximiser la zone de l’écran pour chaque étiquette.</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="bp-images">Images adaptées</h2>
+		<p>les images peuvent être adaptées de quatre façons&nbsp;:</p>
+		<ul>		
+			<li>Technique&nbsp;1 – Styliser l’image avec la CSS&nbsp;: <code lang="en-CA">width: 100%</code></li>
+			<li>Technique&nbsp;2 – Styliser l’image avec la CSS&nbsp;: <code lang="en-CA">max-width: 100%</code></li>
+			<li>Technique&nbsp;3 – Servir différentes tailles d’image à différentes tailles d’écran en utilisant l’attribut <code lang="en-CA">srcset</code></li>
+			<li>Technique&nbsp;4 – Servir différentes images à différentes tailles d’écran en utilisant l’élément <code lang="en-CA">picture</code>.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="bp-text">Texte adapté</h2>
+		<ul>
+			<li>Les conteneurs de texte doivent être redimensionnés à mesure que la taille de la zone d’affichage change pour empêcher le texte de déborder. </li>
+			<li>Éviter les conteneurs fixes et statiques.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="bp-objects">Objets et modules d’extension adaptés</h2>
+		<ul>			
+			<li>Les objets et les modules d’extension peuvent être redimensionnés à mesure que la taille de la zone d’affichage change afin qu’ils ne débordent pas la zone d’affichage. </li>
+			<li>Régler CSS <code lang="en-CA">max-width="100%"</code> sur le conteneur.</li>
+			<li>Utilisez l’élément <code lang="en-CA">&lt;img&gt;</code> pour intégrer une image, l’élément <code lang="en-CA">&lt;iframe&gt;</code> pour intégrer HTML et les éléments <code lang="en-CA">&lt;video&gt;</code> et <code lang="en-CA">&lt;audio&gt;</code> pour intégrer le contenu média.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="bp-tables">Tableaux adaptés</h2>
+
+		<ul>
+			<li>Les tableaux de grande taille qui débordent de la zone d’affichage ne sont pas adaptés. Suivre ces conseils pour éviter les débordements:
+
+				<ul>
+					<li>Utiliser un pourcentage plutôt que des pixels fixes pour définir la largeur des colonnes et des tableaux</li>
+					<li>Diviser les tableaux de grande taille ou largeur en plusieurs tableaux plus petits ou étroits</li>
+					<li>Afficher une barre de défilement horizontale si l’écran est trop petit ou afficher le tableau complet</li>
+					<li>Rendre les tableaux plus étroits comme suit:
+						<ul>
+							<li>Réduire le nombre de colonnes</li>
+							<li>Fusionner des colonnes</li>
+							<li>Utiliser des acronymes ou des abréviations pour les mots longs </li>
+							<li>Ajouter d’un tiret conditionnel <code lang="en-CA">&amp;shy;</code> pour couper les mots longs</li>
+						</ul>
+					</li>
+					<li>Redimensionner les tableaux en fonction de la zone d’affichage)</li>
+				</ul>			
+				
+			</li>
+		</ul>
+
+
+	</section>
+	<section>
+		<h2 id="bp-uicomp">Composantes d’interface utilisateur adaptées</h2>
+		<p>Réorganiser et redimensionner les composantes de l’interface utilisateur pour maintenir la lisibilité.</p>
+	</section>
+	<section>
+		<h2 id="bp-videos">Vidéo adaptées</h2>		
+		<p>Les vidéos sont redimensionnées à mesure que la taille de la zone d’affichage change afin qu’elles ne débordent pas de la zone d’affichage. Soit en&nbsp;:</p>
+		<ul>
+			<li>réglant la propriété CSS <code lang="en-CA">max-width: 100%</code> sur l’élément conteneur de la vidéo, ou en</li>
+			<li>réglant la propriété CSS <code lang="en-CA">width: 100%</code> sur l’élément <code lang="en-CA">&lt;video&gt;</code></li>
+		</ul>
+		<p>Les dimensionnements statiques peuvent rompre les configurations de la page.</p>
+	</section>
+	<section>
+		<h2 id="bp-orientation">Orientation</h2>
+		<ul>
+			<li>Permettre aux utilisateurs de visualiser votre contenu dans l’orientation (portrait ou paysage) qu’ils préfèrent. </li>
+			<li>Ne pas limiter l’orientation de la page.</li>
+		</ul>
+	</section>
+		
+	<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="orientation-fr.html">Précédent - Orientation</a></li>
+		</ul>
+	</nav>
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 8 - Zoom et conception adaptée</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
+						<li><a class="list-group-item" href="zoom-fr.html">Zoom</a></li>
+						<li class="collapsed">
+							<a class="list-group-item collapsed" href="responsive-design-fr.html">
+								Conception adaptée
+								<span class="wb-inv" lang="en-CA">Collapsed</span>
+							</a>
+							<ul class="list-group menu list-unstyled inner">
+								<li><a class="list-group-item" href="responsive-forms-fr.html">Formulaires adaptés</a></li>
+								<li><a class="list-group-item" href="responsive-images-fr.html">Images adaptées</a></li>
+								<li><a class="list-group-item" href="responsive-text-fr.html">Texte adapté</a></li>
+								<li><a class="list-group-item" href="responsive-objects-fr.html">Objets et modules d’extension adaptés</a></li>
+								<li><a class="list-group-item" href="responsive-tables-fr.html">Tableaux adaptés</a></li>
+								<li><a class="list-group-item" href="responsive-ui-fr.html">Composantes d’interface utilisateur adaptées</a></li>
+								<li><a class="list-group-item" href="responsive-video-fr.html">Vidéo adaptée</a></li>
+							</ul>
+						</li>
+						<li><a class="list-group-item" href="orientation-fr.html">Orientation</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="best-practice-mod-8-fr.html">Pratique exemplaire</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Tous les modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 – Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/links-fr.html">Module 3 – Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/tables-concepts-fr.html">Module 4 – Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/text-alternatives-fr.html">Module 5 – Images</a></li>
+                        <li><a class="list-group-item" href="../module6/forms-concepts-fr.html">Module 6 – Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 – Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item active" href="introduction-fr.html">Module 8 – Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item" href="../module10/introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Appendice</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap-fr.html">Plan du site</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">Vue WCAG</a>
+					</li>
+				</ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>

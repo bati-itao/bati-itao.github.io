@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Best practice - Module 8 - Zoom and responsive design</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Summary of best practices in Module 8 – Responsive design and zoom">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../../index.html"
+            },
+			{
+                "title": "Web accessibility course",
+                "href" : "../index.html"
+            },
+			{
+                "title": "Module 8 – Zoom and responsive design",
+                
+                "href" : "index.html"
+            },
+          {
+            "title": "Best practice",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "best-practice-mod-8-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
+    </script>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Best practice</h1>
+						
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+						<details class="grouped mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table of contents</summary>
+							<ul>
+						<li>
+							<a href="#bp-zoom">Zoom<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#bp-design">Responsive design<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#bp-forms">Responsive forms<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#bp-images">Responsive images<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#bp-text">Responsive text<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#bp-objects">Responsive objects and plugins<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#bp-tables">Responsive tables<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#bp-uicomp">Responsive UI components<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#bp-videos">Responsive videos<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#bp-orientation">Orientation<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+	
+	<section>
+		<h2 id="bp-zoom">Zoom</h2>
+		<p>Content should appear in a single column with no horizontal scrolling and no loss of information or functionality when adjusting your browser window:</p>
+		<ul>
+			<li>to 320 pixels wide by 256 pixels high, or </li>
+			<li>to 1280 pixels wide by 1024 pixels high then zooming the content to 400%. </li>
+		</ul>
+		<p>Implement a responsive design.</p>
+		<p>When designing content to reflow in a single column:</p>
+		<ul>
+			<li>The main content fills the viewport.</li>
+			<li>Horizontal scrolling doesn’t happen.</li>
+			<li>Avoid using multiple columns. The short line length is hard to read.</li>
+			<li>Avoid using CSS floats. They also create short line length, unless the floated element is very small.</li>
+			<li>Avoid using CSS fixed widths and minimum widths. They tend to cause horizontal scrolling.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="bp-design">Responsive design</h2>
+		<ul>
+			<li>Use CSS “media queries” to determine user's screen size and serve distinct layouts to different screen widths at breakpoints.</li>
+			<li>Set the viewport via the <code>&lt;meta&gt;</code> element in the head:
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0; user-scalable=1"&gt;</code></pre>
+				<p class="wb-inv">Code ends</p>	
+				<ul>
+					<li><code>width=device-width</code> instructs the page to match the device's width, allowing the page to reflow content to match different screen sizes.</li>
+					<li><code>initial-scale=1.0</code> sets the default zoom level of the page.</li>
+					<li><code>maximum-scale=2.0</code> sets a maximum of 200% zoom on pinch-to-zoom on mobile.</li>
+					<li><code>user-scalable=1</code> enables the user to pinch-to-zoom on mobile.</li>
+				</ul>
+			</li>
+			<li>Test breakpoints using viewport emulators.</li>
+			<li>Users with low vision often zoom to trigger mobile layouts on large displays, enabling quite large text.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="bp-forms">Responsive forms</h2>
+		<p>As the viewport changes size, ensure:</p>
+		<ul>
+			<li>form fields do not overflow, and </li>
+			<li>form fields and labels are not separated by wide areas of whitespace:
+				<ul>
+					<li>In the default desktop view, labels are positioned to the left of the control, flush right. (This layout is preferred when there’s a need to conserve vertical space.) </li>
+					<li>In the small screen view, labels are positioned directly above the control, to maximize screen area for each.</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="bp-images">Responsive images</h2>
+		<p>images can be made responsive in one of four ways:</p>
+		<ul>
+			<li>Technique 1 – Style the image with CSS <code>width: 100%</code></li>
+			<li>Technique 2 – Style the image with CSS <code>max-width: 100%</code></li>
+			<li>Technique 3 – Serve different sizes of the image to different screen sizes using the <code>srcset</code> attribute</li>
+			<li>Technique 4 – Serve different images to different screen sizes using the <code>&lt;picture&gt;</code> element.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="bp-text">Responsive text</h2>
+		<ul>
+			<li>Text containers should resize as the viewport size changes to prevent text from overflowing the viewport. </li>
+			<li>Avoid static, fixed container sizes.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="bp-objects">Responsive objects and plugins</h2>
+		<ul>
+			<li>Objects and plugins can resize as the viewport size changes so they do not overflow the viewport. </li>
+			<li>Set CSS <code>max-width="100%"</code> on the container.</li>
+			<li>Use the <code>&lt;img&gt;</code> element to embed a picture, <code>&lt;iframe&gt;</code> element to embed HTML, and <code>&lt;video&gt;</code> and <code>&lt;audio&gt;</code> elements to embed media content.</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="bp-tables">Responsive tables</h2>
+		<ul>
+			<li>Wide tables that overflow the viewport are not responsive. Follow these tips to help prevent overflow:
+				<ul>
+					<li>Use percentage instead of fixed pixels to set the width of columns and tables</li>
+					<li>Break large or wide tables into multiple small or narrow tables</li>
+					<li>Display a horizontal scroll bar if the table overflows the screen</li>
+					<li>Make tables more narrow by:
+						<ul>
+							<li>Reducing the number of columns</li>
+							<li>Merging columns </li>
+							<li>Using acronyms or abbreviations for long words </li>
+							<li>Inserting soft hyphen markup <code>&amp;shy;</code> to break long words</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>Transform tables at small viewports to prevent horizontal scrolling</li>
+		</ul>
+	</section>
+	<section>
+		<h2 id="bp-uicomp">Responsive UI components</h2>
+		<p>Page UI Components reorder and resize to maintain readability.</p>
+	</section>
+	<section>
+		<h2 id="bp-videos">Responsive videos</h2>
+		<p>Videos resize as the viewport size changes so they do not overflow the viewport. Either:</p>
+		<ul>
+			<li>set the CSS <code>max-width:100%</code> property on the video’s container element, or</li>
+			<li>set the CSS <code>width: 100%</code> property on the <code>&lt;video&gt;</code> element.</li>
+		</ul>
+		<p>Static sizing can break page layouts.</p>
+	</section>
+	<section>
+		<h2 id="bp-orientation">Orientation</h2>
+		<ul>
+			<li>Enable users to view your content in the orientation (portrait or landscape) they prefer. </li>
+			<li>Do not restrict the page orientation.</li>
+		</ul>
+	</section>
+		
+	<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="orientation.html">Previous - Orientation</a></li>
+		</ul>
+	</nav>
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 8 - Zoom and responsive design</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="introduction.html">Introduction</a></li>
+						<li><a class="list-group-item" href="zoom.html">Zoom</a></li>
+						<li class="collapsed">
+						<a class="list-group-item collapsed" href="responsive-design.html">
+								Responsive design
+								<span class="wb-inv">Collapsed</span>
+						</a>
+							<ul class="list-group menu list-unstyled inner">
+								<li><a class="list-group-item" href="responsive-forms.html">Responsive forms</a></li>
+								<li><a class="list-group-item" href="responsive-images.html">Responsive images</a></li>
+								<li><a class="list-group-item" href="responsive-text.html">Responsive text</a></li>
+								<li><a class="list-group-item" href="responsive-objects.html">Responsive objects and plugins</a></li>
+								<li><a class="list-group-item" href="responsive-tables.html">Responsive tables</a></li>
+								<li><a class="list-group-item" href="responsive-ui.html">Responsive UI components</a></li>
+								<li><a class="list-group-item" href="responsive-video.html">Responsive video</a></li>
+							</ul>
+						</li>
+						<li><a class="list-group-item" href="orientation.html">Orientation</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="best-practice-mod-8.html">Best practice</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">All modules</h3>
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item active" href="introduction.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Appendix</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
+				</ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>

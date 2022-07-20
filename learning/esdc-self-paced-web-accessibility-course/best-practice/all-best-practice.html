@@ -89,7 +89,7 @@
 					<h3>Module 3 – Links and Navigation</h3>
 					<ul>
 						<li>
-									<a href="#links">Links<span class="wb-inv"> (best practice)</span></a>
+							<a href="#links">Links<span class="wb-inv"> (best practice)</span></a>
 							<ul>
 								<li><a href="#purpose">Link purpose<span class="wb-inv"> (best practice)</span></a></li>
 								<li><a href="#activation">Link activation<span class="wb-inv"> (best practice)</span></a></li>
@@ -99,15 +99,18 @@
 							</ul>
 						</li>
 						<li>
-									<a href="#navigation">Navigation<span class="wb-inv"> (best practice)</span></a>
+							<a href="#navigation">Navigation<span class="wb-inv"> (best practice)</span></a>
 							<ul>
 								<li><a href="#blocks">Blocks of navigation<span class="wb-inv"> (best practice)</span></a></li>
-								<li><a href="#consistency">Consistency across pages<span class="wb-inv"> (best practice)</span></a></li>
 								<li><a href="#skip">Skip navigation links<span class="wb-inv"> (best practice)</span></a></li>
+								<li><a href="#multiple">Multiple ways<span class="wb-inv"> (best practice)</span></a></li>
 								<li><a href="#toc">Table of contents<span class="wb-inv"> (best practice)</span></a></li>
 								<li><a href="#focus">Focus and focus order<span class="wb-inv"> (best practice)</span></a></li>
+								<li><a href="#shortcuts">Character key shortcuts<span class="wb-inv"> (best practice)</span></a></li>
 							</ul>
-						  </li>
+						</li>
+						<li><a href="#context">Changing context<span class="wb-inv"> (best practice)</span></a></li>
+						<li><a href="#consistency">Consistency<span class="wb-inv"> (best practice)</span></a></li>
 					  </ul>
 					<h3>Module 4 – Tables</h3>
 					<ul>
@@ -130,6 +133,7 @@
 						<li><a href="#maps">Image maps<span class="wb-inv"> (best practice)</span></a></li>
 						<li><a href="#figure">Figure and figcaption<span class="wb-inv"> (best practice)</span></a></li>
 						<li><a href="#svg">SVG images<span class="wb-inv"> (best practice)</span></a></li>
+						<li><a href="#captcha">CAPTCHA<span class="wb-inv"> (best practice)</span></a></li>
 						<li><a href="#tips">Additional tips and tricks for images<span class="wb-inv"> (best practice)</span></a></li>
 					</ul>							
 					<h3>Module 6 – Forms</h3>
@@ -175,6 +179,7 @@
 						<li><a href="#flashing-content">Flashing content<span class="wb-inv"> (best practice)</span></a></li>
 						<li><a href="#animation-and-motion">Animation and motion<span class="wb-inv"> (best practice)</span></a></li>
 						<li><a href="#play-stop-hide">Pause, stop or hide<span class="wb-inv"> (best practice)</span></a></li>
+						<li><a href="#audio-control">Audio control<span class="wb-inv"> (best practice)</span></a></li>
 					</ul>
 					<h3>Module 10 – Input modalities</h3>
 					<ul>
@@ -262,22 +267,23 @@
 			</section>
 			<section>				
 				<h3 id="best-practice-content-structure">
-							<a href="../module2/content-structure.html">Content structure</a>
+					<a href="../module2/content-structure.html">Content structure</a>
 				</h3>
 				<ul>
 					<li>Ensure an <code>&lt;article&gt;</code> element is used in a web page for self-contained composition</li>
 					<li>For thematic grouping of content, ensure the <code>&lt;section&gt;</code> element is used.</li>
-					<li>To improve text readability and give more control when customizing their views ensure to use the paragraph (<code>&lt;p&gt;</code>) element.</li>
+					<li>Use the paragraph (<code>&lt;p&gt;</code>) element for paragraphs.</li>
 					<li>Use quotes:
 						<ul>
 							<li>For longer and more complex quotes, use the <code>&lt;blockquote&gt;</code> element.</li>
 							<li>For shorted quotes, that are usually embedded in another sentence, use the inline quote <code>&lt;q&gt;</code> element.</li>
 						</ul>
 					</li>
-					<li>For illustrations, diagrams, photos, code listings, etc, use the <code>&lt;figure&gt;</code> element.</li>
 					<li>To indicate that content has strong importance or urgency, use the <code>&lt;strong&gt;</code> element. </li>
 					<li>For words that have a stressed emphasis compared to surrounding text, use the <code>&lt;em&gt;</code> element.</li>
 					<li>Expand abbreviations on first use on the page, with the abbreviation accompanying the expansion, one or the other in brackets</li>
+					<li>Ensure each web page defines its topic or purpose in a descriptive title, set in a <code>&lt;title&gt;</code> element in the HTML <code>&lt;head&gt;</code> element. Optionally, identify the larger collection of Web pages after the page description.</li>
+					<li>When phrasing instructions on where to find or how to use content, avoid descriptions that rely exclusively on being able to see or hear. Be sure to include a text label in the instruction and at the item of interest.</li>
 				</ul>
 			</section>
 			<section>				
@@ -341,107 +347,143 @@
 		<article>
 			<h2 class="wb-inv">Module 3 – Links and navigation<span class="wb-inv"> (best practice)</span></h2>
 			<details id="toggle3" class="grouped mrgn-bttm-lg on">
-			<summary class="bg-info">Module 3 – Links and navigation</summary>
-			<section>
-				<h3 id="links">
-							<a href="../module3/links.html">Links</a>
-				</h3>
-				<h4 id="purpose">
-							<a href="../module3/links.html#link-purpose">Link purpose</a>
-				</h4>
-				<ul>
-					<li>Provide link text that identifies the purpose of the link without needing additional context.</li>
-					<li>If the link text is not self-descriptive, ensure the link context describes the link purpose.</li>
-					<li>Do not use information-empty link text such as “<q>click here</q>” or “<q>Read More</q>” etc.</li>
-					<li>Distinguish links with identical text but different destinations by either 
-						<ul>
-							<li>rephrasing the link text, </li>
-							<li>using an ARIA label, or </li>
-							<li>adding visually-hidden text to the link text.</li>
-						</ul>
-					</li>
-				</ul>
-				<h4 id="activation">
-							<a href="../module3/links.html#link-activation">Link activation</a>
-				</h4>
-				<ul>
-					<li>Custom links need <code>tabindex="0"</code> to receive keyboard focus and an <code>onkeypress</code> event to activate by Enter key.</li>
-					<li>A link's visible name matches or is included in the link's accessible name.</li>
-				</ul>
-				<h4 id="indicator">
-							<a href="../module3/links.html#indicator">Visual focus indicator</a>
-				</h4>
-				<ul>
-					<li>Links must have a visible focus state.</li>
-					<li>Avoid styles that the visibility of keyboard focus indicators</li> 
-					<li>Use CSS to design a highly-visible focus indicator with strong contrast</li>
-				</ul>
-				<h4 id="distinguish">
-							<a href="../module3/links.html#links-text">Distinguishing links from text</a>
-				</h4>
-				<ul>
-					<li>Ensure links have visual indicators to enable users to quickly identify them.</li>
-					<li>Colour must not be the only means of differentiating a link from regular text. Accompany colour with another visual cue (e.g., underline, italics, bold) to differentiate link text from regular text</li>
-				</ul>
-				<h4 id="window">
-							<a href="../module3/links.html#links-new-window">Links that open in a new window</a>
-				</h4>
-				<ul>
-					<li>In general, avoid opening links in a new window. </li>
-					<li>When links do open in a new window, warn users.</li>
-				</ul>
-			</section>
-			<section>
-				<h3 id="navigation">
-							<a href="../module3/navigation.html#link-purpose">Navigation</a>
-				</h3>
-				<h4 id="blocks">
-							<a href="../module3/navigation.html#blocks-navigation">Blocks of navigation</a>
-				</h4>
-				<ul>
-					<li>Identify important blocks of navigation with the <code>&lt;nav&gt;</code> element or <code>role="navigation"</code> attribute.</li>
-					<li>When there are two or more navigation regions on the page, name each with <code>aria-label</code> or <code>aria-labelledby</code> to differentiate them.</li>
-					<li>Indicate the current location visually, using CSS, and semantically, using the <code>aria-current="page"</code> attribute.</li>
-				</ul>
-				<h4 id="consistency">
-							<a href="../module3/navigation.html#consistency">Consistency across pages</a>
-				</h4>
-				<ul>
-					<li>Ensure the relative order of components on the page and links within navigation blocks remains unchanged across pages.</li>
-				</ul>
-				<h4 id="skip">
-							<a href="../module3/navigation.html#skip-navigation">Skip navigation links</a>
-				</h4>
-				<ul>
-					<li>Place the skip navigation link at the top of the page before any other focusable element (link, button, or custom control).</li>
-					<li>The skip link doesn't not need to be visible until it receives focus.</li>
-					<li>Use clear link text – e.g. “Skip to Main Content” or “Skip to Content”</li>
-					<li>Use a same-page link, targeting the <code>id</code> attribute value of the destination (usually the <code>&lt;main&gt;</code> element).</li>
-					<li>Assign the destination the <code>tabindex="-1"</code> attribute. This fixes shortcomings in some browsers that move the viewport to the destination but not the focus.</li>
-					<li>Do not hide the skip link using any of these CSS options:
-						<ul>
-							<li>Use CSS to permanently position the link off screen</li>
-							<li>Set <code>display: none</code></li>
-							<li>Set <code>visibility: invisible</code></li>
-						</ul>
-					</li>
-				</ul>
-				<h4 id="toc">
-							<a href="../module3/navigation.html#table-of-contents">Table of contents</a>
-				</h4>
-				<ul>
-					<li>Ensure Table of contents reflects the document's heading hierarchy </li>
-					<li>Ensure every topic in the Table of Contents links to the appropriate location</li>
-				</ul>
-				<h3 id="focus">
-							<a href="../module3/navigation.html#focus-order">Focus and focus order</a>
-				</h3> 
-				<ul>
-					<li>Ensure a meaningful tab order by positioning focusable content in the same sequence as the underlying code.</li>
-					<li>Ensure the keyboard navigation order is logical and intuitive. Typically, this means ensuring the navigation follows the visual flow of the page, left to right, top to bottom. It moves through the banner, main navigation, page navigation and controls, then footer on a typical page.</li>
-					<li>Avoid using <code>tabindex</code> values greater than 0.</li>
-				</ul>
-			</section>
+				<summary class="bg-info">Module 3 – Links and navigation</summary>
+				<section>
+					<h3 id="links">
+								<a href="../module3/links.html">Links</a>
+					</h3>
+					<h4 id="purpose">
+								<a href="../module3/links.html#link-purpose">Link purpose</a>
+					</h4>
+					<ul>
+						<li>Provide link text that identifies the purpose of the link without needing additional context.</li>
+						<li>If the link text is not self-descriptive, ensure the link context describes the link purpose.</li>
+						<li>Do not use information-empty link text such as “<q>click here</q>” or “<q>Read More</q>” etc.</li>
+						<li>Distinguish links with identical text but different destinations by either 
+							<ul>
+								<li>rephrasing the link text, </li>
+								<li>using an ARIA label, or </li>
+								<li>adding visually-hidden text to the link text.</li>
+							</ul>
+						</li>
+					</ul>
+					<h4 id="activation">
+								<a href="../module3/links.html#link-activation">Link activation</a>
+					</h4>
+					<ul>
+						<li>Custom links need <code>tabindex="0"</code> to receive keyboard focus and an <code>onkeypress</code> event to activate by Enter key.</li>
+						<li>A link's visible name matches or is included in the link's accessible name.</li>
+					</ul>
+					<h4 id="indicator">
+								<a href="../module3/links.html#indicator">Visual focus indicator</a>
+					</h4>
+					<ul>
+						<li>Links must have a visible focus state.</li>
+						<li>Avoid styles that the visibility of keyboard focus indicators</li> 
+						<li>Use CSS to design a highly-visible focus indicator with strong contrast</li>
+					</ul>
+					<h4 id="distinguish">
+								<a href="../module3/links.html#links-text">Distinguishing links from text</a>
+					</h4>
+					<ul>
+						<li>Ensure links have visual indicators to enable users to quickly identify them.</li>
+						<li>Colour must not be the only means of differentiating a link from regular text. Accompany colour with another visual cue (e.g., underline, italics, bold) to differentiate link text from regular text</li>
+					</ul>
+					<h4 id="window">
+								<a href="../module3/links.html#links-new-window">Links that open in a new window</a>
+					</h4>
+					<ul>
+						<li>In general, avoid opening links in a new window. </li>
+						<li>When links do open in a new window, warn users.</li>
+					</ul>
+				</section>
+				<section>
+					<h3 id="navigation">
+								<a href="../module3/navigation.html#link-purpose">Navigation</a>
+					</h3>
+					<h4 id="blocks">
+								<a href="../module3/navigation.html#blocks-navigation">Blocks of navigation</a>
+					</h4>
+					<ul>
+						<li>Identify important blocks of navigation with the <code>&lt;nav&gt;</code> element or <code>role="navigation"</code> attribute.</li>
+						<li>When there are two or more navigation regions on the page, name each with <code>aria-label</code> or <code>aria-labelledby</code> to differentiate them.</li>
+						<li>Indicate the current location visually, using CSS, and semantically, using the <code>aria-current="page"</code> attribute.</li>
+					</ul>
+	
+					<h4 id="skip">
+								<a href="../module3/navigation.html#skip-navigation">Skip navigation links</a>
+					</h4>
+					<ul>
+						<li>Place the skip navigation link at the top of the page before any other focusable element (link, button, or custom control).</li>
+						<li>The skip link doesn't not need to be visible until it receives focus.</li>
+						<li>Use clear link text – e.g. “Skip to Main Content” or “Skip to Content”</li>
+						<li>Use a same-page link, targeting the <code>id</code> attribute value of the destination (usually the <code>&lt;main&gt;</code> element).</li>
+						<li>Assign the destination the <code>tabindex="-1"</code> attribute. This fixes shortcomings in some browsers that move the viewport to the destination but not the focus.</li>
+						<li>Do not hide the skip link using any of these CSS options:
+							<ul>
+								<li>Use CSS to permanently position the link off screen</li>
+								<li>Set <code>display: none</code></li>
+								<li>Set <code>visibility: invisible</code></li>
+							</ul>
+						</li>
+					</ul>
+					<h4 id="multiple">
+								<a href="../module3/navigation.html#multiple">Multiple ways</a>
+					</h4>
+					<ul>
+						<li>Ensure the relative order of components on the page and links within navigation blocks remains unchanged across pages.</li>
+					</ul>
+					<h4 id="toc">
+								<a href="../module3/navigation.html#table-of-contents">Table of contents</a>
+					</h4>
+					<ul>
+						<li>Ensure Table of contents reflects the document's heading hierarchy </li>
+						<li>Ensure every topic in the Table of Contents links to the appropriate location</li>
+					</ul>
+					<h3 id="focus">
+								<a href="../module3/navigation.html#focus-order">Focus and focus order</a>
+					</h3> 
+					<ul>
+						<li>Ensure a meaningful tab order by positioning focusable content in the same sequence as the underlying code.</li>
+						<li>Ensure the keyboard navigation order is logical and intuitive. Typically, this means ensuring the navigation follows the visual flow of the page, left to right, top to bottom. It moves through the banner, main navigation, page navigation and controls, then footer on a typical page.</li>
+						<li>Avoid using <code>tabindex</code> values greater than 0.</li>
+					</ul>
+					<h3 id="shortcuts">
+						<a href="../module3/navigation.html#shortcuts">Character key shortcuts</a>
+					</h3> 
+					<p>If a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters, then at least one of the following is true:</p>
+					<dl>
+						<dt>Turn off</dt>
+						<dd class="mrgn-lft-lg">A mechanism is available to turn the shortcut off.</dd>
+						<dt>Remap</dt>
+						<dd class="mrgn-lft-lg">A mechanism is available to remap the shortcut to include one or more non-printable keyboard keys (e.g., Ctrl, Alt).</dd>
+						<dt>Active only on focus</dt>
+						<dd class="mrgn-lft-lg">The keyboard shortcut for a user interface component is only active when that component has focus.</dd>
+					</dl>
+				</section>
+				<section>
+					<h3 id="context">
+						<a href="../module3/context.html">Changes of context</a>
+					</h3>
+					<p>Whenever possible, give the user control over changes of context with an explicit user action that's generally understood to cause a change of context; e.g, clicking a link or pressing a submit button.</p>
+					<p>Changes of context:</p>
+					<ul>
+						<li>must never be triggered <em>on focus</em>.</li>
+						<li>must be anticipated by the user if triggered by changing the setting of a control (<em>on input</em>).</li>
+					</ul>
+				</section>
+				<section>
+	
+					<h3 id="consistency">
+						<a href="../module3/consistency.html">Consistency</a>
+					</h3>
+					<dl>
+						<dt>Consistent navigation</dt>
+						<dd class="mrgn-lft-lg">From one page to the next, the relative order of components on the page and of links within navigation blocks should remain unchanged. Components or links may be removed or inserted, but the relative order should stay the same.</dd>
+						<dt>Consistent identification</dt>
+						<dd class="mrgn-lft-lg">From one page to the next, identical functional components should be consistently named. For instance, a widget named "Search" on one page is named "Search" on the other pages, not sometimes "Find". This includes the alt text of icons and other non-text items with identical functionality.</dd>
+					</dl>
+				</section>
 			</details>
 		</article>
 		<article>
@@ -731,6 +773,23 @@
 						</ul>
 					</li>
 				</ul>
+			</section>
+			<section>
+				<h3 id="captcha">
+							<a href="../module5/captcha.html">CAPTCHA</a>
+				</h3>
+				<ul>
+					<li>Provide two different modalities of CAPTCHA (e.g., a visual task and an audio task).</li>
+					<li>Provide alt text saying the CAPTCHA requires completing a task and what type of task it is. When an alternate version of a CAPTCHA is available, include instructions in the alt text on how to find it.</li>
+					<li>Optional steps to reach edge cases:
+						<ol>
+							<li>Provide more than two modalities of CAPTCHAs.</li>
+							<li>Provide access to a human customer service representative who can bypass CAPTCHA.</li>
+							<li>Don't require CAPTCHAs for authorized users.</li>
+						</ol>
+					</li>
+					<li>Use Google's reCAPTCHA v3, if possible.</li>
+				</ul>	
 			</section>
 			<section>
 				<h3 id="tips">
@@ -1334,6 +1393,19 @@
 					<li>Avoid unnecessary moving, blinking, scrolling or auto-updating content.</li>
 				</ul>
 			</section>
+			<section>
+				<h3 id="audio-control">
+							<a href="../module9/audio-control">Audio control</a>
+				</h3>
+				<p>If audio plays automatically on page load for more than 3 seconds, enable the user to:</p>
+				<ul>
+					<li>pause or stop the audio, or</li>
+					<li>control the volume independ of the system volume.</li>
+				</ul>
+				<p>Alternately, play sounds only on user request.</p>
+			</section>
+
+
 
 			</details>
 		</article>
