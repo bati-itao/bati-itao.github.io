@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="nvdacheck1.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </head>
+    
+<body>
+    <div>
+      <h1>  The following example contains all basic HTML form controls: </h1>
+<ul>
+<li>Single line text input: &lt;input type="text"&gt; (with maxlength, readonly, and disabled variants).</li>
+<li>Multi line text input: &lt;textarea&gt;.</li>
+<li>File upload: &lt;input type="file"&gt;.</li>
+<li>Radio buttons: &lt;input type="radio"&gt;.</li>
+<li>Multiple checkboxes: &lt;input type="checkbox"&gt;.</li>
+<li>Single select (combobox): &lt;select&gt;.</li>
+<li>Multi select (list): &lt;select multiple&gt;.</li>
+<li>Single select with grouping: &lt;select&gt; with &lt;optgroup&gt;.</li>
+<li>Multi select with grouping: &lt;select multiple&gt; with &lt;optgroup&gt;.</li>
+<li>Single checkbox: &lt;input type="checkbox"&gt;.</li>
+<li>Submit button: &lt;button type="submit"&gt; (with a disabled variant).</li>
+</ul>
+<p>Each form control has a corresponding &lt;label&gt; element that is connected to it using the for attribute (pointing to the control's ID). This allows screen readers to announce the controls correctly.</p>
+
+<p>Each group of radio buttons and checkboxes has a surrounding &lt;fieldset&gt;/&lt;legend&gt; structure: in addition to the control's &lt;label&gt;, screen readers also announce the &lt;legend&gt; of the surrounding &lt;fieldset&gt;. <br>
+The usage of this structure is not limited to radio buttons and checkboxes: all kinds of related form controls can be grouped like this.</p>
+
+<p>As the controls are surrounded with a &lt;form&gt; tag, the form can be submitted without hitting the submit button: simply press the Enter key while you are focusing a control (except multi line text input and file upload)</p>
+    </div>
+    <hr>
+    <form>
+  <div class="control">
+    <label for="name">Full name </label><input id="name" maxlength="20" type="text" required>
+  </div>
+  <div class="control">
+    <label for="introduction">Street Name </label><textarea id="introduction"></textarea>
+  </div>
+  <div class="control">
+    <label for="Canada">Country </label><input id="Canada" readonly="" type="text" value="Canada">
+  </div>
+  <div class="control">
+    <label for="coupon">Coupon </label><input disabled="" id="coupon" type="text" value="Not available" />
+  </div>
+  <div class="control">
+    <label for="image">Image </label><input id="image" type="file" />
+  </div>
+  <fieldset>
+    <legend>Gender</legend>
+    <div class="control">
+      <input id="gender_male" name="gender" type="radio" /><label for="gender_male">Male</label>
+    </div>
+    <div class="control">
+      <input id="gender_female" name="gender" type="radio" /><label for="gender_female">Female</label>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Hobbies</legend>
+    <div class="control">
+      <input id="hobbies_reading" type="checkbox" /><label for="hobbies_reading">Reading</label>
+    </div>
+    <div class="control">
+      <input id="hobbies_coding" type="checkbox" /><label for="hobbies_coding">Coding</label>
+    </div>
+    <div class="control">
+      <input id="hobbies_development" type="checkbox" /><label for="hobbies_development">Development</label>
+    </div>
+  </fieldset>
+  <div class="control">
+    <label for="age_group">Age Group</label>
+    <select id="age_group">
+      <option>
+        0 to 9 Years
+      </option>
+      <option>
+        10 to 19 Years
+      </option>
+      <option>
+        20 to 29 Years
+      </option>
+      <option>
+        30 to 39 Years
+      </option>
+      <option>
+        40 to 49 Years
+      </option>
+    </select>
+  </div>
+  <div class="control">
+    <label for="conpanies">Top Companies</label><select id="companies" size="2">
+      <option>
+        Amazon
+      </option>
+      <option>
+        Deloitte
+      </option>
+      <option>
+        Microsoft
+      </option>
+      <option>
+        ESDC
+      </option>
+    </select>
+  </div>
+  <div class="control">
+    <label for="places">Favourite Places</label><select id="places" multiple="">
+      <option>
+        Paris
+      </option>
+      <option>
+        San Franscisco
+      </option>
+      <option>
+        New York
+      </option>
+      <option>
+        Toronto
+      </option>
+      <option>
+        Tokyo
+      </option>
+    </select>
+  </div>
+  <div class="control">
+    <label for="favourite_car">Favourite Car</label><select id="favourite_car"><optgroup label="Swedish Cars">
+        <option>
+          BMW
+        </option>
+        <option>
+          Tesla
+        </option>
+      </optgroup><optgroup label="German Cars">
+        <option>
+          Mercedes
+        </option>
+        <option>
+          Audi
+        </option>
+      </optgroup></select>
+  </div>
+  <div class="control">
+    <label for="my_actor">Favourite Actor</label><select id="my_actor" size="2">
+        <optgroup label="Male">
+        <option>
+          Tom Cruise
+        </option>
+        <option>
+          Denzel Washington
+        </option>
+      </optgroup>
+      <optgroup label="Female">
+        <option>
+          Anna Hathaway
+        </option>
+        <option>
+          Sharon Stone
+        </option>
+      </optgroup></select>
+  </div>
+  <div class="control">
+    <label for="public_transports">Public transports</label><select id="public_transports" multiple=""><optgroup label="Ground">
+        <option>
+          Train
+        </option>
+        <option>
+          Bus
+        </option>
+      </optgroup><optgroup label="Water">
+        <option>
+          Ship
+        </option>
+        <option>
+          Submarine
+        </option>
+      </optgroup><optgroup label="Air">
+        <option>
+          Plane
+        </option>
+        <option>
+          Cable Car
+        </option>
+      </optgroup></select>
+  </div>
+  
+  <h2>Any Accessibility required?</h2>
+    
+    <label class="switch">
+      <input type="checkbox" checked>
+      <span class="slider round"></span>
+    </label>
+  
+  <br>
+  <div class="control">
+    <input id="accept_agbs" type="checkbox" /><label for="accept_agbs">I accept the terms and conditions</label>
+  </div>
+  <div class="control">
+    <button type="submit">Register</button>
+  </div>
+  <div class="control">
+    <button disabled="">Cancel</button>
+  </div>
+</form>
+    
+    </body>
+</html>
