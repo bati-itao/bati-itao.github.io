@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+  <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8" />
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>Foire aux questions - EDSC / Bureau de l'accessibilité des TI</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <!-- Meta data -->
+    <meta
+      name="description"
+      content="Une liste des questions fréquemment posées et des réponses pour les sujets d'accessibilité Web liés aux clients."
+    />
+    <!-- Meta data-->
+    <!-- Load closure template scripts -->
+    <script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+    <script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+    <!-- Write closure template -->
+    <script src="https://bati-itao.github.io/scripts/refTop.min.js"></script>
+  </head>
+
+  <body vocab="https://schema.org/" typeof="WebPage">
+    <div id="def-top"></div>
+    <!-- Write closure template -->
+    <script>
+      var defTop = document.getElementById("def-top");
+      defTop.outerHTML = wet.builder.appTop({
+        appName: [
+          {
+            text: "EDSC / Bureau de l'accessibilité des TI",
+            href: "https://bati-itao.github.io/index-fr.html",
+          },
+        ],
+        breadcrumbs: [
+          {
+            title: "Accueil",
+            href: "https://bati-itao.github.io/index-fr.html",
+          },
+          {
+            title: "Ressources et outils",
+            href: "https://bati-itao.github.io/resources/index-fr.html",
+          },
+        ],
+        lngLinks: [
+          {
+            lang: "en",
+            href: "./faq-web-accessibility-en.html",
+            text: "English",
+          },
+        ],
+        menuPath: "https://bati-itao.github.io/ajax/menu-fr.html",
+      });
+    </script>
+    <main role="main" property="mainContentOfPage" class="container">
+      <section>
+        <h1 property="name" id="wb-cont">
+          Foire aux questions - Accessibilité Web
+        </h1>
+
+        <h2>
+          Devons-nous soumettre une demande chaque fois que nous apportons une
+          modification à notre application ?
+        </h2>
+        <p>
+          Un audit d'accessibilité est requis lorsque l'interface utilisateur a
+          été modifiée.
+        </p>
+        <h2>Quelles sont les normes d'accessibilité actuelles et futures ?</h2>
+        <h3>Normes actuelles</h3>
+        <ul>
+          <li>
+            <a href="https://www.w3.org/TR/WCAG21/">WCAG 2.1 (A et AA)</a>
+            supporté par
+          </li>
+          <ul>
+            <li>
+              <a href="https://www.tbs-sct.canada.ca/pol/doc-fra.aspx?id=32620"
+                >Lignes directrices pour rendre les technologies de
+                l'information utilisables par tous</a
+              >
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.canada.ca/pol/doc-fra.aspx?id=23601"
+                >Norme sur l'accessibilité Web</a
+              >
+              (actuellement en cours de rafraichissement)
+            </li>
+            <li>
+              <a
+                href="https://www.etsi.org/deliver/etsi_en/301500_301599/301549/02.01.02_60/en_301549v020102p.pdf"
+                >La norme européenne d'accessibilité numérique</a
+              >
+              (EU EN 301 549 v2.1.2)
+            </li>
+          </ul>
+        </ul>
+        <h3>Normes futures</h3>
+        <ul>
+          <li>
+            <a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2 (A et AA)</a> (fin
+            2021)
+          </li>
+          <ul>
+            <li>
+              Sera pris en charge par la dernière mise à jour de la Norme sur
+              l'accessibilité des sites Web ou l'une des politiques
+              d'accessibilité numérique à venir.
+            </li>
+          </ul>
+          <li>
+            <a href="https://www.w3.org/TR/wcag-3.0/"
+              >WCAG 3.0 (cote d'argent)</a
+            >
+          </li>
+          <ul>
+            <li>
+              On ne sait pas encore comment cela sera soutenu, mais très
+              probablement par le biais d'un instrument de politique mis à jour
+              du SCT.
+            </li>
+            <li>
+              WCAG 3.0 sera un changement complet dans la façon dont les tests
+              de conformité sont effectués.
+            </li>
+          </ul>
+        </ul>
+        <h2>Comment valider des pages web internes avec Nu Html Checker ?</h2>
+        <p>
+          Pour valider une page interne, vous pouvez utiliser le signet
+          "Vérifier le DOM sérialisé pour la page en cours" et le signet
+          "Parsing WCAG" pour filtrer le résultat. Pour les essayer, veuillez
+          suivre les étapes ci-dessous :
+        </p>
+        <ol>
+          <li>
+            Enregistrer la vérification DOM sérialisée pour la page actuelle.
+          </li>
+          <li>Enregistrez l'analyse WCAG uniquement en tant que signet.</li>
+          <li>
+            Utilisez la vérification DOM sérialisée du signet de la page
+            actuelle pour vérifier une page (page de test).
+          </li>
+          <li>
+            Une fois la page de résultats affichée, activez le signet "WCAG
+            Parsing".
+          </li>
+          <li>
+            Les résultats seront filtrés pour fournir un sous-ensemble
+            approximatif de résultats de validation qui représentent WCAG 2.x
+            4.1.1 L'analyse échoue.
+          </li>
+        </ol>
+        <h3>Vérifiez le DOM sérialisé pour le code de signet actuel</h3>
+        <p class="small mrgn-bttm-0">JavaScript</p>
+        <p class="wb-inv">Le code commence</p>
+        <pre class="mrgn-tp-0">
+<code>javascript:(function(){function%20c(a,b){var%20c=document.createElement("textarea");c.name=a;c.value=b;d.appendChild(c)}var%20e=function(a){for(var%20b="",a=a.firstChild;a;){switch(a.nodeType){case%20Node.ELEMENT_NODE:b+=a.outerHTML;break;case%20Node.TEXT_NODE:b+=a.nodeValue;break;case%20Node.CDATA_SECTION_NODE:b+="&lt;![CDATA["+a.nodeValue+"]]\>";break;case%20Node.COMMENT_NODE:b+="&lt;\!--"+a.nodeValue+"--\>";break;case%20Node.DOCUMENT_TYPE_NODE:b+="&lt;!DOCTYPE%20"+a.name+">\n"}a=a.nextSibling}return%20b}(document),d=document.createElement("form");d.method="POST";d.action="http://validator.w3.org/nu/";d.enctype="multipart/form-data";d.target="_blank";d.acceptCharset="utf-8";c("showsource","yes");c("showoutline","yes");c("content",e);document.body.appendChild(d);d.submit()})();</code></pre>
+        <p class="wb-inv">Le code se termine</p>
+        <p>
+          La source:
+          <a href="https://www.tpgi.com/wcag-2-0-parsing-error-bookmarklet/ "
+            >Signet d'erreur d'analyse WCAG 2.1</a
+          >
+        </p>
+        <h3>Signet pour l'analyseur WCAG</h3>
+        <p class="small mrgn-bttm-0">JavaScript</p>
+        <p class="wb-inv">Le code commence</p>
+        <pre class="mrgn-tp-0">
+<code>javascript:(function(){var removeNg=true;var filterStrings=["tag seen","Stray end tag","Bad start tag","violates nesting","Duplicate ID","first occurrence of ID","Unclosed element","not allowed as child of","unclosed elements","not allowed on element","unquoted attribute value","Duplicate attribute","tabindex must not", "not appear as a descendant of"];var filterRE,root,results,result,resultText,i,cnt=0;filterRE=filterStrings.join("|");root=document.getElementById("results");if(!root){alert("No results container found.");return}results=root.getElementsByTagName("li");for(i=0;i&lt;results.length;i++){result=results[i];if(result.className!==""){resultText=(result.innerText!==undefined?result.innerText:result.textContent)+"";if(resultText.match(filterRE)===null){result.style.display="none";result.className=result.className+" steveNoLike";cnt++}else if(removeNg==true){if(resultText.indexOf("not allowed on element")!==-1&&(resultText.indexOf("ng-")!==-1&&resultText.indexOf("ng-")&lt;resultText.indexOf("not allowed on element"))){result.style.display="none";result.className=result.className+" steveNoLike";cnt++}}}}alert("Complete. "+cnt+" items removed.")})();</code></pre>
+        <p class="wb-inv">Le code se termine</p>
+        <h2>Comment coder les adresses é-mail ?</h2>
+        <p>
+          En règle générale, il est recommandé de fournir l'adresse e-mail
+          complète comme texte de lien. Par exemple : "Veuillez contacter le
+          service des technologies de l'information et de la communication
+          accessibles pour plus d'informations :
+          <a href="mailto:edsc.ti-it.a11y.esdc@hrsdc-rhdcc.gc.ca"
+            >edsc.ti-it.a11y.esdc@hrsdc-rhdcc.gc.ca</a
+          >" ou " Veuillez envoyer un e-mail
+          <a href="mailto:edsc.ti-it.a11y.esdc@hrsdc-rhdcc.gc.ca"
+            >edsc.ti-it.a11y.esdc@hrsdc-rhdcc.gc.ca</a
+          >“
+        </p>
+        <p>
+          Veuillez écrire l'adresse e-mail en minuscules comme recommandé par le
+          <a
+            href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-style-guide.html#wp7-2"
+            >Guide de style de contenu Canada.ca</a
+          >.
+        </p>
+        <h2>
+          Pourriez-vous nous fournir l'échelle de gravité des défauts utilisée
+          dans le évaluation des produits COTS du personnel interne ?
+        </h2>
+        <p>
+          Nous n'avons pas d'échelle officielle de gravité des défauts.
+          N'oubliez pas que nous ne voulons pas que les clients disent : "Nous
+          n'avons manqué qu'un seul critère de réussite et avons obtenu 99 %,
+          nous sommes donc prêts à partir." Cet échec unique pourrait être lié à
+          l'accessibilité du clavier, ce qui aurait un impact énorme par rapport
+          à un site qui a obtenu un score de 85 % mais tous les problèmes à
+          faible impact. En fin de compte, notre rôle sera d'identifier et de
+          guider sur l'accessibilité.
+        </p>
+        <h2>Plugin basé sur un navigateur approuvés</h2>
+        <ul>
+          <li>
+            <a
+              href="https://dialogue/grp/BU6206833/Compliance/Approved%20add-ons%20and%20testing%20tools/ApprovedAdd-ons.xlsx"
+              >Plugins approuvés</a
+            >
+          </li>
+        </ul>
+      </section>
+      <div class="mrgn-tp-lg" id="def-preFooter"></div>
+      <script src="../../scripts/preFooter.min.js"></script>
+    </main>
+    <div id="def-footer"></div>
+    <script src="https://bati-itao.github.io/scripts/appFooter-fr.min.js"></script>
+    <script src="https://bati-itao.github.io/scripts/refFooter.min.js"></script>
+    <script src="https://bati-itao.github.io/scripts/bati-itao.min.js"></script>
+  </body>
+</html>

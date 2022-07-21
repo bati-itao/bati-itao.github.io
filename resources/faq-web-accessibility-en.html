@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+  <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8" />
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>Frequently Asked Questions - ESDC / IT Accessibility office</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <!-- Meta data -->
+    <meta
+      name="description"
+      content="A list of frequently asked questions and answers for client related web accessibility topics."
+    />
+    <!-- Meta data-->
+    <!-- Load closure template scripts -->
+    <script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+    <script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+    <!-- Write closure template -->
+    <script src="https://bati-itao.github.io/scripts/refTop.min.js"></script>
+  </head>
+
+  <body vocab="https://schema.org/" typeof="WebPage">
+    <div id="def-top"></div>
+    <!-- Write closure template -->
+    <script>
+      var defTop = document.getElementById("def-top");
+      defTop.outerHTML = wet.builder.appTop({
+        appName: [
+          {
+            text: "ESDC / IT Accessibility office",
+            href: "https://bati-itao.github.io/index-en.html",
+          },
+        ],
+        breadcrumbs: [
+          {
+            title: "Home",
+            href: "https://bati-itao.github.io/index-en.html",
+          },
+          {
+            title: "Resources and Tools",
+            href: "https://bati-itao.github.io/resources/index.html",
+          },
+        ],
+        lngLinks: [
+          {
+            lang: "fr",
+            href: "./faq-web-accessibility-fr.html",
+            text: "Français",
+          },
+        ],
+        menuPath: "https://bati-itao.github.io/ajax/menu-en.html",
+      });
+    </script>
+    <main role="main" property="mainContentOfPage" class="container">
+      <section>
+        <h1 property="name" id="wb-cont">
+          Frequently Asked Questions - Web Accessibility
+        </h1>
+
+        <h2>
+          Do we need to submit a request each time we make a change to our
+          applications?
+        </h2>
+        <p>
+          An accessibility audit is required when the user interface has been
+          changed.
+        </p>
+        <h2>What are current and future accessibility standards?</h2>
+        <h3>Current standards</h3>
+        <ul>
+          <li>
+            <a href="https://www.w3.org/TR/WCAG21/">WCAG 2.1 (A and AA)</a>
+            supported by
+          </li>
+          <ul>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32620"
+                >Guideline on Making Information Technology Usable by All</a
+              >
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=23601"
+                >Standard on Web Accessibility</a
+              >
+              (currently being refreshed)
+            </li>
+            <li>
+              <a
+                href="https://www.etsi.org/deliver/etsi_en/301500_301599/301549/02.01.02_60/en_301549v020102p.pdf"
+                >The European Standard for Digital Accessibility</a
+              >
+              (EU EN 301 549 v2.1.2)
+            </li>
+          </ul>
+        </ul>
+        <h3>Future standards</h3>
+        <ul>
+          <li>
+            <a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2 (A and AA)</a> (end
+            of 2021)
+          </li>
+          <ul>
+            <li>
+              Will be supported by the latest update to the Standard on Web
+              Accessibility or one of the upcoming digital accessibility
+              policies.
+            </li>
+          </ul>
+          <li>
+            <a href="https://www.w3.org/TR/wcag-3.0/"
+              >WCAG 3.0 (silver rating)</a
+            >
+          </li>
+          <ul>
+            <li>
+              Unknown yet how this will be supported but most likely through an
+              updated TBS policy instrument
+            </li>
+            <li>
+              WCAG 3.0 will be a complete shift of how conformance testing is
+              performed.
+            </li>
+          </ul>
+        </ul>
+        <h2>How to validate internal web pages against the Nu Html Checker?</h2>
+        <p>
+          To validate an internal page, one can use the “Check serialized DOM
+          for the current page” bookmarklet and the “WCAG Parsing” Bookmarklet
+          to filter the result. To try out the bookmarklets, please follow the
+          steps below:
+        </p>
+        <ol>
+          <li>Save the Check serialized DOM of current page</li>
+          <li>Save the WCAG parsing only as a bookmark.</li>
+          <li>
+            Check a page (test page) using the Check serialized DOM of current
+            page bookmarklet)
+          </li>
+          <li>
+            Once the results page is displayed activate the Parsing bookmarklet
+          </li>
+          <li>
+            The results will be filtered to provide a rough subset of the
+            validation results that represent WCAG 2.x 4.1.1 Parsing fails.
+          </li>
+        </ol>
+        <h3>Check serialized DOM for the current bookmarklet code</h3>
+        <p class="small mrgn-bttm-0">JavaScript</p>
+        <p class="wb-inv">Code begins</p>
+        <pre class="mrgn-tp-0">
+<code>javascript:(function(){function%20c(a,b){var%20c=document.createElement("textarea");c.name=a;c.value=b;d.appendChild(c)}var%20e=function(a){for(var%20b="",a=a.firstChild;a;){switch(a.nodeType){case%20Node.ELEMENT_NODE:b+=a.outerHTML;break;case%20Node.TEXT_NODE:b+=a.nodeValue;break;case%20Node.CDATA_SECTION_NODE:b+="&lt;![CDATA["+a.nodeValue+"]]\>";break;case%20Node.COMMENT_NODE:b+="&lt;\!--"+a.nodeValue+"--\>";break;case%20Node.DOCUMENT_TYPE_NODE:b+="&lt;!DOCTYPE%20"+a.name+">\n"}a=a.nextSibling}return%20b}(document),d=document.createElement("form");d.method="POST";d.action="http://validator.w3.org/nu/";d.enctype="multipart/form-data";d.target="_blank";d.acceptCharset="utf-8";c("showsource","yes");c("showoutline","yes");c("content",e);document.body.appendChild(d);d.submit()})();</code></pre>
+        <p class="wb-inv">Code ends</p>
+        <p>
+          Source:
+          <a href="https://www.tpgi.com/wcag-2-0-parsing-error-bookmarklet/ "
+            >WCAG 2.1 Parsing Error Bookmarklet</a
+          >
+        </p>
+        <h3>“WCAG Parsing” Bookmarklet</h3>
+        <p class="small mrgn-bttm-0">JavaScript</p>
+        <p class="wb-inv">Code begins</p>
+        <pre class="mrgn-tp-0">
+<code>javascript:(function(){var removeNg=true;var filterStrings=["tag seen","Stray end tag","Bad start tag","violates nesting","Duplicate ID","first occurrence of ID","Unclosed element","not allowed as child of","unclosed elements","not allowed on element","unquoted attribute value","Duplicate attribute","tabindex must not", "not appear as a descendant of"];var filterRE,root,results,result,resultText,i,cnt=0;filterRE=filterStrings.join("|");root=document.getElementById("results");if(!root){alert("No results container found.");return}results=root.getElementsByTagName("li");for(i=0;i&lt;results.length;i++){result=results[i];if(result.className!==""){resultText=(result.innerText!==undefined?result.innerText:result.textContent)+"";if(resultText.match(filterRE)===null){result.style.display="none";result.className=result.className+" steveNoLike";cnt++}else if(removeNg==true){if(resultText.indexOf("not allowed on element")!==-1&&(resultText.indexOf("ng-")!==-1&&resultText.indexOf("ng-")&lt;resultText.indexOf("not allowed on element"))){result.style.display="none";result.className=result.className+" steveNoLike";cnt++}}}}alert("Complete. "+cnt+" items removed.")})();</code></pre>
+        <p class="wb-inv">Code ends</p>
+        <h2>How to code email addresses?</h2>
+        <p>
+          Generally, it is recommended to provide the full email address as link
+          text. For example: “Please contact the Accessible Information and
+          Communication Technology for more information:
+          <a href="mailto:edsc.ti-it.a11y.esdc@hrsdc-rhdcc.gc.ca"
+            >edsc.ti-it.a11y.esdc@hrsdc-rhdcc.gc.ca</a
+          >“ or “Please email
+          <a href="mailto:edsc.ti-it.a11y.esdc@hrsdc-rhdcc.gc.ca"
+            >edsc.ti-it.a11y.esdc@hrsdc-rhdcc.gc.ca</a
+          >“
+        </p>
+        <p>
+          Please write the email address in lower case as recommended by the
+          <a
+            href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-style-guide.html#wp7-2"
+            >Canada.ca Content Style Guide</a
+          >.
+        </p>
+        <h2>
+          Could you please provide us with the defect severity scale used in the
+          assessment of internal staff COTS products?
+        </h2>
+        <p>
+          We don’t have a defect severity scale or at least not an official one.
+          Remember that we don’t want clients saying “We only missed one success
+          criteria and got 99% so we’re good to go”. That one missed success
+          criteria could be keyboard accessibility and would have a huge impact
+          versus a site that got 85% but all low impact issues. At the end of
+          the day our role is to identify and guide on accessibility.
+        </p>
+        <h2>Approved Browser based plugins</h2>
+        <ul>
+          <li>
+            <a
+              href="https://dialogue/grp/BU6206833/Compliance/Approved%20add-ons%20and%20testing%20tools/ApprovedAdd-ons.xlsx"
+              >Approved plugins</a
+            >
+          </li>
+        </ul>
+      </section>
+      <div class="mrgn-tp-lg" id="def-preFooter"></div>
+      <script src="../../scripts/preFooter.min.js"></script>
+    </main>
+    <div id="def-footer"></div>
+    <script src="https://bati-itao.github.io/scripts/appFooter.min.js"></script>
+    <script src="https://bati-itao.github.io/scripts/refFooter.min.js"></script>
+    <script src="https://bati-itao.github.io/scripts/bati-itao.min.js"></script>
+  </body>
+</html>
