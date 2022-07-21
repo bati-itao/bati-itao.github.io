@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="project3.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="navcheck.css">
+    <link rel="stylesheet" href="formcheck.css">
+    <script src="studio/auto.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>My Portfolio</title>
+    <style>
+        #myUL {
+            list-style-type: none;
+        }
+           [role="switch"] {
+              margin: 2px;
+              padding: 4px 4px 8px 8px;
+              border: 0 solid #005a9c;
+              border-radius: 5px;
+              width: 15em;
+              user-select: none;
+            }
+            
+            [role="switch"] .label {
+              display: inline-block;
+              width: 8em;
+            }
+            
+            [role="switch"] .switch {
+              position: relative;
+              display: inline-block;
+              top: 6px;
+              border: 2px solid black;
+              border-radius: 12px;
+              height: 20px;
+              width: 40px;
+            }
+            
+            [role="switch"] .switch span {
+              position: absolute;
+              top: 2px;
+              left: 2px;
+              display: inline-block;
+              border: 2px solid black;
+              border-radius: 8px;
+              height: 12px;
+              width: 12px;
+              background: black;
+            }
+            
+            [role="switch"][aria-checked="true"] .switch span {
+              left: 21px;
+              background: green;
+              border-color: green;
+            }
+            
+            [role="switch"] .on {
+              display: none;
+            }
+            
+            [role="switch"] .off {
+              display: inline;
+            }
+            
+            [role="switch"][aria-checked="true"] .on {
+              display: inline;
+            }
+            
+            [role="switch"][aria-checked="true"] .off {
+              display: none;
+            }
+            
+            [role="switch"]:focus,
+            [role="switch"]:hover {
+              padding: 2px 2px 6px 6px;
+              border-width: 2px;
+              outline: none;
+              background-color: #def;
+              cursor: pointer;
+            }
+            
+            [role="switch"]:focus span.switch {
+              background-color: white;
+            }
+            .label {
+                color:red;
+                font-size: 18px;
+            }
+            .combo *,
+            .combo *::before,
+            .combo *::after {
+              box-sizing: border-box;
+            }
+            
+            .combo {
+              display: block;
+              margin-bottom: 1.5em;
+              max-width: 400px;
+              position: relative;
+            }
+            
+            .combo::after {
+              border-bottom: 2px solid rgb(0 0 0 / 75%);
+              border-right: 2px solid rgb(0 0 0 / 75%);
+              content: "";
+              display: block;
+              height: 12px;
+              pointer-events: none;
+              position: absolute;
+              right: 16px;
+              top: 50%;
+              transform: translate(0, -65%) rotate(45deg);
+              width: 12px;
+            }
+            
+            .combo-input {
+              background-color: #f5f5f5;
+              border: 2px solid rgb(0 0 0 / 75%);
+              border-radius: 4px;
+              display: block;
+              font-size: 1em;
+              min-height: calc(1.4em + 26px);
+              padding: 12px 16px 14px;
+              text-align: left;
+              width: 100%;
+            }
+            
+            .open .combo-input {
+              border-radius: 4px 4px 0 0;
+            }
+            
+            .combo-input:focus {
+              border-color: #0067b8;
+              box-shadow: 0 0 4px 2px #0067b8;
+              outline: 4px solid transparent;
+            }
+            
+            .combo-label {
+              display: block;
+              font-size: 20px;
+              font-weight: 100;
+              margin-bottom: 0.25em;
+            }
+            
+            .combo-menu {
+              background-color: #f5f5f5;
+              border: 1px solid rgb(0 0 0 / 75%);
+              border-radius: 0 0 4px 4px;
+              display: none;
+              max-height: 300px;
+              overflow-y: scroll;
+              left: 0;
+              position: absolute;
+              top: 100%;
+              width: 100%;
+              z-index: 100;
+            }
+            
+            .open .combo-menu {
+              display: block;
+            }
+            
+            .combo-option {
+              padding: 10px 12px 12px;
+            }
+            
+            .combo-option:hover {
+              background-color: rgb(0 0 0 / 10%);
+            }
+            
+            .combo-option.option-current {
+              outline: 3px solid #0067b8;
+              outline-offset: -3px;
+            }
+            
+            .combo-option[aria-selected="true"] {
+              padding-right: 30px;
+              position: relative;
+            }
+            
+            .combo-option[aria-selected="true"]::after {
+              border-bottom: 2px solid #000;
+              border-right: 2px solid #000;
+              content: "";
+              height: 16px;
+              position: absolute;
+              right: 15px;
+              top: 50%;
+              transform: translate(0, -50%) rotate(45deg);
+              width: 8px;
+            }
+    </style>
+</head>
+<body>
+    
+            
+            <div class="issuelist">
+                <div class="wb-frmvld">
+                    <h1>New Solution Request Form Test - NVDA</h1>
+                    <br><br>
+	<form action="#" method="get" id="validation-example">
+
+    <!--
+        <div class="form-group">
+		    <label for="listbox1"></label>
+            <select id="listbox1">
+               <option selected>English / Anglais</option>
+               <option>English / Anglais</option>
+               <option>Francais / French</option>
+            </select>
+    	</div>
+    -->
+    
+    <!-- Select Lanaguage Combo box-->
+<div class="form-group">
+	<label for="listbox1"></label>
+        <select id="listbox1" aria-expanded="false" aria-label="Press enter. Select your preferred language. English / Anglais">
+           <option selected>English / Anglais</option>
+           <option>English / Anglais</option>
+           <option>Francais / French</option>
+        </select>
+  </div>             
+    
+    
+		<br><br>
+		<!--Auto Complete Form for Requestor-->
+        	<div class="form-group">
+              <label for="input" class="required"><span class="field-name">Requestor</span><strong class="required">(required)</strong></label>
+              <input type="text" id="input" role="combobox" aria-label= "Press enter. Type Last Name and Enter from Search Results. Press esc to exit dropdown">
+              <ul id="suggestions"></ul>
+            </div>
+
+<br><br>
+
+        <!--
+        <div class="form-group">
+			<label for="organization" class="required"><span class="field-name">Organization</span> <strong class="required">(required)</strong></label>
+			<select class="form-control" id="organization" name="organization" autocomplete="honorific-prefix" title="Select Organization">
+				<option label="Select Organization"></option>
+				<option value="English / Anglais">ESDC</option>
+    			<option value="Francais / French">Labour Program</option>
+    			  <option value="Francais / French">Service Canada</option>
+			</select>
+		</div>
+		-->
+		
+		<!-- Organization Required Listbox -->
+		
+		<label id="combo1-label" class="combo-label"><span class="field-name" aria-label= "Press enter. Select Organization. Press esc to exit dropdown items">Organization </span><strong class="required">(required)</strong></label>
+            <div class="combo js-select">
+                <div aria-controls="listbox1" aria-expanded="false" aria-haspopup="listbox"  aria-labelledby="combo1-label" id="combo1" class="combo-input" role="combobox" tabindex="0">
+                </div>
+                <div class="combo-menu" role="listbox" id="listbox1" aria-labelledby="combo1-label" tabindex="-1">
+                    <!-- options are inserted here -->
+                    <!-- e.g. <div role="option" id="op1">option text</div>  -->
+                </div>
+            </div>
+      
+		<br><br>
+			<!--Auto Complete Form for Manager-->
+			
+		<div class="form-group">
+              <label for="input1" class="required">
+                  <span class="form-group">Manager</span><strong class="required">(required)</strong></label>
+              <input type="text" id="input1" role="combobox" aria-label= "Press enter. Type Last Name and Enter from Search Results. Press esc to exit dropdown" title="Type Last Name and Select from Search Results">
+              <ul id="mgrsuggestions"></ul>
+            </div>
+		
+		
+		
+		
+       <br><br>
+       
+		<!--
+		<div class="form-group">
+            <label>Would any reports be required?</label>
+             <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+                        
+		</div>
+		-->
+		<!-- Toggle Switch -->
+		<div class="form-group">
+		<div role="switch"
+             aria-checked="false"
+             tabindex="0">
+          <span class="label">
+            Would any reports be requested?
+          </span><br>
+          <span class="switch" aria-label="Press Enter to select Yes or No options.">
+            <span></span>
+          </span>
+          <span class="on" aria-hidden="true" arial-label="Option selected yes, please provide a description of any reports required in the textbox below">
+            On
+          </span>
+          <span class="off" aria-hidden="true">
+            Off
+          </span>
+        </div>
+		
+		</div>
+		
+		
+		<br><br>
+		
+		<div class="form-group">
+			<label for="file1" class="required"><span class="field-name">If possible please attach any documentation or screenshots to help with the solution design. (layout of screens, data tob be captured, sample forms of current process</span> <strong class="required">(Optional)</strong></label>
+			<input id="file1" name="file1" type="file" required="required" aria-label="Press Enter. Select the file from the file explorer and attach any documentation or screen shots to help with the solution design">
+		</div>
+	
+		<br><br>
+		<!--
+		<div class="form-group">
+		<label class="required"><span class="field-name">What problem are you trying to resolve or what is the purpose of the solution being requested?</span> <strong class="required">(required)</strong></label>
+		<textarea class="form-control" rows="10"></textarea>
+		</div>
+	    <br>
+		-->
+		
+		<div class="form-group">
+		<div id="txtboxMultilineLabel" class="required"><span class="field-name">What problem are you trying to resolve or what is the purpose of the solution being requested?</span> <strong class="required">(required)</strong></div>
+        <div role="textbox" contenteditable="true" aria-multiline="true"
+            aria-labelledby="txtboxMultilineLabel" aria-required="true">
+            
+        </div>
+   </div>
+   
+		<br><br>
+		<input type="submit" value="Submit" class="btn btn-primary"> <input type="reset" value="Reset page to defaults" class="btn btn-link btn-sm show p-0 mrgn-tp-md">
+		
+		
+    </form>
+    </div>
+                     <!-- JAVASCRIPT for the Languge -->
+                     <script>
+                        /*
+                         *   This content is licensed according to the W3C Software License at
+                         *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+                         */
+                        
+                        'use strict';
+                        
+                        class ComboboxAutocomplete {
+                          constructor(comboboxNode, buttonNode, listboxNode) {
+                            this.comboboxNode = comboboxNode;
+                            this.buttonNode = buttonNode;
+                            this.listboxNode = listboxNode;
+                        
+                            this.comboboxHasVisualFocus = false;
+                            this.listboxHasVisualFocus = false;
+                        
+                            this.hasHover = false;
+                        
+                            this.isNone = false;
+                            this.isList = false;
+                            this.isBoth = false;
+                        
+                            this.allOptions = [];
+                        
+                            this.option = null;
+                            this.firstOption = null;
+                            this.lastOption = null;
+                        
+                            this.filteredOptions = [];
+                            this.filter = '';
+                        
+                            var autocomplete = this.comboboxNode.getAttribute('aria-autocomplete');
+                        
+                            if (typeof autocomplete === 'string') {
+                              autocomplete = autocomplete.toLowerCase();
+                              this.isNone = autocomplete === 'none';
+                              this.isList = autocomplete === 'list';
+                              this.isBoth = autocomplete === 'both';
+                            } else {
+                              // default value of autocomplete
+                              this.isNone = true;
+                            }
+                        
+                            this.comboboxNode.addEventListener(
+                              'keydown',
+                              this.onComboboxKeyDown.bind(this)
+                            );
+                            this.comboboxNode.addEventListener(
+                              'keyup',
+                              this.onComboboxKeyUp.bind(this)
+                            );
+                            this.comboboxNode.addEventListener(
+                              'click',
+                              this.onComboboxClick.bind(this)
+                            );
+                            this.comboboxNode.addEventListener(
+                              'focus',
+                              this.onComboboxFocus.bind(this)
+                            );
+                            this.comboboxNode.addEventListener('blur', this.onComboboxBlur.bind(this));
+                        
+                            document.body.addEventListener(
+                              'pointerup',
+                              this.onBackgroundPointerUp.bind(this),
+                              true
+                            );
+                        
+                            // initialize pop up menu
+                        
+                            this.listboxNode.addEventListener(
+                              'pointerover',
+                              this.onListboxPointerover.bind(this)
+                            );
+                            this.listboxNode.addEventListener(
+                              'pointerout',
+                              this.onListboxPointerout.bind(this)
+                            );
+                        
+                            // Traverse the element children of domNode: configure each with
+                            // option role behavior and store reference in.options array.
+                            var nodes = this.listboxNode.getElementsByTagName('LI');
+                        
+                            for (var i = 0; i < nodes.length; i++) {
+                              var node = nodes[i];
+                              this.allOptions.push(node);
+                        
+                              node.addEventListener('click', this.onOptionClick.bind(this));
+                              node.addEventListener('pointerover', this.onOptionPointerover.bind(this));
+                              node.addEventListener('pointerout', this.onOptionPointerout.bind(this));
+                            }
+                        
+                            this.filterOptions();
+                        
+                            // Open Button
+                        
+                            var button = this.comboboxNode.nextElementSibling;
+                        
+                            if (button && button.tagName === 'BUTTON') {
+                              button.addEventListener('click', this.onButtonClick.bind(this));
+                            }
+                          }
+                        
+                          getLowercaseContent(node) {
+                            return node.textContent.toLowerCase();
+                          }
+                        
+                          isOptionInView(option) {
+                            var bounding = option.getBoundingClientRect();
+                            return (
+                              bounding.top >= 0 &&
+                              bounding.left >= 0 &&
+                              bounding.bottom <=
+                                (window.innerHeight || document.documentElement.clientHeight) &&
+                              bounding.right <=
+                                (window.innerWidth || document.documentElement.clientWidth)
+                            );
+                          }
+                        
+                          setActiveDescendant(option) {
+                            if (option && this.listboxHasVisualFocus) {
+                              this.comboboxNode.setAttribute('aria-activedescendant', option.id);
+                              if (!this.isOptionInView(option)) {
+                                option.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                              }
+                            } else {
+                              this.comboboxNode.setAttribute('aria-activedescendant', '');
+                            }
+                          }
+                        
+                          setValue(value) {
+                            this.filter = value;
+                            this.comboboxNode.value = this.filter;
+                            this.comboboxNode.setSelectionRange(this.filter.length, this.filter.length);
+                            this.filterOptions();
+                          }
+                        
+                          setOption(option, flag) {
+                            if (typeof flag !== 'boolean') {
+                              flag = false;
+                            }
+                        
+                            if (option) {
+                              this.option = option;
+                              this.setCurrentOptionStyle(this.option);
+                              this.setActiveDescendant(this.option);
+                        
+                              if (this.isBoth) {
+                                this.comboboxNode.value = this.option.textContent;
+                                if (flag) {
+                                  this.comboboxNode.setSelectionRange(
+                                    this.option.textContent.length,
+                                    this.option.textContent.length
+                                  );
+                                } else {
+                                  this.comboboxNode.setSelectionRange(
+                                    this.filter.length,
+                                    this.option.textContent.length
+                                  );
+                                }
+                              }
+                            }
+                          }
+                        
+                          setVisualFocusCombobox() {
+                            this.listboxNode.classList.remove('focus');
+                            this.comboboxNode.parentNode.classList.add('focus'); // set the focus class to the parent for easier styling
+                            this.comboboxHasVisualFocus = true;
+                            this.listboxHasVisualFocus = false;
+                            this.setActiveDescendant(false);
+                          }
+                        
+                          setVisualFocusListbox() {
+                            this.comboboxNode.parentNode.classList.remove('focus');
+                            this.comboboxHasVisualFocus = false;
+                            this.listboxHasVisualFocus = true;
+                            this.listboxNode.classList.add('focus');
+                            this.setActiveDescendant(this.option);
+                          }
+                        
+                          removeVisualFocusAll() {
+                            this.comboboxNode.parentNode.classList.remove('focus');
+                            this.comboboxHasVisualFocus = false;
+                            this.listboxHasVisualFocus = false;
+                            this.listboxNode.classList.remove('focus');
+                            this.option = null;
+                            this.setActiveDescendant(false);
+                          }
+                        
+                          // ComboboxAutocomplete Events
+                        
+                          filterOptions() {
+                            // do not filter any options if autocomplete is none
+                            if (this.isNone) {
+                              this.filter = '';
+                            }
+                        
+                            var option = null;
+                            var currentOption = this.option;
+                            var filter = this.filter.toLowerCase();
+                        
+                            this.filteredOptions = [];
+                            this.listboxNode.innerHTML = '';
+                        
+                            for (var i = 0; i < this.allOptions.length; i++) {
+                              option = this.allOptions[i];
+                              if (
+                                filter.length === 0 ||
+                                this.getLowercaseContent(option).indexOf(filter) === 0
+                              ) {
+                                this.filteredOptions.push(option);
+                                this.listboxNode.appendChild(option);
+                              }
+                            }
+                        
+                            // Use populated options array to initialize firstOption and lastOption.
+                            var numItems = this.filteredOptions.length;
+                            if (numItems > 0) {
+                              this.firstOption = this.filteredOptions[0];
+                              this.lastOption = this.filteredOptions[numItems - 1];
+                        
+                              if (currentOption && this.filteredOptions.indexOf(currentOption) >= 0) {
+                                option = currentOption;
+                              } else {
+                                option = this.firstOption;
+                              }
+                            } else {
+                              this.firstOption = null;
+                              option = null;
+                              this.lastOption = null;
+                            }
+                        
+                            return option;
+                          }
+                        
+                          setCurrentOptionStyle(option) {
+                            for (var i = 0; i < this.filteredOptions.length; i++) {
+                              var opt = this.filteredOptions[i];
+                              if (opt === option) {
+                                opt.setAttribute('aria-selected', 'true');
+                                if (
+                                  this.listboxNode.scrollTop + this.listboxNode.offsetHeight <
+                                  opt.offsetTop + opt.offsetHeight
+                                ) {
+                                  this.listboxNode.scrollTop =
+                                    opt.offsetTop + opt.offsetHeight - this.listboxNode.offsetHeight;
+                                } else if (this.listboxNode.scrollTop > opt.offsetTop + 2) {
+                                  this.listboxNode.scrollTop = opt.offsetTop;
+                                }
+                              } else {
+                                opt.removeAttribute('aria-selected');
+                              }
+                            }
+                          }
+                        
+                          getPreviousOption(currentOption) {
+                            if (currentOption !== this.firstOption) {
+                              var index = this.filteredOptions.indexOf(currentOption);
+                              return this.filteredOptions[index - 1];
+                            }
+                            return this.lastOption;
+                          }
+                        
+                          getNextOption(currentOption) {
+                            if (currentOption !== this.lastOption) {
+                              var index = this.filteredOptions.indexOf(currentOption);
+                              return this.filteredOptions[index + 1];
+                            }
+                            return this.firstOption;
+                          }
+                        
+                          /* MENU DISPLAY METHODS */
+                        
+                          doesOptionHaveFocus() {
+                            return this.comboboxNode.getAttribute('aria-activedescendant') !== '';
+                          }
+                        
+                          isOpen() {
+                            return this.listboxNode.style.display === 'block';
+                          }
+                        
+                          isClosed() {
+                            return this.listboxNode.style.display !== 'block';
+                          }
+                        
+                          hasOptions() {
+                            return this.filteredOptions.length;
+                          }
+                        
+                          open() {
+                            this.listboxNode.style.display = 'block';
+                            this.comboboxNode.setAttribute('aria-expanded', 'true');
+                            this.buttonNode.setAttribute('aria-expanded', 'true');
+                          }
+                        
+                          close(force) {
+                            if (typeof force !== 'boolean') {
+                              force = false;
+                            }
+                        
+                            if (
+                              force ||
+                              (!this.comboboxHasVisualFocus &&
+                                !this.listboxHasVisualFocus &&
+                                !this.hasHover)
+                            ) {
+                              this.setCurrentOptionStyle(false);
+                              this.listboxNode.style.display = 'none';
+                              this.comboboxNode.setAttribute('aria-expanded', 'false');
+                              this.buttonNode.setAttribute('aria-expanded', 'false');
+                              this.setActiveDescendant(false);
+                              this.comboboxNode.parentNode.classList.add('focus');
+                            }
+                          }
+                        
+                          /* combobox Events */
+                        
+                          onComboboxKeyDown(event) {
+                            var flag = false,
+                              altKey = event.altKey;
+                        
+                            if (event.ctrlKey || event.shiftKey) {
+                              return;
+                            }
+                        
+                            switch (event.key) {
+                              case 'Enter':
+                                if (this.listboxHasVisualFocus) {
+                                  this.setValue(this.option.textContent);
+                                }
+                                this.close(true);
+                                this.setVisualFocusCombobox();
+                                flag = true;
+                                break;
+                        
+                              case 'Down':
+                              case 'ArrowDown':
+                                if (this.filteredOptions.length > 0) {
+                                  if (altKey) {
+                                    this.open();
+                                  } else {
+                                    this.open();
+                                    if (
+                                      this.listboxHasVisualFocus ||
+                                      (this.isBoth && this.filteredOptions.length > 1)
+                                    ) {
+                                      this.setOption(this.getNextOption(this.option), true);
+                                      this.setVisualFocusListbox();
+                                    } else {
+                                      this.setOption(this.firstOption, true);
+                                      this.setVisualFocusListbox();
+                                    }
+                                  }
+                                }
+                                flag = true;
+                                break;
+                        
+                              case 'Up':
+                              case 'ArrowUp':
+                                if (this.hasOptions()) {
+                                  if (this.listboxHasVisualFocus) {
+                                    this.setOption(this.getPreviousOption(this.option), true);
+                                  } else {
+                                    this.open();
+                                    if (!altKey) {
+                                      this.setOption(this.lastOption, true);
+                                      this.setVisualFocusListbox();
+                                    }
+                                  }
+                                }
+                                flag = true;
+                                break;
+                        
+                              case 'Esc':
+                              case 'Escape':
+                                if (this.isOpen()) {
+                                  this.close(true);
+                                  this.filter = this.comboboxNode.value;
+                                  this.filterOptions();
+                                  this.setVisualFocusCombobox();
+                                } else {
+                                  this.setValue('');
+                                  this.comboboxNode.value = '';
+                                }
+                                this.option = null;
+                                flag = true;
+                                break;
+                        
+                              case 'Tab':
+                                this.close(true);
+                                if (this.listboxHasVisualFocus) {
+                                  if (this.option) {
+                                    this.setValue(this.option.textContent);
+                                  }
+                                }
+                                break;
+                        
+                              case 'Home':
+                                this.comboboxNode.setSelectionRange(0, 0);
+                                flag = true;
+                                break;
+                        
+                              case 'End':
+                                var length = this.comboboxNode.value.length;
+                                this.comboboxNode.setSelectionRange(length, length);
+                                flag = true;
+                                break;
+                        
+                              default:
+                                break;
+                            }
+                        
+                            if (flag) {
+                              event.stopPropagation();
+                              event.preventDefault();
+                            }
+                          }
+                        
+                          isPrintableCharacter(str) {
+                            return str.length === 1 && str.match(/\S| /);
+                          }
+                        
+                          onComboboxKeyUp(event) {
+                            var flag = false,
+                              option = null,
+                              char = event.key;
+                        
+                            if (this.isPrintableCharacter(char)) {
+                              this.filter += char;
+                            }
+                        
+                            // this is for the case when a selection in the textbox has been deleted
+                            if (this.comboboxNode.value.length < this.filter.length) {
+                              this.filter = this.comboboxNode.value;
+                              this.option = null;
+                              this.filterOptions();
+                            }
+                        
+                            if (event.key === 'Escape' || event.key === 'Esc') {
+                              return;
+                            }
+                        
+                            switch (event.key) {
+                              case 'Backspace':
+                                this.setVisualFocusCombobox();
+                                this.setCurrentOptionStyle(false);
+                                this.filter = this.comboboxNode.value;
+                                this.option = null;
+                                this.filterOptions();
+                                flag = true;
+                                break;
+                        
+                              case 'Left':
+                              case 'ArrowLeft':
+                              case 'Right':
+                              case 'ArrowRight':
+                              case 'Home':
+                              case 'End':
+                                if (this.isBoth) {
+                                  this.filter = this.comboboxNode.value;
+                                } else {
+                                  this.option = null;
+                                  this.setCurrentOptionStyle(false);
+                                }
+                                this.setVisualFocusCombobox();
+                                flag = true;
+                                break;
+                        
+                              default:
+                                if (this.isPrintableCharacter(char)) {
+                                  this.setVisualFocusCombobox();
+                                  this.setCurrentOptionStyle(false);
+                                  flag = true;
+                        
+                                  if (this.isList || this.isBoth) {
+                                    option = this.filterOptions();
+                                    if (option) {
+                                      if (this.isClosed() && this.comboboxNode.value.length) {
+                                        this.open();
+                                      }
+                        
+                                      if (
+                                        this.getLowercaseContent(option).indexOf(
+                                          this.comboboxNode.value.toLowerCase()
+                                        ) === 0
+                                      ) {
+                                        this.option = option;
+                                        if (this.isBoth || this.listboxHasVisualFocus) {
+                                          this.setCurrentOptionStyle(option);
+                                          if (this.isBoth) {
+                                            this.setOption(option);
+                                          }
+                                        }
+                                      } else {
+                                        this.option = null;
+                                        this.setCurrentOptionStyle(false);
+                                      }
+                                    } else {
+                                      this.close();
+                                      this.option = null;
+                                      this.setActiveDescendant(false);
+                                    }
+                                  } else if (this.comboboxNode.value.length) {
+                                    this.open();
+                                  }
+                                }
+                        
+                                break;
+                            }
+                        
+                            if (flag) {
+                              event.stopPropagation();
+                              event.preventDefault();
+                            }
+                          }
+                        
+                          onComboboxClick() {
+                            if (this.isOpen()) {
+                              this.close(true);
+                            } else {
+                              this.open();
+                            }
+                          }
+                        
+                          onComboboxFocus() {
+                            this.filter = this.comboboxNode.value;
+                            this.filterOptions();
+                            this.setVisualFocusCombobox();
+                            this.option = null;
+                            this.setCurrentOptionStyle(null);
+                          }
+                        
+                          onComboboxBlur() {
+                            this.removeVisualFocusAll();
+                          }
+                        
+                          onBackgroundPointerUp(event) {
+                            if (
+                              !this.comboboxNode.contains(event.target) &&
+                              !this.listboxNode.contains(event.target) &&
+                              !this.buttonNode.contains(event.target)
+                            ) {
+                              this.comboboxHasVisualFocus = false;
+                              this.setCurrentOptionStyle(null);
+                              this.removeVisualFocusAll();
+                              setTimeout(this.close.bind(this, true), 300);
+                            }
+                          }
+                        
+                          onButtonClick() {
+                            if (this.isOpen()) {
+                              this.close(true);
+                            } else {
+                              this.open();
+                            }
+                            this.comboboxNode.focus();
+                            this.setVisualFocusCombobox();
+                          }
+                        
+                          /* Listbox Events */
+                        
+                          onListboxPointerover() {
+                            this.hasHover = true;
+                          }
+                        
+                          onListboxPointerout() {
+                            this.hasHover = false;
+                            setTimeout(this.close.bind(this, false), 300);
+                          }
+                        
+                          // Listbox Option Events
+                        
+                          onOptionClick(event) {
+                            this.comboboxNode.value = event.target.textContent;
+                            this.close(true);
+                          }
+                        
+                          onOptionPointerover() {
+                            this.hasHover = true;
+                            this.open();
+                          }
+                        
+                          onOptionPointerout() {
+                            this.hasHover = false;
+                            setTimeout(this.close.bind(this, false), 300);
+                          }
+                        }
+                        
+                        // Initialize comboboxes
+                        
+                        window.addEventListener('load', function () {
+                          var comboboxes = document.querySelectorAll('.combobox-list');
+                        
+                          for (var i = 0; i < comboboxes.length; i++) {
+                            var combobox = comboboxes[i];
+                            var comboboxNode = combobox.querySelector('input');
+                            var buttonNode = combobox.querySelector('button');
+                            var listboxNode = combobox.querySelector('[role="listbox"]');
+                            new ComboboxAutocomplete(comboboxNode, buttonNode, listboxNode);
+                          }
+                        });
+                        
+                        </script>
+                                                
+    
+    
+    
+                <!-- JAVASCRIPT for the TOGGLE SWITCH -->
+                <script>
+                   /*
+                         *   This content is licensed according to the W3C Software License at
+                         *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+                         *
+                         *   File:  switch.js
+                         *
+                         *   Desc:  Switch widget that implements ARIA Authoring Practices
+                         */
+                        
+                        'use strict';
+                        
+                        class Switch {
+                          constructor(domNode) {
+                            this.switchNode = domNode;
+                            this.switchNode.addEventListener('click', () => this.toggleStatus());
+                            this.switchNode.addEventListener('keydown', (event) =>
+                              this.handleKeydown(event)
+                            );
+                          }
+                        
+                          handleKeydown(event) {
+                            // Only do something when space or return is pressed
+                            if (event.key === 'Enter' || event.key === ' ') {
+                              event.preventDefault();
+                              this.toggleStatus();
+                            }
+                          }
+                        
+                          // Switch state of a switch
+                          toggleStatus() {
+                            const currentState =
+                              this.switchNode.getAttribute('aria-checked') === 'true';
+                            const newState = String(!currentState);
+                        
+                            this.switchNode.setAttribute('aria-checked', newState);
+                          }
+                        }
+                        
+                        // Initialize switches
+                        window.addEventListener('load', function () {
+                          // Initialize the Switch component on all matching DOM nodes
+                          Array.from(document.querySelectorAll('[role^=switch]')).forEach(
+                            (element) => new Switch(element)
+                          );
+                        });
+                    </script>
+                    
+                      <!-- JAVASCRIPT for the Autocomplete (Requestor Required)-->
+                    <script>
+                        (function () {
+                          "use strict";
+                          let inputField = document.getElementById('input');
+                          let ulField = document.getElementById('suggestions');
+                          inputField.addEventListener('input', changeAutoComplete);
+                          ulField.addEventListener('click', selectItem);
+                        
+                          function changeAutoComplete({ target }) {
+                            let data = target.value;
+                            ulField.innerHTML = ``;
+                            if (data.length) {
+                              let autoCompleteValues = autoComplete(data);
+                              autoCompleteValues.forEach(value => { addItem(value); });
+                            }
+                          }
+                        
+                          function autoComplete(inputValue) {
+                            let destination = ["Jeff Orchard", "Michael Chan", "Mohammed Qadeer", "Omar Touma"];
+                            return destination.filter(
+                              (value) => value.toLowerCase().includes(inputValue.toLowerCase())
+                            );
+                          }
+                        
+                          function addItem(value) {
+                            ulField.innerHTML = ulField.innerHTML + `<li>${value}</li>`;
+                          }
+                        
+                          function selectItem({ target }) {
+                            if (target.tagName === 'LI') {
+                              inputField.value = target.textContent;
+                              ulField.innerHTML = ``;
+                            }
+                          }
+                        })();
+                    </script>
+                    
+                     <!-- JAVASCRIPT for the Combo box dropdown (Organization Required)-->
+                    <script>
+                        /*
+                             *   This content is licensed according to the W3C Software License at
+                             *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+                             */
+                            
+                            'use strict';
+                            
+                            // Save a list of named combobox actions, for future readability
+                            const SelectActions = {
+                              Close: 0,
+                              CloseSelect: 1,
+                              First: 2,
+                              Last: 3,
+                              Next: 4,
+                              Open: 5,
+                              PageDown: 6,
+                              PageUp: 7,
+                              Previous: 8,
+                              Select: 9,
+                              Type: 10,
+                            };
+                            
+                            /*
+                             * Helper functions
+                             */
+                            
+                            // filter an array of options against an input string
+                            // returns an array of options that begin with the filter string, case-independent
+                            function filterOptions(options = [], filter, exclude = []) {
+                              return options.filter((option) => {
+                                const matches = option.toLowerCase().indexOf(filter.toLowerCase()) === 0;
+                                return matches && exclude.indexOf(option) < 0;
+                              });
+                            }
+                            
+                            // map a key press to an action
+                            function getActionFromKey(event, menuOpen) {
+                              const { key, altKey, ctrlKey, metaKey } = event;
+                              const openKeys = ['ArrowDown', 'ArrowUp', 'Enter', ' ']; // all keys that will do the default open action
+                              // handle opening when closed
+                              if (!menuOpen && openKeys.includes(key)) {
+                                return SelectActions.Open;
+                              }
+                            
+                              // home and end move the selected option when open or closed
+                              if (key === 'Home') {
+                                return SelectActions.First;
+                              }
+                              if (key === 'End') {
+                                return SelectActions.Last;
+                              }
+                            
+                              // handle typing characters when open or closed
+                              if (
+                                key === 'Backspace' ||
+                                key === 'Clear' ||
+                                (key.length === 1 && key !== ' ' && !altKey && !ctrlKey && !metaKey)
+                              ) {
+                                return SelectActions.Type;
+                              }
+                            
+                              // handle keys when open
+                              if (menuOpen) {
+                                if (key === 'ArrowUp' && altKey) {
+                                  return SelectActions.CloseSelect;
+                                } else if (key === 'ArrowDown' && !altKey) {
+                                  return SelectActions.Next;
+                                } else if (key === 'ArrowUp') {
+                                  return SelectActions.Previous;
+                                } else if (key === 'PageUp') {
+                                  return SelectActions.PageUp;
+                                } else if (key === 'PageDown') {
+                                  return SelectActions.PageDown;
+                                } else if (key === 'Escape') {
+                                  return SelectActions.Close;
+                                } else if (key === 'Enter' || key === ' ') {
+                                  return SelectActions.CloseSelect;
+                                }
+                              }
+                            }
+                            
+                            // return the index of an option from an array of options, based on a search string
+                            // if the filter is multiple iterations of the same letter (e.g "aaa"), then cycle through first-letter matches
+                            function getIndexByLetter(options, filter, startIndex = 0) {
+                              const orderedOptions = [
+                                ...options.slice(startIndex),
+                                ...options.slice(0, startIndex),
+                              ];
+                              const firstMatch = filterOptions(orderedOptions, filter)[0];
+                              const allSameLetter = (array) => array.every((letter) => letter === array[0]);
+                            
+                              // first check if there is an exact match for the typed string
+                              if (firstMatch) {
+                                return options.indexOf(firstMatch);
+                              }
+                            
+                              // if the same letter is being repeated, cycle through first-letter matches
+                              else if (allSameLetter(filter.split(''))) {
+                                const matches = filterOptions(orderedOptions, filter[0]);
+                                return options.indexOf(matches[0]);
+                              }
+                            
+                              // if no matches, return -1
+                              else {
+                                return -1;
+                              }
+                            }
+                            
+                            // get an updated option index after performing an action
+                            function getUpdatedIndex(currentIndex, maxIndex, action) {
+                              const pageSize = 10; // used for pageup/pagedown
+                            
+                              switch (action) {
+                                case SelectActions.First:
+                                  return 0;
+                                case SelectActions.Last:
+                                  return maxIndex;
+                                case SelectActions.Previous:
+                                  return Math.max(0, currentIndex - 1);
+                                case SelectActions.Next:
+                                  return Math.min(maxIndex, currentIndex + 1);
+                                case SelectActions.PageUp:
+                                  return Math.max(0, currentIndex - pageSize);
+                                case SelectActions.PageDown:
+                                  return Math.min(maxIndex, currentIndex + pageSize);
+                                default:
+                                  return currentIndex;
+                              }
+                            }
+                            
+                            // check if element is visible in browser view port
+                            function isElementInView(element) {
+                              var bounding = element.getBoundingClientRect();
+                            
+                              return (
+                                bounding.top >= 0 &&
+                                bounding.left >= 0 &&
+                                bounding.bottom <=
+                                  (window.innerHeight || document.documentElement.clientHeight) &&
+                                bounding.right <=
+                                  (window.innerWidth || document.documentElement.clientWidth)
+                              );
+                            }
+                            
+                            // check if an element is currently scrollable
+                            function isScrollable(element) {
+                              return element && element.clientHeight < element.scrollHeight;
+                            }
+                            
+                            // ensure a given child element is within the parent's visible scroll area
+                            // if the child is not visible, scroll the parent
+                            function maintainScrollVisibility(activeElement, scrollParent) {
+                              const { offsetHeight, offsetTop } = activeElement;
+                              const { offsetHeight: parentOffsetHeight, scrollTop } = scrollParent;
+                            
+                              const isAbove = offsetTop < scrollTop;
+                              const isBelow = offsetTop + offsetHeight > scrollTop + parentOffsetHeight;
+                            
+                              if (isAbove) {
+                                scrollParent.scrollTo(0, offsetTop);
+                              } else if (isBelow) {
+                                scrollParent.scrollTo(0, offsetTop - parentOffsetHeight + offsetHeight);
+                              }
+                            }
+                            
+                            /*
+                             * Select Component
+                             * Accepts a combobox element and an array of string options
+                             */
+                            const Select = function (el, options = []) {
+                              // element refs
+                              this.el = el;
+                              this.comboEl = el.querySelector('[role=combobox]');
+                              this.listboxEl = el.querySelector('[role=listbox]');
+                            
+                              // data
+                              this.idBase = this.comboEl.id || 'combo';
+                              this.options = options;
+                            
+                              // state
+                              this.activeIndex = 0;
+                              this.open = false;
+                              this.searchString = '';
+                              this.searchTimeout = null;
+                            
+                              // init
+                              if (el && this.comboEl && this.listboxEl) {
+                                this.init();
+                              }
+                            };
+                            
+                            Select.prototype.init = function () {
+                              // select first option by default
+                              this.comboEl.innerHTML = this.options[0];
+                            
+                              // add event listeners
+                              this.comboEl.addEventListener('blur', this.onComboBlur.bind(this));
+                              this.comboEl.addEventListener('click', this.onComboClick.bind(this));
+                              this.comboEl.addEventListener('keydown', this.onComboKeyDown.bind(this));
+                            
+                              // create options
+                              this.options.map((option, index) => {
+                                const optionEl = this.createOption(option, index);
+                                this.listboxEl.appendChild(optionEl);
+                              });
+                            };
+                            
+                            Select.prototype.createOption = function (optionText, index) {
+                              const optionEl = document.createElement('div');
+                              optionEl.setAttribute('role', 'option');
+                              optionEl.id = `${this.idBase}-${index}`;
+                              optionEl.className =
+                                index === 0 ? 'combo-option option-current' : 'combo-option';
+                              optionEl.setAttribute('aria-selected', `${index === 0}`);
+                              optionEl.innerText = optionText;
+                            
+                              optionEl.addEventListener('click', (event) => {
+                                event.stopPropagation();
+                                this.onOptionClick(index);
+                              });
+                              optionEl.addEventListener('mousedown', this.onOptionMouseDown.bind(this));
+                            
+                              return optionEl;
+                            };
+                            
+                            Select.prototype.getSearchString = function (char) {
+                              // reset typing timeout and start new timeout
+                              // this allows us to make multiple-letter matches, like a native select
+                              if (typeof this.searchTimeout === 'number') {
+                                window.clearTimeout(this.searchTimeout);
+                              }
+                            
+                              this.searchTimeout = window.setTimeout(() => {
+                                this.searchString = '';
+                              }, 500);
+                            
+                              // add most recent letter to saved search string
+                              this.searchString += char;
+                              return this.searchString;
+                            };
+                            
+                            Select.prototype.onComboBlur = function () {
+                              // do not do blur action if ignoreBlur flag has been set
+                              if (this.ignoreBlur) {
+                                this.ignoreBlur = false;
+                                return;
+                              }
+                            
+                              // select current option and close
+                              if (this.open) {
+                                this.selectOption(this.activeIndex);
+                                this.updateMenuState(false, false);
+                              }
+                            };
+                            
+                            Select.prototype.onComboClick = function () {
+                              this.updateMenuState(!this.open, false);
+                            };
+                            
+                            Select.prototype.onComboKeyDown = function (event) {
+                              const { key } = event;
+                              const max = this.options.length - 1;
+                            
+                              const action = getActionFromKey(event, this.open);
+                            
+                              switch (action) {
+                                case SelectActions.Last:
+                                case SelectActions.First:
+                                  this.updateMenuState(true);
+                                // intentional fallthrough
+                                case SelectActions.Next:
+                                case SelectActions.Previous:
+                                case SelectActions.PageUp:
+                                case SelectActions.PageDown:
+                                  event.preventDefault();
+                                  return this.onOptionChange(
+                                    getUpdatedIndex(this.activeIndex, max, action)
+                                  );
+                                case SelectActions.CloseSelect:
+                                  event.preventDefault();
+                                  this.selectOption(this.activeIndex);
+                                // intentional fallthrough
+                                case SelectActions.Close:
+                                  event.preventDefault();
+                                  return this.updateMenuState(false);
+                                case SelectActions.Type:
+                                  return this.onComboType(key);
+                                case SelectActions.Open:
+                                  event.preventDefault();
+                                  return this.updateMenuState(true);
+                              }
+                            };
+                            
+                            Select.prototype.onComboType = function (letter) {
+                              // open the listbox if it is closed
+                              this.updateMenuState(true);
+                            
+                              // find the index of the first matching option
+                              const searchString = this.getSearchString(letter);
+                              const searchIndex = getIndexByLetter(
+                                this.options,
+                                searchString,
+                                this.activeIndex + 1
+                              );
+                            
+                              // if a match was found, go to it
+                              if (searchIndex >= 0) {
+                                this.onOptionChange(searchIndex);
+                              }
+                              // if no matches, clear the timeout and search string
+                              else {
+                                window.clearTimeout(this.searchTimeout);
+                                this.searchString = '';
+                              }
+                            };
+                            
+                            Select.prototype.onOptionChange = function (index) {
+                              // update state
+                              this.activeIndex = index;
+                            
+                              // update aria-activedescendant
+                              this.comboEl.setAttribute('aria-activedescendant', `${this.idBase}-${index}`);
+                            
+                              // update active option styles
+                              const options = this.el.querySelectorAll('[role=option]');
+                              [...options].forEach((optionEl) => {
+                                optionEl.classList.remove('option-current');
+                              });
+                              options[index].classList.add('option-current');
+                            
+                              // ensure the new option is in view
+                              if (isScrollable(this.listboxEl)) {
+                                maintainScrollVisibility(options[index], this.listboxEl);
+                              }
+                            
+                              // ensure the new option is visible on screen
+                              // ensure the new option is in view
+                              if (!isElementInView(options[index])) {
+                                options[index].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                              }
+                            };
+                            
+                            Select.prototype.onOptionClick = function (index) {
+                              this.onOptionChange(index);
+                              this.selectOption(index);
+                              this.updateMenuState(false);
+                            };
+                            
+                            Select.prototype.onOptionMouseDown = function () {
+                              // Clicking an option will cause a blur event,
+                              // but we don't want to perform the default keyboard blur action
+                              this.ignoreBlur = true;
+                            };
+                            
+                            Select.prototype.selectOption = function (index) {
+                              // update state
+                              this.activeIndex = index;
+                            
+                              // update displayed value
+                              const selected = this.options[index];
+                              this.comboEl.innerHTML = selected;
+                            
+                              // update aria-selected
+                              const options = this.el.querySelectorAll('[role=option]');
+                              [...options].forEach((optionEl) => {
+                                optionEl.setAttribute('aria-selected', 'false');
+                              });
+                              options[index].setAttribute('aria-selected', 'true');
+                            };
+                            
+                            Select.prototype.updateMenuState = function (open, callFocus = true) {
+                              if (this.open === open) {
+                                return;
+                              }
+                            
+                              // update state
+                              this.open = open;
+                            
+                              // update aria-expanded and styles
+                              this.comboEl.setAttribute('aria-expanded', `${open}`);
+                              open ? this.el.classList.add('open') : this.el.classList.remove('open');
+                            
+                              // update activedescendant
+                              const activeID = open ? `${this.idBase}-${this.activeIndex}` : '';
+                              this.comboEl.setAttribute('aria-activedescendant', activeID);
+                            
+                              if (activeID === '' && !isElementInView(this.comboEl)) {
+                                this.comboEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                              }
+                            
+                              // move focus back to the combobox, if needed
+                              callFocus && this.comboEl.focus();
+                            };
+                            
+                            // init select
+                            window.addEventListener('load', function () {
+                              const options = [
+                                'Select organization',
+                                'ESDC',
+                                'Labour Program',
+                                'Service Canada',
+                                
+                              ];
+                              const selectEls = document.querySelectorAll('.js-select');
+                            
+                              selectEls.forEach((el) => {
+                                new Select(el, options);
+                              });
+                            });
+                    </script>
+                    
+                     <!-- JAVASCRIPT for the Autocomplete (Manager Required)-->
+                    <script>
+                        (function () {
+                          "use strict";
+                          let inputField = document.getElementById('input');
+                          let ulField = document.getElementById('mgrsuggestions');
+                          inputField.addEventListener('input', changeAutoComplete);
+                          ulField.addEventListener('click', selectItem);
+                        
+                          function changeAutoComplete({ target }) {
+                            let data = target.value;
+                            ulField.innerHTML = ``;
+                            if (data.length) {
+                              let autoCompleteValues = autoComplete(data);
+                              autoCompleteValues.forEach(value => { addItem(value); });
+                            }
+                          }
+                        
+                          function autoComplete(inputValue) {
+                            let destination = ["Jeff Orchard", "Michael Chan", "Mohammed Qadeer", "Omar Touma"];
+                            return destination.filter(
+                              (value) => value.toLowerCase().includes(inputValue.toLowerCase())
+                            );
+                          }
+                        
+                          function addItem(value) {
+                            ulField.innerHTML = ulField.innerHTML + `<li>${value}</li>`;
+                          }
+                        
+                          function selectItem({ target }) {
+                            if (target.tagName === 'LI') {
+                              inputField.value = target.textContent;
+                              ulField.innerHTML = ``;
+                            }
+                          }
+                        })();
+                    </script>
+            
+</body>
+</html>
