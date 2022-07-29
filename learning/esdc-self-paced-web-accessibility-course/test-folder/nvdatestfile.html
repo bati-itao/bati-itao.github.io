@@ -3,29 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" crossorigin="anonymous">
 <link rel="stylesheet" href="nvdatest4.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" crossorigin="anonymous"></script>
 <title>Solution and Coaching Request Form</title>
-
 </head>
 <body>
 
-  <main role="main">
     <h1>Solution and Coaching Request Form</h1>
-    <form role="form" id="coaching-request-form" name="contactForm" method="post" action="">
+<div class="container">
+  <form role="form" action="">
         <div class="form-group">
-			<select class="form-control" id="language" name="language">
+			    <select class="form-control" id="language" name="language">
+
 				<option label="English / Anglais"></option>
 				<option value="English / Anglais">English / Anglais</option>
 				<option value="français / French">français / French</option>
 			</select>
 		</div>
 		<div class="form-group">
-		    <label for="requestor">Requestor  <strong class="required">(required)</strong></label>
-            <input type="text" id="requestor" name="requestor" list="suggestions" placeholder="Type Last Name and Select from Search Results">
-            <datalist id="suggestions">
+		    <label for="requestor">Requestor  <strong>(required)</strong></label>
+            <input type="text" id="requestor" name="requestor" list="suggestions" placeholder="Type Last Name and Select from Search Results" required="required" >
+            <datalist id="suggestions" class="form-control" >
             	<!--[if lte IE 9]><select><![endif]-->
             	<option label="Jeff Orchard" value="Jeff Orchard"></option>
             	<option label="Michael Chan" value="Michael Chan"></option>
@@ -37,8 +34,8 @@
             </datalist>
 		</div>
 			<div class="form-group">
-		    <label for="organization">Organization  <strong class="required">(required)</strong></label>
-            <select id="organization">
+		    <label for="organization" >Organization  <strong>(required)</strong></label>
+            <select id="organization" class="form-control" required="required">
                <option label="Select Organization"></option>
                 <option>ESDC</option>
                <option>Labour Program</option>
@@ -46,8 +43,8 @@
             </select>
 		 </div>
 		 	<div class="form-group">
-		    <label for="branch">Branch  <strong class="required">(required)</strong></label>
-            <select id="branch">
+		    <label for="branch" >Branch  <strong>(required)</strong></label>
+            <select id="branch" class="form-control" required="required">
                 <option label="Select Branch"></option>
                <option>Human Resources Services Branch</option>
                <option>Benefits and Integrated Services Branch</option>
@@ -57,8 +54,8 @@
             </select>
 		 </div> 
 		 	<div class="form-group">
-		    <label for="division">Division  <strong class="required">(required)</strong></label>
-            <select id="division">
+		    <label for="division" >Division  <strong>(required)</strong></label>
+            <select id="division" class="form-control" required="required">
                 <option label="Select Division"></option>
                <option>Compensation Dicrectorate</option>
                <option>Assistant Deputy Minister</option>
@@ -68,8 +65,8 @@
 		 </div>
 		 <div class="form-group">
 		    <label for="manager">Manager  <strong class="required">(required)</strong></label>
-            <input type="text" id="manager" name="manager" list="suggestions2" placeholder="Type Last Name and Select from Search Results">
-            <datalist id="suggestions2">
+            <input type="text" id="manager" class="form-control" name="manager" list="suggestions2" placeholder="Type Last Name and Select from Search Results" >
+            <datalist id="suggestions2" required="required">
             	<!--[if lte IE 9]><select><![endif]-->
             	<option label="Jeff Orchard" value="Omar Touma"></option>
             	<option label="Michael Chan" value="Jeff Orchard"></option>
@@ -81,13 +78,13 @@
             </datalist>
 		</div>
 		<div class="form-group">
-        <label for="message">Please provide a bried name to describe your proposed solution.<strong class="required">(required)</strong></label>
-        <textarea aria-required="true" id="message" name="message" class="form-control" placeholder="Question , Comment, etc."></textarea>
+        <label for="message">Please provide a brief name to describe your proposed solution.<strong class="required">(required)</strong></label>
+        <textarea aria-required="true" id="message" name="message" class="form-control" placeholder="Example: Service Request Solution" required="required"></textarea>
       </div>
       	<div class="form-group">
 			<label>Would any reports be required? </label>
 			<label class="switch">
-              <input type="checkbox" checked>
+              <input type="checkbox" unchecked>
               <span class="slider round" aria-label="Would any reports be required?"></span>
             </label>
           </div>
@@ -100,71 +97,9 @@
       <div class="form-group">
         <button type="submit" class="form-control">Submit</button>
       </div>
-    </form>
-  </main>
+   
+  </form>
 </div>
-<script>
-var oldTitle = document.title;
-$('#coaching-request-form').submit(function (e) {
-		$("em").remove(".errorMessage");
-		var uniqueID = 1;
-        $('input', this).not('#apt').each(function () {
-			$(this).removeAttr('style');
-            if (!this.value) {
-				e.preventDefault();
-				var label = $("label[for='"+$(this).attr('id')+"']").text();
-                $(this).after('<em id="errorMsg'+uniqueID+'" class="errorMessage">'+label+' is empty. Please type last name and select from search results.</em>');
-                $(this).attr("aria-invalid", "true");
-				$(this).attr('aria-describedby','errorMsg'+uniqueID+'');
-				uniqueID++;
-            } else {
-                $(this).removeAttr("aria-invalid");
-                $(this).removeAttr("aria-describedby");
-            };
-        });
-		var checkboxChecked = $("input:checked").length > 0;
-        $('input[type=checkbox]', this).each(function () {
-			$(this).removeAttr('style');
-			if (!checkboxChecked) {
-				if (!this.checked) {
-					e.preventDefault();
-					var label = $(this).parent().text();
-					$(this).after('<em class="errorMessage">'+label+' not selected. Please choose at least one contact method.</em>');
-                $(this).attr("aria-invalid", "true");
-				} else {
-                $(this).removeAttr("aria-invalid");
-				};
-			}
-        });
-        $('select', this).each(function () {
-			$(this).removeAttr('style');
-            if (this.value === "") {
-				e.preventDefault();
-                $(this).after('<em id="errorMsg'+uniqueID+'"class="errorMessage">Option not selected. Please select from the drop down.</em>');
-                $(this).attr("aria-invalid", "true");
-				$(this).attr('aria-describedby','errorMsg'+uniqueID+'');
-				uniqueID++;
-            } else {
-                $(this).removeAttr("aria-invalid");
-                $(this).removeAttr("aria-describedby");
-            };
-        });
-        $('textarea', this).each(function () {
-			$(this).removeAttr('style');
-            if (!this.value) {
-				e.preventDefault();
-                $(this).after('<em id="errorMsg'+uniqueID+'"class="errorMessage">Message is empty. Please type a message.</em>');
-                $(this).attr("aria-invalid", "true");
-				$(this).attr('aria-describedby','errorMsg'+uniqueID+'');
-				uniqueID++;
-            } else {
-                $(this).removeAttr("aria-invalid");
-                $(this).removeAttr("aria-describedby");
-            };
-        });
-		document.title = "Errors Present In Form - " + oldTitle;
-        $("[aria-invalid=true]").first().focus();
-});
-</script>
+
 </body>
 </html>
