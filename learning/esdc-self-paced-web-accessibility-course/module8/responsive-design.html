@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -11,7 +8,6 @@
 	<!-- Meta data -->
 	<meta name="description"
 		content="Accessibility guidelines related to responsive design. Responsive design use HTML and CSS to automatically resize, hide, shrink, or enlarge a website">
-	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -51,40 +47,88 @@
                 "title": "Module 8 - Zoom and responsive design",
                 
                 "href" : "index.html"
-            }],
-            "lngLinks": [{
-                "lang": "fr",
-                "href": "responsive-design-fr.html",
-                "text": "Français"
-            }],
-            "menuPath": "../../../ajax/menu-en.html"
-        });
+            },
+          {
+            "title": "Responsive design",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "responsive-design-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-			
-	<h1 property="name" id="wb-cont">Responsive design</h1>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Responsive design</h1>
 						
-	<nav role="navigation">
-    <div class="panel panel-default mrgn-tp-md">
-      <header class="panel-heading">
-        <h2 class="panel-title">Table of contents</h2>
-      </header>
-        <div class="panel-body">
-          <ul>
-            <li><a href="#overview-responsive-design">Overview – Responsive design</a></li>
-						<li><a href="#css-media-queries">CSS media queries</a></li>
-						<li><a href="#breakpoints">Breakpoints</a></li>
-						<li><a href="#set-the-viewport">Set the viewport</a></li>
-						<li><a href="#viewport-emulators">Viewport emulators</a></li>
-						<li><a href="#benefits-to-low-vision-users">Benefits to low vision users</a></li>
-						<li><a href="#mod8-responsive-design-wcag">Related WCAG resources</a></li>
-          </ul>
-        </div>
-      </div>
-	</nav>
-	
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table of contents</summary>
+							<ul>
+						<li>
+							<a href="#overview-responsive-design">Overview – Responsive design</a>
+						</li>
+						<li>
+							<a href="#css-media-queries">CSS media queries</a>
+						</li>
+						<li>
+							<a href="#breakpoints">Breakpoints</a>
+							<ul>
+								<li>
+									<a href="#good-example-single-breakpoint">Good example: Single breakpoint</a>
+								</li>
+								<li>
+									<a href="#gov-canada-breakpoints">Government of Canada breakpoints</a>
+								</li>
+								<li>
+									<a href="#wet-breakpoints">WET breakpoints</a>
+								</li>
+								<li>
+									<a href="#common-breakpoints">Common breakpoints</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#set-the-viewport">Set the viewport</a>
+							<ul>
+								<li>
+									<a href="#pinch-to-zoom">Good example: Pinch-to-zoom set to 200% magnification</a>
+								</li>
+								<li>
+									<a href="#disabling-pinch-to-zoom">Bad example: Disabling pinch-to-zoom</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#viewport-emulators">Viewport emulators</a>
+							<ul>
+								<li>
+									<a href="#checking-it-accessibility-office-viewport">Good example: Checking the IT Accessibility Office using the Viewport Emulator</a>
+								</li>
+								<li>
+									<a href="#checking-it-accessibility-office-chrome">Good example: Checking the IT Accessibility Office using the Chrome emulator</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#benefits-to-low-vision-users">Benefits to low vision users</a>
+						</li>
+						<li>
+							<a href="#mod8-responsive-design-wcag">Related WCAG resources</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+	<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Expand all details</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Collapse all<span class="wb-inv"> details</span></button>
+				
 			<section>				
 				<h2 id="overview-responsive-design">Overview – Responsive design</h2>
 				<p>Responsive web design uses HTML and CSS to automatically resize, hide, shrink, or enlarge a website, ensuring the design looks good and the information and functionality are preserved across devices of all screen size.</p>
@@ -173,19 +217,25 @@
 							<span class="glyphicon glyphicon-ok-circle"></span> Good example: Reflow content
 						</h3>
 						<p><a href="example-reflow-2.html" target="_blank">See this example in action<span class="wb-inv"> (Opens in new tab)</span></a>. Narrow your browser window to trigger the responsive layout.</p>
-						<details class="mrgn-tp-lg">
+						<details class="mrgn-tp-lg grouped on">
 							<summary class="bg-info">View screenshots of the responsive layout</summary>
 							<h4 id="desktop-media">Desktop: @media (min-width:960px)</h4>
 							<div class="panel panel-primary">
 								<div class="panel-body mrgn-bttm-0">
+									<p class="wb-inv">Example begins</p>
+									
 									<img src="images/image3.png" class="img-responsive" alt="Content is displayed in three columns, with text wrapping around floating images.">
+									<p class="wb-inv">Example ends</p>
 								</div>
 							</div>
 							
 							<h4 id="tablet-media">Tablet: @media (min-width:481px) and (max-width:959px)</h4>
 							<div class="panel panel-primary">
 								<div class="panel-body mrgn-bttm-0">
+									<p class="wb-inv">Example begins</p>
+									
 									<img src="images/image4.png" class="img-responsive" alt="Content is stacked in one column, with text wrapping around floating images.">
+									<p class="wb-inv">Example ends</p>
 								</div>
 							</div>
 
@@ -193,7 +243,10 @@
 							<p>Note that the float is removed from the images.</p>
 							<div class="panel panel-primary">
 								<div class="panel-body mrgn-bttm-0">
+									<p class="wb-inv">Example begins</p>
+									
 									<img src="images/image5.png" class="img-responsive" alt="Content is stacked in one column with no floats.">
+									<p class="wb-inv">Example ends</p>
 								</div>
 							</div>
 						</details>
@@ -377,7 +430,7 @@ section img {
 			
 			<section>				
 				<h2 id="mod8-responsive-design-wcag" class="wb-inv">Related WCAG resources</h2>
-				<details class="mrgn-tp-lg">
+				<details class="mrgn-tp-lg grouped on">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3 id="low-vision-success-criteria">Success criteria</h3>
 					<ul>
@@ -396,17 +449,17 @@ section img {
 			</section>
 		
 		
-	<nav role="navigation">
-		<h2 class="wb-inv">Document navigation</h2>
+	<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
 		<ul class="pager">
 			<li class="previous"><a rel="prev" href="zoom.html">Previous - Zoom</a></li>
 			<li class="next"><a rel="next" href="responsive-forms.html">Next - Responsive forms</a></li>
 		</ul>
 	</nav>
-	</main>
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 			
 
-	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Module 8 - Zoom and responsive design</h3>
@@ -430,7 +483,7 @@ section img {
 							</ul>
 						</li>
 						<li><a class="list-group-item" href="orientation.html">Orientation</a></li>
-						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-8.html">Best practice</a></li>
 						
 					</ul>
 			</section>
@@ -453,16 +506,18 @@ section img {
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Site map and best practice</h3>
+				<h3 class="wb-navcurr">Appendix</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
 						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
 					</li>
 					<li>
-						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
 				</ul>
 			</section>
 	</nav>

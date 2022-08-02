@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -11,7 +8,6 @@
 	<!-- Meta data -->
 	<meta name="description"
 		content="Accessibility guidelines related to multi-step forms. Divide a long form into a stepped series of smaller forms.">
-	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -50,38 +46,49 @@
                 "title": "Module 6 - Forms",
                 
                 "href" : "index.html"
-            }],
-            "lngLinks": [{
-                "lang": "fr",
-                "href": "multi-step-forms-fr.html",
-                "text": "Français"
-            }],
-            "menuPath": "../../../ajax/menu-en.html"
-        });
+            },
+          {
+            "title": "Multi steps form",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "multi-step-forms-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-			
-	<h1 property="name" id="wb-cont">Multi steps form</h1>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Multi-step forms</h1>
 						
-	<nav role="navigation">
-    <div class="panel panel-default mrgn-tp-md">
-      <header class="panel-heading">
-        <h2 class="panel-title">Table of contents</h2>
-      </header>
-        <div class="panel-body">
-          <ul>
-            <li><a href="#design">Designing multi-step forms</a></li>
-			<li><a href="#progress">Indicating progress in a multi-step form</a></li>
-			<li><a href="#steps-form">Good example: The WET Steps Form</a></li>
-			<li><a href="#resources">Related WCAG resources</a></li>
-			 
-          </ul>
-        </div>
-      </div>
-	</nav>
-	
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table of contents</summary>
+							<ul>
+						<li>
+							<a href="../module6/multi-step-forms.html#design">Designing multi-step forms</a>
+						</li>
+						<li>
+							<a href="../module6/multi-step-forms.html#progress">Indicating progress in a multi-step form</a>
+						</li>
+						<li>
+							<a href="../module6/multi-step-forms.html#steps-form">Good example: The WET Steps Form</a>
+						</li>
+						<li>
+							<a href="../module6/multi-step-forms.html#resources">Related WCAG resources</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Expand all details</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Collapse all<span class="wb-inv"> details</span></button>
+			
 			<section>				
 				<h2 id="design">Designing multi-step forms</h2>
 				<p>It’s best practice to divide a long form into a stepped series of smaller forms with validation at each step. Multi-step forms can be less daunting and easier to understand and correct than a long form. Multi-step forms can be designed across pages, or on the same page. </p>
@@ -100,7 +107,7 @@
 			<section>				
 				<h2 id="progress">Indicating progress in a multi-step form</h2>
 				<p>Each step should note the user’s progress. Approaches 1 and 2 apply only to multi-page forms.</p>
-				<h3>Approach 1: Using the page title</h3>
+				<h3 id="approach1">Approach 1: Using the page title</h3>
 				<p>Add a note indicating progress (e.g., “Step 2 of 4:”) to the beginning of the <code>&lt;title&gt;</code> element, before the name of the step or any error notification. The <code>&lt;title&gt;</code> element is the first thing declared on page load to screen reader users and so provides immediate feedback.</p>
 				
 <p class="lang-label small">HTML</p>
@@ -109,7 +116,7 @@
 				<p class="wb-inv">Code ends</p>
 					
 						
-				<h3>Approach 2: Using the main heading</h3>
+				<h3 id="approach2">Approach 2: Using the main heading</h3>
 				<p>Add a note indicating progress (e.g., “(Step 2 of 4)” to the end of the page’s main heading, making the information prominent and easily discoverable by visual scan.</p>
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
@@ -118,7 +125,7 @@
 <p class="wb-inv">Code ends</p>
 						
 						
-			<h3>Approach 3: Using the HTML5 progress element</h3>
+			<h3 id="approach3">Approach 3: Using the HTML5 progress element</h3>
 				<p>You can use a HTML5 <code>&lt;progress&gt;</code> element to inform users of their progress, as the first element in each step.</p>
 				<div class="panel panel-primary mrgn-tp-md">
 					<div class="panel-body well mrgn-bttm-0">
@@ -153,7 +160,7 @@ progress::-moz-progress-bar {
 <p class="wb-inv">Code ends</p>
 
 
-						<h3>Approach 4: Using step-by-step indicator</h3>
+						<h3 id="approach4">Approach 4: Using a step-by-step indicator</h3>
 						<p>A step-by-step indicator can help users orient themselves in a stepped process. This example uses an ordered list with each step being a list item. Visually hidden text, off screen but still encountered by assistive tech, indicates the current and completed status of steps (the WET class <code>.wb-inv</code> visually hides the text). Previous steps are linked so users can review them. Any data already entered in the current step should be saved. </p>
 					
 						<div class="panel panel-primary mrgn-tp-md">
@@ -211,7 +218,7 @@ progress::-moz-progress-bar {
 								  display: inline-block;
 								  color: #555;
 								  content: counter(timeline);
-								  background-color: none;
+								  background-color: transparent;
 								  border: 3px solid #555;
 								  margin-right: .25em;
 								  border-radius: 5px;
@@ -233,7 +240,7 @@ progress::-moz-progress-bar {
 								}
 								.visuallyhidden {
 								  border: 0;
-								  clip: rect(0 0 0 0);
+								  clip: rect(0, 0, 0, 0);
 								  height: 1px;
 								  margin: -1px;
 								  overflow: hidden;
@@ -364,7 +371,7 @@ progress::-moz-progress-bar {
    display: inline-block;
    color: #555;
    content: counter(timeline);
-   background-color: none;
+   background-color: transparent;
    border: 3px solid #555;
    margin-right: .25em;
    border-radius: 5px;
@@ -400,8 +407,6 @@ progress::-moz-progress-bar {
 				<p class="wb-inv">Code ends</p>
 
 			</section>
-			
-			<section>
 				
 				<section>				
 				<div class="panel panel-success mrgn-tp-lg">
@@ -430,10 +435,10 @@ progress::-moz-progress-bar {
 			</section>
 			
 			<hr/>
-			<p class="small">The HTML markup for Approaches 3 and 4 is from the Web Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a>) document: <a href="https://www.w3.org/WAI/tutorials/forms/multi-page/">Multi-Page Forms</a> in the <a href="https://www.w3.org/WAI/tutorials/forms/">Forms Concepts</a> tutorial of the <a href="https://www.w3.org/WAI/tutorials/">Web Accessibility Tutorials</a>. <a href="https://www.w3.org/People/yatil/">Eric Eggert</a> and <a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a>.  Copyright  © 2019 W3C® (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>). Updated 27 July 2019 (first published September 2014).</p>
+			<p class="small">The HTML markup for Approaches 3 and 4 is from the Web Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a>) document: <a href="https://www.w3.org/WAI/tutorials/forms/multi-page/">Multi-Page Forms</a> in the <a href="https://www.w3.org/WAI/tutorials/forms/">Forms Concepts <span class="wb-inv"> (WAI)</span></a> tutorial of the <a href="https://www.w3.org/WAI/tutorials/">Web Accessibility Tutorials</a>. <a href="https://www.w3.org/People/yatil/">Eric Eggert</a> and <a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a>.  Copyright  © 2019 W3C® (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>). Updated 27 July 2019 (first published September 2014).</p>
 			<section>				
 				<h2 id="resources" class="wb-inv">Related WCAG resources</h2>
-				<details class="mrgn-tp-lg">
+				<details class="mrgn-tp-lg grouped on">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
 					<ul>
@@ -456,17 +461,17 @@ progress::-moz-progress-bar {
 			</section>
 		
 		
-	<nav role="navigation">
-		<h2 class="wb-inv">Document navigation</h2>
+	<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
 		<ul class="pager">
 			<li class="previous"><a rel="prev" href="user-notifications.html">Previous - User notifications</a></li>
 			<li class="next"><a rel="next" href="custom-controls.html">Next - Custom controls</a></li>
 		</ul>
 	</nav>
-	</main>
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 			
 
-	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Module 6 - Forms</h3>
@@ -481,7 +486,7 @@ progress::-moz-progress-bar {
 						<li><a class="list-group-item" href="user-notifications.html">User notifications</a></li>
 						<li><a class="list-group-item active" aria-current="page" href="multi-step-forms.html">Multi-step forms</a></li>
 						<li><a class="list-group-item" href="custom-controls.html">Custom controls</a></li>
-						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-6.html">Best practice</a></li>
 						
 					</ul>
 			</section>
@@ -504,16 +509,18 @@ progress::-moz-progress-bar {
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Site map and best practice</h3>
+				<h3 class="wb-navcurr">Appendix</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
 						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
 					</li>
 					<li>
-						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
 				</ul>
 			</section>
 	</nav>

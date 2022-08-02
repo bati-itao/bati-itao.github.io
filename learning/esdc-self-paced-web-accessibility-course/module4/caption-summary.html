@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -50,40 +47,65 @@
                 "title": "Module 4 – Tables",
                 
                 "href" : "index.html"
-            }],
-            "lngLinks": [{
-                "lang": "fr",
-                "href": "caption-summary-fr.html",
-                "text": "Français"
-            }],
-            "menuPath": "../../../ajax/menu-en.html"
-        });
+            },
+          {
+            "title": "Caption and summary",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "caption-summary-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Caption and summary</h1>
 		
-	
-		<h1 property="name" id="wb-cont">Caption and summary</h1>
-		
-		<nav role="navigation" aria-labelledby="nav-table">
-		  <div class="panel panel-default mrgn-tp-lg">
-			<header class="panel-heading">
-			  <h2 id="nav-table" class="panel-title">Table of contents</h2>
-			</header>
-			<div class="panel-body">
-			  <ul>
-				<li><a href="#overview-caption-summary">Overview – Caption and summary</a></li>
-				  <li><a href="#caption">Identifying a table using a caption</a></li>
-				  <li><a href="#summaries">Summaries for complex tables</a></li>
-				  <li><a href="#summary-inside-caption">Good example: Nesting summary inside the &lt;caption&gt; element</a></li>
-				  <li><a href="#aria-describedby">Good example: Using aria-describedby to provide table summary</a></li>
-				  <li><a href="#figcaption">Good example: Using the &lt;figcaption&gt; element to hold the table summary</a></li>
-				  <li><a href="#caption-summary-wcag">Related WCAG resources</a></li>
-			  </ul>
-			</div>
-		  </div>
-		</nav>
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table of contents</summary>
+							<ul>
+						<li>
+							<a href="../module4/caption-summary.html#overview-caption-summary">Overview – Caption and summary</a>
+						</li>
+						<li>
+							<a href="../module4/caption-summary.html#caption">Identifying a table using a caption</a>
+							<ul>
+								<li>
+									<a href="../module4/caption-summary.html#good-example-caption">Good example: Caption</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="../module4/caption-summary.html#summaries">Summaries for complex tables</a>
+							<ul>
+								<li>
+									<a href="../module4/caption-summary.html#summary-inside-caption">Good example: Nesting summary inside the &lt;caption&gt; element</a>
+								</li>
+								<li>
+									<a href="../module4/caption-summary.html#aria-describedby">Good example: Using aria-describedby to provide table summary</a>
+								</li>
+								<li>
+									<a href="../module4/caption-summary.html#figcaption">Good example: Using the &lt;figcaption&gt; element to hold the table summary</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="../module4/caption-summary.html#caption-summary-wcag">Related WCAG resources</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+					<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Expand all details</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Collapse all<span class="wb-inv"> details</span></button>
+				
 		<section>
 			<h2 id="overview-caption-summary">Overview – Caption and summary</h2>
 			<p>The <code>&lt;caption&gt;</code> element specifies the name or title of a table.</p>
@@ -91,8 +113,8 @@
 		</section>
 		<section>
 			<h2 id="caption">Identifying a table using a caption</h2>
-			<p>The <code>&lt;caption&gt;</code> element is the first child of the <code>&lt;table&gt;</code> element. It serves as a name or short heading for the table content. Without a caption, screen reader users must navigate the headers across row 1 and/or down column 1, at least, just to figure out what a table is about. </p>
-			
+			<p>The <code>&lt;caption&gt;</code> element is the first child of the <code>&lt;table&gt;</code> element. It serves as a name or short heading for the table content. Without a caption, screen reader users must navigate the headers across row 1 and/or down column 1, at least, just to figure out what a table is about.</p>
+			<p>If the caption duplicates the preceding heading, visually-hide the caption with the WET CSS class <code>.wb-inv</code>. The duplication is necessary since screen reader users can navigate from table to table with a key press, missing any preceding heading.</p>
 			<div class="panel panel-success  mrgn-tp-lg">
 				<div class="panel-body">
 					<h3 id="good-example-caption" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Caption</h3>			
@@ -101,7 +123,7 @@
 						<div class="panel-body well mrgn-bttm-0">
 							<p class="wb-inv">Example begins</p>
 							<table class="table table-bordered table-hover">
-								<caption>Movies Releases</caption>
+								<caption>Movies releases</caption>
 								<tr>
 									<th>Date</th>
 									<th>Movie</th>
@@ -126,11 +148,11 @@
 							<p class="wb-inv">Example ends</p>
 						</div>
 					</div>
-					<details class="mrgn-tp-lg">
+					<details class="mrgn-tp-lg grouped on">
 						<summary class="bg-info">View HTML</summary>
 						<p class="wb-inv">Code begins</p>
 <pre class="mrgn-tp-md"><code class="language-html">&lt;table&gt;
-  &lt;caption&gt;Movies Releases&lt;/caption&gt;
+  &lt;caption&gt;Movies releases&lt;/caption&gt;
   &lt;tr&gt;
    &lt;th&gt;Date&lt;/th&gt;
    &lt;th&gt;Movie&lt;/th&gt;
@@ -177,12 +199,10 @@
 					</ul>
 				</li>
 		  </ul>
-		</section>
-		
-		<section>
+
 			<div class="panel panel-success  mrgn-tp-lg">
 				<div class="panel-body">
-					<h2 class="text-success mrgn-tp-0 h3" id="summary-inside-caption"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Nesting summary inside the caption element</h2>
+					<h3 class="text-success mrgn-tp-0 h3" id="summary-inside-caption"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Nesting summary inside the caption element</h3>
 					<p>In the example below, the complex table shows the number of students enrolled in two countries across four semester seasons. The <code>&lt;caption&gt;</code> element acts as a heading for the table and provides a summary that describes the structure of the table.</p>
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
@@ -190,7 +210,7 @@
 							<table class="table table-bordered table-hover">
 							  <caption>
 								Information on number of students enrolled
-								<div style="font-weight: normal">Column one holds the country and the programs, other columns show the semester season. Cells hold the number of students enrolled.</div>
+								<span style="font-weight: normal; display: block">Column one holds the country and the programs, other columns show the semester season. Cells hold the number of students enrolled.</span>
 							  </caption>
 							  <thead>
 								<tr>
@@ -206,62 +226,62 @@
 								  <th id="usa" class="span" colspan="5">USA</th>
 								</tr>
 								<tr>
-								 <th headers="usa" id="usmba1">MBA</th>
-								 <td headers="usa usmba1 winter">40</td>
-								 <td headers="usa usmba1 spring">80</td>
-								 <td headers="usa usmba1 summer">125</td>
-								 <td headers="usa usmba1 fall">93</td>
+								 <th headers="usa" id="usmba">MBA</th>
+								 <td headers="usa usmba winter">40</td>
+								 <td headers="usa usmba spring">80</td>
+								 <td headers="usa usmba summer">125</td>
+								 <td headers="usa usmba fall">93</td>
 							   </tr>
 							   <tr>
-								 <th headers="usa" id="usms2">MS</th>
-								 <td headers="usa usms2 winter">60</td>
-								 <td headers="usa usms2 spring">83</td>
-								 <td headers="usa usms2 summer">152</td>
-								 <td headers="usa usms2 fall">132</td>
+								 <th headers="usa" id="usms">MS</th>
+								 <td headers="usa usms winter">60</td>
+								 <td headers="usa usms spring">83</td>
+								 <td headers="usa usms summer">152</td>
+								 <td headers="usa usms fall">132</td>
 							   </tr>
 							   <tr>
-								 <th headers="usa" id="usdip3">Diploma</th>
-								 <td headers="usa usdip3 winter">66</td>
-								 <td headers="usa usdip3 spring">103</td>
-								 <td headers="usa usdip3 summer">115</td>
-								 <td headers="usa usdip3 fall">20</td>
+								 <th headers="usa" id="usdip">Diploma</th>
+								 <td headers="usa usdip winter">66</td>
+								 <td headers="usa usdip spring">103</td>
+								 <td headers="usa usdip summer">115</td>
+								 <td headers="usa usdip fall">20</td>
 							   </tr>
 							   <tr>
 								 <th id="can" class="span" colspan="5">Canada</th>
 							   </tr>
 							   <tr>
-								 <th id="camba1" headers="can">MBA</th>
-								 <td headers="can camba1 winter">113</td>
-								 <td headers="can camba1 spring">81</td>
-								 <td headers="can camba1 summer">122</td>
-								 <td headers="can camba1 fall">33</td>
+								 <th id="camba" headers="can">MBA</th>
+								 <td headers="can camba winter">113</td>
+								 <td headers="can camba spring">81</td>
+								 <td headers="can camba summer">122</td>
+								 <td headers="can camba fall">33</td>
 							   </tr>
 							   <tr>
-								 <th id="cams2" headers="can">MS</th>
-								 <td headers="can cams2 winter">87</td>
-								 <td headers="can cams2 spring">53</td>
-								 <td headers="can cams2 summer">143</td>
-								 <td headers="can cams2 fall">90</td>
+								 <th id="cams" headers="can">MS</th>
+								 <td headers="can cams winter">87</td>
+								 <td headers="can cams spring">53</td>
+								 <td headers="can cams summer">143</td>
+								 <td headers="can cams fall">90</td>
 							   </tr>
 							   <tr>
-								 <th id="cadip3" headers="can">Diploma</th>
-								 <td headers="can cadip3 winter">39</td>
-								 <td headers="can cadip3 spring">16</td>
-								 <td headers="can cadip3 summer">32</td>
-								 <td headers="can cadip3 fall">40</td>
+								 <th id="cadip" headers="can">Diploma</th>
+								 <td headers="can cadip winter">39</td>
+								 <td headers="can cadip spring">16</td>
+								 <td headers="can cadip summer">32</td>
+								 <td headers="can cadip fall">40</td>
 								</tr>
 							  </tbody>
 							</table>
 							<p class="wb-inv">Example ends</p>
 						</div>
 					</div>
-					<details class="mrgn-tp-lg">
+					<details class="mrgn-tp-lg grouped on">
 						<summary class="bg-info">View HTML</summary>
 						<p class="wb-inv">Code begins</p>
 <pre class="mrgn-tp-md"><code class="language-html">&lt;table&gt;
   &lt;caption&gt;
     Information on number of students enrolled
-    &lt;div style="font-weight: normal"&gt;Column one holds the country and the programs, other columns show the semester season. Cells hold the number of students enrolled.&lt;/div&gt;
+    &lt;span style="font-weight: normal; display: block"&gt;Column one holds the country and the programs, other columns show the semester season. Cells hold the number of students enrolled.&lt;/span&gt;
   &lt;/caption&gt;
   &lt;thead&gt;
     &lt;tr&gt;
@@ -277,49 +297,49 @@
       &lt;th id=&quot;usa&quot; class=&quot;span&quot; colspan=&quot;5&quot;&gt;USA&lt;/th&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-     &lt;th headers=&quot;usa&quot; id=&quot;usmba1&quot;&gt;MBA&lt;/th&gt;
-     &lt;td headers=&quot;usa usmba1 winter&quot;&gt;40&lt;/td&gt;
-     &lt;td headers=&quot;usa usmba1 spring&quot;&gt;80&lt;/td&gt;
-     &lt;td headers=&quot;usa usmba1 summer&quot;&gt;125&lt;/td&gt;
-     &lt;td headers=&quot;usa usmba1 fall&quot;&gt;93&lt;/td&gt;
+     &lt;th headers=&quot;usa&quot; id=&quot;usmba&quot;&gt;MBA&lt;/th&gt;
+     &lt;td headers=&quot;usa usmba winter&quot;&gt;40&lt;/td&gt;
+     &lt;td headers=&quot;usa usmba spring&quot;&gt;80&lt;/td&gt;
+     &lt;td headers=&quot;usa usmba summer&quot;&gt;125&lt;/td&gt;
+     &lt;td headers=&quot;usa usmba fall&quot;&gt;93&lt;/td&gt;
    &lt;/tr&gt;
    &lt;tr&gt;
-     &lt;th headers=&quot;usa&quot; id=&quot;usms2&quot;&gt;MS&lt;/th&gt;
-     &lt;td headers=&quot;usa usms2 winter&quot;&gt;60&lt;/td&gt;
-     &lt;td headers=&quot;usa usms2 spring&quot;&gt;83&lt;/td&gt;
-     &lt;td headers=&quot;usa usms2 summer&quot;&gt;152&lt;/td&gt;
-     &lt;td headers=&quot;usa usms2 fall&quot;&gt;132&lt;/td&gt;
+     &lt;th headers=&quot;usa&quot; id=&quot;usms&quot;&gt;MS&lt;/th&gt;
+     &lt;td headers=&quot;usa usms winter&quot;&gt;60&lt;/td&gt;
+     &lt;td headers=&quot;usa usms spring&quot;&gt;83&lt;/td&gt;
+     &lt;td headers=&quot;usa usms summer&quot;&gt;152&lt;/td&gt;
+     &lt;td headers=&quot;usa usms fall&quot;&gt;132&lt;/td&gt;
    &lt;/tr&gt;
    &lt;tr&gt;
-     &lt;th headers=&quot;usa&quot; id=&quot;usdip3&quot;&gt;Diploma&lt;/th&gt;
-     &lt;td headers=&quot;usa usdip3 winter&quot;&gt;66&lt;/td&gt;
-     &lt;td headers=&quot;usa usdip3 spring&quot;&gt;103&lt;/td&gt;
-     &lt;td headers=&quot;usa usdip3 summer&quot;&gt;115&lt;/td&gt;
-     &lt;td headers=&quot;usa usdip3 fall&quot;&gt;20&lt;/td&gt;
+     &lt;th headers=&quot;usa&quot; id=&quot;usdip&quot;&gt;Diploma&lt;/th&gt;
+     &lt;td headers=&quot;usa usdip winter&quot;&gt;66&lt;/td&gt;
+     &lt;td headers=&quot;usa usdip spring&quot;&gt;103&lt;/td&gt;
+     &lt;td headers=&quot;usa usdip summer&quot;&gt;115&lt;/td&gt;
+     &lt;td headers=&quot;usa usdip fall&quot;&gt;20&lt;/td&gt;
    &lt;/tr&gt;
    &lt;tr&gt;
      &lt;th id=&quot;can&quot; class=&quot;span&quot; colspan=&quot;5&quot;&gt;Canada&lt;/th&gt;
    &lt;/tr&gt;
    &lt;tr&gt;
-     &lt;th id=&quot;camba1&quot; headers=&quot;can&quot;&gt;MBA&lt;/th&gt;
-     &lt;td headers=&quot;can camba1 winter&quot;&gt;113&lt;/td&gt;
-     &lt;td headers=&quot;can camba1 spring&quot;&gt;81&lt;/td&gt;
-     &lt;td headers=&quot;can camba1 summer&quot;&gt;122&lt;/td&gt;
-     &lt;td headers=&quot;can camba1 fall&quot;&gt;33&lt;/td&gt;
+     &lt;th id=&quot;camba&quot; headers=&quot;can&quot;&gt;MBA&lt;/th&gt;
+     &lt;td headers=&quot;can camba winter&quot;&gt;113&lt;/td&gt;
+     &lt;td headers=&quot;can camba spring&quot;&gt;81&lt;/td&gt;
+     &lt;td headers=&quot;can camba summer&quot;&gt;122&lt;/td&gt;
+     &lt;td headers=&quot;can camba fall&quot;&gt;33&lt;/td&gt;
    &lt;/tr&gt;
    &lt;tr&gt;
-     &lt;th id=&quot;cams2&quot; headers=&quot;can&quot;&gt;MS&lt;/th&gt;
-     &lt;td headers=&quot;can cams2 winter&quot;&gt;87&lt;/td&gt;
-     &lt;td headers=&quot;can cams2 spring&quot;&gt;53&lt;/td&gt;
-     &lt;td headers=&quot;can cams2 summer&quot;&gt;143&lt;/td&gt;
-     &lt;td headers=&quot;can cams2 fall&quot;&gt;90&lt;/td&gt;
+     &lt;th id=&quot;cams&quot; headers=&quot;can&quot;&gt;MS&lt;/th&gt;
+     &lt;td headers=&quot;can cams winter&quot;&gt;87&lt;/td&gt;
+     &lt;td headers=&quot;can cams spring&quot;&gt;53&lt;/td&gt;
+     &lt;td headers=&quot;can cams summer&quot;&gt;143&lt;/td&gt;
+     &lt;td headers=&quot;can cams fall&quot;&gt;90&lt;/td&gt;
    &lt;/tr&gt;
    &lt;tr&gt;
-     &lt;th id=&quot;cadip3&quot; headers=&quot;can&quot;&gt;Diploma&lt;/th&gt;
-     &lt;td headers=&quot;can cadip3 winter&quot;&gt;39&lt;/td&gt;
-     &lt;td headers=&quot;can cadip3 spring&quot;&gt;16&lt;/td&gt;
-     &lt;td headers=&quot;can cadip3 summer&quot;&gt;32&lt;/td&gt;
-     &lt;td headers=&quot;can cadip3 fall&quot;&gt;40&lt;/td&gt;
+     &lt;th id=&quot;cadip&quot; headers=&quot;can&quot;&gt;Diploma&lt;/th&gt;
+     &lt;td headers=&quot;can cadip winter&quot;&gt;39&lt;/td&gt;
+     &lt;td headers=&quot;can cadip spring&quot;&gt;16&lt;/td&gt;
+     &lt;td headers=&quot;can cadip summer&quot;&gt;32&lt;/td&gt;
+     &lt;td headers=&quot;can cadip fall&quot;&gt;40&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
  &lt;/table&gt;</code>
@@ -328,12 +348,10 @@
 						</details>
 					</div>
 				</div>
-			</section>
-			
-			<section>
+
 				<div class="panel panel-success  mrgn-tp-lg">
 					<div class="panel-body">
-						<h2 class="text-success mrgn-tp-0 h3" id="aria-describedby"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Using aria-describedby to provide table summary</h2>
+						<h3 class="text-success mrgn-tp-0 h3" id="aria-describedby"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Using aria-describedby to provide table summary</h3>
 						<p>In this example, the summary precedes the table in a paragraph element. The table takes an <code>aria-describedby</code> attribute, which holds the <code>id</code> attribute value of the paragraph.</p>
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
@@ -344,11 +362,10 @@
 
 					</div>
 				</div>
-			</section>
-			<section>
+
 				<div class="panel panel-success  mrgn-tp-lg">
 					<div class="panel-body">
-						<h2 class="text-success mrgn-tp-0 h3" id="figcaption"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using the figcaption element to hold the table summary</h2>
+						<h3 class="text-success mrgn-tp-0 h3" id="figcaption"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using the figcaption element to hold the table summary</h3>
 						<p>In this example the table is wrapped in a <code>&lt;figure&gt;</code> element while the <code>&lt;figcaption&gt;</code> element contains the caption and summary text.</p>
 						<p>The table title in the <code>&lt;figcaption&gt;</code> element is explicitly associated with the table using the <code>aria-labelledby</code> attribute. </p>
 						<p>The summary paragraph in the <code>&lt;figcaption&gt;</code> element is explicitly associated with the table using the <code>aria-describedby</code> attribute.</p>
@@ -357,43 +374,43 @@
 								<p class="wb-inv">Example begins</p>
 								<figure>
 									  <figcaption>
-										<strong id="studentinfo-caption">Information on number of students enrolled</strong>
+										<strong id="studentinfo-caption-b">Information on number of students enrolled</strong>
 										<div id="studentinfo-summary">Column one has the country and different programs, other columns show the semester type and number of students enrolled.</div>
 									  </figcaption>
-									  <table class="table table-bordered table-hover" aria-labelledby="studentinfo-caption" aria-describedby="studentinfo-summary">
+									  <table class="table table-bordered table-hover" aria-labelledby="studentinfo-caption-b" aria-describedby="studentinfo-summary">
 										<thead>
 										<tr>
 										  <td></td>
-										  <th id="winter" scope="col">Winter</th>
-										  <th id="spring" scope="col">Spring</th>
-										  <th id="summer" scope="col">Summer</th>
-										  <th id="fall" scope="col">Fall</th>
+										  <th id="winter-b" scope="col">Winter</th>
+										  <th id="spring-b" scope="col">Spring</th>
+										  <th id="summer-b" scope="col">Summer</th>
+										  <th id="fall-b" scope="col">Fall</th>
 										</tr>
 									  </thead>
 									  <tbody>
 										<tr>
-										  <th id="usa" class="span" colspan="5" scope="colgroup">USA</th>
+										  <th id="usa-b" class="span" colspan="5" scope="colgroup">USA</th>
 										</tr>
 										<tr>
-										  <th headers="usa" id="usmba1">MBA</th>
-										  <td headers="usa usmba1 winter">40</td>
-										  <td headers="usa usmba1 spring">80</td>
-										  <td headers="usa usmba1 summer">125</td>
-										  <td headers="usa usmba1 fall">93</td>
+										  <th headers="usa-b" id="usmba-b">MBA</th>
+										  <td headers="usa-b usmba-b winter-b">40</td>
+										  <td headers="usa-b usmba-b spring-b">80</td>
+										  <td headers="usa-b usmba-b summer-b">125</td>
+										  <td headers="usa-b usmba-b fall-b">93</td>
 										</tr>
 										<tr>
-										  <th headers="usa" id="usms2">MS</th>
-										  <td headers="usa usms2 winter">60</td>
-										  <td headers="usa usms2 spring">83</td>
-										  <td headers="usa usms2 summer">152</td>
-										  <td headers="usa usms2 fall">132</td>
+										  <th headers="usa-b" id="usms-b">MS</th>
+										  <td headers="usa-b usms-b winter-b">60</td>
+										  <td headers="usa-b usms-b spring-b">83</td>
+										  <td headers="usa-b usms-b summer-b">152</td>
+										  <td headers="usa-b usms-b fall-b">132</td>
 										</tr>
 										<tr>
-										  <th headers="usa" id="usdip3"> Diploma </th>
-										  <td headers="usa usdip3 winter"> 66 </td>
-										  <td headers="usa usdip3 spring"> 103 </td>
-										  <td headers="usa usdip3 summer"> 115 </td>
-										  <td headers="usa usdip3 fall"> 20 </td>
+										  <th headers="usa-b" id="usdip-b"> Diploma </th>
+										  <td headers="usa-b usdip-b winter-b"> 66 </td>
+										  <td headers="usa-b usdip-b spring-b"> 103 </td>
+										  <td headers="usa-b usdip-b summer-b"> 115 </td>
+										  <td headers="usa-b usdip-b fall-b"> 20 </td>
 										</tr>
 									  </tbody>
 									  </table>
@@ -401,22 +418,22 @@
 								<p class="wb-inv">Example ends</p>
 							</div>
 						</div>
-						<details class="mrgn-tp-lg">
+						<details class="mrgn-tp-lg grouped on">
 							<summary class="bg-info">View HTML</summary>
 							<p class="wb-inv">Code begins</p>
 <pre class="mrgn-tp-md"><code class="language-html">&lt;figure&gt;
    &lt;figcaption&gt;
-      &lt;strong id=&quot;studentinfo-caption&quot;&gt;USA: Information on number of students enrolled&lt;/strong&gt;
+      &lt;strong id=&quot;studentinfo-caption-b&quot;&gt;USA: Information on number of students enrolled&lt;/strong&gt;
       &lt;div id=&quot;studentinfo-summary&quot;&gt;Column one has the country and different programs, other columns show    the semester type and number of students enrolled.&lt;/div&gt;
    &lt;/figcaption&gt;
-   &lt;table aria-labelledby=&quot;studentinfo-caption&quot; aria-describedby=&quot;studentinfo-summary&quot;&gt;
+   &lt;table aria-labelledby=&quot;studentinfo-caption-b&quot; aria-describedby=&quot;studentinfo-summary&quot;&gt;
       &lt;thead&gt;
          &lt;tr&gt;
             &lt;td&gt;&lt;/td&gt;
-            &lt;th id=&quot;winter&quot; scope=&quot;col&quot;&gt;Winter&lt;/th&gt;
-            &lt;th id=&quot;spring&quot; scope=&quot;col&quot;&gt;Spring&lt;/th&gt;
-            &lt;th id=&quot;summer&quot; scope=&quot;col&quot;&gt;Summer&lt;/th&gt;
-            &lt;th id=&quot;fall&quot; scope=&quot;col&quot;&gt;Fall&lt;/th&gt;
+            &lt;th id=&quot;winter-b&quot; scope=&quot;col&quot;&gt;Winter&lt;/th&gt;
+            &lt;th id=&quot;spring-b&quot; scope=&quot;col&quot;&gt;Spring&lt;/th&gt;
+            &lt;th id=&quot;summer-b&quot; scope=&quot;col&quot;&gt;Summer&lt;/th&gt;
+            &lt;th id=&quot;fall=b&quot; scope=&quot;col&quot;&gt;Fall&lt;/th&gt;
          &lt;/tr&gt;
       &lt;/thead&gt;
       &lt;tbody&gt;
@@ -424,25 +441,25 @@
             &lt;th id=&quot;usa&quot; class=&quot;span&quot; colspan=&quot;5&quot; scope=&quot;colgroup&quot;&gt;USA&lt;/th&gt;
          &lt;/tr&gt;
          &lt;tr&gt;
-            &lt;th headers=&quot;usa&quot; id=&quot;usmba1&quot;&gt;MBA&lt;/th&gt;
-            &lt;td headers=&quot;usa usmba1 winter&quot;&gt;40&lt;/td&gt;
-            &lt;td headers=&quot;usa usmba1 spring&quot;&gt;80&lt;/td&gt;
-            &lt;td headers=&quot;usa usmba1 summer&quot;&gt;125&lt;/td&gt;
-            &lt;td headers=&quot;usa usmba1 fall&quot;&gt;93&lt;/td&gt;
+            &lt;th headers=&quot;usa&quot; id=&quot;usmba-b&quot;&gt;MBA&lt;/th&gt;
+            &lt;td headers="usa-b usmba-b winter-b"&gt;40&lt;/td&gt;
+            &lt;td headers="usa-b usmba-b spring-b"&gt;80&lt;/td&gt;
+            &lt;td headers="usa-b usmba-b summer-b"&gt;125&lt;/td&gt;
+            &lt;td headers="usa-b usmba-b fall-b"&gt;93&lt;/td&gt;
          &lt;/tr&gt;
          &lt;tr&gt;
-            &lt;th headers=&quot;usa&quot; id=&quot;usms2&quot;&gt;MS&lt;/th&gt;
-            &lt;td headers=&quot;usa usms2 winter&quot;&gt;60&lt;/td&gt;
-            &lt;td headers=&quot;usa usms2 spring&quot;&gt;83&lt;/td&gt;
-            &lt;td headers=&quot;usa usms2 summer&quot;&gt;152&lt;/td&gt;
-            &lt;td headers=&quot;usa usms2 fall&quot;&gt;132&lt;/td&gt;
+            &lt;th headers=&quot;usa&quot; id=&quot;usms-b&quot;&gt;MS&lt;/th&gt;
+            &lt;td headers="usa-b usms-b winter-b"&gt;60&lt;/td&gt;
+            &lt;td headers="usa-b usms-b spring-b"&gt;83&lt;/td&gt;
+            &lt;td headers="usa-b usms-b summer-b"&gt;152&lt;/td&gt;
+            &lt;td headers="usa-b usms-b fall-b"&gt;132&lt;/td&gt;
          &lt;/tr&gt;
          &lt;tr&gt;
-            &lt;th headers=&quot;usa&quot; id=&quot;usdip3&quot;&gt; Diploma &lt;/th&gt;
-            &lt;td headers=&quot;usa usdip3 winter&quot;&gt; 66 &lt;/td&gt;
-            &lt;td headers=&quot;usa usdip3 spring&quot;&gt; 103 &lt;/td&gt;
-            &lt;td headers=&quot;usa usdip3 summer&quot;&gt; 115 &lt;/td&gt;
-            &lt;td headers=&quot;usa usdip3 fall&quot;&gt; 20 &lt;/td&gt;
+            &lt;th headers=&quot;usa&quot; id=&quot;usdip-b&quot;&gt; Diploma &lt;/th&gt;
+            &lt;td headers="usa-b usdip-b winter-b"&gt; 66 &lt;/td&gt;
+            &lt;td headers="usa-b usdip-b spring-b"&gt; 103 &lt;/td&gt;
+            &lt;td headers="usa-b usdip-b summer-b"&gt; 115 &lt;/td&gt;
+            &lt;td headers="usa-b usdip-b fall-b"&gt; 20 &lt;/td&gt;
          &lt;/tr&gt;
       &lt;/tbody&gt;
    &lt;/table&gt;
@@ -455,7 +472,7 @@
 			</section>
 			<section>
 				<h2 class="wb-inv" id="caption-summary-wcag">Related WCAG resources</h2>
-				<details class="mrgn-tp-lg">
+				<details class="mrgn-tp-lg grouped on">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
 					<ul>
@@ -481,18 +498,18 @@
 				</details>
 			</section>
 			
-			<nav role="navigation" aria-labelledby="nav-document">
-				<h2 id="nav-document" class="wb-inv">Document navigation</h2>
+			<nav aria-labelledby="nav-pagination">
+				<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
 				<ul class="pager">
 				 <li class="previous"> <a rel="prev" href="multi-level-headers.html">Previous - Multi-level headers</a> </li>
 				  <li class="next"> <a rel="next" href="additional-tips-and-tricks.html">Next - Additional tips and tricks</a> </li>
 				</ul>
 			</nav>
-		</main>
+		<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 			
 		
 
-		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation" aria-labelledby="wb-sec-h">	
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 			
 			
 
@@ -512,7 +529,7 @@
 						<li><a class="list-group-item active" href="caption-summary.html">Caption &amp; summary</a></li>
 						<li><a class="list-group-item" href="additional-tips-and-tricks.html">Additional tips and tricks</a></li>
 						<li><a class="list-group-item" href="tables-resources.html">Table resources in WET</a></li>
-						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-4.html">Best practice</a></li>
 					</ul>
 				
 			
@@ -541,16 +558,18 @@
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Site map and best practice</h3>
+				<h3 class="wb-navcurr">Appendix</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
 						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
 					</li>
 					<li>
-						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
 				</ul>
 			</section>
 		

@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]>
-<html class="no-js lt-ie9" lang="fr" dir="ltr">
-   <![endif]-->
-   <!--[if gt IE 8]><!-->
-   <html class="no-js" lang="fr" dir="ltr">
-      <!--<![endif]-->
+<html class="no-js" lang="fr" dir="ltr">
       <head>
          <meta charset="utf-8" />
          <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -15,7 +10,6 @@
             name="description"
             content="Lignes directrices sur l’accessibilité relative aux commandes personnalisées. Cette page donne un aperçu général des éléments à prendre en considération pour élaborer des commandes personnalisées de formulaire."
             />
-         <meta name="robots" content="noindex" />
          <!-- Meta data-->
          <!-- Load closure template scripts -->
          <script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -57,58 +51,65 @@
                 {
                   title: "Module 6 - Formulaires",
                   href : "index-fr.html"
-                }],
-              lngLinks: [{
-                  lang: "en",
-                  href: "custom-controls.html",
-                  text: "English",
-                }],
-              menuPath: "../../../ajax/menu-fr.html",
-            });
-         </script>
-         <div class="container">
-            <div class="row">
-               <main
-                  class="col-md-9 col-md-push-3"
-                  role="main"
-                  property="mainContentOfPage">
-                  <h1 property="name" id="wb-cont">Commandes personnalisées</h1>
-                  <nav role="navigation">
-                     <div class="panel panel-default mrgn-tp-md">
-                        <header class="panel-heading">
-                           <h2 class="panel-title">Table des matières</h2>
-                        </header>
-                        <div class="panel-body">
-                           <ul>
-                              <li><a href="#design">Conception de contrôles personnalisés</a></li>
-                              <li>
-                                 <a href="#native-html">Dans la mesure du possible, utiliser un élément de
-                                 formulaire HTML natif plutôt qu’une commande personnalisée</a>
-                              </li>
-                              <li>
-                                 <a href="#model">Modéliser le comportement d’après les éléments de formulaire HTML natifs</a>
-                              </li>
-                              <li>
-                                 <a href="#aria">Ajouter le bon ARIA name, role, and values</a>
-                              </li>
-                              <li>
-                                 <a href="#communicate">Communiquer des mises à jour et des changements d’état par l’entremise de messages en direct sur ARIA lorsqu’ils ne peuvent pas être communiqués par l’entremise de méthodes HTML ou ARIA</a>
-                              </li>
-                              <li>
-                                 <a href="#custom-share-button">Bon exemple&nbsp;: Un bouton Partager personnalisé</a>
-                              </li>
-                              <li><a href="#resources1">Ressources WCAG connexes</a></li>
-                           </ul>
-                        </div>
-                     </div>
-                  </nav>
+                },
+          {
+            "title": "Commandes personnalisées",
+            
+          }],
+        "menuPath": "../../../ajax/menu-en.html",
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "custom-controls.html",
+            "text": "English",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
+    </script>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Commandes personnalisées</h1>
+          <nav aria-labelledby="nav-table" class="mrgn-tp-md">
+            <h2 id="nav-table" class="wb-inv">Table des matières</h2>
+            <details class="mrgn-bttm-lg on" open="open">
+               <summary class="bg-info">Table des matières</summary>
+               <ul>
+            <li>
+               <a href="#design">Conception de contrôles personnalisés</a>
+            </li>
+            <li>
+               <a href="#native-html">Dans la mesure du possible, utiliser un élément de formulaire HTML natif plutôt qu’une commande personnalisée</a>
+            </li>
+            <li>
+               <a href="#model">Modéliser le comportement d’après les éléments de formulaire HTML natifs</a>
+            </li>
+            <li>
+               <a href="#aria">Ajouter le bon ARIA name, role, and values</a>
+            </li>
+            <li>
+               <a href="#communicate">Communiquer des mises à jour et des changements d’état par l’entremise de messages en direct sur ARIA lorsqu’ils ne peuvent pas être communiqués par l’entremise de méthodes HTML ou ARIA</a>
+            </li>
+            <li>
+               <a href="#custom-share-button">Bon exemple : Un bouton Partager personnalisé</a>
+            </li>
+            <li>
+               <a href="#resources1">Ressources WCAG connexes</a>
+            </li>
+         </ul>
+            </details>
+         </nav>
+		 <button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Afficher tout les détails</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Réduire tout<span class="wb-inv">les détails</span></button>
+				
                   <section>
                      <h2 id="design">Conception de contrôles personnalisés</h2>
                      <p>
-                        Cette section donne un aperçu de haut niveau des éléments à prendre en considération lors de l’élaboration de commandes de formulaire personnalisées. La <a href="https://www.w3.org/TR/wai-aria-1.1/">Spécification ARIA</a> et les <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">Pratiques de rédaction ARIA</a> expliquent comment utiliser ARIA (Accessible Rich Internet Applications) pour créer des widgets personnalisés. Les pratiques de rédaction décrivent le comportement attendu des widgets du clavier et de la cible, ainsi que des exemples et le code.
+                        Cette section donne un aperçu de haut niveau des éléments à prendre en considération lors de l’élaboration de commandes de formulaire personnalisées. La <a href="https://www.w3.org/TR/wai-aria-1.1/">Spécification ARIA</a> et les <a href="https://www.w3.org/WAI/ARIA/apg/">Pratiques de rédaction ARIA</a> expliquent comment utiliser ARIA (Accessible Rich Internet Applications) pour créer des widgets personnalisés. Les pratiques de rédaction décrivent le comportement attendu des widgets du clavier et de la cible, ainsi que des exemples et le code.
                      </p>
                      <p>
-                        Voir <a href="../module12/index-fr.html">le module 12</a> pour une discussion sur les widgets JavaScript personnalisé.
+                        Voir <a href="../module12/introduction-fr.html">le module 12</a> pour une discussion sur les widgets JavaScript personnalisé.
                      </p>
                      <p>
                         Suivez les pratiques exemplaires suivantes pour les commandes personnalisées&nbsp;:
@@ -135,19 +136,17 @@
                      </p>
                   </section>
                   <section>
-                     <h2 id="model">Modéliser le comportement d’après les éléments de formulaire HTML natifs.
-                     </h2>
+                     <h2 id="model">Modéliser le comportement d’après les éléments de formulaire HTML natifs.</h2>
                      <p>
                         Si vous créez une version personnalisée d’un élément de formulaire natif, modélisez-le d’après l’élément original, y compris la duplication du comportement attendu du clavier (p.&nbsp;ex., les commandes reçoivent la cible, les boutons sont activés avec la touche d’espacement ou d’entrée, les cases à cocher sont cochées ou décochées à l’aide de la touche d’espacement, les boutons radio sont sélectionnés avec la touche fléchée).
                      </p>
                      <p>
-                        Si votre élément de formulaire doit être différent des éléments de formulaire natifs, les éléments de formulaire HTML natifs sont encore un modèle de comportement souhaitable au clavier. Assurez-vous que tous les boutons fonctionnent avec la touche Entrée et la barre d’espacement. Mettez en place des touches fléchées que les utilisateurs pourraient s’attendre à utiliser. Voir les interactions au clavier des modèles de widgets et des rôles ARIA dans les <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">Pratiques de rédaction ARIA</a>.
+                        Si votre élément de formulaire doit être différent des éléments de formulaire natifs, les éléments de formulaire HTML natifs sont encore un modèle de comportement souhaitable au clavier. Assurez-vous que tous les boutons fonctionnent avec la touche Entrée et la barre d’espacement. Mettez en place des touches fléchées que les utilisateurs pourraient s’attendre à utiliser. Voir les interactions au clavier des modèles de widgets et des rôles ARIA dans les <a href="https://www.w3.org/WAI/ARIA/apg/">Pratiques de rédaction ARIA</a>.
                      </p>
-                    ément.
-                     </p>
+               
                      <p>
                         Réfléchissez à deux fois avant de créer une commande
-                        personnalisée. Il peut s’agir d’un travail considérable, comme le décrit le tutoriel du Mozilla Developer Network <a href="https://developer.mozilla.org/fr/docs/Learn/Forms/How_to_build_custom_form_controls">How to build custom form controls</a>
+                        personnalisée. Il peut s’agir d’un travail considérable, comme le décrit le tutoriel du Mozilla Developer Network <a href="https://developer.mozilla.org/fr/docs/Learn/Forms/How_to_build_custom_form_controls" lang="en-CA">How to build custom form controls</a>
                         (<a href="https://developer.mozilla.org/fr/docs/Learn/Forms/How_to_build_custom_form_controls">Comment construire des widgets de formulaires personnalisés</a>), qui consiste à créer un élément personnalisé <code lang="en-CA">&lt;select&gt;</code>.
                      </p>
                   </section>
@@ -234,7 +233,7 @@
                                  };
                               </script>
                               <style>
-                                 .btn-primary {
+                                 .btn-primary-custom {
                                  line-height: 1;
                                  float: none;
                                  background: linear-gradient(to bottom, #004d99, #036);
@@ -264,7 +263,7 @@
                                  }
                               </style>
                               <form onsubmit="myFunction(); return false;">
-                                 <button type="submit" id="share-btn" class="btn-primary">
+                                 <button type="submit" id="share-btn" class="btn-primary-custom">
                                  <span class="count">3</span>
                                  <span class="text">Partages</span>
                                  </button>
@@ -303,7 +302,7 @@
                      </p>
                      <p class="small">
                         Bon exemple de code tiré du document de l’Initiative
-                        d’accessibilité du Web (<a href="https://www.w3.org/WAI/">IAT</a>)&nbsp;: <a href="https://www.w3.org/WAI/tutorials/forms/custom-controls/">Commandes personnalisées</a> (en anglais seulement), dans <a href="https://www.w3.org/WAI/tutorials/forms/">Concepts de formulaires</a>. Eric Eggert et Shadi&nbsp;Abou-Zahra, éd. Copyright © 2019 <a href="http://www.w3.org/">W3C</a>® (<a href="http://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="http://www.keio.ac.jp/">Keio</a>,
+                        d’accessibilité du Web (<a href="https://www.w3.org/WAI/">IAT</a>)&nbsp;: <a href="https://www.w3.org/WAI/tutorials/forms/custom-controls/">Commandes personnalisées<span class="wb-inv"> (IAT)</span></a> (en anglais seulement), dans <a href="https://www.w3.org/WAI/tutorials/forms/">Concepts de formulaires</a>. Eric Eggert et Shadi&nbsp;Abou-Zahra, éd. Copyright © 2019 <a href="http://www.w3.org/">W3C</a>® (<a href="http://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="http://www.keio.ac.jp/">Keio</a>,
                         <a href="http://ev.buaa.edu.cn/">Beihang</a>). État
                         d’avancement&nbsp;: Ébauche mise à jour le
                         27&nbsp;juillet&nbsp;2019.
@@ -311,65 +310,65 @@
                   </section>
                   <section>
                      <h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
-                     <details class="mrgn-tp-lg">
+                     <details class="mrgn-tp-lg grouped on">
                         <summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En anglais seulement.</p>
+                       
                         <h3>Critères de succès</h3>
                         <ul>
                            <li>
-                              <a href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value" lang="en-CA">4.1.2: Name, Role, Value</a>
+                              <a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/ensure-compat-rsv.html" data-code="4.1.2">4.1.2 : Nom, rôle et valeur</a>
                            </li>
                            <li>
-                              <a href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages" lang="en-CA">4.1.3: Status Messages</a>
+                              <a href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages" hreflang="en-CA" data-code="4.1.3">4.1.3 : Messages d’état  (en anglais)</a>
                            </li>
                         </ul>
                         <h3>Techniques</h3>
                         <ul>
                            <li>
-                              <a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H91" lang="en-CA">H91: Using HTML form controls and links</a>
+                              <a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H91" hreflang="en-CA" data-code="H91">
+H91&nbsp;: Utiliser des éléments de formulaire et des liens HTML (en anglais)</a>
                            </li>
                            <li>
-                              <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA4" lang="en-CA">ARIA4: Using a WAI-ARIA role to expose the role of a user interface component</a>
+                              <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA4" hreflang="en-CA" data-code="ARIA4">ARIA4 : ARIA2&nbsp;: Identifier les champs obligatoires avec la propriété required
+(en anglais)</a>
                            </li>
                            <li>
-                              <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA5" lang="en-CA">ARIA5: Using WAI-ARIA state and property attributes to expose the state of a user interface component</a>
+                              <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA5" hreflang="en-CA" data-code="ARIA5">ARIA5 : Utiliser l’état WAI-ARIA et des attributs de propriété pour afficher l’état d’un composant d’interface utilisateur  (en anglais)</a>
                            </li>
                         </ul>
                         <h3>Échecs</h3>
                         <ul>
                            <li>
-                              <a
-                                 href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F15">F15: Failure of Success Criterion 4.1.2 due to implementing
-                              custom controls that do not use an accessibility API for the technology, or do so incompletely</a>
+                              <a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F15" data-code="F15">F15&nbsp;: Échec du critère de succès 4.1.2 consistant à implémenter des composants d'interface qui n'utilisent pas une API d'accessibilité pour la technologie
+ou qui l'utilisent de façon incomplète (en anglais) </a>
                            </li>
                            <li>
-                              <a
-                                 href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F68">F68: Failure of Success Criterion 4.1.2 due to a user interface control not having a programmatically determined name</a>
+                              <a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F68" data-code="F68">F68&nbsp;: Échec du critère de succès 1.3.1 et 4.1.2 lié au fait que l'association entre l'étiquette et le composant d'interface utilisateur n'est pas déterminable par programmation (en anglais)</a>
                            </li>
                            <li>
-                              <a
-                                 href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F79">F79: Failure of Success Criterion 4.1.2 due to the focus state of a user interface component not being programmatically determinable or no notification of change of focus state available</a>
+                              <a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F79" data-code="F79">F79&nbsp;: Échec du critère de succès 4.1.2 lié au fait que l'état du focus d'un composant d'interface utilisateur ne peut être déterminé par un programme
+informatique ou que les notifications des changements de focus ne sont pas disponibles (en anglais)
+</a>
                            </li>
                         </ul>
                      </details>
                   </section>
-                  <nav role="navigation">
-                     <h2 class="wb-inv">Menu de la pagination</h2>
+                  <nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
                      <ul class="pager">
                         <li class="previous">
                            <a rel="prev" href="multi-step-forms-fr.html">Précédent - Formulaires à étapes multiples</a>
                         </li>
                         <li class="next">
-                           <a rel="next" href="best-practice-fr.html">Suivant - Pratique exemplaire</a>
+                           <a rel="next" href="best-practice-mod-6-fr.html">Suivant - Pratique exemplaire</a>
                         </li>
                      </ul>
                   </nav>
-               </main>
+               <a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
                <nav
                   id="wb-sec"
                   class="wb-sec col-md-3 col-md-pull-9"
-                  typeof="SiteNavigationElement"
-                  role="navigation">
+                  typeof="SiteNavigationElement">
                   <h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
                   <section class="list-group menu list-unstyled">
                      <h3 class="wb-navcurr">Module 6 - Formulaires</h3>
@@ -384,16 +383,14 @@
                            <a class="list-group-item" href="grouping-controls-fr.html">Regroupement des commandes</a>
                         </li>
                         <li>
-                           <a class="list-group-item" href="form-instructions-fr.html"
-                              >Instructions du formulaire</a
+                           <a class="list-group-item" href="form-instructions-fr.html">Instructions du formulaire</a
                               >
                         </li>
                         <li>
                            <a class="list-group-item" href="identifying-input-fr.html">Déterminer l’objet de la saisie</a>
                         </li>
                         <li>
-                           <a class="list-group-item" href="validating-input-fr.html"
-                              >Validation des saisies</a>
+                           <a class="list-group-item" href="validating-input-fr.html">Validation des saisies</a>
                         </li>
                         <li>
                            <a class="list-group-item" href="user-notifications-fr.html">Avis à l’utilisateur</a>
@@ -406,7 +403,7 @@
                               aria-current="page" href="custom-controls-fr.html">Commandes personnalisées</a>
                         </li>
                         <li>
-                           <a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a>
+                           <a class="list-group-item" href="best-practice-mod-6-fr.html">Pratique exemplaire</a>
                         </li>
                      </ul>
                   </section>
@@ -449,7 +446,7 @@
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+				<h3 class="wb-navcurr">Appendice</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
@@ -458,7 +455,9 @@
 					<li>
 						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">Vue WCAG</a>
+					</li>
 				</ul>
 			</section>
                </nav>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Best practice - Module 10 - Input modalities</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Summary of best practices in Module 10 – Input modalities">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../../index.html"
+            },
+			{
+                "title": "Web accessibility course",
+                "href" : "../index.html"
+            },
+			{
+                "title": "Module 10 – Input modalities",
+                
+                "href" : "index.html"
+            },
+          {
+            "title": "Best practice",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "best-practice-mod-10-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
+    </script>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Best practice</h1>
+						
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+						<details class="grouped mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table of contents</summary>
+							<ul>
+						<li>
+							<a href="#best-practice-mouse-input">Mouse input<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#best-practice-keyboard-input">Keyboard input<span class="wb-inv"> (best practice)</span>
+							</a>
+							<ul>
+								<li>
+									<a href="#focus-and-focus-order">Focus and focus order<span class="wb-inv"> (best practice)</span>
+									</a>
+								</li>
+								<li>
+									<a href="#visual-focus-indicator">Visual focus indicator<span class="wb-inv"> (best practice)</span>
+									</a>
+								</li>
+								<li>
+									<a href="#keyboard-functionality">Keyboard functionality<span class="wb-inv"> (best practice)</span>
+									</a>
+								</li>
+								<li>
+									<a href="#keyboard-trap">Keyboard trap<span class="wb-inv"> (best practice)</span>
+									</a>
+								</li>
+								<li>
+									<a href="#focus-mgmt-with-javascript">Focus management with JavaScript-injected content<span class="wb-inv"> (best practice)</span>
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#best-practice-touch-input">Touch/pointer input<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#best-practice-voice-input">Voice input<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#best-practice-motion-actuation">Motion actuation<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+	
+			<section>				
+				<h2 id="best-practice-mouse-input">Mouse input</h2>
+				<ul>
+					<li>Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden, the addition content is:
+						<ul>
+							<li>Dismissible</li>
+							<li>Hoverable</li>
+							<li>Persistent </li>
+						</ul>
+					</li>
+					<li>Content that can be triggered via pointer hover should also be able to be triggered by keyboard focus.</li>
+					<li>For functionality that can be operated using a single pointer, at least one of the following is true:
+						<ul>
+							<li>No Down-Event</li>
+							<li>Abort or Undo</li>
+							<li>Up Reversal</li>
+							<li>Essential</li>
+						</ul>
+					</li>
+					<li>Use the default behaviour of controls (e.g. <code>onclick</code> or <code>mouseup</code> event) and do not override that behaviour with an explicit down-event trigger. </li>
+				</ul>
+			</section>
+			
+			<section>				
+				<h2 id="best-practice-keyboard-input">Keyboard input</h2>
+				<h3 id="focus-and-focus-order">Focus and focus order</h3>
+				<ul>
+					<li>Ensure a meaningful tab order by positioning focusable content in the same sequence as the underlying code.</li>
+					<li>Ensure the keyboard navigation order is logical and intuitive. Typically, this means ensuring the navigation follows the visual flow of the page, left to right, top to bottom. It moves through the banner, main navigation, page navigation and controls, then footer on a typical page.</li>
+					<li>Avoid using <code>tabindex</code> values greater than 0.</li>
+				</ul>
+				<h3 id="visual-focus-indicator">Visual focus indicator</h3>
+				<ul>
+					<li>Avoid styles that remove or limit the visibility of keyboard focus indicators</li>
+					<li>Use CSS to design a highly-visible focus indicator with strong contrast</li>
+					<li>Links must have a visible focus state.</li>
+				</ul>
+				<h3 id="keyboard-functionality">Keyboard functionality</h3>
+				<ul>
+					<li>Ensure all page content can be operated through a keyboard. </li>
+					<li>When possible, use native HTML links and form controls rather than custom elements.</li>
+					<li>Use the <code>onclick</code> event of anchors and buttons.</li>
+					<li>Pair mouse event handlers with keyboard event handlers.</li>
+				</ul>
+				<h3 id="keyboard-trap">Keyboard trap</h3>
+				<ul>
+					<li>Make sure the user can get in and out of the interactive elements by using only the keyboard.</li>
+				</ul>
+				<h3 id="focus-mgmt-with-javascript">Focus management with JavaScript-injected content</h3>
+				<ul>
+					<li>Whenever a pop up appears on the page as a result of the user interaction or invoking a control, ensure that the user returns to the same place where the interaction first started.</li>
+				</ul>
+			</section>
+			
+			<section>				
+				<h2 id="best-practice-touch-input">Touch input</h2>
+				<ul>
+					<li>All functionality should be accessible via pointer input devices, e.g., via a mouse, a finger on a touch screen, or an electronic stylus. </li>
+					<li>All functionalities can be operated by a single click or tap, double tap, double click, long press, or click &amp; hold.  </li>
+					<li>Write JavaScript event handlers that trigger on both keyboard and mouse click. A mouse-accessible interface is generally touch accessible.</li>
+					<li>Ensure the target size is at least 44px by 44px (Level AAA, optional)</li>
+				</ul>
+			</section>
+
+			<section>				
+				<h2 id="best-practice-voice-input">Voice input</h2>
+				<ul>
+					<li>When a control has an accessible name set via an ARIA label as well as a visible label, the visible label text must be part of or match the ARIA label.</li>
+				</ul>
+			</section>
+
+			<section>				
+				<h2 id="best-practice-motion-actuation">Motion actuation</h2>
+				<ul>
+					<li>If you provide motion actuation (functions triggered by sensor input such as shaking), ensure the functions can also be triggered by conventional user interface components.</li>
+					<li>Ensure users can disable motion actuation.</li>
+				</ul>
+			</section>	
+		
+	<nav aria-labelledby="nav-pagination">
+		<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="motion-actuation.html">Previous - Motion actuation</a></li>
+		</ul>
+	</nav>
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 10 - Input modalities</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="introduction.html">Introduction</a></li>
+						<li><a class="list-group-item" href="mouse-input.html">Mouse input</a></li>
+						<li><a class="list-group-item" href="keyboard-input.html">Keyboard input</a></li>
+						<li><a class="list-group-item" href="touch-input.html">Touch/pointer input</a></li>
+						<li><a class="list-group-item" href="voice-input.html">Voice input</a></li>
+						<li><a class="list-group-item" href="motion-actuation.html">Motion actuation</a></li>						
+						<li><a class="list-group-item active" aria-current="page" href="best-practice-mod-10.html">Best practice</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">All modules</h3>
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item active" href="introduction.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Appendix</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
+				</ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>

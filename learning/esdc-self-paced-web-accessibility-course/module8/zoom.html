@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -11,7 +8,6 @@
 	<!-- Meta data -->
 	<meta name="description"
 		content="Accessibility guidelines related to Zoom. Describes requirements for content reflow and text resize">
-	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -51,35 +47,59 @@
                 "title": "Module 8 - Zoom and responsive design",
                 
                 "href" : "index.html"
-            }],
-            "lngLinks": [{
-                "lang": "fr",
-                "href": "zoom-fr.html",
-                "text": "Français"
-            }],
-            "menuPath": "../../../ajax/menu-en.html"
-        });
+            },
+          {
+            "title": "Zoom",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "zoom-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-			
-	<h1 property="name" id="wb-cont">Zoom</h1>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Zoom</h1>
 						
-	<nav role="navigation">
-    <div class="panel panel-default mrgn-tp-md">
-      <header class="panel-heading">
-        <h2 class="panel-title">Table of contents</h2>
-      </header>
-        <div class="panel-body">
-          <ul>
-            <li><a href="#reflow-content">Reflow content</a></li>
-			<li><a href="#resize-text">Resize text</a></li>		
-          </ul>
-        </div>
-      </div>
+	<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+	<div class="panel panel-default mrgn-tp-md">
+	      <header class="panel-heading">
+	        <h2 id="nav-table" class="panel-title">Table of contents</h2>
+	      </header>
+	        <div class="panel-body">
+	          <ul>
+			<li>
+				<a href="#reflow-content">Reflow content</a>
+				<ul>
+					<li>
+						<a href="#good-example-reflow-content">Good example: Reflow content</a>
+					</li>
+					<li>
+						<a href="#zoom-reflow-content-wcag">Related WCAG resources<span class="wb-inv"> (Reflow content)</span></a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#resize-text">Resize text</a>
+				<ul>
+					<li>
+						<a href="#zoom-resize-text-wcag">Related WCAG resources<span class="wb-inv"> (Resize text)</span></a>
+					</li>
+	          		</ul>
+			</li>
+		</ul>
+	      </div>
+	</div>
 	</nav>
-	
+	<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Expand all details</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Collapse all<span class="wb-inv"> details</span></button>
+				
 	<section>
 		<h2 id="reflow-content">Reflow content</h2>
 		<p>Some users with low vision need to greatly enlarge text and read it in a single column. When these users zoom the browser to scale content to 400%, WCAG requires that content reflows into one column so that scrolling in more than one direction is not necessary. The relevant success criterion reads as follows:</p>
@@ -122,13 +142,19 @@
 					<h4 id="zoom-desktop-view">Desktop view</h4>
 					<div class="panel panel-primary">
 						<div class="panel-body mrgn-bttm-0">
+							<p class="wb-inv">Example begins</p>
+							
 							<img src="images/image1.png" class="img-responsive" alt="In desktop view, the four main menu items display horizontally.">
+							<p class="wb-inv">Example ends</p>
 						</div>
 					</div>
 					<h4 id="zoom-mobile-emulator-view">Mobile emulator view at width of 320 pixels</h4>
 					<div class="panel panel-primary">
 						<div class="panel-body mrgn-bttm-0">
+							<p class="wb-inv">Example begins</p>
+							
 							<img src="images/image2.png" class="img-responsive" alt="In mobile view, the four main menu items are stacked atop one another vertically.">
+							<p class="wb-inv">Example ends</p>
 						</div>
 					</div>
 				</details>
@@ -248,7 +274,7 @@
 		</div>
 
 		<h3 class="wb-inv" id="zoom-reflow-content-wcag">Related WCAG resources</h3>
-		<details class="mrgn-tp-lg">
+		<details class="mrgn-tp-lg grouped on">
 			<summary class="bg-info">Related WCAG resources</summary>
 
 			<h4 id="reflow-success-criteria">Success criteria</h4>
@@ -278,7 +304,7 @@
 		</blockquote>
 		<p>One of the Techniques sufficient to meeting 1.4.4: Resize text is simply using HTML5, for which all modern browsers support zoom (WCAG Technique G142, linked below). The default browser zoom is not text-only zoom, but it is sufficient to meet the Success Criterion. However, mobile designs must still enable pinch-to-zoom, as described in the section <a href="responsive-design.html">Responsive design</a> &gt; <a href="responsive-design.html#section4">Set the viewport</a>.</p>
 		<h3 class="wb-inv" id="zoom-resize-text-wcag">Related WCAG resources</h3>
-		<details class="mrgn-tp-lg">
+		<details class="mrgn-tp-lg grouped on">
 			<summary class="bg-info">Related WCAG resources</summary>
 			
 			<h4 id="resize-text-success-criteria">Success criteria</h4>
@@ -316,17 +342,17 @@
 		
 
 		
-	<nav role="navigation">
-		<h2 class="wb-inv">Document navigation</h2>
+	<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
 		<ul class="pager">
 			<li class="previous"><a rel="prev" href="introduction.html">Previous - Introduction</a></li>
 			<li class="next"><a rel="next" href="responsive-design.html">Next - Responsive design</a></li>
 		</ul>
 	</nav>
-	</main>
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 			
 
-	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Module 8 - Zoom and responsive design</h3>
@@ -350,7 +376,7 @@
 							</ul>
 						</li>						
 						<li><a class="list-group-item" href="orientation.html">Orientation</a></li>
-						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-8.html">Best practice</a></li>
 						
 					</ul>
 			</section>
@@ -373,16 +399,18 @@
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Site map and best practice</h3>
+				<h3 class="wb-navcurr">Appendix</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
 						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
 					</li>
 					<li>
-						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
 				</ul>
 			</section>
 	</nav>

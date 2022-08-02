@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Best practice - Module 4 – Tables</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Summary of best practices in Module 4 - Tables">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../../index.html"
+            },
+			{
+                "title": "Web accessibility course",
+                "href" : "../index.html"
+            },
+			{
+                "title": "Module 4 – Tables",
+                
+                "href" : "index.html"
+            },
+          {
+            "title": "Best practice",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "best-practice-mod-4-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
+    </script>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Best practice</h1>
+		
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+						<details class="grouped mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table of contents</summary>
+							<ul>
+						<li>
+							<a href="../module4/best-practice.html#tables-concepts">Tables concepts<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="../module4/best-practice.html#content-style-guide">Canada.ca Content Style Guide<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="../module4/best-practice.html#irregular-tables">Irregular tables<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="../module4/best-practice.html#multi-level-headers">Tables with multi-level headers<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="../module4/best-practice.html#captions-summary">Captions and summary<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="../module4/best-practice.html#tips-tricks">Additional tips and tricks<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+			<section>
+				<h2 id="tables-concepts">Tables concepts</h2>
+				<ul>
+					<li>Mark up tables semantically to define the relationship between header cells and data cells. </li>
+					<li>For simple tables with one row of column headers and/or one column of row headers, 
+					  <ul>
+					    <li>use the <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, and <code>&lt;td&gt;</code> elements for mark up. </li>
+					    <li>use the <code>scope</code> attribute to associate headers with their data cells and any parent headers</li>
+				      </ul>
+				    </li>
+					<li>For complex tables, use <code>id</code> and <code>headers</code> attributes for explicit associations.</li>
+				</ul>
+			</section>
+			<section>
+				<h2 id="content-style-guide">Canada.ca Content Style Guide</h2>
+				<ul>
+					<li>Use tables to organize and present data</li>
+					<li>Value of each cell relates to the column and row headers</li>
+					<li>Entries in a column don't contain information that could be considered a subhead</li>
+					<li>Value of each cell aligns with the column header that appears directly above it</li>
+					<li>Give your table a clear title (using <code>&lt;caption&gt;</code>) that describes the information in it</li>
+					<li>Convert complex tables into one or more simple tables</li>
+					<li>Convert a table to a list if the data is simple</li>
+				</ul>
+			</section>
+			<section>
+				<h2 id="irregular-tables">Irregular tables  </h2>
+				<ul>
+					<li>In irregular tables, represent the relationship between row- and column-spanning headers and their data cells with the <code>scope</code> attribute:
+					  <ul>
+					    <li>When a header spans multiple columns, add the <code>scope="colgroup"</code> attribute to the <code>&lt;th&gt;</code> element.</li>
+					    <li>When a header spans multiple rows, add the <code>scope="rowgroup"</code> attribute to the <code>&lt;th&gt;</code> element.</li>
+				      </ul>
+				    </li>
+					<li>Define groups in the table with <code>&lt;colgroup&gt;</code> and <code>&lt;tbody&gt;</code> elements:
+					  <ul>
+					    <li>Define column groups with the <code>&lt;colgroup&gt;</code> element, solo columns with <code>&lt;col&gt;</code>, as first children of the table element.</li>
+					    <li>Define row groups with the <code>&lt;tbody&gt;</code> element. The solo <code>&lt;thead&gt;</code> and <code>&lt;tfoot&gt;</code> elements define their own groups.</li>
+				      </ul>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2 id="multi-level-headers">Tables with multi-level headers</h2>
+				<ul>
+					<li>To associate multi-level headers with data cells:
+					  <ul>
+					    <li>Give each header a unique <code>id</code> attribute value.</li>
+					    <li>Reference those <code>id</code> attribute values in the <code>headers</code> attribute of data cells defined by the header.</li>
+				      </ul>
+				    </li>
+					<li>The <code>id/headers</code> technique is not currently (2021) well-supported by screen readers. Simplify the data presentation by breaking a complex table into two or more simpler tables.</li>
+				</ul>
+			</section>
+			<section>
+				<h2 id="captions-summary">Captions and summary</h2>
+				<ul>
+					<li>Use the <code>&lt;caption&gt;</code> element to provide a name or title for the table</li>
+					<li>If the caption duplicates the preceding heading, visually-hide the <code>&lt;caption&gt;</code> with the WET CSS class <code>.wb-inv</code>.</li>
+					<li>Place the <code>&lt;caption&gt;</code> element as a direct child of the <code>&lt;table&gt;</code> element</li>
+					<li>Provide a summary for complex tables that includes purpose, composition, trends and/or usage</li>
+					<li>Wherever possible, convert complex tables into simple tables or lists, so that less or no explanation is required.</li>
+					<li>Do no duplicate caption information in the summary.</li>
+					<li>Pick a method for presenting table summaries:
+					  <ul>
+					    <li>Nest the summary inside the <code>&lt;caption&gt;</code> element</li>
+					    <li>Set the summary in a paragraph preceding or following the table. Reference the summary from the table with the <code>aria-describedby</code> attribute.</li>
+					    <li>Use the <code>&lt;figure&gt;</code> element to mark up a table summary. Use <code>aria-labelledby</code> and <code>aria-describedby</code> attributes to associate the caption and summary, respectively, with the table.</li>
+				      </ul>
+				    </li>
+				</ul>
+			</section>
+			<section>
+				<h2 id="tips-tricks">Additional tips and tricks</h2>
+				<ul>
+					<li>Break up a complex table into simpler smaller tables, each containing data for one sub-topic of the original table.</li>
+					<li>Start a new <code>&lt;table&gt;</code> when the topic changes.</li>
+					<li>Separate each piece of data into its own cell.</li>
+					<li>Don’t use line breaks (<code>&lt;br&gt;</code> elements) to create table rows. </li>
+					<li>Align text to the left and numeric data to the right.</li>
+					<li>Differentiate header <code>&lt;th&gt;</code> and data <code>&lt;td&gt;</code> cells visually.</li>
+					<li>Style even and odd rows in a different way to improve readability.</li>
+					<li>Ensure table isn’t cut off (e.g., do not use <code>overflow: hidden</code> in CSS).</li>
+					<li>Avoid using tables for layout. Use CSS for layout instead.</li>
+				</ul>
+			</section>
+			
+		<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+			<ul class="pager">
+				<li class="previous"> <a rel="prev" href="tables-resources.html">Previous - Table resources in WET </a> </li>
+			</ul>
+		</nav>
+					
+
+<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
+		
+		
+
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+			
+			
+
+				<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				Module 4 –  Tables
+				</h3>
+				
+				
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="tables-concepts.html">Tables concepts</a></li>
+							<li><a class="list-group-item" href="one-header.html">One header</a></li>
+							<li><a class="list-group-item" href="two-headers.html">Two headers</a></li>
+							<li><a class="list-group-item" href="irregular-headers.html">Irregular headers</a></li>
+							<li><a class="list-group-item" href="multi-level-headers.html">Multi-level headers</a></li>
+							<li><a class="list-group-item" href="caption-summary.html">Caption &amp; summary</a></li>
+							<li><a class="list-group-item" href="additional-tips-and-tricks.html">Additional tips and tricks</a></li>
+							<li><a class="list-group-item" href="tables-resources.html">Table resources in WET</a></li>
+							<li><a class="list-group-item active" href="best-practice-mod-4.html">Best practice</a></li>
+					
+					</ul>
+				
+			
+			</section>
+			
+			
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				All modules
+				</h3>
+				
+				
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item active" href="tables-concepts.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Appendix</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
+				</ul>
+			</section>
+		
+		</nav>
+	
+		
+
+		
+		
+	
+			
+</div>
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+</div>	
+		
+		
+	<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+</body>
+	
+</html>

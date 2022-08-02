@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -11,8 +8,6 @@
 	<!-- Meta data -->
 	<meta name="description"
 			content="Accessibility guidelines related to labeling controls. Provide labels to describe the purpose of the form control.">
-	
-	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -52,6 +47,10 @@
                 "title": "Module 6 - Forms",
                 
                 "href" : "index.html"
+            },
+			{
+                "title": "Labelling controls",
+
             }],
             "lngLinks": [{
                 "lang": "fr",
@@ -63,30 +62,48 @@
     </script>
 <div class="container">
 <div class="row">
-	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+	<main class="col-md-9 col-md-push-3" property="mainContentOfPage">
 			
 	<h1 property="name" id="wb-cont">Labelling controls</h1>
 						
-	<nav role="navigation">
-    <div class="panel panel-default mrgn-tp-md">
-      <header class="panel-heading">
-        <h2 class="panel-title">Table of contents</h2>
-      </header>
-        <div class="panel-body">
-          <ul>
-            <li><a href="#labeling-controls">Best practices for labeling controls</a></li>
-			<li><a href="#labels-attributes">Good example: Associating labels explicitly using for/id attributes</a></li>
-			<li><a href="#hiding-label-element">Good example: Visually hiding the label element</a></li>
-			<li><a href="#aria-label">Good example: Using aria-label</a></li>
-			<li><a href="#aria-labelledby">Good example: Using aria-labelledby to concatenate a label from several sources</a></li>
-			<li><a href="#aria-labelledby-concatenate">Good example: Using aria-labelledby to concatenate a label from several sources</a></li>
-			<li><a href="#labelling-buttons">Good example: Labelling buttons</a></li>
-			<li><a href="#labelling-image-button">Good example: Labelling image button using aria-label attribute</a></li>
-			<li><a href="#wcag-resources">Related WCAG resources</a></li>
-          </ul>
-        </div>
-      </div>
+	<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+		<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+		<details class="mrgn-bttm-lg on" open="open">
+			<summary class="bg-info">Table of contents</summary>
+			<ul>
+		<li>
+			<a href="../module6/labelling-controls.html#labeling-controls">Best practices for labeling controls</a>
+		</li>
+		<li>
+			<a href="../module6/labelling-controls.html#labels-attributes">Good example: Associating labels explicitly using for/id attributes</a>
+		</li>
+		<li>
+			<a href="../module6/labelling-controls.html#hiding-label-element">Good example: Visually hiding the label element</a>
+		</li>
+		<li>
+			<a href="../module6/labelling-controls.html#aria-label">Good example: Using aria-label</a>
+		</li>
+		<li>
+			<a href="../module6/labelling-controls.html#aria-labelledby">Good example: Using aria-labelledby to concatenate a label from several sources</a>
+		</li>
+		<li>
+			<a href="../module6/labelling-controls.html#aria-labelledby-concatenate">Good example: Using aria-labelledby to concatenate a label from several sources</a>
+		</li>
+		<li>
+			<a href="../module6/labelling-controls.html#labelling-buttons">Good example: Labelling buttons</a>
+		</li>
+		<li>
+			<a href="../module6/labelling-controls.html#labelling-image-button">Good example: Labelling image button using aria-label attribute</a>
+		</li>
+		<li>
+			<a href="../module6/labelling-controls.html#wcag-resources">Related WCAG resources</a>
+		</li>
+	</ul>
+		</details>
 	</nav>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Expand all details</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Collapse all<span class="wb-inv"> details</span></button>
+			
 	
 		<section>				
 			<h2 id="labeling-controls">Best practices for labeling controls</h2>
@@ -126,7 +143,7 @@
 					</ul>
 				  </li>
 				</ul>
-			  </li>
+			</li>
 			  <li>Use ARIA labels (<code>aria-labelledby</code> and <code>aria-label</code> attributes) when it is not possible to use <code>&lt;label&gt;</code> </li>
 			  <li>When using ARIA labels, include any visible text in the control label. </li>
 			  <li>Use the <code>aria-labelledby</code> attribute to retrieve a label from the context, drawing on one or more elements in the context. </li>
@@ -167,7 +184,7 @@
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
 <pre class="mrgn-tp-0"><code class="language-html">&lt;div class="form-group"&gt;
-   &lt;label for="firstname"&gt;First name&lt;/label&gt;j
+   &lt;label for="firstname"&gt;First name&lt;/label&gt;
    &lt;input type="text" name="firstname" id="firstname"&gt;
 &lt;/div&gt;
 &lt;div class="form-group"&gt;
@@ -266,14 +283,14 @@
 						<div class="panel-body well mrgn-bttm-0">
 							<p class="wb-inv">Example begins</p>
 							<h3  class="mrgn-tp-0" id="service1">Service 1</h3>
-							<p>[paragraphe descriptif]</p>
-							<button type="submit" class="btn btn-primary btn-lg" id="add1" aria-labelledby="add1 option1">Add to cart</button>
+							<p>[descriptive paragraph]</p>
+							<button type="submit" class="btn btn-primary btn-lg" id="add1" aria-labelledby="add1 service1">Add to cart</button>
 							<h3 id="service2">Service 2</h3>
-							<p>[paragraphe descriptif]</p>
-							<button type="submit" class="btn btn-primary btn-lg" id="add2" aria-labelledby="add2 option2">Add to cart</button>
+							<p>[descriptive paragraph]</p>
+							<button type="submit" class="btn btn-primary btn-lg" id="add2" aria-labelledby="add2 service2">Add to cart</button>
 							<h3 id="service3">Service 3</h3>
-							<p>[paragraphe descriptif]</p>
-							<button type="submit" class="btn btn-primary btn-lg" id="add3" aria-labelledby="add3 option3">Add to cart</button>
+							<p>[descriptive paragraph]</p>
+							<button type="submit" class="btn btn-primary btn-lg" id="add3" aria-labelledby="add3 service3">Add to cart</button>
 							<p class="wb-inv">Example ends</p>
 						</div>
 					</div>
@@ -283,19 +300,19 @@
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
 <pre class="mrgn-tp-0"><code class="language-html">&lt;h3 id="service1"&gt;Service 1&lt;/h3&gt;
-&lt;p&gt;[paragraphe descriptif]&lt;/p&gt;
+&lt;p&gt;[descriptive paragraph]&lt;/p&gt;
 &lt;button id="add1" aria-labelledby="add1 service1" type="submit"&gt;
    Add to cart
 &lt;/button&gt;
 
 &lt;h3 id="service2"&gt;Service 2&lt;/h3&gt;
-&lt;p&gt;[paragraphe descriptif]&lt;/p&gt;
+&lt;p&gt;[descriptive paragraph]&lt;/p&gt;
 &lt;button id="add2" aria-labelledby="add2 service2" type="submit"&gt;
    Add to cart
 &lt;/button&gt;
 
 &lt;h3 id="service3"&gt;Service 3&lt;/h3&gt;
-&lt;p&gt;[paragraphe descriptif]&lt;/p&gt;
+&lt;p&gt;[descriptive paragraph]&lt;/p&gt;
 &lt;button id="add3" aria-labelledby="add3 service3" type="submit"&gt;
    Add to cart
 &lt;/button&gt;</code></pre>
@@ -450,15 +467,15 @@
 			<section>				
 				<h2 id="wcag-resources" class="wb-inv">Related WCAG resources</h2>
 				
-				<details class="mrgn-tp-lg">
+				<details class="mrgn-tp-lg grouped on">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
 					<ul>
                   <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a></li>
-                  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1 Info and Relationships</a></li>
-                  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels">2.4.6 Headings and Labels</a></li>
-                  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions">3.3.2 Labels or Instructions</a></li>
-                  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value">4.1.2 Name, Role, Value</a></li>
+                  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1: Info and Relationships</a></li>
+                  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels">2.4.6: Headings and Labels</a></li>
+                  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions">3.3.2: Labels or Instructions</a></li>
+                  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value">4.1.2: Name, Role, Value</a></li>
                 </ul>
 					<h3>Techniques</h3>
 					                <ul>
@@ -480,17 +497,17 @@
 			</section>
 		
 		
-	<nav role="navigation">
-		<h2 class="wb-inv">Document navigation</h2>
+	<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
 		<ul class="pager">
 			<li class="previous"><a rel="prev" href="forms-concepts.html">Previous - Forms concepts</a></li>
 			<li class="next"><a rel="next" href="grouping-controls.html">Next - Grouping controls</a></li>
 		</ul>
 	</nav>
-	</main>
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 			
 
-	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 	  <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Module 6 - Forms</h3>
@@ -505,7 +522,7 @@
 						<li><a class="list-group-item" href="user-notifications.html">User notifications</a></li>
 						<li><a class="list-group-item" href="multi-step-forms.html">Multi-step forms</a></li>
 						<li><a class="list-group-item" href="custom-controls.html">Custom controls</a></li>
-						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-6.html">Best practice</a></li>
 						
 					</ul>
 			</section>
@@ -528,16 +545,18 @@
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Site map and best practice</h3>
+				<h3 class="wb-navcurr">Appendix</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
 						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
 					</li>
 					<li>
-						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
 				</ul>
 			</section>
 	</nav>

@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="fr" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -11,8 +8,6 @@
 	<!-- Meta data -->
 	<meta name="description"
 			content="Lignes directrices sur l’accessibilité relative aux commandes d’étiquetage. Présente les étiquettes pour décrire le but d’une commande de formulaire.">
-	
-	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -52,6 +47,10 @@
                 "title": "Module 6 - Formulaires",
                 
                 "href" : "index-fr.html"
+            },
+			{
+                "title": "Commandes d’étiquetage",
+
             }],
             "lngLinks": [{
                 "lang": "en",
@@ -63,40 +62,58 @@
     </script>
 <div class="container">
 <div class="row">
-	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+	<main class="col-md-9 col-md-push-3" property="mainContentOfPage">
 			
 	<h1 property="name" id="wb-cont">Commandes d’étiquetage</h1>
 						
-	<nav role="navigation">
-    <div class="panel panel-default mrgn-tp-md">
-      <header class="panel-heading">
-        <h2 class="panel-title">Table des matières</h2>
-      </header>
-        <div class="panel-body">
-          <ul>
-            <li><a href="#labeling-controls">Pratique exemplaires <mark>for labeling controls</mark></a></li>
-			<li><a href="#labels-attributes"> Bon exemple&nbsp;: Associer explicitement les étiquettes en utilisant les attributs for/id</a></li>
-			<li><a href="#hiding-label-element"> Bon exemple&nbsp;: Masquer visuellement l’élément d’étiquette</a></li>
-			<li><a href="#aria-label"> Bon exemple&nbsp;: Utiliser aria-label</a></li>
-			<li><a href="#aria-labelledby"> Bon exemple&nbsp;: Utilisation d’aria-labelledby pour concaténer une étiquette provenant de plusieurs sources</a></li>
-			<li><a href="#aria-labelledby-concatenate"> Bon exemple&nbsp;: Utilisation d’aria-labelledby pour concaténer une étiquette provenant de plusieurs sources</a></li>
-			<li><a href="#labelling-buttons"> Bon exemple&nbsp;: Boutons d’étiquetage</a></li>
-			<li><a href="#labelling-image-button"> Bon exemple&nbsp;: Bouton d’étiquetage des images utilisant l’attribut aria-label</a></li>
-			<li><a href="#wcag-resources">Ressources WCAG connexes</a></li>
-          </ul>
-        </div>
-      </div>
+	<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+		<h2 id="nav-table" class="wb-inv">Table des matières</h2>
+		<details class="mrgn-bttm-lg on" open="open">
+			<summary class="bg-info">Table des matières</summary>
+			<ul>
+		<li>
+			<a href="#labeling-controls">Pratiques exemplaires pour les contrôles d’étiquetage</a>
+		</li>
+		<li>
+			<a href="#labels-attributes"> Bon exemple : Associer explicitement les étiquettes en utilisant les attributs for/id</a>
+		</li>
+		<li>
+			<a href="#hiding-label-element"> Bon exemple : Masquer visuellement l’élément d’étiquette</a>
+		</li>
+		<li>
+			<a href="#aria-label"> Bon exemple : Utiliser aria-label</a>
+		</li>
+		<li>
+			<a href="#aria-labelledby"> Bon exemple : Utilisation d’aria-labelledby pour concaténer une étiquette provenant de plusieurs sources</a>
+		</li>
+		<li>
+			<a href="#aria-labelledby-concatenate"> Bon exemple : Utilisation d’aria-labelledby pour concaténer une étiquette provenant de plusieurs sources</a>
+		</li>
+		<li>
+			<a href="#labelling-buttons"> Bon exemple : Boutons d’étiquetage</a>
+		</li>
+		<li>
+			<a href="#labelling-image-button"> Bon exemple : Bouton d’étiquetage des images utilisant l’attribut aria-label</a>
+		</li>
+		<li>
+			<a href="#wcag-resources">Ressources WCAG connexes</a>
+		</li>
+	</ul>
+		</details>
 	</nav>
-	
+	<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Afficher tout les détails</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Réduire tout<span class="wb-inv">les détails</span></button>
+				
 		<section>				
-			<h2 id="labeling-controls">Pratique exemplaires <mark>for labeling controls</mark></h2>
+
+			<h2 id="labeling-controls">Pratiques exemplaires pour les contr&#244;les d’&#233;tiquetage</h2>
 			<p>Les commandes de formulaire comprennent les champs de texte, les champs de sélection de fichiers, les cases à cocher, les boutons radio et les listes déroulantes. </p>
 			<p>Suivez les pratiques exemplaires suivantes pour les en-têtes&nbsp;:</p>
 			<ul>
 			<li>Fournir des étiquettes pour décrire la fonction de commande de formulaire.</li>
 			<li>Utiliser l’élément <code lang="en-CA">&lt;label&gt;</code>.</li>
 			<li>Associer exactement l’attribut &quot;<code lang="en-CA">for</code>&quot; de l’étiquette à l’attribut &quot;<code lang="en-CA">id</code>&quot; de la commande de formulaire pour les associer explicitement.</li>
-			<li>Voici les éléments qui utilisent des étiquettes explicitement associées&nbsp;:</li>
+			<li>Voici les éléments qui utilisent des étiquettes explicitement associées&nbsp;:
 				<ul>
 				  <li><code lang="en-CA">input type=&quot;text&quot;</code> </li>
 				  <li><code lang="en-CA">input type=&quot;checkbox&quot;</code> </li>
@@ -109,7 +126,7 @@
 			  </li>
 			  <li>Ne pas utiliser l’élément <code lang="en-CA">&lt;label&gt;</code> pour les éléments suivants. 
 				<ul>
-				  <li>Boutons Soumettre et Réinitialisation (<code lang="en-CA">input type=&quot;submit&quot;</code> ou <code lang="en-CA">input type=&quot;reset&quot;</code>)</li>
+				  <li>Boutons Soumettre et Réinitialisation (<code lang="en-CA">input type=&quot;submit&quot;</code> ou <code lang="en-CA">input type=&quot;reset&quot;</code>)
 					<ul>
 					  <li>Étiquette fournie par l’attribut de valeur </li>
 					</ul>
@@ -127,8 +144,6 @@
 				  </li>
 				</ul>
 			  </li>
-			  
-			<ul>
 			  <li>Utiliser des étiquettes ARIA (les attributs <code lang="en-CA">aria-labelledby</code> et <code lang="en-CA">aria-label</code>) lorsqu’il n’est pas possible d’utiliser <code lang="en-CA">&lt;label&gt;</code></li>
 			  <li>Lorsque vous utilisez des étiquettes ARIA, ajoutez tout texte visible dans l’étiquette de commande.</li>
 			  <li>Utiliser l’attribut <code lang="en-CA">aria-labelledby</code> pour extraire une étiquette du contexte, en faisant appel à un ou plusieurs éléments du contexte.</li>
@@ -169,7 +184,7 @@
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-0"><code class="language-html">&lt;div class="form-group"&gt;
-   &lt;label for="firstname"&gt;Prénom&lt;/label&gt;j
+   &lt;label for="firstname"&gt;Prénom&lt;label&gt;
    &lt;input type="text" name="firstname" id="firstname"&gt;
 &lt;/div&gt;
 &lt;div class="form-group"&gt;
@@ -208,7 +223,7 @@
 
 				<p class="wb-inv">Fin du code</p>	
 				<p class="lang-label small">CSS</p>
-				<p class="wb-inv">Début du code<</p>
+				<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-0"><code class="language-css">.wb-inv {
    clip: rect(1px,1px,1px,1px);
    height: 1px;
@@ -270,17 +285,17 @@
 
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
-              <p class="wb-inv">L'exemple commence</p
+              <p class="wb-inv">L'exemple commence</p>
 							
-							<h3  class="mrgn-tp-0" id="service1">Service 1</h3>
+							<h3  class="mrgn-tp-0" id="lc-service1">Service 1</h3>
 							<p>[paragraphe descriptif]</p>
-							<button type="submit" class="btn btn-primary btn-lg" id="add1" aria-labelledby="add1 service1">Ajouter au panier</button>
-							<h3 id="service1">Service 2</h3>
+							<button type="submit" class="btn btn-primary btn-lg" id="add1" aria-labelledby="add1 lc-service1">Ajouter au panier</button>
+							<h3 id="lc-service2">Service 2</h3>
 							<p>[paragraphe descriptif]</p>
-							<button type="submit" class="btn btn-primary btn-lg" id="add2" aria-labelledby="add2 service2">Ajouter au panier</button>
-							<h3 id="service3">Service 3</h3>
+							<button type="submit" class="btn btn-primary btn-lg" id="add2" aria-labelledby="add2 lc-service2">Ajouter au panier</button>
+							<h3 id="lc-service3">Service 3</h3>
 							<p>[paragraphe descriptif]</p>
-							<button type="submit" class="btn btn-primary btn-lg" id="add3" aria-labelledby="add3 service3">Ajouter au panier</button>
+							<button type="submit" class="btn btn-primary btn-lg" id="add3" aria-labelledby="add3 lc-service3">Ajouter au panier</button>
 							
 
               <p class="wb-inv">L'exemple finit</p>
@@ -462,48 +477,80 @@
 			<section>				
 				<h2 id="wcag-resources" class="wb-inv">Ressources WCAG connexes</h2>
 				
-				<details class="mrgn-tp-lg">
+				<details class="mrgn-tp-lg grouped on">
 					<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En anglais seulement.</p>
+                       
 					<h3>Critères de succès</h3>
 					<ul>
-                  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content" lang="en-CA">1.1.1: Non-text Content</a></li>
-                  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships" lang="en-CA">1.3.1 Info and Relationships</a></li>
-                  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels" lang="en-CA">2.4.6 Headings and Labels</a></li>
-                  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions" lang="en-CA">3.3.2 Labels or Instructions</a></li>
-                  <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value" lang="en-CA">4.1.2 Name, Role, Value</a></li>
+                  <li>
+														<a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/text-equiv-all.html" data-code="1.1.1">1.1.1 : Contenu non textuel</a>
+													</li>
+                  <li>
+														<a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/content-structure-separation-programmatic.html" data-code="1.3.1">1.3.1 : Information et relations</a>
+													</li>
+                  <li>
+														<a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/navigation-mechanisms-descriptive.html" data-code="2.4.6">2.4.6 : En-têtes et étiquettes</a>
+													</li>
+                  <li>
+														<a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/minimize-error-cues.html" data-code="3.3.2">3.3.2 : Étiquettes ou instructions</a>
+													</li>
+                  <li>
+														<a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/ensure-compat-rsv.html" data-code="4.1.2">4.1.2 : Nom, rôle et valeur</a>
+													</li>
                 </ul>
 					<h3>Techniques</h3>
 					                <ul>
-                  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G131" lang="en-CA">G131: Providing descriptive labels</a></li>
-                  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G162" lang="en-CA">G162: Positioning labels to maximize predictability of relationships</a></li>
-                  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G167" lang="en-CA">G167: Using an adjacent button to label the purpose of a field</a></li>
-                  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H44" lang="en-CA">H44: Using label elements to associate text labels with form controls</a></li>
-                  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H65" lang="en-CA">H65: Using the title attribute to identify form controls when the label element cannot be used</a></li>
-                  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H93" lang="en-CA">H93: Ensuring that id attributes are unique on a Web page</a></li>
-                  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA6" lang="en-CA">ARIA6: Using aria-label to provide labels for objects</a></li>
-                  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA9" lang="en-CA">ARIA9: Using aria-labelledby to concatenate a label from several text nodes</a></li>
-                  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA16" lang="en-CA">ARIA16: Using aria-labelledby to provide a name for user interface controls</a></li>
+                  <li>
+														<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G131" hreflang="en-CA" data-code="G131">
+G131&nbsp;: Fournir des étiquettes descriptives (en anglais)</a>
+													</li>
+                  <li>
+														<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G162" hreflang="en-CA" data-code="G162">G162&nbsp;: Positionner les étiquettes afin de maximiser la prévisibilité des relations (en anglais)</a>
+													</li>
+                  <li>
+														<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G167" hreflang="en-CA" data-code="G167">G167&nbsp;: Utiliser un bouton adjacent pour identifier visuellement la fonction d'un champ
+(en anglais)</a>
+													</li>
+                  <li>
+														<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H44" hreflang="en-CA" data-code="H44">H44&nbsp;: Utiliser l'élément label pour associer les étiquettes avec les champs de formulaire (en anglais)</a>
+													</li>
+                  <li>
+														<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H65" hreflang="en-CA" data-code="H65">H65&nbsp;: Utiliser l'attribut title pour identifier un champ de formulaire quand l'élément label ne peut pas être utilisé (en anglais)</a>
+													</li>
+                  <li>
+														<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H93" hreflang="en-CA" data-code="H93">H93&nbsp;: S'assurer que les attributs id sont uniques sur une page Web (en anglais)</a>
+													</li>
+                  <li>
+														<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA6" hreflang="en-CA" data-code="ARIA6">ARIA6 : Utiliser aria-label pour attribuer des étiquettes aux objets  (en anglais)</a>
+													</li>
+                  <li>
+														<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA9" hreflang="en-CA" data-code="ARIA9">ARIA9 : Utiliser aria-labelledby pour concaténer une étiquette provenant de plusieurs nœuds de texte  (en anglais)</a>
+													</li>
+                  <li>
+														<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA16" hreflang="en-CA" data-code="ARIA16">ARIA16 : Utiliser aria-labelledby pour attribuer un nom à des commandes d’interface d’utilisateur  (en anglais)</a>
+													</li>
                 </ul>
 					<h3>Défaillances </h3>
                 <ul>
-                  <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F68" lang="en-CA">F68: Failure of Success Criterion 4.1.2 due to a user interface control not having a programmatically determined name</a></li>
+                  <li>
+														<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F68" hreflang="en-CA" data-code="F68">F68&nbsp;: Échec du critère de succès 1.3.1 et 4.1.2 lié au fait que l'association entre l'étiquette et le composant d'interface utilisateur n'est pas déterminable par programmation (en anglais)</a>
+													</li>
                 </ul>
 				</details>
 			</section>
 		
 		
-	<nav role="navigation">
-		<h2 class="wb-inv">Menu de la pagination</h2>
+	<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
 		<ul class="pager">
 			<li class="previous"><a rel="prev" href="forms-concepts-fr.html">Précédent - Concepts des formulaires</a></li>
 			<li class="next"><a rel="next" href="grouping-controls-fr.html">Suivant - Regroupement des commandes</a></li>
 		</ul>
 	</nav>
-	</main>
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 			
 
-	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 	  <h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Module 6 - Formulaires</h3>
@@ -518,7 +565,7 @@
 						<li><a class="list-group-item" href="user-notifications-fr.html">Avis à l’utilisateur</a></li>
 						<li><a class="list-group-item" href="multi-step-forms-fr.html">Formulaires à étapes multiples</a></li>
 						<li><a class="list-group-item" href="custom-controls-fr.html">Commandes personnalisées</a></li>
-						<li><a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-6-fr.html">Pratique exemplaire</a></li>
 												
 					</ul>
 			</section>
@@ -541,7 +588,7 @@
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+				<h3 class="wb-navcurr">Appendice</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
@@ -550,7 +597,9 @@
 					<li>
 						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">Vue WCAG</a>
+					</li>
 				</ul>
 			</section>
 	</nav>

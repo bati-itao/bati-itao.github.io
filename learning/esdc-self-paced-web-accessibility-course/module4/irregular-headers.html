@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -28,6 +25,7 @@
 	<div id="def-top">
 	</div>
 	<!-- Write closure template -->
+
     <script>
         var defTop = document.getElementById("def-top");
         defTop.outerHTML = wet.builder.appTop({
@@ -38,7 +36,8 @@
            "breadcrumbs" : [{
                 "title": "Home",
                 "href" : "../../../index.html"
-            },{
+            },
+            {
                 "title": "Learning",
                 "href" : "../../index.html"
             },
@@ -50,38 +49,52 @@
                 "title": "Module 4 – Tables",
                 
                 "href" : "index.html"
-            }],
-            "lngLinks": [{
-                "lang": "fr",
-                "href": "irregular-headers-fr.html",
-                "text": "Français"
-            }],
-            "menuPath": "../../../ajax/menu-en.html"
-        });
+
+            },
+            {
+            "title": "Irregular headers"
+            
+          }],
+        "lngLinks": [{
+            "lang": "fr",
+            "href": "irregular-headers-fr.html",
+            "text": "Français"
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
-	
-		<h1 property="name" id="wb-cont">Irregular headers</h1>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Irregular headers</h1>
 		
-		<nav role="navigation" aria-labelledby="nav-table">
-			<div class="panel panel-default mrgn-tp-lg">
-				<header class="panel-heading">
-					<h2 id="nav-table" class="panel-title">Table of contents</h2>
-				</header>
-				<div class="panel-body">
-					<ul>
-						<li><a href="#irregular-headers">Designing with irregular headers</a></li>
-						<li><a href="#scope-attribute">The scope attribute</a></li>
-						<li><a href="#group-defining">The group-defining elements</a></li>
-						<li><a href="#headers">Good example: Table with column and row-spanning headers</a></li>
-						<li><a href="#wcag">Related WCAG resources</a></li>
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table of contents</summary>
+							<ul>
+						<li>
+							<a href="../module4/irregular-headers.html#irregular-headers">Designing with irregular headers</a>
+						</li>
+						<li>
+							<a href="../module4/irregular-headers.html#scope-attribute">The scope attribute</a>
+						</li>
+						<li>
+							<a href="../module4/irregular-headers.html#group-defining">The group-defining elements</a>
+						</li>
+						<li>
+							<a href="../module4/irregular-headers.html#headers">Good example: Table with column and row-spanning headers</a>
+						</li>
+						<li>
+							<a href="../module4/irregular-headers.html#irregular-headers-wcag">Related WCAG resources</a>
+						</li>
 					</ul>
-				</div>
-			</div>
-		</nav>
-		
+						</details>
+					</nav>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Expand all details</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Collapse all<span class="wb-inv"> details</span></button>
+				
 		<section>
 			<h2 id="irregular-headers">Designing with irregular headers</h2>
 			<p>A table is irregular when one or more of its headers span multiple columns or rows.</p>
@@ -89,36 +102,36 @@
 		</section>
 		<section>
 			<h2 id="scope-attribute">The scope attribute</h2>
-			<p>When a header spans multiple columns, add the <code>scope="colgroup"</code> attribute to the <code>th</code> element. See header <strong>A</strong> in the example table below.</p>
-			<p>When a header spans multiple rows, add the <code>scope="rowgroup"</code> attribute to the <code>th</code> element. See header <strong>B</strong> in the example table below.</p>
-			<p>For solo column headers, add the <code>scope="col"</code> attribute to the th element. See headers <strong>A1</strong>, <strong>A2</strong>, <strong>A3</strong> in the example table below.</p>
-			<p>For solo row headers, add the <code>scope="row"</code> attribute to the th element. See headers <strong>B1</strong>, <strong>B2</strong> in the example table below.</p>
+			<p>When a header spans multiple columns, add the <code>scope="colgroup"</code> attribute to the <code>&lt;th&gt;</code> element. See header <strong>A</strong> in the example table below.</p>
+			<p>When a header spans multiple rows, add the <code>scope="rowgroup"</code> attribute to the <code>&lt;th&gt;</code> element. See header <strong>B</strong> in the example table below.</p>
+			<p>For solo column headers, add the <code>scope="col"</code> attribute to the <code>&lt;th&gt;</code> element. See headers <strong>A1</strong>, <strong>A2</strong>, <strong>A3</strong> in the example table below.</p>
+			<p>For solo row headers, add the <code>scope="row"</code> attribute to the <code>&lt;th&gt;</code> element. See headers <strong>B1</strong>, <strong>B2</strong> in the example table below.</p>
 			<div class="panel panel-primary mrgn-tp-md">
 				<div class="panel-body well mrgn-bttm-0">
 					<p class="wb-inv">Example begins</p>
 					<table class="table table-bordered">
 						<caption>Table with a column-spanning header and a row-spanning header</caption>
-						<thead>
-							  <tr class="bg-primary">
+						<thead class="bg-primary">
+							  <tr>
 								<td colspan="2" rowspan="2">&nbsp;</td>
-								<th colspan="3">A</th>
+								<th colspan="3" scope="colgroup">A</th>
 							  </tr>
-							  <tr class="bg-primary">
-								<th>A1</th>
-								<th>A2</th>
-								<th>A3</th>
+							  <tr>
+								<th scope="col">A1</th>
+								<th scope="col">A2</th>
+								<th scope="col">A3</th>
 							  </tr>
 						</thead>
 						<tbody>
 							  <tr>
-								<th rowspan="2" class="bg-primary">B</th>
-								<th class="bg-primary">B1</th>
+								<th rowspan="2" class="bg-primary" scope="rowgroup">B</th>
+								<th class="bg-primary" scope="row">B1</th>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 							  </tr>
 							  <tr>
-								<th class="bg-primary"">B2</th>
+								<th class="bg-primary" scope="row">B2</th>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
@@ -129,33 +142,37 @@
 				</div>
 			</div>
 			<p>Screen reader support for the <code>scope="rowgroup"</code> attribute is worse than support for <code>scope="colgroup"</code>. When possible, design tables to leverage <code>scope="colgroup"</code> and avoid <code>scope="rowgroup"</code>.</p>
-	 		<details class="mrgn-tp-lg">
+	 		<details class="mrgn-tp-lg grouped on">
 				<summary class="bg-info">View HTML</summary>
-				<p class="wb=inv">Code begins</p>
-<pre><code class="language-html">&lt;table class=&quot;table table-bordered&quot;&gt;
+				<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;table class=&quot;table table-bordered&quot;&gt;
    &lt;caption&gt;Table with a column-spanning header and a row-spanning header&lt;/caption&gt;
-   &lt;tr class=&quot;bg-primary&quot;&gt;
-      &lt;td colspan=&quot;2&quot; rowspan=&quot;2&quot;&gt;&amp;nbsp;&lt;/td&gt;
-      &lt;th colspan=&quot;3&quot; id=&quot;a&quot;&gt;A&lt;/th&gt;
-   &lt;/tr&gt;
-   &lt;tr class=&quot;bg-primary&quot;&gt;
-      &lt;th id=&quot;a1&quot;&gt;A1&lt;/th&gt;
-      &lt;th id=&quot;a2&quot;&gt;A2&lt;/th&gt;
-      &lt;th id=&quot;a3&quot;&gt;A3&lt;/th&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-      &lt;th rowspan=&quot;2&quot; class=&quot;bg-primary&quot; id=&quot;b&quot;&gt;B&lt;/th&gt;
-      &lt;th class=&quot;bg-primary&quot; id=&quot;b1&quot;&gt;B1&lt;/th&gt;
-      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
-      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
-      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-      &lt;th class=&quot;bg-primary&quot; id=&quot;b2&quot;&gt;B2&lt;/th&gt;
-      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
-      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
-      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
-   &lt;/tr&gt;
+   &lt;thead class="bg-primary"&gt;
+      &lt;tr&gt;
+        &lt;td colspan=&quot;2&quot; rowspan=&quot;2&quot;&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;th colspan=&quot;3&quot; scope="colgroup"&gt;A&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th scope="col"&gt;A1&lt;/th&gt;
+        &lt;th scope="col"&gt;A2&lt;/th&gt;
+        &lt;th scope="col"&gt;A3&lt;/th&gt;
+      &lt;/tr&gt;
+   &lt;/thead&gt;
+   &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;th rowspan=&quot;2&quot; class=&quot;bg-primary&quot; scope="rowgroup"&gt;B&lt;/th&gt;
+        &lt;th class=&quot;bg-primary&quot; scope="row"&gt;B1&lt;/th&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th class=&quot;bg-primary&quot; scope="row"&gt;B2&lt;/th&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+      &lt;/tr&gt;
+   &lt;/tbody&gt;
 &lt;/table&gt;</code>
 </pre>
 				<p class="wb-inv">Code ends</p>
@@ -177,8 +194,8 @@
 						<div class="panel-body well mrgn-bttm-0">
 						<p class="wb-inv">Example begins</p>
 							<table class="table table-bordered">
-								<col> 
-								<col> 
+								<col/> 
+								<col/> 
 								<colgroup span="3"></colgroup> 
 								<caption>Ownership scenarios, Canada vs USA</caption> 
 								<thead> 
@@ -227,7 +244,7 @@
 							<p class="wb-inv">Example ends</p>
 						</div>
 					</div>
-					<details class="mrgn-tp-lg">
+					<details class="mrgn-tp-lg grouped on">
 		
 						<summary class="bg-info">View HTML</summary>
 						<p class="wb-inv">Code begins</p>
@@ -287,7 +304,7 @@
 		</section>
 		<section>
 			<h2 class="wb-inv" id="irregular-headers-wcag">Related WCAG resources</h2>
-			<details class="mrgn-tp-lg">
+			<details class="mrgn-tp-lg grouped on">
 				<summary class="bg-info">Related WCAG resources</summary>
 				<h3>Success criteria</h3>
 				<ul>
@@ -306,8 +323,8 @@
 				</ul>
 			</details>
 		</section>
-		<nav role="navigation" aria-labelledby="nav-document">
-	<h2 id="nav-document" class="wb-inv">Document navigation</h2>
+		<nav aria-labelledby="nav-pagination">
+	<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
 	<ul class="pager">
 	 <li class="previous"> <a rel="prev" href="two-headers.html">Previous - Two headers</a> </li>
 	  <li class="next"> <a rel="next" href="multi-level-headers.html">Next - Multi-level headers</a> </li>
@@ -315,11 +332,11 @@
   </nav>
 					
 
-</main>
+<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 		
 		
 
-		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation" aria-labelledby="wb-sec-h">	
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 			
 			
 
@@ -339,7 +356,7 @@
 						<li><a class="list-group-item" href="caption-summary.html">Caption &amp; summary</a></li>
 						<li><a class="list-group-item" href="additional-tips-and-tricks.html">Additional tips and tricks</a></li>
 						<li><a class="list-group-item" href="tables-resources.html">Table resources in WET</a></li>
-						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-4.html">Best practice</a></li>
 					</ul>
 				
 			
@@ -368,16 +385,18 @@
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Site map and best practice</h3>
+				<h3 class="wb-navcurr">Appendix</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
 						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
 					</li>
 					<li>
-						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
 				</ul>
 			</section>
 		

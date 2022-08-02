@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="fr" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -50,37 +47,56 @@
                 "title": "Module 4 - Tableaux",
                 
                 "href" : "index-fr.html"
-            }],
-            "lngLinks": [{
-                "lang": "en",
-                "href": "irregular-headers.html",
-                "text": "English"
-            }],
-            "menuPath": "../../../ajax/menu-fr.html"
-        });
+            },
+          {
+            "title": "En-têtes irréguliers",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "irregular-headers.html",
+            "text": "English",
+          }],
+        "menuPath": "../../../ajax/menu-fr.html"
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
-	
-		<h1 property="name" id="wb-cont">En-têtes irréguliers</h1>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">En-têtes irréguliers</h1>
 		
-		<nav role="navigation" aria-labelledby="nav-table">
-			<div class="panel panel-default mrgn-tp-lg">
-				<header class="panel-heading">
-					<h2 id="nav-table" class="panel-title">Table des matières</h2>
-				</header>
-				<div class="panel-body">
-					<ul>
-						<li><a href="#irregular-headers">Conception avec des en-têtes irréguliers</a></li>
-						<li><a href="#scope-attribute">L'attribut scope</a></li>
-						<li><a href="#group-defining">Éléments définissant le groupe</a></li>
-						<li><a href="#headers">Bon exemple&nbsp;: Tableau avec en-têtes recouvrant des colonnes et des rangées</a></li>
-						<li><a href="#irregular-headers-wcag">Ressources WCAG connexes</a></li>
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table des matières</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table des matières</summary>
+							<ul>
+						<li>
+							<a href="#irregular-headers">Conception avec des en-têtes irréguliers</a>
+							<ul>
+								<li>
+									<a href="#scope-attribute">L'attribut scope</a>
+								</li>
+								<li>
+									<a href="#group-defining">Éléments définissant le groupe</a>
+									<ul>
+										<li>
+											<a href="#headers">Bon exemple : Tableau avec en-têtes recouvrant des colonnes et des rangées</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#irregular-headers-wcag">Ressources WCAG connexes</a>
+								</li>
+							</ul>
+						</li>
 					</ul>
-				</div>
-			</div>
-		</nav>
+						</details>
+					</nav>
+					<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Afficher tout les détails</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Réduire tout<span class="wb-inv">les détails</span></button>
+				
 		
 		<section> 
 			<h2 id="irregular-headers">Conception avec des en-têtes irréguliers</h2>		
@@ -99,27 +115,27 @@
 					<p class="wb-inv">L'exemple commence</p>
 					<table class="table table-bordered">
 						<caption>Tableau comportant un en-tête de colonne et un en-tête de rangée</caption>
-						 <thead>
-							  <tr class="bg-primary">
+						<thead class="bg-primary">
+							  <tr>
 								<td colspan="2" rowspan="2">&nbsp;</td>
-								<th colspan="3">A</th>
+								<th colspan="3" scope="colgroup">A</th>
 							  </tr>
-							  <tr class="bg-primary">
-								<th>A1</th>
-								<th>A2</th>
-								<th>A3</th>
+							  <tr>
+								<th scope="col">A1</th>
+								<th scope="col">A2</th>
+								<th scope="col">A3</th>
 							  </tr>
 						</thead>
 						<tbody>
 							  <tr>
-								<th rowspan="2" class="bg-primary">B</th>
-								<th class="bg-primary">B1</th>
+								<th rowspan="2" class="bg-primary" scope="rowgroup">B</th>
+								<th class="bg-primary" scope="row">B1</th>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 							  </tr>
 							  <tr>
-								<th class="bg-primary"">B2</th>
+								<th class="bg-primary" scope="row">B2</th>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
@@ -130,33 +146,38 @@
 				</div>
 			</div>
 			<p>Le support du lecteur d’écran pour l’attribut <code lang="en-CA">scope="rowgroup"</code> est pire que le support pour l’attribut <code lang="en-CA">scope="colgroup"</code>. Lorsque cela est possible, concevoir des tableaux qui utilisent <code lang="en-CA">scope="colgroup"</code> et éviter <code lang="en-CA">scope="rowgroup"</code>.</p>
-	 		<details class="mrgn-tp-lg">
+	 		<details class="mrgn-tp-lg grouped on">
 				<summary class="bg-info">Voir le HTML</summary>
-				<p class="wb=inv">Début du code</p>
-<pre><code class="language-html">&lt;table class=&quot;table table-bordered&quot;&gt;
+
+				<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;table class=&quot;table table-bordered&quot;&gt;
    &lt;caption&gt;Tableau comportant un en-tête de colonne et un en-tête de rangée&lt;/caption&gt;
-   &lt;tr class=&quot;bg-primary&quot;&gt;
-      &lt;td colspan=&quot;2&quot; rowspan=&quot;2&quot;&gt;&amp;nbsp;&lt;/td&gt;
-      &lt;th colspan=&quot;3&quot; id=&quot;a&quot;&gt;A&lt;/th&gt;
-   &lt;/tr&gt;
-   &lt;tr class=&quot;bg-primary&quot;&gt;
-      &lt;th id=&quot;a1&quot;&gt;A1&lt;/th&gt;
-      &lt;th id=&quot;a2&quot;&gt;A2&lt;/th&gt;
-      &lt;th id=&quot;a3&quot;&gt;A3&lt;/th&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-      &lt;th rowspan=&quot;2&quot; class=&quot;bg-primary&quot; id=&quot;b&quot;&gt;B&lt;/th&gt;
-      &lt;th class=&quot;bg-primary&quot; id=&quot;b1&quot;&gt;B1&lt;/th&gt;
-      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
-      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
-      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-      &lt;th class=&quot;bg-primary&quot; id=&quot;b2&quot;&gt;B2&lt;/th&gt;
-      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
-      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
-      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
-   &lt;/tr&gt;
+   &lt;thead class="bg-primary"&gt;
+      &lt;tr&gt;
+        &lt;td colspan=&quot;2&quot; rowspan=&quot;2&quot;&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;th colspan=&quot;3&quot; scope="colgroup"&gt;A&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th scope="col"&gt;A1&lt;/th&gt;
+        &lt;th scope="col"&gt;A2&lt;/th&gt;
+        &lt;th scope="col"&gt;A3&lt;/th&gt;
+      &lt;/tr&gt;
+   &lt;/thead&gt;
+   &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;th rowspan=&quot;2&quot; class=&quot;bg-primary&quot; scope="rowgroup"&gt;B&lt;/th&gt;
+        &lt;th class=&quot;bg-primary&quot; scope="row"&gt;B1&lt;/th&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th class=&quot;bg-primary&quot; scope="row"&gt;B2&lt;/th&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+      &lt;/tr&gt;
+   &lt;/tbody&gt;
 &lt;/table&gt;</code>
 </pre>
 				<p class="wb-inv">Fin du code</p>
@@ -179,8 +200,8 @@
 						<div class="panel-body well mrgn-bttm-0">
 							<p class="wb-inv">L'exemple commence</p>
 							<table class="table table-bordered">
-								<col> 
-								<col> 
+								<col/> 
+								<col/> 
 								<colgroup span="3"></colgroup> 
 								<caption>Scénarios de propriété, Canada c. États-Unis</caption> 
 								<thead> 
@@ -229,7 +250,7 @@
 							<p class="wb-inv">L'exemple finit</p>	
 						</div>
 					</div>
-					<details class="mrgn-tp-lg">
+					<details class="mrgn-tp-lg grouped on">
 		
 						<summary class="bg-info">Voir le HTML</summary>
 						<p class="wb-inv">Début du code</p>
@@ -292,29 +313,29 @@
 		</section>
 		<section>
 			<h2 class="wb-inv" id="irregular-headers-wcag">Ressources WCAG connexes</h2>
-			<details class="mrgn-tp-lg">
+			<details class="mrgn-tp-lg grouped on">
 				<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En anglais seulement.</p>
+                       
                         
 				<h3>Critères de succès</h3>
 				<ul>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships" lang="en-CA">1.3.1: Info and Relationships</a>
+						<a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/content-structure-separation-programmatic.html" data-code="1.3.1">1.3.1 : Information et relations</a>
 					</li>
 				</ul>
 				<h3>Techniques</h3>
 				<ul>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H51" lang="en-CA">H51: Using table markup to present tabular information</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H51" hreflang="en-CA" data-code="H51">H51&nbsp;: Utiliser le balisage des tableaux pour présenter l'information tabulaire (en anglais)</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H63" lang="en-CA">H63: Using the scope attribute to associate header cells and data cells in data tables</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H63" hreflang="en-CA" data-code="H63">H63&nbsp;: Utiliser l'attribut scope pour associer les cellules d'en-têtes et les cellules de données dans les tableaux de données (en anglais)</a>
 					</li>
 				</ul>
 			</details>
 		</section>
-		<nav role="navigation" aria-labelledby="nav-document">
-	<h2 id="nav-document" class="wb-inv">Navigation dans le document</h2>
+		<nav aria-labelledby="nav-pagination">
+	<h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
 	<ul class="pager">
 	 <li class="previous"> <a rel="prev" href="two-headers-fr.html">Précédent - Un seul en-tête</a> </li>
 	  <li class="next"> <a rel="next" href="multi-level-headers-fr.html">Suivant - En-têtes à plusieurs niveaux</a> </li>
@@ -322,11 +343,11 @@
   </nav>
 					
 
-</main>
+<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 		
 		
 
-		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation" aria-labelledby="wb-sec-h">	
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 			
 			
 
@@ -346,7 +367,7 @@
 						<li><a class="list-group-item" href="caption-summary-fr.html">Légende et sommaire</a></li>
 						<li><a class="list-group-item" href="additional-tips-and-tricks-fr.html">Conseils et astuces supplémentaires</a></li>
 						<li><a class="list-group-item" href="tables-resources-fr.html">Ressources se rapportant aux tableaux dans (BOEW)</a></li>
-						<li><a class="list-group-item" href="best-practice-fr.html">Pratiques exemplaire</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-4-fr.html">Pratiques exemplaire</a></li>
 					</ul>
 				
 			
@@ -371,7 +392,7 @@
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+				<h3 class="wb-navcurr">Appendice</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
@@ -380,7 +401,9 @@
 					<li>
 						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">Vue WCAG</a>
+					</li>
 				</ul>
 			</section>
 		
@@ -394,7 +417,7 @@
 			
 </div>
 <div id="def-preFooter2"></div>
-		<script src="../../../scripts/preFooter2.min.js"></script>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
 <div id="def-preFooter"></div>
 		<script src="../../../scripts/preFooter.min.js"></script>
 </div>	

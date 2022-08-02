@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -11,7 +8,6 @@
 	<!-- Meta data -->
 	<meta name="description"
 		content="Accessibility guidelines related to custom controls. This page provides a high-level overview of what to consider when developing custom form controls.">
-	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -50,47 +46,64 @@
                 "title": "Module 6 - Forms",
                 
                 "href" : "index.html"
-            }],
-            "lngLinks": [{
-                "lang": "fr",
-                "href": "custom-controls-fr.html",
-                "text": "Français"
-            }],
-            "menuPath": "../../../ajax/menu-en.html"
-        });
+            },
+          {
+            "title": "Custom controls",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "custom-controls-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-			
-	<h1 property="name" id="wb-cont">Custom controls</h1>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Custom controls</h1>
 						
-	<nav role="navigation">
-    <div class="panel panel-default mrgn-tp-md">
-      <header class="panel-heading">
-        <h2 class="panel-title">Table of contents</h2>
-      </header>
-        <div class="panel-body">
-          <ul>
-            <li><a href="#design">Designing custom controls</a></li>
-			<li><a href="#native-html">Whenever possible, use a native HTML form element rather than a custom control</a></li>
-			<li><a href="#model">Model the behaviour after native HTML form elements</a></li>
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table of contents</summary>
+							<ul>
+						<li>
+							<a href="../module6/custom-controls.html#design">Designing custom controls</a>
+						</li>
+						<li>
+							<a href="../module6/custom-controls.html#native-html">Whenever possible, use a native HTML form element rather than a custom control</a>
+						</li>
+						<li>
+							<a href="../module6/custom-controls.html#model">Model the behaviour after native HTML form elements</a>
+						</li>
+						<li>
+							<a href="../module6/custom-controls.html#aria">Add appropriate ARIA name, role, and values</a>
+						</li>
+						<li>
+							<a href="../module6/custom-controls.html#communicate">Communicate updates and state changes via ARIA live messages when they can’t be communicated through HTML or ARIA methods</a>
+						</li>
+						<li>
+							<a href="../module6/custom-controls.html#custom-share-button">Good example: A custom share button</a>
+						</li>
+						<li>
+							<a href="../module6/custom-controls.html#resources1">Related WCAG resources</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Expand all details</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Collapse all<span class="wb-inv"> details</span></button>
 			
-			<li><a href="#aria">Add appropriate ARIA name, role, and values</a></li>
-			<li><a href="#communicate">Communicate updates and state changes via ARIA live messages when they can’t be communicated through HTML or ARIA methods</a></li>
-			<li><a href="#custom-share-button">Good example: A custom share button</a></li>
-			<li><a href="#resources1">Related WCAG resources</a></li>
-          </ul>
-        </div>
-      </div>
-	</nav>
-	
 			<section>				
 				<h2 id="design">Designing custom controls</h2>
 				<p>This section provides a high-level overview of what to consider when developing custom form controls. 
 				The <a href="https://www.w3.org/TR/wai-aria-1.1/">ARIA specification</a> and 
-				<a href="https://www.w3.org/TR/wai-aria-practices-1.1/">ARIA authoring practices</a> explain how to use ARIA (Accessible Rich Internet Applications) to create custom widgets. The Authoring practices describe the expected keyboard and focus behaviour of widgets, along with examples and code.</p>
-				<p>Please see <a href="../module12/index.html">module 12</a> for a discussion of custom JavaScript widgets.</p>
+				<a href="https://www.w3.org/WAI/ARIA/apg/">ARIA Authoring Practices Guide</a> explain how to use ARIA (Accessible Rich Internet Applications) to create custom widgets. The Authoring practices describe the expected keyboard and focus behaviour of widgets, along with examples and code.</p>
+				<p>Please see <a href="../module12/introduction.html">module 12</a> for a discussion of custom JavaScript widgets.</p>
 				<p>Follow these best practices for custom controls:</p>
 				<ul>
 					<li>Whenever possible, use native HTML form elements rather than custom controls.</li>
@@ -108,7 +121,7 @@
 			<section>				
 				<h2 id="model">Model the behaviour after native HTML form elements</h2>
 				<p>If you’re building a custom version of a native form element, model it after the original element, including duplicating the expected keyboard behaviour (e.g., controls receive focus, buttons are triggered with either Space or Enter key, checkboxes are checked or unchecked using the Spacebar, radio buttons are selected with the Arrow key). </p>
-				<p>If your form element needs to differ from native form elements, the native HTML form elements still model desirable keyboard behaviour. Ensure all buttons function with both the Enter key and Spacebar. Implement Arrow keys where users might expect to use them. See the keyboard interactions of the widget patterns and ARIA roles in the <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">ARIA authoring practices</a>. </p>
+				<p>If your form element needs to differ from native form elements, the native HTML form elements still model desirable keyboard behaviour. Ensure all buttons function with both the Enter key and Spacebar. Implement Arrow keys where users might expect to use them. See the keyboard interactions of the widget patterns and ARIA roles in the <a href="https://www.w3.org/WAI/ARIA/apg/">ARIA Authoring Practices Guide</a>. </p>
 				<p>Think twice before building a custom control. It can be a lot of work, as detailed in the Mozilla Developer Network tutorial <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/How_to_build_custom_form_controls#making_it_accessible">How to build custom form controls</a>, which steps through building a custom <code>&lt;select&gt;</code> element.</p>
 				
 			</section>
@@ -170,7 +183,7 @@
 							}
 							</script>
 							
-							<style>.btn-primary { 
+							<style>.btn-primary-custom { 
 								 line-height: 1; 
 								 float: none; 
 								background: linear-gradient(to bottom, #004d99, #036); 
@@ -199,7 +212,7 @@
 								   text-align: center; 
 								} </style>
 						<form  onsubmit="myFunction(); return false;">
-							<button type="submit" id="share-btn" class="btn-primary">
+							<button type="submit" id="share-btn" class="btn-primary-custom">
 							<span class="count">3</span> 
 							<span class="text">Shares</span>
 							</button> 
@@ -237,14 +250,14 @@
 				
 					</div>
 				</div>
-				<hr>
+				<hr/>
 				<p class="small">Adapted from “Custom Form Inputs” in the module “Form Labels, Instructions, and Validation.” deque University. 2021 Deque Systems Inc.</p>
-				<p class="small">Good example code from the Web Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a>) document: <a href="https://www.w3.org/WAI/tutorials/forms/custom-controls/">Custom Controls</a>, in <a href="https://www.w3.org/WAI/tutorials/forms/">Forms Concepts</a>. Eric Eggert and Shadi Abou-Zahra, eds. Copyright © 2019 <a href="http://www.w3.org/">W3C</a>® (<a href="http://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>). Status: Draft Updated 27 July 2019.</p>
+				<p class="small">Good example code from the Web Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a>) document: <a href="https://www.w3.org/WAI/tutorials/forms/custom-controls/">Custom Controls<span class="wb-inv"> (WAI)</span></a>, in <a href="https://www.w3.org/WAI/tutorials/forms/">Forms Concepts <span class="wb-inv"> (WAI)</span></a>. Eric Eggert and Shadi Abou-Zahra, eds. Copyright © 2019 <a href="http://www.w3.org/">W3C</a>® (<a href="http://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>). Status: Draft Updated 27 July 2019.</p>
 			</section>
 			
 			<section>				
 				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
-				<details class="mrgn-tp-lg">
+				<details class="mrgn-tp-lg grouped on">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
 					<ul>
@@ -270,17 +283,17 @@
 			</section>
 		
 		
-	<nav role="navigation">
-		<h2 class="wb-inv">Document navigation</h2>
+	<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
 		<ul class="pager">
 			<li class="previous"><a rel="prev" href="multi-step-forms.html">Previous - Multi-step forms</a></li>
-			<li class="next"><a rel="next" href="best-practice.html">Next - Best practice</a></li>
+			<li class="next"><a rel="next" href="best-practice-mod-6.html">Next - Best practice</a></li>
 		</ul>
 	</nav>
-	</main>
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 			
 
-	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Module 6 - Forms</h3>
@@ -295,7 +308,7 @@
 						<li><a class="list-group-item" href="user-notifications.html">User notifications</a></li>
 						<li><a class="list-group-item" href="multi-step-forms.html">Multi-step forms</a></li>
 						<li><a class="list-group-item active" aria-current="page" href="custom-controls.html">Custom controls</a></li>
-						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-6.html">Best practice</a></li>
 						
 					</ul>
 			</section>
@@ -318,16 +331,18 @@
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Site map and best practice</h3>
+				<h3 class="wb-navcurr">Appendix</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
 						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
 					</li>
 					<li>
-						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
 				</ul>
 			</section>
 	</nav>

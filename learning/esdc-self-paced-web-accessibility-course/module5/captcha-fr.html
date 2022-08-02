@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Images de SVG – Module 5 - Images</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Lignes directrices sur l’accessibilité relative aux SVG. Les SVG sont des images en deux dimensions définies dans des fichiers texte XML.">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "EDSC / Bureau de l’accessibilité des TI",
+                "href": "../../../index-fr.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Accueil",
+                "href" : "../../../index-fr.html"
+            },{
+                "title": "Apprentissage",
+                "href" : "../../index-fr.html"
+            },
+			{
+                "title": "Cours d'accessibilité Web",
+                "href" : "../index-fr.html"
+            },
+			{
+                "title": "Module 5 – Images",
+                
+                "href" : "index-fr.html"
+            },
+          {
+            "title": "CAPTCHA",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "captcha.html",
+            "text": "English",
+          }],
+        "menuPath": "../../../ajax/menu-fr.html"
+      });
+
+    </script>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">CAPTCHA</h1>
+		                
+		<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+			<h2 id="nav-table" class="wb-inv">Table des matières</h2>
+			<details class="mrgn-bttm-lg on" open="open">
+				<summary class="bg-info">Table des matières</summary>
+				<ul>
+					<li>
+						<a href="#captcha">Conception avec CAPTCHA</a>
+					</li>
+					<li>
+						<a href="#wcag">Ressources WCAG connexes</a>
+					</li>
+				</ul>
+			</details>
+		</nav>
+<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Afficher tout les détails</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Réduire tout<span class="wb-inv">les détails</span></button>
+				
+	<section>
+		<h2 id="captcha">Conception avec CAPTCHA</h2>
+		<p>Utilisation des sites Web <dfn>CAPTCHA</dfn> protéger leurs systèmes de courrier électronique contre les robots pourrielleurs, en présentant à l’utilisateur une énigme simple qui serait difficile à résoudre pour un robot. CAPTCHA est le sigle de Completely Automated Public Turing test to tell Computers and Humans Apart (Test de Turing public entièrement automatisé permettant de distinguer les ordinateurs et les humains).</p>
+		<div class="panel panel-primary mrgn-tp-md">
+			<div class="panel-body mrgn-bttm-0">
+				<p class="wb-inv">Début de l’exemple</p>
+				<figure class="mrgn-tp-sm">
+					<img alt="smwm" src="images/captcha-src-wikimedia.jpg"/>
+					<figcaption class="mrgn-tp-sm">Ce CAPTCHA de « smwm » rend l’interprétation de son message difficile pour un ordinateur en ajoutant un léger gradient de couleur de fond et en torsadant les lettres composant le message.</figcaption>
+				</figure>
+				<p class="wb-inv">Fin de l’exemple</p>
+			</div>
+		</div>
+		<p>Le principal obstacle de tout CAPTCHA standard est qu’il met à l’épreuve un seul sens (la vue ou ouïe), ce qui exclut les personnes ayant un handicap connexe.</p>
+		<p>Pour rendre le CAPTCHA aussi accessible que possible, les règles WCAG 2.1 exigent l’utilisation de deux techniques et recommandent certaines étapes facultatives pour résoudre les cas critiques :</p>
+		<ul>
+			<li>Fournir deux modalités différentes de CAPTCHA. Par exemple, assigner une tâche visuelle, comme taper des mots affichés dans une image, et assigner une tâche audio, comme taper des lettres dictées dans un fichier audio.</li>
+			<li>Fournir un texte alternatif indiquant que le CAPTCHA exige l’exécution d’une tâche en précisant le type de tâche dont il s’agit; par exemple, « Tapez le mot dans l’image » ou « Tapez les lettres dictées dans l’audio ». Lorsqu’une version de remplacement d’un CAPTCHA est disponible, inclure, dans le texte alternatif, des instructions sur la façon de la trouver.</li>
+			<li>Étapes facultatives :
+				<ol>
+					<li>Fournir plus de deux modalités de CAPTCHA. Par exemple, un troisième test pourrait consister en un casse-tête logique.</li>
+					<li>Donner accès à un représentant humain du service à la clientèle qui peut contourner le CAPTCHA.</li>
+					<li>Ne pas exiger de CAPTCHA pour les utilisateurs autorisés.</li>
+				</ol>
+			</li>
+		</ul>
+		<p>La technologie CAPTCHA récente permet de s’assurer qu’un utilisateur est humain en analysant notamment les témoins, les modules d’extension et les objets du langage Java de l’utilisateur :</p>
+		<ul>
+			<li>Note préliminaire du consortium W3C <a href="https://www.w3.org/TR/turingtest/">Inaccessibilité du CAPTCHA</a> signale que Google <a href="https://www.w3.org/TR/turingtest/#version-2-are-you-a-robot">reCAPTCHA v2</a> domine largement le déploiement du CAPTCHA sur le Web et est accessible à la plupart des utilisateurs. Il consiste en une simple case à cocher précisant « Je ne suis pas un robot », alors qu’en arrière-plan le logiciel analyse rigoureusement les données de l’utilisateur. Cela dit, la note préliminaire du consortium W3C signale que la navigation au clavier a été largement considérée comme étant un échec et que les CAPTCHA audio ne sont parfois plus fournis..</li>
+			<li>Fait intéressant, l’étape 3 facultative consistant à ne pas exiger de CAPTCHA semble réalisable. Le même rapport du consortium W3C offre des « félicitations et des remerciements » pour les événements non-interactifs de Google <a href="https://www.w3.org/TR/turingtest/#recap3">reCAPTCHA v3</a>, lorsque ça fonctionne. Il supprime la case à cocher v2. Les auteurs du consortium W3C ont deux mises en garde concernant les cas où la version 3 donne lieu à un indice de fiabilité ambigu :	
+				<ul>
+					<li>Si l’indice est ambigu, Google encourage les utilisateurs à utiliser l’option reCAPTCHA v2 comme sauvegarde, laquelle option comporte certains obstacles signalés.</li>
+					<li>Les méthodes de désambiguïsation d’un indice non interactif ambigu doivent être bien documentées et faciles à mettre en œuvre, sinon les développeurs utiliseront l’ancienne sauvegarde.</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+
+	<section>
+		<h2 id="wcag" class="wb-inv">Ressources WCAG connexes</h2>
+		<details class="mrgn-tp-lg grouped on">
+			<summary class="bg-info">Ressources WCAG connexes</summary>
+                       
+                        
+			<h3>Critères de succès</h3>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/text-equiv-all.html" data-code="1.1.1">1.1.1 : Contenu non textuel</a>
+				</li>
+			</ul>
+		</details>
+	</section>
+			
+	<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
+		<ul class="pager">
+			<li class="previous">
+				<a rel="prev" href="svg-images-fr.html">Précédent - Images de SVG</a>
+			</li>
+			<li class="next">
+				<a rel="next" href="tips-and-tricks-fr.html">Suivant - Conseils et astuces supplémentaires</a>
+			</li>
+		</ul>
+	</nav>					
+
+<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
+		
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+		<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
+		<section class="list-group menu list-unstyled">
+			<h3 class="wb-navcurr">
+			Module 5 – Images
+			</h3>
+			<ul class="list-group menu list-unstyled">
+				<li><a class="list-group-item" href="text-alternatives-fr.html">Équivalents textuels</a></li>
+				<li><a class="list-group-item" href="informative-images-fr.html">Images informatives</a></li>
+				<li><a class="list-group-item" href="decorative-redundant-images-fr.html">Images décoratives ou redondantes</a></li>
+				<li><a class="list-group-item" href="functional-images-fr.html">Images fonctionnelles</a></li>
+				<li><a class="list-group-item" href="images-text-fr.html">Images de texte</a></li>
+				<li><a class="list-group-item" href="animated-images-fr.html">Images animées</a></li>
+				<li><a class="list-group-item" href="complex-images-fr.html">Images complexes</a></li>
+				<li><a class="list-group-item" href="figcaption-fr.html">Figure et figcaption</a></li>
+				<li><a class="list-group-item" href="groups-images-fr.html">Groupes d’images</a></li>
+				<li><a class="list-group-item" href="image-maps-fr.html">Images cliquables</a></li>
+				<li><a class="list-group-item" href="alt-decision-tree-fr.html">Arbre décisionnel en texte de remplacement</a></li>
+				<li><a class="list-group-item" href="svg-images-fr.html">Images de SVG</a></li>
+				<li><a class="list-group-item active" aria-current="page" href="captcha-fr.html">CAPTCHA</a></li>
+				<li><a class="list-group-item" href="tips-and-tricks-fr.html">Conseils et astuces supplémentaires</a></li>
+				<li><a class="list-group-item" href="best-practice-mod-5-fr.html">Pratiques exemplaires</a></li>
+			</ul>
+		</section>
+
+
+		<section class="list-group menu list-unstyled">
+			<h3 class="wb-navcurr">
+			Tous les modules
+			</h3>
+			<ul class="list-group menu list-unstyled">
+				<li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+				<li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 – Structure et sémantique des pages</a></li>			
+				<li><a class="list-group-item" href="../module3/links-fr.html">Module 3 – Liens et navigation</a></li>
+				<li><a class="list-group-item" href="../module4/tables-concepts-fr.html">Module 4 – Tableaux</a></li>
+				<li><a class="list-group-item active" href="text-alternatives-fr.html">Module 5 – Images</a></li>
+				<li><a class="list-group-item" href="../module6/forms-concepts-fr.html">Module 6 – Formulaires</a></li>	
+				<li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 – Conception visuelle couleurs</a></li>
+				<li><a class="list-group-item" href="../module8/introduction-fr.html">Module 8 – Zoom et conception adaptée</a></li>
+				<li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+				<li><a class="list-group-item" href="../module10/introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+				<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Appendice</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap-fr.html">Plan du site</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">Vue WCAG</a>
+					</li>
+				</ul>
+			</section>
+	</nav>
+	
+	
+</div>
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+</div>	
+		
+		
+	<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+</body>
+	
+</html>

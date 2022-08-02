@@ -1,3 +1,20 @@
+
+.topBtn {
+  display: none;
+  position: fixed ;
+  bottom: 20px;
+  right: 30px ;
+  z-index: 99;
+  cursor: pointer;
+  color: #26374a !important;
+  background-color: #fff !important; 
+}
+
+.topBtn:hover , .topBtn:focus {
+	color: #fff !important;
+	background-color: #26374a !important;
+}
+
 /* tables */
 .table-bordered,.table-bordered tr,.table-bordered th,.table-bordered td,.table-bordered tbody
 {
@@ -13,6 +30,10 @@ th, td {
 
 caption {
 	padding-top: 0;
+}
+/* line contrast when using .bg-primary (dark blue) background */
+th.bg-primary, .bg-primary th, thead.bg-primary, thead.bg-primary td {
+	border-color: white !important;
 }
 
 /* figure and figcaption */
@@ -85,4 +106,139 @@ li.collapsed ul.inner{
 	color: #fff;
 	padding: 0 0.5em;
 	border-radius: 4px 4px 0 0;
+}
+
+/* link to top */
+.link-to-top::before {
+	content: "^ ";
+}
+
+nav[aria-labelledby="nav-table"] a {
+	text-decoration: none; 
+}
+nav[aria-labelledby="nav-table"] a:hover {
+	text-decoration: underline; 
+}
+
+
+/* "opens in new tab" link message on hover or focus */
+.link-desc {
+    position: absolute;
+    left: -9000px;
+    width: 0;
+    overflow: hidden;
+}
+.link-desc.en {
+    width: 9em;
+    font-size: 80%;
+}
+.link-desc.fr {
+    width: 15.5em;
+    font-size: 80%;
+}
+.tabInfo:hover span.link-desc, 
+.tabInfo:focus span.link-desc, 
+.tabInfo:active span.link-desc {
+    display: block;
+    left: inherit;
+    z-index: 99;
+    color: #626562;
+    background-color: #ffffe7;
+    border: 1px solid #626562;
+    position: absolute;
+    margin-left: 20px;
+    text-transform: initial;
+    padding-left: 5px
+}
+
+/* wcag view links to understanding and how to implement */
+
+#wcag-view ul.inline-list > li {
+	display: inline-block;
+}
+#wcag-view a.wcag-doc {
+	margin-right: 0.5em;
+}
+/* wcag view filter control panel */
+#wcag-view form label,
+#wcag-view form button {
+	margin-right: 0.5em;
+	margin-bottom: 0.5em;
+}
+#wcag-view form input {
+	margin-right: 0.25em;
+}
+
+.filterTitle {
+	position:relative;
+	top:0.8em;
+	left:10px;
+	background-color:#fff;
+	padding:5px;
+	font-weight: 700;
+}
+
+/* TOC */
+
+nav[aria-labelledby="nav-table"] details > ul {
+	
+	margin-top: 20px;
+}
+
+/* remove WCAG view TOC list bullets on large screen */
+@media (min-width:768px){
+	#wcag-view nav[aria-labelledby="nav-table"] li {
+		list-style: none;
+	}
+}
+
+/* print style sheet override */
+@media print {
+	body, li, p, dt, dd, th, td, caption, label, legend, figcaption, pre, button, select, option, summary, div {
+		font-size: 12pt !important;
+	}
+	ol.breadcrumb li {
+		font-size: 10pt !important;
+	}
+	h1 { font-size: 20pt; }
+	h2 { font-size: 18pt; }
+	h3 { font-size: 16pt; }
+	h4 { font-size: 14pt; }
+	h5 { font-size: 12pt; font-style: italic; }
+	main { 
+		line-height: 1.3; 
+		left: 0 !important;
+		float: none !important;
+		width: 100% !important;	
+	}
+	main, body header {
+		max-width: 35em  !important;
+		margin: 0 auto;
+	}
+	.container {
+		width: auto !important;
+	}
+	#topBtn, /*to top link */
+	.container p.text-right, /* feedback link */
+	nav[aria-labelledby="nav-pagination"]
+	 {
+		display: none !important;
+	}
+	
+	ul { padding-left: 20px; }
+	h3 a, 
+	h4 a, 
+	nav[aria-labelledby="nav-table"] a, 
+	details li a /* WCAG resources */
+	 { 
+		text-decoration: none; 
+	}
+	pre, pre * { background-color: white !important; color: black !important; }
+	.lang-label { margin: 0; padding: 0; }
+	th.bg-primary, .bg-primary th, thead.bg-primary, thead.bg-primary td {
+    		border-color: black !important;
+	}
+	table {
+		{ page-break-inside: avoid }
+	}
 }

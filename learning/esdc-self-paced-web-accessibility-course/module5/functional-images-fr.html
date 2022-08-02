@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="fr" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -49,37 +46,81 @@
                 "title": "Module 5 –  Images",
                 
                 "href" : "index-fr.html"
-            }],
-            "lngLinks": [{
-                "lang": "en",
-                "href": "functional-images.html",
-                "text": "English"
-            }],
-            "menuPath": "../../../ajax/menu-fr.html"
-        });
-    </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
-		
-	<h1 property="name" id="wb-cont">Images fonctionnelles</h1>
-		                
-    <nav role="navigation">
-      <div class="panel panel-default mrgn-tp-lg">
-        <header class="panel-heading">
-          <h2 class="panel-title">Table des matières</h2>
-        </header>
-        <div class="panel-body">
-          <ul>
-			  <li><a href="#overview">Apercu – Images fonctionnelles</a></li>
-              <li><a href="#approach1">Stratégie 1 : Fournir un nom accessible en utilisant  alt de  &lt;img&gt; l’élément alt l’attribut</a></li>
-              <li><a href="#approach2">Stratégie 2 : Fournir un nom accessible en utilisant l’attribut aria-label ou aria-labelledby</a></li>
-              <li><a href="#wcag">Ressources WCAG connexes</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+            },
+          {
+            "title": "Images fonctionnelles",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "functional-images.html",
+            "text": "English",
+          }],
+        "menuPath": "../../../ajax/menu-fr.html"
+      });
 
+    </script>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Images fonctionnelles</h1>
+		                
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table des matières</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table des matières</summary>
+							<ul>
+						<li>
+							<a href="#overview">Apercu – Images fonctionnelles</a>
+						</li>
+						<li>
+							<a href="#approach1">Stratégie 1 : Fournir un nom accessible en utilisant l’attribut alt de l’élément img</a>
+							<ul>
+								<li>
+									<a href="#linked-image">Bon exemple : Image liée</a>
+								</li>
+								<li>
+									<a href="#icon-meaningful">Bon exemple : Icône avec texte de remplacement utile imbriqué dans le texte du lien</a>
+								</li>
+								<li>
+									<a href="#functional-icon">Bon exemple : Icône fonctionnelle</a>
+								</li>
+								<li>
+									<a href="#icon-used-in-button">Bon exemple : Image utilisée dans un bouton</a>
+								</li>
+								<li>
+									<a href="#redundant-image">Bon exemple : Image redondante dans le texte du lien</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#approach2">Stratégie 2 : Fournir un nom accessible en utilisant l’attribut aria-label ou aria-labelledby</a>
+							<ul>
+								<li>
+									<a href="#naming-functional-image">Bon exemple : Nommer une image fonctionnelle à l’aide de l’attribut aria-label
+									</a>
+								</li>
+								<li>
+									<a href="#functional-images-using-attributes">Bon exemple : Nommer des images fonctionnelles à l’aide des attributs aria-label et aria-labelledby
+									</a>
+									<ul>
+										<li>
+											<a href="#naming-functional-image">Stratégie alternative : Une seule instance de l’étiquette de texte « More »</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#wcag">Ressources WCAG connexes</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Afficher tout les détails</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Réduire tout<span class="wb-inv">les détails</span></button>
+				
 	<section>
 		<h2 id="overview">Apercu – Images fonctionnelles</h2>
 		<p>Les images fonctionnelles sont utilisées comme boutons, liens et commandes personnalisées. L’image est imbriquée dans la commande.</p>
@@ -91,7 +132,7 @@
 		<p>Les valeurs alt manquantes ou vides dans les images fonctionnelles créent des problèmes importants pour les utilisateurs de lecteurs d’écran. Les boutons et les commandes personnalisées indiquent uniquement leur rôle (p. ex., « bouton », « onglet ») et leur état (p. ex., « élargi »). Les images liées indiquent leur rôle (« lien ») et, en l’absence d’une valeur d’attribut <code lang="en-CA">alt</code>, les lecteurs d’écran essaient de deviner et indiquent plutôt le nom du fichier d’image ou le localisateur de ressources uniformes du lien, lequel ne sont pas descriptifs.</p>
 		<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-success mrgn-tp-0 h3">
+					<h3 class="text-success mrgn-tp-0 h3" id="linked-image">
 			<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Image liée</h3>
 		<p>Dans l’exemple ci-dessous, le logo Canada.ca de la bannière renvoie à la page d’accueil Canada.ca. <code lang="en-CA">&lt;img&gt;</code> L’élément est imbriqué dans le lien. Le texte de remplacement « Page d’accueil du gouvernement du Canada » fournit le texte du lien.</p>
 		<div class="panel panel-primary mrgn-tp-md">
@@ -111,7 +152,7 @@
 		</div>
 		<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-success mrgn-tp-0 h3">
+					<h3 class="text-success mrgn-tp-0 h3" id="icon-meaningful">
 			<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Icône avec texte de remplacement utile imbriqué dans le texte du lien</h3>
 		<p>Dans cet exemple, une icône avec le texte de remplacement utile « S’ouvre dans une nouvelle fenêtre » est imbriquée dans le lien avec le texte de lien « Page d’accueil du W3C ». Les utilisateurs du lecteur d’écran entendront « Page d’accueil du W3C, s’ouvre dans une nouvelle fenêtre ».</p>
 		<div class="panel panel-primary mrgn-tp-md">
@@ -135,7 +176,7 @@
 		</div>
 		<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-success mrgn-tp-0 h3">
+					<h3 class="text-success mrgn-tp-0 h3" id="functional-icon">
 			<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Icône fonctionnelle</h3>
 		<p>Dans cet exemple, une icône cliquable représentant une imprimante indique une fonction d’impression. Son équivalent textuel est « Imprimer cette page » plutôt que le mot littéral «Imprimante», car le but est d’activer la boîte de dialogue d’impression.</p>
 		<div class="panel panel-primary mrgn-tp-md">
@@ -155,7 +196,7 @@
 		</div>
 		<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-success mrgn-tp-0 h3">
+					<h3 class="text-success mrgn-tp-0 h3" id="icon-used-in-button">
 			<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Image utilisée dans un bouton
 		</h3>
 		<p>L’image suivante est utilisée pour donner au bouton un style distinct. Dans ce cas, il s’agit du bouton permettant de lancer une demande de recherche, et l’icône imbriquée est une loupe. L’équivalent textuel de l’image est « Recherche », pour indiquer la fonction du bouton, plutôt que « loupe ».</p>
@@ -163,7 +204,7 @@
 			<div class="panel-body well mrgn-bttm-0">
 				<p class="wb-inv">L'exemple commence</p>
 				<label for="search">Recherche</label>
-				<input type="search" name="search"></input>
+				<input id="search" type="search" name="search">
 				<input type="image" src="images/searchbutton.png" alt="Recherche" style="width: 1.5em">
 				<p class="wb-inv">L'exemple finit</p>	
 			</div>
@@ -176,7 +217,7 @@
 		</div>
 		<div class="panel panel-success mrgn-tp-lg">
 			<div class="panel-body">
-				<h3 class="text-success mrgn-tp-0 h3">
+				<h3 class="text-success mrgn-tp-0 h3" id="redundant-image">
 					<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Image redondante dans le texte du lien
 				</h3>
 				<p>Dans cet exemple, le logo de la société XYZ accompagne un lien texte qui mène à la page d’accueil de la société XYZ. L’image ne représente pas une fonctionnalité différente et ne transmet pas d’autres renseignements que ceux déjà fournis dans le texte du lien. En fait, l’image est une simple aide visuelle associée au texte du lien. Une valeur alt nulle (vide) est appliquée, (<code lang="en-CA">alt=""</code>), pour éviter la redondance et la répétition.</p>
@@ -194,7 +235,7 @@
 		<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-0"><code class="language-html">&lt;a href="https://www.CompanyXYZ.ca/"&gt;   
    &lt;img src="logo.png" alt=""&gt;
-	Page d’accueil de la compagnie XYZ
+   Page d’accueil de la compagnie XYZ
 &lt;/a&gt;</code></pre>
 				<p class="wb-inv">Fin du code</p>
 			</div>
@@ -206,7 +247,7 @@
 		<p>L’attribut <abbr>alt</abbr> de l’élément enfant <code lang="en-CA">&lt;img&gt;</code> pourrait contenir n’importe quelle valeur et cela n’aurait pas d’importance, car cette valeur serait supplantée par l’attribut <code lang="en-CA">aria-label</code> ou <code lang="en-CA">aria-labelledby</code>, qui a préséance sur le texte enfant lorsqu’on nomme une commande</p>
 		<div class="panel panel-success mrgn-tp-lg">
 			<div class="panel-body">
-				<h3 class="text-success mrgn-tp-0 h3">
+				<h3 class="text-success mrgn-tp-0 h3" id="naming-functional-image">
 					<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Nommer une image fonctionnelle à l’aide de l’attribut <code lang="en-CA">aria-label</code>
 				</h3>
 				<p>Dans cet exemple, un attribut <code lang="en-CA">aria-label</code> nomme le bouton plutôt que l’attribut <code lang="en-CA">alt</code> de l’élément enfant <code lang="en-CA">&lt;img&gt;</code>. L’attribut <code lang="en-CA">alt</code> est réglé sur null (vide)&nbsp;: <code lang="en-CA">alt=""</code>.</p>
@@ -226,8 +267,8 @@
 		</div>
 		<div class="panel panel-success mrgn-tp-lg">
 			<div class="panel-body">
-				<h3 class="text-success mrgn-tp-0 h3">
-					<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Nommer des images fonctionnelles à l’aide des attributs <code lang="en-CA">aria-label</code> et <code lang="en-CA">aria-labelled</code>
+				<h3 class="text-success mrgn-tp-0 h3" id="functional-images-using-attributes">
+					<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple : Nommer des images fonctionnelles à l’aide des attributs <span lang="en-CA">aria-label</span> et <span lang="en-CA">aria-labelled</span>
 				</h3>
 				<p>Dans cet exemple, chacun des deux boutons de formatage du texte est accompagné d’un bouton « More » (Lire la suite) identique. Les boutons de formatage sont nommés avec l’attribut <code lang="en-CA">aria-label</code>. Les boutons « More » (Lire la suite) sont nommés avec l’attribut <code lang="en-CA">aria-labelledby</code>, pointant vers les valeurs <code lang="en-CA">id</code> des éléments contenant les fragments d’étiquette souhaités : « Lire la suite » + soit « Bullets » (Puces) soit « Text alignment » (Alignement du texte). L’attribut <code lang="en-CA">alt</code> de chaque élément de bouton <code lang="en-CA">&lt;img&gt;</code> est réglé sur null (vide) : <code lang="en-CA">alt=””</code>.</p>
 						
@@ -235,12 +276,17 @@
 					<div class="panel-body mrgn-bttm-0">
 						<p class="wb-inv">L'exemple commence</p>
 						<div id="inline-images">
-							<button id="bullets" arial-label="Bullets"><img src="images/bullets.png" alt="" class="img-bullets"></button><button id="more-1" aria-label="More" aria-labelledby="more-1 bullets">
-								<img src="images/down-arrow.png" alt="" class="img-more">
-							</button><button id="text-align" arial-label="Text alignment">
-								<img src="images/text-align.png" alt="" class="img-text-align">
-							</button><button id="more-2" aria-label="More" aria-labelledby="more-2 text-align">
-								<img src="images/down-arrow.png" alt="" class="img-more">
+							<button id="bullets" aria-label="Bullets">
+								<img src="images/bullets.png" alt="" class="img-bullets"/>
+							</button>
+							<button id="more-1" aria-label="More" aria-labelledby="more-1 bullets">
+								<img src="images/down-arrow.png" alt="" class="img-more"/>
+							</button>
+							<button id="text-align" aria-label="Text alignment">
+								<img src="images/text-align.png" alt="" class="img-text-align"/>
+							</button>
+							<button id="more-2" aria-label="More" aria-labelledby="more-2 text-align">
+								<img src="images/down-arrow.png" alt="" class="img-more"/>
 							</button>
 							
 							<style type="text/css">
@@ -264,13 +310,13 @@
 				
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
-<pre class="mrgn-tp-0"><code class="language-html">&lt;button id="bullets" arial-label="Puces"&gt;
+<pre class="mrgn-tp-0"><code class="language-html">&lt;button id="bullets" aria-label="Puces"&gt;
    &lt;img src="images/bullets.png" alt=""&gt;
 &lt;/button&gt;
-&lt;button id="more-1" aria-label="Lire la suite" aria-labelledby="more-1 bullets&gt;
+&lt;button id="more-1" aria-label="Lire la suite" aria-labelledby="more-1 bullets"&gt;
    &lt;img src="images/down-arrow.png" alt=""&gt;
 &lt;/button&gt;
-&lt;button id="text-align" arial-label="Alignement du texte"&gt;
+&lt;button id="text-align" aria-label="Alignement du texte"&gt;
    &lt;img src="images/text-align.png" alt=""&gt;
 &lt;/button&gt;
 &lt;button id="more-2" aria-label="Lire la suite" aria-labelledby="more-2 text-align"&gt;
@@ -287,13 +333,13 @@
 		<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-0"><code class="language-html">&lt;span id="more" style="display:none"&gt;Lire la suite&lt;/span&gt;
 
-&lt;button id="bullets" arial-label="Puces"&gt;
+&lt;button id="bullets" aria-label="Puces"&gt;
    &lt;img src="icons/bullets.png" alt=""&gt;
 &lt;/button&gt;
 &lt;button aria-labelledby="more bullets"&gt;
    &lt;img src="icons/down-arrow.png" alt=""&gt;
 &lt;/button&gt;
-&lt;button id="text-align" arial-label="Alignement du texte"&gt;
+&lt;button id="text-align" aria-label="Alignement du texte"&gt;
    &lt;img src="icons/text-align.png" alt=""&gt;
 &lt;/button&gt;
 &lt;button aria-labelledby="more text-align"&gt;
@@ -307,35 +353,38 @@
 	</section>
 	<section>
 		<h2 id="wcag" class="wb-inv">Ressources WCAG connexes</h2>
-		<details class="mrgn-tp-lg">
+		<details class="mrgn-tp-lg grouped on">
 			<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En anglais seulement.</p>
+                       
                         
 			<h3>Critères de succès</h3>
 			<ul>
-				<li>	<a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content" lang="en-CA">1.1.1: Non-text Content</a>
+				<li>	<a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/text-equiv-all.html" data-code="1.1.1">1.1.1 : Contenu non textuel</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/minimize-error-cues.html" data-code="3.3.2">3.3.2 : Étiquettes ou instructions</a>
 				</li>
 			</ul>
-			<p>Techniques</p>
+			<h3>Techniques</h3>
 			<ul>
-				<li>	<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H36" lang="en-CA">H36: Using alt attributes on images used as submit buttons</a>
+				<li>	<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H36" hreflang="en-CA" data-code="H36">H36&nbsp;: Utiliser un attribut alt sur une image utilisée comme bouton soumettre (en anglais)</a>
 				</li>
-				<li>	<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H37" lang="en-CA">H37: Using alt attributes on img elements</a>
+				<li>	<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H37" hreflang="en-CA" data-code="H37">H37&nbsp;: Utiliser l'attribut alt sur l'élément img (en anglais)</a>
 				</li>
-				<li>	<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H67" lang="en-CA">H67: Using null alt text and no title attribute on img elements for images that AT should ignore</a>
+				<li>	<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H67" hreflang="en-CA" data-code="H67">H67&nbsp;: Utiliser un attribut alt vide sans attribut title sur un élément img pour les images qui doivent être ignorées par les technologies d'assistance (en anglais)</a>
 				</li>
-				<li>	<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA6" lang="en-CA">ARIA6: Using aria-label to provide labels for objects</a>
+				<li>	<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA6" hreflang="en-CA" data-code="ARIA6">ARIA6 : Utiliser aria-label pour attribuer des étiquettes aux objets  (en anglais)</a>
 				</li>
-				<li>	<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA9" lang="en-CA">ARIA9: Using aria-labelledby to concatenate a label from several text nodes</a>
+				<li>	<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA9" hreflang="en-CA" data-code="ARIA9">ARIA9 : Utiliser aria-labelledby pour concaténer une étiquette provenant de plusieurs nœuds de texte  (en anglais)</a>
 				</li>
-				<li>	<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA10" lang="en-CA">ARIA10: Using aria-labelledby to provide a text alternative for non-text content</a>
+				<li>	<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA10" hreflang="en-CA" data-code="ARIA10">ARIA10 : Utiliser aria-labelledby pour fournir un équivalent textuel pour un contenu non textuel  (en anglais)</a>
 				</li>
 			</ul>
 		</details>
 	</section>
 			
-	<nav role="navigation">
-		<h2 class="wb-inv">Navigation dans le document</h2>
+	<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
 		<ul class="pager">
 			<li class="previous">
 				<a rel="prev" href="decorative-redundant-images-fr.html">Précédent - Images décoratives ou redondantes</a></li>
@@ -344,9 +393,9 @@
 		</ul>
 	</nav>					
 
-</main>
+<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 		
-	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 		<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
 		<section class="list-group menu list-unstyled">
 			<h3 class="wb-navcurr">
@@ -365,8 +414,9 @@
 				<li><a class="list-group-item" href="image-maps-fr.html">Images cliquables</a></li>
 				<li><a class="list-group-item" href="alt-decision-tree-fr.html">Arbre décisionnel en texte de remplacement</a></li>
 				<li><a class="list-group-item" href="svg-images-fr.html">Images de SVG</a></li>
+				<li><a class="list-group-item" href="captcha-fr.html">CAPTCHA</a></li>
 				<li><a class="list-group-item" href="tips-and-tricks-fr.html">Conseils et astuces supplémentaires</a></li>
-				<li><a class="list-group-item" href="best-practice-fr.html">Pratiques exemplaires</a></li>
+				<li><a class="list-group-item" href="best-practice-mod-5-fr.html">Pratiques exemplaires</a></li>
 			</ul>
 		</section>
 		
@@ -390,7 +440,7 @@
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+				<h3 class="wb-navcurr">Appendice</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
@@ -399,7 +449,9 @@
 					<li>
 						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">Vue WCAG</a>
+					</li>
 				</ul>
 			</section>
 	
@@ -408,7 +460,7 @@
 	
 </div>
 <div id="def-preFooter2"></div>
-		<script src="../../../scripts/preFooter2.min.js"></script>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
 <div id="def-preFooter"></div>
 		<script src="../../../scripts/preFooter.min.js"></script>
 </div>	

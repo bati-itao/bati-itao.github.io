@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]>
-<html class="no-js lt-ie9" lang="en" dir="ltr">
-   <![endif]-->
-   <!--[if gt IE 8]><!-->
-   <html class="no-js" lang="fr" dir="ltr">
-      <!--<![endif]-->
+<html class="no-js" lang="fr" dir="ltr">
       <head>
          <meta charset="utf-8">
          <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -13,7 +8,6 @@
          <!-- Meta data -->
          <meta name="description"
             content="Lignes directrices sur l’accessibilité relative au contenu généré par les feuilles de style en cascade CSS. Éviter le contenu généré par feuilles de style en cascade CSS">
-         <meta name="robots" content="noindex">
          <!-- Meta data-->
          <!-- Load closure template scripts -->
          <script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -49,55 +43,135 @@
                 },
             {
                     "title": "Module 7 – Conception visuelle et couleurs",
-                    
-                }],
-                "lngLinks": [{
-                    "lang": "en",
-                    "href": "css-generated.html",
-                    "text": "English"
-                }],
-                "menuPath": "../../../ajax/menu-fr.html"
-            });
-         </script>
-         <div class="container">
-            <div class="row">
-               <main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-                  <h1 property="name" id="wb-cont">Texte et icônes générés par une CSS</h1>
-                  <nav role="navigation">
-                     <div class="panel panel-default mrgn-tp-md">
-                        <header class="panel-heading">
-                           <h2 class="panel-title">Table des matières</h2>
-                        </header>
-                        <div class="panel-body">
-                           <ul>
-                              <li><a href="#contenu-genere-par-une-CSS">Conception avec du contenu généré par une CSS</a></li>
-                              <li><a href="#example">Bon exemple : Icône CSS informative</a></li>
-                              <li><a href="#resources1">Ressources WCAG connexes</a></li>
-                           </ul>
-                        </div>
-                     </div>
-                  </nav>
+                    "href" : "index-fr.html"
+                },
+          {
+            "title": "Texte et icônes générés par une CSS",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "css-generated.html",
+            "text": "English",
+          }],
+        "menuPath": "../../../ajax/menu-fr.html"
+      });
+
+    </script>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Texte et icônes générés par une CSS</h1>
+          <nav aria-labelledby="nav-table" class="mrgn-tp-md">
+            <h2 id="nav-table" class="wb-inv">Table des matières</h2>
+            <details class="mrgn-bttm-lg on" open="open">
+               <summary class="bg-info">Table des matières</summary>
+               <ul>
+            <li>
+               <a href="#contenu-genere-par-une-CSS">Conception avec du contenu généré par une CSS</a>
+            </li>
+            <li>
+               <a href="#css-boundaries">Bon exemple : Déclarations de limite générées par CSS pour des éléments non présentés aux lecteurs d’écran</a>
+            </li>
+            <li>
+               <a href="#informative-css">Bon exemple : Icône CSS informative</a>
+            </li>
+            <li>
+               <a href="#css-generated-wcag">Ressources WCAG connexes</a>
+            </li>
+         </ul>
+            </details>
+         </nav>
+		 <button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Afficher tout les détails</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Réduire tout<span class="wb-inv">les détails</span></button>
+				
                   <section>
                      <h2 id="contenu-genere-par-une-CSS">Conception avec du contenu généré par une CSS</h2>
-                     <p>Une CSS peut générer du texte et des icône au moyen des pseudo-classes <code lang="en-CA">:before</code> et <code lang="en-CA">:after</code>. Cependant, le contenu généré par une CSS ne figure pas dans le modèle DOM et n’est donc pas facilement accessible aux technologies d’assistance. Bien que les lecteurs d’écran NVDA et VoiceOver reconnaissent le contenu produit par une CSS, ce n’est pas le cas des lecteurs d’écran JAWS et Narrator.</p>
-                     <p>Par conséquent, on peut utiliser un contenu important généré par une CSS sur des feuilles de style d’impression pour imprimer l’adresse URL des liens, mais autrement il faut l’éviter.</p>
-                     <p>Si vous utilisez du contenu produit par une CSS, masquez-le pour les lecteurs d’écran au moyen de l’attribut <code lang="en-CA">aria-hidden="true"</code>. Si le contenu généré par une CSS est informatif, fournissez un équivalent textuel. Pour ce faire :</p>
-                     <ul>
-                        <li>Si le contenu est un lien ou une commande, utilisez l’attribut <code lang="en-CA">aria-label</code>.</li>
-                        <li>Si le contenu ne peut être ciblé, utilisez la classe <code lang="en-CA">.wb-inv</code> de la BOEW pour masquer visuellement l’équivalent textuel.</li>
-                     </ul>
+                     <p>Une CSS peut générer du texte et des icône au moyen des pseudo-classes <code lang="en-CA">::before</code> et <code lang="en-CA">::after</code>. Cependant, les DACW 2.1 ne permettent pas d’utiliser du contenu non décoratif généré par des feuilles de style en cascade (CSS), car il peut être écrasé par des feuilles de style d’utilisateur (utilisées par des utilisateurs malvoyants) et il est invisible pour la fonctionnalité de recherche du navigateur; voici, entre autres, les raisons évoquées dans le document <a href="https://docs.google.com/document/d/1kvz0D3Au1R6c6q8iKZNH3KqyBt3d6WaJNUCwV35BDX8/edit">defense of WCAG Failure F87</a>. Cela dit, il existe un scénario d’utilisation pour du texte supplémentaire généré par des feuilles de style en cascade ainsi qu’une technique généralement accessible pour les icônes d’information.</p>
+                     
+                    
+                    <p>Veuillez suivre les pratiques exemplaires suivantes en présence d’un contenu généré par des feuilles de style en cascade :</p>
+					<ul>
+						
+						<li>Masquer le contenu décoratif généré par des feuilles de style en cascade des lecteurs d’écrans en utilisant l’attribut <code>aria-hidden="true"</code>.</li>
+						<li>Ne pas utiliser du texte généré par des feuilles de style en cascade.
+							<ul>
+								<li>Exception : Utiliser du texte généré par des feuilles de style en cascade pour afficher les éléments <code>mark</code>, <code>del</code>, <code>ins</code> et <code>s</code> aux utilisateurs de lecteur d’écran.</li>
+							</ul>
+						</li>
+						<li>Concernant les icônes d’information générées par des feuilles de style en cascade :
+							<ul>
+                        <li>Configurer l’icône sur un élément <code>&lt;span&gt;</code>, et :
+									<ul>
+										<li>Le masquer sur le lecteur d’écran des utilisateurs avec l’attribut <code>aria-hidden</code>.</li>
+										<li>Ajouter une étiquette visible pour les utilisateurs de souris en utilisant l’attribut <code>title</code>.</li>
+									</ul>
+                        </li>
+                        <li>Ajouter une étiquette pour les utilisateurs de lecteur d’écran dans un deuxième élément <code>&lt;span&gt;</code> , masqué visuellement avec la classe CSS de la BOEW <code>.wb-inv</code>.</li>
+					</ul>
+                     <p>Cette approche diffère du <a href="https://wet-boew.github.io/wet-boew-styleguide/design/icons-en.html">modèle d’icônes du Guide de style de la BOEW </a>du fait de l’ajout des attributs <code>title</code> et <code>aria-hidden</code>. Elle ne tient pas compte des besoins des utilisateurs de clavier malvoyants.</p>
+                     <p>Les DACW 2.1 proposent également une technique d’icônes informatives CSS,<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA24"> ARIA24 : Semantically identifying a font icon with role="img"</a>, mais elle nécessite une déclaration de style particulière dans la feuille de style de <em>l’utilisateur</em>, déclaration conçue pour protéger la déclaration de la famille de polices de l’icône contre l’écrasement. Bien que cela ne soit pas mentionné dans les DACW 2.1, l’utilisation de la technique ARIA24 suppose que l’on fasse connaître cette technique aux utilisateurs malvoyants. De même, le document <a href="https://docs.google.com/document/d/1kvz0D3Au1R6c6q8iKZNH3KqyBt3d6WaJNUCwV35BDX8/edit">defense of WCAG Failure F87 </a>laisse pensé que la solution ARIA24 ne dispose pas de la sémantique nécessaire.</p>
+                     <p>Il n’existe pas de technique idéale pour les polices d’icônes générées par des feuilles de style en cascade.</p>
+						</li>
+					</ul>
+                </section>
+                <section>
+					 <div class="panel panel-success mrgn-tp-lg">
+						<div class="panel-body">
+							<h2 class="text-success mrgn-tp-0 h3" id="css-boundaries"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple : Déclarations de limite générées par CSS pour des éléments non présentés aux lecteurs d’écran
+							</h2>
+                     <p>Les rôles de l’élément <code>&lt;mark&gt;</code> et des éléments rédactionnels <code>&lt;del&gt;</code>, <code>&lt;ins&gt;</code> et <code>&lt;s&gt;</code> ne sont pas déclarés par les lecteurs d’écran. Pour signaler leur présence aux utilisateurs de lecteur d’écran, un texte visuellement masqué généré par CSS signale le début et la fin de chaque rôle.</p>
+					<p class="lang-label small">CSS</p>
+					<p class="wb-inv">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-css">mark::before	{ content: " [mise en évidence du début] "; }
+mark::after	{ content: " [mise en évidence de la fin] "; }
+
+del::before	{ content: " [suppression du début] "; }
+del::after	{ content: " [suppression de la fin] "; }
+
+ins::before	{ content: " [insertion du début] "; }
+ins::after	{ content: " [insertion de la fin] "; }
+
+s::before	{ content: " [début d’un texte biffé] "; }
+s::after	{ content: " [fin d’un texte biffé] "; }
+
+/* masque visuellement le contenu généré */
+mark::before, mark::after,
+del::before, del::after,
+ins::before, ins::after,
+s::before, s::after {
+   clip-path: inset(100%);
+   clip: rect(1px, 1px, 1px, 1px);
+   height: 1px;
+   width: 1px;
+   overflow: hidden;
+   position: absolute;
+   white-space: nowrap;
+}</code></pre>
+
+							<p class="wb-inv">Fin du code</p>
+						</div>
+					</div>
+					<hr/>
+					<p class="small">Billet de blogue d’Adrian Roselli <a href="https://adrianroselli.com/2019/02/f87-css-generated-content-and-wcag-conformance.html" lang="en-CA">F87: CSS Generated Content and WCAG Conformance</a>. 24 février, 2019.</p>
+				
+				</section>	
+				
+					<section>
                      <div class="panel panel-success mrgn-tp-lg">
 						<div class="panel-body">
-							<h2 class="text-success mrgn-tp-0 h3" id="example"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple : Icône CSS informative</h2>
+							<h2 class="text-success mrgn-tp-0 h3" id="informative-css"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple : Icône CSS informative</h2>
 							 <p>Dans cet exemple, l’icône de marteau Font Awesome est utilisée pour représenter une tâche.</p> 
 							<ul>
 								<li>L’élément <code lang="en-CA">&lt;span&gt;</code> avec les classes <code lang="en-CA">.fas</code> et <code lang="en-CA">.fa-hammer</code> affiche l’icône par l’entremise d’une pseudo-classe de CSS, <code lang="en-CA">:before</code>.</li>
 								<li>Son attribut <code lang="en-CA">title</code> contient une infobulle pour les utilisateurs de souris, « Tâche ».</li>
 								<li>Son attribut <code lang="en-CA">aria-hidden="true"</code> cache l’élément aux lecteurs d’écran, car leur support de l'attribut <code lang="en-CA">title</code> est incohérent.</li>
-								<li>Le nom « Tâche », masqué visuellement, est indiqué juste après l’icône et est visible pour tous les lecteurs d’écran.</li>
+								<li>Juste après l’icône on trouve un élément <code lang="en-CA">&lt;span&gt;</code> visuellement masqué qui porte le nom « Tâche », et qui se déclare sur tous les lecteurs d’écran.</li>
 							</ul>
 							<div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
+									<p class="wb-inv">L'exemple commence</p>
 									 <style type="text/css">
 										.fa-hammer:before { content: "\f6e3"; }
 										.fa, .far, .fas {  font-family: "Font Awesome 5 Free"; }
@@ -117,6 +191,17 @@
 										<span class="wb-inv">Tâche</span>
 										Remplir la demande
 									</p>
+									<p class="wb-inv">L'exemple finit</p>
+								</div>
+							</div>
+					<p>Si leurs feuilles de style personnalisées écrasent la déclaration font-family de l’icône, les utilisateurs de souris malvoyants peuvent accéder au nom de l’icône en survolant le carré du paramètre fictif, ce qui active l’infobulle de l’attribut title.</p>
+							<div class="panel panel-primary">
+								<div class="panel-body well mrgn-bttm-0">
+									 <p>
+										 <!-- alt value here would be redundant -->
+										<img alt="" src="images/icon-mouse-hover-fr.png" class="img-responsive"/>
+									 </p>
+									
 								</div>
 							</div>
 <p class="lang-label small">HTML</p>
@@ -147,35 +232,42 @@
 					</div>							 
                   </section>
                   <section>
-                     <h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
-                     <details class="mrgn-tp-lg">
+                     <h2 id="css-generated-wcag" class="wb-inv">Ressources WCAG connexes</h2>
+                     <details class="mrgn-tp-lg grouped on">
                         <summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En anglais seulement.</p>
+                       
                         
                         <h3>Critères de succès</h3>
                         <ul>
-                           <li><a href="en" href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a> </li>
+                           <li>
+														<a lang="en" href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/text-equiv-all.html" data-code="1.1.1">1.1.1 : Contenu non textuel</a> </li>
                         </ul>
                         <h3>Techniques</h3>
                         <ul>
                            <li>
-                              <a hreflang="en" href="https://www.w3.org/WAI/WCAG21/Techniques/general/G94">G94: Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content</a> 
+                              <a lang="en" href="https://www.w3.org/WAI/WCAG21/Techniques/general/G94" data-code="G94">G94&nbsp;: Fournir un court équivalent textuel pour un contenu non textuel qui a la même fonction et présente la même information que le contenu non textuel (en anglais) </a> 
 </li>
                            <li>
-                              <a hreflang="en" href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA6">ARIA6: Using aria-label to provide labels for objects</a> 
+                              <a lang="en" href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA6" data-code="ARIA6">ARIA6 : Utiliser aria-label pour attribuer des étiquettes aux objets  (en anglais)</a> 
 </li>
                         </ul>
+						 <h3>Échecs</h3>
+						<ul>
+						   <li>
+							  <a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F87   " hreflang="en-CA" data-code="F87">F87&nbsp;: Échec du critère de succès 1.3.1 consistant à utiliser les pseudo-éléments :before et :after et la propriété content en CSS (en anglais)</a>
+						   </li>
+						</ul>
                      </details>
                   </section>
-                  <nav role="navigation">
-                     <h2 class="wb-inv">Navigation dans le document</h2>
+                  <nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
                      <ul class="pager">
                         <li class="previous"><a rel="prev" href="textspacing-fr.html">Précédent - Espacement du texte</a></li>
                         <li class="next"><a rel="next" href="hiding-content-fr.html">Suivant - Masquer ou afficher un contenu</a></li>
                      </ul>
                   </nav>
-               </main>
-               <nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">
+               <a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
+               <nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">
                   <h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
                   <section class="list-group menu list-unstyled">
                      <h3 class="wb-navcurr">Module 7 – Conception visuelle et couleurs</h3>
@@ -187,7 +279,7 @@
                         <li><a class="list-group-item" href="textspacing-fr.html">Espacement du texte</a></li>
                         <li><a class="list-group-item active" aria-current="page" href="css-generated-fr.html">Texte et icônes générés par une CSS</a></li>
                         <li><a class="list-group-item" href="hiding-content-fr.html">Masquer ou afficher un contenu</a></li>
-                        <li><a class="list-group-item" href="best-practice-fr.html">Pratiques exemplaire</a></li>
+                        <li><a class="list-group-item" href="best-practice-mod-7-fr.html">Pratiques exemplaire</a></li>
                      </ul>
                   </section>
                   <section class="list-group menu list-unstyled">
@@ -208,7 +300,7 @@
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+				<h3 class="wb-navcurr">Appendice</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
@@ -217,7 +309,9 @@
 					<li>
 						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">Vue WCAG</a>
+					</li>
 				</ul>
 			</section>
                </nav>

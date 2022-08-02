@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Best practice – Module 2 - Page structure and semantics</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Summary of best practices in Module 2 - Page structure and semantics">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+		<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../../index.html"
+            },
+			{
+                "title": "Web accessibility course",
+                "href" : "../index.html"
+            },
+			{
+                 "title": "Module 2 – Page structure and semantics",
+                
+                "href" : "index.html"
+            },
+          {
+            "title": "Best practice",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "best-practice-mod-2-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
+    </script>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Best practice</h1>
+	<nav  aria-labelledby="nav-table">
+      <div class="panel panel-default mrgn-tp-lg">
+        <header class="panel-heading">
+          <h2 id="nav-table" class="panel-title">Table of contents</h2>
+        </header>
+        <div class="panel-body">
+          <ul>
+            <li><a href="#best-practice-landmarks">Landmarks<span class="wb-inv"> (best practice)</span></a></li>
+			<li><a href="#best-practice-headings">Headings<span class="wb-inv"> (best practice)</span></a></li>
+			  <li><a href="#best-practice-content-structure">Content structure<span class="wb-inv"> (best practice)</span></a></li>
+			  <li><a href="#best-practice-language">Language<span class="wb-inv"> (best practice)</span></a></li>
+			  <li><a href="#best-practice-lists">Lists<span class="wb-inv"> (best practice)</span></a></li>
+			  <li><a href="#best-practice-iframes">iFrames<span class="wb-inv"> (best practice)</span></a></li>
+			  <li><a href="#parsing-validity">Parsing and validity<span class="wb-inv"> (best practice)</span></a></li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+			<section>				
+				<h2 id="best-practice-landmarks">Landmarks</h2>
+				<ul>
+					<li>Identify landmarks on the page:
+						<ul>
+							<li>Use equivalent HTML5 sectioning elements (preferred) </li>
+							<li>Use ARIA landmark <code>role</code> attributes if HTML5 sectioning elements cannot be used.</li>
+						</ul>
+					</li>
+					<li>Ensure all content on the page is contained within a landmark region</li>
+					<li>Ensure only one instance of:
+						<ul>
+							<li><code>role="banner"</code>  or <code>&lt;header&gt;</code> (when <code>&lt;header&gt;</code> is a child of <code>&lt;body&gt;</code>). A <code>&lt;header&gt;</code> is not considered a banner when it is the child of <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code> or <code>&lt;section&gt;</code>.</li>
+							<li> <code>&lt;footer&gt;</code></li>
+							<li><code>&lt;main&gt;</code></li>
+						</ul>
+					</li>
+					<li>Ensure <code>&lt;header&gt;</code> (when the banner), <code>&lt;footer&gt;</code>, <code>&lt;main&gt;</code> are direct children of <code>&lt;body&gt;</code></li>
+					<li>Limit the use of <code>&lt;nav&gt;</code> to primary and secondary navigations
+						<ul>
+							<li>Use the <code>aria-label</code> attribute to differentiate multiple (different) <code>&lt;nav&gt;</code> items.</li>
+							<li>Use the <code>aria-labelledby</code> attribute to label a <code>&lt;nav&gt;</code> region that begins with a heading element</li>
+							<li>Provide short and descriptive labels </li>
+						</ul>
+					</li>
+					<li>The landmark role is declared by a screen reader along with the name, if any. Do not use the landmark role (e.g., “navigation”) as part of the name; for instance, the label is “Site” not “Site Navigation” for a navigation landmark. </li>
+					<li>Use <code>role="search"</code> rather than <code>role="form"</code> when the form is used for search functionality.</li>
+				</ul>
+			</section>
+			<section>
+				<h2 id="best-practice-headings">Headings</h2>
+				<ul>
+					<li>Provide headings for each page </li>
+					<li>Use heading elements <code>&lt;h1&gt;</code> - <code>&lt;h6&gt;</code> for all headings</li>
+					<li>Don’t use heading elements for text that is not a heading. Instead, use CSS to change font size or styles</li>
+					<li>Ensure headings are concise and meaningful (they describe the topic or purpose)</li>
+					<li>Ensure headings follow a hierarchical sequence without skipping any levels</li>
+					<li>Provide one <code>&lt;h1&gt;</code> heading that describes the page content</li>
+				</ul>
+			</section>
+			<section>				
+				<h2 id="best-practice-content-structure">Content structure</h2>
+				<ul>
+					<li>Ensure an <code>&lt;article&gt;</code> element is used in a web page for self-contained composition</li>
+					<li>For thematic grouping of content, ensure the <code>&lt;section&gt;</code> element is used.</li>
+					<li>Use the paragraph (<code>&lt;p&gt;</code>) element for paragraphs.</li>
+					<li>Use quotes:
+						<ul>
+							<li>For longer and more complex quotes, use the <code>&lt;blockquote&gt;</code> element.</li>
+							<li>For shorted quotes, that are usually embedded in another sentence, use the inline quote <code>&lt;q&gt;</code> element.</li>
+						</ul>
+					</li>
+					<li>To indicate that content has strong importance or urgency, use the <code>&lt;strong&gt;</code> element. </li>
+					<li>For words that have a stressed emphasis compared to surrounding text, use the <code>&lt;em&gt;</code> element.</li>
+					<li>Expand abbreviations on first use on the page, with the abbreviation accompanying the expansion, one or the other in brackets</li>
+					<li>Ensure each web page defines its topic or purpose in a descriptive title, set in a <code>&lt;title&gt;</code> element in the HTML <code>&lt;head&gt;</code> element. Optionally, identify the larger collection of Web pages after the page description.</li>
+					<li>When phrasing instructions on where to find or how to use content, avoid descriptions that rely exclusively on being able to see or hear. Be sure to include a text label in the instruction and at the item of interest.</li>
+				</ul>
+			</section>
+			<section>				
+				<h2 id="best-practice-language">Language</h2>
+				<ul>
+					<li>Add a <code>lang</code> attribute to the <code>&lt;html&gt;</code> element to set the default language for the entire page.
+						<ul>
+							<li>For English: <code>&lt;html lang="en"&gt;</code> </li>
+							<li>For Canadian French <code>&lt;html lang="fr-CA"&gt;</code> </li>
+							<li>For other languages, choose the appropriate language code from ISO-639. Use the shortest available language code. </li>
+						</ul>
+					</li>
+					<li>Insert a lang attribute anywhere the default language changes to a different language.</li>
+					<li>XHTML should use both the <code>lang</code> attribute and the <code>xml:lang</code> attribute.</li>
+				</ul>
+			</section>
+			<section>				
+				<h2 id="best-practice-lists">Lists</h2>
+				<ul>
+					<li>HTML provides three list structures, each with specific semantics:
+						<ul>
+							<li>Use <strong>unordered lists</strong> (<code>&lt;ul&gt;</code>) when the order of the items is irrelevant. Each list item (<code>&lt;li&gt;</code>) in an unordered list is marked with a bullet.</li>
+							<li>Use <strong>ordered lists</strong> (<code>&lt;ol&gt;</code>) for sequential information. Each list item (<code>&lt;li&gt;</code>) is numbered by the browser.</li>
+							<li>Use <strong>description lists</strong> (<code>&lt;dl&gt;</code>) to group related terms (<code>&lt;dt&gt;</code>) and their descriptions (<code>&lt;dd&gt;</code>).</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section>				
+				<h2 id="best-practice-iframes">iFrames</h2>
+				<ul>
+					<li>If the iframe consists of decorative images or JavaScript, hide it from screen readers by setting the <code>aria-hidden="true"</code> attribute on the <code>&lt;iframe&gt;</code> element.</li>
+					<li>If the <code>&lt;iframe&gt;</code> contains content intended for the user:
+						<ul>
+							<li>Give the <code>&lt;iframe&gt;</code> element a descriptive title attribute value.</li>
+							<li>Ensure the <code>&lt;iframe&gt;</code> <code>title</code> attribute value is unique across iframes on the page.</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section>				
+				<h2 id="parsing-validity">Parsing and validity</h2>
+				<ul>
+					<li>Elements have complete start and end tags.</li>
+					<li>Elements are nested according to their specifications. </li>
+					<li>Elements do not contain duplicate attributes.</li>
+					<li>Any IDs are unique.</li>
+				</ul>
+			</section>
+		<nav aria-labelledby="nav-pagination">
+	<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+	<ul class="pager">
+		<li class="previous"> <a rel="prev" href="parsing-and-validity.html">Previous - Parsing and validity</a></li>
+	</ul>
+  </nav>
+					
+
+<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	  <script src="../../../scripts/esdc-course.js"></script></main>
+		
+		
+
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+			
+			
+
+				<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				Module 2 – Page structure and semantics
+				</h3>
+				
+			<ul class="list-group menu list-unstyled">
+				
+						<li><a class="list-group-item" href="landmarks.html">Landmarks</a></li>
+						<li><a class="list-group-item" href="headings.html">Headings</a></li>
+						<li><a class="list-group-item" href="content-structure.html">Content structure</a></li>
+					
+						<li><a class="list-group-item" href="language.html">Language</a></li>
+					
+						<li><a class="list-group-item" href="lists.html">Lists</a></li>
+				
+						<li><a class="list-group-item" href="iframes.html">Iframes</a></li>
+					
+						<li><a class="list-group-item" href="parsing-and-validity.html">Parsing and validity</a></li>
+					
+						<li><a class="list-group-item active"  aria-current="page"  href="best-practice-mod-2.html">Best practice</a></li>
+				</ul>
+			
+			</section>
+			
+			
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				All modules
+				</h3>
+				<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item active" href="landmarks.html">Module 2  – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+                        <li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Appendix</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">WCAG view</a>
+					</li>
+				</ul>
+			</section>
+		
+		</nav>
+	
+		
+
+		
+		
+	
+			
+</div>
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2.min.js"></script>
+
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+</div>
+		
+		
+	<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+</body>
+	
+</html>

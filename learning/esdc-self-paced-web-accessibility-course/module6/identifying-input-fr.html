@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="fr" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -11,7 +8,6 @@
 	<!-- Meta data -->
 	<meta name="description"
 		content="Lignes directrices sur l’accessibilité relative à la détermination du but de la saisie. Décrit comment définir la sémantique des champs de saisie à l’aide de la fonction de remplissage automatique.">
-	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -50,39 +46,50 @@
                 "title": "Module 6 - Formulaires",
                 
                 "href" : "index-fr.html"
-            }],
-            "lngLinks": [{
-                "lang": "en",
-                "href": "identifying-input.html",
-                "text": "English"
-            }],
-            "menuPath": "../../../ajax/menu-fr.html"
-        });
+            },
+          {
+            "title": "Déterminer l’objet de la saisie",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "identifying-input.html",
+            "text": "English",
+          }],
+        "menuPath": "../../../ajax/menu-fr.html"
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-	<h1 property="name" id="wb-cont">Déterminer l’objet de la saisie</h1>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Déterminer l’objet de la saisie</h1>
 						
-	<nav role="navigation">
-    <div class="panel panel-default mrgn-tp-md">
-      <header class="panel-heading">
-        <h2 class="panel-title">Table des matières</h2>
-      </header>
-        <div class="panel-body">
-          <ul>
-            <li><a href="#overview">Overview – Déterminer l’objet de la saisie</section></a></li>
-			<li><a href="#autocomplete-attributes">Bon exemple&nbsp;: Utilisation de l’attribut autocomplete</a></li>
-			<li><a href="#wcag-resources">Ressources WCAG connexes</a></li>
-          </ul>
-        </div>
-      </div>
-	</nav>
-	
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table des matières</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table des matières</summary>
+							<ul>
+						<li>
+							<a href="#overview">Overview – Déterminer l’objet de la saisie</a>
+						</li>
+						<li>
+							<a href="#autocomplete-attributes">Bon exemple : Utilisation de l’attribut autocomplete</a>
+						</li>
+						<li>
+							<a href="#wcag-resources">Ressources WCAG connexes</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+	<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Afficher tout les détails</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Réduire tout<span class="wb-inv">les détails</span></button>
+				
 			<section>
 				<h2 id="overview">Overview – Déterminer l’objet de la saisie</h2>
 				<p>Lorsqu'un champ de saisie de formulaire recueille des informations personnelles telles que le nom, le numéro de téléphone, l'adresse électronique et l'adresse postale de l'utilisateur, définissez sa sémantique de manière programmatique avec l'attribut <code lang="en-CA">autocomplete</code> Les technologies d'assistance s'appuient sur la valeur de l'attribut <code lang="en-CA">autocomplete</code> pour remplir automatiquement les formulaires, en s'appuyant sur les entrées antérieures de l'utilisateur stockées dans le navigateur. Cela évite à l'utilisateur d'avoir à taper l'information. Les technologies d'assistance exploitent également la valeur de <code lang="en-CA">autocomplete</code> pour associer des icônes aux champs de saisie, pour les utilisateurs qui préfèrent utiliser des images pour communiquer.</p>
-				<p>La valeur de l'attribut prend l'un des 53 noms de champs potentiels de la liste de WCAG: <a  hreflang="en" lang="en" href="https://www.w3.org/TR/WCAG21/#input-purposes">Input Purposes for User Interface Components</a>. Les noms des champs sont soit larges, soit étroits. Par exemple, en ce qui concerne le nom de l'utilisateur, il est possible d'identifier l'objectif d'une entrée comme étant le nom complet, le prénom, le nom de famille ou le surnom. Vous pouvez affiner l'objectif en ajoutant à la valeur de  <code lang="en-CA">autocomplete</code> des éléments de détail séparés par des espaces :</p>
+				<p>La valeur de l'attribut prend l'un des 53 noms de champs potentiels de la liste de WCAG: <a lang="en" href="https://www.w3.org/TR/WCAG21/#input-purposes">Input Purposes for User Interface Components</a>. Les noms des champs sont soit larges, soit étroits. Par exemple, en ce qui concerne le nom de l'utilisateur, il est possible d'identifier l'objectif d'une entrée comme étant le nom complet, le prénom, le nom de famille ou le surnom. Vous pouvez affiner l'objectif en ajoutant à la valeur de  <code lang="en-CA">autocomplete</code> des éléments de détail séparés par des espaces :</p>
 				<ul>
 					<li><code lang="en-CA">shipping</code></li>
 					<li><code lang="en-CA">billing</code></li>
@@ -92,18 +99,18 @@
 					<li><code lang="en-CA">fax</code></li>
 					<li><code lang="en-CA">pager</code></li>
 				</ul>
-				<p>Utilisez <code lang="en-CA">autocomplete</code> sur les éléments  <code lang="en-CA">&lt;input&gt;</code> qui prennent une valeur textuelle ou numérique en entrée, les éléments <code lang="en-CA">&lt;textarea&gt;</code>, les éléments <code lang="en-CA">&lt;select&gt;</code> et les éléments <code lang="en-CA">&lt;form&gt;</code>. La spécification HTML5 énumère les <a hreflang="en" href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#inappropriate-for-the-control"> éléments appropriés à associer à chaque nom de champ autocomplete</a>. (disponible en anglais seulement)</p>
+				<p>Utilisez <code lang="en-CA">autocomplete</code> sur les éléments  <code lang="en-CA">&lt;input&gt;</code> qui prennent une valeur textuelle ou numérique en entrée, les éléments <code lang="en-CA">&lt;textarea&gt;</code> et les éléments <code lang="en-CA">&lt;select&gt;</code>. La spécification HTML5 énumère les <a lang="en" href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#inappropriate-for-the-control"> éléments appropriés à associer à chaque nom de champ autocomplete</a>. (disponible en anglais seulement)</p>
 			</section>	
 			<section>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h2 class="text-success mrgn-tp-0 h3" id="autocomplete-attributes"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple&nbsp;: Utilisation de l’attribut autocomplete</h2>
 						<p>Il s'agit d'un formulaire simple qui recueille les coordonnées de l'utilisateur à l'aide de l'attribut <code lang="en-CA">autocomplete</code>. Les noms des champs <code lang="en-CA">autocomplete</code> utilisent des jetons pour faire la distinction entre la facturation et l'expédition, et entre le téléphone fixe et le téléphone mobile.</p>
-						<p>Les champs ne se remplissent automatiquement que si le navigateur a enregistré les valeurs des noms de champs (par exemple, <code lang="en-CA">given-name</code>, <code lang="en-CA">family-name</code>) ors d'une précédente soumission de formulaire. Pour tester, saisissez quelques valeurs et appuyez sur "Remplir le navigateur" pour stocker les valeurs des noms de champs dans le navigateur. Les données ne sont pas soumises, et nous ne les stockons pas.</mark></p>
+						<p>Les champs ne se remplissent automatiquement que si le navigateur a enregistré les valeurs des noms de champs (par exemple, <code lang="en-CA">given-name</code>, <code lang="en-CA">family-name</code>) ors d'une précédente soumission de formulaire. Pour tester, saisissez quelques valeurs et appuyez sur "Remplir le navigateur" pour stocker les valeurs des noms de champs dans le navigateur. Les données ne sont pas soumises, et nous ne les stockons pas.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body well mrgn-bttm-0">
 								<p class="wb-inv">L'exemple commence</p>
-								<form class="form-horizontal" autocomplete="on" onsubmit="return false;" > 
+								<form class="form-horizontal" autocomplete="on" onsubmit="return false;"> 
 									<div class="form-group">
 										<label for="fname" class="col-sm-4 control-label">Prénom</label>
 										<div class="col-sm-8">
@@ -203,9 +210,9 @@
 								<p class="wb-inv">L'exemple finit</p>
 							</div>
 						</div>
-						<details class="mrgn-tp-lg">
+						<details class="mrgn-tp-lg grouped on">
 							<summary class="bg-info">Visualisation simplifiée du HTML</summary>
-							<p class="mrgn-tp-md">Ce balisage a été simplifié en supprimant les éléments de regroupement  <code lang="en-CA">&lt;div&gt;</code> et les attributs de classe.</mark></p>
+							<p class="mrgn-tp-md">Ce balisage a été simplifié en supprimant les éléments de regroupement  <code lang="en-CA">&lt;div&gt;</code> et les attributs de classe.</p>
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-0"><code class="language-html">&lt;form method="post" action="step1"&gt;  
@@ -271,39 +278,45 @@
 			
 			<section>				
 				<h2 id="wcag-resources" class="wb-inv">Ressources WCAG connexes</h2>
-				<details class="mrgn-tp-lg">
+				<details class="mrgn-tp-lg grouped on">
 					<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En anglais seulement.</p>
+                       
 					<h3>Critères de succès</h3>
 					<ul>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose" lang="en-CA">1.3.5: Identify Input Purpose</a></li>
+						<li>
+														<a href="https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose" hreflang="en-CA" data-code="1.3.5">1.3.5 : Déterminer le but de la saisie  (en anglais)</a>
+													</li>
 						
 					</ul>
 					<h3>Techniques</h3>
 					<ul>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H98.html" lang="en-CA">H98: Using HTML 5.2 autocomplete attributes</a></li>
+						<li>
+														<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H98.html" hreflang="en-CA" data-code="H98">H98 : Utiliser des attributs à saisie automatique HTML 5.2 (en anglais)</a>
+													</li>
 										
 					</ul>
 					<h3>Échecs</h3>
 					<ul>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F107.htmll" lang="en-CA">F107: Failure of Success Criterion 1.3.5 due to incorrect autocomplete attribute values</a></li>
+						<li>
+														<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F107.htmll" hreflang="en-CA" data-code="F107">F107 : Échec du critère de succès 1.3.5 en raison de valeurs d’attribut saisies automatiquement incorrectes (en anglais)</a>
+													</li>
 											
 					</ul>
 				</details>
 			</section>
 		
 		
-	<nav role="navigation">
-		<h2 class="wb-inv">Menu de la pagination</h2>
+	<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
 		<ul class="pager">
 			<li class="previous"><a rel="prev" href="form-instructions-fr.html">Précédent - Instructions du formulaire</a></li>
 			<li class="next"><a rel="next" href="validating-input-fr.html">Suivant - Validation des saisies</a></li>
 		</ul>
 	</nav>
-	</main>
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 			
 
-	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 		<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Module 6 - Formulaires</h3>
@@ -318,7 +331,7 @@
 						<li><a class="list-group-item" href="user-notifications-fr.html">Avis à l’utilisateur</a></li>
 						<li><a class="list-group-item" href="multi-step-forms-fr.html">Formulaires à étapes multiples</a></li>
 						<li><a class="list-group-item" href="custom-controls-fr.html">Commandes personnalisées</a></li>
-						<li><a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-6-fr.html">Pratique exemplaire</a></li>
 						
 					</ul>
 			</section>
@@ -341,7 +354,7 @@
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+				<h3 class="wb-navcurr">Appendice</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
@@ -350,7 +363,9 @@
 					<li>
 						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">Vue WCAG</a>
+					</li>
 				</ul>
 			</section>
 	</nav>

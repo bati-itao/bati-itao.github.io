@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Pratiques exemplaire - Module 4 - Tableaux</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Résumé des pratiques exemplaires du module 4 – Tableaux">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "EDSC / Bureau de l’accessibilité des TI",
+                "href": "../../../index-fr.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Accueil",
+                "href" : "../../../index-fr.html"
+            },{
+                "title": "Apprentissage",
+                "href" : "../../index-fr.html"
+            },
+			{
+                "title": "Cours d'accessibilité Web",
+                "href" : "../index-fr.html"
+            },
+			{
+                "title": "Module 4 - Tableaux",
+                
+                "href" : "index-fr.html"
+            },
+          {
+            "title": "Pratique exemplaire",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "best-practice-mod-4.html",
+            "text": "English",
+          }],
+        "menuPath": "../../../ajax/menu-fr.html"
+      });
+
+    </script>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Pratique exemplaire</h1>
+		
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table des matières</h2>
+						<details class="grouped mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table des matières</summary>
+							<ul>
+						<li>
+							<a href="#tables-concepts">Concept des tableaux<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#content-style-guide">Guide de style pour le contenu du site Canada.ca<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#irregular-tables">Tableaux irréguliers<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#multi-level-headers">Tableaux comportant des en-têtes à plusieurs niveaux<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#captions-summary">Légendes et sommaire<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#tips-tricks">Conseils et astuces supplémentaires<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+			<section>
+				<h2 id="tables-concepts">Concept des tableaux</h2>
+				<ul>
+					<li>Marquez les tableaux de façon sémantique pour définir la relation entre les cellules d’en-tête et les cellules de données.</li>
+					<li>Pour les tableaux simples comportant une rangée d’en-tête de colonne et/ou une colonne d’en-tête de rangée:
+					  <ul>
+						<li>utiliser les éléments <code lang="en-CA">&lt;table&gt;</code>, <code lang="en-CA">&lt;tr&gt;</code>, <code lang="en-CA">&lt;th&gt;</code>, and <code lang="en-CA">&lt;td&gt;</code> pour le balisage.</li>
+						<li>utiliser l’attribut <code lang="en-CA">scope</code> pour associer des en-têtes à leurs cellules de données et à des en-têtes parents.</li>
+				      </ul>
+				    </li>
+					<li>Pour les tableaux complexes, utiliser les attributs <code lang="en-CA">id</code> et <code lang="en-CA">headers</code> pour les associations explicites.</li>
+				</ul>
+			</section>
+			<section>
+				<h2 id="content-style-guide">Guide de style pour le contenu du site Canada.ca</h2>
+				<ul>
+					<li>Utilisez des tableaux pour organiser et présenter les données</li>
+					<li>La valeur de chaque cellule est liée aux en-têtes de colonne et de rangée</li>
+					<li>Les entrées d’une colonne ne contiennent pas d’information qui pourrait être considérée comme un sous-titre</li>
+					<li>La valeur de chaque cellule est alignée avec l’en-tête de colonne qui apparaît directement au-dessus</li>
+					<li>Donner au tableau un titre clair (en utilisant <code lang="en-CA">&lt;caption&gt;</code>) qui décrit l’information qu’il contient</li>
+					<li>Convertir des tableaux complexes en un ou plusieurs tableaux simples</li>
+					<li>Convertir un tableau en liste si les données sont simples</li>
+				</ul>
+			</section>
+			<section>
+				<h2 id="irregular-tables">Tableaux irréguliers</h2>
+				<ul>
+					<li>Dans les tableaux irréguliers, représenter la relation entre les en-têtes de rangée et de colonne et leurs cellules de données avec l’attribut <code lang="en-CA">scope</code>:
+					  <ul>
+						<li>Lorsqu’un en-tête couvre plusieurs colonnes, ajouter l’attribut <code lang="en-CA">scope="colgroup"</code>à l’élément <code lang="en-CA">&lt;th&gt;</code>.</li>
+						<li>oLorsqu’un en-tête s’étend sur plusieurs rangées, ajouter l’attribut <code lang="en-CA">scope="rowgroup"</code> à l’élément <code lang="en-CA">&lt;th&gt;</code>.</li>
+				      </ul>
+				    </li>
+					<li>Définir les groupes dans le tableau avec les éléments <code lang="en-CA">&lt;colgroup&gt;</code> et <code lang="en-CA">&lt;tbody&gt;</code> :
+					  <ul>
+						<li>Définir des groupes de colonnes avec l’élément <code lang="en-CA">&lt;colgroup&gt;</code> et des colonnes individuelles avec <code lang="en-CA">&lt;col&gt;</code> comme premier enfant de l’élément de tableau;</li>
+						<li>Définir des groupes de rangée avec l’élément <code lang="en-CA">&lt;tbody&gt;</code>. Les éléments individuels <code lang="en-CA">&lt;thead&gt;</code> et <code lang="en-CA">&lt;tfoot&gt;</code> définissent leurs propres groupes</li>
+				      </ul>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2 id="multi-level-headers">Tableaux comportant des en-têtes à plusieurs niveaux</h2>
+				<ul>
+					<li>Pour associer des en-têtes à plusieurs niveaux à des cellules de données:
+					  <ul>
+						<li>Donner à chaque en-tête une valeur d’attribut <code lang="en-CA">id</code> unique;</li>
+						<li>Faire référence à ces valeurs d’attribut <code lang="en-CA">id</code> dans l’attribut <code lang="en-CA">headers</code> des cellules de données définies par l’en-tête.</li>
+				      </ul>
+				    </li>
+					<li>La technique des <code lang="en-CA">id/header</code> n’est pas bien prise en charge par les lecteurs d’écran à l’heure actuelle (2021). Pour simplifier la présentation des données, il faut diviser le tableau complexe en deux tableaux pour qu’il soit plus simple.</li>
+				</ul>
+			</section>
+			<section>
+				<h2 id="captions-summary">Légendes et sommaire</h2>
+				<ul>
+					<li>Utiliser l’élément <code lang="en-CA">&lt;caption&gt;</code> pour fournir un nom ou un titre visible pour le tableau.</li>
+					<li>Si la légende reproduit le titre précédent, masquer visuellement la <code lang="en-CA">&lt;caption&gt;</code> avec la classe CSS de la BOEW <code lang="en-CA">.wb-inv</code>.</li>
+					<li>Placer l’élément <code lang="en-CA">&lt;caption&gt;</code> comme enfant direct de l’élément <code lang="en-CA">&lt;table&gt;</code></li>
+					<li>Fournir un sommaire pour les tableaux complexes comprenant le but, la composition, les tendances ou l’utilisation.</li>
+					<li>Dans la mesure du possible, convertir des tableaux complexes en tableaux ou listes simples, de sorte qu’une explication moindre ou nulle ne soit requise.</li>
+					<li>Ne pas reproduire l’information de la légende dans le sommaire.</li>
+					<li>Choisir une méthode pour présenter les sommaires des tableaux :
+					  <ul>
+						<li>Imbriquer le sommaire dans l’élément <code lang="en-CA">&lt;caption&gt;</code></li>
+						<li>Placer le sommaire dans un paragraphe précédant ou suivant le tableau. Faire référence au sommaire du tableau avec l’attribut <code lang="en-CA">aria-describedby</code>.</li>
+						<li>Utiliser l’élément <code lang="en-CA">&lt;figure&gt;</code> pour marquer un sommaire de tableau. Utiliser les attributs <code lang="en-CA">aria-labelledby</code> et <code lang="en-CA">aria-describedby</code> pour associer, respectivement, la légende et le sommaire au tableau.</li>
+				      </ul>
+				    </li>
+				</ul>
+			</section>
+			<section>
+				<h2 id="tips-tricks">Conseils et astuces supplémentaires</h2>
+				<ul>
+					<li>Divisez un tableau complexe en tableaux plus petits et plus simples qui contiennent des données se rapportant à un sujet secondaire.</li>
+					<li>Commencer un nouveau <code lang="en-CA">&lt;table&gt;</code> lorsque le sujet change.</li>
+					<li>Séparez chaque élément de données dans sa propre cellule.</li>
+					<li>Ne pas utiliser de sauts de ligne (éléments <code lang="en-CA">&lt;br&gt;</code>) pour créer des rangées de tableau.</li>
+					<li>Alignez le texte à gauche et les données numériques à droite.</li>
+					<li>Différencier visuellement les cellules d’en-tête <code lang="en-CA">&lt;th&gt;</code> et de données <code lang="en-CA">&lt;td&gt;</code>.</li>
+					<li>Donnez des styles différents aux rangées paires et impaires pour améliorer la lisibilité.</li>
+					<li>S’assurer que le tableau n’est pas tronqué (p. ex., ne pas utiliser de <code lang="en-CA">overflow: hidden</code> dans les feuilles de style CSS).</li>
+					<li>Évitez d’utiliser des tableaux pour la mise en page. Utilisez plutôt une feuille de style CSS pour la mise en page.</li>
+				</ul>
+			</section>
+			
+		<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
+			<ul class="pager">
+				<li class="previous"> <a rel="prev" href="tables-resources-fr.html">Précédent - Ressources se rapportant aux tableaux dans (BOEW) </a> </li>
+			</ul>
+		</nav>
+					
+
+<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
+		
+		
+
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+			
+			
+
+				<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				Module 4 - Tableaux
+				</h3>
+				
+				
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="tables-concepts-fr.html">Concept des tableaux</a></li>
+							<li><a class="list-group-item" href="one-header-fr.html">Un seul en-tête</a></li>
+							<li><a class="list-group-item" href="two-headers-fr.html">Deux en-têtes</a></li>
+							<li><a class="list-group-item" href="irregular-headers-fr.html">En-têtes irréguliers</a></li>
+							<li><a class="list-group-item" href="multi-level-headers-fr.html">En-têtes à plusieurs niveaux</a></li>
+							<li><a class="list-group-item" href="caption-summary-fr.html">Légende et sommaire</a></li>
+							<li><a class="list-group-item" href="additional-tips-and-tricks-fr.html">Conseils et astuces supplémentaires</a></li>
+							<li><a class="list-group-item" href="tables-resources-fr.html">Ressources se rapportant aux tableaux dans (BOEW)</a></li>
+							<li><a class="list-group-item active" href="best-practice-mod-4-fr.html">Pratiques exemplaire</a></li>
+					
+					</ul>
+				
+			
+			</section>
+			
+			
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Tous les modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 – Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/links-fr.html">Module 3 – Liens et navigation</a></li>
+                        <li><a class="list-group-item active" href="tables-concepts-fr.html">Module 4 – Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/text-alternatives-fr.html">Module 5 – Images</a></li>
+                        <li><a class="list-group-item" href="../module6/forms-concepts-fr.html">Module 6 – Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 – Conception visuelle couleurs</a></li>
+                        <li><a class="list-group-item" href="../module8/introduction-fr.html">Module 8 – Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item" href="../module10/introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Appendice</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap-fr.html">Plan du site</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">Vue WCAG</a>
+					</li>
+				</ul>
+			</section>
+		
+		</nav>
+	
+		
+
+		
+		
+	
+			
+</div>
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+</div>	
+		
+		
+	<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+</body>
+	
+</html>

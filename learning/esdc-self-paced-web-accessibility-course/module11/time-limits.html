@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -11,7 +8,6 @@
 	<!-- Meta data -->
 	<meta name="description"
 		content="Accessibility guidelines related to time limits">
-	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -50,37 +46,50 @@
                 "title": "Module 11 - ARIA live and time limits",
                 
                 "href" : "index.html"
-            }],
-            "lngLinks": [{
-                "lang": "fr",
-                "href": "time-limits-fr.html",
-                "text": "Français"
-            }],
-            "menuPath": "../../../ajax/menu-en.html"
-        });
+            },
+			{
+                "title": "Time limits",
+ 
+            }
+        ],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "time-limits-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-			
-	<h1 property="name" id="wb-cont">Time limits</h1>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Time limits</h1>
 						
-	<nav role="navigation" aria-labelledby="nav-table">
-    <div class="panel panel-default mrgn-tp-md">
-      <header class="panel-heading">
-        <h2 id="nav-table" class="panel-title">Table of contents</h2>
-      </header>
-        <div class="panel-body">
-          <ul>
-            <li><a href="#overview">Overview – Time limits</a></li>
-            <li><a href="#good-session-timeout">Good example: Session timeout</a></li>
-            <li><a href="#bad-no-extend">Bad example: Session timeout with no option to extend</a></li>
-            <li><a href="#bad-js-refresh">Bad example: JavaScript automatically refreshes a page</a></li>
-						<li><a href="#mod11-time-limits-wcag">Related WCAG resources</a></li>
-          </ul>
-        </div>
-      </div>
-	</nav>
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+						<details class="grouped mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table of contents</summary>
+							<ul>
+						<li>
+							<a href="#overview">Overview – Time limits</a>
+						</li>
+						<li>
+							<a href="#good-session-timeout">Good example: Session timeout</a>
+						</li>
+						<li>
+							<a href="#bad-no-extend">Bad example: Session timeout with no option to extend</a>
+						</li>
+						<li>
+							<a href="#bad-js-refresh">Bad example: JavaScript automatically refreshes a page</a>
+						</li>
+						<li>
+							<a href="#time-limits-wcag">Related WCAG resources</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
 	
 		<section>	
 			<h2 id="overview">Overview – Time limits</h2>			
@@ -91,18 +100,18 @@
 					<dt>Adjust</dt>
 					<dd class="mrgn-lft-lg">The user is allowed to adjust the time limit before encountering it to a length at least ten times the default setting.</dd>
 					<dt>Extend</dt>
-					<dd class="mrgn-lft-lg">The user is warned before time expires and given 20 seconds to extend the time limit.</dd>
+					<dd class="mrgn-lft-lg">The user is warned before time expires and given at least 20 seconds to extend the time limit.</dd>
 				</dl>
 				<p>Any process that happens without user initiation after a set time or on a periodic basis is a time limit. This includes a partial or full update of content (such as a page refresh), changes to content, and the expiration of a window of opportunity for a user to react to a request for input. It also includes content that is updating too fast for the user to read or understand – any animated, moving or scrolling content.</p>
 				<p>Examples:</p>
 				<ul>
 					<li>A form with a time limit offers a control that allows the user to turn it off or extend it up to ten times the default.</li>
-					<li>After a period of user inactivity, a client-side script asks if the user needs more time. If it doesn’t get a response within 20 seconds, it times out. Note that 20 seconds is the minimum time.</li>
+					<li>After a period of user inactivity, a client-side script asks if the user needs more time. If it doesn’t get a response within 20 seconds, it times out.</li>
 					<li>A site with a rotating banner offers a control that allows the user to extend the time between updates as much as ten times the default.</li>
 					<li>A site with a rotating banner offers a pause button.</li>
 					<li>A page with animated text that scrolls, appears and fades away offers the user a pause button.</li>
 				</ul>
-				<p>With session timeouts, present warning messages in a popup dialog (the <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">WAI-ARIA Dialog pattern</a> and the <a href="https://wet-boew.github.io/v4.0-ci/demos/session-timeout/session-timeout-en.html">WET session timeout</a> are described in <a href="../module12/index.html">module 12</a>) with options for the user to either extend or end the session. </p>
+				<p>With session timeouts, present warning messages in a popup dialog with options for the user to either extend or end the session. (The <a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/">ARIA Dialog pattern</a> and the <a href="https://wet-boew.github.io/v4.0-ci/demos/session-timeout/session-timeout-en.html">WET session timeout</a> are described in <a href="../module12/introduction.html">module 12</a>.)</p>
 				<p>For timers with fixed deadlines, provide a countdown feature with ARIA live announcements at strategic intervals. See the example in the preceding section, <a href="aria-live.html#countdown">Good example: Countdown announcing at intervals</a>  </p>
 				<p>When refreshing/reloading a page, ask the user’s permission. An automatic page refresh/reload can cause difficulties for people with motor impairments, people with low vision, people who are blind, and people with certain cognitive limitations. Screen reader users may not have sufficient time to find their place before the page refreshes again. Instead, notify users that newer content is available and provide the options to update or continue with the old content. If the content update is urgent, use a popup dialog and shift the user’s focus to it; otherwise, use an eye-catching <a href="aria-live.html#overview">ARIA live region</a> with <code>role="alert"</code>.</p>
 			</section>
@@ -113,7 +122,7 @@
 				
 				<p>In this example, after 15 seconds of inactivity JavaScript launches and shifts user focus to a pop-up dialog that uses the <code>role="alertdialog"</code> attribute. The user can choose to Continue Session or End Session. If the user clicks Continue Session, JavaScript resets the 15 second counter. If the user clicks End Session, JavaScript exits the page.</p>
 				<p><a href="example-session-timeout.html" target="_blank">Open the session timeout example <span class="wb-inv"> (opens in new tab)</span></a>.</p>
-				<details class="mrgn-tp-sm">
+				<details class="mrgn-tp-md">
 					<summary class="bg-info">View CSS</summary>
 					<p class="wb-inv">Code begins</p>
 <pre class="mrgn-tp-md"><code class="language-css">#modalOverlay {
@@ -141,7 +150,7 @@
   &lt;p&gt; after 15 seconds of inactivity JavaScript launches and shifts user focus to a pop-up dialog that uses the role="alertdialog" attribute. The user can choose to Continue Session or End Session. If the user clicks Continue Session, JavaScript resets the 15 second counter. If the user clicks End Session, JavaScript exits the page.&lt;/p&gt;
 &lt;/main&gt;</code></pre>
 -->
-						<details class="mrgn-tp-sm">
+						<details class="mrgn-tp-md">
 							<summary class="bg-info">View Javascript</summary>
 							<p class="mrgn-tp-md">To accommodate a focus bug in VoiceOver, the JavaScript hides the <code>&lt;main&gt;</code> element with <code>aria-hidden="true"</code> and CSS <code>display: none</code>, then a millisecond later cancels that out.</p>
 							<p class="wb-inv">Code begins</p>
@@ -212,7 +221,7 @@ function startTimeout(){
 		<p class="wb-inv">Code begins</p>
 <pre class="mrgn-tp-0"><code class="language-css">#timeOut { background-color: rgb(247, 231, 14); }</code></pre>
 					<p class="wb-inv">Code ends</p>
-					<details class="mrgn-tp-sm">
+					<details class="mrgn-tp-md">
 						<summary class="bg-info">View Javascript</summary>
 						<p class="wb-inv">Code begins</p>
 <pre class="mrgn-tp-md"><code class="language-javascript">var IdlelTimeOut = 20; //10 seconds
@@ -266,7 +275,7 @@ function CheckIdleTime() {
 		</section>
 			
 		<section>				
-				<h2 id="mod11-time-limits-wcag" class="wb-inv">Related WCAG resources</h2>
+				<h2 id="time-limits-wcag" class="wb-inv">Related WCAG resources</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3 id="time-limits-success-criteria">Success Criteria</h3>
@@ -314,17 +323,17 @@ function CheckIdleTime() {
 				</details>
 			</section>
 		
-	<nav role="navigation" aria-labelledby="nav-document">
-		<h2 id="nav-document" class="wb-inv">Pagination menu</h2>
+	<nav aria-labelledby="nav-pagination">
+		<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
 		<ul class="pager">
 			<li class="previous"><a rel="prev" href="aria-live.html">Previous - ARIA live regions</a></li>
-			<li class="next"><a rel="next" href="best-practice.html">Next - Best practice</a></li>
+			<li class="next"><a rel="next" href="best-practice-mod-11.html">Next - Best practice</a></li>
 		</ul>
 	</nav>
-	</main>
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 			
 
-	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation" aria-labelledby="wb-sec-h">	
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Module 11 - ARIA live and time limits</h3>
@@ -332,7 +341,7 @@ function CheckIdleTime() {
 												
 						<li><a class="list-group-item" href="aria-live.html">ARIA live regions</a></li>
 						<li><a class="list-group-item active" aria-current="page" href="time-limits.html">Time limits</a></li>
-						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>					
+						<li><a class="list-group-item" href="best-practice-mod-11.html">Best practice</a></li>					
 						
 					</ul>
 			</section>
@@ -355,16 +364,18 @@ function CheckIdleTime() {
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Site map and best practice</h3>
+				<h3 class="wb-navcurr">Appendix</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
 						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
 					</li>
 					<li>
-						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
 				</ul>
 			</section>
 	</nav>

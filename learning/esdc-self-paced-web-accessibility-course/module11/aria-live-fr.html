@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="fr" dir="ltr">
-  <!--<![endif]-->
   <head>
     <meta charset="utf-8" />
     <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -15,7 +12,6 @@
       name="description"
       content="Lignes directrices sur l’accessibilité relative aux zones ARIA en direct. Les zones ARIA en direct rendent le contenu des pages dynamique accessible. Les sujets abordés comprennent aria live, aria atomic, aria relevant et aria busy."
     />
-    <meta name="robots" content="noindex" />
     <!-- Meta data-->
     <!-- Load closure template scripts -->
     <script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -59,45 +55,96 @@
             title: "Module 11 – Zones live ARIA et limites de temps",
             "href" : "index-fr.html"
           },
-        ],
-        lngLinks: [
           {
-            lang: "en",
-            href: "aria-live.html",
-            text: "English",
-          },
-        ],
-        menuPath: "../../../ajax/menu-fr.html",
+            "title": "Zones live ARIA",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "aria-live.html",
+            "text": "English",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
       });
+
     </script>
     <div class="container">
       <div class="row">
-        <main
-          class="col-md-9 col-md-push-3"
-          role="main"
-          property="mainContentOfPage">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
           <h1 property="name" id="wb-cont">Zones live ARIA</h1>
 
-          <nav role="navigation" aria-labelledby="nav-table">
-            <div class="panel panel-default mrgn-tp-md">
-              <header class="panel-heading">
-                <h2 id="nav-table" class="panel-title">Table des matières</h2>
-              </header>
-              <div class="panel-body">
-                <ul>
-                  <li><a href="#overview">Aperçu : Zones live ARIA</a></li>
-                  <li><a href="#live">aria-live</a></li>
-                  <li><a href="#atomic">aria-atomic</a></li>
-                  <li><a href="#relevant">aria-relevant</a></li>
-                  <li><a href="#busy">aria-busy</a></li>
-                  <li>
-                    <a href="#special-types">Types particuliers de zone live</a>
-                  </li>
-                  <li><a href="#resources">Ressources WCAG connexes</a></li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+          <nav aria-labelledby="nav-table">
+			  <h2 id="nav-table" class="wb-inv">Table des matières</h2>
+			  <details class="grouped mrgn-bttm-lg on" open="open">
+				<summary class="bg-info">Table des matières</summary>
+				<ul>
+					  <li>
+						<a href="#overview">Aperçu : Zones live ARIA</a>
+					  </li>
+					  <li>
+						<a href="#live">aria-live</a>
+						<ul>
+						  <li>
+							<a href="#good-example-aria-live">Bon exemple : Attribut aria-live</a>
+						  </li>
+						</ul>
+					  </li>
+					  <li>
+						<a href="#atomic">aria-atomic</a>
+						<ul>
+						  <li>
+							<a href="#good-example-aria-atomic">Bon exemple : aria-atomic false ou true</a>
+						  </li>
+						</ul>
+					  </li>
+					  <li>
+						<a href="#relevant">aria-relevant</a>
+					  </li>
+					  <li>
+						<a href="#busy">aria-busy</a>
+					  </li>
+					  <li>
+						<a href="#special-types">Types particuliers de zone live</a>
+						<ul>
+						  <li>
+							<a href="#role-alert">role="alert"</a>
+							<ul>
+							  <li>
+								<a href="#good-example-role-alert">Bon exemple : Utilisation de role="alert"</a>
+							  </li>
+							</ul>
+						  </li>
+						  <li>
+							<a href="#role-status">role="status"</a>
+							<ul>
+							  <li>
+								<a href="#good-example-role-status">Bon exemple : Utilisation de role="status"</a>
+							  </li>
+							</ul>
+						  </li>
+						  <li>
+							<a href="#role-timer">role="timer"</a>
+							<ul>
+							  <li>
+								<a href="#good-example-countdown">Bon exemple : Compte à rebours annoncé à intervalles réguliers</a>
+							  </li>
+							</ul>
+						  </li>
+						  <li>
+							<a href="#role-marquee">role="marquee"</a>
+						  </li>
+						  <li>
+							<a href="#role-log">role="log"</a>
+						  </li>
+						</ul>
+					  </li>
+					  <li>
+						<a href="#resources">Ressources WCAG connexes</a>
+					  </li>
+				</ul>
+			  </details>
+        </nav>
 
           <section>
             <h2 id="overview">Aperçu : Zones live ARIA</h2>
@@ -140,8 +187,7 @@
                 suspendre temporairement les interruptions aria-live.</dd>
             </dl>
             <p>
-              Le <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">WAI-ARIA Carousel widget</a> utilise <code lang="en-CA">aria-live="off"</code> associé au conteneur de diapositive lorsque les diapositives avancent automatiquement, et <code lang="en-CA">aria-live="polite"</code> lorsque l’utilisateur fait progresser manuellement les
-              diapositives. Ainsi, un diaporama automatique ne pourra pas submerger l’utilisateur d’un lecteur d’écran qui essaie de lire la page, et il sera plus facile de lire un diaporama manuel.
+              Le <a href="https://www.w3.org/WAI/ARIA/apg/patterns/carousel/">Widget de carrousel</a> utilise <code lang="en-CA">aria-live="off"</code> associé au conteneur de diapositive lorsque les diapositives avancent automatiquement, et <code lang="en-CA">aria-live="polite"</code> lorsque l’utilisateur fait progresser manuellement les diapositives. Ainsi, un diaporama automatique ne pourra pas submerger l’utilisateur d’un lecteur d’écran qui essaie de lire la page, et il sera plus facile de lire un diaporama manuel.
             </p>
             <div class="panel panel-success">
               <div class="panel-body">
@@ -250,7 +296,7 @@
           </section>
           <section>
             <h2 id="special-types">Types particuliers de zone live</h2>
-          
+			<h3 id="role-alert">role="alert"</h3>
             <p>Utilisez le rôle ARIA <code lang="en-CA">alert</code> pour annoncer des informations importantes et généralement urgentes qui nécessitent l’attention immédiate de l’utilisateur. Configurer <code lang="en-CA">role="alert"</code> équivaut à configurer <code lang="en-CA">aria-live="assertive"</code> et <code lang="en-CA">aria-atomic="true"</code>. La seule différence réside dans le fait que certains lecteurs d’écran commencent l’annonce en disant «&nbsp;Alerte&nbsp;», pour indiquer à l’utilisateur qu’il s’agit d’une information urgente.</p>
             <div class="panel panel-success">
               <div class="panel-body">
@@ -538,80 +584,75 @@ window.addEventListener('load', function () {
             <h2 id="resources" class="wb-inv">Ressources WCAG connexes</h2>
             <details class="mrgn-tp-lg">
               <summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En anglais seulement.</p>
+                       
               <h3>Critères de succès</h3>
               <ul>
                 <li>
-                  <a
-                    href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification">3.3.1: Error Identification</a>
+                  <a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/minimize-error-identified.html" data-code="3.3.1">3.3.1 : Identification des erreurs</a>
                 </li>
                 <li>
-                  <a
-                    href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages">4.1.3: Status Messages</a>
+                  <a href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages" data-code="4.1.3">4.1.3 : Messages d’état  (en anglais)</a>
                 </li>
               </ul>
               <h3>Techniques</h3>
               <ul>
                 <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA19" lang="en-CA">ARIA19: Using ARIA role=alert or Live Regions to Identify
-                    Errors</a>
+                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA19" data-code="ARIA19">ARIA19 : Utiliser ARIA role=alert ou des régions réelles pour identifier des erreurs  (en anglais)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA22" lang="en-CA">ARIA22: Using role="status" to present status messages</a>
+                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA22" hreflang="en-CA" data-code="ARIA22">ARIA22 : Utiliser role="status" pour présenter les messages d’état de l’instance (en anglais)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA23" lang="en-CA">ARIA23: Using role=log to identify sequential information
-                    updates</a>
+                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA23" hreflang="en-CA" data-code="ARIA23">ARIA23 : Utiliser role=log pour identifier des mises à jour séquentielles de l’information (en anglais)</a>
                 </li>
               </ul>
               <h3>WAI-ARIA 1.1</h3>
               <ul>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">aria-live</a> (Propriété)
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">aria-live (Propriété)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">aria-atomic</a> (État)
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">aria-atomic (État)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">aria-relevant</a> (Propriété)
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">aria-relevant (Propriété)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">aria-busy</a> (Propriété)
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">aria-busy (Propriété)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">alert</a> (Rôle)
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">alert (Rôle)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">status</a> (Rôle)
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">status (Rôle)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">timer</a> (Rôle)
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">timer (Rôle)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">marquee</a> (Rôle)
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">marquee (Rôle)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">log</a> (Rôle)
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">log (Rôle)</a>
                 </li>
               </ul>
             </details>
           </section>
 
-          <nav role="navigation" aria-labelledby="nav-document">
-            <h2 id="nav-document" class="wb-inv">Menu de la pagination</h2>
+          <nav aria-labelledby="nav-pagination">
+            <h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
             <ul class="pager">
               <li class="next">
                 <a rel="next" href="time-limits-fr.html">Suivant - Limites de temps</a>
               </li>
             </ul>
           </nav>
-        </main>
+        <a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 
         <nav
           id="wb-sec"
           class="wb-sec col-md-3 col-md-pull-9"
           typeof="SiteNavigationElement"
-          role="navigation"
           aria-labelledby="wb-sec-h">
           <h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
           <section class="list-group menu list-unstyled">
@@ -629,7 +670,7 @@ window.addEventListener('load', function () {
                 <a class="list-group-item" href="time-limits-fr.html">Limites de temps</a>
               </li>
               <li>
-                <a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a>
+                <a class="list-group-item" href="best-practice-mod-11-fr.html">Pratique exemplaire</a>
               </li>
             </ul>
           </section>
@@ -673,7 +714,7 @@ window.addEventListener('load', function () {
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+				<h3 class="wb-navcurr">Appendice</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
@@ -682,7 +723,9 @@ window.addEventListener('load', function () {
 					<li>
 						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">Vue WCAG</a>
+					</li>
 				</ul>
 			</section>
         </nav>

@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -47,38 +44,65 @@
                 "title": "Module 5 - images",
                 
                 "href" : "index.html"
-            }],
-            "lngLinks": [{
-                "lang": "fr",
-                "href": "complex-images-fr.html",
-                "text": "Français"
-            }],
-            "menuPath": "../../../ajax/menu-en.html"
-        });
-    </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
-		
-	<h1 property="name" id="wb-cont">Complex images</h1>
-		                
-    <nav role="navigation"  >
-      <div class="panel panel-default mrgn-tp-lg">
-        <header class="panel-heading">
-          <h2 class="panel-title">Table of contents</h2>
-        </header>
-        <div class="panel-body">
-          <ul>
-			  <li><a href="#overview">Overview – Complex images</a></li>
-              <li><a href="#guidelines">Guidelines for writing long descriptions</a></li>
-              <li><a href="#approaches">Approaches to providing short and long descriptions</a></li>
-              <li><a href="#wcag">Related WCAG resources</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+            },
+          {
+            "title": "Complex images",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "complex-images-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
 
-	<section>
+    </script>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Complex images</h1>
+		                
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table of contents</summary>
+							<ul>
+						<li>
+							<a href="../module5/complex-images.html#overview">Overview – Complex images</a>
+						</li>
+						<li>
+							<a href="../module5/complex-images.html#guidelines">Guidelines for writing long descriptions</a>
+							<ul>
+								<li>
+									<a href="../module5/complex-images.html#long-descriptions">Good example: Long description containing structured information</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="../module5/complex-images.html#approaches">Approaches to providing short and long descriptions</a>
+							<ul>
+								<li>
+									<a href="../module5/complex-images.html#approach1">Approach 1: A text link to the long description next to the image</a>
+								</li>
+								<li>
+									<a href="../module5/complex-images.html#approach2">Approach 2: A details/summary block for the long description next to the image</a>
+								</li>
+								<li>
+									<a href="../module5/complex-images.html#approach3">Approach 3: Structurally associating the image and its adjacent long description</a>
+								</li>
+								<li>
+									<a href="../module5/complex-images.html#approach4">Approach 4: Providing a link to the long description via longdesc</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="../module5/complex-images.html#wcag">Related WCAG resources</a>
+						</li>
+					</ul>
+						</details>
+					</nav><button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Expand all details</button><button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Collapse all<span class="wb-inv"> details</span></button><section>
 		<h2 id="overview">Overview – Complex images</h2>
 		<p>A complex image conveys more information than can fit in the 150-character limit of an <code>&lt;img&gt;</code> element’s <code>alt</code> attribute. Images dense in information tend to be graphs, charts, maps, and diagrams and illustrations that need to be understood for the page itself to make sense.</p>
 		<p>A complex image requires both a short and a long description:</p>
@@ -95,7 +119,7 @@
 		</p>
 		<div class="panel panel-success mrgn-tp-lg">
 				<div class="panel-body">
-					<h3 class="text-success mrgn-tp-0 h3">
+					<h3 class="text-success mrgn-tp-0 h3" id="long-descriptions">
 			<span class="glyphicon glyphicon-ok-circle"></span> Good example: Long description containing structured information</h3>
 		<p>In this example, the <code>alt</code> text reads “<q>Bar chart showing physical activity by three age groups pre-COVID and during COVID. Long description follows</q>”. The long description provides detailed information, including scales, values, relationships and trends that are represented visually. For example, the long description can point out the declining values for youth, consistent values for adults (18 to 64), and increasing values for older adults.</p>
 		<p>This example includes the long description in a <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code> toggle widget below the chart.</p>
@@ -124,23 +148,23 @@
 				<thead>
 					<tr class="bg-success">
 						<td class="row-heading">&nbsp;</td>
-						<th scope=�col�>Fall 2018 (Pre-COVID) (Percent)</th>
-						<th scope=�col�>Fall 2020 (During COVID) (Percent)</th>
+						<th scope="col">Fall 2018 (Pre-COVID) (Percent)</th>
+						<th scope="col">Fall 2020 (During COVID) (Percent)</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr class="highlight-row">
-						<th scope=�row� class="bg-success">Youth (12 to 17)</th>
+						<th scope="row" class="bg-success">Youth (12 to 17)</th>
 						<td>50.8</td>
 						<td>37.2</td>
 					</tr>
 					<tr class="highlight-row">
-						<th scope=�row� class="bg-success">Adults (18 to 64)</th>
+						<th scope="row" class="bg-success">Adults (18 to 64)</th>
 						<td>57.1</td>
 						<td>57.1</td>
 					</tr>
 					<tr class="highlight-row">
-						<th scope=�row� class="bg-success">Older adults (65+)</th>
+						<th scope="row" class="bg-success">Older adults (65+)</th>
 						<td>35.4</td>
 						<td>40.3</td>
 					</tr>
@@ -174,7 +198,7 @@
 &lt;/figure&gt;</code>
 </pre>
 		<p class="wb-inv">Code ends</p>
-		<h3>Approach 2: A details/summary block for the long description next to the image</h3>
+		<h3 id="approach2">Approach 2: A details/summary block for the long description next to the image</h3>
 		<p>As per Approach 1, but instead of a link the summary element next to the image expands to show the details. The image alt text mentions that “The text description follows.” The summary element must describe its purpose and topic (e.g., “Text description of Topic X”). Ensure any headings used in the text description fit correctly into the existing page’s heading hierarchy.</p>
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
@@ -189,7 +213,7 @@
 &lt;/details&gt;</code>
 </pre>
 		<p class="wb-inv">Code ends</p>
-		<h3>Approach 3: Structurally associating the image and its adjacent long description</h3>
+		<h3 id="approach3">Approach 3: Structurally associating the image and its adjacent long description</h3>
 		<p>The <code>&lt;figure&gt;</code> element encloses both the image and its long description. The headings, text, and table comprising the long description are wrapped in the <code>&lt;figcaption&gt;</code> element. </p>
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
@@ -207,7 +231,7 @@
 &lt;/figure&gt;</code>
 </pre>
 		<p class="wb-inv">Code ends</p>
-		<h3>Approach 4: Providing a link to the long description via longdesc</h3>
+		<h3 id="approach4">Approach 4: Providing a link to the long description via longdesc</h3>
 		<p>The <code>&lt;img&gt;</code> element’s <code>longdesc</code> attribute takes a URI as value, like a link’s <code>href</code> attribute. The link targets a long description either on a separate web page or the same page. Implementation of the link is up to the user agent. For instance, Firefox provides a “View Description” link via the image’s context menu, while Chrome offers the same functionality through an extension. Since the attribute is not well-supported (Safari has no support and neither do mobile platforms), we do not recommend you use <code>longdesc</code>. If you do, only use <code>longdesc</code> along with a redundant, visible link positioned below the image, as per <a href="#approach1">Approach 1</a>.</p>
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
@@ -218,7 +242,7 @@
 	</section>
 	<section>
 		<h2 id="wcag" class="wb-inv">Related WCAG resources</h2>
-		<details class="mrgn-tp-lg">
+		<details class="mrgn-tp-lg grouped on">
 			<summary class="bg-info">Related WCAG resources</summary>
 			<h3>Success criteria</h3>
 			<ul>
@@ -226,7 +250,7 @@
 					<a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a>
 				</li>
 			</ul>
-			<p>Techniques</p>
+			<h3>Techniques</h3>
 			<ul>
 				<li>
 					<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G92">G92: Providing long description for non-text content that serves the same purpose and presents the same information</a>
@@ -255,8 +279,8 @@
 		</details>
 	</section>
 			
-	<nav role="navigation" >
-		<h2 class="wb-inv">Document navigation</h2>
+	<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
 		<ul class="pager">
 			<li class="previous">
 				<a rel="prev" href="animated-images.html">Previous - Animated images</a>
@@ -267,9 +291,9 @@
 		</ul>
 	</nav>					
 
-</main>
+<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 		
-	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 		
 		
 		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
@@ -290,8 +314,9 @@
 				<li><a class="list-group-item" href="image-maps.html">Image maps</a></li>
 				<li><a class="list-group-item" href="alt-decision-tree.html">Alt text decision tree</a></li>
 				<li><a class="list-group-item" href="svg-images.html">SVG images</a></li>
+				<li><a class="list-group-item" href="captcha.html">CAPTCHA</a></li>
 				<li><a class="list-group-item" href="tips-and-tricks.html">Tips and tricks</a></li>
-				<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+				<li><a class="list-group-item" href="best-practice-mod-5.html">Best practice</a></li>
 			</ul>
 		</section>
 		
@@ -316,16 +341,18 @@
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Site map and best practice</h3>
+				<h3 class="wb-navcurr">Appendix</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
 						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
 					</li>
 					<li>
-						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
 				</ul>
 			</section>
 	

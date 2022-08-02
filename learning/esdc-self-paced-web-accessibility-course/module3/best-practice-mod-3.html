@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Best practice – Module 3 - Links and Navigation</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Summary of best practices in Module 3 - Links and navigation">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../../index.html"
+            },
+			{
+                "title": "Web accessibility course",
+                "href" : "../index.html"
+            },
+			{
+                
+                "title": "Module 3 – Links and Navigation",
+                
+                "href" : "index.html"
+            },
+          {
+            "title": "Best practice",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "best-practice-mod-3-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
+    </script>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Best practice</h1>
+		                
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+						<details class="grouped mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table of contents</summary>
+							<ul>
+								<li>
+									<a href="#links">Links<span class="wb-inv"> (best practice)</span>
+									</a>
+									<ul>
+										<li>
+											<a href="#purpose">Link purpose<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#activation">Link activation<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#indicator">Visual focus indicator<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#distinguish">Distinguishing links from text<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#window">Link opens in new window<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#navigation">Navigation<span class="wb-inv"> (best practice)</span>
+									</a>
+									<ul>
+										<li>
+											<a href="#blocks">Blocks of navigation<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#skip">Skip navigation links<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#multiple">Multiple ways<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#toc">Table of contents<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#focus">Focus and focus order<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+										<li>
+											<a href="#shortcuts">Character key shortcuts<span class="wb-inv"> (best practice)</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#context">Changing context<span class="wb-inv"> (best practice)</span></a>
+								</li>
+								<li>
+									<a href="#consistency">Consistency<span class="wb-inv"> (best practice)</span></a>
+								</li>
+							</ul>
+						</details>
+					</nav>
+			<section>
+				<h2 id="links">Links</h2>
+				<h3 id="purpose">Link purpose</h3>
+				<ul>
+					<li>Provide link text that identifies the purpose of the link without needing additional context.</li>
+					<li>If the link text is not self-descriptive, ensure the link context describes the link purpose.</li>
+					<li>Do not use information-empty link text such as &ldquo;<q>click here</q>&rdquo; or &ldquo;<q>Read More</q>&rdquo; etc.</li>
+					<li>Distinguish links with identical text but different destinations by either 
+						<ul>
+							<li>rephrasing the link text, </li>
+							<li>using an ARIA label, or </li>
+							<li>adding visually-hidden text to the link text.</li>
+						</ul>
+					</li>
+				</ul>
+				<h3 id="activation">Link activation</h3>
+				<ul>
+					<li>Custom links need <code>tabindex="0"</code> to receive keyboard focus and an <code>onkeypress</code> event to activate by Enter key.</li>
+					<li>A link's visible name matches or is included in the link's accessible name.</li>
+				</ul>
+				<h3 id="indicator">Visual focus indicator</h3>
+				<ul>
+					<li>Links must have a visible focus state.</li>
+					<li>Avoid styles that the visibility of keyboard focus indicators</li> 
+					<li>Use CSS to design a highly-visible focus indicator with strong contrast</li>
+				</ul>
+				<h3 id="distinguish">Distinguishing links from text</h3>
+				<ul>
+					<li>Ensure links have visual indicators to enable users to quickly identify them.</li>
+					<li>Colour must not be the only means of differentiating a link from regular text. Accompany colour with another visual cue (e.g., underline, italics, bold) to differentiate link text from regular text</li>
+				</ul>
+				<h3 id="window">Link opens in new window</h3>
+				<ul>
+					<li>In general, avoid opening links in a new window. </li>
+					<li>When links do open in a new window, warn users.</li>
+				</ul>
+			</section>
+			<section>
+				<h2 id="navigation">Navigation</h2>
+				<h3 id="blocks">Blocks of navigation</h3>
+				<ul>
+					<li>Identify important blocks of navigation with the <code>&lt;nav&gt;</code> element or <code>role="navigation"</code> attribute.</li>
+					<li>When there are two or more navigation regions on the page, name each with <code>aria-label</code> or <code>aria-labelledby</code> to differentiate them.</li>
+					<li>Indicate the current location visually, using CSS, and semantically, using the <code>aria-current="page"</code> attribute.</li>
+				</ul>
+				<h3 id="skip">Skip navigation links</h3>
+				<ul>
+					<li>Place the skip navigation link at the top of the page before any other focusable element (link, button, or custom control).</li>
+					<li>The skip link doesn't not need to be visible until it receives focus.</li>
+					<li>Use clear link text – e.g. &ldquo;Skip to Main Content&rdquo; or &ldquo;Skip to Content&rdquo;</li>
+					<li>Use a same-page link, targeting the <code>id</code> attribute value of the destination (usually the <code>&lt;main&gt;</code> element).</li>
+					<li>Assign the destination the <code>tabindex="-1"</code> attribute. This fixes shortcomings in some browsers that move the viewport to the destination but not the focus.</li>
+					<li>Do not hide the skip link using any of these CSS options:
+						<ul>
+							<li>Use CSS to permanently position the link off screen</li>
+							<li>Set <code>display: none</code></li>
+							<li>Set <code>visibility: invisible</code></li>
+						</ul>
+					</li>
+				</ul>
+				<h3 id="multiple">Multiple ways</h3>
+				<p>Provide more than one way to locate a Web page within a set of Web pages. Use two or more of the following techniques:</p>
+				<ul>
+					<li>Provide links to navigate to related Web pages.</li>
+					<li>Provide a Table of Contents.</li>
+					<li>Provide a site map.</li>
+					<li>Provide a search function to help users find content.</li>
+					<li>Provide a list of links to all other Web pages.</li>
+					<li>Link to all of the pages on the site from the home page.</li>	
+				</ul>
+				<h3 id="toc">Table of contents</h3>
+				<ul>
+					<li>Ensure Table of contents reflects the document's heading hierarchy </li>
+					<li>Ensure every topic in the Table of Contents links to the appropriate location</li>
+				</ul>
+				<h3 id="focus">Focus and focus order</h3> 
+				<ul>
+					<li>Ensure a meaningful tab order by positioning focusable content in the same sequence as the underlying code.</li>
+					<li>Ensure the keyboard navigation order is logical and intuitive. Typically, this means ensuring the navigation follows the visual flow of the page, left to right, top to bottom. It moves through the banner, main navigation, page navigation and controls, then footer on a typical page.</li>
+					<li>Avoid using <code>tabindex</code> values greater than 0.</li>
+				</ul>
+				<h3 id="shortcuts">Character key shortcuts</h3> 
+				<p>If a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters, then at least one of the following is true:</p>
+				<dl>
+					<dt>Turn off</dt>
+					<dd class="mrgn-lft-lg">A mechanism is available to turn the shortcut off.</dd>
+					<dt>Remap</dt>
+					<dd class="mrgn-lft-lg">A mechanism is available to remap the shortcut to include one or more non-printable keyboard keys (e.g., Ctrl, Alt).</dd>
+					<dt>Active only on focus</dt>
+					<dd class="mrgn-lft-lg">The keyboard shortcut for a user interface component is only active when that component has focus.</dd>
+				</dl>
+			</section>
+			<section>
+				<h2 id="context">Changes of context</h2>
+				<p>Whenever possible, give the user control over changes of context with an explicit user action that's generally understood to cause a change of context; e.g, clicking a link or pressing a submit button.</p>
+				<p>Changes of context:</p>
+				<ul>
+					<li>must never be triggered <em>on focus</em>.</li>
+					<li>must be anticipated by the user if triggered by changing the setting of a control (<em>on input</em>).</li>
+				</ul>
+			</section>
+			<section>
+				<h2 id="consistency">Consistency</h2>
+				<dl>
+					<dt>Consistent navigation</dt>
+					<dd class="mrgn-lft-lg">From one page to the next, the relative order of components on the page and of links within navigation blocks should remain unchanged. Components or links may be removed or inserted, but the relative order should stay the same.</dd>
+					<dt>Consistent identification</dt>
+					<dd class="mrgn-lft-lg">From one page to the next, identical functional components should be consistently named. For instance, a widget named "Search" on one page is named "Search" on the other pages, not sometimes "Find". This includes the alt text of icons and other non-text items with identical functionality.</dd>
+				</dl>
+			</section>
+		<nav aria-labelledby="nav-pagination">
+	<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+	<ul class="pager">
+	 <li class="previous"> <a rel="prev" href="consistency.html">Previous - Consistency</a> </li>
+	</ul>
+  </nav>
+					
+
+<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	  <script src="../../../scripts/esdc-course.js"></script></main>
+		
+		
+
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+			
+			
+
+				<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				Module 3 –  Links and Navigation
+				</h3>
+				
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="links.html">Links</a></li>
+						<li><a class="list-group-item" href="navigation.html">Navigation</a></li>
+						<li><a class="list-group-item" href="context.html">Changing context</a></li>
+						<li><a class="list-group-item" href="consistency.html">Consistency</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="best-practice-mod-3.html">Best practice</a></li>
+					</ul>
+			
+			</section>
+			
+			
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				All modules
+				</h3>
+				
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+                        <li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>
+                        <li><a class="list-group-item active" href="links.html">Module 3 – Links and navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+                        <li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+                        <li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Forms</a></li>
+                        <li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+                        <li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+                        <li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+                        <li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+                        <li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Appendix</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
+				</ul>
+			</section>
+		
+		</nav>
+	
+		
+
+		
+		
+	
+			
+</div>
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+</div>	
+		
+		
+	<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+</body>
+	
+</html>

@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]>
-<html class="no-js lt-ie9" lang="en" dir="ltr">
-   <![endif]-->
-   <!--[if gt IE 8]><!-->
-   <html class="no-js" lang="en" dir="ltr">
-      <!--<![endif]-->
+<html class="no-js" lang="en" dir="ltr">
       <head>
          <meta charset="utf-8">
          <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -13,7 +8,6 @@
          <!-- Meta data -->
          <meta name="description"
             content="Accessibility guidelines related to CSS generated content. Avoid CSS-generated content">
-         <meta name="robots" content="noindex">
          <!-- Meta data-->
          <!-- Load closure template scripts -->
          <script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -49,56 +43,136 @@
                 },
             {
                     "title": "Module 7 – Visual design and colours",
-                    
-                }],
-                "lngLinks": [{
-                    "lang": "fr",
-                    "href": "css-generated-fr.html",
-                    "text": "Français"
-                }],
-                "menuPath": "../../../ajax/menu-en.html"
-            });
-         </script>
-         <div class="container">
-            <div class="row">
-               <main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-                  <h1 property="name" id="wb-cont">CSS-generated text and icons</h1>
-                  <nav role="navigation">
-                     <div class="panel panel-default mrgn-tp-md">
-                        <header class="panel-heading">
-                           <h2 class="panel-title">Table of contents</h2>
-                        </header>
-                        <div class="panel-body">
-                           <ul>
-                              <li><a href="#designing-with-CSS-generated-content">Designing with CSS-generated content</a></li>
-                              <li><a href="#example">Good example: Informative CSS icon</a></li>
-                              <li><a href="#resources1">Related WCAG resources</a></li>
-                           </ul>
-                        </div>
-                     </div>
-                  </nav>
-                  <section>
+                    "href" : "index.html"
+                },
+          {
+            "title": "CSS-generated text and icons",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "css-generated-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
+    </script>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">CSS-generated text and icons</h1>
+          <nav aria-labelledby="nav-table" class="mrgn-tp-md">
+            <h2 id="nav-table" class="wb-inv">Table of contents</h2>
+            <details class="mrgn-bttm-lg on" open="open">
+               <summary class="bg-info">Table of contents</summary>
+               <ul>
+            <li>
+               <a href="#designing-with-CSS-generated-content">Designing with CSS-generated content</a>
+            </li>
+            <li>
+               <a href="#css-boundaries">Good example: CSS-generated boundary declarations for elements not exposed to screen readers</a>
+            </li>
+            <li>
+               <a href="#informative-css">Good example: Informative CSS icon</a>
+            </li>
+            <li>
+               <a href="#css-generated-wcag">Related WCAG resources</a>
+            </li>
+         </ul>
+            </details>
+         </nav>
+		 	<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Expand all details</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Collapse all<span class="wb-inv"> details</span></button>
+			
+				  <section>
                      <h2 id="designing-with-CSS-generated-content">Designing with CSS-generated content</h2>
-                     <p>CSS can generate text and icons through the <code>:before</code> and <code>:after</code> pseudo-classes. However, CSS-generated content is not in the DOM and consequently not easily accessible to assistive technology. While the NVDA and VoiceOver screen readers recognize CSS-generated content, the JAWS and Narrator screen readers don’t.</p>
-                     <p>Consequently, meaningful CSS-generated content can be used on print style sheets to print the URL of links, but otherwise it should be avoided.</p>
-                     <p>If you use CSS-generated content, hide it from screen readers with the <code>aria-hidden="true"</code> attribute. If the CSS-generated content is informative, provide a text alternative. To provide a text alternative:</p>
-                     <ul>
-                        <li>If the content is a link or control, use the <code>aria-label</code> attribute.</li>
-                        <li>If the content can't receive focus, use the WET <code>.wb-inv</code> class to visually hide the text alternative.</li>
-                     </ul>
+                     <p>CSS can generate text and icons through the <code>::before</code> and <code>::after</code> pseudo-classes. However, WCAG 2.1 fails any use of non-decorative CSS-generated content, since it can be overwritten by user style sheets (used by users with low vision) and is invisible to browser find functionality, among other reasons mentioned in this <a href="https://docs.google.com/document/d/1kvz0D3Au1R6c6q8iKZNH3KqyBt3d6WaJNUCwV35BDX8/edit">defense of WCAG Failure F87</a>. That said, there is a use case for supplemental, CSS-generated text and a mostly-accessible technique for  informative icons.</p>
+                     
+                    <p>Follow these best pratcices with CSS-generated content:</p>
+					<ul>
+						
+						<li>Hide decorative CSS-generated content from screen readers with the <code>aria-hidden="true"</code> attribute.</li>
+						<li>Don't use CSS-generated text.
+							<ul>
+								<li>Exception: Use CSS-generated text to expose <code>mark</code>, <code>del</code>, <code>ins</code>, and <code>s</code> elements to screen reader users.</li>
+							</ul>
+						</li>
+						<li>For informative CSS-generated icons:
+							<ul>
+								<li>Set the icon on a <code>&lt;span&gt;</code> element, and:
+									<ul>
+										<li>Hide it from screen reader users with the <code>aria-hidden</code> attribute.</li>
+										<li>Add a visible label for mouse users with the <code>title</code> attribute.</li>
+									</ul>
+								</li>
+								<li>Add a label for screen-reader users in a second <code>&lt;span&gt;</code> element, visually-hidden with the WET CSS class <code>.wb-inv</code>.</li>
+							</ul>
+							<p>This approach differs from the <a href="https://wet-boew.github.io/wet-boew-styleguide/design/icons-en.html">WET Style Guide's Icons</a> pattern by adding the <code>title</code> and <code>aria-hidden</code> attributes. It doesn't address the needs of low vision keyboard users.</p>
+							<p>WCAG 2.1 also offers an informative CSS icon technique, <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA24">ARIA24: Semantically identifying a font icon with role="img"</a>, but it requires a specific style declaration in the <em>user's</em> stylesheet, intended to protect the icon font family declaration from being overwritten. Though not mentioned in WCAG 2.1, using ARIA24 entails promoting its existence to your users with low vision. Also, the <a href="https://docs.google.com/document/d/1kvz0D3Au1R6c6q8iKZNH3KqyBt3d6WaJNUCwV35BDX8/edit">defense of WCAG Failure F87</a> suggests that ARIA24's solution lacks necessary semantics.</p>
+							<p>There is no ideal technique for CSS-generated icon fonts.</p>
+						</li>
+					</ul>
+                </section>
+                <section>
+					 <div class="panel panel-success mrgn-tp-lg">
+						<div class="panel-body">
+							<h2 class="text-success mrgn-tp-0 h3" id="css-boundaries"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: CSS-generated boundary declarations for elements not exposed to screen readers
+							</h2>
+							
+							<p>The roles of the <code>&lt;mark&gt;</code> element and the editorial elements <code>&lt;del&gt;</code>, <code>&lt;ins&gt;</code> and <code>&lt;s&gt;</code> are not declared by screen readers. To alert screen reader users to their presence, visually-hidden CSS-generated text flags the start and end of each.</p>
+<p class="lang-label small">CSS</p>
+		<p class="wb-inv">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-css">mark::before	{ content: " [highlight start] "; }
+mark::after	{ content: " [highlight end] "; }
+
+del::before	{ content: " [deletion start] "; }
+del::after	{ content: " [deletion end] "; }
+
+ins::before	{ content: " [insertion start] "; }
+ins::after	{ content: " [insertion end] "; }
+
+s::before	{ content: " [start of stricken text] "; }
+s::after	{ content: " [end stricken text] "; }
+
+/* visually hide the generated content */
+mark::before, mark::after,
+del::before, del::after,
+ins::before, ins::after,
+s::before, s::after {
+   clip-path: inset(100%);
+   clip: rect(1px, 1px, 1px, 1px);
+   height: 1px;
+   width: 1px;
+   overflow: hidden;
+   position: absolute;
+   white-space: nowrap;
+}</code></pre>
+
+							<p class="wb-inv">Code ends</p>
+						</div>
+					</div>
+					<hr/>
+					<p class="small">Source: Adrian Roselli's blog post <a href="https://adrianroselli.com/2019/02/f87-css-generated-content-and-wcag-conformance.html">F87: CSS Generated Content and WCAG Conformance</a>. February 24, 2019.</p>
+				</section>
+				<section>
                     <div class="panel panel-success mrgn-tp-lg">
 						<div class="panel-body">
-							<h2 class="text-success mrgn-tp-0 h3" id="example"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Informative CSS icon
+							<h2 class="text-success mrgn-tp-0 h3" id="informative-css"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Informative CSS icon
 							</h2>
 							<p>In this example, the Font Awesome hammer icon is used to represent a task.</p>
 							<ul>
-								<li>The <code>&lt;span&gt;</code> element with classes <code>.fas</code> and <code>.fa-hammer</code> displays the icon via a CSS <code>:before</code> pseudo-class.</li>
+								<li>The <code>&lt;span&gt;</code> element with classes <code>.fas</code> and <code>.fa-hammer</code> displays the icon via a CSS <code>::before</code> pseudo-class.</li>
 								<li>Its <code>title</code> attribute holds a tooltip for mouse users, "Task".</li>	
 								<li>Its <code>aria-hidden="true"</code> attribute hides the element from screen readers, since their support for the <code>title</code> attribute is inconsistent.</li>
-								<li>Directly following the icon is the visually-hidden name “Task”, which declares in all screen readers.</li>
+								<li>Directly following the icon is a visually-hidden <code>&lt;span&gt;</code> element holding the name “Task”, which declares in all screen readers.</li>
 							</ul>
+							
 							<div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
+									<p class="wb-inv">Example begins</p>
+									
 									 <style type="text/css">
 										.fa-hammer:before { content: "\f6e3"; }
 										.fas {  font-family: "Font Awesome 5 Free"; }
@@ -117,9 +191,23 @@
 										<span class="wb-inv">Task</span>
 										Complete the application
 									 </p>
+									<p class="wb-inv">Example ends</p>									
+								</div>
+							</div>
+							
+							<p>If their custom style sheets overwrite the icon's <code>font-family</code> declaration, mouse users with low vision can access the icon name by hovering over the placeholder square, triggering the <code>title</code> attribute's tooltip.</p>
+							
+							<div class="panel panel-primary">
+								<div class="panel-body well mrgn-bttm-0">
+									
+									 <p>
+										 <!-- alt value here would be redundant -->
+										<img alt="" src="images/icon-mouse-hover.png" class="img-responsive"/>
+									 </p>
 									
 								</div>
 							</div>
+							
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Code begins</p>
 <pre class="mrgn-tp-0"><code class="language-html">&lt;p&gt;
@@ -148,12 +236,13 @@
 					</div>
                   </section>
                   <section>
-                     <h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
-                     <details class="mrgn-tp-lg">
+                     <h2 id="css-generated-wcag" class="wb-inv">Related WCAG resources</h2>
+                     <details class="mrgn-tp-lg grouped on">
                         <summary class="bg-info">Related WCAG resources</summary>
                         <h3>Success criteria</h3>
                         <ul>
                            <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a></li>
+                           <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1: Info and Relationships</a></li>
                         </ul>
                         <h3>Techniques</h3>
                         <ul>
@@ -163,18 +252,28 @@
                            <li>
                               <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA6">ARIA6: Using aria-label to provide labels for objects</a>
                            </li>
+                           <li>
+							   <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA24">ARIA24: Semantically identifying a font icon with role="img"</a>
+                           </li>
                         </ul>
+						<h3>Failures</h3>
+						<ul>
+						   <li>
+							  <a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F87
+		">F87: Failure of Success Criterion 1.3.1 due to inserting non-decorative content by using :before and :after pseudo-elements and the 'content' property in CSS</a>
+						   </li>
+						</ul>
                      </details>
                   </section>
-                  <nav role="navigation">
-                     <h2 class="wb-inv">Document navigation</h2>
+                  <nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
                      <ul class="pager">
                         <li class="previous"><a rel="prev" href="textspacing.html">Previous - Text spacing</a></li>
                         <li class="next"><a rel="next" href="hiding-content.html">Next - Hiding and exposing content</a></li>
                      </ul>
                   </nav>
-               </main>
-               <nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">
+               <a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
+               <nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">
                   <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
                   <section class="list-group menu list-unstyled">
                      <h3 class="wb-navcurr">Module 7 – Visual design and colours</h3>
@@ -186,7 +285,7 @@
                         <li><a class="list-group-item" href="textspacing.html">Text spacing</a></li>
                         <li><a class="list-group-item active" aria-current="page" href="css-generated.html">CSS-generated text and icons</a></li>
                         <li><a class="list-group-item" href="hiding-content.html">Hiding and exposing content on hover or focus</a></li>
-                        <li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+                        <li><a class="list-group-item" href="best-practice-mod-7.html">Best practice</a></li>
                      </ul>
                   </section>
                   <section class="list-group menu list-unstyled">
@@ -207,16 +306,18 @@
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Site map and best practice</h3>
+				<h3 class="wb-navcurr">Appendix</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
 						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
 					</li>
 					<li>
-						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
 				</ul>
 			</section>
                </nav>

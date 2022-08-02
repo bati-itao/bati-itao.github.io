@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -11,7 +8,6 @@
 	<!-- Meta data -->
 	<meta name="description"
 		content="Accessibility guidelines related to voice input">
-	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -50,36 +46,49 @@
                 "title": "Module 10 - Input modalities",
                 
                 "href" : "index.html"
-            }],
-            "lngLinks": [{
-                "lang": "fr",
-                "href": "voice-input-fr.html",
-                "text": "Français"
-            }],
-            "menuPath": "../../../ajax/menu-en.html"
-        });
+            },
+          {
+            "title": "Voice input",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "voice-input-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-			
-	<h1 property="name" id="wb-cont">Voice input</h1>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Voice input</h1>
 						
-	<nav role="navigation" aria-labelledby="nav-table">
-    <div class="panel panel-default mrgn-tp-md">
-      <header class="panel-heading">
-        <h2 id="nav-table" class="panel-title">Table of contents</h2>
-      </header>
-        <div class="panel-body">
-          <ul>
-			<li><a href="#overview">Voice input (overiew)</a></li>
-            <li><a href="#dragon-naturally-speaking">Dragon Naturally Speaking</a></li>
-			<li><a href="#resources1">Related WCAG resources</a></li>
-          </ul>
-        </div>
-      </div>
-	</nav>
-	
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table of contents</summary>
+							<ul>
+						<li>
+							<a href="#overview">Voice input (overiew)</a>
+						</li>
+						<li>
+							<a href="#label-in-name">Label in name</a>
+						</li>
+						<li>
+							<a href="#dragon-naturally-speaking">Dragon Naturally Speaking</a>
+						</li>
+						<li>
+							<a href="#voice-input-wcag">Related WCAG resources</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+	<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Expand all details</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Collapse all<span class="wb-inv"> details</span></button>
+				
 		<section>
 			<h2 id="overview">Overview – Voice input</h2>
 			<p>Voice input, also known as speech recognition, translates spoken language into text and computer commands. It’s very useful for people who have difficulty using their hands to operate a mouse or keyboard, including people with mild repetitive stress injuries, people with limited dexterity or muscular control limitations such as tremors, poor coordination, or paralysis, people with arthritis and people missing limbs.</p>
@@ -92,11 +101,18 @@
 				<li>Mismatched visual order and tab order</li>
 				<li>Linked image with mismatched visible text and alternative text</li>
 				<li>Duplicate link text (e.g., Read More) that leads to different places</li>
+				<li>Visible link or button text that's missing from its ARIA label (see <a href="#label-in-name">Label in name</a>, below)</li>
 				<li>Form controls without programmatically associated labels</li>
 				<li>Hover only menus</li>
 				<li>Small click targets</li>
 				<li>Clickable controls that don’t look clickable</li>
 			</ul>
+		</section>
+		
+		<section>
+			<h2 id="label-in-name">Label in name</h2>
+			<p>As explained in the description of Dragon Naturally Speaking, below, voice input users activate links and buttons by saying their names. When a control has an accessible name set via an invisble ARIA label as well as a visible label, the visible label text must be part of or match the ARIA label. The ARIA label has precedent over any visible text. If no part of the visible label is part of the accessible name, the user won’t be able to target the control by name.</p>
+			
 		</section>
 			<section>				
 				<h2 id="dragon-naturally-speaking">Dragon Naturally Speaking</h2>
@@ -114,7 +130,7 @@
 					<li>Text fields</li>
 					<li>List boxes</li>
 				</ul>
-				<p>Dragon will click the control once it has a unique match, so users often don’t need to say the entire name. When a control has an accessible name set via an ARIA label as well as a visible label, the visible label text must be part of or match the ARIA label. The ARIA label has precedent over any visible text. If no part of the visible label is part of the accessible name, the user won’t be able to target the control by name.</p>
+				<p>Dragon will click the control once it has a unique match, so users often don’t need to say the entire name.</p>
 				<p>Alternately, users can number all controls and choose a number:</p>
 				<ol>
 					<li>Users say one of the following:
@@ -158,8 +174,8 @@
 			
 			
 			<section>				
-				<h2 id="mod10-voice-input-wcag" class="wb-inv">Related WCAG resources</h2>
-				<details class="mrgn-tp-lg">
+				<h2 id="voice-input-wcag" class="wb-inv">Related WCAG resources</h2>
+				<details class="mrgn-tp-lg grouped on">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
 					<ul>
@@ -186,17 +202,17 @@
 			</section>
 		
 		
-	<nav role="navigation" aria-labelledby="nav-document">
-		<h2 id="nav-document" class="wb-inv">Document navigation</h2>
+	<nav aria-labelledby="nav-pagination">
+		<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
 		<ul class="pager">
 			<li class="previous"><a rel="prev" href="touch-input.html">Previous - Touch/pointer input</a></li>
 			<li class="next"><a rel="next" href="motion-actuation.html">Next - Motion actuation</a></li>
 		</ul>
 	</nav>
-	</main>
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 			
 
-	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation" aria-labelledby="wb-sec-h">	
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Module 10 - Input modalities</h3>
@@ -208,7 +224,7 @@
 						<li><a class="list-group-item" href="touch-input.html">Touch/pointer input</a></li>
 						<li><a class="list-group-item active" aria-current="page" href="voice-input.html">Voice input</a></li>
 						<li><a class="list-group-item" href="motion-actuation.html">Motion actuation</a></li>						
-						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-10.html">Best practice</a></li>
 						
 					</ul>
 			</section>
@@ -231,16 +247,18 @@
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Site map and best practice</h3>
+				<h3 class="wb-navcurr">Appendix</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
 						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
 					</li>
 					<li>
-						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
 				</ul>
 			</section>
 	</nav>

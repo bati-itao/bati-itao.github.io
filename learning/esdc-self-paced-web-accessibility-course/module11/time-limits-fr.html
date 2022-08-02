@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="fr" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -11,7 +8,6 @@
 	<!-- Meta data -->
 	<meta name="description"
 		content="Lignes directrices sur l’accessibilité relative aux limites temporelles">
-	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -50,37 +46,49 @@
                 "title": "Module 11 – Zones live ARIA et limites de temps",
                 
                 "href" : "index-fr.html"
-            }],
-            "lngLinks": [{
-                "lang": "en",
-                "href": "time-limits.html",
-                "text": "English"
-            }],
-            "menuPath": "../../../ajax/menu-fr.html"
-        });
+            },
+          {
+            "title": "Limites de temps",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "time-limits.html",
+            "text": "English",
+          }],
+        "menuPath": "../../../ajax/menu-fr.html"
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-			
-	<h1 property="name" id="wb-cont">Limites de temps</h1>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Limites de temps</h1>
 						
-	<nav role="navigation" aria-labelledby="nav-table">
-    <div class="panel panel-default mrgn-tp-md">
-      <header class="panel-heading">
-        <h2 id="nav-table" class="panel-title">Table des matières</h2>
-      </header>
-        <div class="panel-body">
-          <ul>
-            <li><a href="#overview">Aperçu : Limites de temps</a></li>
-            <li><a href="#good-session-timeout">Bon exemple&nbsp;: Expiration de session</a></li>
-            <li><a href="#bad-no-extend">Mauvais exemple&nbsp;: Expiration de session sans option de prolongation</a></li>
-            <li><a href="#bad-js-refresh">Mauvais exemple&nbsp;: JavaScript rafraîchit automatiquement une page</a></li>
-			<li><a href="#mod11-time-limits-wcag">Ressources WCAG connexes</a></li>
-          </ul>
-        </div>
-      </div>
-	</nav>
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table des matières</h2>
+						<details class="grouped mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table des matières</summary>
+							<ul>
+						<li>
+							<a href="#overview">Aperçu : Limites de temps</a>
+						</li>
+						<li>
+							<a href="#good-session-timeout">Bon exemple : Expiration de session</a>
+						</li>
+						<li>
+							<a href="#bad-no-extend">Mauvais exemple : Expiration de session sans option de prolongation</a>
+						</li>
+						<li>
+							<a href="#bad-js-refresh">Mauvais exemple : JavaScript rafraîchit automatiquement une page</a>
+						</li>
+						<li>
+							<a href="#time-limits-wcag">Ressources WCAG connexes</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
 	
 		<section>	
 			<h2 id="overview">Aperçu : Limites de temps</h2>			
@@ -103,7 +111,7 @@
             défaut.</dd>
 					<dt>Prolonger</dt>
 					<dd class="mrgn-lft-lg">L’utilisateur est averti avant l’expiration du
-            délai et dispose de 20&nbsp;secondes pour prolonger la limite de
+            délai et dispose d’au moins 20&nbsp;secondes pour prolonger la limite de
             temps.</dd>
 				</dl>
 				<p>
@@ -127,7 +135,7 @@
             Après une période d’inactivité de l’utilisateur, un script côté
             client demande à l’utilisateur s’il a besoin de plus de temps. Si le
             script n’obtient pas de réponse dans les 20&nbsp;secondes, le délai
-            expire. On notera que la durée minimale est de 20&nbsp;secondes.
+            expire.
           </li>
           <li>
             Un site affichant une bannière rotative offre une commande qui
@@ -145,12 +153,12 @@
 
 				<p>
           Pour les sessions comportant un délai d’expiration, présentez des
-          messages d’avertissement dans une boîte de dialogue contextuelle (
-          <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">WAI-ARIA Dialog pattern</a>
+          messages d’avertissement dans une boîte de dialogue contextuelle avec des options permettant à
+          l’utilisateur de prolonger ou de terminer la session. (
+          <a href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/" lang="en-CA">ARIA Dialog pattern</a>
           et
           <a href="https://wet-boew.github.io/v4.0-ci/demos/session-timeout/session-timeout-fr.html">WET Expiration de la session</a>
-          sont décrits dans le module&nbsp;12) avec des options permettant à
-          l’utilisateur de prolonger ou de terminer la session.
+          sont décrits dans le module&nbsp;12.)
         </p>
         <p>
           Pour les minuteries comportant des échéances fixes, offrez un compte à
@@ -170,7 +178,7 @@
           poursuivre avec l’ancien contenu. Si l’actualisation du contenu est
           urgente, utilisez une boîte de dialogue contextuelle et déplacez le
           focus de l’utilisateur vers celle-ci; ou encore, utilisez une alerte
-          visuelle <a href="aria-live-fr.html#overview"></a>ARIA live region</a> avec <code lang="en-CA">role="alert"</code>.
+          visuelle <a href="aria-live-fr.html#overview">ARIA live region</a> avec <code lang="en-CA">role="alert"</code>.
         </p>
 
 			</section>
@@ -191,7 +199,7 @@
         
  
 				<p><a href="example-session-timeout-fr.html" target="_blank">Ouvrez l’exemple d’expiration de session<span class="wb-inv"> (s'ouvre dans un nouvel onglet)</span></a>.</p>
-				<details class="mrgn-tp-sm">
+				<details class="mrgn-tp-md">
 					<summary class="bg-info">Voir le CSS</summary>
 					<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-md"><code class="language-css">#modalOverlay {
@@ -220,7 +228,7 @@
 &lt;/main&gt;</code></pre>
 -->
 						
-						<details class="mrgn-tp-sm">
+						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir le Javascript</summary>
 							<p>
 								Pour contourner un bogue de focus dans VoiceOver, JavaScript masque l’élément <code lang="en-CA">&lt;main&gt;</code> avec <code lang="en-CA">aria-hidden="true"</code> et le code CSS <code lang="en-CA">display: none</code>, puis une milliseconde plus tard, le script l’annule.
@@ -299,7 +307,7 @@ function startTimeout(){
 		<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-0"><code class="language-css">#timeOut { background-color: rgb(247, 231, 14); }</code></pre>
 					<p class="wb-inv">Fin du code</p>
-					<details class="mrgn-tp-sm">
+					<details class="mrgn-tp-md">
 						<summary class="bg-info">Voir le JavaScript</summary>
 						<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-md"><code class="language-javascript">var IdlelTimeOut = 20; //10 seconds
@@ -352,66 +360,78 @@ function CheckIdleTime() {
 		</section>
 			<!-- id's verification in French Mohammed Qadeer-->
 		<section>				
-				<h2 id="mod11-time-limits-wcag" class="wb-inv">Ressources WCAG connexes</h2>
+				<h2 id="time-limits-wcag" class="wb-inv">Ressources WCAG connexes</h2>
 				<details class="mrgn-tp-lg">
 					<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En anglais seulement.</p>
+                       
 					<h3 id="time-limits-success-criteria">Critères de succès</h3>
 					<ul>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable" lang="en-CA">2.2.1: Timing Adjustable</a>
+							<a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/time-limits-required-behaviors.html" data-code="2.2.1">2.2.1 : Réglage du délai</a>
 						</li>
 					</ul>
 					<h3 id="time-limits-techniques">Techniques</h3>
 					<h4 id="situation-a">Situation A : S’il y a des limites de temps associées à une session</h4>
 					<ul>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G133" lang="en-CA">G133: Providing a checkbox on the first page of a multipart form that allows users to ask for longer session time limit or no session time limit</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G133" hreflang="en-CA" data-code="G133">
+G133&nbsp;: Proposer une case à cocher sur la première page d'un formulaire multipages permettant à l'utilisateur de demander une limite du temps de session
+plus longue ou un temps de session sans limite (en anglais)</a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G198" lang="en-CA">G198: Providing a way for the user to turn the time limit off</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G198" hreflang="en-CA" data-code="G198">
+G198&nbsp;: Fournir à l'utilisateur une façon de désactiver la limite de temps (en anglais)</a>
 						</li>
 					</ul>
 					<h4 id="situation-b">Situation B : Si une limite de temps est contrôlée par un script sur la page</h4>
 					<ul>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G198" lang="en-CA">G198: Providing a way for the user to turn the time limit off</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G198" hreflang="en-CA" data-code="G198">
+G198&nbsp;: Fournir à l'utilisateur une façon de désactiver la limite de temps (en anglais)</a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G180" lang="en-CA">G180: Providing the user with a means to set the time limit to 10 times the default time limit</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G180" hreflang="en-CA" data-code="G180">
+G180&nbsp;: Fournir à l'utilisateur une façon de fixer la limite de temps à 10 fois la durée par défaut (en anglais)</a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR16" lang="en-CA">SCR16: Providing a script that warns the user a time limit is about to expire</a> ET <a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR1" lang="en-CA">SCR1: Allowing the user to extend the default time limit</a></li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR16" hreflang="en-CA" data-code="SCR16">
+SCR16&nbsp;: Fournir un script qui avertit l'utilisateur que le délai va expirer (en anglais)</a> ET <a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR1" hreflang="en-CA" data-code="SCR1">
+SCR1&nbsp;: Permettre à l'utilisateur de prolonger le délai par défaut (en anglais)</a></li>
 					</ul>
 					<h4 id="situation-c">Situation C : Si la lecture est limitée dans le temps</h4>
 					<ul>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G4" lang="en-CA">G4: Allowing the content to be paused and restarted from where it was paused</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G4" hreflang="en-CA" data-code="G4">
+G4&nbsp;: Permettre de mettre le contenu en pause et de redémarrer là où il a été mis en pause (en anglais)</a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G198" lang="en-CA">G198: Providing a way for the user to turn the time limit off</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G198" hreflang="en-CA" data-code="G198">
+G198&nbsp;: Fournir à l'utilisateur une façon de désactiver la limite de temps (en anglais)</a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR33" lang="en-CA">SCR33: Using script to scroll content, and providing a mechanism to pause it</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR33" hreflang="en-CA" data-code="SCR33">
+SCR33&nbsp;: Utiliser un script pour faire défiler le contenu et fournir un mécanisme pour le mettre en pause (en anglais)</a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR36" lang="en-CA">SCR36: Providing a mechanism to allow users to display moving, scrolling, or auto-updating text in a static window or area</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR36" hreflang="en-CA" data-code="SCR36">
+SCR36&nbsp;: Fournir un mécanisme permettant à l'utilisateur d'afficher le texte en mouvement, défilant ou mis à jour automatiquement dans une fenêtre ou
+une zone statique (en anglais)</a>
 						</li>
 					</ul>
 				</details>
 			</section>
 		
-	<nav role="navigation" aria-labelledby="nav-document">
-		<h2 id="nav-document" class="wb-inv">Menu de la pagination</h2>
+	<nav aria-labelledby="nav-pagination">
+		<h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
 		<ul class="pager">
 			<li class="previous"><a rel="prev" href="aria-live-fr.html">Précédent - Zones live ARIA</a></li>
-			<li class="next"><a rel="next" href="best-practice-fr.html">Suivant - Pratique exemplaire</a></li>
+			<li class="next"><a rel="next" href="best-practice-mod-11-fr.html">Suivant - Pratique exemplaire</a></li>
 		</ul>
 	</nav>
-	</main>
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 			
 
-	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation" aria-labelledby="wb-sec-h">	
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 		<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Module 11 – Zones live ARIA et limites de temps</h3>
@@ -419,7 +439,7 @@ function CheckIdleTime() {
 												
 						<li><a class="list-group-item" href="aria-live-fr.html">Zones live ARIA</a></li>
 						<li><a class="list-group-item active" aria-current="page" href="time-limits-fr.html">Limites de temps</a></li>
-						<li><a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a></li>					
+						<li><a class="list-group-item" href="best-practice-mod-11-fr.html">Pratique exemplaire</a></li>					
 						
 					</ul>
 			</section>
@@ -442,7 +462,7 @@ function CheckIdleTime() {
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+				<h3 class="wb-navcurr">Appendice</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
@@ -451,7 +471,9 @@ function CheckIdleTime() {
 					<li>
 						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">Vue WCAG</a>
+					</li>
 				</ul>
 			</section>
 	</nav>

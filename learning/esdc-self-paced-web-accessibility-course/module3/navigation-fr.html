@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="fr" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -10,7 +7,7 @@
 	<meta content="width=device-width,initial-scale=1" name="viewport">
 	<!-- Meta data -->
 	<meta name="description"
-		content="Lignes directrices sur l’accessibilité relative à la navigation. Les sujets comprennent les blocs de navigation, l’uniformité, le saut de navigation, les liens, la table des matières et l’ordre des cibles.">
+		content="Lignes directrices sur l’accessibilité relative à la navigation. Les sujets comprennent les blocs de navigation, la cohérence, le saut de navigation, les liens, la table des matières et l’ordre des cibles.">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -49,40 +46,133 @@
                 "title": "Module 3 –  Liens et navigation",
                 
                 "href" : "index-fr.html"
-            }],
-            "lngLinks": [{
-                "lang": "en",
-                "href": "navigation.html",
-                "text": "English"
-            }],
-            "menuPath": "../../../ajax/menu-fr.html"
-        });
+            },
+          {
+            "title": "Navigation",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "navigation.html",
+            "text": "English",
+          }],
+        "menuPath": "../../../ajax/menu-fr.html"
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
-		
-	
-		<h1 property="name" id="wb-cont">Navigation</h1>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Navigation</h1>
 		
 				                
-		<nav role="navigation" aria-label="Table des matières">
-		  <div class="panel panel-default mrgn-tp-lg">
-			<header class="panel-heading">
-			  <h2 class="panel-title">Table des matières</h2>
-			</header>
-			<div class="panel-body">
-			  <ul>
-				<li><a href="#blocks-navigation">Blocs de navigation</a></li>
-				  <li><a href="#consistency">Uniformité entre les pages</a></li>
-				  <li><a href="#skip-navigation">Liens de saut de navigation</a></li>
-				  <li><a href="#table-of-contents">Table des matières</a></li>
-				  <li><a href="#meaningful-sequence">Ordre séquentiel logique</a></li>
-				  <li><a href="#focus-order">Cible et ordre de cible</a></li> 
-			  </ul>
-			</div>
-		  </div>
-		</nav> 
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table des matières</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table des matières</summary>
+							<ul>
+								<li>
+									<a href="#blocks-navigation">Blocs de navigation</a>
+									<ul>
+										<li>
+											<a href="#pagination">Bon exemple : Pagination</a>
+										</li>
+										<li>
+											<a href="#blocks-navigation-wcag-resources">Ressources WCAG connexes<span class="wb-inv"> (Blocs de navigation)</span></a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#skip-navigation">Liens de saut de navigation</a>
+									<ul>
+										<li>
+											<a href="#good-example-main-content">Bon exemple : Passer au contenu principal</a>
+										</li>
+										<li>
+											<a href="#skip-navigation-wcag-resources">Ressources WCAG connexes<span class="wb-inv"> (Liens de saut navigation)</span></a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#multiple-ways">Acc&#232;s multiples</a>
+									<ul>
+										<li>
+											<a href="#multiple-ways-wcag">Ressources WCAG connexes<span class="wb-inv"> (Acc&#232;s multiples)</span></a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#table-of-contents">Table des matières</a>
+									<ul>
+										<li>
+											<a href="#good-example-table-content">Bon exemple : Table des matières</a>
+										</li>
+										<li>
+											<a href="#table-contents-wcag-resources">Ressources WCAG connexes<span class="wb-inv"> (Table des matières)</span></a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#meaningful-sequence">Ordre séquentiel logique</a>
+									<ul>
+										<li>
+											<a href="#meaningful-sequence-wcag-resources">Ressources WCAG connexes<span class="wb-inv"> (Ordre séquentiel logique)</span></a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#focus-order">Cible et ordre de cible</a>
+									<ul>
+										<li>
+											<a href="#what-if-focus">Quelle est la cible?</a>
+										</li>
+										<li>
+											<a href="#what-is-focus-order">Ordre de cible</a>
+										</li>
+										<li>
+											<a href="#tabindex-attribute">L'attribut tabindex</a>
+											<ul>
+												<li>
+													<a href="#custom-links-tab-order">Bon exemple : Insérer un lien personnalisé dans l’ordre des onglets en utilisant tabindex="0"</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="#element-tabindex">Élément avec tabindex="-1"</a>
+											<ul>
+												<li>
+													<a href="#element-tabindex-focus-script">Bon exemple : Élément avec tabindex="-1" reçoit la cible par script</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="#element-tabindex-zero">Élément avec tabindex &gt; "0"</a>
+											<ul>
+												<li>
+													<a href="#page-design-tab-index">Mauvais exemple : Conception de page avec valeurs positives de tabindex</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="#navigation-wcag-resources">Ressources WCAG connexes<span class="wb-inv"> (Cible et ordre de cible)</span></a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#shortcuts">Raccourcis clavier de caract&#232;res</a>
+									<ul>
+										<li>
+											<a href="#shortcuts-wcag">Ressources WCAG connexes<span class="wb-inv"> (Raccourcis clavier de caract&#232;res)</span></a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</details>
+					</nav>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4 details-5 details-6 details-7 details-8">Afficher tout les détails</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 details-5 details-6 details-7 details-8" data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Réduire tout<span class="wb-inv">les détails</span></button>
+				
 		
 			<section>
 				<h2 id="blocks-navigation">Blocs de navigation</h2>
@@ -131,58 +221,31 @@
 					</div>
 				</div>
 			
-			<h3  id="blocks-navigation-wcag-resources" class="wb-inv">Ressources WCAG connexes</h3>
-
-<details class="mrgn-tp-lg">
-
-<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En anglais seulement.</p>
-                        
-				
-				<h4>Critères de succès</h4>
-				<ul>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships" lang="en-CA">1.3.1: Info and Relationships</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Understanding/location" lang="en-CA">2.4.8: Location</a> (Niveau AAA)</li>
-				</ul>
-				<h4>Techniques</h4>
-				<ul>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H97" lang="en-CA">H97: Grouping related links using the nav element</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G128" lang="en-CA">G128: Indicating current location within navigation bars</a> (Niveau AAA)</li>
-				</ul>
+				<h3  id="blocks-navigation-wcag-resources" class="wb-inv">Ressources WCAG connexes</h3>
+	
+				<details id="details-1" class="mrgn-tp-lg grouped on">
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+					<h4>Critères de succès</h4>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/content-structure-separation-programmatic.html" data-code="1.3.1">1.3.1 : Information et relations</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/navigation-mechanisms-location.html" data-code="2.4.8">2.4.8 : Localisation</a> (Niveau AAA)</li>
+					</ul>
+					<h4>Techniques</h4>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H97" hreflang="en-CA" data-code="H97">H97 : Regrouper des liens connexes à l’aide de l’élément nav  (en anglais)</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G128" hreflang="en-CA" data-code="G128">
+	G128&nbsp;: Indiquer la position courante dans la barre de navigation (en anglais)
+	</a> (Niveau AAA)</li>
+					</ul>
 				</details>
 			</section>
-			<section>
-				<h2 id="consistency">Uniformité entre les pages</h2>
-				<p>D’une page à l’autre, l’ordre relatif des composants de la page et des liens dans les blocs de navigation devrait demeurer inchangé. D’autres composants ou liens peuvent être retirés ou insérés, mais l’ordre relatif doit demeurer le même.</p>
-				<p>S’assurer que les composants et les liens répétés se présentent dans le même ordre sur chaque page aide les utilisateurs à prévoir où ils peuvent trouver des choses. Cela aide les utilisateurs ayant des limitations cognitives, une vision faible, une déficience intellectuelle, ainsi que les utilisateurs aveugles.</p>
-				
-				<h3 id="consistency-pages-wcag-resources" class="wb-inv">Ressources WCAG connexes</h3>
-
-<details class="mrgn-tp-lg">
-
-<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En anglais seulement.</p>
-                        
-				<h4>Critères de succès</h4>
-				<ul>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Understanding/consistent-navigation" lang="en-CA">3.2.3: Consistent Navigation</a>
-					</li>
-				</ul>
-				<h4>Techniques</h4>
-				<ul>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G61" lang="en-CA">G61: Presenting repeated components in the same relative order each time they appear</a>
-					</li>
-				</ul>
-				</details>
-			</section>
+			
 			<section>
 				<h2 id="skip-navigation">Liens de saut de navigation</h2>
 				<p>Sur un site Web mal conçu, les utilisateurs du clavier doivent naviguer du haut de la page jusqu’à la zone de contenu principal, souvent à travers une longue liste de liens de navigation et d’autres éléments. Cela peut être fastidieux et même douloureux pour les utilisateurs ayant certaines formes de handicaps moteurs.</p>
@@ -208,7 +271,7 @@
 		<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-0"><code class="language-html">&lt;body&gt;
    &lt;a id="skip-nav" class="show-with-focus" href="#main-content"&gt;Passer au contenu&lt;/a&gt;
-	[...]
+      [...]
    &lt;main id="main-content" tabindex="-1"&gt;Le contenu principal entre ici&lt;/main&gt;
 &lt;/body&gt;</code>
 </pre>
@@ -251,33 +314,77 @@
 				</div>
 				<h3 id="skip-navigation-wcag-resources" class="wb-inv">Ressources WCAG connexes</h3>
 
-<details class="mrgn-tp-lg">
-
-<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En anglais seulement.</p>
-                        
+				<details id="details-2" class="mrgn-tp-lg grouped on">
 				
-				<h4>Critères de succès</h4>
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+					<h4>Critères de succès</h4>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/navigation-mechanisms-skip.html" data-code="2.4.1">2.4.1 : Contourner des blocs</a>
+						</li>
+					</ul>
+					<h4>Techniques</h4>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G1" hreflang="en-CA" data-code="G1">
+	G1&nbsp;: Ajouter un lien au début de chaque page pour aller directement à la zone de contenu principal (en anglais)</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G123" hreflang="en-CA" data-code="G123">
+	G123&nbsp;: Ajouter un lien au début d'un bloc de contenu répété pour aller à la fin de ce bloc (en anglais)</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G124" hreflang="en-CA" data-code="G124">
+	G124&nbsp;: Ajouter des liens au début de la page pour aller à chacune des zones du contenu (en anglais)</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR28" hreflang="en-CA" data-code="SCR28">
+	SCR28&nbsp;: Utiliser un menu extensible pour passer par dessus les blocs de contenu (en anglais)
+	</a>
+						</li>
+					</ul>
+				</details>
+			</section>
+			
+			<section>
+				<h2 id="multiple-ways">Acc&#232;s multiples</h2>
+				
+				<p>Fournir plus d’une façon de localiser une page Web dans un ensemble de pages Web. Des utilisateurs peuvent trouver une technique plus facile ou plus compr&#233;hensible &#224; utiliser qu'une autre.</p>
+
+				<p>Utiliser au moins deux des techniques suivantes :</p>
 				<ul>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks" lang="en-CA">2.4.1: Bypass Blocks</a>
-					</li>
+					<li>Fournir des liens de navigation vers les pages Web reli&#233;es</li>
+					<li>Fournir une table des mati&#232;res</li>
+					<li>Fournir un plan du site</li>
+					<li>Fournir une fonction de recherche pour aider l'utilisateur &#224; trouver le contenu</li>
+					<li>Fournir une liste de liens vers toutes les autres pages Web</li>
+					<li>Fournir des liens vers toutes les autres pages du site &#224; partir de la page d'accueil</li>
 				</ul>
-				<h4>Techniques</h4>
-				<ul>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G1" lang="en-CA">G1: Adding a link at the top of each page that goes directly to the main content area</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G123" lang="en-CA">G123: Adding a link at the beginning of a block of repeated content to go to the end of the block</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G124" lang="en-CA">G124: Adding links at the top of the page to each area of the content</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR28" lang="en-CA">SCR28: Using an expandable and collapsible menu to bypass block of content</a>
-					</li>
-				</ul>
+						
+				
+				<p><strong>Exception:</strong> Notez que ce critère WCAG ne s'applique pas si la page page est le r&#233;sultat ou une &#233;tape d'un processus.</p>
+				
+				<h3 id="multiple-ways-wcag" class="wb-inv">Ressources WCAG connexes</h3>
+
+				<details  id="details-3" class="mrgn-tp-lg grouped on">
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+					
+					<h4>Critères de succès</h4>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/navigation-mechanisms-mult-loc.html">2.4.5: Acc&#232;s multiples</a>
+						</li>
+					</ul>
+					<h4>Techniques</h4>
+					<p>Utiliser au moins deux des techniques suivantes :</p>
+					<ul>
+						<li><a hreflang="en" href="https://www.w3.org/WAI/WCAG21/Techniques/general/G125">G125 : Fournir des liens de navigation vers les pages Web reli&#233;es (en anglais)</a></li>
+						<li><a hreflang="en" href="https://www.w3.org/WAI/WCAG21/Techniques/general/G64">G64 : Fournir une table des mati&#232;res (en anglais)</a></li>
+						<li><a hreflang="en" href="https://www.w3.org/WAI/WCAG21/Techniques/general/G63">G63 : Fournir un plan du site (en anglais)</a></li>
+						<li><a hreflang="en" href="https://www.w3.org/WAI/WCAG21/Techniques/general/G161">G161 : Fournir une fonction de recherche pour aider l'utilisateur &#224; trouver le contenu (en anglais)</a></li>
+						<li><a hreflang="en" href="https://www.w3.org/WAI/WCAG21/Techniques/general/G126">G126 : Fournir une liste de liens vers toutes les autres pages Web (en anglais)</a></li>
+						<li><a hreflang="en" href="https://www.w3.org/WAI/WCAG21/Techniques/general/G185">G185 : Fournir des liens vers toutes les autres pages du site &#224; partir de la page d'accueil (en anglais)</a></li>
+					</ul>					
 				</details>
 			</section>
 			<section>
@@ -303,65 +410,62 @@
 						</div>
 					</div>
 				</div>
-			<h3 id="table-contents-wcag-resources" class="wb-inv">Ressources WCAG connexes</h3>
+				<h3 id="table-contents-wcag-resources" class="wb-inv">Ressources WCAG connexes</h3>
 
-<details class="mrgn-tp-lg">
-
-<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En anglais seulement.</p>
-                        
+				<details  id="details-4" class="mrgn-tp-lg grouped on">
 				
-				<h4>Critères de succès</h4>
-				<ul>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Understanding/multiple-ways" lang="en-CA">2.4.5: Multiple Ways</a>
-					</li>
-				</ul>
-				<h4 id="idelem4x10140">Techniques</h4>
-				<ul>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G64" lang="en-CA">G64: Providing a Table of Contents</a>
-					</li>
-				</ul>
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+
+					<h4>Critères de succès</h4>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/navigation-mechanisms-mult-loc.html">2.4.5 : Acc&#232;s multiples</a>
+						</li>
+					</ul>
+					<h4>Techniques</h4>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G64" hreflang="en-CA">G64 : Fournir une table des mati&#232;res (en anglais)</a>
+						</li>
+					</ul>
 				</details>
 			</section>
 			<section>
 				
-				<h2 id="meaningful-sequence">Ordre séquentiel logique</h3>
+				<h2 id="meaningful-sequence">Ordre séquentiel logique</h2>
 				<p>Les lecteurs d’écran lisent le contenu directement du DOM (un code sous-jacent d’une page après que JavaScript l’a modifié), et non l’écran réel. Ils ne tiennent pas compte des règles CSS. Il est possible d’utiliser CSS (flotteurs, positionnement, marges et remplissage) pour obtenir un ordre de lecture visuelle significatif alors que sous le capot, l’ordre de lecture du code sous-jacent (haut vers le bas) n’est pas logique. Voir l’exemple dans Échec F1 dans Ressources connexes WCAG, ci-dessous.</p>
 				<p>Supprimez le style CSS pour simuler l’expérience du lecteur d’écran. Le contenu devrait être logique, se lire de haut en bas.</p>
 				<p>Pour assurer un ordre de lecture logique, positionnez le contenu dans la même séquence que le code sous-jacent.</p>
 				
 				<h3  id="meaningful-sequence-wcag-resources" class="wb-inv">Ressources WCAG connexes</h3>
 
-<details class="mrgn-tp-lg">
+<details  id="details-5" class="mrgn-tp-lg grouped on">
 
 <summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En anglais seulement.</p>
+                        
                         
 				
 				<h4>Critères de succès</h4>
 				<ul>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence" lang="en-CA">1.3.2: Meaningful sequence</a>
+						<a href="http://www.w3.org/Translations/wcag20-fr/#content-structure-separation-sequence">1.3.2 : Ordre s&#233;quentiel logique</a>
 					</li>
 				</ul>
 				<h4>Techniques</h4>
 				<ul>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G57" lang="en-CA">G57: Ordering the content in a meaningful sequence</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G57" hreflang="en-CA">G57 : Ordonner le contenu selon une s&#233;quence logique pour tout le contenu de la page Web( en anglais)</a>					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C6" hreflang="en-CA">C6 : Positionner le contenu selon le balisage structurel (en anglais) </a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C6" lang="en-CA">C6: Positioning content based on structural markup</a>
-					</li>
-					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C27" lang="en-CA">C27: Making the DOM order match the visual order</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C27" hreflang="en-CA">C27 : Faire en sorte que l'ordre du DOM corresponde &#224; l'ordre visuel (en anglais) </a>
 					</li>
 				</ul>
 				<h4>Échecs</h4>
 				<ul>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F1" lang="en-CA">F1: Failure of Success Criterion 1.3.2 due to changing the meaning of content by positioning information with CSS</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F1" hreflang="en-CA">F1 : &#201;chec du crit&#232;re de succ&#232;s 1.3.2 consistant &#224; changer la signification du contenu en positionnant le contenu &#224; l'aide des CSS (en anglais) </a>
 					</li>
 				</ul>
 				</details>
@@ -386,7 +490,7 @@
 				<p>Pour empêcher un lien de recevoir une cible, supprimez son attribut <code lang="en-CA">href</code>.</p>
 				
 				<p>Pour éviter qu’un bouton ou une commande de formulaire reçoive une cible, ajoutez l’attribut booléen “disabled”. Lorsqu’il est présent, l’élément n’est pas mutable, ciblable ou soumis avec le formulaire. L’utilisateur ne peut ni modifier ni cibler la commande, ni sur ses descendants de commande de formulaire. Vous pouvez également empêcher qu'une commande obtienne une cible en lui attribuant un attribut <code lang="en-CA">tabindex="-1"</code>.</p>
-				<p>Les liens et les commandes personnalisés nécessitent un attribut <code lang="en-CA">tabindex="0"</code>� pour recevoir la cible. Voir le <a href="#custom-link">Bon exemple&nbsp;: Insérer un lien personnalisé dans l’ordre des onglets</a> ci-dessous pour tous les attributs CSS, HTML et JavaScript requis pour imiter un lien. Important&nbsp;: Dans la mesure du possible, utilisez un élément HTML intégré au lieu de créer un contrôle personnalisé avec ARIA.</p>
+				<p>Les liens et les commandes personnalisés nécessitent un attribut <code lang="en-CA">tabindex="0"</code>� pour recevoir la cible. Voir le <a href="#custom-links-tab-order">Bon exemple&nbsp;: Insérer un lien personnalisé dans l’ordre des onglets</a> ci-dessous pour tous les attributs CSS, HTML et JavaScript requis pour imiter un lien. Important&nbsp;: Dans la mesure du possible, utilisez un élément HTML intégré au lieu de créer un contrôle personnalisé avec ARIA.</p>
 				
 				
 				<h3 id="tabindex-attribute">L'attribut tabindex</h3>
@@ -394,7 +498,7 @@
 				<ul>
 					<li>Une valeur d’attribut <code lang="en-CA">tabindex</code> de 0 place l’élément dans l’ordre de la cible, à son emplacement actuel dans le DOM.</li>
 					<li>Une valeur <code lang="en-CA">tabindex</code> de -1 élimine un élément interactif de l’ordre de la cible, mais permet de le cibler par script (et de le modifier) en utilisant sa méthode de <code lang="en-CA">focus()</code>.  Par exemple, avec le widget d’onglets, un seul onglet à la fois peut se trouver dans l’ordre des onglets&nbsp;: l’onglet sélectionné a <code lang="en-CA">tabindex="0"</code>, tandis que les onglets inactifs ont <code lang="en-CA">tabindex="-1"</code>. Les valeurs tabindex changent à mesure que l’utilisateur passe d’un onglet à l’autre, en utilisant les touches fléchées pour cibler un nouvel onglet. Voir la description du widget d’onglets dans le module&nbsp;??.</li>
-					<li>Une valeur <code lang="en-CA">tabindex</code> supérieure à&nbsp;0 est presque toujours une mauvaise idée et doit être évitée. Elle déplace l’élément au début de l’ordre de cible de la page et se trouve en ordre ascendant avec toute autre valeur <code lang="en-CA">tabindex</code> positive. Les valeurs <code lang="en-CA">tabindex</code> positives sont difficiles à maintenir et fragiles, et leur utilisation tend à confondre les attentes des utilisateurs quant à l’ordre de cible. Rédigez plutôt le document avec les éléments dans un ordre logique. Voir le <a href="#bad-example">Mauvais exemple&nbsp;: Conception de page avec valeurs d’index d'onglets positives</a>, ci-dessous.</li>
+					<li>Une valeur <code lang="en-CA">tabindex</code> supérieure à&nbsp;0 est presque toujours une mauvaise idée et doit être évitée. Elle déplace l’élément au début de l’ordre de cible de la page et se trouve en ordre ascendant avec toute autre valeur <code lang="en-CA">tabindex</code> positive. Les valeurs <code lang="en-CA">tabindex</code> positives sont difficiles à maintenir et fragiles, et leur utilisation tend à confondre les attentes des utilisateurs quant à l’ordre de cible. Rédigez plutôt le document avec les éléments dans un ordre logique. Voir le <a href="#page-design-tab-index">Mauvais exemple&nbsp;: Conception de page avec valeurs d’index d'onglets positives</a>, ci-dessous.</li>
 				</ul>				
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
@@ -418,13 +522,13 @@
 									role="link" 
 									class="link"
 									onclick="goToLink(event, 'http://www.google.ca/')" 
-									onkeydown="goToLink(event, 'goToLink(event, 'http://www.google.ca/')">
+									onkeydown="goToLink(event, 'http://www.google.ca/')">
 										Google
 								</span>
 								<p class="wb-inv">L'exemple finit</p>	
 							</div>
 						</div>
-						<details class="mrgn-tp-lg">
+						<details  id="details-6" class="mrgn-tp-lg grouped on">
 							<summary class="bg-info">Voir le HTML</summary>
 							<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-md"><code class="language-html">&lt;a href="http://www.bing.com" class="link"&gt;Bing&lt;/a&gt; 
@@ -443,7 +547,7 @@
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir le CSS</summary>
 							<p class="wb-inv">Début du code</p>
-<pre><code class="language-css">&lt;style type="text/css"&gt;
+<pre class="mrgn-tp-md"><code class="language-css">&lt;style type="text/css"&gt;
    .link:focus, .link:hover {
       outline: 3px solid orange;
    }
@@ -462,8 +566,9 @@
 							
 						<details class="mrgn-tp-md">
 							<summary class="bg-info">Voir le Javascript</summary>
+
 							<p class="wb-inv">Début du code</p>
-<pre><code class="language-javascript">function goToLink (event, url) {
+<pre class="mrgn-tp-md"><code class="language-javascript">function goToLink (event, url) {
    var type = event.type;
    if ((type === 'click') || (type === 'keydown' &amp;&amp; event.keyCode === 13)) {
       window.location.href = url;    
@@ -578,64 +683,120 @@
 				
 		<h3 id="navigation-wcag-resources" class="wb-inv">Ressources WCAG connexes</h3>
 
-<details class="mrgn-tp-lg">
+		<details  id="details-7" class="mrgn-tp-lg grouped on">
+		
+			<summary class="bg-info">Ressources WCAG connexes</summary>
 
-<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En anglais seulement.</p>
-                        
-				
 				<h4>Critères de succès</h4>
 				<ul>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-order" lang="en-CA">2.4.3: Focus Order</a>
+						<a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/navigation-mechanisms-focus-order.html" data-code="2.4.3">2.4.3 : Parcours du focus</a>
 					</li>
 				</ul>
 				<h4>Techniques</h4>
 				<ul>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G59" lang="en-CA">G59: Placing the interactive elements in an order that follows sequences and relationships within the content</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G59" hreflang="en-CA" data-code="G59">
+G59&nbsp;: Placer les éléments interactifs dans un ordre qui reflète la séquence et les relations dans le contenu (en anglais)</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C27" lang="en-CA">C27: Making the DOM order match the visual order</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C27" hreflang="en-CA" data-code="C27">C27&nbsp;: Faire en sorte que l'ordre du DOM corresponde à l'ordre visuel (en anglais) </a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H4.html" lang="en-CA">H4: Creating a logical tab order through links, form controls, and objects</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H4.html" hreflang="en-CA" data-code="H4">
+H4&nbsp;: Créer un ordre de tabulation logique entre les liens, les éléments de formulaire et les objets (en anglais) </a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR26" lang="en-CA">SCR26: Inserting dynamic content into the Document Object Model immediately following its trigger element</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR26" hreflang="en-CA" data-code="SCR26">
+SCR26&nbsp;: Insérer le contenu dynamique dans le modèle objet de document (DOM) immédiatement après son élément déclencheur (en anglais)</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR27.html" lang="en-CA">SCR27: Reordering page sections using the Document Object Model</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR27.html" hreflang="en-CA" data-code="SCR27">
+
+SCR27&nbsp;: Réordonner les sections de la page en utilisant le modèle objet de document (DOM) (en anglais)
+</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR37.html" lang="en-CA">SCR37: Creating Custom Dialogs in a Device Independent Way</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR37.html" hreflang="en-CA" data-code="SCR37">
+SCR37&nbsp;: Créer des dialogues personnalisés d'une façon qui soit indépendante du dispositif (en anglais)</a>
 					</li>
 				</ul>
 				<h4>Échecs</h4>
 				<ul>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F44" lang="en-CA">F44: Failure of Success Criterion 2.4.3 due to using tabindex to create a tab order that does not preserve meaning and operability</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F44" hreflang="en-CA" data-code="F44">
+F44&nbsp;: Échec du critère de succès 2.4.3 consistant à utiliser l'attribut tabindex pour créer un ordre de tabulation qui ne préserve pas la signification et l'opérabilité (en anglais)
+</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F85" lang="en-CA">F85: Failure of Success Criterion 2.4.3 due to using dialogs or menus that are not adjacent to their trigger control in the sequential navigation order</a>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F85" hreflang="en-CA" data-code="F85">
+F85&nbsp;: Échec du critère de succès 2.4.3 consistant à utiliser des menus ou des dialogues qui ne sont pas adjacents au composant déclencheur dans l'ordre séquentiel de navigation (en anglais)</a>
 					</li>
 				</ul>
 				</details>
 			</section>
-		<nav role="navigation" aria-label="Navigation dans le document">
-	<h2 class="wb-inv">Navigation dans le document</h2>
+			
+				<section>
+				<h2 id="shortcuts">Raccourcis clavier de caract&#232;res</h2>
+				
+				<p>Un raccourci clavier est très pratique pour la plupart des utilisateurs, mais il constitue un obstacle important pour certains utilisateurs en situation de handicap si le raccourci ne comporte pas de touche non imprimable (p. ex., Ctrl, Alt). Simplement en parlant, les utilisateurs de la fonction d’entrée vocale déclencheront involontairement un raccourci composé uniquement de touches alphabétiques, puisque leur entrée vocale est convertie par le logiciel en une chaîne de caractères alphabétiques. Les utilisateurs susceptibles de frapper accidentellement des touches déclencheront également le raccourci.</p>
+				
+				<blockquote>
+					<p><cite>Critère de succès 2.1.4 :</cite> Si un raccourci clavier est utilis&#233; dans un contenu utilisant uniquement des lettres (y compris des majuscules et des minuscules), des signes de ponctuation, des chiffres ou des symboles, au moins un des &#233;nonc&#233;s suivants est vrai :</p>
+	
+					<dl>
+						<dt>D&#233;sactiver</dt>
+						<dd class="mrgn-lft-lg">Un m&#233;canisme permet de d&#233;sactiver le raccourci;</dd>
+						<dt>Remapper</dt>
+						<dd class="mrgn-lft-lg">Un m&#233;canisme permet de remapper le raccourci pour y inclure une ou plusieurs touches de clavier non imprimables (p. ex., Ctrl, Alt);</dd>
+						<dt>Actif seulement sur la cible</dt>
+						<dd class="mrgn-lft-lg">Le raccourci clavier d&#8217;un composant d&#8217;interface utilisateur n&#8217;est actif que lorsque ce composant a une cible.</dd>
+					</dl>
+				</blockquote>
+				
+				
+				
+				<h3 id="shortcuts-wcag" class="wb-inv">Ressources WCAG connexes<span class="wb-inv"> (Raccourcis clavier de caract&#232;res)</span></h3>
+
+				<details  id="details-8" class="mrgn-tp-lg grouped on">
+					<summary class="bg-info">Ressources WCAG connexes</summary>
+					
+					<h4>Critères de succès</h4>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/character-key-shortcuts">2.1.4 : Raccourcis clavier utilisant des caractères (en anglais)</a>
+						</li>
+					</ul>
+					<h4>Techniques</h4>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G217">G217 : Fournir un mécanisme permettant aux utilisateurs de remapper ou de désactiver des raccourcis de touches de caractère</a>
+						</li>
+					</ul>
+					<h4>Échecs</h4>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F99">F99 : Échec du critère de succès 2.1.4 en raison de la mise en œuvre de raccourcis de touches de caractère qui ne peuvent pas être désactivés ou remappés</a>
+						</li>
+					</ul>
+				</details>
+			</section>
+			
+			
+		<nav aria-labelledby="nav-pagination">
+	<h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
 	<ul class="pager">
 	 <li class="previous"> <a rel="prev" href="links-fr.html">Précédent - Liens</a> </li>
-	  <li class="next"> <a rel="next" href="best-practice-fr.html">Suivant - Pratique exemplaire</a> </li>
+	  <li class="next"> <a rel="next" href="context-fr.html">Suivant - Changement de contexte</a></li>
 	</ul>
   </nav>
 					
 
-</main>
+<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	  <script src="../../../scripts/esdc-course.js"></script></main>
 		
 		
 
-		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 			
 			
 
@@ -648,7 +809,9 @@
 					<ul class="list-group menu list-unstyled">
 						<li><a class="list-group-item" href="links-fr.html">Liens</a></li>
 						<li><a class="list-group-item active" aria-current="page" href="navigation-fr.html">Navigation</a></li>
-						<li><a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a></li>
+						<li><a class="list-group-item" href="context-fr.html">Changement de contexte</a></li>
+						<li><a class="list-group-item" href="consistency-fr.html">Cohérence</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-3-fr.html">Pratique exemplaire</a></li>
 				</ul>
 			
 			</section>
@@ -675,7 +838,7 @@
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+				<h3 class="wb-navcurr">Appendice</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
@@ -684,7 +847,9 @@
 					<li>
 						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">Vue WCAG</a>
+					</li>
 				</ul>
 			</section>
 		

@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="fr" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / BoÃƒÂ®te &agrave; outils de l'exp&eacute;rience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -49,39 +46,70 @@
                 "title": "Module 2 - Structure et s&eacute;mantique des pages",
                 
                 "href" : "index-fr.html"
-            }],
-            "lngLinks": [{
-                "lang": "en",
-                "href": "lists.html",
-                "text": "English"
-            }],
-            "menuPath": "../../../ajax/menu-fr.html"
-        });
-    </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
-		
-	<h1 property="name" id="wb-cont">Listes</h1>
-									
-	<nav role="navigation"  aria-label="Table des matières">
-      <div class="panel panel-default mrgn-tp-lg">
-        <header class="panel-heading">
-          <h2 class="panel-title">Table des matières</h2>
-        </header>
-        <div class="panel-body">
-          <ul>
-              <li><a href="#designing-lists">Conception avec des listes</a></li>
-			  <li><a href="#unordered-list">Liste non ordonn&eacute;e</a></li>
-			  <li><a href="#ordered-list">Liste ordonn&eacute;e</a></li>
-			  <li><a href="#nested-lists">Listes imbriqu&eacute;es</a></li>
-			  <li><a href="#description-list">Liste de descriptions</a></li>
-			  <li><a href="#resources-6">Ressources WCAG connexes</a></li>
+            },
+          {
+            "title": "Listes",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "lists.html",
+            "text": "English",
+          }],
+        "menuPath": "../../../ajax/menu-fr.html"
+      });
 
-          </ul>
-        </div>
-      </div>
-    </nav>
+    </script>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Listes</h1>
+									
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table des matières</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table des matières</summary>
+							<ul>
+						<li>
+							<a href="#designing-lists">Conception avec des listes</a>
+						</li>
+						<li>
+							<a href="#unordered-list">Liste non ordonnée</a>
+						</li>
+						<li>
+							<a href="#ordered-list">Liste ordonnée</a>
+						</li>
+						<li>
+							<a href="#nested-lists">Listes imbriquées</a>
+						</li>
+						<li>
+							<a href="#description-list">Liste de descriptions</a>
+							<ul>
+								<li>
+									<a href="#one-term-multiple-descriptions">Bon exemple 1 : Un terme, plusieurs descriptions</a>
+								</li>
+								<li>
+									<a href="#multiple-terms-one-description">Bon exemple 2&nbsp;: Termes multiples, une description</a>
+								</li>
+								<li>
+									<a href="#multiple-terms-multiple-descriptions">Bon exemple 3 : Termes multiples, descriptions multiples</a>
+								</li>
+								<li>
+									<a href="#description-list-definition-lists">Bon exemple 4 : Liste de description comme une liste de dfinition</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#resources-6">Ressources WCAG connexes</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+					<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1">Afficher tout les détails</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Réduire tout<span class="wb-inv">les détails</span></button>
+				
+		
 			<section>
 				<h2 id="designing-lists">Conception avec des listes</h2>
 				<p>Lorsqu'un lecteur d'&eacute;cran rencontre une liste, il &eacute;nonce l'information utile que les utilisateurs voyants captent d'un coup d'oeil : la pr&eacute;sence d'une liste et le nombre d'&eacute;l&eacute;ments de la liste. Toutefois, pour &ecirc;tre reconnaissable et navigable par les utilisateurs du lecteur d'&eacute;cran, la liste doit utiliser le balisage s&eacute;mantique appropri&eacute;.</p>
@@ -95,7 +123,8 @@
 				<p>&Eacute;vitez d'imbriquer plusieurs &eacute;l&eacute;ments enfants dans chaque &eacute;l&eacute;ment de la liste, puisque les utilisateurs du lecteur d'&eacute;cran peuvent perdre le fil de la liste elle-m&ecirc;me.</p>
 				<p>Les listes non-ordonn&eacute;es sont d'habitude utilis&eacute;es pour contenir des menus horizontaux et verticaux (pour la navigation, les m&eacute;dias sociaux et puis n'importe quelle liste de liens). Les listes ordonn&eacute;es sont souvent utilis&eacute;es pour la navigation.</p>
 			</section>
-			<section>				<h2 id="unordered-list">Liste non ordonn&eacute;e</h2>
+			<section>
+				<h2 id="unordered-list">Liste non ordonn&eacute;e</h2>
 				<p>La liste non ordonn&eacute;e comprend un &eacute;l&eacute;ment <code lang="en-CA">&lt;ul&gt;</code> et plusieurs &eacute;l&eacute;ments de liste (<code lang="en-CA">&lt;li&gt;</code>):</p>
 				<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
@@ -184,7 +213,8 @@
 &lt;/ol&gt;</code></pre>
 				<p class="wb-inv">Fin du code</p>
 			</section>
-			<section>				<h2 id="description-list">Liste de descriptions</h2>
+			<section>
+				<h2 id="description-list">Liste de descriptions</h2>
 				<p>Une liste de descriptions comprend un ou plusieurs groupes de termes et de descriptions. Chaque regroupement associe un ou plusieurs termes (le contenu des &eacute;l&eacute;ments <code lang="en-CA">&lt;dt&gt;</code>) &agrave; une ou plusieurs descriptions (le contenu des &eacute;l&eacute;ments <code lang="en-CA">&lt;dd&gt;</code>).</p>
 				<p>Un regroupement commence soit avec le premier &eacute;l&eacute;ment de la liste, soit chaque fois qu'un &eacute;l&eacute;ment <code lang="en-CA">&lt;dt&gt;</code> suit un &eacute;l&eacute;ment <code lang="en-CA">&lt;dd&gt;</code>.</p>
 				<div class="panel panel-success mrgn-tp-lg">
@@ -324,26 +354,28 @@ dd { margin-left: 30px; }</code></pre>
 			</section>
 			<section>				
 				<h2 id="resources-6" class="wb-inv">Ressources WCAG connexes</h2>
-				<details class="mrgn-tp-lg">
+				<details id="details-1"  class="mrgn-tp-lg grouped on">
 					<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En anglais seulement.</p>
+                       
                         
 					<h3>Critères de succès</h3>
 					<ul>
-						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships" >1.3.1 Info and Relationships</a></li>
+						<li>
+														<a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/content-structure-separation-programmatic.html" data-code="1.3.1">1.3.1 : Information et relations</a>
+													</li>
 					</ul>
 					<h3>Techniques</h3>
 					<ul>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H48" >H48: Using ol, ul and dl for lists or groups of links</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H48" data-code="H48">H48&nbsp;: Utiliser ol, ul et dl pour les listes (en anglais)</a>
 						</li>
 					</ul>
 				</details>
 				<hr />
-				<p class="small">La description des trois types de liste est tir&eacute;e du document Initiative d'accessibilit&eacute; du Web (<a href="https://www.w3.org/WAI/" >WAI</a>): <a href="https://www.w3.org/WAI/tutorials/page-structure/content/" >Structure du contenu</a> dans  <a href="https://www.w3.org/WAI/tutorials/page-structure/" >Tutoriel sur la structure des pages</a> de  <a href="https://www.w3.org/WAI/tutorials/" >Tutoriels sur l'accessibilit&eacute; du Web.</a>. Eric Eggert, Shadi Abou-Zahra, &eacute;d. Copyright © 2019 W3C (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/" >ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>). &Eacute;tat d'avancement : Mise &agrave; jour le 27 juillet 2019. <a href="https://www.w3.org/WAI/tutorials/page-structure/content/" >https://www.w3.org/WAI/tutorials/page-structure/content/</a></p>
+				<p class="small">La description des trois types de liste est tir&eacute;e du document Initiative d'accessibilit&eacute; du Web (<a href="https://www.w3.org/WAI/">WAI</a>): <a href="https://www.w3.org/WAI/tutorials/page-structure/content/">Structure du contenu<span class="wb-inv"> (WAI)</span></a> dans  <a href="https://www.w3.org/WAI/tutorials/page-structure/">Tutoriel sur la structure des pages</a> de  <a href="https://www.w3.org/WAI/tutorials/">Tutoriels sur l'accessibilit&eacute; du Web.</a>. Eric Eggert, Shadi Abou-Zahra, &eacute;d. Copyright © 2019 W3C (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="http://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>). &Eacute;tat d'avancement : Mise &agrave; jour le 27 juillet 2019. <a href="https://www.w3.org/WAI/tutorials/page-structure/content/">https://www.w3.org/WAI/tutorials/page-structure/content/</a></p>
 			</section>
-		<nav role="navigation" aria-label="Document">
-	<h2 class="wb-inv">Navigation dans le document</h2>
+		<nav aria-labelledby="nav-pagination">
+	<h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
 	<ul class="pager">
 		<li class="previous"> <a rel="prev" href="language-fr.html">Pr&eacute;c&eacute;dent - Langue</a></li>
 	  <li class="next"> <a rel="next" href="iframes-fr.html">Suivant - Iframes</a> </li>
@@ -351,11 +383,11 @@ dd { margin-left: 30px; }</code></pre>
   </nav>
 					
 
-</main>
+<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	  <script src="../../../scripts/esdc-course.js"></script></main>
 		
 		
 
-		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 			
 			
 
@@ -378,7 +410,7 @@ dd { margin-left: 30px; }</code></pre>
 					
 						<li><a class="list-group-item" href="parsing-and-validity-fr.html">Analyse syntaxique et validit&eacute;</a></li>
 					
-						<li><a class="list-group-item" href="best-practice-fr.html">Pratiques exemplaires</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-2-fr.html">Pratiques exemplaires</a></li>
 				</ul>
 			
 			</section>
@@ -405,7 +437,7 @@ dd { margin-left: 30px; }</code></pre>
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+				<h3 class="wb-navcurr">Appendice</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
@@ -414,11 +446,12 @@ dd { margin-left: 30px; }</code></pre>
 					<li>
 						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">Vue WCAG</a>
+					</li>
 				</ul>
 			</section>
 
-			</section>
 		
 		</nav>
 	

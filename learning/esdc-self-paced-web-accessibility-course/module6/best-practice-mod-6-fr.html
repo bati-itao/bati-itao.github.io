@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Pratique exemplaire - Module 6 - Formulaires</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Résumé des pratiques exemplaires du module 6 – Formulaires">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.appTop({
+                "appName": [{
+                    "text": "EDSC / Bureau de l’accessibilité des TI",
+                    "href": "../../../index-fr.html"
+                }],
+               "breadcrumbs" : [{
+                    "title": "Accueil",
+                    "href" : "../../../index-fr.html"
+                },{
+                    "title": "Apprentissage",
+                    "href" : "../../index-fr.html"
+                },
+				{
+                    "title": "Cours d'accessibilité Web",
+                    "href" : "../index-fr.html"
+                },
+			{
+                "title": "Module 6 - Formulaires",
+                "href" : "index-fr.html"                
+            },
+          {
+            "title": "Pratique exemplaire",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "best-practice-mod-6.html",
+            "text": "English",
+          }],
+        "menuPath": "../../../ajax/menu-fr.html"
+      });
+
+    </script>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Pratique exemplaire</h1>
+						
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table des matières</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table des matières</summary>
+							<ul>
+						<li>
+							<a href="#labelling-controls">Commandes d’étiquetage<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#grouping-controls">Regroupement des commandes<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#form-instruction">Instruction relative au formulaire<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#validating-input">Validation des saisies<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#multi-step">Formulaires à étapes multiples<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#custom-control">Commandes personnalisées<span class="wb-inv"> (pratique exemplaire)</span>
+							</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+			
+			<section>				
+				<h2 id="labelling-controls">Commandes d’étiquetage</h2>
+			  <ul>
+				<li>Fournir des étiquettes pour décrire la fonction de commande de formulaire.</li>
+
+					<li>Utiliser l’élément <code lang="en-CA">&lt;label&gt;</code> pour associer explicitement une commande de formulaire à une étiquette</li>
+					<li>Associer exactement l’attribut <code lang="en-CA">for</code> de l’étiquette à l’attribut <code lang="en-CA">id</code> de la commande de formulaire.</li>
+
+					<li>Voici les éléments qui utilisent des étiquettes explicitement associées&nbsp;:
+				      <ul>
+					    <li><code lang="en-CA">&lt;input type="text"&gt;</code></li>
+					    <li><code lang="en-CA">&lt;input type="checkbox"&gt;</code></li>
+					    <li><code lang="en-CA">&lt;input type="radio"&gt;</code></li>
+					    <li><code lang="en-CA">&lt;input type="file"&gt;</code> (champs de sélection de fichier)</li>
+					    <li><code lang="en-CA">&lt;input type="password"&gt;</code></li>
+					    <li><code lang="en-CA">&lt;textarea&gt;</code></li>
+					    <li><code lang="en-CA">&lt;select&gt;</code> (listes déroulantes)</li>
+				      </ul>
+					</li>
+					<li>Ne pas utiliser l’élément <code lang="en-CA">&lt;label&gt;</code> pour les éléments suivants. 
+					  <ul>
+					    <li>Boutons Soumettre et Réinitialisation (<code lang="en-CA">&lt;input type="submit"&gt;</code> ou <code lang="en-CA">&lt;input type="reset"&gt;</code>)
+					      <ul>
+							<li>Étiquette fournie par l’attribut <code lang="en-CA">value</code></li>
+						</ul>
+					    </li>
+					    <li>Boutons image (<code lang="en-CA">&lt;input type="image"&gt;</code>)
+					      <ul>
+					        <li>Étiquette fournie par l’attribut <code lang="en-CA">alt</code></li>
+				          </ul>
+					    </li>
+					    <li>Champs de saisie masqué (<code lang="en-CA">&lt;input type="hidden"&gt;</code>)</li>
+					    <li>Boutons (éléments de bouton ou <code lang="en-CA">&lt;input type="button"&gt;</code>)
+					      <ul>
+							<li>Étiquette fournie par le contenu de l’élément lui-même (bouton) ou par l'attribut <code lang="en-CA">value</code>, <code lang="en-CA">aria-label</code> ou <code lang="en-CA">aria-labelledby</code></li>
+						</ul>
+					    </li>
+				      </ul>
+					</li>
+					<li>Utiliser des étiquettes ARIA (les attributs <code lang="en-CA">aria-labelledby</code> ou <code lang="en-CA">aria-label</code>) lorsqu’il n’est pas possible d’utiliser <code lang="en-CA">&lt;label&gt;</code></li>
+					<li>Lorsque vous utilisez des étiquettes ARIA, ajouter tout texte visible dans l’étiquette de commande.</li>
+					<li>Utiliser l’attribut <code lang="en-CA">aria-labelledby</code> pour récupérer une étiquette du contexte ou pour concaténer une étiquette d’un ou de plusieurs éléments du contexte.</li>
+					<li>Éviter d’utiliser l’attribut <code lang="en-CA">title</code> pour identifier les commandes de formulaire. Ce n’est pas largement pris en charge par AT.</li>
+					<li>Le texte de l’étiquette doit être court et concis.</li>
+					<li>Utiliser un texte d’étiquette unique sur une page.</li>
+					<li>Placer les étiquettes visuellement à droite des boutons radio et des cases à cocher.</li>
+					<li>Placer les étiquettes de façon visuelle, directement au-dessus des champs de formulaire (de préférence par la BOEW) ou à gauche, align&eacute; &agrave; droite (solution de rechange à la BOEW, lorsqu’il faut conserver un espace vertical).</li>
+			  </ul>
+			</section>
+			
+			<section>				
+				<h2 id="grouping-controls">Regroupement des commandes</h2>
+				<ul>
+					<li>Utiliser l’élément <code lang="en-CA">&lt;fieldset&gt;</code> pour regrouper les commandes connexes dans un formulaire.</li>
+					<li>Utiliser l’élément <code lang="en-CA">&lt;legend&gt;</code> pour nommer l’élément <code lang="en-CA">&lt;fieldset&gt;</code>.</li>
+					<li>Faire en sorte que la <code lang="en-CA">legend</code> soit aussi courte que possible, car certaines technologies d’assistance la déclarent avec l’étiquette chaque fois.</li>
+					<li>Rendre les étiquettes individuelles explicites, car certaines technologies d’assistance ne déclarent pas la <code lang="en-CA">&lt;legend&gt;</code>. Ne pas répéter la <code lang="en-CA">legend</code> dans chaque étiquette.</li>
+					<li>Utiliser l’élément <code lang="en-CA">&lt;optgroup&gt;</code> pour les éléments <code lang="en-CA">&lt;select&gt;</code> avec groupes d’options.</li>
+					<li>Utiliser les attributs ARIA <code lang="en-CA">role="group"</code> et <code lang="en-CA">aria-labelledby</code> pour regrouper et étiqueter les éléments de formulaire lorsque vous ne pouvez pas utiliser des éléments HTML natifs <code lang="en-CA">&lt;fieldset&gt;</code> et <code lang="en-CA">&lt;legend&gt;</code>.</li>
+					<li>Utiliser <code lang="en-CA">&lt;label&gt;</code> dans la mesure du possible pour prendre en charge le navigateur universel et le lecteur d’écran.</li>
+				</ul>
+
+			</section>
+			
+			<section>				
+				<h2 id="form-instruction">Instruction relative au formulaire</h2>
+			<ul>
+				<li>Fournir les instructions générales qui s’appliquent à l’ensemble du formulaire et les fournir avant l’élément <code lang="en-CA">&lt;form&gt;</code>. Cela permet aux utilisateurs du lecteur d’écran de consulter l’information avant de passer aux modes formulaires.</li>
+				<li>Utiliser <code lang="en-CA">aria-labelledby</code> ou <code lang="en-CA">aria-describedby</code> pour fournir des instructions à l’extérieur des étiquettes. </li>
+				<li>Indiquer le type de champ de saisie du formulaire (p.&nbsp;ex., <code lang="en-CA">type= “email”</code>) afin que les navigateurs et les technologies d’assistance puissent fournir des aides à la saisie comme des claviers personnalisés, des étiquettes de remplissage automatique et des icônes.</li>
+				<li>Indiquer les saisies, les formats de données et les autres renseignements pertinents requis.</li>
+				<li>S’assurer que le texte des attributs d’espace réservé respecte un rapport de contraste minimal de&nbsp;4,5:1.</li>
+			</ul>
+
+			</section>
+			
+				
+			<section>				
+			<h2 id="validating-input">Validation des saisies</h2>
+					
+			<ul>
+				<li>Valider les données utilisateur à l’aide des attributs de validation des éléments de formulaire HTML5.</li>
+				<li>Les attributs de validation communs comprennent <code lang="en-CA">required</code>, <code lang="en-CA">type</code>, <code lang="en-CA">pattern</code>, et les attributs <code lang="en-CA">min</code> et <code lang="en-CA">max</code> requis.</li>
+				<li>Valider les données du côté client et du côté serveur pour assurer la sécurité.</li>
+				<li>Identifier les champs de formulaire requis à la fois visuellement dans l’étiquette et sémantiquement.</li>
+				<li>Utiliser les types de données HTML5 pour valider différents types de données, y compris l’adresse courriel, l’adresse URL, le numéro, le numéro de téléphone, la date et la plage.</li>
+				<li>Valider la saisie structurée en utilisant l’attribut structure pour spécifier une expression régulière pour l’appariement.</li>
+				<li>Valider la longueur des entrées en utilisant les attributs <code lang="en-CA">minlength</code>, <code lang="en-CA">maxlength</code>, <code lang="en-CA">min</code> et <code lang="en-CA">max</code></li>
+				<li>Tenir compte autant que possible des différents formats de saisie.</li>
+				<li>Permettre à vos utilisateurs de vérifier et de corriger leurs saisies afin de réduire les erreurs.</li>
+				<li>Exiger la confirmation de l’utilisateur pour les actions irréversibles.</li>
+				<li>Offrir une fonction d’annulation pour s’assurer que les soumissions sont réversibles.</li>
+			</ul>
+
+			</section>
+			
+				
+			<section>				
+			  <h2 id="user-notifications">Avis aux utilisateurs</h2>
+				<ul>	
+					<li>Lorsqu’un utilisateur soumet un formulaire, l’aviser de la réussite ou de toute erreur.</li>
+					<li>S’assurer que les messages d’erreur sont clairs et concis, et fournissent des instructions simples pour corriger l’erreur.</li>
+					<li>Fournir une rétroaction dans l’en-tête principal, dans l’élément du titre, sous forme de liste d’erreurs avant le formulaire, ainsi qu’en ligne, associée au programme à la commande du formulaire.</li>
+					<li>Les erreurs énumérées avant le formulaire devraient&nbsp;:
+						<ul>
+						    <li>Faire référence au <code lang="en-CA">label</code> de la commande de formulaire correspondant.</li>
+							<li>Fournir une description concise et facile à comprendre de l’erreur.</li>
+							<li>Indiquer comment corriger les erreurs et rappeler aux utilisateurs les exigences en matière de format;</li>
+							<li>Inclure dans la page un lien vers la commande de formulaire correspondant pour faciliter l’accès.</li>
+					      </ul>
+				 	</li>
+				</ul>
+			</section>
+			
+				
+			<section>				
+				<h2 id="multi-step">Formulaires en plusieurs étapes</h2>
+				
+				<ul>
+					<li>Diviser le formulaire en fonction de ses groupes de commandes logiques (p.&nbsp;ex., coordonnées et questionnaire).</li>
+					<li>Valider l’étape en cours avant d’exposer la suivante.</li>
+					<li>Étiqueter les étapes facultatives et permettre aux utilisateurs de les sauter.</li>
+					<li>S’assurer que la cible du clavier se déplace facilement d’une étape à l’autre, vers l’arrière et vers l’avant. À une nouvelle étape, cibler de préférence le prochain élément de formulaire pertinent, ou l’en-tête ou le conteneur pertinent.</li>
+					<li>Éviter d’imposer une limite de temps pour remplir le formulaire. Si une limite est requise, permettre à l’utilisateur de la modifier ou de la prolonger.</li>
+					<li>Si les étapes se trouvent sur plusieurs pages, répéter les instructions générales sur chaque page.</li>
+					<li>Indiquer la progression dans le formulaire («&nbsp;Étape&nbsp;x de&nbsp;y&nbsp;»).</li>
+				</ul>
+
+			</section>
+			
+			<section>				
+				<h2 id="custom-control">Commandes personnalisées</h2>
+				<ul>
+					<li>Dans la mesure du possible, utiliser des éléments de formulaire HTML natifs plutôt que des commandes personnalisées.</li>
+					<li>Modéliser le comportement d’après les éléments de formulaire HTML natifs.</li>
+					<li>Ajoutez un nom, un rôle et des valeurs ARIA appropriés, au besoin.</li>
+					<li>Communiquer des mises à jour et des changements d’état par l’entremise de messages ARIA live lorsqu’ils ne peuvent pas être communiqués par l’entremise de méthodes HTML ou ARIA.</li>
+				</ul>
+
+			</section>
+		
+	<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="custom-controls-fr.html">Précédent - Commandes personnalisées</a></li>
+		</ul>
+	</nav>
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+		<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 6 - Formulaires</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="forms-concepts-fr.html">Concepts des formulaires</a></li>
+						<li><a class="list-group-item" href="labelling-controls-fr.html">Commandes d’étiquetage</a></li>
+						<li><a class="list-group-item" href="grouping-controls-fr.html">Regroupement des commandes</a></li>
+						<li><a class="list-group-item" href="form-instructions-fr.html">Instructions du formulaire</a></li>
+						<li><a class="list-group-item" href="identifying-input-fr.html">Déterminer l’objet de la saisie</a></li>
+						<li><a class="list-group-item" href="validating-input-fr.html">Validation des saisies</a></li>
+						<li><a class="list-group-item" href="user-notifications-fr.html">Avis à l’utilisateur</a></li>
+						<li><a class="list-group-item" href="multi-step-forms-fr.html">Formulaires à étapes multiples</a></li>
+						<li><a class="list-group-item" href="custom-controls-fr.html">Commandes personnalisées</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="best-practice-mod-6-fr.html">Pratique exemplaire</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Tous les modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 - Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/links-fr.html">Module 3 - Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/tables-concepts-fr.html">Module 4 - Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/text-alternatives-fr.html">Module 5 - Images</a></li>
+                        <li><a class="list-group-item active" href="forms-concepts-fr.html">Module 6 - Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 - Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item" href="../module8/introduction-fr.html">Module 8 - Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item" href="../module10/introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Appendice</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap-fr.html">Plan du site</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">Vue WCAG</a>
+					</li>
+				</ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>

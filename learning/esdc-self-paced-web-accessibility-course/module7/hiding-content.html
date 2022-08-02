@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]>
-<html class="no-js lt-ie9" lang="en" dir="ltr">
-   <![endif]-->
-   <!--[if gt IE 8]><!-->
-   <html class="no-js" lang="en" dir="ltr">
-      <!--<![endif]-->
+<html class="no-js" lang="en" dir="ltr">
       <head>
          <meta charset="utf-8">
          <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -13,7 +8,6 @@
          <!-- Meta data -->
          <meta name="description"
             content="Accessibility guidelines related to hiding and exposing content. Describes how to hide content and requirements for exposing hidden content on hover or focus">
-         <meta name="robots" content="noindex">
          <!-- Meta data-->
          <!-- Load closure template scripts -->
          <script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -49,34 +43,51 @@
                 },
             {
                     "title": "Module 7 – Visual design and colours",
-                    
-                }],
-                "lngLinks": [{
-                    "lang": "fr",
-                    "href": "hiding-content-fr.html",
-                    "text": "Français"
-                }],
-                "menuPath": "../../../ajax/menu-en.html"
-            });
-         </script>
-         <div class="container">
-            <div class="row">
-               <main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-                  <h1 property="name" id="wb-cont">Hiding and exposing content on hover or focus</h1>
-                  <nav role="navigation">
-                     <div class="panel panel-default mrgn-tp-md">
-                        <header class="panel-heading">
-                           <h2 class="panel-title">Table of contents</h2>
-                        </header>
-                        <div class="panel-body">
-                           <ul>
-                              <li><a href="#hiding-content">Hiding content</a></li>
-                              <li><a href="#exposing-hidden-content-on-hover-or-focus">Exposing hidden content on hover or focus</a></li>
-                              <li><a href="#resources1">Related WCAG resources</a></li>
-                           </ul>
-                        </div>
-                     </div>
-                  </nav>
+                    "href" : "index.html"
+                },
+          {
+            "title": "Hiding and exposing content on hover or focus",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "hiding-content-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
+    </script>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Hiding and exposing content on hover or focus</h1>
+          <nav aria-labelledby="nav-table" class="mrgn-tp-md">
+            <h2 id="nav-table" class="wb-inv">Table of contents</h2>
+            <details class="mrgn-bttm-lg on" open="open">
+               <summary class="bg-info">Table of contents</summary>
+               <ul>
+            <li>
+               <a href="#hiding-content">Hiding content</a>
+               <ul>
+                  <li>
+                     <a href="#visually-hidden-text">Good example: Visually-hidden text</a>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <a href="#exposing-hidden-content-on-hover-or-focus">Exposing hidden content on hover or focus</a>
+            </li>
+            <li>
+               <a href="#hiding-content-wcag">Related WCAG resources</a>
+            </li>
+         </ul>
+            </details>
+         </nav>
+		 	<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Expand all details</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Collapse all<span class="wb-inv"> details</span></button>
+			
                   <section>
                      <h2 id="hiding-content">Hiding content</h2>
                      <p>Content can be hidden from three groups of users:</p>
@@ -94,11 +105,13 @@
                      </ul>
                      <div class="panel panel-success mrgn-tp-lg">
 						<div class="panel-body">
-							<h3 class="text-success mrgn-tp-0 h3">
+							<h3 class="text-success mrgn-tp-0 h3" id="visually-hidden-text">
 								<span class="glyphicon glyphicon-ok-circle"></span> Good example: Visually-hidden text
 							</h3>
 							 <div class="panel panel-primary">
 								<div class="panel-body well mrgn-bttm-0">
+									<p class="wb-inv">Example begins</p>
+									
 									 <h4 class="mrgn-tp-0">How to Apply</h4>
 									 <p>[Teaser paragraph.]</p>
 									 <a href="article/how-to-apply.html">
@@ -115,6 +128,7 @@
 										width: 1px;
 										}
 									 </style>
+									<p class="wb-inv">Example ends</p>
 								</div>
 							</div>
 							
@@ -142,7 +156,7 @@
 					</div>
                   </section>
                   <section>
-                     <h2 id="Exposing-hidden-content-on-hover-or-focus">Exposing hidden content on hover or focus</h2>
+                     <h2 id="exposing-hidden-content-on-hover-or-focus">Exposing hidden content on hover or focus</h2>
                      <p>When exposing hidden content via pointer hover or keyboard focus, ensure the exposed content has these three properties:</p>
                      <dl>
                         <dt>Dismissable</dt>
@@ -155,8 +169,8 @@
                      <p>For more details, see Module 10: Input Modalities > Mouse Input > <a href="../module10/mouse-input.html#content-on-hover-or-focus">Content on Hover or Focus</a></p>
                   </section>
                   <section>
-                     <h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
-                     <details class="mrgn-tp-lg">
+                     <h2 id="hiding-content-wcag" class="wb-inv">Related WCAG resources</h2>
+                     <details class="mrgn-tp-lg grouped on">
                         <summary class="bg-info">Related WCAG resources</summary>
                         <h3>Success criteria</h3>
                         <ul>
@@ -170,15 +184,15 @@
                         </ul>
                      </details>
                   </section>
-                  <nav role="navigation">
-                     <h2 class="wb-inv">Document navigation</h2>
+                  <nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
                      <ul class="pager">
                         <li class="previous"><a rel="prev" href="css-generated.html">Previous - CSS-generated text and icons</a></li>
-                        <li class="next"><a rel="next" href="best-practice.html">Next - Best practice</a></li>
+                        <li class="next"><a rel="next" href="best-practice-mod-7.html">Next - Best practice</a></li>
                      </ul>
                   </nav>
-               </main>
-               <nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">
+               <a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
+               <nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">
                   <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
                   <section class="list-group menu list-unstyled">
                      <h3 class="wb-navcurr">Module 7 – Visual design and colours</h3>
@@ -190,7 +204,7 @@
                         <li><a class="list-group-item" href="textspacing.html">Text spacing</a></li>
                         <li><a class="list-group-item" href="css-generated.html">CSS-generated text and icons</a></li>
                         <li><a class="list-group-item active" aria-current="page" href="hiding-content.html">Hiding and exposing content on hover or focus</a></li>
-                        <li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+                        <li><a class="list-group-item" href="best-practice-mod-7.html">Best practice</a></li>
                      </ul>
                   </section>
                   <section class="list-group menu list-unstyled">
@@ -211,16 +225,18 @@
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Site map and best practice</h3>
+				<h3 class="wb-navcurr">Appendix</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
 						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
 					</li>
 					<li>
-						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
 				</ul>
 			</section>
                </nav>

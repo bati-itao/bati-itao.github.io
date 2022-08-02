@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -11,7 +8,6 @@
 	<!-- Meta data -->
 	<meta name="description"
 		content="Accessibility guidelines related to user notifications. Upon form submission, notify the user of success or of any errors.">
-	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -50,41 +46,61 @@
                 "title": "Module 6 - Forms",
                 
                 "href" : "index.html"
-            }],
-            "lngLinks": [{
-                "lang": "fr",
-                "href": "user-notifications-fr.html",
-                "text": "Français"
-            }],
-            "menuPath": "../../../ajax/menu-en.html"
-        });
+            },
+          {
+            "title": "User notifications",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "user-notifications-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-			
-	<h1 property="name" id="wb-cont">User notifications</h1>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">User notifications</h1>
 						
-	<nav role="navigation">
-    <div class="panel panel-default mrgn-tp-md">
-      <header class="panel-heading">
-        <h2 class="panel-title">Table of contents</h2>
-      </header>
-        <div class="panel-body">
-          <ul>
-            <li><a href="#user-notification">Designing user notification</a></li>
-			<li><a href="#main-heading">Good example: Use the main heading</a></li>
-			<li><a href="#title-element">Good example: Use the title element</a></li>
-			  <li><a href="#list-errors">Good example: List errors before the form</a></li>
-			  <li><a href="#in-line-feedback">Good example: In-line feedback</a></li>
-			  <li><a href="#wet-form-validation">WET form validation’s user notification</a></li>
-			  <li><a href="#wet-in-line-feedback">Good example: WET in-line feedback</a></li>
-			<li><a href="#resources1">Related WCAG resources</a></li>
-          </ul>
-        </div>
-      </div>
-	</nav>
-	
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table of contents</summary>
+							<ul>
+						<li>
+							<a href="../module6/user-notifications.html#user-notification">Designing user notification</a>
+						</li>
+						<li>
+							<a href="../module6/user-notifications.html#main-heading">Good example: Use the main heading</a>
+						</li>
+						<li>
+							<a href="../module6/user-notifications.html#title-element">Good example: Use the title element</a>
+						</li>
+						<li>
+							<a href="../module6/user-notifications.html#list-errors">Good example: List errors before the form</a>
+						</li>
+						<li>
+							<a href="../module6/user-notifications.html#in-line-feedback">Good example: In-line feedback</a>
+						</li>
+						<li>
+							<a href="../module6/user-notifications.html#wet-form-validation">WET form validation’s user notification</a>
+						</li>
+						<li>
+							<a href="../module6/user-notifications.html#wet-in-line-feedback">Good example: WET in-line feedback</a>
+						</li>
+						<li>
+							<a href="../module6/user-notifications.html#resources1">Related WCAG resources</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Expand all details</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Collapse all<span class="wb-inv"> details</span></button>
+			
 			<section>				
 				<h2 id="user-notification">Designing user notification</h2>
 				<p>Upon form submission, notify the user of success or of any errors.</p>
@@ -183,7 +199,7 @@
 							
 									<div class="form-group">
 								<label for="tel1" class="required"><span class="field-name">Telephone number (including area code)</span> <strong class="required">(required)</strong></label>
-								<input class="form-control" id="tel1" name="tel1" type="tel" autocomplete="tel" required="required" data-rule-phoneUS="true" />
+								<input class="form-control" id="tel1" name="tel1" type="tel" autocomplete="tel" required="required" data-rule-phoneus="true" />
 							</div>
 							
 							<input type="submit" value="Submit" class="btn btn-primary">
@@ -236,7 +252,7 @@
 				
 							<input type="submit" value="Submit" class="btn btn-primary">
 								
-							<style>.form-control-feedback { width: auto !important; left:15em; text-align:left; vertical-align:center;}</style>
+							<style>.form-control-feedback { width: auto !important; left:15em; text-align:left; vertical-align:middle;}</style>
 							
 							<p class="wb-inv">Example ends</p>
 						</div>
@@ -299,7 +315,7 @@ label { display: block; }</code></pre>
 								<label for="pcodeca1" class="required">
 									<span class="field-name"> Website URL (https://www.url.com) </span>  
 									<strong class="required">(required)</strong>
-									<strong id="pcodeca1-error" class="error"><br>
+									<strong id="pcodeca1-error" class="error"><br/>
 										<span class="label label-danger">
 											<span class="prefix">Error&nbsp;6: </span>
 											Please enter a valid URL.
@@ -333,7 +349,7 @@ label { display: block; }</code></pre>
 			
 			<section>				
 				<h2 id="resources1" class="wb-inv">Related WCAG resources</h2>
-				<details class="mrgn-tp-lg">
+				<details class="mrgn-tp-lg grouped on">
 					<summary class="bg-info">Related WCAG resources</summary>
 					<h3>Success criteria</h3>
 					<ul>
@@ -356,17 +372,17 @@ label { display: block; }</code></pre>
 			</section>
 		
 		
-	<nav role="navigation">
-		<h2 class="wb-inv">Document navigation</h2>
+	<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
 		<ul class="pager">
 			<li class="previous"><a rel="prev" href="validating-input.html">Previous - Validating input</a></li>
 			<li class="next"><a rel="next" href="multi-step-forms.html">Next - Multi-step forms</a></li>
 		</ul>
 	</nav>
-	</main>
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 			
 
-	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 	  <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Module 6 - Forms</h3>
@@ -381,7 +397,7 @@ label { display: block; }</code></pre>
 						<li><a class="list-group-item active" aria-current="page" href="user-notifications.html">User notifications</a></li>
 						<li><a class="list-group-item" href="multi-step-forms.html">Multi-step forms</a></li>
 						<li><a class="list-group-item" href="custom-controls.html">Custom controls</a></li>
-						<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-6.html">Best practice</a></li>
 						
 					</ul>
 			</section>
@@ -404,16 +420,18 @@ label { display: block; }</code></pre>
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Site map and best practice</h3>
+				<h3 class="wb-navcurr">Appendix</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
 						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
 					</li>
 					<li>
-						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
 				</ul>
 			</section>
 	</nav>

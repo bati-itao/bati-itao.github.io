@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="fr" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -49,40 +46,65 @@
                 "title": "Module 4 - Tableaux",
                 
                 "href" : "index-fr.html"
-            }],
-            "lngLinks": [{
-                "lang": "en",
-                "href": "caption-summary.html",
-                "text": "English"
-            }],
-            "menuPath": "../../../ajax/menu-fr.html"
-        });
+            },
+          {
+            "title": "Légende et sommaire",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "caption-summary.html",
+            "text": "English",
+          }],
+        "menuPath": "../../../ajax/menu-fr.html"
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Légende et sommaire</h1>
 		
-	
-		<h1 property="name" id="wb-cont">Légende et sommaire</h1>
-		
-		<nav role="navigation" aria-labelledby="nav-table">
-		  <div class="panel panel-default mrgn-tp-lg">
-			<header class="panel-heading">
-			  <h2 id="nav-table" class="panel-title">Table des matières</h2>
-			</header>
-			<div class="panel-body">
-			  <ul>
-				<li><a href="#overview-caption-summary">Aperçu - Légende et sommaire</a></li>
-				  <li><a href="#caption">Identifier un tableau à l’aide d’une légende</a></li>
-				  <li><a href="#summaries">Sommaire pour les tableaux complexes</a></li>
-				  <li><a href="#summary-inside-caption">Bon exemple&nbsp;: Imbriquer le sommaire dans l’élément caption</a></li>
-				  <li><a href="#aria-describedby">Bon exemple&nbsp;: Utiliser aria-describedby pour fournir un sommaire du tableau</a></li>
-				  <li><a href="#figcaption">Bon exemple&nbsp;: Utiliser l’élément figcaption pour contenir le sommaire du tableau</a></li>
-				  <li><a href="#caption-summary-wcag">Ressources WCAG connexes</a></li>
-			  </ul>
-			</div>
-		  </div>
-		</nav>
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table des matières</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table des matières</summary>
+							<ul>
+						<li>
+							<a href="#overview-caption-summary">Aperçu - Légende et sommaire</a>
+						</li>
+						<li>
+							<a href="#caption">Identifier un tableau à l’aide d’une légende</a>
+							<ul>
+								<li>
+									<a href="#good-example-caption">Bon exemple: Légende</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#summaries">Sommaire pour les tableaux complexes</a>
+							<ul>
+								<li>
+									<a href="#summary-inside-caption">Bon exemple : Imbriquer le sommaire dans l’élément caption</a>
+								</li>
+								<li>
+									<a href="#aria-describedby">Bon exemple : Utiliser aria-describedby pour fournir un sommaire du tableau</a>
+								</li>
+								<li>
+									<a href="#figcaption">Bon exemple : Utiliser l’élément figcaption pour contenir le sommaire du tableau</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#caption-summary-wcag">Ressources WCAG connexes</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+					<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Afficher tout les détails</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Réduire tout<span class="wb-inv">les détails</span></button>
+				
 		<section>
 			<h2 id="overview-caption-summary">Aperçu - Légende et sommaire</h2>
       <p>L’élément <code lang="en-CA">&lt;caption&gt;</code> précise le nom ou le titre d’un tableau.</p>
@@ -91,8 +113,9 @@
 		</section>
 		<section>
 			<h2 id="caption">Identifier un tableau à l’aide d’une légende</h2>
-			<p>L’élément <code lang="en-CA">&lt;caption&gt;</code> est le premier enfant de l’élément <code lang="en-CA">&lt;table&gt;</code>. Il sert de nom ou de titre abrégé pour le contenu du tableau. Sans légende, les utilisateurs du lecteur d’écran doivent naviguer dans les en-têtes de la rangée&nbsp;1 ou dans la colonne&nbsp;1, au moins pour déterminer de quoi traite le tableau. </p>
-			
+			<p>L’élément <code lang="en-CA">&lt;caption&gt;</code> est le premier enfant de l’élément <code lang="en-CA">&lt;table&gt;</code>. Il sert de nom ou de titre abrégé pour le contenu du tableau. Sans légende, les utilisateurs du lecteur d’écran doivent naviguer dans les en-têtes de la rangée&nbsp;1 ou dans la colonne&nbsp;1, au moins pour déterminer de quoi traite le tableau. </p>		
+			<p>Si la légende reproduit le titre précédent, masquer visuellement la légende avec la classe CSS de la BOEW. La reproduction est nécessaire puisque les utilisateurs du lecteur d’écran peuvent naviguer d’un tableau &#224; l’autre en appuyant sur une touche, omettant un titre précédent.</p>
+
 			<div class="panel panel-success  mrgn-tp-lg">
 				<div class="panel-body">
 					<h3 id="good-example-caption" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple: Légende</h3>			
@@ -126,7 +149,7 @@
 							<p class="wb-inv">L'exemple finit</p>	
 						</div>
 					</div>
-					<details class="mrgn-tp-lg">
+					<details class="mrgn-tp-lg grouped on">
 						<summary class="bg-info">Voir le HTML</summary>
 						<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-md"><code class="language-html">&lt;table&gt;
@@ -175,12 +198,10 @@
 						</ul>
 					</li>
 				</ul>
-		</section>
-		
-		<section>
+
 			<div class="panel panel-success  mrgn-tp-lg">
 				<div class="panel-body">
-					<h2 class="text-success mrgn-tp-0 h3" id="summary-inside-caption"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Imbriquer le sommaire dans l’élément caption</h2>
+					<h3 class="text-success mrgn-tp-0 h3" id="summary-inside-caption"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Imbriquer le sommaire dans l’élément caption</h3>
 					<p>Dans l’exemple ci-dessous, le tableau complexe montre le nombre d’étudiants inscrits dans deux pays pendant quatre semestres. L’élément <code lang="en-CA">&lt;caption&gt;</code> sert d’en-tête du tableau et fournit un sommaire décrivant la structure du tableau.</p>
 					<div class="panel panel-primary mrgn-tp-md">
 						<div class="panel-body well mrgn-bttm-0">
@@ -188,7 +209,7 @@
 							<table class="table table-bordered table-hover">
 							  <caption>
 								Renseignements sur le nombre d’étudiants inscrits
-								<div style="font-weight: normal">La première colonne contient le pays et les programmes; les autres colonnes présentent le semestre. Les cellules contiennent le nombre d’étudiants inscrits.</div>
+								<span style="font-weight: normal; display: block">La première colonne contient le pays et les programmes; les autres colonnes présentent le semestre. Les cellules contiennent le nombre d’étudiants inscrits.</span>
 							  </caption>
 							  <thead>
 								<tr>
@@ -204,62 +225,62 @@
 								  <th id="usa" class="span" colspan="5">É.-U.</th>
 								</tr>
 								<tr>
-								 <th headers="usa" id="usmba1">MBA</th>
-								 <td headers="usa usmba1 winter">40</td>
-								 <td headers="usa usmba1 spring">80</td>
-								 <td headers="usa usmba1 summer">125</td>
-								 <td headers="usa usmba1 fall">93</td>
+								 <th headers="usa" id="usmba">MBA</th>
+								 <td headers="usa usmba winter">40</td>
+								 <td headers="usa usmba spring">80</td>
+								 <td headers="usa usmba summer">125</td>
+								 <td headers="usa usmba fall">93</td>
 							   </tr>
 							   <tr>
-								 <th headers="usa" id="usms2">MS</th>
-								 <td headers="usa usms2 winter">60</td>
-								 <td headers="usa usms2 spring">83</td>
-								 <td headers="usa usms2 summer">152</td>
-								 <td headers="usa usms2 fall">132</td>
+								 <th headers="usa" id="usms">MS</th>
+								 <td headers="usa usms winter">60</td>
+								 <td headers="usa usms spring">83</td>
+								 <td headers="usa usms summer">152</td>
+								 <td headers="usa usms fall">132</td>
 							   </tr>
 							   <tr>
-								 <th headers="usa" id="usdip3">Diplôme</th>
-								 <td headers="usa usdip3 winter">66</td>
-								 <td headers="usa usdip3 spring">103</td>
-								 <td headers="usa usdip3 summer">115</td>
-								 <td headers="usa usdip3 fall">20</td>
+								 <th headers="usa" id="usdip">Diplôme</th>
+								 <td headers="usa usdip winter">66</td>
+								 <td headers="usa usdip spring">103</td>
+								 <td headers="usa usdip summer">115</td>
+								 <td headers="usa usdip fall">20</td>
 							   </tr>
 							   <tr>
 								 <th id="can" class="span" colspan="5">Canada</th>
 							   </tr>
 							   <tr>
-								 <th id="camba1" headers="can">MBA</th>
-								 <td headers="can camba1 winter">113</td>
-								 <td headers="can camba1 spring">81</td>
-								 <td headers="can camba1 summer">122</td>
-								 <td headers="can camba1 fall">33</td>
+								 <th id="camba" headers="can">MBA</th>
+								 <td headers="can camba winter">113</td>
+								 <td headers="can camba spring">81</td>
+								 <td headers="can camba summer">122</td>
+								 <td headers="can camba fall">33</td>
 							   </tr>
 							   <tr>
-								 <th id="cams2" headers="can">MS</th>
-								 <td headers="can cams2 winter">87</td>
-								 <td headers="can cams2 spring">53</td>
-								 <td headers="can cams2 summer">143</td>
-								 <td headers="can cams2 fall">90</td>
+								 <th id="cams" headers="can">MS</th>
+								 <td headers="can cams winter">87</td>
+								 <td headers="can cams spring">53</td>
+								 <td headers="can cams summer">143</td>
+								 <td headers="can cams fall">90</td>
 							   </tr>
 							   <tr>
-								 <th id="cadip3" headers="can">Diplôme</th>
-								 <td headers="can cadip3 winter">39</td>
-								 <td headers="can cadip3 spring">16</td>
-								 <td headers="can cadip3 summer">32</td>
-								 <td headers="can cadip3 fall">40</td>
+								 <th id="cadip" headers="can">Diplôme</th>
+								 <td headers="can cadip winter">39</td>
+								 <td headers="can cadip spring">16</td>
+								 <td headers="can cadip summer">32</td>
+								 <td headers="can cadip fall">40</td>
 								</tr>
 							  </tbody>
 							</table>
 							<p class="wb-inv">L'exemple finit</p>	
 						</div>
 					</div>
-					<details class="mrgn-tp-lg">
+					<details class="mrgn-tp-lg grouped on">
 						<summary class="bg-info">Voir le HTML</summary>
 						<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-md"><code class="language-html">&lt;table class="table table-bordered table-hover"&gt;
-  &lt;caption&gt;
-	Renseignements sur le nombre d’étudiants inscrits
-   &lt;div style="font-weight: normal"&gt;La première colonne contient le pays et les programmes; les autres colonnes présentent le semestre. Les cellules contiennent le nombre d’étudiants inscrits.&lt;/div&gt;
+   &lt;caption&gt;
+      Renseignements sur le nombre d’étudiants inscrits
+      &lt;div style="font-weight: normal"&gt;La première colonne contient le pays et les programmes; les autres colonnes présentent le semestre. Les cellules contiennent le nombre d’étudiants inscrits.&lt;/div&gt;
   &lt;/caption&gt;
   &lt;thead&gt;
    &lt;tr&gt;
@@ -275,49 +296,49 @@
 	  &lt;th id="usa" class="span" colspan="5"&gt;É.-U.&lt;/th&gt;
    &lt;/tr&gt;
    &lt;tr&gt;
-	 &lt;th headers="usa" id="usmba1"&gt;MBA&lt;/th&gt;
-	 &lt;td headers="usa usmba1 winter"&gt;40&lt;/td&gt;
-	 &lt;td headers="usa usmba1 spring"&gt;80&lt;/td&gt;
-	 &lt;td headers="usa usmba1 summer"&gt;125&lt;/td&gt;
-	 &lt;td headers="usa usmba1 fall"&gt;93&lt;/td&gt;
+	 &lt;th headers="usa" id="usmba"&gt;MBA&lt;/th&gt;
+	 &lt;td headers="usa usmba winter"&gt;40&lt;/td&gt;
+	 &lt;td headers="usa usmba spring"&gt;80&lt;/td&gt;
+	 &lt;td headers="usa usmba summer"&gt;125&lt;/td&gt;
+	 &lt;td headers="usa usmba fall"&gt;93&lt;/td&gt;
    &lt;/tr&gt;
    &lt;tr&gt;
-	 &lt;th headers="usa" id="usms2"&gt;MS&lt;/th&gt;
-	 &lt;td headers="usa usms2 winter"&gt;60&lt;/td&gt;
-	 &lt;td headers="usa usms2 spring"&gt;83&lt;/td&gt;
-	 &lt;td headers="usa usms2 summer"&gt;152&lt;/td&gt;
-	 &lt;td headers="usa usms2 fall"&gt;132&lt;/td&gt;
+	 &lt;th headers="usa" id="usms"&gt;MS&lt;/th&gt;
+	 &lt;td headers="usa usms winter"&gt;60&lt;/td&gt;
+	 &lt;td headers="usa usms spring"&gt;83&lt;/td&gt;
+	 &lt;td headers="usa usms summer"&gt;152&lt;/td&gt;
+	 &lt;td headers="usa usms fall"&gt;132&lt;/td&gt;
    &lt;/tr&gt;
    &lt;tr&gt;
-	 &lt;th headers="usa" id="usdip3"&gt;Diplôme&lt;/th&gt;
-	 &lt;td headers="usa usdip3 winter"&gt;66&lt;/td&gt;
-	 &lt;td headers="usa usdip3 spring"&gt;103&lt;/td&gt;
-	 &lt;td headers="usa usdip3 summer"&gt;115&lt;/td&gt;
-	 &lt;td headers="usa usdip3 fall"&gt;20&lt;/td&gt;
+	 &lt;th headers="usa" id="usdip"&gt;Diplôme&lt;/th&gt;
+	 &lt;td headers="usa usdip winter"&gt;66&lt;/td&gt;
+	 &lt;td headers="usa usdip spring"&gt;103&lt;/td&gt;
+	 &lt;td headers="usa usdip summer"&gt;115&lt;/td&gt;
+	 &lt;td headers="usa usdip fall"&gt;20&lt;/td&gt;
    &lt;/tr&gt;
    &lt;tr&gt;
 	 &lt;th id="can" class="span" colspan="5"&gt;Canada&lt;/th&gt;
    &lt;/tr&gt;
    &lt;tr&gt;
-	 &lt;th id="camba1" headers="can"&gt;MBA&lt;/th&gt;
-	 &lt;td headers="can camba1 winter"&gt;113&lt;/td&gt;
-	 &lt;td headers="can camba1 spring"&gt;81&lt;/td&gt;
-	 &lt;td headers="can camba1 summer"&gt;122&lt;/td&gt;
-	 &lt;td headers="can camba1 fall"&gt;33&lt;/td&gt;
+	 &lt;th id="camba" headers="can"&gt;MBA&lt;/th&gt;
+	 &lt;td headers="can camba winter"&gt;113&lt;/td&gt;
+	 &lt;td headers="can camba spring"&gt;81&lt;/td&gt;
+	 &lt;td headers="can camba summer"&gt;122&lt;/td&gt;
+	 &lt;td headers="can camba fall"&gt;33&lt;/td&gt;
    &lt;/tr&gt;
    &lt;tr&gt;
-	 &lt;th id="cams2" headers="can"&gt;MS&lt;/th&gt;
-	 &lt;td headers="can cams2 winter"&gt;87&lt;/td&gt;
-	 &lt;td headers="can cams2 spring"&gt;53&lt;/td&gt;
-	 &lt;td headers="can cams2 summer"&gt;143&lt;/td&gt;
-	 &lt;td headers="can cams2 fall"&gt;90&lt;/td&gt;
+	 &lt;th id="cams" headers="can"&gt;MS&lt;/th&gt;
+	 &lt;td headers="can cams winter"&gt;87&lt;/td&gt;
+	 &lt;td headers="can cams spring"&gt;53&lt;/td&gt;
+	 &lt;td headers="can cams summer"&gt;143&lt;/td&gt;
+	 &lt;td headers="can cams fall"&gt;90&lt;/td&gt;
    &lt;/tr&gt;
    &lt;tr&gt;
-	 &lt;th id="cadip3" headers="can"&gt;Diplôme&lt;/th&gt;
-	 &lt;td headers="can cadip3 winter"&gt;39&lt;/td&gt;
-	 &lt;td headers="can cadip3 spring"&gt;16&lt;/td&gt;
-	 &lt;td headers="can cadip3 summer"&gt;32&lt;/td&gt;
-	 &lt;td headers="can cadip3 fall"&gt;40&lt;/td&gt;
+	 &lt;th id="cadip" headers="can"&gt;Diplôme&lt;/th&gt;
+	 &lt;td headers="can cadip winter"&gt;39&lt;/td&gt;
+	 &lt;td headers="can cadip spring"&gt;16&lt;/td&gt;
+	 &lt;td headers="can cadip summer"&gt;32&lt;/td&gt;
+	 &lt;td headers="can cadip fall"&gt;40&lt;/td&gt;
    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;</code>
@@ -326,12 +347,10 @@
 						</details>
 					</div>
 				</div>
-			</section>
-			
-			<section>
+
 				<div class="panel panel-success  mrgn-tp-lg">
 					<div class="panel-body">
-						<h2 class="text-success mrgn-tp-0 h3" id="aria-describedby"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple&nbsp;: Utiliser aria-describedby pour fournir un sommaire du tableau</h2>
+						<h3 class="text-success mrgn-tp-0 h3" id="aria-describedby"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Bon exemple&nbsp;: Utiliser aria-describedby pour fournir un sommaire du tableau</h3>
 						<p>Dans cet exemple, le sommaire précède le tableau dans un élément de paragraphe. Le tableau prend un attribut <code lang="en-CA">aria-describedby</code> qui contient la valeur d’attribut <code lang="en-CA">id</code> du paragraphe.</p>
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
@@ -341,13 +360,12 @@
 						<p class="wb-inv">Fin du code</p>
 					</div>
 				</div>
-			</section>
-			<section>
+
 				<div class="panel panel-success  mrgn-tp-lg">
 					<div class="panel-body">
-						<h2 class="text-success mrgn-tp-0 h3" id="figcaption"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Utiliser l’élément figcaption pour contenir le sommaire du tableau</h2>						
+						<h3 class="text-success mrgn-tp-0 h3" id="figcaption"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Utiliser l’élément figcaption pour contenir le sommaire du tableau</h3>						
 						<p>Dans cet exemple, le tableau est enveloppé dans un élément <code lang="en-CA">&lt;figure&gt;</code> tandis que l’élément <code lang="en-CA">&lt;figcaption&gt;</code> contient la légende et le texte du sommaire.</p>
-						<p>Le titre du tableau dans l’élément <code lang="en-CA">&lt;figcaption&gt</code>; est explicitement associé au tableau en utilisant l’attribut <code lang="en-CA">aria-labelledby</code>. </p>
+						<p>Le titre du tableau dans l’élément <code lang="en-CA">&lt;figcaption&gt;</code>; est explicitement associé au tableau en utilisant l’attribut <code lang="en-CA">aria-labelledby</code>. </p>
 						<p>Le paragraphe sommaire de l’élément <code lang="en-CA">&lt;figcaption&gt;</code> est explicitement associé au tableau en utilisant l’attribut <code lang="en-CA">aria-describedby</code>.</p>
 						
 						<div class="panel panel-primary mrgn-tp-md">
@@ -362,36 +380,36 @@
 										<thead>
 										<tr>
 										  <td></td>
-										  <th id="winter" scope="col">Hiver</th>
-										  <th id="spring" scope="col">Printemps</th>
-										  <th id="summer" scope="col">Été</th>
-										  <th id="fall" scope="col">Automne</th>
+										  <th id="winter-b" scope="col">Hiver</th>
+										  <th id="spring-b" scope="col">Printemps</th>
+										  <th id="summer-b" scope="col">Été</th>
+										  <th id="fall-b" scope="col">Automne</th>
 										</tr>
 									  </thead>
 									  <tbody>
 										<tr>
-										  <th id="usa" class="span" colspan="5" scope="colgroup">É.-U.</th>
+										  <th id="usa-b" class="span" colspan="5" scope="colgroup">É.-U.</th>
 										</tr>
 										<tr>
-										  <th headers="usa" id="usmba1">MBA</th>
-										  <td headers="usa usmba1 winter">40</td>
-										  <td headers="usa usmba1 spring">80</td>
-										  <td headers="usa usmba1 summer">125</td>
-										  <td headers="usa usmba1 fall">93</td>
+										  <th headers="usa-b" id="usmba1">MBA</th>
+										  <td headers="usa-b usmba1 winter-b">40</td>
+										  <td headers="usa-b usmba1 spring-b">80</td>
+										  <td headers="usa-b usmba1 summer-b">125</td>
+										  <td headers="usa-b usmba1 fall-b">93</td>
 										</tr>
 										<tr>
-										  <th headers="usa" id="usms2">MS</th>
-										  <td headers="usa usms2 winter">60</td>
-										  <td headers="usa usms2 spring">83</td>
-										  <td headers="usa usms2 summer">152</td>
-										  <td headers="usa usms2 fall">132</td>
+										  <th headers="usa-b" id="usms2">MS</th>
+										  <td headers="usa-b usms2 winter-b">60</td>
+										  <td headers="usa-b usms2 spring-b">83</td>
+										  <td headers="usa-b usms2 summer-b">152</td>
+										  <td headers="usa-b usms2 fall-b">132</td>
 										</tr>
 										<tr>
-										  <th headers="usa" id="usdip3"> Diplôme </th>
-										  <td headers="usa usdip3 winter"> 66 </td>
-										  <td headers="usa usdip3 spring"> 103 </td>
-										  <td headers="usa usdip3 summer"> 115 </td>
-										  <td headers="usa usdip3 fall"> 20 </td>
+										  <th headers="usa-b" id="usdip3"> Diplôme </th>
+										  <td headers="usa-b usdip3 winter-b"> 66 </td>
+										  <td headers="usa-b usdip3 spring-b"> 103 </td>
+										  <td headers="usa-b usdip3 summer-b"> 115 </td>
+										  <td headers="usa-b usdip3 fall-b"> 20 </td>
 										</tr>
 									  </tbody>
 									  </table>
@@ -399,48 +417,48 @@
 								<p class="wb-inv">L'exemple finit</p>	
 							</div>
 						</div>
-						<details class="mrgn-tp-lg">
+						<details class="mrgn-tp-lg grouped on">
 							<summary class="bg-info">Voir le HTML</summary>
 							<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-md"><code class="language-html">&lt;figure&gt;
      &lt;figcaption&gt;
       &lt;strong id="studentinfo-caption"&gt;États-Unis&nbsp;: Informations sur le nombre d’étudiants inscrits&lt;/strong&gt;
-      &lt;div id="studentinfo-summary"&gt;La première colonne indique le pays et les différents programmes; les autres colonnes indiquent le type de semestre et le nombre d’étudiants inscrits.&lt;/div&gt;
+      &lt;span id="studentinfo-summary" style="display: block"&gt;La première colonne indique le pays et les différents programmes; les autres colonnes indiquent le type de semestre et le nombre d’étudiants inscrits.&lt;/span&gt;
      &lt;/figcaption&gt;
      &lt;table class="table table-bordered table-hover" aria-labelledby="studentinfo-caption" aria-describedby="studentinfo-summary"&gt;
       &lt;thead&gt;
       &lt;tr&gt;
         &lt;td&gt;&lt;/td&gt;
-        &lt;th id="winter" scope="col"&gt;Hiver&lt;/th&gt;
-        &lt;th id="spring" scope="col"&gt;Printemps&lt;/th&gt;
-        &lt;th id="summer" scope="col"&gt;Été&lt;/th&gt;
-        &lt;th id="fall" scope="col"&gt;Automne&lt;/th&gt;
+        &lt;th id="winter-b" scope="col"&gt;Hiver&lt;/th&gt;
+        &lt;th id="spring-b" scope="col"&gt;Printemps&lt;/th&gt;
+        &lt;th id="summer-b" scope="col"&gt;Été&lt;/th&gt;
+        &lt;th id="fall-b" scope="col"&gt;Automne&lt;/th&gt;
       &lt;/tr&gt;
      &lt;/thead&gt;
      &lt;tbody&gt;
       &lt;tr&gt;
-        &lt;th id="usa" class="span" colspan="5" scope="colgroup"&gt;É.-U.&lt;/th&gt;
+        &lt;th id="usa-b" class="span" colspan="5" scope="colgroup"&gt;É.-U.&lt;/th&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-        &lt;th headers="usa" id="usmba1"&gt;MBA&lt;/th&gt;
-        &lt;td headers="usa usmba1 winter"&gt;40&lt;/td&gt;
-        &lt;td headers="usa usmba1 spring"&gt;80&lt;/td&gt;
-        &lt;td headers="usa usmba1 summer"&gt;125&lt;/td&gt;
-        &lt;td headers="usa usmba1 fall"&gt;93&lt;/td&gt;
+        &lt;th headers="usa-b" id="usmba1"&gt;MBA&lt;/th&gt;
+        &lt;td headers="usa-b usmba1 winter-b"&gt;40&lt;/td&gt;
+        &lt;td headers="usa-b usmba1 spring-b"&gt;80&lt;/td&gt;
+        &lt;td headers="usa-b usmba1 summer-b"&gt;125&lt;/td&gt;
+        &lt;td headers="usa-b usmba1 fall-b"&gt;93&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-        &lt;th headers="usa" id="usms2"&gt;MS&lt;/th&gt;
-        &lt;td headers="usa usms2 winter"&gt;60&lt;/td&gt;
-        &lt;td headers="usa usms2 spring"&gt;83&lt;/td&gt;
-        &lt;td headers="usa usms2 summer"&gt;152&lt;/td&gt;
-        &lt;td headers="usa usms2 fall"&gt;132&lt;/td&gt;
+        &lt;th headers="usa-b" id="usms2"&gt;MS&lt;/th&gt;
+        &lt;td headers="usa-b usms2 winter-b"&gt;60&lt;/td&gt;
+        &lt;td headers="usa-b usms2 spring-b"&gt;83&lt;/td&gt;
+        &lt;td headers="usa-b usms2 summer-b"&gt;152&lt;/td&gt;
+        &lt;td headers="usa-b usms2 fall-b"&gt;132&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-        &lt;th headers="usa" id="usdip3"&gt; Diplôme &lt;/th&gt;
-        &lt;td headers="usa usdip3 winter"&gt; 66 &lt;/td&gt;
-        &lt;td headers="usa usdip3 spring"&gt; 103 &lt;/td&gt;
-        &lt;td headers="usa usdip3 summer"&gt; 115 &lt;/td&gt;
-        &lt;td headers="usa usdip3 fall"&gt; 20 &lt;/td&gt;
+        &lt;th headers="usa-b" id="usdip3"&gt; Diplôme &lt;/th&gt;
+        &lt;td headers="usa-b usdip3 winter-b"&gt; 66 &lt;/td&gt;
+        &lt;td headers="usa-b usdip3 spring-b"&gt; 103 &lt;/td&gt;
+        &lt;td headers="usa-b usdip3 summer-b"&gt; 115 &lt;/td&gt;
+        &lt;td headers="usa-b usdip3 fall-b"&gt; 20 &lt;/td&gt;
       &lt;/tr&gt;
      &lt;/tbody&gt;
    &lt;/table&gt;
@@ -453,46 +471,46 @@
 			</section>
 			<section>
 				<h2 class="wb-inv" id="caption-summary-wcag">Ressources WCAG connexes</h2>
-				<details class="mrgn-tp-lg">
+				<details class="mrgn-tp-lg grouped on">
 					<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En anglais seulement.</p>
+                       
                         
 					<h3>Critères de succès</h3>
 					<ul>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships" lang="en-CA">1.3.1: Info and Relationships</a>
+							<a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/content-structure-separation-programmatic.html" data-code="1.3.1">1.3.1 : Information et relations</a>
 						</li>
 					</ul>
 					<h3>Techniques</h3>
 					<ul>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H51" lang="en-CA">H51: Using table markup to present tabular information</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H51" hreflang="en-CA" data-code="H51">H51&nbsp;: Utiliser le balisage des tableaux pour présenter l'information tabulaire (en anglais)</a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H39" lang="en-CA">H39: Using caption elements to associate data table captions with data tables</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H39" hreflang="en-CA" data-code="H39">H39&nbsp;: Utiliser l'élément caption pour associer un titre de tableau avec les données du tableau (en anglais)</a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA1" lang="en-CA">ARIA1: Using aria-describedby property to provide a descriptive, programmatically determined label</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA1" hreflang="en-CA" data-code="ARIA1">ARIA1&nbsp;: Utiliser la propriété ARIA describedby pour fournir une étiquette descriptive aux contrôles de saisie (en anglais)</a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA16" lang="en-CA">ARIA16: Using aria-labelledby to provide a name for user interface controls</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA16" hreflang="en-CA" data-code="ARIA16">ARIA16 : Utiliser aria-labelledby pour attribuer un nom à des commandes d’interface d’utilisateur  (en anglais)</a>
 						</li>
 					</ul>
 				</details>
 			</section>
 			
-			<nav role="navigation" aria-labelledby="nav-document">
-				<h2 id="nav-document" class="wb-inv">Navigation dans le document</h2>
+			<nav aria-labelledby="nav-pagination">
+				<h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
 				<ul class="pager">
 				 <li class="previous"> <a rel="prev" href="multi-level-headers-fr.html">Précédent - En-têtes à plusieurs niveaux</a> </li>
 				  <li class="next"> <a rel="next" href="additional-tips-and-tricks-fr.html">Suivant - Conseils et astuces supplémentaires</a> </li>
 				</ul>
 			</nav>
-		</main>
+		<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 			
 		
 
-		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation" aria-labelledby="wb-sec-h">	
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 			
 			
 
@@ -512,7 +530,7 @@
 						<li><a class="list-group-item active" href="caption-summary-fr.html">Légende et sommaire</a></li>
 						<li><a class="list-group-item" href="additional-tips-and-tricks-fr.html">Conseils et astuces supplémentaires</a></li>
 						<li><a class="list-group-item" href="tables-resources-fr.html">Ressources se rapportant aux tableaux dans (BOEW)</a></li>
-						<li><a class="list-group-item" href="best-practice-fr.html">Pratiques exemplaire</a></li>	
+						<li><a class="list-group-item" href="best-practice-mod-4-fr.html">Pratiques exemplaire</a></li>	
 					</ul>
 			
 			</section>
@@ -537,7 +555,7 @@
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+				<h3 class="wb-navcurr">Appendice</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
@@ -546,7 +564,9 @@
 					<li>
 						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">Vue WCAG</a>
+					</li>
 				</ul>
 			</section>
 		
@@ -560,7 +580,7 @@
 			
 </div>
 <div id="def-preFooter2"></div>
-		<script src="../../../scripts/preFooter2.min.js"></script>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
 <div id="def-preFooter"></div>
 		<script src="../../../scripts/preFooter.min.js"></script>
 </div>	

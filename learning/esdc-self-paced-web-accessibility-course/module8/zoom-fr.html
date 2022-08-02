@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="fr" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -11,7 +8,6 @@
 	<!-- Meta data -->
 	<meta name="description"
 		content="Lignes directrices sur l’accessibilité relative au zoom. Décrit les exigences relatives au reformage du contenu et au redimensionnement du texte.">
-	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -49,38 +45,59 @@
                 },
             {
                     "title": "Module 8 - Zoom et conception adaptée",
-                    "href" : "index-fr.html"                    
+                                      
                     
                     "href" : "index-fr.html"
-            }],
-            "lngLinks": [{
-                "lang": "en",
-                "href": "zoom.html",
-                "text": "English"
-            }],
-            "menuPath": "../../../ajax/menu-fr.html"
-        });
+            },
+          {
+            "title": "Zoom",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "zoom.html",
+            "text": "English",
+          }],
+        "menuPath": "../../../ajax/menu-fr.html"
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-			
-	<h1 property="name" id="wb-cont">Zoom</h1>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Zoom</h1>
 						
-	<nav role="navigation">
-    <div class="panel panel-default mrgn-tp-md">
-      <header class="panel-heading">
-        <h2 class="panel-title">Table des matières</h2>
-      </header>
-        <div class="panel-body">
-          <ul>
-            <li><a href="#reflow-content">Reformater le contenu</a></li>
-			<li><a href="#resize-text">Redimensionner le texte</a></li>		
-          </ul>
-        </div>
-      </div>
-	</nav>
-	
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table des matières</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table des matières</summary>
+							<ul>
+						<li>
+							<a href="#reflow-content">Reformater le contenu</a>
+							<ul>
+								<li>
+									<a href="#good-example-reflow-content">Bon exemple : Reformater le contenu</a>
+								</li>
+								<li>
+									<a href="#zoom-reflow-content-wcag">Ressources WCAG connexes<span class="wb-inv"> (Reformater le contenu)</span></a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#resize-text">Redimensionner le texte</a>
+							<ul>
+								<li>
+									<a href="#zoom-resize-text-wcag">Ressources WCAG connexes<span class="wb-inv"> (Redimensionner le texte)</span></a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+						</details>
+					</nav>
+	<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Afficher tout les détails</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Réduire tout<span class="wb-inv">les détails</span></button>
+				
 	<section>
 		<h2 id="reflow-content">Reformater le contenu</h2>
 		<p>Certains utilisateurs malvoyants ont besoin d’agrandir considérablement le texte et de le lire dans une seule colonne. Lorsque ces utilisateurs effectuent un zoom sur le navigateur pour régler le contenu à 400 %, les WCAG exigent que le contenu soit reformaté dans une seule colonne afin qu’il ne soit pas nécessaire de le faire défiler dans plus d’une direction. Le critère de succès pertinent se lit comme suit :</p>
@@ -114,7 +131,7 @@
 		<p>Notez que ce ne sont pas tous les utilisateurs malvoyants qui profitent du grossissement. Un utilisateur ayant une vision tubulaire peut être en mesure de lire très bien le texte d’un paragraphe tout en profitant d’autres considérations de conception, comme placer des champs de formulaire près de leurs étiquettes.</p>
 		<div class="panel panel-success mrgn-tp-lg">
 			<div class="panel-body">
-				<h3 class="text-success mrgn-tp-0 h3">
+				<h3 class="text-success mrgn-tp-0 h3" id="good-example-reflow-content">
 					<span class="glyphicon glyphicon-ok-circle"></span> Bon exemple&nbsp;: Reformater le contenu
 				</h3>
 				<p>Dans cet exemple, lorsque la page est réduite à 320&nbsp;pixels, la barre de navigation horizontale s’effondre en une pile verticale dans une seule colonne. <a href="example-reflow-fr.html" target="_blank">Voir cet exemple en action<span class="wb-inv"> (S'ouvre dans un nouvel onglet)</span></a>. Rétrécissez la fenêtre du navigateur pour déclencher la disposition de la colonne unique.</p>
@@ -124,13 +141,17 @@
 					<h4>Mode bureau</h4>
 					<div class="panel panel-primary">
 						<div class="panel-body mrgn-bttm-0">
+							<p class="wb-inv">L'exemple commence</p>
 							<img src="images/image1.png" class="img-responsive" alt="En mode bureau, les quatre éléments du menu principal s’affichent horizontalement.">
+							<p class="wb-inv">L'exemple finit</p>
 						</div>
 					</div>
 					<h4>Vue de l’émulateur mobile à une largeur de 320&nbsp;pixels</h4>
 					<div class="panel panel-primary">
 						<div class="panel-body mrgn-bttm-0">
+							<p class="wb-inv">L'exemple commence</p>
 							<img src="images/image2.png" class="img-responsive" alt="En mode mobile, les quatre articles du menu principal sont empilés les uns sur les autres verticalement.">
+							<p class="wb-inv">L'exemple finit</p>
 						</div>
 					</div>
 				</details>
@@ -250,24 +271,24 @@
 			</div>
 		</div>
 
-		<h3 class="wb-inv">Ressources WCAG connexes</h3>
-		<details class="mrgn-tp-lg">
+		<h3 class="wb-inv" id="zoom-reflow-content-wcag">Ressources WCAG connexes</h3>
+		<details class="mrgn-tp-lg grouped on">
 			<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En anglais seulement.</p>
+                       
 
 			<h4>Critères de succès</h4>
 			<ul>
 				<li>
-					<a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow" lang="en-CA">1.4.10: Reflow</a>
+					<a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow" hreflang="en-CA" data-code="1.4.10">1.4.10 : Redistribution  (en anglais)</a>
 				</li>
 			</ul>
 			<h4>Techniques</h4>
 			<ul>
 				<li>
-					<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C32" lang="en-CA">C32: Using media queries and grid CSS to reflow columns</a>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C32" hreflang="en-CA" data-code="C32">C32 : Utiliser les requêtes des médias et la grille CSS pour reformater les colonnes (en anglais)</a>
 				</li>
 				<li>
-					<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C31" lang="en-CA">C31: Using CSS Flexbox to reflow content</a>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C31" hreflang="en-CA" data-code="C31">C31 : Utiliser la CSS Flexbox pour reformater le contenu (en anglais)</a>
 				</li>
 			</ul>
 		</details>
@@ -281,33 +302,33 @@
 			<p>Le groupe de travail a découvert de nombreux malentendus sur la façon de tester cette défaillance. Nous prévoyons deréviser cette défaillance dans une prochaine mise à jour. D’ici là, si le contenu satisfait au critère de succès en utilisant l’une des techniques suffisantes énumérées, il ne satisfait pas à cette défaillance.</p>
 		</blockquote>
 		<p>Une des techniques suffisantes pour satisfaire aux critères de succès&nbsp;1.4.4&nbsp;: Redimensionner le texte consiste simplement à utiliser HTML5, pour lequel tous les navigateurs modernes prennent en charge le zoom (la technique WCAG&nbsp;G142, dont le lien est indiqué ci-dessous). Le zoom par défaut du navigateur n’est pas un zoom texte seulement, mais il est suffisant pour satisfaire au critère de succès. Toutefois, les conceptions mobiles doivent tout de même permettre le zoom par pincement, comme décrit dans la section <a href="responsive-design-fr.html">Conception adaptée </a> &gt; <a href="responsive-design-fr.html#section4">Définir la zone d’affichage, ci-dessous</a>.</p>
-		<h3 class="wb-inv">Ressources WCAG connexes</h3>
-		<details class="mrgn-tp-lg">
+		<h3 class="wb-inv" id="zoom-resize-text-wcag">Ressources WCAG connexes</h3>
+		<details class="mrgn-tp-lg grouped on">
 			<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En anglais seulement.</p>
+                       
 			
 			<h4>Critères de succès</h4>
 			<ul>
 				<li>
-					<a href="https://www.w3.org/WAI/WCAG21/Understanding/resize-text" lang="en-CA">1.4.4: Resize text</a>
+					<a href="https://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/visual-audio-contrast-scale.html" data-code="1.4.4">1.4.4 : Redimensionnement du texte</a>
 				</li>
 			</ul>
 			<h4>Techniques</h4>
 			<ul>
 				<li>
-					<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G142" lang="en-CA">G142: Using a technology that has commonly-available user agents that support zoom</a>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G142" hreflang="en-CA" data-code="G142">G142&nbsp;: Utiliser une technologie qui permet l'utilisation du zoom dans des agents utilisateur communément disponibles (en anglais)</a>
 				</li>
 				<li>
-					<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C28" lang="en-CA">C28: Specifying the size of text containers using em units</a>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C28" hreflang="en-CA" data-code="C28">C28&nbsp;: Spécifier la taille des conteneurs de texte en utilisant des unités em (en anglais)</a>
 				</li>
 				<li>
-					<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G179" lang="en-CA">G179: Ensuring that there is no loss of content or functionality when the text resizes and text containers do not change their width</a>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G179" hreflang="en-CA" data-code="G179">G179&nbsp;: S'assurer qu'il n'y a aucune perte de contenu ou de fonctionnalité lorsque le texte est redimensionné et que les conteneurs ne le sont pas (en anglais)</a>
 				</li>
 			</ul>
 			<h4>Échecs</h4>
 			<ul>
 				<li>
-					<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F69" lang="en-CA">F69: Failure of Success Criterion 1.4.4 when resizing visually rendered text up to 200 percent causes the text, image or controls to be clipped, truncated or obscured</a>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F69" hreflang="en-CA" data-code="F69">F69&nbsp;: Échec du critère de succès 1.4.4 survenant quand le texte agrandi jusqu'à 200 % fait en sorte que le texte, les images ou les composants d'interface sont rognés, tronqués ou masqués (en anglais)</a>
 				</li>
 			</ul>
 			<h4>Règles d’essai</h4>
@@ -321,17 +342,17 @@
 		
 
 		
-	<nav role="navigation">
-		<h2 class="wb-inv">Navigation dans le document</h2>
+	<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
 		<ul class="pager">
 			<li class="previous"><a rel="prev" href="introduction-fr.html">Précédent - Introduction</a></li>
 			<li class="next"><a rel="next" href="responsive-design-fr.html">Suivant - Conception adaptée</a></li>
 		</ul>
 	</nav>
-	</main>
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 			
 
-	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 		<h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Module 8 - Zoom et conception adaptée</h3>
@@ -355,7 +376,7 @@
 							</ul>
 						</li>
 						<li><a class="list-group-item" href="orientation-fr.html">Orientation</a></li>
-						<li><a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-8-fr.html">Pratique exemplaire</a></li>
 						
 					</ul>
 			</section>
@@ -378,7 +399,7 @@
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+				<h3 class="wb-navcurr">Appendice</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
@@ -387,7 +408,9 @@
 					<li>
 						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">Vue WCAG</a>
+					</li>
 				</ul>
 			</section>
 	</nav>

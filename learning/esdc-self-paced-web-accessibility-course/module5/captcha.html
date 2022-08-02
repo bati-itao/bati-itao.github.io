@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>CAPTCHA – Module 5 - Images</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Accessibility guidelines related to CAPTCHA.">
+	<meta name="robots" content="noindex">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../../index.html"
+            },
+			{
+                "title": "Web accessibility course",
+                "href" : "../index.html"
+            },
+			{
+               "title": "Module 5 - images",
+                
+                "href" : "index.html"
+            },
+            {
+               "title": "CAPTCHA",
+            }],
+            "lngLinks": [{
+                "lang": "fr",
+                "href": "captcha-fr.html",
+                "text": "Français"
+            }],
+            "menuPath": "../../../ajax/menu-en.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+			
+		<h1 property="name" id="wb-cont">CAPTCHA</h1>
+						
+		<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+			<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+			<details class="mrgn-bttm-lg on" open="open">
+				<summary class="bg-info">Table of contents</summary>
+				<ul>
+					<li>
+						<a href="#captcha">Designing with CAPTCHA</a>
+					</li>
+					<li>
+						<a href="#wcag">Related WCAG resources</a>
+					</li>
+				</ul>
+			</details>
+		</nav>
+			<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Expand all details</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Collapse all<span class="wb-inv"> details</span></button>
+			
+		<section>
+			<h2 id="captcha">Designing with CAPTCHA</h2>
+			<p>Web sites use <dfn>CAPTCHA</dfn> to protect their mail systems from spam robots, presenting the user with a simple challenge that a robot would find difficult. The word is an initialism for "Completely Automated Public Turing test to tell Computers and Humans Apart".</p>
+			
+			<div class="panel panel-primary mrgn-tp-md">
+				<div class="panel-body mrgn-bttm-0">
+					<p class="wb-inv">Example begins</p>
+					<figure class="mrgn-tp-sm">
+					   <img alt="smwm" src="images/captcha-src-wikimedia.jpg"/>
+					   <figcaption class="mrgn-tp-sm">This CAPTCHA of "smwm" obscures its message from computer interpretation by adding a slight background colour gradient and twisting the letters.</figcaption>
+				   </figure>
+					<p class="wb-inv">Example ends</p>	
+				</div>
+			</div>
+				
+			<p>The primary barrier with any traditional CAPTCHA is that it serves a test to a single sense (sight or sound), which excludes people with related disabilities.</p>
+			
+			<p>To make CAPTCHA as accessible as possible, WCAG 2.1 requires two Techniques and recommends some optional steps to reach the edge cases:</p>
+			<ul>
+				<li>Provide two different modalities of CAPTCHA. For example, provide a visual task, such as typing words displayed in a image, and an audio task, such as typing letters spoken in an audio file</li>
+				<li>Provide alt text saying the CAPTCHA requires completing a task and what type of task it is; for instance, "Type the word in the image" or "Type the letters spoken in the audio". When an alternate version of a CAPTCHA is available, include instructions in the alt text on how to find it.</li>
+				<li>Optional steps:
+					<ol>
+						<li>Provide more than two modalities of CAPTCHAs. For instance, a third test might be a logic puzzle.</li>
+						<li>Provide access to a human customer service representative who can bypass CAPTCHA.</li>
+						<li>Don't require CAPTCHAs for authorized users.</li>
+					</ol>
+				</li>
+			</ul>			
+			 <p>Recent CAPTCHA technology determines a human user by analyzing, among other things, the user's cookies, plugins, and javascript objects:</p>
+			<ul>
+				<li>The W3C Draft Note <a href="https://www.w3.org/TR/turingtest/">Inaccessibility of CAPTCHA</a> reports that Google's <a href="https://www.w3.org/TR/turingtest/#version-2-are-you-a-robot">reCAPTCHA v2</a> overwhelmingly dominates CAPTCHA deployment on the web and is accessible to most users. It consists of a simple checkbox proclaiming "I'm not a robot", while under the hood the software is rigorously analyzing user data. However, the W3C Draft Note reports that keyboard navigation has been widely observed to fail, and audio CAPTCHAs are sometimes no longer being provided.</li>
+				<li>Interestingly, optional step 3 of not requiring CAPTCHAs appears to be feasible. The same W3C report offers "praise and gratitude" for Google's non-interactive <a href="https://www.w3.org/TR/turingtest/#recap3">reCAPTCHA v3</a>, when it works. It removes v2's checkbox. The W3C authors have two caveats, both related to when v3 produces an ambiguous reliability score:
+					<ul>
+						<li>If the score is ambiguous Google encourages users to use reCAPTCHA v2 as backup, which has some reported barriers.</li>
+						<li>Methods for disambiguating an ambiguous non-interactive score must be well documented and easily implementable, or developers will use the older backup.</li>
+					</ul>
+				</li>
+			</ul>
+			
+		</section>
+
+		<section>
+
+			<h3 id="wcag" class="wb-inv">Related WCAG resources</h3>
+
+			<details class="mrgn-tp-lg grouped on">
+			
+				<summary class="bg-info">Related WCAG resources</summary>
+				<h4>Success criteria</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a>
+					</li>
+				</ul>
+				<h4>Techniques</h4>
+				<ul>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G143">G143: Providing a text alternative that describes the purpose of the CAPTCHA</a>
+					</li>	
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G144">G144: Ensuring that the Web Page contains another CAPTCHA serving the same purpose using a different modality</a>
+					</li>						
+				</ul>
+			</details>
+		</section>
+
+	
+	<nav aria-labelledby="nav-pagination">
+		<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+		<ul class="pager">
+			<li class="previous">
+				<a rel="prev" href="svg.html">Previous - SVG</a>
+			</li>
+			<li class="next">
+				<a rel="next" href="tips-and-tricks.html">Next - Tips and tricks</a>
+			</li>
+		</ul>
+	</nav>					
+	
+	</main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation" aria-labelledby="wb-sec-h">	
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 5 –  Images</h3>
+				<ul class="list-group menu list-unstyled">
+					<li><a class="list-group-item" href="text-alternatives.html">Text alternatives</a></li>
+					<li><a class="list-group-item" href="informative-images.html">Informative images</a></li>
+					<li><a class="list-group-item" href="decorative-redundant-images.html">Decorative or redundant images</a></li>
+					<li><a class="list-group-item" href="functional-images.html">Functional images</a></li>
+					<li><a class="list-group-item" href="images-text.html">Images of text</a></li>
+					<li><a class="list-group-item" href="animated-images.html">Animated images</a></li>
+					<li><a class="list-group-item" href="complex-images.html">Complex images</a></li>
+					<li><a class="list-group-item" href="figcaption.html">Figure and figcaption</a></li>
+					<li><a class="list-group-item" href="groups-images.html">Groups of images</a></li>
+					<li><a class="list-group-item" href="image-maps.html">Image maps</a></li>
+					<li><a class="list-group-item" href="alt-decision-tree.html">Alt text decision tree</a></li>
+					<li><a class="list-group-item" href="svg-images.html">SVG images</a></li>
+					<li><a class="list-group-item active" aria-current="page" href="captcha.html">CAPTCHA</a></li>
+					<li><a class="list-group-item" href="tips-and-tricks.html">Tips and tricks</a></li>
+					<li><a class="list-group-item" href="best-practice-mod-5.html">Best practice</a></li>
+				</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">All modules</h3>
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item active" href="text-alternatives.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="index.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
+					</ul>
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Appendix</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">WCAG view</a>
+					</li>
+				</ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>

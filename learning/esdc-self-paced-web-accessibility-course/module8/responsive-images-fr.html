@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="fr" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -11,7 +8,6 @@
 	<!-- Meta data -->
 	<meta name="description"
 		content="Lignes directrices sur l’accessibilité relative aux images adaptées. Décrit la façon de concevoir des images qui sont compatibles avec des fenêtres d’affichage de différentes tailles.">
-	<meta name="robots" content="noindex">
 		<!-- Meta data-->
 	<!-- Load closure template scripts -->
 	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
@@ -51,39 +47,70 @@
                     "title": "Module 8 - Zoom et conception adaptée",
                     
                     "href" : "index-fr.html"
-                }],
-				"lngLinks": [{
-                "lang": "en",
-                "href": "responsive-images.html",
-                "text": "English"
-            }],
-            "menuPath": "../../../ajax/menu-fr.html"
-        });
+                },
+          {
+            "title": "Images adaptées",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "responsive-images.html",
+            "text": "English",
+          }],
+        "menuPath": "../../../ajax/menu-fr.html"
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
-			
-	<h1 property="name" id="wb-cont">Images adaptées</h1>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Images adaptées</h1>
 						
-	<nav role="navigation">
-    <div class="panel panel-default mrgn-tp-md">
-      <header class="panel-heading">
-        <h2 class="panel-title">Table des matières</h2>
-      </header>
-        <div class="panel-body">
-          <ul>
-            <li><a href="#concevoir-images">Concevoir des images adaptées</a></li>
-			<li><a href="#css-width">Technique&nbsp;1&nbsp;: Styliser l’image avec le CSS width:100%</a></li>
-			<li><a href="#css-max-width">Technique&nbsp;2&nbsp;: Styliser l’image avec le CSS max-width:100%</a></li>
-			<li><a href="#css-src-att">Technique&nbsp;3&nbsp;: Servir différentes tailles d’image à différentes tailles d’écran en utilisant l’attribut srcset</a></li>
-			<li><a href="#css-pic-element">Technique&nbsp;4&nbsp;: Servir différentes images à différentes tailles d’écran en utilisant l’élément picture</a></li>
-			<li><a href="#resources1">Ressources WCAG connexes</a></li>
-          </ul>
-        </div>
-      </div>
-	</nav>
-	
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table des matières</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table des matières</summary>
+							<ul>
+								<li>
+									<a href="#concevoir-images">Concevoir des images adaptées</a>
+									<ul>
+										<li>
+											<a href="#css-width">Technique 1 : Styliser l’image avec le CSS width:100%</a>
+										</li>
+										<li>
+											<a href="#css-max-width">Technique 2 : Styliser l’image avec le CSS max-width:100%</a>
+										</li>
+										<li>
+											<a href="#css-src-att">Technique 3 : Servir différentes tailles d’image à différentes tailles d’écran en utilisant l’attribut srcset</a>
+											<ul>
+												<li>
+													<a href="#responsive-image-generator">Ressource : Générateur d’image adaptée</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="#css-pic-element">Technique 4 : Servir différentes images à différentes tailles d’écran en utilisant l’élément picture.</a>
+											<ul>
+												<li>
+													<a href="#good-example-using-art-direction">Bon exemple : Utilisation de la direction artistique.</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#bad-example-non-responsive-images">Mauvais exemple : Image non adaptée</a>
+								</li>
+								<li>
+									<a href="#responsive-images-wcag">Ressources WCAG connexes</a>
+								</li>
+					</ul>
+						</details>
+					</nav>
+	<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Afficher tout les détails</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Réduire tout<span class="wb-inv">les détails</span></button>
+				
 			<section>				
 				<h2 id="concevoir-images">Concevoir des images adaptées</h2>
 				<p>Une image qui est plus large que son conteneur débordera, ce qui peut introduire un défilement horizontal.</p>
@@ -225,7 +252,7 @@
 
 					
 					 
-				<h3>Ressource&nbsp;: Générateur d’image adaptée</h3>
+				<h3 id="responsive-image-generator">Ressource&nbsp;: Générateur d’image adaptée</h3>
 				<p>Le <a href="http://www.responsivebreakpoints.com/">Responsive Image Generator (générateur d’image adaptée)</a> est un outil en ligne qui vous permet de téléverser une image et de générer diverses dimensions d’images pour les points d’interruption adaptés.</p>
 				<img src="images/image13.png" class="img-responsive" alt="Capture d’écran de l’outil en ligne Responsive Image Generator montrant les points d’interruption et les dimensions de l’image.">
 
@@ -243,7 +270,7 @@
 			 	
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Utilisation de la direction artistique </h3>
+						<h3 class="text-success mrgn-tp-0 h3" id="good-example-using-art-direction"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Utilisation de la direction artistique </h3>
 						<p>Dans cet exemple, un cadrage de la photo est servi aux petits appareils.</p>
 						<p>Les éléments <code lang="en-CA">&lt;source&gt;</code> comprennent une condition média. La première condition qui s’avère est affichée&nbsp;: si la largeur de zone d’écran est de 799&nbsp;pixels moins, l’image du premier élément <code lang="en-CA">&lt;source&gt;</code> est affichée; si la largeur de la zone d’affichage est de 800&nbsp;pixels ou plus, l’image du deuxième élément <code lang="en-CA">&lt;source&gt;</code> est affichée.</p>
 						<p>Redimensionner la fenêtre du navigateur pour voir l’échelle d’image.</p>
@@ -253,7 +280,7 @@
 									<picture>
 										<source media="(max-width: 799px)" srcset="images/deer-crop200w.jpg">
 										<source media="(min-width: 800px)" srcset="images/deer-320.jpg">
-										<img src="deer-500w.jpg" alt="Un cerf qui pâture dans un petit pré dans une forêt."></img>	
+										<img src="deer-500w.jpg" alt="Un cerf qui pâture dans un petit pré dans une forêt.">	
 									</picture>					
 								<p class="wb-inv">L'exemple finit</p>
 							</div>
@@ -275,7 +302,7 @@
 				</div>
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
-						<h3 class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span> Mauvais exemple&nbsp;: Image non adaptée</h3>
+						<h3 class="text-danger mrgn-tp-0 h3" id="bad-example-non-responsive-images"><span class="glyphicon glyphicon-remove-circle"></span> Mauvais exemple&nbsp;: Image non adaptée</h3>
 						<p>Dans la capture d’écran ci-dessous, une image d’une largeur de 1&nbsp;600&nbsp;pixels, dépourvue de tout balisage réactif, s’affiche dans sa largeur originale. Comme elle est plus large que la fenêtre d’affichage, une barre de défilement horizontale doit apparaître. HTML</p>
 						
 						<div class="panel panel-primary mrgn-tp-md">
@@ -297,58 +324,58 @@
 			</section>
 
 			<section>				
-				<h2 id="resources1" class="wb-inv">Ressources WCAG connexes</h2>
-				<details class="mrgn-tp-lg">
+				<h2 id="responsive-images-wcag" class="wb-inv">Ressources WCAG connexes</h2>
+				<details class="mrgn-tp-lg grouped on">
 					<summary class="bg-info">Ressources WCAG connexes</summary>
-                        <p class="mrgn-tp-md">En anglais seulement.</p>
+                       
 					<h3>Critères de succès</h3>
 					<ul>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html" lang="en-CA">1.4.10 : Reflow</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html" hreflang="en-CA" data-code="1.4.10">1.4.10 : Redistribution  (en anglais)</a>
 						</li>					
 					</ul>
 					<h3>Techniques</h3>
 					<ul>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C32" lang="en-CA">C32: Using media queries and grid CSS to reflow columns</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C32" hreflang="en-CA" data-code="C32">C32 : Utiliser les requêtes des médias et la grille CSS pour reformater les colonnes (en anglais)</a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C31" lang="en-CA">C31: Using CSS Flexbox to reflow content</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C31" hreflang="en-CA" data-code="C31">C31 : Utiliser la CSS Flexbox pour reformater le contenu (en anglais)</a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C33" lang="en-CA">C33: Allowing for Reflow with Long URLs and Strings of Text</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C33" hreflang="en-CA" data-code="C33">C33 : Permettre le reformatage avec des URL longues et des chaînes de texte (en anglais)</a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C38" lang="en-CA">C38: Using CSS width, max-width and flexbox to fit labels and inputs</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C38" hreflang="en-CA" data-code="C38">C38 : Utiliser la largeur CSS, la largeur maximale et Flexbox pour ajuster des étiquettes et des entrées (en anglais)</a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR34" lang="en-CA">SCR34: Calculating size and position in a way that scales with text size</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR34" hreflang="en-CA" data-code="SCR34">SCR34&nbsp;: Calculer la taille et la position d'une manière qui va s'agrandir avec le texte (en anglais)</a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G206" lang="en-CA">G206: Providing options within the content to switch to a layout that does not require the user to scroll horizontally to read a line of text</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G206" hreflang="en-CA" data-code="G206">G206 : Fournir des options à l’intérieur du contenu pour passer à une mise en page qui n’exige pas que l’utilisateur défile horizontalement pour lire une ligne de texte  (en anglais)</a>
 						</li>					
 					</ul>
 					<h3>Échecs</h3>
 					<ul>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F102" lang="en-CA">F102: Failure of Success Criterion 1.4.10 due to content disappearing and not being available when content has reflowed</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F102" hreflang="en-CA" data-code="F102">F102 : Échec du critère de succès 1.4.10 en raison de la disparition du contenu et du fait qu’il n’est pas disponible lorsque le contenu est reformaté (en anglais)</a>
 						</li>
 					</ul>
 				</details>
 			</section>
 		
 		
-	<nav role="navigation">
-		<h2 class="wb-inv">Navigation dans le document</h2>
+	<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
 		<ul class="pager">
 			<li class="previous"><a rel="prev" href="responsive-forms-fr.html">Précédent - Formulaires adaptés</a></li>
 			<li class="next"><a rel="next" href="responsive-text-fr.html">Suivant - Texte adapté</a></li>
 		</ul>
 	</nav>
-	</main>
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 			
 
-	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
 			<section class="list-group menu list-unstyled">
 				<h3 class="wb-navcurr">Module 8 - Zoom et conception adaptée</h3>
@@ -372,7 +399,7 @@
 							</ul>
 						</li>
 						<li><a class="list-group-item" href="orientation-fr.html">Orientation</a></li>
-						<li><a class="list-group-item" href="best-practice-fr.html">Pratique exemplaire</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-8-fr.html">Pratique exemplaire</a></li>
 						
 					</ul>
 			</section>
@@ -395,7 +422,7 @@
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Plan du site et pratique exemplaire</h3>
+				<h3 class="wb-navcurr">Appendice</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
@@ -404,7 +431,9 @@
 					<li>
 						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">Vue WCAG</a>
+					</li>
 				</ul>
 			</section>
 	</nav>

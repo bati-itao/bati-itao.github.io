@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Best practice - Module 11 - ARIA live and time limits</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Summary of best practices in Module 11 – ARIA Live and time limits">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/soyutils.js"></script>
+	<script src="https://ssl-templates.services.gc.ca/rn/cls/wet/gcweb/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../../index.html"
+            },
+			{
+                "title": "Web accessibility course",
+                "href" : "../index.html"
+            },
+			{
+                "title": "Module 11 – ARIA live and time limits",
+                
+                "href" : "index.html"
+            },
+          {
+            "title": "Best practice",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "best-practice-mod-11-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
+    </script>
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Best practice</h1>
+						
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+						<details class="grouped mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table of contents</summary>
+							<ul>
+						<li>
+							<a href="#aria-regions">ARIA live regions<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+						<li>
+							<a href="#time-limits">Time limits<span class="wb-inv"> (best practice)</span>
+							</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+	
+			<section>
+				<h2 id="aria-regions">ARIA live regions</h2>
+				<ul>
+					<li>Identify a live region with an <code>aria-live</code> attribute on a container element.
+					<ul>
+						<li>The live region must be empty on page load or when it’s first added to the DOM.  </li>
+						<li>Use <code>aria-live="polite"</code> for most announcement. </li>
+						<li>Use <code>aria-live="assertive"</code> when the user needs immediate feedback.</li>
+					</ul>
+					</li>
+					<li>Use the <code>aria-atomic</code> attribute to specify if the whole live region should be announced, or only the text that changed.
+					<ul>
+						<li>Use <code>aria-atomic="false"</code> to announced only the updated text.</li>
+						<li>Use <code>aria-atomic="true"</code> to announce static and updated text.</li>
+					</ul>
+					</li>
+					<li>Only use the <code>aria-relevant</code> attribute if the removal of content from a live region needs to be announced.</li>
+					<li>Use the <code>aria-busy="true"</code> attribute to notify assistive technology that it should temporarily ignore changes to an element when things are loading. Once everything is in place, clear the attribute or set it to <code>aria-busy="false"</code>.</li>
+					<li>Use a special type of live region role when appropriate:
+						<ul>
+							<li>Use <code>role="alert"</code> to announce important and typically time-sensitive information that requires the user’s immediate attention.</li>
+							<li>Use <code>role="status"</code> to announce advisory information to the user that is less urgent than an alert.</li>
+							<li>Use <code>role="timer"</code> to identify a numerical counter listing the time elapsed from a starting point or the time remaining until an end point.</li>
+							<li>Use <code>role="marquee"</code> to define an area as a type of live region with non-essential announcements that change frequently.</li>
+							<li>Use <code>role="log"</code> to keep track of sequential updates, such as a chat log, messaging history, game log or an error log.</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2 id="time-limits">Time limits</h2>
+				<ul>
+					<li>Any design with a time limit must offer the user the ability to either:
+					<ul>
+						<li><strong>Turn off</strong> the time limit before encountering it.</li>
+						<li><strong>Adjust</strong> the time limit before encountering it to a length at least ten times the default setting.</li>
+						<li><strong>Extend</strong> the time limit. The user must be warned at least 20 seconds before time expires.</li>
+					</ul>
+					</li>
+					<li>With session timeouts, present warning messages in a popup dialog with options for the user to either extend or end the session. </li>
+					<li>For timers with fixed deadlines, provide a countdown feature with ARIA live announcements at strategic intervals.</li>
+					<li>When refreshing/reloading a page, ask the user’s permission. Notify users that newer content is available and provide the options to update or continue</li>
+				</ul>
+			</section>
+		
+		
+	<nav aria-labelledby="nav-pagination">
+		<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="time-limits.html">Previous - Time limits</a></li>
+		</ul>
+	</nav>
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 11 - ARIA live and time limits</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="aria-live.html">ARIA live regions</a></li>
+						<li><a class="list-group-item" href="time-limits.html">Time limits</a></li>						
+						<li><a class="list-group-item active" aria-current="page" href="best-practice-mod-11.html">Best practice</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">All modules</h3>
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item active" href="aria-live.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Appendix</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
+				</ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>

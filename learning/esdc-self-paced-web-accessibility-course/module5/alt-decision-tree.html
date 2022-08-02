@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -47,21 +44,28 @@
                 "title": "Module 5 - images",
                 
                 "href" : "index.html"
-            }],
-            "lngLinks": [{
-                "lang": "fr",
-                "href": "alt-decision-tree-fr.html",
-                "text": "Français"
-            }],
-            "menuPath": "../../../ajax/menu-en.html"
-        });
+            },
+          {
+            "title": "Alt text decision tree",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "alt-decision-tree-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
     </script>
-<div class="container">
-<div class="row">
-	<main class="col-md-9 col-md-push-3"   role="main" property="mainContentOfPage">
-
-	<h1 property="name" id="wb-cont">Alt text decision tree</h1>
-
+    <div class="container">
+      <div class="row">
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Alt text decision tree</h1>
+<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4">Expand all details</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}">	Collapse all<span class="wb-inv"> details</span></button>
+			
 	<section>
 		<p>This decision tree describes how to use the <code>alt</code> attribute of the <code>&lt;img&gt;</code> element in different situations. The decision tree does not cover all cases. For example, it does not cover MathML, groups of images, image maps and other alt text approaches for functional and complex images (e.g. <code>aria-label</code>, <code>aria-labelledby</code>, <code>figcaption</code>, etc). For detailed information on the provision of text alternatives, refer to the sections above.</p>
 		<div class="panel panel-success mrgn-tp-lg">
@@ -71,33 +75,66 @@
 		</div>
 		<details class="mrgn-tp-md">
 			<summary class="bg-info">Text description of the alt decision tree</summary>
-				<ol>
-					<li>What is the purpose of the image?
-						<ul>
-							<li>If decorative: Use <code>alt=""</code> or use CSS</li>
-							<li>If informative: Go to step 2</li>
-						</ul>
-					</li>
-					<li>Does it add new info?
-						<ul>
-							<li>If no, the image is redundant: Use <code>alt=""</code> or use CSS</li>
-							<li>If yes: Go to step 3</li>
-						</ul>			
-					</li>
-					<li>What kind of info does it add?
-						<ul>
-							<li>If actionable: Use <code>alt="[label for link]"</code></li>
-							<li>If emotional or simple: Use <code>alt="[description]"</code></li>
-							<li>If complex: Use <code>alt="[short description]"</code> + location of the long description</li>
-						</ul>
-					</li>
-				</ol>
-			</summary>
+			<ol>
+				<li>What is the purpose of the image?
+					<ul>
+						<li>If decorative: Use <code>alt=""</code> or use CSS</li>
+						<li>If informative: Go to step 2</li>
+					</ul>
+				</li>
+				<li>Does it add new info?
+					<ul>
+						<li>If no, the image is redundant: Use <code>alt=""</code> or use CSS</li>
+						<li>If yes: Go to step 3</li>
+					</ul>			
+				</li>
+				<li>What kind of info does it add?
+					<ul>
+						<li>If actionable: Use <code>alt="[label for link]"</code></li>
+						<li>If emotional or simple: Use <code>alt="[description]"</code></li>
+						<li>If complex: Use <code>alt="[short description]"</code> + location of the long description</li>
+					</ul>
+				</li>
+			</ol>
 		</details>
 	</section>
+	<section>				
+		<h2 id="wcag" class="wb-inv">Related WCAG resources</h2>
+		<details class="mrgn-tp-lg grouped on">
+			<summary class="bg-info">Related WCAG resources</summary>
+			<h3>Success criteria</h3>
+			<ul>
+				<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a></li>
+				<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/images-of-text">1.4.5: Images of Text</a></li>
+				<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions.html">3.3.2: Labels or Instructions</a></li>
+			</ul>
+			<h3>Techniques</h3>
+				<ul>
+					<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H2">H2: Combining adjacent image and text links for the same resource</a></li>
+					<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H67">H67: Using null alt text and no title attribute on img elements for images that AT should ignore</a></li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H36">H36: Using alt attributes on images used as submit buttons</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H37">H37: Using alt attributes on img elements</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G92">G92: Providing long description for non-text content that serves the same purpose and presents the same information</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G73">G73: Providing a long description in another location with a link to it that is immediately adjacent to the non-text content</a>
+					</li>
+					<li>
+						<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G74">G74: Providing a long description in text near the non-text content, with a reference to the location of the long description in the short description</a>
+					</li>
+				</ul>
+			<h3>Failures</h3>
 			
-	<nav role="navigation" >
-		<h2 class="wb-inv">Document navigation</h2>
+
+		</details>
+	</section>	
+	<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
 		<ul class="pager">
 			<li class="previous">
 				<a rel="prev" href="image-maps.html">Previous - Image maps</a>
@@ -108,9 +145,9 @@
 		</ul>
 	</nav>					
 
-</main>
+<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
 		
-	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" role="navigation">	
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
 		
 		
 		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
@@ -131,8 +168,9 @@
 				<li><a class="list-group-item" href="image-maps.html">Image maps</a></li>
 				<li><a class="list-group-item active" aria-current="page" href="alt-decision-tree.html">Alt text decision tree</a></li>
 				<li><a class="list-group-item" href="svg-images.html">SVG images</a></li>
+				<li><a class="list-group-item" href="captcha.html">CAPTCHA</a></li>
 				<li><a class="list-group-item" href="tips-and-tricks.html">Tips and tricks</a></li>
-				<li><a class="list-group-item" href="best-practice.html">Best practice</a></li>
+				<li><a class="list-group-item" href="best-practice-mod-5.html">Best practice</a></li>
 			</ul>
 		</section>
 		
@@ -157,16 +195,18 @@
 
 			</section>
 			<section class="list-group menu list-unstyled">
-				<h3 class="wb-navcurr">Site map and best practice</h3>
+				<h3 class="wb-navcurr">Appendix</h3>
 
 				<ul class="list-group menu list-unstyled">
 					<li>
 						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
 					</li>
 					<li>
-						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practice</a>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
 					</li>
-
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
 				</ul>
 			</section>
 	
