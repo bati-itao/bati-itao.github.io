@@ -66,6 +66,8 @@ input[type=submit]:hover {
   display: inline-block;
   width: 60px;
   height: 32px;
+  vertical-align: text-bottom;
+  margin-left: 1em;
 }
 
 .switch input { 
@@ -84,6 +86,7 @@ input[type=submit]:hover {
   background-color: #ccc;
   -webkit-transition: .4s;
   transition: .4s;
+  
 }
 
 .slider:before {
@@ -101,9 +104,20 @@ input[type=submit]:hover {
 input:checked + .slider {
   background-color: green;
 }
-
+/*
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 3px #374630;
+}
+*/
+
+input:focus + .slider:before {
+  background-color: #374630;
+  -webkit-transition: none;
+  transition: none;
+}
+
+input:focus + .slider::before {
+  
 }
 
 input:checked + .slider:before {
