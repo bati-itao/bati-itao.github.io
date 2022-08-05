@@ -39,3 +39,29 @@ if (window.matchMedia) {
 // IE, Firefox
 window.onbeforeprint = beforePrint;
 window.onafterprint = afterPrint;
+
+$("#expandAllButton").click(function() {
+  $(this).click();
+  $(this).prop('disabled', true);
+  $("#collapseAllButton").prop('disabled', false);
+});
+
+$("#collapseAllButton").click(function() {
+  $(this).click();
+  $(this).prop('disabled', true);
+  $("#expandAllButton").prop('disabled', false);
+});
+
+$("#highLevelButton").click(function(){
+	$("#modules").addClass("hlv");
+	$(this).prop('disabled', true);
+	 $("#comprehensiveButton").prop('disabled', false);
+	$("#expandButtons").addClass("displaynone");
+
+});
+$("#comprehensiveButton").click(function(){
+	$("#modules").removeClass("hlv");
+	$(this).prop('disabled', true);
+	 $("#highLevelButton").prop('disabled', false);
+	 $("#expandButtons").removeClass("displaynone");
+});
