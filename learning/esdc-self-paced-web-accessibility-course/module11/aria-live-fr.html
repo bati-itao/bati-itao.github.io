@@ -170,13 +170,13 @@
                 L’utilisateur trie le contenu d’un tableau par nom, ce qui déclenche l’annonce «&nbsp;Trié alphabétiquement par nom&nbsp;» Dans cette situation, le texte actualisé pourrait être masqué puisque les utilisateurs voyants n’ont pas besoin de la
                 notification.</li>
             </ul>
-            <p>La norme WAI-ARIA offre quatre attributs qui permettent à l’auteur d’identifier les zones live et leurs propriétés&nbsp;:lang="en""en-CA">aria-live</code>, <code lang="en">aria-relevant</code>, <code lang="en">aria-atomic</code> et <code lang="en">aria-busy</code>. WAI-ARIA offre également cinq rôles spécialisés pour certains types de zones live.</p>
+            <p>La norme WAI-ARIA offre quatre attributs qui permettent à l’auteur d’identifier les zones live et leurs propriétés&nbsp;: <code lang="en-CA">aria-live</code>, <code lang="en-CA">aria-relevant</code>, <code lang="en-CA">aria-atomic</code> et <code lang="en-CA">aria-busy</code>. WAI-ARIA offre également cinq rôles spécialisés pour certains types de zones live.</p>
           </section>
           <section>
             <h2 id="live">aria-live</h2>
-            <p>Une zone live est désignée par un attribut <code lang="en">aria-live</code> associé à un élément conteneur, p.&nbsp;ex.<code lang="en">&lt;span&gt;</code> ou <code lang="en">&lt;div&gt;</code>. Les navigateurs et l’API d’accessibilité surveillent le conteneur pour détecter tout texte injecté par script. Dès que du texte est injecté dans la zone live, le lecteur d’écran l’annonce.</p>
+            <p>Une zone live est désignée par un attribut <code lang="en-CA">aria-live</code> associé à un élément conteneur, p.&nbsp;ex.<code lang="en-CA">&lt;span&gt;</code> ou <code lang="en-CA">&lt;div&gt;</code>. Les navigateurs et l’API d’accessibilité surveillent le conteneur pour détecter tout texte injecté par script. Dès que du texte est injecté dans la zone live, le lecteur d’écran l’annonce.</p>
             <p>La zone live doit être vide au moment du chargement de la page, ou lorsqu’elle est ajoutée pour la première fois au DOM. Il est préférable d’ajouter une zone live au moment du chargement de la page, mais si vous ajoutez la zone au DOM de façon dynamique, il est préférable d’attendre au moins 2&nbsp;secondes pour que l’API d’accessibilité puisse l’identifier avant d’injecter du texte.</p>
-            <p>L’attribut <code lang="en">aria-live</code> accepte trois valeurs possibles&nbsp;: assertive, polite ou off.</p>
+            <p>L’attribut <code lang="en-CA">aria-live</code> accepte trois valeurs possibles&nbsp;: assertive, polite ou off.</p>
             <dl>
 				<dt>aria-live="assertive"</dt>
         <dd class="mrgn-lft-lg">Une annonce assertive interrompt tout ce que lecteur d’écran lit. Utilisez des annonces assertive seulement lorsque l’utilisateur doit être avisé immédiatement.</dd>
@@ -189,7 +189,7 @@
                 suspendre temporairement les interruptions aria-live.</dd>
             </dl>
             <p>
-              Le <a href="https://www.w3.org/WAI/ARIA/apg/patterns/carousel/">Widget de carrousel</a> utilise <code lang="en">aria-live="off"</code> associé au conteneur de diapositive lorsque les diapositives avancent automatiquement, et <code lang="en">aria-live="polite"</code> lorsque l’utilisateur fait progresser manuellement les diapositives. Ainsi, un diaporama automatique ne pourra pas submerger l’utilisateur d’un lecteur d’écran qui essaie de lire la page, et il sera plus facile de lire un diaporama manuel.
+              Le <a href="https://www.w3.org/WAI/ARIA/apg/patterns/carousel/">Widget de carrousel</a> utilise <code lang="en-CA">aria-live="off"</code> associé au conteneur de diapositive lorsque les diapositives avancent automatiquement, et <code lang="en-CA">aria-live="polite"</code> lorsque l’utilisateur fait progresser manuellement les diapositives. Ainsi, un diaporama automatique ne pourra pas submerger l’utilisateur d’un lecteur d’écran qui essaie de lire la page, et il sera plus facile de lire un diaporama manuel.
             </p>
             <div class="panel panel-success">
               <div class="panel-body">
@@ -197,19 +197,19 @@
                   <span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Attribut aria-live
                 </h2>
 
-                <p>Ici, un élément <code lang="en">&lt;div&gt;</code> fournit un conteneur pour une zone live, identifi&eacute; avec l’attribut <code lang="en">aria-live="polite"</code>. L’élément est vide au moment du chargement de la page.</p>
+                <p>Ici, un élément <code lang="en-CA">&lt;div&gt;</code> fournit un conteneur pour une zone live, identifi&eacute; avec l’attribut <code lang="en-CA">aria-live="polite"</code>. L’élément est vide au moment du chargement de la page.</p>
                 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-0"><code class="language-html">&lt;div aria-live="polite" class="wb-inv"&gt;&lt;/div&gt;</code></pre>
                 <p class="wb-inv">Fin du code</p>
-                <p>Lorsque l’utilisateur clique sur un bouton de tri dans l’en-tête d’une colonne de tableau, JavaScript remplit l’élément <code lang="en">&lt;div&gt;</code> avec du texte. Le lecteur d’écran annonce «&nbsp;Trié alphabétiquement par nom&nbsp;».</p>
+                <p>Lorsque l’utilisateur clique sur un bouton de tri dans l’en-tête d’une colonne de tableau, JavaScript remplit l’élément <code lang="en-CA">&lt;div&gt;</code> avec du texte. Le lecteur d’écran annonce «&nbsp;Trié alphabétiquement par nom&nbsp;».</p>
                 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-0"><code class="language-html">&lt;div aria-live="polite" class="wb-inv"&gt;
    Trié alphabétiquement par nom
 &lt;/div&gt;</code></pre>
                 <p class="wb-inv">Fin du code</p>
-                <p>Comme le résultat du tri est apparent pour les utilisateurs visuels, la région en direct est masquée visuellement avec la classe CSS WET <code lang="en">.wb-inv</code>.</p>
+                <p>Comme le résultat du tri est apparent pour les utilisateurs visuels, la région en direct est masquée visuellement avec la classe CSS WET <code lang="en-CA">.wb-inv</code>.</p>
 <p class="lang-label small">CSS</p>
 		<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-0"><code class="language-css">.wb-inv {
@@ -228,7 +228,7 @@
           <section>
             <h2 id="atomic">aria-atomic</h2>
             <p>
-              Utilisez l’attribut <code lang="en">aria-atomic</code> pour préciser si toute la zone live doit être annoncé, ou seulement le texte qui a changé.</p>
+              Utilisez l’attribut <code lang="en-CA">aria-atomic</code> pour préciser si toute la zone live doit être annoncé, ou seulement le texte qui a changé.</p>
             <dl>
 				<dt>aria-atomic="false"</dt>
                 <dd class="mrgn-lft-lg">Lorsqu’une zone live est
@@ -248,7 +248,7 @@
                 <p>
                   Dans ces exemples, le prix total actualisé au cours d’un processus d’achat est annoncé lorsque l’utilisateur ajoute un produit.</p>
                 <p>
-                  Dans ce premier exemple, l’attribut <code lang="en">aria-atomic</code> n’est pas utilisé, de sorte que la valeur par défaut s’applique, c’est-à-dire <span lang="en">«&nbsp;false&nbsp;»</span>. Seul le contenu dynamique est annoncé, c’est-à-dire le prix. Si le contenu dynamique n’est pas significatif en soi, il peut facilement confondre les utilisateurs. Dans ce cas, le contenu dynamique à lui seul est vague: «&nbsp;84,52 $ ».</p>
+                  Dans ce premier exemple, l’attribut <code lang="en-CA">aria-atomic</code> n’est pas utilisé, de sorte que la valeur par défaut s’applique, c’est-à-dire <span lang="en-ca">«&nbsp;false&nbsp;»</span>. Seul le contenu dynamique est annoncé, c’est-à-dire le prix. Si le contenu dynamique n’est pas significatif en soi, il peut facilement confondre les utilisateurs. Dans ce cas, le contenu dynamique à lui seul est vague: «&nbsp;84,52 $ ».</p>
                 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-0"><code class="language-html">&lt;p aria-live="polite"&gt;
@@ -257,7 +257,7 @@
 &lt;/p&gt;</code></pre>
                 <p class="wb-inv">Fin du code</p>
                 <p>
-                  Dans ce deuxième exemple, l’attribut <code lang="en">aria-atomique</code> est fixé à <span lang="en">«&nbsp;true&nbsp;»</span>. Tout le contenu de la zone live est annoncé, fournissant le contexte nécessaire pour donner un
+                  Dans ce deuxième exemple, l’attribut <code lang="en-CA">aria-atomique</code> est fixé à <span lang="en-ca">«&nbsp;true&nbsp;»</span>. Tout le contenu de la zone live est annoncé, fournissant le contexte nécessaire pour donner un
                   sens au contenu dynamique&nbsp;: «&nbsp;Prix total : 84,52 $&nbsp;».
                 </p>
                 <p class="lang-label small">HTML</p>
@@ -273,7 +273,7 @@
           </section>
           <section>
             <h2 id="relevant">aria-relevant</h2>
-            <p>L’attribut <code lang="en">aria-relevant</code> spécifie quels types de changement apportés à une zone live doivent être annoncés.</p>
+            <p>L’attribut <code lang="en-CA">aria-relevant</code> spécifie quels types de changement apportés à une zone live doivent être annoncés.</p>
             <dl>
               <dt>aria-relevant="all"</dt>
               <dd class="mrgn-lft-lg">
@@ -290,16 +290,16 @@
               <dd class="mrgn-lft-lg">
                 Les modifications au contenu textuel (y compris les équivalents textuels, comme alt text) dans la zone live sont annoncées.</dd>
             </dl>
-            <p>Une zone live a une valeur <code lang="en">aria-relevant</code> implicite «&nbsp;additions&nbsp;» et «&nbsp;text&nbsp;», donc l’attribut n’est pas nécessaire si la conception suppose le comportement normal, c’est-à-dire l’annonce de contenu ajouté. Utilisez seulement l’attribut <code lang="en">aria-relevant</code> si vous devez communiquer la suppression de contenu d’une zone live.</p>
+            <p>Une zone live a une valeur <code lang="en-CA">aria-relevant</code> implicite «&nbsp;additions&nbsp;» et «&nbsp;text&nbsp;», donc l’attribut n’est pas nécessaire si la conception suppose le comportement normal, c’est-à-dire l’annonce de contenu ajouté. Utilisez seulement l’attribut <code lang="en-CA">aria-relevant</code> si vous devez communiquer la suppression de contenu d’une zone live.</p>
           </section>
           <section>
             <h2 id="busy">aria-busy</h2>
-            <p>Utilisez l’attribut <code lang="en">aria-busy</code> pour aviser la technologie d’assistance qu’elle devrait ignorer temporairement les changements apportés à un élément lorsque des éléments sont en cours de chargement. Configurez <code lang="en">aria-busy="true"</code> initialement et, une fois tous les éléments chargés, effacez l’attribut ou configurez-le à <code lang="en">aria-busy="false"</code>.</p>
+            <p>Utilisez l’attribut <code lang="en-CA">aria-busy</code> pour aviser la technologie d’assistance qu’elle devrait ignorer temporairement les changements apportés à un élément lorsque des éléments sont en cours de chargement. Configurez <code lang="en-CA">aria-busy="true"</code> initialement et, une fois tous les éléments chargés, effacez l’attribut ou configurez-le à <code lang="en-CA">aria-busy="false"</code>.</p>
           </section>
           <section>
             <h2 id="special-types">Types particuliers de zone live</h2>
 			<h3 id="role-alert">role="alert"</h3>
-            <p>Utilisez le rôle ARIA <code lang="en">alert</code> pour annoncer des informations importantes et généralement urgentes qui nécessitent l’attention immédiate de l’utilisateur. Configurer <code lang="en">role="alert"</code> équivaut à configurer <code lang="en">aria-live="assertive"</code> et <code lang="en">aria-atomic="true"</code>. La seule différence réside dans le fait que certains lecteurs d’écran commencent l’annonce en disant «&nbsp;Alerte&nbsp;», pour indiquer à l’utilisateur qu’il s’agit d’une information urgente.</p>
+            <p>Utilisez le rôle ARIA <code lang="en-CA">alert</code> pour annoncer des informations importantes et généralement urgentes qui nécessitent l’attention immédiate de l’utilisateur. Configurer <code lang="en-CA">role="alert"</code> équivaut à configurer <code lang="en-CA">aria-live="assertive"</code> et <code lang="en-CA">aria-atomic="true"</code>. La seule différence réside dans le fait que certains lecteurs d’écran commencent l’annonce en disant «&nbsp;Alerte&nbsp;», pour indiquer à l’utilisateur qu’il s’agit d’une information urgente.</p>
             <div class="panel panel-success">
               <div class="panel-body">
                 <h4 class="text-success mrgn-tp-0 h3" id="good-example-role-alert">
@@ -307,14 +307,14 @@
                 </h4>
 
                 <p>
-                    Dans cet exemple, un &eacute;l&eacute;ment <code lang="en">&lt;div&gt;</code> utilise l'attribut <code lang="en">role="alert"</code> et la d&eacute;claration CSS <code lang="en">display: none</code>.
+                    Dans cet exemple, un &eacute;l&eacute;ment <code lang="en-CA">&lt;div&gt;</code> utilise l'attribut <code lang="en-CA">role="alert"</code> et la d&eacute;claration CSS <code lang="en-CA">display: none</code>.
                 </p>
 
                 <p>
-                  Suppression de la declaration CSS <code lang="en">display: none</code> déclenche l’annonce de la zone live. Exposer ce texte caché précédemment équivaut à injecter du texte. </p>
+                  Suppression de la declaration CSS <code lang="en-CA">display: none</code> déclenche l’annonce de la zone live. Exposer ce texte caché précédemment équivaut à injecter du texte. </p>
                 <p>
                   L’alerte initiale comporte le nom de classe CSS
-                  <code lang="en">hidden</code>, ce qui masque le texte de l’alerte avec <code lang="en">display: none</code>
+                  <code lang="en-CA">hidden</code>, ce qui masque le texte de l’alerte avec <code lang="en-CA">display: none</code>
                 </p>
                 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
@@ -329,7 +329,7 @@
                 <p class="wb-inv">Fin du code</p>
                 <p>
                   L’alerte est déclenchée en supprimant le nom de classe CSS
-                  <code lang="en">hidden</code> :
+                  <code lang="en-CA">hidden</code> :
                 </p>
                 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
@@ -343,19 +343,19 @@
             <h3 id="role-status">role="status"</h3>
 
             <p>
-              Utilisez le rôle ARIA <code lang="en">status</code> pour annoncer à
+              Utilisez le rôle ARIA <code lang="en-CA">status</code> pour annoncer à
               l’utilisateur des informations moins urgentes qu’une alerte.
-              Configurer <code lang="en">role="status"</code> équivaut à configurer
-              <code lang="en">aria-live="polite"</code> et
-              <code lang="en">aria-atomic="true"</code>.
+              Configurer <code lang="en-CA">role="status"</code> équivaut à configurer
+              <code lang="en-CA">aria-live="polite"</code> et
+              <code lang="en-CA">aria-atomic="true"</code>.
             </p>
 
             <p>
               Si un élément de la page contrôle ce qui est affiché dans l’état,
               attribuez à l’élément de contrôle l’attribut
-              <code lang="en">aria-controls="IDREF"</code> en pointant vers la valeur
-              d’attribut <code lang="en">id</code> de l’élément avec
-              <code lang="en">role="status"</code>.
+              <code lang="en-CA">aria-controls="IDREF"</code> en pointant vers la valeur
+              d’attribut <code lang="en-CA">id</code> de l’élément avec
+              <code lang="en-CA">role="status"</code>.
             </p>
 
             <div class="panel panel-success">
@@ -365,14 +365,14 @@
                 </h4>
 
 
-                <p>Dans cet exemple, un paragraphe comportant l'attribut <code lang="en">role="status"</code> affiche le nombre d’articles dans un panier d’achat. Puisque <code lang="en">role="status"</code> par défaut utilise <code lang="en">aria-atomic="true"</code>, l’ensemble du contenu du paragraphe est annoncé. Lorsque le nombre d’articles est actualisé, l’annonce de la zone live est activée. Les lecteurs d’écran déclarent le texte visuellement caché "Panier d'achat", le nombre d’articles actualisé et le mot «&nbsp;articles&nbsp;».
+                <p>Dans cet exemple, un paragraphe comportant l'attribut <code lang="en-CA">role="status"</code> affiche le nombre d’articles dans un panier d’achat. Puisque <code lang="en-CA">role="status"</code> par défaut utilise <code lang="en-CA">aria-atomic="true"</code>, l’ensemble du contenu du paragraphe est annoncé. Lorsque le nombre d’articles est actualisé, l’annonce de la zone live est activée. Les lecteurs d’écran déclarent le texte visuellement caché "Panier d'achat", le nombre d’articles actualisé et le mot «&nbsp;articles&nbsp;».
                 </p>
-                <p>L'attribut <code lang="en">title</code> du <code lang="en">&lt;span&gt;</code> contenant l'icône fournit une étiquette visuelle aux utilisateurs de la souris.  Comme la prise en charge de l'attribut <code lang="en">title</code> n'est pas uniforme d'un lecteur d'écran à l'autre, l'élément est masqué pour tous les lecteurs d'écran (à l'aide de l'attribut <code lang="en">aria-hidden="true"</code>) et le texte visuellement masqué, plus fiable, est utilisé pour étiqueter l'icône (à l'aide de la classe CSS WET <code lang="en">.wb-inv</code>).</p>
+                <p>L'attribut <code lang="en-CA">title</code> du <code lang="en-CA">&lt;span&gt;</code> contenant l'icône fournit une étiquette visuelle aux utilisateurs de la souris.  Comme la prise en charge de l'attribut <code lang="en-CA">title</code> n'est pas uniforme d'un lecteur d'écran à l'autre, l'élément est masqué pour tous les lecteurs d'écran (à l'aide de l'attribut <code lang="en-CA">aria-hidden="true"</code>) et le texte visuellement masqué, plus fiable, est utilisé pour étiqueter l'icône (à l'aide de la classe CSS WET <code lang="en-CA">.wb-inv</code>).</p>
 
                 <p>
-                  L’attribut <code lang="en">aria-controls="IDREF"</code> est associé
-                  au bouton et reçoit la valeur d’attribut <code lang="en">id</code> de
-                  l’élément qui utilise l'attribut <code lang="en">role="status"</code>.
+                  L’attribut <code lang="en-CA">aria-controls="IDREF"</code> est associé
+                  au bouton et reçoit la valeur d’attribut <code lang="en-CA">id</code> de
+                  l’élément qui utilise l'attribut <code lang="en-CA">role="status"</code>.
                 </p>
                 <div class="panel panel-primary mrgn-tp-md">
                   <div class="panel-body well mrgn-bttm-0">
@@ -455,16 +455,16 @@ function buy() {
             <h3 id="role-timer">role="timer"</h3>
 
             <p>
-              Utilisez le rôle ARIA <code lang="en">timer</code> pour identifier un
+              Utilisez le rôle ARIA <code lang="en-CA">timer</code> pour identifier un
               compteur numérique indiquant le temps écoulé depuis un point de
               départ ou le temps restant avant un point de fin. Le rôle comporte
-              la valeur implicite <code lang="en">aria-live="off"</code> pour éviter que
+              la valeur implicite <code lang="en-CA">aria-live="off"</code> pour éviter que
               des annonces trop fréquentes submergent l’utilisateur du lecteur
               d’écran. Toutefois, vous pouvez annoncer le délai à intervalles
               réguliers en utilisant JavaScript pour définir brièvement les
-              attributs <code lang="en">aria-live="assertive"</code> et
-              <code lang="en">role="alert"</code> de manière à ignorer
-              <code lang="en">aria-live="off"</code> et <code lang="en">role="timer"</code>.
+              attributs <code lang="en-CA">aria-live="assertive"</code> et
+              <code lang="en-CA">role="alert"</code> de manière à ignorer
+              <code lang="en-CA">aria-live="off"</code> et <code lang="en-CA">role="timer"</code>.
             </p>
             <div class="panel panel-success">
               <div class="panel-body">
@@ -473,9 +473,9 @@ function buy() {
                 </h4>
                 <p>
                   Dans cet exemple, un compte à rebours utilise
-                  <code lang="en">role="timer"</code>, et est donc silencieux pour les
+                  <code lang="en-CA">role="timer"</code>, et est donc silencieux pour les
                   lecteurs d’écran en raison de son paramètre implicite
-                  <code lang="en">aria-live="off"</code>.
+                  <code lang="en-CA">aria-live="off"</code>.
                 </p>
                 <p class="lang-label small">HTML</p>
 				<p class="wb-inv">Début du code</p>
@@ -487,8 +487,8 @@ function buy() {
                 <p>
                   Toutefois, à des intervalles de 15&nbsp;secondes, JavaScript
                   ajoute brièvement l’attribut
-                  <code lang="en">aria-live ="assertive"</code> et remplace le rôle
-                  <code lang="en">timer</code> par <code lang="en">role="alert"</code>. Les lecteurs
+                  <code lang="en-CA">aria-live ="assertive"</code> et remplace le rôle
+                  <code lang="en-CA">timer</code> par <code lang="en-CA">role="alert"</code>. Les lecteurs
                   d’écran annoncent l’alerte initiale, «&nbsp;Il reste
                   60&nbsp;secondes!&nbsp;», puis le temps restant toutes les
                   15&nbsp;secondes&nbsp;: «&nbsp;Il reste
@@ -550,15 +550,15 @@ window.addEventListener('load', function () {
             <h3 id="role-marquee">role="marquee"</h3>
             
 			<p>
-				Utilisez le rôle ARIA <code lang="en">marquee</code> pour définir une zone comme un type de
+				Utilisez le rôle ARIA <code lang="en-CA">marquee</code> pour définir une zone comme un type de
 				zone live comportant des annonces non essentielles qui changent
 				fréquemment. Par exemple, le contenu d’un afficheur boursier et les
 				bannières publicitaires fréquemment actualisées.
 			</p>
 
 			<p>
-				Les éléments comportant le rôle <code lang="en">marquee</code> ont une valeur <code lang="en">aria-live="off"</code>
-				implicite. Comme pour le rôle <code lang="en">timer</code>, le contenu change trop
+				Les éléments comportant le rôle <code lang="en-CA">marquee</code> ont une valeur <code lang="en-CA">aria-live="off"</code>
+				implicite. Comme pour le rôle <code lang="en-CA">timer</code>, le contenu change trop
 				fréquemment pour être annoncé par les lecteurs d’écran. Les
 				utilisateurs de lecteur d’écran peuvent néanmoins naviguer jusqu’à la
 				zone pour lire le texte.
@@ -566,20 +566,20 @@ window.addEventListener('load', function () {
 
 			<p>
 				Une zone marquee doit avoir un nom accessible. Si une étiquette
-				visible est présente, utilisez <code lang="en">aria-labelledby</code>; sinon, utilisez
-				<code lang="en">aria-label</code>.
+				visible est présente, utilisez <code lang="en-CA">aria-labelledby</code>; sinon, utilisez
+				<code lang="en-CA">aria-label</code>.
 			</p>
             <h3 id="role-log">role="log"</h3>
             
 			<p>
-				Utilisez le rôle ARIA <code lang="en">log</code> pour faire le suivi des actualisations
+				Utilisez le rôle ARIA <code lang="en-CA">log</code> pour faire le suivi des actualisations
 				séquentielles, comme un journal de clavardage, un historique des
 				messages, un journal de jeu ou un journal d’erreurs. Les nouvelles
 				informations sont ajoutées à la fin et, facultativement, les
 				informations plus anciennes sont supprimées du début. Les
 				actualisations de la zone live sont annoncées lorsque l’utilisateur
-				est inactif. La zone live définie par <code lang="en">role="log"</code> comporte des valeurs
-				implicites d’attribut <code lang="en">aria-live="polite"</code> et <code lang="en">aria-atomic="true"</code>.
+				est inactif. La zone live définie par <code lang="en-CA">role="log"</code> comporte des valeurs
+				implicites d’attribut <code lang="en-CA">aria-live="polite"</code> et <code lang="en-CA">aria-atomic="true"</code>.
 			</p>
           </section>
           <section>
@@ -602,40 +602,40 @@ window.addEventListener('load', function () {
                   <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA19" data-code="ARIA19">ARIA19 : Utiliser ARIA role=alert ou des régions réelles pour identifier des erreurs  (en anglais)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA22" hreflang="en" data-code="ARIA22">ARIA22 : Utiliser role="status" pour présenter les messages d’état de l’instance (en anglais)</a>
+                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA22" hreflang="en-CA" data-code="ARIA22">ARIA22 : Utiliser role="status" pour présenter les messages d’état de l’instance (en anglais)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA23" hreflang="en" data-code="ARIA23">ARIA23 : Utiliser role=log pour identifier des mises à jour séquentielles de l’information (en anglais)</a>
+                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA23" hreflang="en-CA" data-code="ARIA23">ARIA23 : Utiliser role=log pour identifier des mises à jour séquentielles de l’information (en anglais)</a>
                 </li>
               </ul>
               <h3>WAI-ARIA 1.1</h3>
               <ul>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en">aria-live (Propriété)</a>
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">aria-live (Propriété)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en">aria-atomic (État)</a>
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">aria-atomic (État)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en">aria-relevant (Propriété)</a>
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">aria-relevant (Propriété)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en">aria-busy (Propriété)</a>
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">aria-busy (Propriété)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en">alert (Rôle)</a>
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">alert (Rôle)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en">status (Rôle)</a>
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">status (Rôle)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en">timer (Rôle)</a>
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">timer (Rôle)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en">marquee (Rôle)</a>
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">marquee (Rôle)</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en">log (Rôle)</a>
+                  <a href="https://www.w3.org/TR/wai-aria-1.1/" lang="en-CA">log (Rôle)</a>
                 </li>
               </ul>
             </details>
