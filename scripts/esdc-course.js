@@ -55,13 +55,23 @@ $("#collapseAllButton").click(function() {
 $("#highLevelButton").click(function(){
 	$("#modules").addClass("hlv");
 	$(this).prop('disabled', true);
-	 $("#comprehensiveButton").prop('disabled', false);
+	$(this).addClass("active");
+	$("#comprehensiveButton").prop('disabled', false);
+	 $("#comprehensiveButton").removeClass("active");
 	$("#expandButtons").addClass("displaynone");
+	$("details").attr('open', '');
+	$("#expandAllButton").prop('disabled', false);
+	$("#collapseAllButton").prop('disabled', true);
+	
 
 });
+
 $("#comprehensiveButton").click(function(){
 	$("#modules").removeClass("hlv");
 	$(this).prop('disabled', true);
+	$(this).addClass("active");
 	 $("#highLevelButton").prop('disabled', false);
+	 $("#highLevelButton").removeClass("active");
 	 $("#expandButtons").removeClass("displaynone");
+	 $("details").removeAttr('open');
 });
