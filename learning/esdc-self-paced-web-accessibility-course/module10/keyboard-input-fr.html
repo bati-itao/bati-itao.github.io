@@ -178,17 +178,17 @@
 				<p>Dans la mesure du possible, utilisez des liens HTML et des contrôles de formulaires natifs plutôt que des éléments personnalisés. Les agents utilisateur fournissent le fonctionnement du clavier des liens HTML, des contrôles de formulaires, et les mappent à une API d'accessibilité. Les technologies d'assistance utilisent l'API d'accessibilité pour extraire et présenter des informations utiles, telles que le rôle, le nom, l'état et la valeur.</p>
 				<p>Commandes et liens HTML standard&nbsp;:</p>
 				<ul>
-					<li><code lang="en-CA">&lt;a&gt;</code></li>
-					<li><code lang="en-CA">&lt;fieldset&gt;</code></li>
-					<li><code lang="en-CA">&lt;input&gt;</code>
+					<li><code lang="en">&lt;a&gt;</code></li>
+					<li><code lang="en">&lt;fieldset&gt;</code></li>
+					<li><code lang="en">&lt;input&gt;</code>
 						<p>Plusieurs types; voir le module&nbsp;6&nbsp;: Formulaires &gt; <a href="https://bati-itao.github.io/learning/esdc-self-paced-web-accessibility-course/module6/validating-input-fr.html#common-input">Validation des types de saisie communs)</a>.</p>
 					</li>
-					<li><code lang="en-CA">&lt;select&gt;</code></li>
-					<li><code lang="en-CA">&lt;textarea&gt;</code></li>
-					<li><code lang="en-CA">&lt;button&gt;</code></li>
+					<li><code lang="en">&lt;select&gt;</code></li>
+					<li><code lang="en">&lt;textarea&gt;</code></li>
+					<li><code lang="en">&lt;button&gt;</code></li>
 				</ul>
 				<h3 id="onclick-event-of-anchors-button">Utiliser l’événement onclick des ancrages et des boutons</h3>
-				<p>Pour s’assurer que les utilisateurs du clavier puissent invoquer un script, utiliser des liens et des boutons HTML natifs avec l’événement <code lang="en-CA">onclick</code>. L’événement <code lang="en-CA">onclick</code> des deux éléments est indépendant du dispositif de saisie&nbsp;: il est lié à un clic de souris, à la touche Entrée et à la barre d’espacement.</p>
+				<p>Pour s’assurer que les utilisateurs du clavier puissent invoquer un script, utiliser des liens et des boutons HTML natifs avec l’événement <code lang="en">onclick</code>. L’événement <code lang="en">onclick</code> des deux éléments est indépendant du dispositif de saisie&nbsp;: il est lié à un clic de souris, à la touche Entrée et à la barre d’espacement.</p>
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-0"><code class="language-html">&lt;button onclick="doStuff();"&gt;Do stuff&lt;/button&gt;
@@ -198,7 +198,7 @@
    }
 &lt;/script&gt;</code></pre>
 				<p class="wb-inv">Fin du code</p>
-				<p>Un bouton d’envoi situé à l’intérieur d’un formulaire<code lang="en-CA">&lt;form&gt;</code> ne nécessite pas de gestionnaire d’événement. Dans les deux cas suivants, la sélection du bouton d’envoi transmet le formulaire parent sans nécessiter le traitement séparé de l’événement <code lang="en-CA">onclick</code>. Ici, la valeur <code lang="en-CA">onsubmit</code> du formulaire déclenche la validation.</p>
+				<p>Un bouton d’envoi situé à l’intérieur d’un formulaire<code lang="en">&lt;form&gt;</code> ne nécessite pas de gestionnaire d’événement. Dans les deux cas suivants, la sélection du bouton d’envoi transmet le formulaire parent sans nécessiter le traitement séparé de l’événement <code lang="en">onclick</code>. Ici, la valeur <code lang="en">onsubmit</code> du formulaire déclenche la validation.</p>
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-0"><code class="language-html">&lt;form onsubmit="handle_form_submission()"&gt;
@@ -266,9 +266,9 @@
 						</tr>
 					</tbody>
 				</table>			
-				<p>Lorsqu’ils utilisent un bouton ou un lien HTML natif, les agents utilisateurs traitent l’événement <code lang="en-CA">click</code>, qu’il a été activé avec la souris ou le clavier. Il n’est pas nécessaire de reproduire cet événement quand on ajoute des gestionnaires à des éléments HTML ciblables. Toutefois, à défaut de bouton ou de lien natif, il faut ajouter un événement <code lang="en-CA">keypress</code>.</p>
-				<p>Comme le gestionnaire d’événement <code lang="en-CA">keypress</code> réagit à n’importe quelle touche du clavier, il devrait d’abord vérifier si l’utilisateur a appuyé sur la touche Entrée avant de traiter l’événement. Autrement, il sera déclenché par n’importe quelle touche, même la touche de tabulation qui aurait été utilisée pour sortir de la commande.</p>
-				<p>En cas d’utilisation de l’attribut ARIA <code lang="en-CA">role="button"</code> au lieu des éléments natifs <code lang="en-CA">&lt;button&gt;</code> ou <code lang="en-CA">&lt;input type="button"&gt;</code>, il faudra à la fois rendre l’élément ciblable et définir les gestionnaires d’événement pour le clic et les touches Entrée et barre d’espacement.</p>
+				<p>Lorsqu’ils utilisent un bouton ou un lien HTML natif, les agents utilisateurs traitent l’événement <code lang="en">click</code>, qu’il a été activé avec la souris ou le clavier. Il n’est pas nécessaire de reproduire cet événement quand on ajoute des gestionnaires à des éléments HTML ciblables. Toutefois, à défaut de bouton ou de lien natif, il faut ajouter un événement <code lang="en">keypress</code>.</p>
+				<p>Comme le gestionnaire d’événement <code lang="en">keypress</code> réagit à n’importe quelle touche du clavier, il devrait d’abord vérifier si l’utilisateur a appuyé sur la touche Entrée avant de traiter l’événement. Autrement, il sera déclenché par n’importe quelle touche, même la touche de tabulation qui aurait été utilisée pour sortir de la commande.</p>
+				<p>En cas d’utilisation de l’attribut ARIA <code lang="en">role="button"</code> au lieu des éléments natifs <code lang="en">&lt;button&gt;</code> ou <code lang="en">&lt;input type="button"&gt;</code>, il faudra à la fois rendre l’élément ciblable et définir les gestionnaires d’événement pour le clic et les touches Entrée et barre d’espacement.</p>
 				
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
@@ -320,9 +320,9 @@ function swapImageOff(id){
 					<div class="panel-body">
 						<h3 class="text-danger mrgn-tp-0 h3" id="bad-example-mouse-dependent-links"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp; Mauvais exemple&nbsp;: Lien dépendant de la souris</h3>
 						
-						<p>Dans cet exemple, un lien d’image personnalisé réagit uniquement au clic de la souris et n’est pas activable par le clavier. Il n’y a pas de gestionnaire d’événement équivalent pour la touche Entrée. L’événement <code lang="en-CA">onclick</code> ne répond qu’aux saisies clavier appliquées à un bouton ou un lien HTML natif, et il s’agit d’un élément <code lang="en-CA">&lt;img&gt;</code>. </p>
-						<p>Le lien de l’image n’a pas d’attribut <code lang="en-CA">tabindex="0"</code>, ce qui l’empêche d’être ciblé avec le clavier.</p>
-						<p>Enfin, le lien de l’image ne comporte pas l’attribut <code lang="en-CA">role="link"</code>, qui indique sa nature de lien à la technologie d’aide.</p>
+						<p>Dans cet exemple, un lien d’image personnalisé réagit uniquement au clic de la souris et n’est pas activable par le clavier. Il n’y a pas de gestionnaire d’événement équivalent pour la touche Entrée. L’événement <code lang="en">onclick</code> ne répond qu’aux saisies clavier appliquées à un bouton ou un lien HTML natif, et il s’agit d’un élément <code lang="en">&lt;img&gt;</code>. </p>
+						<p>Le lien de l’image n’a pas d’attribut <code lang="en">tabindex="0"</code>, ce qui l’empêche d’être ciblé avec le clavier.</p>
+						<p>Enfin, le lien de l’image ne comporte pas l’attribut <code lang="en">role="link"</code>, qui indique sa nature de lien à la technologie d’aide.</p>
 						<div class="panel panel-primary mrgn-tp-md">
 							<div class="panel-body mrgn-bttm-0">
 								<p class="wb-inv">L'exemple commence</p>
@@ -347,13 +347,13 @@ function swapImageOff(id){
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0 h3" id="good-example-mouse-keyboard-event-handler"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Gestionnaires d’événement souris et clavier sur un bouton personnalisé</h3>
-						<p>Dans cet exemple, un bouton personnalisé construit à partir d’un élément <code lang="en-CA">&lt;span&gt;</code> possède la sémantique et la fonctionnalité d’accessibilité nécessaires&nbsp;:</p>
+						<p>Dans cet exemple, un bouton personnalisé construit à partir d’un élément <code lang="en">&lt;span&gt;</code> possède la sémantique et la fonctionnalité d’accessibilité nécessaires&nbsp;:</p>
 						<ul>
-							<li>Un attribut <code lang="en-CA">tabindex="0"</code> pour pouvoir être ciblé avec le clavier.</li>
-							<li>Un attribut <code lang="en-CA">role="button"</code> pour indiquer sa fonction à la technologie d’aide.</li>
+							<li>Un attribut <code lang="en">tabindex="0"</code> pour pouvoir être ciblé avec le clavier.</li>
+							<li>Un attribut <code lang="en">role="button"</code> pour indiquer sa fonction à la technologie d’aide.</li>
 							<li>Un indicateur visuel de ciblage clavier et de survol par la souris au moyen du CSS.</li>
-							<li>Un gestionnaire d’événement <code lang="en-CA">onclick</code> pour l’activation par la souris.</li>
-							<li>Un gestionnaire d’événement <code lang="en-CA">OnKeyDown</code> pour l’activation par le clavier. La fonction s’arrête si la touche actionnée n’est pas la barre d’espacement ou la touche Entrée.</li>
+							<li>Un gestionnaire d’événement <code lang="en">onclick</code> pour l’activation par la souris.</li>
+							<li>Un gestionnaire d’événement <code lang="en">OnKeyDown</code> pour l’activation par le clavier. La fonction s’arrête si la touche actionnée n’est pas la barre d’espacement ou la touche Entrée.</li>
 						</ul>
 						<p>Le JavaScript ajoute des noms à une liste sous le formulaire.</p>
 						
@@ -484,7 +484,7 @@ function swapImageOff(id){
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-danger mrgn-tp-0 h3" id="bad-example-javascript-focus"><span class="glyphicon glyphicon-remove-circle"></span> Mauvais exemple&nbsp;: JavaScript focus() piège l’utilisateur du clavier</h3>
-						<p>Cet exemple illustre les dangers du piège à clavier que représente l'utilisation de la méthode JavaScript <code lang="en-CA">focus()</code>. Le champ de saisie du formulaire utilise ici l'événement <code lang="en-CA">onblur</code>, qui est déclenché lorsque le focus quitte l'élément. Lorsque l'utilisateur du clavier appuie sur la touche Tab pour déplacer le focus du champ de saisie, l'événement <code lang="en-CA">onblur</code> se déclenche et remet le focus sur le champ de saisie, piégeant ainsi l'utilisateur.</p>
+						<p>Cet exemple illustre les dangers du piège à clavier que représente l'utilisation de la méthode JavaScript <code lang="en">focus()</code>. Le champ de saisie du formulaire utilise ici l'événement <code lang="en">onblur</code>, qui est déclenché lorsque le focus quitte l'élément. Lorsque l'utilisateur du clavier appuie sur la touche Tab pour déplacer le focus du champ de saisie, l'événement <code lang="en">onblur</code> se déclenche et remet le focus sur le champ de saisie, piégeant ainsi l'utilisateur.</p>
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
 <pre class="mrgn-tp-0"><code class="language-html">&lt;label for="lastname"&gt;Last name&lt;/label&gt;
@@ -495,7 +495,7 @@ function swapImageOff(id){
 				<div class="panel panel-danger mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-danger mrgn-tp-0 h3" id="bad-example-javascript-keydown"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais exemple&nbsp;: JavaScript keydown() et event.preventDefault() piègent l’utilisateur du clavier</h3> 
-						<p>Cet exemple illustre les dangers du piège à clavier que représente un événement keypress JavaScript. La fonction JavaScript ne fait aucun effort pour détecter quelle touche a été enfoncée (elle devrait identifier la touche Entrée), elle se déclenche donc lorsque <em>n'importe quelle</em> touche est enfoncée. En outre, l'action par défaut associée à toute pression sur une touche est empêchée par <code lang="en-CA">event.preventDefault()</code>. Par conséquent, lorsqu'un utilisateur tente de déplacer le focus du lien en appuyant sur la touche Tab, l'événement <code lang="en-CA">keydown</code> se déclenche, l'action par défaut de la touche Tab (déplacement du focus vers l'élément suivant sur lequel le focus est possible) est empêchée, le focus reste sur le lien et une nouvelle fenêtre s'ouvre. L'utilisateur du clavier est pris au piège. Même le fait d'appuyer sur les touches Ctrl + Alt + Suppr dans Windows pour faire apparaître le gestionnaire de tâches échouera, car d'autres fenêtres seront simplement lancées en réponse à l'événement de frappe. L'ordinateur de l'utilisateur est détourné et, à moins qu'un collègue ou un ami ne puisse déplacer le focus de l'élément avec une souris, l'utilisateur est obligé de redémarrer l'ordinateur. </p>
+						<p>Cet exemple illustre les dangers du piège à clavier que représente un événement keypress JavaScript. La fonction JavaScript ne fait aucun effort pour détecter quelle touche a été enfoncée (elle devrait identifier la touche Entrée), elle se déclenche donc lorsque <em>n'importe quelle</em> touche est enfoncée. En outre, l'action par défaut associée à toute pression sur une touche est empêchée par <code lang="en">event.preventDefault()</code>. Par conséquent, lorsqu'un utilisateur tente de déplacer le focus du lien en appuyant sur la touche Tab, l'événement <code lang="en">keydown</code> se déclenche, l'action par défaut de la touche Tab (déplacement du focus vers l'élément suivant sur lequel le focus est possible) est empêchée, le focus reste sur le lien et une nouvelle fenêtre s'ouvre. L'utilisateur du clavier est pris au piège. Même le fait d'appuyer sur les touches Ctrl + Alt + Suppr dans Windows pour faire apparaître le gestionnaire de tâches échouera, car d'autres fenêtres seront simplement lancées en réponse à l'événement de frappe. L'ordinateur de l'utilisateur est détourné et, à moins qu'un collègue ou un ami ne puisse déplacer le focus de l'élément avec une souris, l'utilisateur est obligé de redémarrer l'ordinateur. </p>
 
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
@@ -523,44 +523,44 @@ function swapImageOff(id){
 				<p>Le contenu ajouté à une page avec JavaScript peut se trouver à l’un des deux endroits suivants&nbsp;:</p>
 				<ul>
 					<li>Le contenu ajouté suit le déclencheur dans le DOM. Dans ce cas, il n'est pas nécessaire de gérer le focus. Lorsqu'il est activé, le contrôle déclencheur conserve le focus, et le contenu ajouté est le suivant dans l'ordre de lecture du lecteur d'écran et dans l'ordre des tabulations. Le contenu ajouté peut être positionné de manière absolue par le biais de CSS pour se trouver ailleurs sur la page.</li>
-					<li>Le contenu ajouté ne suit pas le déclencheur dans le DOM. Dans ce cas, la cible doit être déplacée vers le contenu ajouté en utilisant la méthode JavaScript <code lang="en-CA">focus()</code>. La cible doit avoir l’attribut <code lang="en-CA">tabindex="-1"</code>. De plus, la cible doit avoir un contenu textuel ou un texte déterminé par programmation au moyen d’une étiquette, sinon un utilisateur de lecteur d’écran n’entendra rien à son arrivée. Si le contenu ajouté peut être réduit ou désactivé, la cible revient sur la commande de déclenchement (ou à un autre emplacement logique, selon le contexte). Éviter de perdre la cible ou de la réinitialiser au haut de la page.</li>
+					<li>Le contenu ajouté ne suit pas le déclencheur dans le DOM. Dans ce cas, la cible doit être déplacée vers le contenu ajouté en utilisant la méthode JavaScript <code lang="en">focus()</code>. La cible doit avoir l’attribut <code lang="en">tabindex="-1"</code>. De plus, la cible doit avoir un contenu textuel ou un texte déterminé par programmation au moyen d’une étiquette, sinon un utilisateur de lecteur d’écran n’entendra rien à son arrivée. Si le contenu ajouté peut être réduit ou désactivé, la cible revient sur la commande de déclenchement (ou à un autre emplacement logique, selon le contexte). Éviter de perdre la cible ou de la réinitialiser au haut de la page.</li>
 				</ul>
 				<p>Il y a des exceptions si vous mettez en œuvres certains modèles de composants graphiques décrits dans les <a href="https://www.w3.org/WAI/ARIA/apg/">Pratiques de rédaction ARIA (en anglais)</a>. Les auteurs de contenu doivent gérer le focus dans les rôles de conteneur suivants.</p>
-				<ul lang="en-CA">
+				<ul lang="en">
 					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/#combobox" lang="en-CA">combo box</a>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#combobox" lang="en">combo box</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/#grid" lang="en-CA">grid</a>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#grid" lang="en">grid</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/#Listbox" lang="en-CA">listbox</a>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#Listbox" lang="en">listbox</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/#menu" lang="en-CA">menu</a>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#menu" lang="en">menu</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/#menubar" lang="en-CA">menubar</a>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#menubar" lang="en">menubar</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/#radiobutton" lang="en-CA">radio group</a>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#radiobutton" lang="en">radio group</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/#tabpanel" lang="en-CA">tabs</a>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#tabpanel" lang="en">tabs</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/#TreeView" lang="en-CA">tree view</a>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#TreeView" lang="en">tree view</a>
 					</li>
 					<li>
-						<a href="https://www.w3.org/TR/wai-aria-1.1/#treegrid" lang="en-CA">treegrid</a>
+						<a href="https://www.w3.org/TR/wai-aria-1.1/#treegrid" lang="en">treegrid</a>
 					</li>
 				</ul>
 				<p>La gestion de la cible dans ces composants graphiques «&nbsp;composites&nbsp;» est une question distincte abordée dans le <a href="../module12/introduction-fr.html">module&nbsp;12</a>.</p>
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h3 class="text-success mrgn-tp-0 h3" id="good-example-focus-mgmt-single-page"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon example&nbsp;: Gestion de la cible dans une application Web monopage</h3>
-						<p>Dans cet exemple, une application Web monopage utilise JavaScript pour charger un article complet à l’intérieur de l’élément <code lang="en-CA">main</code>, sans chargement de la page. Les liens dans le menu de navigation déclenchent le chargement du contenu. Cet exemple ne comporte que quelques éléments de menu, mais les sites ont souvent des menus bien plus longs. Le déplacement de la cible est vite à un utilisateur de clavier la tâche fastidieuse de parcourir un menu avec la touche de tabulation pour accéder au contenu principal d’une application d’une seule page.</p>
-						<p>L’en-tête <code lang="en-CA">&lt;h1&gt;</code> de chaque page comporte l’attribut <code lang="en-CA">tabindex="-1"</code> qui permet le ciblage par les scripts. JavaScript identifie l’en-tête <code lang="en-CA">&lt;h1&gt;</code> au moyen d’un sélecteur de requête et pose la cible sur lui. Le script met également à jour l’élément <code lang="en-CA">&lt;title&gt;</code> de la page pour qu’il corresponde au texte de l’en-tête. </p>
+						<p>Dans cet exemple, une application Web monopage utilise JavaScript pour charger un article complet à l’intérieur de l’élément <code lang="en">main</code>, sans chargement de la page. Les liens dans le menu de navigation déclenchent le chargement du contenu. Cet exemple ne comporte que quelques éléments de menu, mais les sites ont souvent des menus bien plus longs. Le déplacement de la cible est vite à un utilisateur de clavier la tâche fastidieuse de parcourir un menu avec la touche de tabulation pour accéder au contenu principal d’une application d’une seule page.</p>
+						<p>L’en-tête <code lang="en">&lt;h1&gt;</code> de chaque page comporte l’attribut <code lang="en">tabindex="-1"</code> qui permet le ciblage par les scripts. JavaScript identifie l’en-tête <code lang="en">&lt;h1&gt;</code> au moyen d’un sélecteur de requête et pose la cible sur lui. Le script met également à jour l’élément <code lang="en">&lt;title&gt;</code> de la page pour qu’il corresponde au texte de l’en-tête. </p>
 						<p>La première utilisation de JavaScript devrait être déclenchée par le menu et non par le chargement de la page. L’interaction initiale d’un utilisateur de lecteur d’écran avec la page devrait commencer par le haut, comme d’habitude.</p>
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
@@ -842,39 +842,39 @@ document.addEventListener('keyup', function (event) {
 					<h3 id="keyboard-input-techniques">Techniques</h3>
 					<ul>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G202" hreflang="en-CA" data-code="G202">G202&nbsp;: Garantir le contrôle par le clavier pour toutes les fonctionnalités (en anglais)</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G202" hreflang="en" data-code="G202">G202&nbsp;: Garantir le contrôle par le clavier pour toutes les fonctionnalités (en anglais)</a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G90" hreflang="en-CA" data-code="G90">G90&nbsp;: Fournir des événements déclenchés au clavier
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G90" hreflang="en" data-code="G90">G90&nbsp;: Fournir des événements déclenchés au clavier
 (en anglais) </a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G21" hreflang="en-CA" data-code="G21">
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G21" hreflang="en" data-code="G21">
 G21&nbsp;: S'assurer que l'utilisateur n'est pas piégé dans le contenu (en anglais) </a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H91" hreflang="en-CA" data-code="H91">
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H91" hreflang="en" data-code="H91">
 H91&nbsp;: Utiliser des éléments de formulaire et des liens HTML (en anglais)</a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR20" hreflang="en-CA" data-code="SCR20">SCR20&nbsp;: Utiliser à la fois des fonctions au clavier et spécifiques à d'autres périphériques (en anglais) </a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR20" hreflang="en" data-code="SCR20">SCR20&nbsp;: Utiliser à la fois des fonctions au clavier et spécifiques à d'autres périphériques (en anglais) </a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR29" hreflang="en-CA" data-code="SCR29">
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR29" hreflang="en" data-code="SCR29">
 SCR29&nbsp;: Ajouter des actions au clavier accessibles à des éléments HTML statiques (en anglais) </a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR35" hreflang="en-CA" data-code="SCR35">SCR35&nbsp;: Rendre les actions au clavier accessibles en utilisant l'événement onclick sur les liens et les boutons
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR35" hreflang="en" data-code="SCR35">SCR35&nbsp;: Rendre les actions au clavier accessibles en utilisant l'événement onclick sur les liens et les boutons
 (en anglais) </a>
 						</li>
 					</ul>
 					<h3 id="keyboard-input-failures">Échecs</h3>
 					<ul>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F54" hreflang="en-CA" data-code="F54">F54&nbsp;: Échec du critère de succès 2.1.1 consistant à utiliser seulement des événements au pointeur (y compris par geste) pour une fonction (en anglais) </a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F54" hreflang="en" data-code="F54">F54&nbsp;: Échec du critère de succès 2.1.1 consistant à utiliser seulement des événements au pointeur (y compris par geste) pour une fonction (en anglais) </a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F42" hreflang="en-CA" data-code="F42">F42&nbsp;: Échec du critère de succès 1.3.1 et 2.1.1 consistant à utiliser des événements de scripts pour émuler des liens d'une manière qui n'est pas déterminable par un programme informatique (en anglais)</a>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F42" hreflang="en" data-code="F42">F42&nbsp;: Échec du critère de succès 1.3.1 et 2.1.1 consistant à utiliser des événements de scripts pour émuler des liens d'une manière qui n'est pas déterminable par un programme informatique (en anglais)</a>
 						</li>
 					</ul>
 				</details>
