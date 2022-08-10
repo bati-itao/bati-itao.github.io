@@ -55,9 +55,7 @@ $("#collapseAllButton").click(function() {
 $("#highLevelButton").click(function(){
 	$("#modules").addClass("hlv");
 	$(this).prop('disabled', true);
-	$(this).addClass("active");
 	$("#comprehensiveButton").prop('disabled', false);
-	 $("#comprehensiveButton").removeClass("active");
 	$("#expandButtons").addClass("displaynone");
 	$("details").attr('open', '');
 	$("#expandAllButton").prop('disabled', false);
@@ -69,9 +67,7 @@ $("#highLevelButton").click(function(){
 $("#comprehensiveButton").click(function(){
 	$("#modules").removeClass("hlv");
 	$(this).prop('disabled', true);
-	$(this).addClass("active");
 	 $("#highLevelButton").prop('disabled', false);
-	 $("#highLevelButton").removeClass("active");
 	 $("#expandButtons").removeClass("displaynone");
 	 $("details").removeAttr('open');
 });
