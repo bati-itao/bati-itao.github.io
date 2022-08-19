@@ -7,8 +7,20 @@ let learningPath = {
     if (learningPath.dbug) console.log("Initing!");
     learningPath.setLang();
     learningPath.setFormat();
+    //select correct json file
+    let title = document.title.toUpperCase()
+    let jsonFile;
+ 
+    if(title.includes("DOCUMENT") || title.includes("DOCUMENTS")){
+      jsonFile = "document-auditor-learning-path.json";
+    } else if (title.includes("WEB")) {
+      jsonFile = "web-auditor-learning-path.json";
+    } else {
+      jsonFile = null;
+    }
+    //end selection
     learningPath.getRemoteFile(
-      "document-auditor-learning-path.json",
+      jsonFile,
       learningPath.startDrawing
     );
   }, // End of init
