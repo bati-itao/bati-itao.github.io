@@ -123,15 +123,15 @@
 				<div class="panel panel-success mrgn-tp-lg">
 					<div class="panel-body">
 						<h2 id="overflow-table" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Débordement du tableau avec barre de défilement horizontale</h2>
-						<p>Dans cet exemple, un grand tableau d&eacute;bordant force une barre de défilement horizontale sur l’élément <code lang="en">&lt;div&gt;</code> parent, générée par la déclaration CSS <code lang="en">overflow-x: auto</code>. Le div utilise également l’attribut <code lang="en">tabindex="0"</code> pour s’assurer que la barre de défilement reçoit la cible du clavier (conformément à la règle W3C-IAW TIA <a href="https://www.w3.org/WAI/standards-guidelines/act/rules/scrollable-element-keyboard-accessible-0ssw9k/" lang="en">Scrollable element is keyboard accessible (l’élément de défilement est accessible au clavier)</a>).</p>
+						<p>Dans cet exemple, un grand tableau d&eacute;bordant force une barre de défilement horizontale sur l’élément <code lang="en">&lt;div&gt;</code> parent, générée par la déclaration CSS <code lang="en">overflow-x: auto</code>. Le <code lang="en">&lt;div&gt;</code> utilise l’attribut <code lang="en">tabindex="0"</code> pour s’assurer que la barre de défilement reçoit la cible du clavier (conformément à la règle W3C-IAW TIA <a href="https://www.w3.org/WAI/standards-guidelines/act/rules/scrollable-element-keyboard-accessible-0ssw9k/" lang="en">Scrollable element is keyboard accessible (l’élément de défilement est accessible au clavier)</a>). Comme le <code lang="en">&lt;div&gt;</code> est un taquet de tabulation, nous l'identifions aux utilisateurs de lecteurs d'écran avec un nom (le titre du tableau "<span lang="en">Sprints</span>" via <code lang="en">aria-labelledby</code>) et un rôle ("<code lang="en">group</code>"). </p>
 						<p>Il est toujours préférable de diviser les grands tableaux en plusieurs petits tableaux.</p>
 				
 						<div class="panel panel-primary">
 							<div class="panel-body mrgn-bttm-0">
 								<p class="wb-inv">L'exemple commence</p>
-								<div style="overflow-x:auto;" tabindex="0">
+								<div style="overflow-x:auto;" tabindex="0" tabindex="0" role="group" aria-labelledby="tbl-caption">
 									 <table class="table table-bordered">
-										 <caption>Sprints</caption>
+										 <caption id="tbl-caption">Sprints</caption>
 										 <thead>
 											<tr>
 											   <th scope="col">Sprint #</th>
@@ -192,8 +192,11 @@
 						
 <p class="lang-label small">HTML</p>
 		<p class="wb-inv">Début du code</p>
-<pre class="mrgn-tp-0"><code class="language-html">&lt;div style="overflow-x:auto;" tabindex="0"&gt;
-   &lt;table&gt;[…]&lt;/table&gt;
+<pre class="mrgn-tp-0"><code class="language-html">&lt;div style="overflow-x:auto;" tabindex="0" role="group" aria-labelledby="tbl-caption"&gt;
+   &lt;table&gt;
+      &lt;caption id="tbl-caption"&gt;Sprints&lt;/caption&gt;
+      […]
+   &lt;/table&gt;
 &lt;/div&gt;</code></pre>
 				<p class="wb-inv">Fin du code</p>	
 
