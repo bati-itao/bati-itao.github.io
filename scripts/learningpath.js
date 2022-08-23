@@ -11,9 +11,10 @@ let learningPath = {
     let title = document.title.toUpperCase()
     let jsonFile;
  
-    if(title.includes("DOCUMENT") || title.includes("DOCUMENTS")){
+    //using indexOf() since IE doesn't support includes(), returns -1 if not found
+    if(title.indexOf('DOCUMENT') !== -1 || title.indexOf('DOCUMENTS') !== -1){
       jsonFile = "document-auditor-learning-path.json";
-    } else if (title.includes("WEB")) {
+    } else if (title.indexOf("WEB") !== -1) {
       jsonFile = "web-auditor-learning-path.json";
     } else {
       jsonFile = null;
@@ -93,6 +94,8 @@ let learningPath = {
     }
   }, // End of doc
   createOptionsList: function (container) {
+    //returns -1 if not found
+    if(window.location.search.indexOf("?format=") !== -1){
     let p = learningPath.createHTMLElement(document, "p", {
       parentNode: container,
       textNode: "View as:",
@@ -110,6 +113,7 @@ let learningPath = {
         href: document.location.pathname + "?format=" + types[i],
         textNode: types[i].charAt(0).toUpperCase() + types[i].slice(1),
       });
+    }
     }
   }, // End of createOptionsList
   drawTables: function (container, metadata, courses) {
