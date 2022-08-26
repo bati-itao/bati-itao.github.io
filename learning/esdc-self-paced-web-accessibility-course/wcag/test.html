@@ -75,6 +75,17 @@
 				From time immemorial the Norsemen Example 3 were among the most daring and skilful mariners ever known. They built great wooden boats with tall, sweeping bows and sterns. These ships, though open and without decks, were yet stout and seaworthy. Their remains have been found, at times lying deeply buried under the sand and preserved almost intact. One such vessel, discovered on the shore of Denmark, measured 72 feet in length. Another Viking ship, which was dug up in Norway, and which is preserved in the museum at Christiania, was 78 feet long and 17 feet wide. One of the old Norse sagas, or stories, tells how King Olaf Tryggvesson built a ship, the keel of which, as it lay on the grass, was 74 ells long; in modern measure, it would be a vessel of about 942 tons burden. Even if we make allowance for the exaggeration or ignorance of the writer of the saga, there is still a vast contrast between this vessel and the little ship Centurion in which Anson sailed round the world.
 			</p>
 		</details>
+		<details id="details-panel2">
+			<summary>Example 2</summary>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dapibus ultrices in iaculis nunc sed augue lacus viverra. Rutrum quisque non tellus orci ac auctor augue mauris augue. Sit amet consectetur adipiscing elit pellentesque habitant. Volutpat blandit aliquam etiam erat. Velit dignissim sodales ut eu sem integer vitae justo eget. Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. Dictum varius duis at consectetur lorem donec. Cras semper auctor neque vitae tempus quam.
+			</p>
+		</details>
+		<details id="details-panel3">
+			<summary>Example 3</summary>
+			<p>Cras semper auctor neque vitae tempus quam. Egestas purus viverra accumsan in nisl nisi. Aliquam sem fringilla ut morbi tincidunt augue interdum. Placerat orci nulla pellentesque dignissim enim. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra accumsan. Pulvinar etiam non quam lacus suspendisse faucibus interdum posuere. Potenti nullam ac tortor vitae. Tellus cras adipiscing enim eu. Convallis a cras semper auctor neque vitae tempus quam. Adipiscing tristique risus nec feugiat in fermentum posuere urna.
+			</p>
+		</details>
 	</div>
 </div>
 <style>
@@ -198,15 +209,22 @@ input {
 </style>
 <script>
 //replace wet html code with js
-//need a "for each details panel" or seomthing code?
-var summaryValue = $('#details-panel').find('summary').html();
-var tabHtml = $('#details-panel').find('p').html();
-var accordionHtml= ' <h3>  <button type="button"  aria-expanded="true"  class="accordion-trigger"  aria-controls="details-panel1"  id="accordion1id"> <span class="accordion-title"> '+summaryValue+' <span class="accordion-icon"></span>  </span>  </button> </h3><div id="details-panel1" role="region" aria-labelledby="accordion1id" class="accordion-panel"> <div>  <fieldset>  <p>';
-var finalHtml = '<div id="accordionGroup" class="accordion">'+accordionHtml +tabHtml+'</p></fieldset></div></div>';
+
+var finalHtml ='<div id="accordionGroup" class="accordion">';
+$('details').each(function( index ) {
+
+	var summaryValue = $(this).find('summary').html();
+	var tabHtml = $(this).find('p').html();
+	var accordionHtml= ' <h3>  <button type="button"  aria-expanded="true"  class="accordion-trigger"  aria-controls="details-panel'+index+'"  id="accordion'+index+'id"> <span class="accordion-title"> '+summaryValue+' <span class="accordion-icon"></span>  </span>  </button> </h3><div id="details-panel'+index+'" role="region" aria-labelledby="accordion'+index+'id" class="accordion-panel">   <fieldset>  <p>';
+	finalHtml+= accordionHtml +tabHtml+'</p></fieldset></div>';
+
+	
+});
+
+finalHtml += '</div>';
+console.log(finalHtml);
 
 $('#allTabs').replaceWith(finalHtml );
-
-
 /** WAI-ARIA CODE STARTS**/
 
 'use strict';
