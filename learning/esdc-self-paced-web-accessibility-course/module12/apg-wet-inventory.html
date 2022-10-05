@@ -437,7 +437,9 @@
                 <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-temperature.html">Vertical Temperature Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
               
             </td>
-            <td><a href="https://wet-boew.github.io/v4.0-ci/demos/slider/slider-en.html">Input type="range" polyfill</a>. Slider role and related attributes added via JS to legacy browsers that don't support the HTML5 input element's type="range" attribute.</td>
+            <td>
+            <p><a href="https://wet-boew.github.io/v4.0-ci/demos/slider/slider-en.html">Input type="range" polyfill</a>. Slider role and related attributes added via JS to legacy browsers that don't support the HTML5 input element's type="range" attribute.</p>
+            </td>
           </tr>
           <tr>
             <td><code>spinbutton</code></td>
@@ -805,7 +807,11 @@
                 <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-navigation.html">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
               
             </td>
-            <td></td>
+            <td>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/geomap/geomap-en.html">geomap</a> component to name its data tables and map controls.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/tables/tables-en.html">Data Tables</a> plugin to name its tables.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/charts/charts-en.html">Charts and graphs</a> component to name the chart. The chart and its legend are set in a div with <mark>role="image"</mark> and named with <code>aria-label</code>. The combination ensures the text in the legend is not declared by screen readers.</p>
+			</td>
           </tr>
           <tr>
             <td><code>aria-labelledby</code></td>
@@ -853,7 +859,16 @@
                 <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/landmarks/search.html">Search Landmark</a></p>
               
             </td>
-            <td></td>
+            <td>
+            
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/multimedia/multimedia-en.html">Multimedia Player</a> component to name play, pause, mute, volume and closed caption buttons. The buttons concatenate a label out of <code>aria-labelledby</code> and <code>title</code> attribute values, which according to the naming spec shouldn't be possible. The former should trump the latter.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/tabs/tabs-en.html">Tabs</a> component to name each tab panel after its controlling tab.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/demos/toggle/toggle-en.html">Toggle</a> component's accordion variant to name each tab panel after its controlling tab. The accordion variant's semantics are incorrect.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/datepicker/datepicker-en.html">Input type="date" polyfill (date picker)</a> component to name the calendar's containing <code>dialog</code>. It and other ARIA attributes are served by the polyfill to legacy browsers to emulate the HTML5 input type="date" functionality.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/demos/slider/slider-en.html">Input type="range" polyfill</a> component to name the slider handle. Slider role and related attributes added via JS to legacy browsers that don't support the HTML5 input element's type="range" attribute.</p>
+
+            
+            </td>
           </tr>
           <tr>
             <td><code>aria-level</code></td>
@@ -863,7 +878,9 @@
                 <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-1/treeview-1b.html">File Directory Treeview  Using Declared Properties</a></p>
               
             </td>
-            <td></td>
+            <td>
+				<td>No example use in WET.</td>
+            </td>
           </tr>
           <tr>
             <td><code>aria-live</code></td>
@@ -876,7 +893,13 @@
                 <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/datepicker-dialog.html">Date Picker Dialog</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
               
             </td>
-            <td></td>
+            <td>
+				<p>Used on the summary of results of the WET <a href="https://wet-boew.github.io/v4.0-ci/demos/wamethod/wamethod-AA-en.html">Web Accessibility Assessment Methodology (Level AA)</a>. A live region is set incorrectly on each of the five summary cells instead of the parent row, which would include the label for the statistic. Changing a radio box status for any of the success criteria causes a cascade of meaningless percentage value declarations, lacking their labels.</p>
+				<p>Set unnecessarily as <code>aria-live="off"</code> by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/multimedia/multimedia-en.html">Multimedia Player</a> component on the video's progress bar. It's unnecessary since the <code>progress</code> element isn't by default a live region.</p>
+				<p>Set unnecessarily as <code>aria-live="off</code>" by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/tabs/tabs-en.html">Tabbed Interface</a>  component on the <code>tablist</code>. It's unnecessary since the <code>tablist</code> role isn't by default a live region.</p>
+				<p>Missing from the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/tabs/tabs-en.html">Carousel</a> slide.</p>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/demos/datalist/datalist-en.html">datalist polyfill</a> to declare the dynamic menu of options. The polyfill implements the ARIA Combobox pattern in browsers that don't support the HTML5 input <code>list</code> attribute and the <code>datalist</code> element.</p>
+            </td>
           </tr>
           <tr>
             <td><code>aria-modal</code></td>
@@ -885,25 +908,34 @@
                 <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-datepicker.html">Date Picker Combobox</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
                 <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/alertdialog.html">Alert Dialog</a></p>
                 <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/datepicker-dialog.html">Date Picker Dialog</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
-                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/dialog.html">Modal Dialog</a></p>
-              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-Qindex/dialog-modal/dialog.html">Modal Dialog</a></p>
+              Qq
             </td>
-            <td>Not used by <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/overlay/overlay-en.html">Overlay</a>, which uses the older aria-hidden="true" technique (though the main content lacks it).</td>
+            <td>
+				<p>Not used by <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/overlay/overlay-en.html">Overlay</a>, which uses the older aria-hidden="true" technique (though the main content lacks it).</p>
+				<td>No example use in WET.</td>
+            </td>
           </tr>
           <tr>
             <td><code>aria-multiselectable</code></td>
             <td><a href="listbox/listbox-rearrangeable.html">Listboxes with Rearrangeable Options</a></td>
-            <td></td>
+            <td>
+				<td>No example use in WET.</td>
+            </td>
           </tr>
           <tr>
             <td><code>aria-orientation</code></td>
             <td><a href="slider/slider-temperature.html">Vertical Temperature Slider</a></td>
-            <td></td>
+            <td>
+				<td>No example use in WET.</td>
+            </td>
           </tr>
           <tr>
             <td><code>aria-owns</code></td>
             <td><a href="treeview/treeview-navigation.html">Navigation Treeview</a></td>
-            <td></td>
+            <td>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/demos/datalist/datalist-en.html">datalist polyfill</a> component though it's not part of the APG pattern. The polyfill implements the ARIA Combobox pattern in browsers that don't support the HTML5 input <code>list</code> attribute and the <code>datalist</code> element.</p>
+            </td>
           </tr>
           <tr>
             <td><code>aria-posinset</code></td>
@@ -914,7 +946,10 @@
                 <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-1/treeview-1b.html">File Directory Treeview  Using Declared Properties</a></p>
               
             </td>
-            <td></td>
+            <td>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/demos/menu/menu-en.html">Menu</a> component on the menuitem role.</p>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/demos/toggle/toggle-en.html">Toggle</a> component's Accordion option on each tab. Incorrectly mixes tab and tablist roles and nests details/summary inside the tab role.</p>
+            </td>
           </tr>
           <tr>
             <td><code>aria-pressed</code></td>
@@ -925,7 +960,9 @@
                 <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
               
             </td>
-            <td></td>
+            <td>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/multimedia/multimedia-en.html">Multimedia Player</a> commponent on the closed captions button.</p>
+            </td>
           </tr>
           <tr>
             <td><code>aria-roledescription</code></td>
@@ -935,7 +972,9 @@
                 <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/carousel/carousel-2-tablist.html">Auto-Rotating Image Carousel with Tabs for Slide Control</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
               
             </td>
-            <td></td>
+            <td>
+				<td>No example use in WET. Could be used on the carousel.</td>
+            </td>
           </tr>
           <tr>
             <td><code>aria-rowcount</code></td>
@@ -945,7 +984,9 @@
                 <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/grid/LayoutGrids.html">Layout Grid</a></p>
               
             </td>
-            <td></td>
+            <td>
+				<td>No example use in WET.</td>
+            </td>
           </tr>
           <tr>
             <td><code>aria-rowindex</code></td>
@@ -955,7 +996,9 @@
                 <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/grid/LayoutGrids.html">Layout Grid</a></p>
               
             </td>
-            <td></td>
+            <td>
+				<td>No example use in WET.</td>
+            </td>
           </tr>
           <tr>
             <td><code>aria-selected</code></td>
@@ -979,7 +1022,10 @@
                 <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-1/treeview-1b.html">File Directory Treeview  Using Declared Properties</a></p>
               
             </td>
-            <td></td>
+            <td>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/demos/toggle/toggle-en.html">Toggle</a> component's Accordion option on a selected tab. The accordion incorrectly mixes tab and tablist roles and nests details/summary inside the tab role.</p>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/datepicker/datepicker-en.html">Input type="date" polyfill (date picker)</a> component on the selected day. It and other ARIA attributes are served by the polyfill to legacy browsers to emulate the HTML5 <code>input type="date"</code> functionality.</p>            
+            </td>
           </tr>
           <tr>
             <td><code>aria-setsize</code></td>
@@ -990,7 +1036,10 @@
                 <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-1/treeview-1b.html">File Directory Treeview  Using Declared Properties</a></p>
               
             </td>
-            <td></td>
+            <td>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/demos/menu/menu-en.html">Menu</a> component on the menuitem role.</p>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/demos/toggle/toggle-en.html">Toggle</a> component's Accordion option on each tab. The accordion incorrectly mixes tab and tablist roles and nests details/summary inside the tab role.</p>
+			</td>
           </tr>
           <tr>
             <td><code>aria-sort</code></td>
@@ -1000,7 +1049,9 @@
                 <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/table/sortable-table.html">Sortable Table</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
               
             </td>
-            <td></td>
+            <td>
+            <p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/tables/tables-en.html">Data Tables</a> component on a dynamic table's column-sorting buttons.</p>
+            </td>
           </tr>
           <tr>
             <td><code>aria-valuemax</code></td>
@@ -1016,7 +1067,10 @@
                 <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
               
             </td>
-            <td></td>
+            <td>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/progress/progress-en.html">Progress polyfill (progress bar)</a> component. It and other ARIA attributes are served by the polyfill to legacy browsers to emulate the HTML5 <code>progress</code> element's features.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/demos/slider/slider-en.html">Input type="range" polyfill</a> component. The Slider role and related attributes are served to legacy browsers that don't support the HTML5 input element's <code>type="range"</code> attribute.</p>
+            </td>
           </tr>
           <tr>
             <td><code>aria-valuemin</code></td>
@@ -1032,7 +1086,10 @@
                 <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
               
             </td>
-            <td></td>
+            <td>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/progress/progress-en.html">Progress polyfill (progress bar)</a> component. It and other ARIA attributes are served by the polyfill to legacy browsers to emulate the HTML5 <code>progress</code> element's features.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/demos/slider/slider-en.html">Input type="range" polyfill</a> component. It and other ARIA attributes are served by the polyfill to legacy browsers to emulate the HTML5 input element's <code>type="range"</code> attribute.</p>
+            </td>
           </tr>
           <tr>
             <td><code>aria-valuenow</code></td>
@@ -1048,7 +1105,10 @@
                 <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
               
             </td>
-            <td></td>
+            <td>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/progress/progress-en.html">Progress polyfill (progress bar)</a> component. It and other ARIA attributes are served by the polyfill to legacy browsers to emulate the HTML5 <code>progress</code> element's features.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/demos/slider/slider-en.html">Input type="range" polyfill</a> component. It and other ARIA attributes are served by the polyfill to legacy browsers to emulate the HTML5 input element's <code>type="range"</code> attribute.</p>
+            </td>
           </tr>
           <tr>
             <td><code>aria-valuetext</code></td>
@@ -1061,7 +1121,9 @@
                 <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
               
             </td>
-            <td></td>
+            <td>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/demos/slider/slider-en.html">Input type="range" polyfill</a> component. It and other ARIA attributes are served by the polyfill to legacy browsers to emulate the HTML5 input element's <code>type="range"</code> attribute.</p>
+            </td>
           </tr></tbody>
       </table>
       </main>
