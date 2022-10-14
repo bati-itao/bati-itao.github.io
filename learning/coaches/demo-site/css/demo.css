@@ -1,37 +1,136 @@
-/* Responsive 3-column layout */
+/*
+Color palette
+https://coolors.co/palettes/popular/green
+--forest-green-traditional: #134611;
+--india-green: #3e8914;
+--green-pigment: #3da35d;
+--light-green: #96e072;
+--nyanza: #e8fccf;
+*/
+body {	
+	color: #134611;
+	background-color: #E3E3E3;
+}
+.visually-hidden {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
+}
+.clearfix:after {
+  content:"";
+  display:block;
+  clear:both;
+ }
+ 
+#pagewrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+/* Responsive layout */
 .columns {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
 }
-.column-a {
-  flex: 25%;
+
+/* Responsive 3-column layout in header */
+header .col-a {
+  flex: 20%;
+}
+header .col-b {
+  flex: 46%;
+}
+header .col-c {
+  flex: 30%;
+}
+/* Responsive 3-column layout in middle wrap */
+
+#mid-wrap .col-a {
+  flex: 20%;
+}
+#mid-wrap .col-b {
+  flex: 46%;
+  padding: 0 4% 0 0;
+}
+#mid-wrap .col-c {
+  flex: 30%;
+}
+#mid-wrap .column {
+	padding: 0 1em;
+}
+/* Responsive 4- and 3-column layouts in footer */
+#footer-row-a .column {
+  flex: 21%;
+  padding: 0;
+  margin: 0 2%;
+}
+#footer-row-b .column {
+  flex: 29.3%;
+  margin: 0 2%;
 }
 
-.column-b {
-  flex: 50%;
-}
-.column-c {
-  flex: 25%;
-}
-/* Responsive 3-column layout in header */
-header .column-a {
-  flex: 25%;
-}
-header .column-b {
-  flex: 40%;
-}
-header .column-c {
-  flex: 35%;
-}
-/* Responsive layout - makes a one column layout instead of a two-column layout */
+/* Responsive layout - makes a one column layout */
 @media (max-width: 800px) {
-  .column {
+  .column,
+  #footer-row-a .column,
+  #footer-row-b .column {
     flex: 100%;
+    flex: 96%;
   }
 }
 
+
+/* "Free shipping on orders over $19.95" */
+.topbarblock {
+    /*position: absolute;
+    top: 0;*/
+    width: 100%;
+    height: 37px;
+    padding: 0;
+    background: #3e8914ff;
+    margin: 0 auto;
+    text-align: center;
+    font: 100% Open Sans Condensed, Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    line-height: 1.9;
+    overflow: hidden;
+    color: #fff;
+    display: block;
+    box-shadow: 0 0 5px 0 rgb(0 0 0 / 33%);
+    -webkit-box-shadow: 0 0 5px 0 rgb(0 0 0 / 33%);
+    -moz-box-shadow: 0 0 5px 0 rgba(0,0,0,0.33);
+    -o-box-shadow: 0 0 5px 0 rgba(0,0,0,0.33);
+    -ms-box-shadow: 0 0 5px 0 rgba(0,0,0,0.33);
+    -pie-box-shadow: 0 0 5px 0 rgba(0,0,0,0.33);
+}
+
+header { 
+	padding: 0.5em 1em;
+ }
+header .col-c {
+  text-align: right;
+}
+header aside > * {
+	float: left;
+	margin-left: 1em;
+	text-align: right;
+}
+
+header .col-b {
+	position: relative;
+}
+header nav {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+}
 /* Responsive menu */
 #navbar { 
    list-style: none;
@@ -41,7 +140,7 @@ header .column-c {
 #navbar a {
    display: block;
    color: white;
-   background-color: #0e6591;
+   background-color: #3da35dff;
    border-radius: 1px 5px 5px 1px;  
    padding: 5px;
    text-decoration: none;
@@ -50,11 +149,11 @@ header .column-c {
 #navbar a:focus,
 #navbar [aria-current] { 
    color: #000000; 
-   background-color: #56d5f5;
+   background-color: #96e072ff;
 }
 #navbar a:hover,
 #navbar a:focus {
-   text-decoration: underline;
+   text-decoration: none;
 }
 /* MEDIA QUERY 1 - For viewports 960px and wider */ 
 @media (min-width: 801px) { 
@@ -86,6 +185,11 @@ header .column-c {
    nav { 
       width: 100%;
    }
+   header nav {
+   position: static;
+   bottom: auto;
+   left: auto;
+}
    #navbar a {   
       width: 66%; 
       margin-bottom: 5px;            
@@ -97,53 +201,56 @@ header .column-c {
 }  
 /* END MEDIA QUERY 2 */
 
-/*
-Color palette
-green: #606C38
-black: #283618
-beige: #FEFAE0
-clay: #DDA15E
-brick: #BC6C25
-*/
-
-header { outline: 3px solid #ffe8d6; }
-nav { outline: 3px solid #ddbea9; }
-main { outline: 3px solid #b7b7a4; }
-footer { outline: 3px solid #6b705c; }
-aside { outline: 3px solid #f4a261; }
-
-.visually-hidden {
-  clip: rect(0 0 0 0); 
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap; 
-  width: 1px;
+h1, h2 {
+	color: #3e8914;
 }
+h1,
+#mid-wrap .col-c h2 {
+	margin-top: 0;
+}
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#mid-wrap {
+	clear: both;
+	margin-top: 1em;
+}
+
+main {  }
+
+aside { }
 
 header img { width: 120px; }
 
-.topbarblock {
-    /*position: absolute;
-    top: 0;*/
-    width: 100%;
-    height: 37px;
-    padding: 0;
-    background: #226999;
-    margin: 0 auto;
-    text-align: center;
-    font: 100% Open Sans Condensed, Arial, Helvetica, sans-serif;
-    font-size: 1.2em;
-    text-transform: uppercase;
-    line-height: 1.9;
-    overflow: hidden;
-    color: #fff;
-    display: block;
-    box-shadow: 0 0 5px 0 rgb(0 0 0 / 33%);
-    -webkit-box-shadow: 0 0 5px 0 rgb(0 0 0 / 33%);
-    -moz-box-shadow: 0 0 5px 0 rgba(0,0,0,0.33);
-    -o-box-shadow: 0 0 5px 0 rgba(0,0,0,0.33);
-    -ms-box-shadow: 0 0 5px 0 rgba(0,0,0,0.33);
-    -pie-box-shadow: 0 0 5px 0 rgba(0,0,0,0.33);
+footer, footer * {
+	background-color: #134611;
+	color: #E8FCCF;
+ }
+#footer-row-b {
+	margin-top: 2em; 
+ }
+footer h2 {
+	font-size: 1em;
+}
+footer .province {
+	color: #134611 !important;
+	background-color: #fff;
+}
+
+footer a,
+footer label {
+	color: #E8FCCF;
+	text-decoration: none;
+}
+footer a:hover,
+footer a:focus {
+	color: #E8FCCF;
+	text-decoration: underline;
+}
+footer #copyright {
+	text-align: center;
+	line-height: 2;
+	padding: 1em 0;
 }
