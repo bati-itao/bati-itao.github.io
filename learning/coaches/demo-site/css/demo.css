@@ -55,18 +55,14 @@ body {
   flex: 25%;
 }
 /* Responsive 4- and 3-column layouts in footer */
-#footer-row-a .column {
+footer .column {
   flex: 25%;
-}
-#footer-row-b .column {
-  flex: 33.3%;
 }
 /* Responsive layout - makes a one column layout */
 @media (max-width: 800px) {
   .column,
   #mid-wrap .column,
-  #footer-row-a .column,
-  #footer-row-b .column {
+  footer .column {
     	flex: 100%;
   }
 }
@@ -127,8 +123,8 @@ header aside {
 	background-color: #3e8914;
 	padding: 1rem 2rem 0.5rem 0;
     border-radius: 1px 1px 1px 10px;
-    border-bottom: 1px solid white;
-    border-left: 1px solid white;
+    border-bottom: 1px solid #e8fccf;
+    border-left: 1px solid #e8fccf;
  /*   width: 18em */
 }
 
@@ -216,23 +212,35 @@ nav ul {
    background-color: #96e072ff;
 }
 main form {
-	margin-top: 2em;
+	margin-top: 1em;
+	width: 100%;
+}
+.form-row {
+	margin-bottom: 1em;
 }
 main form label {
+/*
 	text-align: right;
 	width: 15em;
 	vertical-align: top;
+*/
 }
 main form select,
 main form textarea {
-	margin-left: 2em;
+/*	margin-left: 2em;
 	width: 20em;
-}
-main form option {
+*/
 	padding: 0.25em 0;
+	width: 20rem;
+	display: block;
+}
+main form textarea {
+	width: 80%;
 }
 main form div.submit button {
+/*
 	margin-left: 17em;
+*/
 }
 aside { }
 
@@ -245,22 +253,19 @@ footer, footer * {
 	background-color: #134611;
 	color: #E8FCCF;
  }
-#footer nav {
+footer nav {
 	/* padding: 1em 1em 0; */
 }
-#footer nav .column h2 {
+footer nav .column h2 {
 	font-size: 1em;
 	font-weight: bold;
 	margin-bottom: 1rem;
 }
-#footer-row-b {
-	margin-top: 2rem;
- }
 footer .province {
 	color: #134611 !important;
 	background-color: #fff;
 }
-#footer #prov-link {
+footer #prov-link {
 	text-align: right;
 }
 
@@ -275,41 +280,25 @@ footer a:focus {
 	text-decoration: underline;
 }
 
-#footer-row-b li {
+footer li {
 	padding-top: 1em;
 }
 footer #to-top-link {
-	text-align: center;
+	text-align: right;
+}
+footer #to-top-link a {
 	background-image: url("../images/to-top.png");
 	background-repeat: no-repeat;
 	background-position: 50% 0;
-	
+	padding-top: 1em;
 }
 footer #copyright {
 	text-align: center;
 	line-height: 2;
-	margin: 0;
+	margin: 1em 0 0 0;
 }
 /* MEDIA QUERY 1 - For viewports 960px and wider */ 
 @media (min-width: 801px) { 
-  /*main, 
-   nav {  
-      width: 950px;   
-      margin: auto;  
-   } 
-   main {
-      clear: left;
-      overflow: auto;
-      margin-top: 1rem;
-   }   
-   */  
-   header img {
- 	
-	} 
-   header aside {
-		
-
-	}	
    #navbar {
 		padding: 0 1em;
 		border-top: 10px solid #3DA35D;
@@ -332,16 +321,16 @@ footer #copyright {
 	#mid-wrap .col-c h2 {
 		line-height: 2;
 	}
-   #footer nav .column > * {
+   footer nav .column > * {
 	  margin: 0 1rem;
 	}
-	#footer nav .col-a > * {
+	footer nav .col-a > * {
 	  margin-left: 0;
 	}
-	#footer nav .col-d > * {
+	footer nav .col-d > * {
 	  margin-right: 0;
 	}
-	#footer #footer-row-b #prov-link > * {
+	footer #prov-link > * {
 		margin: 0 0 0 1rem;
 	}
 	nav h2 {
@@ -354,7 +343,7 @@ footer #copyright {
    nav,
    .column,
    #mid-wrap .column,
-   #footer .column { 
+   footer .column { 
       width: 100%;
    } 
    header {
@@ -382,10 +371,8 @@ footer #copyright {
    #navbar a:focus {   
       border-radius: 5px 25px 25px 5px; 
    }
-   #footer-row-b {
-   		margin-top: 0;
-   }
-   #footer #prov-link {
+
+   footer #prov-link {
 		text-align: left;
 	}
    footer ul {
