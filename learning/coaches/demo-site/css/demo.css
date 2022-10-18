@@ -137,6 +137,13 @@ header aside p {
 }
 header #sign-out a {
 	text-decoration: underline;
+	padding: 0 0.25em;
+}
+header #sign-out a:hover,
+header #sign-out a:focus {
+	background-color: #96e072ff;
+	color: #3e8914;
+	text-decoration: none;
 }
 header form {
 	clear: right;
@@ -147,31 +154,44 @@ header form {
 }
 
 /* Responsive menu */
+#navbar {
+	background-color: #3da35dff;
+}
 #navbar ul { 
    list-style: none;
    margin: 0;
    padding: 0; 
 }
-#navbar a {
+#global-menu a {
    display: block;
    color: white;
    background-color: #3da35dff;
-   border-radius: 1px 1px 5px 5px;  
+/*   border-radius: 1px 1px 5px 5px;  */
    padding: 5px 15px;
    text-decoration: none;
 }
-#navbar a:hover,
-#navbar a:focus,
-#navbar [aria-current] { 
+#global-menu a:hover,
+#global-menu a:focus,
+#global-menu [aria-current] { 
    color: #000000; 
    background-color: #96e072ff;
 }
-#navbar a:hover,
-#navbar a:focus {
+#global-menu a:hover,
+#global-menu a:focus {
    text-decoration: none;
 }
-
-
+#breadcrumbs {
+	margin: 0.5em 0 1em 0;
+}
+#breadcrumbs li::after {
+	content: "\276F"; 
+}
+#breadcrumbs li:last-child::after {
+	content: none; 
+}
+#breadcrumbs a {
+	padding: 5px 15px;
+}
 h1 {
 	border: none;
 	margin: 0 0 0.5rem 0;
@@ -198,7 +218,7 @@ nav ul {
 }
 #mid-wrap {
 	clear: both;
-	margin: 2em 0 3em 0;
+	margin: 3em 0 3em 0;
 }
 
 #mid-wrap nav h2,
@@ -221,17 +241,19 @@ nav ul {
 #mid-wrap nav li::after {
 /*	content: "\232A"; */
 }
-#mid-wrap nav a[aria-current] { 
+#mid-wrap nav a[aria-current],
+#mid-wrap nav a:focus,
+#mid-wrap nav a:hover { 
    color: #000000; 
    background-color: #96e072ff;
    border-radius: 1px 5px 5px 1px; 
+   text-decoration: none;
 }
 #mid-wrap nav span {
 	width: 80%;
 }
 main form {
-	margin-top: 1em;
-	width: 100%;
+	margin: 2em;
 }
 .form-row {
 	margin-bottom: 1em;
@@ -249,7 +271,7 @@ main form textarea {
 	width: 20em;
 */
 	padding: 0.25em 0;
-	width: 20rem;
+	width: 16em;
 	display: block;
 }
 main form textarea {
@@ -324,10 +346,9 @@ footer #copyright {
 /* MEDIA QUERY 1 - For viewports 960px and wider */ 
 @media (min-width: 801px) { 
    #navbar {
-		padding: 0 1em;
-		border-top: 10px solid #3DA35D;
+		
 	}    
-   #navbar ul {  
+   #navbar  ul {  
 		margin-left: 20%;
 		padding-left: 1rem;
    }  
