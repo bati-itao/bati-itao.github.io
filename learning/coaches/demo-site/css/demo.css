@@ -67,6 +67,9 @@ footer .column {
   }
 }
 
+/* Three-row grid */
+
+
 
 /* "Free shipping on orders over $19.95" */
 .topbarblock {
@@ -111,7 +114,7 @@ header img {
  	width: 200px;
  	height: auto;
  	border: 2px solid #134611;
- 	margin-bottom: 6px;
+ 	margin-bottom: 1em;
 }
 header #header-box {
 	position: absolute;
@@ -135,7 +138,8 @@ header aside * {
 header aside p {
 	margin-left: 1em;
 }
-header #sign-out a {
+header #sign-out a,
+footer a {
 	text-decoration: underline;
 	padding: 0 0.25em;
 }
@@ -148,26 +152,20 @@ header #sign-out a:focus {
 header form {
 	clear: right;
 	float: right;
-/*	width: 30em; */
 	text-align: right;
 	margin: 1.5rem 2rem 1rem 0;
 }
 
 /* Responsive menu */
-#navbar {
+
+#global-menu {
 	background-color: #3da35d;
-}
-#navbar ul { 
-   list-style: none;
-   margin: 0;
-   padding: 0; 
 }
 #global-menu a {
    display: block;
    color: white;
    background-color: #3da35d;
-/*   border-radius: 1px 1px 5px 5px;  */
-   padding: 5px 15px;
+   padding: 0.25em 1em;
    text-decoration: none;
    border-bottom: 2px solid #3da35d;
 }
@@ -176,14 +174,20 @@ header form {
 #global-menu [aria-current] { 
    color: #000000; 
    background-color: #e8fccf;
-}
-#global-menu a:hover,
-#global-menu a:focus {
    text-decoration: none;
 }
+
 #breadcrumbs {
-	margin: 0.5em 0 1em 0;
+	margin: 0.5em 0 1em 1em;
 }
+#breadcrumbs ul {  
+	list-style: none;
+	padding: 0 0 0 1rem; 
+}  
+#breadcrumbs li {  
+  margin-right: 1em; 
+  float: left;
+} 
 #breadcrumbs li::after {
 	content: "\276F"; 
 }
@@ -191,7 +195,7 @@ header form {
 	content: none; 
 }
 #breadcrumbs a {
-	padding: 5px 15px;
+	padding: 0.25em 1em 0.25em 0;
 }
 h1 {
 	border: none;
@@ -211,8 +215,8 @@ h3 {
 	font-size: 1em;
 	font-weight: bold;
 }
-h1,
-nav ul {
+nav ul, 
+footer ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -285,20 +289,15 @@ footer {
 	padding: 2rem;
 	border-top: 10px solid #3E8914;
 }
-
 footer, footer * {
 	background-color: #134611;
 	color: #E8FCCF;
  }
-footer nav {
-	/* padding: 1em 1em 0; */
+footer li {
+	padding-top: 1em;
 }
-footer nav .column h2 {
-	font-size: 1em;
-	font-weight: bold;
-	margin-bottom: 1rem;
-}
-footer .province, footer option {
+footer .province, 
+footer option {
 	color: #134611;
 	background-color: #fff;
 	padding: 0.15em 0.5em;
@@ -307,23 +306,23 @@ footer .province, footer option {
 footer select.province {
 	padding: 0.3em 0.5em;
 }
-footer #prov-link {
-	text-align: right;
-}
-
 footer a,
 footer label {
 	color: #E8FCCF;
 	text-decoration: none;
 }
+footer a {
+	padding: 0.25em 0.5em;
+	text-decoration: none;
+}
 footer a:hover,
 footer a:focus {
-	color: #E8FCCF;
-	text-decoration: underline;
+	background-color: #e8fccf;
+	color: #3e8914;
+	text-decoration: none;
 }
-
-footer li {
-	padding-top: 1em;
+footer #prov-link {
+	text-align: right;
 }
 footer #to-top-link {
 	text-align: right;
@@ -331,8 +330,13 @@ footer #to-top-link {
 footer #to-top-link a {
 	background-image: url("../images/to-top.png");
 	background-repeat: no-repeat;
-	background-position: 50% 0;
+	background-position: 50% 10%;
 	padding-top: 1em;
+}
+footer #to-top-link a:hover,
+footer #to-top-link a:focus {
+	color: #3e8914;
+	background-image: url("../images/to-top-focus.png");
 }
 footer #copyright {
 	text-align: center;
@@ -344,7 +348,7 @@ footer #copyright {
    #navbar {
 		
 	}    
-   #navbar  ul {  
+   #navbar ul {  
 		margin-left: 20%;
 		padding-left: 1rem;
    }  
@@ -388,11 +392,16 @@ footer #copyright {
       width: 100%;
    } 
    header {
-   		margin-bottom: 1.5rem;
    }
 
    header aside {
 		padding: 0.5rem 1rem 0.25rem;
+   }
+   #global-menu {
+   		padding: 0.35em 0 0.2em 0;
+   }
+   #breadcrumbs ul {
+   		padding-left: 0;
    }
    #mid-wrap {
    		margin-top: 1rem;
@@ -410,13 +419,15 @@ footer #copyright {
    #navbar a {   
       /* width: 66%; */
       margin-bottom: 5px;  
-      border-radius: 1px 1px 5px 5px;          
+      border-radius: 5px;          
    } 
    #navbar a:hover,
    #navbar a:focus {   
-      border-radius: 5px 25px 25px 5px; 
+      border-radius: 5px; 
    }
-
+	main form {
+		margin: 0;
+	}
    footer #prov-link {
 		text-align: left;
 	}
@@ -430,6 +441,7 @@ footer #copyright {
    
    header img {
    		float: none;
+   		width: 140px;
    }
    header #header-box {
    		position: static;
@@ -437,6 +449,16 @@ footer #copyright {
 	}
    header aside {
    	width: 100%;
-   }
-}  
+    border-radius: 10px 1px 1px 10px;
+    border: none;
+	} 
+	#global-menu {
+		padding: 0 1rem;
+		padding: 0.35em 1rem 0.2em;
+	} 
+   #navbar ul,
+   #mid-wrap nav ul {
+   		margin: 0;
+   }	
+}
 /* END MEDIA QUERY 3 */
