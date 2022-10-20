@@ -111,7 +111,8 @@ header {
 header img {
  	display: block;
  	float: left;
- 	width: 200px;
+ /*	width: 200px; */
+ 	width: 18%;
  	height: auto;
  	border: 2px solid #134611;
  	margin-bottom: 1em;
@@ -128,7 +129,6 @@ header aside {
     border-radius: 1px 1px 1px 10px;
     border-bottom: 1px solid #e8fccf;
     border-left: 1px solid #e8fccf;
- /*   width: 18em */
 }
 
 header aside * {
@@ -176,11 +176,14 @@ header form {
    background-color: #e8fccf;
    text-decoration: none;
 }
-
+#navbar li {  
+  margin-right: 1em; 
+  float: left;
+} 
 #breadcrumbs {
 	margin: 0.5em 0 1em 1em;
 }
-#breadcrumbs ul {  
+#breadcrumbs ol {  
 	list-style: none;
 	padding: 0 0 0 1rem; 
 }  
@@ -345,18 +348,18 @@ footer #copyright {
 }
 /* MEDIA QUERY 1 - For viewports 960px and wider */ 
 @media (min-width: 801px) { 
+   header img {
+ 		width: 20%;
+ 	}
    #navbar {
 		
 	}    
-   #navbar ul {  
+   #navbar ul,
+   #navbar ol {  
 		margin-left: 20%;
 		padding-left: 1rem;
    }  
    
-   #navbar li {  
-      margin-right: 1em; 
-      float: left;
-   } 
    #navbar a {  
       
    } 
@@ -393,26 +396,15 @@ footer #copyright {
    } 
    header {
    }
-
+	header img {
+   		width: 20%;
+   		min-width: 140px;
+   }
    header aside {
 		padding: 0.5rem 1rem 0.25rem;
    }
-   #global-menu {
-   		padding: 0.35em 0 0.2em 0;
-   }
-   #breadcrumbs ul {
-   		padding-left: 0;
-   }
-   #mid-wrap {
-   		margin-top: 1rem;
-   }
-   #mid-wrap .column {
-   		margin-bottom: 2rem;
-   }
-   #mid-wrap .column > * {
-		margin: 0 1rem;
-	}
    #navbar ul,
+   #navbar ol,
    #mid-wrap nav ul {
    		margin: 0 1em 0;
    }
@@ -425,6 +417,22 @@ footer #copyright {
    #navbar a:focus {   
       border-radius: 5px; 
    }
+   #global-menu {
+   		padding: 0.35em 0 0.2em 0;
+   }
+   #breadcrumbs ol {
+   		padding-left: 0;
+   }
+   #mid-wrap {
+   		margin-top: 1rem;
+   }
+   #mid-wrap .column {
+   		margin-bottom: 2rem;
+   }
+   #mid-wrap .column > * {
+		margin: 0 1rem;
+	}
+   
 	main form {
 		margin: 0;
 	}
@@ -436,12 +444,19 @@ footer #copyright {
 	}
 }  
 /* END MEDIA QUERY 2 */
-/* MEDIA QUERY 3 - For viewports 500px and narrower */ 
+/* END MEDIA QUERY 3 */ 
+/* MEDIA QUERY 3 - For viewports 600px and narrower */ 
+@media (max-width: 600px) { 
+   #navbar li {  
+      float: none;
+      margin-right: 0;
+   }  
+}
+/* END MEDIA QUERY 3 */
+/* MEDIA QUERY 4 - For viewports 500px and narrower */ 
 @media (max-width: 500px) { 
-   
    header img {
    		float: none;
-   		width: 140px;
    }
    header #header-box {
    		position: static;
@@ -457,6 +472,7 @@ footer #copyright {
 		padding: 0.35em 1rem 0.2em;
 	} 
    #navbar ul,
+   #navbar ol,
    #mid-wrap nav ul {
    		margin: 0;
    }
@@ -464,4 +480,4 @@ footer #copyright {
    		width: 100%;
    }
 }
-/* END MEDIA QUERY 3 */
+/* END MEDIA QUERY 4 */
