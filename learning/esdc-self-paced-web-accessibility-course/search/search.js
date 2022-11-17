@@ -103,12 +103,12 @@ function renderSearchResults(query, results) {
 }
 
 function clearSearchResults() {
-  const results = document.querySelector(".search-results ul");
+  const results = document.querySelector(".search-results ol");
   while (results.firstChild) results.removeChild(results.firstChild);
 }
 
 function updateSearchResults(query, results) {
-  document.querySelector(".search-results ul").innerHTML = results
+  document.querySelector(".search-results ol").innerHTML = results
     .map(
       (hit) => `
     <li class="search-result-item" data-score="${hit.score.toFixed(2)}">
@@ -118,7 +118,7 @@ function updateSearchResults(query, results) {
     `
     )
     .join("");
-  const searchResultListItems = document.querySelectorAll(".search-results ul li");
+  const searchResultListItems = document.querySelectorAll(".search-results ol li");
   document.getElementById("results-count").innerHTML = searchResultListItems.length;
   document.getElementById("results-count-text").innerHTML = searchResultListItems.length > 1 ? "results" : "result";
   searchResultListItems.forEach(
@@ -266,6 +266,7 @@ function hideSearchResults() {
 
 initSearchIndex();
 document.addEventListener("DOMContentLoaded", function () {
+	
   if (document.getElementById("search-form") != null) {
     const searchInput = document.getElementById("search");
     searchInput.addEventListener("focus", () => searchBoxFocused());
@@ -275,6 +276,18 @@ document.addEventListener("DOMContentLoaded", function () {
     
    
   }
+  
+  let searchParams = new URLSearchParams(window.location.search)
+	let query = searchParams.get('q');
+	if(query != null){
+		 const results = searchSite(query);
+		  if (!results.length) {
+			displayErrorMessage("Your search returned no results");
+			return;
+		  }
+		  renderSearchResults(query, results);
+	}
+  
   document
     .querySelectorAll(".clear-search-results")
     .forEach((button) =>
