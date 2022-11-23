@@ -56,17 +56,22 @@
   <div class="wrapper flex">
     <div class="primary">
       <main class="main">
-          <form id="search-form" name="searchForm" role="form" onsubmit="return false">
+	  
+          <form id="search-form" name="searchForm" role="search" onsubmit="return false" >
             <div class="search-wrapper">
-			  <div class="search-container input-group col-md-6">
-                <input autocomplete="off" placeholder="Enter a search term..." id="search" class="search-input form-control" aria-label="Search site" type="text" name="q">
-				<span class="input-group-btn"><button type="submit" onclick="handleSearchQuery(event)"  class="btn btn-default" type="submit">    Search</button>
+			  <div class="search-container input-group col-md-6"  style="float:left;">
+                <input autocomplete="off" placeholder="Enter a search term..." id="search" class="search-input form-control" aria-label="Search course" type="text" name="q">
+				<span class="input-group-btn"><button onclick="handleSearchQuery(event)" id="searchBtn"  class="btn btn-default" type="submit">    Search</button>
+				 
 				</span>
 				</div>
-              
-              <div class="search-error hidden"><span class="label label-danger search-error-message"></span></div>
+              <button id="clearBtn" onclick="handleClearSearchButtonClicked()"  class="btn btn-default hidden" style="float:right;">    Clear</button>
+             
             </div>
+			
           </form>
+		  <div class="clearfix"></div>
+		  <div class="search-error hidden"><span class="label label-danger search-error-message"></span></div>
 		<!--search results table -->
     <section class="search-results hide-element">
       <div id="search-header">
