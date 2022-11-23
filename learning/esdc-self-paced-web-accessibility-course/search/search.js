@@ -35,7 +35,7 @@ function searchBoxFocusOut() {
 function handleSearchQuery(event) {
 	document.querySelector(".search-error").classList.add("hidden");
   event.preventDefault();
-  const query =  document.getElementById("search").value.trim().replace(/[^a-zA-Z ]/g, "");
+  const query =  document.getElementById("search").value.trim();
   if (!query) {
     displayErrorMessage("Please enter a search term");
     return;
@@ -226,6 +226,7 @@ function ellipsize(input, maxLength) {
 function showSearchResults() {
   document.querySelector(".primary").classList.add("hide-element");
   document.querySelector(".search-results").classList.remove("hide-element");
+  document.getElementById("clearBtn").classList.remove("hidden");
 }
 
 function scrollToTop() {
@@ -254,9 +255,12 @@ function adjustHue(hue1, hue2, score) {
 }
 
 function handleClearSearchButtonClicked() {
+	document.getElementById("clearBtn").classList.add("hidden");
   hideSearchResults();
   clearSearchResults();
   document.getElementById("search").value = "";
+   document.getElementById("results-count").innerHTML = "";
+  document.getElementById("results-count-text").innerHTML = "";
 }
 
 function hideSearchResults() {
