@@ -2547,7 +2547,7 @@ class SkiptoMenuButton {
       msgNoHeadingsFound: 'No headings found',
 
       // Selectors for landmark and headings sections
-      landmarks: 'main search navigation complementary',
+      landmarks: 'main search navigation complementary contentinfo',
       headings: 'main h1 h2 h3',
 
       // Place holders for configuration
