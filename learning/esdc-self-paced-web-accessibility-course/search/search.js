@@ -112,7 +112,8 @@ function updateSearchResults(query, results) {
     .map(
       (hit) => `
     <li class="search-result-item" data-score="${hit.score.toFixed(2)}">
-      <a href="${hit.href}" target="_blank" class="search-result-page-title">${hit.title}</a>
+      <a href="${hit.href}" target="_blank" class="search-result-page-title">${hit.heading}</a>
+	  <p><small>In <i>${hit.title}</i></small></p>
       <p>${createSearchResultBlurb(query, hit.content)}</p>
     </li>
     `
@@ -121,9 +122,9 @@ function updateSearchResults(query, results) {
   const searchResultListItems = document.querySelectorAll(".search-results ol li");
   document.getElementById("results-count").innerHTML = searchResultListItems.length;
   document.getElementById("results-count-text").innerHTML = searchResultListItems.length > 1 ? "results" : "result";
-  searchResultListItems.forEach(
-    (li) => (li.firstElementChild.style.color = getColorForSearchResult(li.dataset.score))
-  );
+ // searchResultListItems.forEach(
+   // (li) => (li.firstElementChild.style.color = getColorForSearchResult(li.dataset.score))
+  //);
 }
 
 function createSearchResultBlurb(query, pageContent) {
