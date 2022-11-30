@@ -112,7 +112,8 @@ function updateSearchResults(query, results) {
     .map(
       (hit) => `
     <li class="search-result-item" data-score="${hit.score.toFixed(2)}">
-      <a href="${hit.href}" target="_blank" class="search-result-page-title">${hit.title}</a>
+      <a href="${hit.href}" target="_blank" class="search-result-page-title">${hit.heading}</a>
+	  <p><small>In <i>${hit.title}</i></small></p>
       <p>${createSearchResultBlurb(query, hit.content)}</p>
     </li>
     `
