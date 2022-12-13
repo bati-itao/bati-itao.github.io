@@ -35,7 +35,15 @@ function searchBoxFocusOut() {
 function handleSearchQuery(event) {
 	document.querySelector(".search-error").classList.add("hidden");
   event.preventDefault();
-  const query =  document.getElementById("search").value.trim();
+  const query =  document.getElementById("search");
+  var lang = "en";
+	 if(query == undefined)
+	 {
+		 query =  document.getElementById("search-fr").value.trim();
+		 lang = "fr";
+	 }else{
+		 query = query.value.trim();
+	 }
   if (!query) {
     displayErrorMessage("Please enter a search term");
     return;
@@ -45,7 +53,7 @@ function handleSearchQuery(event) {
     displayErrorMessage("Your search returned no results");
     return;
   }
-  renderSearchResults(query, results);
+  renderSearchResults(query, results, lang);
 }
 
 function displayErrorMessage(message) {
@@ -95,9 +103,9 @@ function getLunrSearchQuery(query) {
   return query.trim();
 }
 
-function renderSearchResults(query, results) {
+function renderSearchResults(query, results, lang) {
   clearSearchResults();
-  updateSearchResults(query, results);
+  updateSearchResults(query, results, lang);
   showSearchResults();
   scrollToTop();
 }
@@ -107,24 +115,39 @@ function clearSearchResults() {
   while (results.firstChild) results.removeChild(results.firstChild);
 }
 
-function updateSearchResults(query, results) {
-  document.querySelector(".search-results ol").innerHTML = results
-    .map(
-      (hit) => `
-    <li class="search-result-item" data-score="${hit.score.toFixed(2)}">
-      <a href="${hit.href}" target="_blank" class="search-result-page-title">${hit.heading}</a>
-	  <p><small>In <i>${hit.title}</i></small></p>
-      <p>${createSearchResultBlurb(query, hit.content)}</p>
-    </li>
-    `
-    )
-    .join("");
-  const searchResultListItems = document.querySelectorAll(".search-results ol li");
-  document.getElementById("results-count").innerHTML = searchResultListItems.length;
-  document.getElementById("results-count-text").innerHTML = searchResultListItems.length > 1 ? "results" : "result";
- // searchResultListItems.forEach(
-   // (li) => (li.firstElementChild.style.color = getColorForSearchResult(li.dataset.score))
-  //);
+function updateSearchResults(query, results, lang) {
+	if(lang == "fr"){
+		 document.querySelector(".search-results ol").innerHTML = results
+		.map(
+		  (hit) => `
+		<li class="search-result-item" data-score="${hit.score.toFixed(2)}">
+		  <a href="${hit.href}" target="_blank" class="search-result-page-title">${hit.heading}</a>
+		  <p><small>dans <i>${hit.title}</i></small></p>
+		  <p>${createSearchResultBlurb(query, hit.content)}</p>
+		</li>
+		`
+		)
+		.join("");
+	  const searchResultListItems = document.querySelectorAll(".search-results ol li");
+	  document.getElementById("results-count").innerHTML = searchResultListItems.length;
+	  document.getElementById("results-count-text").innerHTML = searchResultListItems.length > 1 ? "results" : "result";
+	}
+	else{
+	  document.querySelector(".search-results ol").innerHTML = results
+		.map(
+		  (hit) => `
+		<li class="search-result-item" data-score="${hit.score.toFixed(2)}">
+		  <a href="${hit.href}" target="_blank" class="search-result-page-title">${hit.heading}</a>
+		  <p><small>In <i>${hit.title}</i></small></p>
+		  <p>${createSearchResultBlurb(query, hit.content)}</p>
+		</li>
+		`
+		)
+		.join("");
+	  const searchResultListItems = document.querySelectorAll(".search-results ol li");
+	  document.getElementById("results-count").innerHTML = searchResultListItems.length;
+	  document.getElementById("results-count-text").innerHTML = searchResultListItems.length > 1 ? "results" : "result";
+	}
 }
 
 function createSearchResultBlurb(query, pageContent) {
@@ -259,7 +282,6 @@ function handleClearSearchButtonClicked() {
 	document.getElementById("clearBtn").classList.add("hidden");
   hideSearchResults();
   clearSearchResults();
-  document.getElementById("search").value = "";
    document.getElementById("results-count").innerHTML = "";
   document.getElementById("results-count-text").innerHTML = "";
 }
