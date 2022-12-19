@@ -984,10 +984,10 @@ const indexJSON = [{
  heading: " Irregular tables "
 },{
  categories: 'module4',
- content: "  Tables with multi-level headers To associate multi-level headers with data cells: Give each header a unique id attribute value. Reference those id attribute values in the headers attribute of data cells defined by the header. The id/headers technique is not currently (2021) well-supported by screen readers. Simplify the data presentation by breaking a complex table into two or more simpler tables. ",
+ content: "  Multi-level tables To associate headers with data cells: Give each header a unique id attribute value. Reference those id attribute values in the headers attribute of data cells defined by the header. The id/headers technique is not currently (2021) well-supported by screen readers. Simplify the data presentation by breaking a complex table into two or more simpler tables. ",
  href: '../module4/best-practice-mod-4.html#multi-level-headers'  ,
  title: ' Module 4 – Tables' ,
- heading: " Tables with multi-level headers"
+ heading: " Multi-level tables"
 },{
  categories: 'module4',
  content: "  Captions and summary Use the element to provide a name or title for the table If the caption duplicates the preceding heading, visually-hide the with the WET CSS class .wb-inv. Place the element as a direct child of the element Provide a summary for complex tables that includes purpose, composition, trends and/or usage Wherever possible, convert complex tables into simple tables or lists, so that less or no explanation is required. Do no duplicate caption information in the summary. Pick a method for presenting table summaries: Nest the summary inside the element Set the summary in a paragraph preceding or following the table. Reference the summary from the table with the aria-describedby attribute. Use the element to mark up a table summary. Use aria-labelledby and aria-describedby attributes to associate the caption and summary, respectively, with the table. ",
@@ -1027,66 +1027,66 @@ const indexJSON = [{
 },{
  categories: 'module4',
  content: "  Designing with irregular headers A table is irregular when one or more of its headers span multiple columns or rows. HTML introduces attributes and elements dedicated to representing the relationships between these row- or column-spanning headers and the data cells they define. ",
- href: '../module4/irregular-headers.html#irregular-headers'  ,
+ href: '../module4/irregular-tables.html#irregular-headers'  ,
  title: ' Module 4 – Tables' ,
  heading: " Designing with irregular headers"
 },{
  categories: 'module4',
  content: "  The scope attribute When a header spans multiple columns, add the scope='colgroup' attribute to the element. See header A in the example table below. When a header spans multiple rows, add the scope='rowgroup' attribute to the element. See header B in the example table below. For solo column headers, add the scope='col' attribute to the element. See headers A1, A2, A3 in the example table below. For solo row headers, add the scope='row' attribute to the element. See headers B1, B2 in the example table below. Example begins Table with a column-spanning header and a row-spanning header A A1 A2 A3 B B1 B2 Example ends Screen reader support for the scope='rowgroup' attribute is worse than support for scope='colgroup'. When possible, design tables to leverage scope='colgroup' and avoid scope='rowgroup'. View HTML Code begins Table with a column-spanning header and a row-spanning header &nbsp; A A1 A2 A3 B B1 &nbsp; &nbsp; &nbsp; B2 &nbsp; &nbsp; &nbsp; Code ends ",
- href: '../module4/irregular-headers.html#scope-attribute'  ,
+ href: '../module4/irregular-tables.html#scope-attribute'  ,
  title: ' Module 4 – Tables' ,
  heading: " The scope attribute"
 },{
  categories: 'module4',
  content: "  The group-defining elements Irregular tables also define their solo columns and spanning columns with the and elements, respectively. These elements are the first children of the table element and are listed in the order the columns appear in the table. The span attribute of the element holds the number of columns spanned. Irregular tables define row groups using the , and elements. defines a new row group of rows with each use, while and do as well but can only be used once per table. ",
- href: '../module4/irregular-headers.html#group-defining'  ,
+ href: '../module4/irregular-tables.html#group-defining'  ,
  title: ' Module 4 – Tables' ,
  heading: " The group-defining elements"
 },{
  categories: 'module4',
  content: "  Good example: Table with column and row-spanning headers In this example, 'Country' and 'Onwership' are solo columns, each identified with a element. 'Scenario' spans columns, identified with a element. The 'Canada' and 'USA' headers and their respective rows are each nested in a element. Example begins Ownership scenarios, Canada vs USA Country Ownership Scenario A B C Canada Purchase likely very unlikely n/a Rent unlikely very unlikely very unlikely USA Purchase unlikely very unlikely very unlikely Rent likely very likely n/a Example ends View HTML Code begins Ownership scenarios, Canada vs USA Country Ownership Scenario A B C Canada Purchase likely very unlikely n/a Rent unlikely very unlikely very unlikely USA Purchase unlikely very unlikely very unlikely Rent likely very likely n/a Code ends ",
- href: '../module4/irregular-headers.html#headers'  ,
+ href: '../module4/irregular-tables.html#headers'  ,
  title: ' Module 4 – Tables' ,
  heading: "  Good example: Table with column and row-spanning headers"
 },{
  categories: 'module4',
  content: "  Related WCAG resources Related WCAG resources Success criteria 1.3.1: Info and Relationships Techniques H51: Using table markup to present tabular information H63: Using the scope attribute to associate header cells and data cells in data tables ",
- href: '../module4/irregular-headers.html#irregular-headers-wcag'  ,
+ href: '../module4/irregular-tables.html#irregular-headers-wcag'  ,
  title: ' Module 4 – Tables' ,
  heading: " Related WCAG resources"
 },{
  categories: 'module4',
- content: "  Designing with multi-level headers A table with multi-level headers has headers stacked three deep, or column headers that repeat or change partway down a table. To associate multi-level headers with data cells, Give each header a unique id attribute value. Reference those id attribute values in the headers attribute of data cells. Using the id/headers attributes technique is a last resort, as it's not currently (2021) well-supported by assistive technologies. While the “good” example table below is technically compliant, it performs poorly in screen readers. Important: Whenever possible, simplify the data presentation by breaking a complex table into two or more simpler tables. A table summary may be necessary. Column headers that repeat or change partway down a table can easily surprise screen readers users as they descend rows. The same is true of column-spanning row headers. In the table summary, mention their presence. ",
- href: '../module4/multi-level-headers.html#multi-level-headers'  ,
+ content: "  Designing with multi-level tables A multi-level has headers stacked three deep, or column headers that repeat or change partway down a table. To associate headers with data cells, Give each header a unique id attribute value. Reference those id attribute values in the headers attribute of data cells. Using the id/headers attributes technique is a last resort, as it's not currently (2021) well-supported by assistive technologies. While the “good” example table below is technically compliant, it performs poorly in screen readers. Important: Whenever possible, simplify the data presentation by breaking a complex table into two or more simpler tables. A table summary may be necessary. Column headers that repeat or change partway down a table can easily surprise screen readers users as they descend rows. The same is true of column-spanning row headers. In the table summary, mention their presence. ",
+ href: '../module4/multi-level-tables.html#multi-level-headers'  ,
  title: 'level headers - Module 4 – Tables' ,
- heading: " Designing with multi-level headers"
+ heading: " Designing multi-level tables"
 },{
  categories: 'module4',
  content: "  Good example: Table with headers three deep In this example, the row headers are three deep, requiring the use of id/headers markup to associate the data cells with their headers. The WET Table Validator provides the id/headers markup. A visually-hidden table description is nested in the element. Example begins Vehicles leased by the Government Column 1 lists executive and non-executive vehicles. Column 2 lists the country (Canada or the USA). Column 3 lists the term of lease (long-term or short term). Column 4 lists the policy requirement. Type of Vehicle Country Term of Lease Policy Requirement executive CANADA long-term Comprehensive commercial insurance, including collision and third party liability; - self-underwrite the deductible - short-term Comprehensive commercial insurance, including collision and third party liability; - self-underwrite the deductible - U.S. long-term Comprehensive commercial insurance, including collision and third party liability; - self-underwrite the deductible - short-term Purchase additional commercial insurance to cover third party liability and collision for the U.S. risks; - self-underwrite the deductibles - non-executive CANADA long-term Self-underwrite except if provincial legislation applies short-term Comprehensive commercial insurance, including collision and third party liability; - self-underwrite the deductible - U.S. long-term Purchase additional commercial insurance to cover third party liability and collision for the U.S. risks; - self-underwrite any damage to government vehicle - short-term Utilize commercial insurance coverage (third party liability and collision for the U.S. risks) administered by Services and Specialized Acquisitions Management Sector, PWGSC; - self-underwrite the deductible - Example ends View HTML snippet - Assigning id and headers attributes Code begins Type of Vehicle Country Term of Lease Policy Requirement executive CANADA long-term Comprehensive commercial insurance, including collision and third party liability; - self-underwrite the deductible - Code ends View complete HTML Code begins Vehicles leased by the Government Column 1 lists executive and non-executive vehicles. Column 2 lists the country (Canada or the USA). Column 3 lists the term of lease (long-term or short term). Column 4 lists the policy requirement. Type of Vehicle Country Term of Lease Policy Requirement executive CANADA long-term Comprehensive commercial insurance, including collision and third party liability; - self-underwrite the deductible - short-term Comprehensive commercial insurance, including collision and third party liability; - self-underwrite the deductible - U.S. long-term Comprehensive commercial insurance, including collision and third party liability; - self-underwrite the deductible - short-term Purchase additional commercial insurance to cover third&nbsp;party liability and collision for the U.S. risks; - self-underwrite the deductibles - non-executive CANADA long-term Self-underwrite except if provincial legislation applies short-term Comprehensive commercial insurance, including collision and third party liability; - self-underwrite the deductible - U.S. long-term Purchase additional commercial insurance to cover third party liability and collision for the U.S. risks; - self-underwrite any damage to government vehicle - short-term Utilize commercial insurance coverage (third party liability and collision for the U.S. risks) administered by Services and Specialized Acquisitions Management Sector, PWGSC; - self-underwrite the deductible - Code ends ",
- href: '../module4/multi-level-headers.html#headers-three-deep'  ,
+ href: '../module4/multi-level-tables.html#headers-three-deep'  ,
  title: 'level headers - Module 4 – Tables' ,
  heading: "  Good example: Table with headers three deep"
 },{
  categories: 'module4',
  content: "  Good example: Multi-level table simplified The table in the previous example is overly complex, requiring the poorly-supported id/headers technique. A better approach is to split a complex table into two or more smaller tables. In this example, the “Type of Vehicle' (executive or non-executive) is moved from column 1 to the table , resulting in one table about executive vehicles and a second table about non-executive vehicles. The simpler tables consist of two levels of headers, so can be rendered using the scope attribute rather than with id/headers attributes. The scope method is easier to author and maintain, and is better supported by user agents than the id/headers method. Example begins Non-executive Vehicles leased by the Government Country Term of Lease Policy Requirement CANADA long-term Self-underwrite except if provincial legislation applies short-term Comprehensive commercial insurance, including collision and third party liability; - self-underwrite the deductible - U.S. long-term Purchase additional commercial insurance to cover third party liability and collision for the U.S. risks; - self-underwrite any damage to government vehicle - short-term Utilize commercial insurance coverage (third party liability and collision for the U.S. risks) administered by Services and Specialized Acquisitions Management Sector, PWGSC; - self-underwrite the deductible - Example ends View HTML Code begins Non-executive Vehicles leased by the Government Country Term of Lease Policy Requirement CANADA long-term Self-underwrite except if provincial legislation applies short-term Comprehensive commercial insurance, including collision and third party liability; - self-underwrite the deductible - U.S. long-term Purchase additional commercial insurance to cover third party liability and collision for the U.S. risks; - self-underwrite any damage to government vehicle - short-term Utilize commercial insurance coverage (third party liability and collision for the U.S. risks) administered by Services and Specialized Acquisitions Management Sector, PWGSC; - self-underwrite the deductible - Code ends ",
- href: '../module4/multi-level-headers.html#table-simplified'  ,
+ href: '../module4/multi-level-tables.html#table-simplified'  ,
  title: 'level headers - Module 4 – Tables' ,
  heading: "  Good example: Multi-level table simplified"
 },{
  categories: 'module4',
  content: "  Good example: Table with three headers related to each data cell In this example, the table headers “Organic (1kg)' and “Non-organic (1kg)' serve as subheadings to describe the next section of the table. Using the headers attribute, all three headers are properly associated with the data cell. This example sets the table in a element, as described in the section Caption & summary. Rather than use a element, the holds the table title, in a element, as well as a table summary to aid comprehension. The aria-labelledby and aria-describedby attributes on the element point to the title and summary, respectively, which makes the associations stronger and more reliable in assistive technologies. Note that the empty header cell is given an id attribute value and a non-breaking space as content. The cell is referenced by top-level headers in their headers attribute. This prevents some assistive technologies from declaring the cell. Example begins Cost of organic vs non-organic produce in Canada, the USA and the UK Column one lists organic produce followed by non-organic, other columns show the cost by country. Canada USA UK Organic (1kg) Apples $3.62 $4.87 $2.69 Bananas $1.47 $1.68 $1.60 Onions $2.28 $2.81 $1.44 Non-organic (1kg) Apples $3.37 $4.53 $2.50 Bananas $1.37 $1.56 $1.49 Onions $2.12 $2.61 $1.34 Example ends View HTML snippet - Assigning id attributes to cells Code begins &nbsp; Canada USA UK Organic (1kg) Apples […] […] View HTML snippet - Assigning headers attributes to cells Code begins […] $3.62 $4.87 […] Code ends View complete HTML Code begins Cost of organic vs non-organic produce in Canada, the USA and the UK Column one lists organic produce followed by non-organic, other columns show the cost by country. &nbsp; Canada USA UK Organic Apples $3.62 $4.87 $2.69 Bananas $1.47 $1.68 $1.60 Onions $2.28 $2.81 $1.44 Non-organic Apples $3.37 $4.53 $2.50 Bananas $1.37 $1.56 $1.49 Onions $2.12 $2.61 $1.34 Code ends ",
- href: '../module4/multi-level-headers.html#three-headers-related'  ,
+ href: '../module4/multi-level-tables.html#three-headers-related'  ,
  title: 'level headers - Module 4 – Tables' ,
  heading: "  Good example: Table with three headers related to each data cell"
 },{
  categories: 'module4',
  content: "  Related WCAG resources Related WCAG resources Success criteria 1.3.1: Info and Relationships Techniques H51: Using table markup to present tabular information H43: Using id and headers attributes to associate data cells with header cells in data tables ",
- href: '../module4/multi-level-headers.html#multi-level-headers-wcag'  ,
+ href: '../module4/multi-level-tables.html#multi-level-headers-wcag'  ,
  title: 'level headers - Module 4 – Tables' ,
  heading: " Related WCAG resources"
 },{
  categories: 'module4',
- content: "  Designing with one header For simple tables with either row headers or column headers, use the element to mark up the first row or column. Use the scope attribute to identify the cells the header defines. The scope identifies whether the header applies to a row, a column, or a group of rows or columns. Refer to the Irregular headers section for more details on the scope attribute. ",
+ content: "  Designing with one header For simple tables with either row headers or column headers, use the element to mark up the first row or column. Use the scope attribute to identify the cells the header defines. The scope identifies whether the header applies to a row, a column, or a group of rows or columns. Refer to the Irregular tables section for more details on the scope attribute. ",
  href: '../module4/one-header.html#one-header'  ,
  title: ' Module 4 – Tables ' ,
  heading: " Designing with one header"
