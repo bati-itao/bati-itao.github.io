@@ -2,7 +2,7 @@ let pagesIndex, searchIndex;
 const MAX_SUMMARY_LENGTH = 100;
 const SENTENCE_BOUNDARY_REGEX = /\b\.\s/gm;
 const WORD_REGEX = /\b(\w*)[\W|\s|\b]?/gm;
-
+var results;
 //we need to create an JSON index file which will have all the page data without html tags 
 
 
@@ -21,17 +21,6 @@ async function initSearchIndex() {
   }
 }
 
-function searchBoxFocused() {
-  document.querySelector(".search-container").classList.add("focused");
-  document
-    .getElementById("search")
-    .addEventListener("focusout", () => searchBoxFocusOut());
-}
-
-function searchBoxFocusOut() {
-  document.querySelector(".search-container").classList.remove("focused");
-}
-
 function handleSearchQuery(event) {
 	document.querySelector(".search-error").classList.add("hidden");
   event.preventDefault();
@@ -48,7 +37,7 @@ function handleSearchQuery(event) {
     displayErrorMessage("Please enter a search term");
     return;
   }
-  const results = searchSite(query);
+  results = searchSite(query);
   if (!results.length) {
     displayErrorMessage("Your search returned no results");
     return;
@@ -129,24 +118,48 @@ function updateSearchResults(query, results, lang) {
 		)
 		.join("");
 	  const searchResultListItems = document.querySelectorAll(".search-results ol li");
+	  document.getElementById("results-pagination").innerHTML = `
+	  <ul class="pagination">
+  <li><a href="#" rel="prev">Previous</a></li>
+  <li><a href="#">1 <span class="wb-inv">Go to Page 1</span></a>
+  <li><a href="#">2 <span class="wb-inv">Go to Page 2</span></a></li>
+  <li><a href="#" rel="next">Next</a></li>
+</ul>
+	  
+	  `;
 	  document.getElementById("results-count").innerHTML = searchResultListItems.length;
 	  document.getElementById("results-count-text").innerHTML = searchResultListItems.length > 1 ? "results" : "result";
 	}
 	else{
-	  document.querySelector(".search-results ol").innerHTML = results
-		.map(
-		  (hit) => `
-		<li class="search-result-item" data-score="${hit.score.toFixed(2)}">
-		  <a href="${hit.href}" target="_blank" class="search-result-page-title">${hit.heading}</a>
-		  <p><small>In <i>${hit.title}</i></small></p>
-		  <p>${createSearchResultBlurb(query, hit.content)}</p>
+		
+	const paginationSize = document.getElementById("pagination_size").value;
+	var listHtml ="";
+	
+	Object.entries(results).slice(0,paginationSize).forEach((hit,keys)=>{
+		  document.querySelector(".search-results ol").innerHTML += `
+		<li class="search-result-item" data-score="`+ hit[1].score.toFixed(2)+`">
+		  <a href="`+hit[1].href+`" target="_blank" class="search-result-page-title">`+hit[1].heading+`</a>
+		  <p><small>In <i>`+hit[1].title+`</i></small></p>
+		  <p>`+createSearchResultBlurb(query, hit[1].content)+`</p>
 		</li>
-		`
-		)
-		.join("");
+		`;
+		});
+		
+	
 	  const searchResultListItems = document.querySelectorAll(".search-results ol li");
-	  document.getElementById("results-count").innerHTML = searchResultListItems.length;
-	  document.getElementById("results-count-text").innerHTML = searchResultListItems.length > 1 ? "results" : "result";
+	  
+	  document.getElementById("results-pagination").innerHTML = `
+	  <ul class="pagination">
+  <li><a href="#" rel="prev">Previous</a></li>
+  <li><a href="#">1 <span class="wb-inv">Go to Page 1</span></a>
+  <li><a href="#">2 <span class="wb-inv">Go to Page 2</span></a></li>
+  <li><a href="#" rel="next">Next</a></li>
+</ul>
+	  
+	  `;
+	  document.getElementById("results-count").innerHTML = results.length;
+	  document.getElementById("results-count-text").innerHTML = results.length > 1 ? "results" : "result";
+	  document.getElementById("pagination-count").innerHTML = paginationSize;
 	}
 }
 
@@ -265,25 +278,15 @@ function scrollToTop() {
   }, 10);
 }
 
-function getColorForSearchResult(score) {
-  const warmColorHue = 171;
-  const coolColorHue = 212;
-  return adjustHue(warmColorHue, coolColorHue, score);
-}
-
-function adjustHue(hue1, hue2, score) {
-  if (score > 3) return `hsl(${hue1}, 100%, 50%)`;
-  const hueAdjust = (parseFloat(score) / 3) * (hue1 - hue2);
-  const newHue = hue2 + Math.floor(hueAdjust);
-  return `hsl(${newHue}, 100%, 50%)`;
-}
 
 function handleClearSearchButtonClicked() {
 	document.getElementById("clearBtn").classList.add("hidden");
+	document.getElementById("results-header").classList.add("hidden");
   hideSearchResults();
   clearSearchResults();
    document.getElementById("results-count").innerHTML = "";
   document.getElementById("results-count-text").innerHTML = "";
+  document.getElementById("results-pagination").innerHTML = "";
 }
 
 function hideSearchResults() {
@@ -320,6 +323,13 @@ document.addEventListener("DOMContentLoaded", function () {
     .forEach((button) =>
       button.addEventListener("click", () => handleClearSearchButtonClicked())
     );
+	
+	document.getElementById("pagination_size").addEventListener("change", function() {
+	  if(query != null){
+		 const results = searchSite(query);
+		 renderSearchResults(query, results);
+	}
+	});
 });
 
 if (!String.prototype.matchAll) {
