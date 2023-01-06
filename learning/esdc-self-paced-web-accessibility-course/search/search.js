@@ -357,7 +357,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	document.getElementById("pagination_size").addEventListener("change", function() {
 	  if(query != null){
 		 const results = searchSite(query);
-		 renderSearchResults(query, results, lang, 0);
+		 renderSearchResults(query, results, lang, page);
 	}
 	});
 });
