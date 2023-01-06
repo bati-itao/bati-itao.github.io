@@ -60,16 +60,29 @@
           Foire aux questions - Accessibilité Web
         </h1>
 
-        <h2>
-          Devons-nous soumettre une demande chaque fois que nous apportons une
-          modification à notre application ?
-        </h2>
-        <p>
-          Un audit d'accessibilité est requis lorsque l'interface utilisateur a
-          été modifiée.
-        </p>
-        <h2>Quelles sont les normes d'accessibilité actuelles et futures ?</h2>
-        <h3>Normes actuelles</h3>
+
+        <ul class="list-unstyled mrgn-tp-lg">
+        <li>
+
+          <details>
+        
+            <summary> Devons-nous soumettre une demande chaque fois que nous apportons une
+              modification à notre application ?</summary>
+              <p>
+                Un audit d'accessibilité est requis lorsque l'interface utilisateur a
+                été modifiée.
+              </p>
+          </details>
+        </li>
+
+
+
+        <li>
+
+          <details>
+           <summary>Quelles sont les normes d'accessibilité actuelles et futures ?</summary>
+          
+        <h2>Normes actuelles</h2>
         <ul>
           <li>
             <a href="https://www.w3.org/TR/WCAG21/">WCAG 2.1 (A et AA)</a>
@@ -97,7 +110,7 @@
             </li>
           </ul>
         </ul>
-        <h3>Normes futures</h3>
+        <h2>Normes futures</h2>
         <ul>
           <li>
             <a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2 (A et AA)</a> (fin
@@ -127,8 +140,14 @@
             </li>
           </ul>
         </ul>
-        <h2>Comment valider des pages web internes avec Nu Html Checker ?</h2>
-        <p>
+          </details>
+        </li>
+
+        <li>
+
+          <details>
+        <summary>Comment valider des pages web internes avec Nu Html Checker ?</summary>
+               <p>
           Pour valider une page interne, vous pouvez utiliser le signet
           "Vérifier le DOM sérialisé pour la page en cours" et le signet
           "Parsing WCAG" pour filtrer le résultat. Pour les essayer, veuillez
@@ -153,7 +172,7 @@
             4.1.1 L'analyse échoue.
           </li>
         </ol>
-        <h3>Vérifiez le DOM sérialisé pour le code de signet actuel</h3>
+        <h2>Vérifiez le DOM sérialisé pour le code de signet actuel</h2>
         <p class="small mrgn-bttm-0">JavaScript</p>
         <p class="wb-inv">Le code commence</p>
         <pre class="mrgn-tp-0">
@@ -165,14 +184,25 @@
             >Signet d'erreur d'analyse WCAG 2.1</a
           >
         </p>
-        <h3>Signet pour l'analyseur WCAG</h3>
+        <h2>Signet pour l'analyseur WCAG</h2>
         <p class="small mrgn-bttm-0">JavaScript</p>
         <p class="wb-inv">Le code commence</p>
         <pre class="mrgn-tp-0">
 <code>javascript:(function(){var removeNg=true;var filterStrings=["tag seen","Stray end tag","Bad start tag","violates nesting","Duplicate ID","first occurrence of ID","Unclosed element","not allowed as child of","unclosed elements","not allowed on element","unquoted attribute value","Duplicate attribute","tabindex must not", "not appear as a descendant of"];var filterRE,root,results,result,resultText,i,cnt=0;filterRE=filterStrings.join("|");root=document.getElementById("results");if(!root){alert("No results container found.");return}results=root.getElementsByTagName("li");for(i=0;i&lt;results.length;i++){result=results[i];if(result.className!==""){resultText=(result.innerText!==undefined?result.innerText:result.textContent)+"";if(resultText.match(filterRE)===null){result.style.display="none";result.className=result.className+" steveNoLike";cnt++}else if(removeNg==true){if(resultText.indexOf("not allowed on element")!==-1&&(resultText.indexOf("ng-")!==-1&&resultText.indexOf("ng-")&lt;resultText.indexOf("not allowed on element"))){result.style.display="none";result.className=result.className+" steveNoLike";cnt++}}}}alert("Complete. "+cnt+" items removed.")})();</code></pre>
         <p class="wb-inv">Le code se termine</p>
-        <h2>Comment coder les adresses é-mail ?</h2>
-        <p>
+          </details>
+        </li>
+
+      
+
+
+        <li>
+
+          <details>
+        
+            <summary>Comment coder les adresses é-mail ?</summary>
+            
+              <p>
           En règle générale, il est recommandé de fournir l'adresse e-mail
           complète comme texte de lien. Par exemple : "Veuillez contacter le
           service des technologies de l'information et de la communication
@@ -191,30 +221,58 @@
             >Guide de style de contenu Canada.ca</a
           >.
         </p>
-        <h2>
-          Pourriez-vous nous fournir l'échelle de gravité des défauts utilisée
-          dans le évaluation des produits COTS du personnel interne ?
-        </h2>
-        <p>
-          Nous n'avons pas d'échelle officielle de gravité des défauts.
-          N'oubliez pas que nous ne voulons pas que les clients disent : "Nous
-          n'avons manqué qu'un seul critère de réussite et avons obtenu 99 %,
-          nous sommes donc prêts à partir." Cet échec unique pourrait être lié à
-          l'accessibilité du clavier, ce qui aurait un impact énorme par rapport
-          à un site qui a obtenu un score de 85 % mais tous les problèmes à
-          faible impact. En fin de compte, notre rôle sera d'identifier et de
-          guider sur l'accessibilité.
-        </p>
-        <h2>Plugin basé sur un navigateur approuvés</h2>
-        <ul>
-          <li>
-            <a
-              href="https://dialogue/grp/BU6206833/Compliance/Approved%20add-ons%20and%20testing%20tools/ApprovedAdd-ons.xlsx"
-              >Plugins approuvés</a
-            >
-          </li>
-        </ul>
-      </section>
+          </details>
+        </li>
+
+
+        <li>
+
+          <details>
+        
+            <summary>Pourriez-vous nous fournir l'échelle de gravité des défauts utilisée
+              dans le évaluation des produits COTS du personnel interne ?</summary>
+                       <p>
+              Nous n'avons pas d'échelle officielle de gravité des défauts.
+              N'oubliez pas que nous ne voulons pas que les clients disent : "Nous
+              n'avons manqué qu'un seul critère de réussite et avons obtenu 99 %,
+              nous sommes donc prêts à partir." Cet échec unique pourrait être lié à
+              l'accessibilité du clavier, ce qui aurait un impact énorme par rapport
+              à un site qui a obtenu un score de 85 % mais tous les problèmes à
+              faible impact. En fin de compte, notre rôle sera d'identifier et de
+              guider sur l'accessibilité.
+            </p>
+          </details>
+        </li>
+
+
+        <li>
+
+          <details>
+        
+            <summary>Plugin basé sur un navigateur approuvés</summary>
+                    <ul>
+              <li>
+                <a
+                  href="https://dialogue/grp/BU6206833/Compliance/Approved%20add-ons%20and%20testing%20tools/ApprovedAdd-ons.xlsx"
+                  >Plugins approuvés</a
+                >
+              </li>
+            </ul>
+          </details>
+        </li>
+
+        <!-- <li>
+
+          <details>
+        
+            <summary></summary>
+          </details>
+        </li> -->
+        
+                </ul>
+     
+                
+             </section>
       <div class="mrgn-tp-lg" id="def-preFooter"></div>
       <script src="../../scripts/preFooter.min.js"></script>
     </main>
