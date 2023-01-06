@@ -92,9 +92,9 @@ function getLunrSearchQuery(query) {
   return query.trim();
 }
 
-function renderSearchResults(query, results, lang) {
+function renderSearchResults(query, results, lang, page) {
   clearSearchResults();
-  updateSearchResults(query, results, lang);
+  updateSearchResults(query, results, lang, page);
   showSearchResults();
   scrollToTop();
 }
@@ -104,7 +104,7 @@ function clearSearchResults() {
   while (results.firstChild) results.removeChild(results.firstChild);
 }
 
-function updateSearchResults(query, results, lang) {
+function updateSearchResults(query, results, lang, page) {
 	if(lang == "fr"){
 		 document.querySelector(".search-results ol").innerHTML = results
 		.map(
@@ -134,8 +134,35 @@ function updateSearchResults(query, results, lang) {
 		
 	const paginationSize = document.getElementById("pagination_size").value;
 	var listHtml ="";
+	const totalPages = Math.ceil(results.length/paginationSize);
+	if(page == undefined)
+		page = 1;
+	else
+		page = parseInt(page);
+	//build the pagination bar
+	var htmlStringPagination = ' <ul class="pagination">';
+	if(page > 1)
+		 htmlStringPagination += '<li><a href="search_form.html?q='+query+'&page='+(page-1)+'" rel="prev">Previous</a></li>'
+	for (let i = 0; i < totalPages; i++) {
+		if(i+1 == page)
+			htmlStringPagination += '<li class="active"><a href="search_form.html?q='+query+'&page='+(i+1)+'" >'+(i+1)+' <span class="wb-inv">Go to Page '+(i+1)+'</span></a>';
+		else
+			htmlStringPagination += '<li><a href="search_form.html?q='+query+'&page='+(i+1)+'">'+(i+1)+' <span class="wb-inv">Go to Page '+(i+1)+'</span></a>';
+	}
+	if(page != totalPages)
+		htmlStringPagination += ' <li><a href="search_form.html?q='+query+'&page='+(page+1)+'"rel="next">Next</a></li>'
+	htmlStringPagination += '</ul>';
+	document.getElementById("results-pagination").innerHTML = htmlStringPagination;
 	
-	Object.entries(results).slice(0,paginationSize).forEach((hit,keys)=>{
+	//build the results
+   const last_page= Math.ceil(results.length / paginationSize);
+   const from= ((page - 1) * paginationSize) + 1;
+   var to = page * paginationSize;
+   if(to > results.length)
+	   to = results.length-1;
+	
+	Object.entries(results).slice(from,to+1).forEach((hit,keys)=>{
+		 document.querySelector(".search-results ol").start = from;
 		  document.querySelector(".search-results ol").innerHTML += `
 		<li class="search-result-item" data-score="`+ hit[1].score.toFixed(2)+`">
 		  <a href="`+hit[1].href+`" target="_blank" class="search-result-page-title">`+hit[1].heading+`</a>
@@ -148,18 +175,11 @@ function updateSearchResults(query, results, lang) {
 	
 	  const searchResultListItems = document.querySelectorAll(".search-results ol li");
 	  
-	  document.getElementById("results-pagination").innerHTML = `
-	  <ul class="pagination">
-  <li><a href="#" rel="prev">Previous</a></li>
-  <li><a href="#">1 <span class="wb-inv">Go to Page 1</span></a>
-  <li><a href="#">2 <span class="wb-inv">Go to Page 2</span></a></li>
-  <li><a href="#" rel="next">Next</a></li>
-</ul>
-	  
-	  `;
-	  document.getElementById("results-count").innerHTML = results.length;
+	 
+	  document.getElementById("results-count").innerHTML = results.length-1;
 	  document.getElementById("results-count-text").innerHTML = results.length > 1 ? "results" : "result";
-	  document.getElementById("pagination-count").innerHTML = paginationSize;
+	  document.getElementById("pagination-count").innerHTML = to;
+	  document.getElementById("pagination-from").innerHTML = from;
 	}
 }
 
@@ -306,16 +326,26 @@ document.addEventListener("DOMContentLoaded", function () {
     
    
   }
-  
+  var searchbox =  document.getElementById("search");
+   var lang = "en";
+	 if(searchbox == undefined)
+	 {
+		 searchbox =  document.getElementById("search-fr").value.trim();
+		 lang = "fr";
+	 }else{
+		 searchbox = searchbox.value.trim();
+	 }
+	 
   let searchParams = new URLSearchParams(window.location.search)
 	let query = searchParams.get('q');
+	let page = searchParams.get('page');
 	if(query != null){
 		 const results = searchSite(query);
 		  if (!results.length) {
 			displayErrorMessage("Your search returned no results");
 			return;
 		  }
-		  renderSearchResults(query, results);
+		  renderSearchResults(query, results, lang, page);
 	}
   
   document
@@ -327,7 +357,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	document.getElementById("pagination_size").addEventListener("change", function() {
 	  if(query != null){
 		 const results = searchSite(query);
-		 renderSearchResults(query, results);
+		 renderSearchResults(query, results, lang, 0);
 	}
 	});
 });
