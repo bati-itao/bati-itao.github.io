@@ -354,7 +354,7 @@ document.addEventListener("DOMContentLoaded", function () {
       button.addEventListener("click", () => handleClearSearchButtonClicked())
     );
 	
-	document.getElementById("pagination_size").addEventListener("change", function() {
+	document.getElementById("pagination_size_btn").addEventListener("click", function() {
 	  if(query != null){
 		 const results = searchSite(query);
 		 renderSearchResults(query, results, lang, page);
