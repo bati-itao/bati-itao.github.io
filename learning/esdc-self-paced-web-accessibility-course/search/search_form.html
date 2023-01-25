@@ -50,8 +50,9 @@
 			<div class="row">
 			<form action="search_form.html" method="GET" class="search-form">
 						 <div class="search-field-container">
+						 <button type="submit" class="btn btn-default srchBtn" type="submit">    Search</button>
 							<input type="text" aria-label="Search course"  id="search" name="q" class="search-field" placeholder="Search..." />
-							<button type="submit" class="btn btn-default srchBtn" type="submit">    Search</button>
+							
 						  </div>  
 						</form>
 				<main class="col-md-9 col-md-push-3 main" property="mainContentOfPage">
@@ -62,14 +63,16 @@
   <div class="wrapper flex">
     <div class="primary">
 	   <button id="clearBtn" onclick="handleClearSearchButtonClicked()"  class="btn btn-default hidden" style="float:right;">    Clear</button>
-		  <div class="clearfix"></div>
+		 
 		  <div class="search-error hidden"  role="alert"><span class="label label-danger search-error-message"></span></div>
 		<!--search results table -->
     <section class="search-results hide-element">
-      <div id="search-header"  role="alert">
+      <div id="search-header">
         <div class="search-query search-query-right">
-		<div id="results-header" role="status" aria-live="polite">Showing <span id="pagination-from"></span> to <span id="pagination-count"></span> of <span id="results-count"></span>  <span id="results-count-text"></span> | <label>Show <select id="pagination_size" class="" aria-controls="wb-auto-1" name="wb-auto-1_length"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> results</label></div>
-     <br />
+		<div id="results-header" role="status">Showing <span id="pagination-from"></span> to <span id="pagination-count"></span> of <span id="results-count"></span>  <span id="results-count-text"></span> <label style="border-left:2px #333 solid; padding-left:5px;">Results to show: 
+		<select id="pagination_size" class="" aria-controls="wb-auto-1" name="wb-auto-1_length"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></label> <button id="pagination_size_btn" class="btn btn-default  ">    Go</button></div>
+   
+	  <div class="clearfix"></div>
 	 </div>
 	  </div>
       <ol></ol>
@@ -87,19 +90,22 @@
 
 
 /* Main CSS */
-.search-field-container{ position: relative; z-index: 9999; white-space:nowrap;}
+#clearBtn, #pagination_size_btn {
+padding:6px 12px;
 
-.search-field{ width:  200px; 	 z-index: 9999;
+}
+
+#clearBtn {margin-top: 10px;}
+.search-field-container{ position: relative; z-index: 9998; white-space:nowrap; float: right; display: block; height: 35px; width:100%}
+.search-field{ width:  200px; 	 z-index: 9998; float:right;
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
 .search-field:focus{ width: 50%;  }
-.srchBtn { z-index: 9999; margin-top: 5px;}
-
-.search-field-container{ display: block; height: 35px; }
-
+.srchBtn {margin-top: 2.5px;  float:right;}
+.search-query { padding-top:10px ;  padding-bottom:10px }
 .search-field{ background-color: #fff; font-size: 14px; padding: 8px; border: 1px solid  rgb(118, 118, 118); outline: none; -moz-border-radius: 4px; border-radius: 4px; }
 </style>
 	</section><a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a><script src="../../../scripts/esdc-course.js"></script></main>
