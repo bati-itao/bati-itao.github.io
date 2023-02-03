@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test alerts</title>
+	<link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_45/wet-boew/css/theme.min.css">
+    <style>
+      body { margin: 2em 10% 4em}
+      body > div { margin-left: 2rem;}
+      body > div > h3 { margin: 4rem 0 2rem -2rem;}
+      .fa-bug, .fa-bomb { color: red;}
+      .fa-circle-check { color: green;}
+    </style>
+    <script src="https://kit.fontawesome.com/27885d2ef5.js" crossorigin="anonymous"></script>
+    <script>
+ window.addEventListener("load", function() {
+  // Select the two buttons
+  const toggle1 = document.querySelector("#toggle1");
+  const toggle2 = document.querySelector("#toggle2");
+  const toggle3 = document.querySelector("#toggle3");
+  const toggle4 = document.querySelector("#toggle4");
+  
+  // Create a function to toggle the alerts
+  function toggleAlert(container, alertContent) {
+    if (container.innerHTML === "") {
+      container.innerHTML = alertContent;
+    } else {
+      container.innerHTML = "";
+    }
+  }
+  
+  // Trigger the toggleAlert function when the buttons are clicked
+  toggle1.addEventListener("click", function() {
+    const container = document.querySelector("#alertContainer1");
+    const alertContent = `
+      <section class="alert alert-danger" id="alert1">
+        <h4 tabindex="-1">Are you sure you want to press the shiny red button?</h4>
+        <p>There's no going back!</p>
+      </section>
+    `;
+    toggleAlert(container, alertContent);
+  });
+  
+  toggle2.addEventListener("click", function() {
+    const container = document.querySelector("#alertContainer2");
+    const alertContent = `
+      <section class="alert alert-danger" id="alert2">
+        <h4 tabindex="-1"><span class="wb-inv">Danger alert: </span>Are you sure you want to press the shiny red button?</h4>
+        <p>There's no going back!</p>
+      </section>
+    `;
+    toggleAlert(container, alertContent);
+  });  
+
+  toggle3.addEventListener("click", function() {
+    const container = document.querySelector("#alertContainer3");
+    const alertContent = `
+      <section class="alert alert-danger" id="alert3">
+        <h4><span class="wb-inv">Danger alert: </span>Are you sure you want to press the shiny red button?</h4>
+        <p>There's no going back!</p>
+      </section>
+    `;
+    toggleAlert(container, alertContent);
+  });  
+
+  toggle4.addEventListener("click", function() {
+    const container = document.querySelector("#alertContainer4");
+    const alertContent = `
+      <section class="alert alert-danger" id="alert4">
+        <h4><span class="wb-inv">Danger alert: </span>Are you sure you want to press the shiny red button?</h4>
+        <p>There's no going back!</p>
+      </section>
+    `;
+    toggleAlert(container, alertContent);
+  });
+});
+
+
+
+      </script>
+      
+  </head>
+  <body>
+
+    <h1>WET Alert as live regions test</h1>
+
+    <h2>Test 1: role=alert, aria-atomic=true, aria-label=danger</h2>
+    <button id="toggle1">Trigger a live alert 1</button>
+    <div id="alertContainer1" role="alert" aria-atomic="true" aria-label="Danger"></div>
+
+    <h4>JAWS</h4>
+    <p><i class="fa-solid fa-circle-check"></i> Firefox works as expected!</p>
+    <p><i class="fa-solid fa-bug"></i> Chrome doesn't declare role</p>
+    <p><i class="fa-solid fa-bug"></i> Edge doesn't declare role</p>
+
+    <h4>NVDA</h4>
+    <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Firefox doesn't declare the heading unless you assign it tabindex="-1"; 
+      however, it reads the heading after the paragraph: "Danger. Alert. There's no going back! Are you sure ..."</p>
+    <p><i class="fa-solid fa-bug"></i> Chrome doesn't declare the role.</p>
+    <p><i class="fa-solid fa-bug"></i> Edge doesn't declare the role.</p>
+
+
+    <h2>Test 2: role=alert, aria-atomic=true, hidden heading prefix "danger alert"</h2>
+    <button id="toggle2">Trigger a live alert 2</button>
+    <div id="alertContainer2" role="alert" aria-atomic="true"></div>
+
+    <h4>JAWS</h4>
+    <p><i class="fa-solid fa-circle-check"></i> Firefox works as expected!</p>
+    <p><i class="fa-solid fa-bug"></i> Chrome doesn't declare role</p>
+    <p><i class="fa-solid fa-bug"></i> Edge doesn't declare role</p>
+
+    <h4>NVDA</h4>
+    <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Firefox doesn't declare the heading unless you assign it tabindex="-1"; 
+      however, it reads the heading after the paragraph: "Alert. There's no going back! Danger alert. Are you sure ..."</p>
+    <p><i class="fa-solid fa-bug"></i> Chrome doesn't declare the role.</p>
+    <p><i class="fa-solid fa-bug"></i> Edge doesn't declare the role.</p>
+ 
+    <h2>Test 3: aria-live="polite", aria-atomic=true, hidden heading prefix "danger alert"</h2>
+    <button id="toggle3">Trigger a live alert 3</button>
+    <div id="alertContainer3" aria-live="polite" aria-atomic="true"></div>
+
+    <h4>JAWS</h4>
+    <p><i class="fa-solid fa-circle-check"></i> Firefox works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Chrome works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Edge works as expected!</p>
+  
+    <h4>NVDA</h4>
+    <p><i class="fa-solid fa-circle-check"></i> Firefox works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Chrome works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Edge works as expected!</p>
+
+    <h2>Test 4: aria-live="assertive", aria-atomic=true, hidden heading prefix "danger alert"</h2>
+    <button id="toggle4">Trigger a live alert 4</button>
+    <div id="alertContainer4" aria-live="assertive" aria-atomic="true"></div>
+
+    <h4>JAWS</h4>
+    <p><i class="fa-solid fa-circle-check"></i> Firefox works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Chrome works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Edge works as expected!</p>
+
+    <h4>NVDA</h4>
+    <p><i class="fa-solid fa-circle-check"></i> Firefox works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Chrome works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Edge works as expected!</p>
+
+  </body>
+</html>
