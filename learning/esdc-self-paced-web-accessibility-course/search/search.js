@@ -21,33 +21,10 @@ async function initSearchIndex() {
   }
 }
 
-function handleSearchQuery(event) {
-	document.querySelector(".search-error").classList.add("hidden");
-  event.preventDefault();
-  const query =  document.getElementById("search");
-  var lang = "en";
-	 if(query == undefined)
-	 {
-		 query =  document.getElementById("search-fr").value.trim();
-		 lang = "fr";
-	 }else{
-		 query = query.value.trim();
-	 }
-  if (!query) {
-    displayErrorMessage("Please enter a search term");
-    return;
-  }
-  results = searchSite(query);
-  if (!results.length) {
-    displayErrorMessage("Your search returned no results");
-    return;
-  }
-  renderSearchResults(query, results, lang);
-}
 
 function displayErrorMessage(message) {
+	document.getElementById("results-header").classList.add("hidden");
   document.querySelector(".search-error-message").innerHTML = message;
-  document.querySelector(".search-container").classList.remove("focused");
   document.querySelector(".search-error").classList.remove("hidden");
 }
 
@@ -93,6 +70,7 @@ function getLunrSearchQuery(query) {
 }
 
 function renderSearchResults(query, results, lang, page) {
+	document.getElementById("search").value = query;
   clearSearchResults();
   updateSearchResults(query, results, lang, page);
   showSearchResults();
@@ -140,6 +118,7 @@ function updateSearchResults(query, results, lang, page) {
 	else
 		page = parseInt(page);
 	//build the pagination bar
+	if(results.length > 11){
 	var htmlStringPagination = ' <ul class="pagination">';
 	if(page > 1)
 		 htmlStringPagination += '<li><a href="search_form.html?q='+query+'&page='+(page-1)+'" rel="prev">Previous</a></li>'
@@ -153,8 +132,27 @@ function updateSearchResults(query, results, lang, page) {
 		htmlStringPagination += ' <li><a href="search_form.html?q='+query+'&page='+(page+1)+'"rel="next">Next</a></li>'
 	htmlStringPagination += '</ul>';
 	document.getElementById("results-pagination").innerHTML = htmlStringPagination;
-	
+	} else{
+		document.getElementById("results_paginator_prompt").classList.add("hidden");
+	}
 	//build the results
+	if( results.length == 1){
+		Object.entries(results).forEach((hit,keys)=>{
+		 document.querySelector(".search-results ol").start = 1;
+		  document.querySelector(".search-results ol").innerHTML += `
+		<li class="search-result-item" data-score="`+ hit[1].score.toFixed(2)+`">
+		  <a href="`+hit[1].href+`" target="_blank" class="search-result-page-title">`+hit[1].heading+`</a>
+		  <p><small>In <i>`+hit[1].title+`</i></small></p>
+		  <p>`+createSearchResultBlurb(query, hit[1].content)+`</p>
+		</li>
+		`;
+		})
+		document.getElementById("results-count").innerHTML = 1;
+	  document.getElementById("results-count-text").innerHTML = "result";
+	  document.getElementById("pagination-count").innerHTML = 1;
+	  document.getElementById("pagination-from").innerHTML = 1;
+		
+	}else{
    const last_page= Math.ceil(results.length / paginationSize);
    const from= ((page - 1) * paginationSize) + 1;
    var to = page * paginationSize;
@@ -171,15 +169,12 @@ function updateSearchResults(query, results, lang, page) {
 		</li>
 		`;
 		});
-		
-	
-	  const searchResultListItems = document.querySelectorAll(".search-results ol li");
-	  
-	 
-	  document.getElementById("results-count").innerHTML = results.length-1;
+		document.getElementById("results-count").innerHTML = results.length-1;
 	  document.getElementById("results-count-text").innerHTML = results.length > 1 ? "results" : "result";
 	  document.getElementById("pagination-count").innerHTML = to;
 	  document.getElementById("pagination-from").innerHTML = from;
+	}
+
 	}
 }
 
@@ -339,6 +334,13 @@ document.addEventListener("DOMContentLoaded", function () {
   let searchParams = new URLSearchParams(window.location.search)
 	let query = searchParams.get('q');
 	let page = searchParams.get('page');
+	  if (!query) {
+		displayErrorMessage("Please enter a search term");
+		return;
+	  }
+	 
+	 
+	
 	if(query != null){
 		 const results = searchSite(query);
 		  if (!results.length) {
@@ -357,6 +359,11 @@ document.addEventListener("DOMContentLoaded", function () {
 	document.getElementById("pagination_size_btn").addEventListener("click", function() {
 	  if(query != null){
 		 const results = searchSite(query);
+		  if (!results.length) {
+				displayErrorMessage("Your search returned no results");
+				document.getElementById("search").value = query;
+				return;
+			  }
 		 renderSearchResults(query, results, lang, page);
 	}
 	});
