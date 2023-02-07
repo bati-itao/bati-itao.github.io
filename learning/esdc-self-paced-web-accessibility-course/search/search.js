@@ -132,6 +132,8 @@ function updateSearchResults(query, results, lang, page) {
 		htmlStringPagination += ' <li><a href="search_form.html?q='+query+'&page='+(page+1)+'"rel="next">Next</a></li>'
 	htmlStringPagination += '</ul>';
 	document.getElementById("results-pagination").innerHTML = htmlStringPagination;
+	} else{
+		document.getElementById("results_paginator_prompt").classList.add("hidden");
 	}
 	//build the results
 	if( results.length == 1){
