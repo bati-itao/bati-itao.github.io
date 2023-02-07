@@ -93,6 +93,7 @@ function getLunrSearchQuery(query) {
 }
 
 function renderSearchResults(query, results, lang, page) {
+	document.getElementById("search").value = query;
   clearSearchResults();
   updateSearchResults(query, results, lang, page);
   showSearchResults();
