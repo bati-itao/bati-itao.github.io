@@ -40,14 +40,15 @@ function handleSearchQuery(event) {
   results = searchSite(query);
   if (!results.length) {
     displayErrorMessage("Your search returned no results");
+	document.getElementById("search").value = query;
     return;
   }
   renderSearchResults(query, results, lang);
 }
 
 function displayErrorMessage(message) {
+	document.getElementById("results-header").classList.add("hidden");
   document.querySelector(".search-error-message").innerHTML = message;
-  document.querySelector(".search-container").classList.remove("focused");
   document.querySelector(".search-error").classList.remove("hidden");
 }
 
@@ -141,6 +142,7 @@ function updateSearchResults(query, results, lang, page) {
 	else
 		page = parseInt(page);
 	//build the pagination bar
+	if(results.length > 11){
 	var htmlStringPagination = ' <ul class="pagination">';
 	if(page > 1)
 		 htmlStringPagination += '<li><a href="search_form.html?q='+query+'&page='+(page-1)+'" rel="prev">Previous</a></li>'
@@ -154,7 +156,7 @@ function updateSearchResults(query, results, lang, page) {
 		htmlStringPagination += ' <li><a href="search_form.html?q='+query+'&page='+(page+1)+'"rel="next">Next</a></li>'
 	htmlStringPagination += '</ul>';
 	document.getElementById("results-pagination").innerHTML = htmlStringPagination;
-	
+	}
 	//build the results
    const last_page= Math.ceil(results.length / paginationSize);
    const from= ((page - 1) * paginationSize) + 1;
