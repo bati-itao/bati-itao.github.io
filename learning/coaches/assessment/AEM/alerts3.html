@@ -3,12 +3,17 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>live WET alerts using the hidden attribute</title>
+    <title>HTML hidden attribute - Live WET alerts</title>
 	<link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_45/wet-boew/css/theme.min.css">
     <style>
-      body { margin: 2em 10% 4em}
-      body > div { margin-left: 2rem;}
-      body > div > h3 { margin: 4rem 0 2rem -2rem;}
+	  h2 { font-size: 1.5em; } 
+      main { margin: 2em 20em 4em 10%}
+      main > div { margin-left: 2rem;}
+      main > div > h2 { margin: 4rem 0 2rem -2rem;}
+	  nav { float: right; width: 20em; padding: 0 0 2em 2em; line-height: 2; }
+	  nav ol { list-style-type: none; margin-left: 0; padding-left: 0; }
+	  nav ol ol { padding-left: 2em; }
+	  li:has(a[aria-current]), li:has(> a:hover), li:has(> a:focus) { background-color: #ccffcc; }
       .fa-bug, .fa-bomb { color: red;}
       .fa-circle-check { color: green;}
     </style>
@@ -29,22 +34,21 @@
   </head>
   <body>
 
+<nav>
+	<h2>Alert techniques</h2>
+    <ol>
+		<li><a href="alerts-static.html">Static alerts</a></li>
+		<li><a href="alerts.html">Live: CSS display property</a></li>
+		<li><a href="alerts2.html">Live: JavaScript injection</a></li>
+		<li><a role="link" aria-disabled="true" aria-current="true">Live: HTML hidden attribute</a></li>
+	</ol>
+</nav>
+
+<main>
     <h1>Test: Live WET alerts toggling the HTML "hidden" attribute</h1>
 
-    <p><a href="http://www.google.com">Focusable link</a></p>
-
-    <p>All use the HTML technique of toggling the "hidden" attribute to simulate JS injecting element and text into a live region.</p>
-
-    <p>This method works better in Firefox than CSS hiding:</p>
-    <ul>
-        <li>JAWS: Firefox passes tests 4, 5 and 6.</li>
-        <li>NVDA: Firefox passes test 1</li>
-    </ul> 
-
-    <p>There's no change in Chrome or Edge compared to CSS hiding.</p>
-
     <div>
-      <h3>Test 1: role=alert, aria-label=Danger</h3>
+      <h2>Test 1: role=alert, aria-label=Danger</h2>
       <button id="toggle1">Trigger a live alert 1</button>
 
       <div role="alert" aria-atomic="true" aria-label="Danger">
@@ -67,7 +71,7 @@
     </div>
     
     <div>
-      <h3>Test 2: role=alert, hidden heading prefix "Danger"</h3>
+      <h2>Test 2: role=alert, hidden heading prefix "Danger"</h2>
       <button id="toggle2">Trigger a live alert 2</button>
 
     <div role="alert" aria-atomic="true">
@@ -91,7 +95,7 @@
     </div>
 
     <div>
-      <h3>Test 3: role=alert, aria-roledescription="Danger alert"</h3>
+      <h2>Test 3: role=alert, aria-roledescription="Danger alert"</h2>
       <button id="toggle3">Trigger a live alert 3</button>
 
       <div role="alert" aria-atomic="true" aria-roledescription="Danger alert">
@@ -114,7 +118,7 @@
     </div>
   
     <div>
-      <h3>Test 4: role=status, hidden heading prefix "Success alert:"</h3>
+      <h2>Test 4: role=status, hidden heading prefix "Success alert:"</h2>
       <button id="toggle4">Trigger a live status</button>
 
       <!-- Tried a live container in case it makes a dif -->
@@ -138,7 +142,7 @@
   
       
     <div>
-      <h3>Test 5: aria-live=assertive, aria-atomic=true, hidden heading prefix "Success alert:"</h3>
+      <h2>Test 5: aria-live=assertive, aria-atomic=true, hidden heading prefix "Success alert:"</h2>
       <button id="toggle5">Trigger aria-live assertive</button>
 
       <div aria-live="assertive" aria-atomic="true">
@@ -160,7 +164,7 @@
     </div>  
       
     <div>
-      <h3>Test 6: aria-live=polite, aria-atomic=true, hidden heading prefix "Success alert:"</h3>
+      <h2>Test 6: aria-live=polite, aria-atomic=true, hidden heading prefix "Success alert:"</h2>
       <button id="toggle6">Trigger aria-live polite</button>
 
       <div aria-live="polite" aria-atomic="true">
@@ -180,6 +184,7 @@
       <p><i class="fa-solid fa-circle-check"></i> Chrome works as expected!</p>
       <p><i class="fa-solid fa-circle-check"></i> Edge works as expected!</p>
     </div>
+</main>
 
   </body>
 </html>
