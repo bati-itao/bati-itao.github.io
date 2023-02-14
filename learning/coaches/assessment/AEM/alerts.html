@@ -3,12 +3,17 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Static and live WET alerts using CSS hidden </title>
+    <title>CSS hidden attribute - Live WET alerts</title>
 	<link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_45/wet-boew/css/theme.min.css">
     <style>
-      body { margin: 2em 10% 4em}
-      body > div { margin-left: 2rem;}
-      body > div > h3 { margin: 4rem 0 2rem -2rem;}
+	  h2 { font-size: 1.5em; } 
+      main { margin: 2em 20em 4em 10%}
+      main > div { margin-left: 2rem;}
+      main > div > h2 { margin: 4rem 0 2rem -2rem;}
+	  nav { float: right; width: 20em; padding: 0 0 2em 2em; line-height: 2; }
+	  nav ol { list-style-type: none; margin-left: 0; padding-left: 0; }
+	  nav ol ol { padding-left: 2em; }
+	  li:has(a[aria-current]), li:has(> a:hover), li:has(> a:focus) { background-color: #ccffcc; }
       .fa-bug, .fa-bomb { color: red;}
       .fa-circle-check { color: green;}
     </style>
@@ -28,44 +33,38 @@
       
   </head>
   <body>
+<nav>
+	<h2>Alert techniques</h2>
+    <ol>
+		<li><a href="alerts-static.html">Static alerts</a></li>
+		<li><a role="link" aria-disabled="true" aria-current="true">Live: CSS display property</a></li>
+		<li><a href="alerts2.html">Live: JavaScript injection</a></li>
+		<li><a href="alerts3.html">Live: HTML hidden attribute</a></li>
+	</ol>
+</nav>
 
-    <h1>WET Alert test: static and live alerts using CSS hidden</h1>
+<main>
+   <h1>Test: Live WET alerts toggling CSS display</h1>
 
-    <p><a href="http://www.google.com">Focusable link</a></p>
-
-    <h2>Static alerts</h2>
-
-    <p>All use role="note" and aria-roledescription="[type] alert" ("success alert")</p>
-
-    <section class="alert alert-success" role="note" aria-roledescription="success alert"><h2>Your profile was updated.</h2><p>Time for coffee.</p></section>
-
-    <section class="alert alert-info" role="note" aria-roledescription="info alert"><h2>Keyboard shortcuts</h2><p>Press Alt + 0</p></section>
-
-    <section class="alert alert-warning" role="note" aria-roledescription="warning alert"><h2>Shiny red buttons</h2><p>If you press one, bad things may happen.</p></section>
-
-    <section class="alert alert-danger" role="note" aria-roledescription="danger alert"><h2>Are you sure you want to press the shiny red button?</h2><p>There's no going back!</p></section>
-
-    <h2>Test: Live WET alerts using CSS hidden</h2>
-
-    <p>All use the CSS technique of toggling the "hidden" class to simulate JS injecting element and text into a live region.</p>
+    <p>The JS technique here toggles the value of the CSS display property ("none" and "block") via a "hidden" class.</p>
 
     <div>
-      <h3>Test 1: role=alert, aria-label=Danger</h3>
+      <h2>Test 1: role=alert, aria-label=Danger</h2>
       <button id="toggle1">Trigger a live alert 1</button>
 
       <div role="alert" aria-atomic="true" aria-label="Danger">
         <section class="alert alert-danger hidden" id="alert1">
-          <h4 tabindex="-1">Are you sure you want to press the shiny red button?</h4>
+          <h3 tabindex="-1">Are you sure you want to press the shiny red button?</h3>
           <p>There's no going back!</p>
         </section>
       </div>
 
-      <h4>JAWS</h4>
+      <h3>JAWS</h3>
       <p><i class="fa-solid fa-circle-check"></i> Firefox works as expected!</p>
       <p><i class="fa-solid fa-bug"></i> Chrome doesn't declare role</p>
       <p><i class="fa-solid fa-bug"></i> Edge doesn't declare role</p>
 
-      <h4>NVDA</h4>
+      <h3>NVDA</h3>
       <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Firefox doesn't declare the heading unless you assign it tabindex="-1"; 
         however, it reads the heading after the paragraph: "Danger. Alert. There's no going back! Are you sure ..."</p>
       <p><i class="fa-solid fa-bug"></i> Chrome doesn't declare the role.</p>
@@ -74,22 +73,22 @@
     </div>
     
     <div>
-      <h3>Test 2: role=alert, hidden heading prefix "Danger"</h3>
+      <h2>Test 2: role=alert, hidden heading prefix "Danger"</h2>
       <button id="toggle2">Trigger a live alert 2</button>
 
     <div role="alert" aria-atomic="true">
       <section class="alert alert-danger hidden" id="alert2">
-        <h4 tabindex="-1"><span class="wb-inv">Danger: </span>Are you sure you want to press the shiny red button?</h4>
+        <h3 tabindex="-1"><span class="wb-inv">Danger: </span>Are you sure you want to press the shiny red button?</h3>
         <p>There's no going back!</p>
       </section>
     </div>
 
-      <h4>JAWS</h4>
+      <h3>JAWS</h3>
       <p><i class="fa-solid fa-circle-check"></i> Firefox works as expected!</p>
       <p><i class="fa-solid fa-bug"></i> Edge doesn't declare the role.</p>
       <p><i class="fa-solid fa-bug"></i> Chrome doesn't declare the role.</p>
 
-      <h4>NVDA</h4>
+      <h3>NVDA</h3>
       <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Firefox doesn't declare the heading unless you assign it tabindex="-1"; 
         however, it reads the heading after the paragraph: "Alert. There's no going back! Danger: Are you sure ..."</p>
       <p><i class="fa-solid fa-bug"></i> Chrome doesn't declare the role.</p>
@@ -98,22 +97,22 @@
     </div>
 
     <div>
-      <h3>Test 3: role=alert, aria-roledescription="Danger alert"</h3>
+      <h2>Test 3: role=alert, aria-roledescription="Danger alert"</h2>
       <button id="toggle3">Trigger a live alert 3</button>
 
       <div role="alert" aria-atomic="true" aria-roledescription="Danger alert">
         <section class="alert alert-danger hidden" id="alert3">
-          <h4><span class="wb-inv"></span>Are you sure you want to press the shiny red button?</h4>
+          <h3><span class="wb-inv"></span>Are you sure you want to press the shiny red button?</h3>
           <p>There's no going back!</p>
         </section>
       </div>
 
-      <h4>JAWS</h4>
+      <h3>JAWS</h3>
       <p><i class="fa-solid fa-bug"></i> Firefox doesn't declare the aria-roledescription.</p>
       <p><i class="fa-solid fa-bug"></i> Chrome doesn't declare the role or the aria-roledescription.</p>
       <p><i class="fa-solid fa-bug"></i> Edge doesn't declare the role or the aria-roledescription.</p>
 
-      <h4>NVDA</h4>
+      <h3>NVDA</h3>
       <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Firefox doesn't declare the role or the heading.</p>
       <p><i class="fa-solid fa-bug"></i> Chrome doesn't declare the role or aria-roledescription</p>
       <p><i class="fa-solid fa-bug"></i> Edge doesn't declare the role or aria-roledescription</p>
@@ -121,23 +120,23 @@
     </div>
   
     <div>
-      <h3>Test 4: role=status, hidden heading prefix "Success alert:"</h3>
+      <h2>Test 4: role=status, hidden heading prefix "Success alert:"</h2>
       <button id="toggle4">Trigger a live status</button>
 
       <!-- Tried a live container in case it makes a dif -->
       <div role="status" aria-atomic="true">
         <section class="alert alert-success hidden" id="alert4">
-          <h4><span class="wb-inv">Success alert: </span>Your profile was updated.</h4>
+          <h3><span class="wb-inv">Success alert: </span>Your profile was updated.</h3>
           <p>Time for coffee.</p>
         </section>
       </div>
 
-      <h4>JAWS</h4>
+      <h3>JAWS</h3>
       <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Firefox doesn't declare anything (related <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1810596">Github issue</a>)</p>
       <p><i class="fa-solid fa-circle-check"></i> Chrome works as expected!</p>
       <p><i class="fa-solid fa-circle-check"></i> Edge works as expected!</p>
     
-      <h4>NVDA</h4>
+      <h3>NVDA</h3>
       <p><i class="fa-solid fa-circle-check"></i> Firefox works as expected!</p>
       <p><i class="fa-solid fa-circle-check"></i> Chrome works as expected!</p>
       <p><i class="fa-solid fa-circle-check"></i> Edge works as expected!</p>
@@ -145,49 +144,49 @@
   
       
     <div>
-      <h3>Test 5: aria-live=assertive, aria-atomic=true, hidden heading prefix "Success alert:"</h3>
+      <h2>Test 5: aria-live=assertive, aria-atomic=true, hidden heading prefix "Success alert:"</h2>
       <button id="toggle5">Trigger aria-live assertive</button>
 
       <!-- Tried a live container in case it makes a dif -->
       <div aria-live="assertive" aria-atomic="true">
         <section class="alert alert-success hidden" id="alert5">
-          <h4><span class="wb-inv">Success alert: </span>Your profile was updated.</h4>
+          <h3><span class="wb-inv">Success alert: </span>Your profile was updated.</h3>
           <p>Time for coffee.</p>
         </section>
       </div>
 
-      <h4>JAWS</h4>
+      <h3>JAWS</h3>
       <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Firefox doesn't declare anything.</p>
       <p><i class="fa-solid fa-circle-check"></i> Chrome works as expected!</p>
       <p><i class="fa-solid fa-circle-check"></i> Edge works as expected!</p>
     
-      <h4>NVDA</h4>
+      <h3>NVDA</h3>
       <p><i class="fa-solid fa-circle-check"></i> Firefox works as expected!</p>
       <p><i class="fa-solid fa-circle-check"></i> Chrome works as expected!</p>
       <p><i class="fa-solid fa-circle-check"></i> Edge works as expected!</p>
     </div>  
       
     <div>
-      <h3>Test 6: aria-live=polite, aria-atomic=true, hidden heading prefix "Success alert:"</h3>
+      <h2>Test 6: aria-live=polite, aria-atomic=true, hidden heading prefix "Success alert:"</h2>
       <button id="toggle6">Trigger aria-live polite</button>
 
       <div aria-live="polite" aria-atomic="true">
         <section class="alert alert-success hidden" id="alert6">
-          <h4><span class="wb-inv">Success alert: </span>Your profile was updated.</h4>
+          <h3><span class="wb-inv">Success alert: </span>Your profile was updated.</h3>
           <p>Time for coffee.</p>
         </section>
       </div>
 
-      <h4>JAWS</h4>
+      <h3>JAWS</h3>
       <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Firefox doesn't declare anything.</p>
       <p><i class="fa-solid fa-circle-check"></i> Chrome works as expected!</p>
       <p><i class="fa-solid fa-circle-check"></i> Edge works as expected!</p>
     
-      <h4>NVDA</h4>
+      <h3>NVDA</h3>
       <p><i class="fa-solid fa-circle-check"></i> Firefox works as expected!</p>
       <p><i class="fa-solid fa-circle-check"></i> Chrome works as expected!</p>
       <p><i class="fa-solid fa-circle-check"></i> Edge works as expected!</p>
     </div>
-
+</main>
   </body>
 </html>
