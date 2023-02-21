@@ -6,6 +6,10 @@ var results;
 //we need to create an JSON index file which will have all the page data without html tags 
 
 
+if (performance.navigation.type == performance.navigation.TYPE_RELOAD) { //remove params on reload
+    window.location = "search_form.html";
+}
+
 async function initSearchIndex() {
   try {
     pagesIndex = indexJSON;
@@ -333,6 +337,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	 
   let searchParams = new URLSearchParams(window.location.search)
 	let query = searchParams.get('q');
+	console.log(query);
 	let page = searchParams.get('page');
 	  if (!query) {
 		displayErrorMessage("Please enter a search term");
@@ -386,3 +391,5 @@ if (!String.prototype.matchAll) {
     return matchAll(this, regex);
   };
 }
+
+
