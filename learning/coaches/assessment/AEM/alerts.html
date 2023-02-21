@@ -16,6 +16,7 @@
 	  li:has(a[aria-current]), li:has(> a:hover), li:has(> a:focus) { background-color: #ccffcc; }
       .fa-bug, .fa-bomb { color: red;}
       .fa-circle-check { color: green;}
+	   @
     </style>
     <script src="https://kit.fontawesome.com/27885d2ef5.js" crossorigin="anonymous"></script>
     <script>
@@ -65,14 +66,19 @@
       <p><i class="fa-solid fa-bug"></i> Edge doesn't declare role</p>
 
       <h3>NVDA</h3>
-      <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Firefox doesn't declare the heading unless you assign it tabindex="-1"; 
-        however, it reads the heading after the paragraph: "Danger. Alert. There's no going back! Are you sure ..."</p>
+      <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Firefox doesn't declare the heading unless you assign it tabindex="-1"; however, it reads the heading after the paragraph: "Danger. Alert. There's no going back! Are you sure ..."</p>
       <p><i class="fa-solid fa-bug"></i> Chrome doesn't declare the role.</p>
       <p><i class="fa-solid fa-bug"></i> Edge doesn't declare the role.</p>
 
-      <h3>VoiceOver</h3>
+      <h3>macOS: VoiceOver 10 + Safari 16</h3>
       <p><i class="fa-solid fa-bug"></i> Safari doesn't declare the role.</p>
-	    
+
+		
+	  <h3>iOS: VoiceOver 15 + Safari 15</h3>
+ 	   <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Safari doesn't declare anything.</p>
+		
+      <h3>Android</h3>
+      <p><i class="fa-solid fa-bug"></i> Talkback doesn't declare the role or aria-label.</p>	    
     </div>
     
     <div>
@@ -97,8 +103,14 @@
       <p><i class="fa-solid fa-bug"></i> Chrome doesn't declare the role.</p>
       <p><i class="fa-solid fa-bug"></i> Edge doesn't declare the role.</p>
 
-      <h3>VoiceOver</h3>
+      <h3>macOS: VoiceOver 10 + Safari 16</h3>
       <p><i class="fa-solid fa-bug"></i> Safari doesn't declare the role.</p>
+		
+	  <h3>iOS: VoiceOver 15 + Safari 15</h3>
+ 	   <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Safari doesn't declare anything.</p>
+      
+      <h3>Android</h3>
+      <p><i class="fa-solid fa-bug"></i> Talkback doesn't declare the role. Users need to swipe to hear live declaration.</p>
     </div>
 
     <div>
@@ -122,8 +134,14 @@
       <p><i class="fa-solid fa-bug"></i> Chrome doesn't declare the role or aria-roledescription</p>
       <p><i class="fa-solid fa-bug"></i> Edge doesn't declare the role or aria-roledescription</p>
 
-      <h3>VoiceOver</h3>
+      <h3>macOS: VoiceOver 10 + Safari 16</h3>
       <p><i class="fa-solid fa-bug"></i> Safari doesn't declare thethe role or aria-roledescription.</p>
+
+	  <h3>iOS: VoiceOver 15 + Safari 15</h3>
+ 	   <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Safari doesn't declare anything.</p>
+
+      <h3>Android</h3>
+      <p><i class="fa-solid fa-bug"></i> Talkback doesn't declare the role or aria-roledescription.</p>      
     </div>
   
     <div>
@@ -148,8 +166,11 @@
       <p><i class="fa-solid fa-circle-check"></i> Chrome works as expected!</p>
       <p><i class="fa-solid fa-circle-check"></i> Edge works as expected!</p>
 	    
-      <h3>VoiceOver</h3>
-       <p><i class="fa-solid fa-circle-check"></i> Safari works as expected!</p>	    
+      <h3>macOS: VoiceOver 10 + Safari 16</h3>
+       <p><i class="fa-solid fa-circle-check"></i> Safari works as expected!</p>	
+
+	  <h3>iOS: VoiceOver 15 + Safari 15</h3>
+ 	   <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Safari doesn't declare anything.</p>    
     </div>
   
       
@@ -175,8 +196,11 @@
       <p><i class="fa-solid fa-circle-check"></i> Chrome works as expected!</p>
       <p><i class="fa-solid fa-circle-check"></i> Edge works as expected!</p>	   
 	    
-      <h3>VoiceOver</h3>
+      <h3>macOS: VoiceOver 10 + Safari 16</h3>
        <p><i class="fa-solid fa-circle-check"></i> Safari works as expected!</p>
+
+	  <h3>iOS: VoiceOver 15 + Safari 15</h3>
+ 	   <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Safari doesn't declare anything.</p>
     </div>  
       
     <div>
@@ -200,8 +224,11 @@
       <p><i class="fa-solid fa-circle-check"></i> Chrome works as expected!</p>
       <p><i class="fa-solid fa-circle-check"></i> Edge works as expected!</p>	   
 	    
-      <h3>VoiceOver</h3>
+      <h3>macOS: VoiceOver 10 + Safari 16</h3>
        <p><i class="fa-solid fa-circle-check"></i> Safari works as expected!</p>
+
+	  <h3>iOS: VoiceOver 15 + Safari 15</h3>
+ 	   <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Safari doesn't declare anything.</p>
     </div>
 
     <div>
@@ -209,11 +236,12 @@
 	    <ul>
 		    <li>JAWS 2022.2202.38</li>
 		    <li>NVDA 2021.3.5</li>
-		    <li>VoiceOver 10.767.29</li>
+		    <li>macOS: VoiceOver 10 + Safari 16</li>
+		    <li>iOS: VoiceOver 15 + Safari 15</li>
+		    <li>TalkBack 13.1 + Android 11</li>
 		    <li>Firefox 109</li>
 		    <li>Chrome 109.0.5414.75</li>
 		    <li>Edge 109.0.1518.61</li>
-		    <li>Safari 16.2</li>
 	    </ul>
     </div>	
 </main>
