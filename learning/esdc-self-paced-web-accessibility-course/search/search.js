@@ -336,7 +336,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	 }
 	 
   let searchParams = new URLSearchParams(window.location.search)
-	let query = searchParams.get('q');
+	let query = searchParams.get('q').trim();
 	console.log(query);
 	let page = searchParams.get('page');
 	  if (!query) {
