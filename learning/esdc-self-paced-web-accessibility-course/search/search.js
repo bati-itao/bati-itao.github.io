@@ -123,7 +123,7 @@ function updateSearchResults(query, results, lang, page) {
 		page = parseInt(page);
 	//build the pagination bar
 	if(results.length > 11){
-	var htmlStringPagination = ' <ul class="pagination">';
+	var htmlStringPagination = ' <nav role="navigation" aria-labelledby="nav-pagination"> <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2><ul class="pagination">';
 	if(page > 1)
 		 htmlStringPagination += '<li><a href="search_form.html?q='+query+'&page='+(page-1)+'" rel="prev">Previous</a></li>'
 	for (let i = 0; i < totalPages; i++) {
@@ -134,7 +134,7 @@ function updateSearchResults(query, results, lang, page) {
 	}
 	if(page != totalPages)
 		htmlStringPagination += ' <li><a href="search_form.html?q='+query+'&page='+(page+1)+'"rel="next">Next</a></li>'
-	htmlStringPagination += '</ul>';
+	htmlStringPagination += '</ul></nav>';
 	document.getElementById("results-pagination").innerHTML = htmlStringPagination;
 	} else{
 		document.getElementById("results_paginator_prompt").classList.add("hidden");
@@ -336,8 +336,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	 }
 	 
   let searchParams = new URLSearchParams(window.location.search)
-	let query = searchParams.get('q').trim();
-	console.log(query);
+	let query = searchParams.get('q');
+	if(query != null)
+		query = query.trim();
 	let page = searchParams.get('page');
 	  if (!query) {
 		displayErrorMessage("Please enter a search term");
@@ -347,6 +348,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	 
 	
 	if(query != null){
+		
 		 const results = searchSite(query);
 		  if (!results.length) {
 			displayErrorMessage("Your search returned no results");
