@@ -7,7 +7,8 @@ var results;
 
 
 if (performance.navigation.type == performance.navigation.TYPE_RELOAD) { //remove params on reload
-    window.location = "search_form.html";
+
+    window.location = location.href.split('?')[0];
 }
 
 async function initSearchIndex() {
@@ -74,7 +75,8 @@ function getLunrSearchQuery(query) {
 }
 
 function renderSearchResults(query, results, lang, page) {
-	document.getElementById("search").value = query;
+
+  document.getElementById("search").value = query;	
   clearSearchResults();
   updateSearchResults(query, results, lang, page);
   showSearchResults();
@@ -87,33 +89,15 @@ function clearSearchResults() {
 }
 
 function updateSearchResults(query, results, lang, page) {
+	var prev_lbl ="Previous";
+	var next_lbl = "Next";
+	var form_nm = "search_form";
+	
 	if(lang == "fr"){
-		 document.querySelector(".search-results ol").innerHTML = results
-		.map(
-		  (hit) => `
-		<li class="search-result-item" data-score="${hit.score.toFixed(2)}">
-		  <a href="${hit.href}" target="_blank" class="search-result-page-title">${hit.heading}</a>
-		  <p><small>dans <i>${hit.title}</i></small></p>
-		  <p>${createSearchResultBlurb(query, hit.content)}</p>
-		</li>
-		`
-		)
-		.join("");
-	  const searchResultListItems = document.querySelectorAll(".search-results ol li");
-	  document.getElementById("results-pagination").innerHTML = `
-	  <ul class="pagination">
-  <li><a href="#" rel="prev">Previous</a></li>
-  <li><a href="#">1 <span class="wb-inv">Go to Page 1</span></a>
-  <li><a href="#">2 <span class="wb-inv">Go to Page 2</span></a></li>
-  <li><a href="#" rel="next">Next</a></li>
-</ul>
-	  
-	  `;
-	  document.getElementById("results-count").innerHTML = searchResultListItems.length;
-	  document.getElementById("results-count-text").innerHTML = searchResultListItems.length > 1 ? "results" : "result";
+		prev_lbl = "Précédent";
+		next_lbl = "Suivant";
+		form_nm = "search_form-fr";
 	}
-	else{
-		
 	const paginationSize = document.getElementById("pagination_size").value;
 	var listHtml ="";
 	const totalPages = Math.ceil(results.length/paginationSize);
@@ -125,15 +109,15 @@ function updateSearchResults(query, results, lang, page) {
 	if(results.length > 11){
 	var htmlStringPagination = ' <nav role="navigation" aria-labelledby="nav-pagination"> <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2><ul class="pagination">';
 	if(page > 1)
-		 htmlStringPagination += '<li><a href="search_form.html?q='+query+'&page='+(page-1)+'" rel="prev">Previous</a></li>'
+		 htmlStringPagination += '<li><a href="'+form_nm+'.html?q='+query+'&page='+(page-1)+'&lang='+lang+'" rel="prev">'+prev_lbl+'</a></li>'
 	for (let i = 0; i < totalPages; i++) {
 		if(i+1 == page)
-			htmlStringPagination += '<li class="active"><a href="search_form.html?q='+query+'&page='+(i+1)+'" >'+(i+1)+' <span class="wb-inv">Go to Page '+(i+1)+'</span></a>';
+			htmlStringPagination += '<li class="active"><a href="'+form_nm+'.html?q='+query+'&page='+(i+1)+'&lang='+lang+' " >'+(i+1)+'<span class="wb-inv">Go to Page '+(i+1)+'</span></a>';
 		else
-			htmlStringPagination += '<li><a href="search_form.html?q='+query+'&page='+(i+1)+'">'+(i+1)+' <span class="wb-inv">Go to Page '+(i+1)+'</span></a>';
+			htmlStringPagination += '<li><a href="'+form_nm+'.html?q='+query+'&page='+(i+1)+'&lang='+lang+' ">'+(i+1)+' <span class="wb-inv">Go to Page '+(i+1)+'</span></a>';
 	}
 	if(page != totalPages)
-		htmlStringPagination += ' <li><a href="search_form.html?q='+query+'&page='+(page+1)+'"rel="next">Next</a></li>'
+		htmlStringPagination += ' <li><a href="'+form_nm+'.html?q='+query+'&page='+(page+1)+'&lang='+lang+'"rel="next">'+next_lbl+'</a></li>'
 	htmlStringPagination += '</ul></nav>';
 	document.getElementById("results-pagination").innerHTML = htmlStringPagination;
 	} else{
@@ -179,7 +163,7 @@ function updateSearchResults(query, results, lang, page) {
 	  document.getElementById("pagination-from").innerHTML = from;
 	}
 
-	}
+	
 }
 
 function createSearchResultBlurb(query, pageContent) {
@@ -315,7 +299,10 @@ function hideSearchResults() {
 
 initSearchIndex();
 document.addEventListener("DOMContentLoaded", function () {
-	
+		 
+  let searchParams = new URLSearchParams(window.location.search);
+  let lang = searchParams.get('lang');
+  
   if (document.getElementById("search-form") != null) {
     const searchInput = document.getElementById("search");
     searchInput.addEventListener("focus", () => searchBoxFocused());
@@ -325,23 +312,18 @@ document.addEventListener("DOMContentLoaded", function () {
     
    
   }
-  var searchbox =  document.getElementById("search");
-   var lang = "en";
-	 if(searchbox == undefined)
-	 {
-		 searchbox =  document.getElementById("search-fr").value.trim();
-		 lang = "fr";
-	 }else{
-		 searchbox = searchbox.value.trim();
-	 }
-	 
-  let searchParams = new URLSearchParams(window.location.search)
+ 
 	let query = searchParams.get('q');
+
 	if(query != null)
 		query = query.trim();
 	let page = searchParams.get('page');
 	  if (!query) {
-		displayErrorMessage("Please enter a search term");
+		if(lang == "fr"){
+			displayErrorMessage("Veuillez saisir un terme de recherche.");
+		}else{
+			displayErrorMessage("Please enter a search term.");		
+					}
 		return;
 	  }
 	 
@@ -351,7 +333,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		
 		 const results = searchSite(query);
 		  if (!results.length) {
-			displayErrorMessage("Your search returned no results");
+			if(lang == "fr"){
+					displayErrorMessage("Votre recherche n'a donné aucun résultat");
+				}else{
+					displayErrorMessage("Your search returned no results");	
+				}
 			return;
 		  }
 		  renderSearchResults(query, results, lang, page);
@@ -367,7 +353,12 @@ document.addEventListener("DOMContentLoaded", function () {
 	  if(query != null){
 		 const results = searchSite(query);
 		  if (!results.length) {
-				displayErrorMessage("Your search returned no results");
+				
+				if(lang == "fr"){
+					displayErrorMessage("Votre recherche n'a donné aucun résultat");
+				}else{
+					displayErrorMessage("Your search returned no results");					
+				}
 				document.getElementById("search").value = query;
 				return;
 			  }

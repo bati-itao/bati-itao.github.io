@@ -39,19 +39,20 @@
 					],
 					"lngLinks": [
 					  {
-						"lang": "fr",
-						"href": "wcag-view-fr.html",
-						"text": "Français",
+						"lang": "en",
+						"href": "search_form.html",
+						"text": "English",
 					  }
 					],
 				   "menuPath": "../../../ajax/menu-en.html"
 				  });
 				</script><div class="container">
 			<div class="row">
-			<form action="search_form-fr.html" method="GET" class="search-form">
+			<form action="search_form-fr.html" method="GET" class="search-form"  role=”search”>
 						 <div class="search-field-container">
-							<input type="text" aria-label="Search course"  id="search-fr" name="q" class="search-field" placeholder="Search..." />
-							<button type="submit" class="btn btn-default srchBtn" type="submit">    Rechercher</button>
+						 <button type="submit" class="btn btn-default srchBtn" type="submit">    Rechercher</button>
+							<input type="text" aria-label="Search course"  id="search" name="q" class="search-field" placeholder="Rechercher course..." />
+							<input type='hidden' name='lang' value='fr'>
 						  </div>  
 						</form>
 				<main class="col-md-9 col-md-push-3 main" property="mainContentOfPage">
@@ -66,10 +67,16 @@
 		  <div class="search-error hidden"  role="alert"><span class="label label-danger search-error-message"></span></div>
 		<!--search results table -->
     <section class="search-results hide-element">
-      <div id="search-header"  role="alert">
-        <div class="search-query search-query-right"><span id="results-count"></span> <span id="results-count-text"></span></div>
-      </div>
+        <div id="search-header">
+        <div class="search-query search-query-right">
+		<div id="results-header">Affiche <span id="pagination-from"></span> à <span id="pagination-count"></span> de <span aria-live="polite" aria-atomic="true"><span id="results-count"></span>  <span id="results-count-text"></span></span><span id="results_paginator_prompt"><label style="border-left:2px #333 solid; padding-left:5px;">Résultats à afficher: 
+		<select id="pagination_size" class="" aria-controls="wb-auto-1" name="wb-auto-1_length"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></label> <button id="pagination_size_btn" class="btn btn-default  ">    Go</button></span></div>
+   
+	  <div class="clearfix"></div>
+	 </div>
+	  </div>
       <ol></ol>
+	  <div  class="text-center" id="results-pagination"></div>									   
     </section>
 	
   </div>
@@ -81,19 +88,25 @@
 /* Not really necessary, but helps with layout */
 *{ -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
-/* Main CSS */
-.search-field-container{ position: relative; z-index: 9999; white-space:nowrap;}
 
-.search-field{ width:  200px; 	 z-index: 9999;
+/* Main CSS */
+#clearBtn, #pagination_size_btn {
+padding:6px 12px;
+
+}
+
+#clearBtn {margin-top: 10px;}
+.search-field-container{ position: relative; z-index: 9998; white-space:nowrap; float: right; display: block; height: 35px; width:100%}
+.search-field{ width:  200px; 	 z-index: 9998; float:right;
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
 .search-field:focus{ width: 50%;  }
-.srchBtn { z-index: 9999; margin-top: 5px;}
-
-.search-field-container{ display: block; height: 35px; }
+.srchBtn {margin-top: 2.5px;  float:right;}
+.search-query { padding-top:10px ;  padding-bottom:10px }
+														
 
 .search-field{ background-color: #fff; font-size: 14px; padding: 8px; border: 1px solid  rgb(118, 118, 118); outline: none; -moz-border-radius: 4px; border-radius: 4px; }
 </style>
