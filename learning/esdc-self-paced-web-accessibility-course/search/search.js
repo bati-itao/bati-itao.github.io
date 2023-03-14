@@ -92,11 +92,13 @@ function updateSearchResults(query, results, lang, page) {
 	var prev_lbl ="Previous";
 	var next_lbl = "Next";
 	var form_nm = "search_form";
+	var in_lbl = "In";
 	
 	if(lang == "fr"){
 		prev_lbl = "Précédent";
 		next_lbl = "Suivant";
 		form_nm = "search_form-fr";
+		in_lbl = "Dans";
 	}
 	const paginationSize = document.getElementById("pagination_size").value;
 	var listHtml ="";
@@ -130,7 +132,7 @@ function updateSearchResults(query, results, lang, page) {
 		  document.querySelector(".search-results ol").innerHTML += `
 		<li class="search-result-item" data-score="`+ hit[1].score.toFixed(2)+`">
 		  <a href="`+hit[1].href+`" target="_blank" class="search-result-page-title">`+hit[1].heading+`</a>
-		  <p><small>In <i>`+hit[1].title+`</i></small></p>
+		  <p><small>`+in_lbl+` <i>`+hit[1].title+`</i></small></p>
 		  <p>`+createSearchResultBlurb(query, hit[1].content)+`</p>
 		</li>
 		`;
@@ -152,7 +154,7 @@ function updateSearchResults(query, results, lang, page) {
 		  document.querySelector(".search-results ol").innerHTML += `
 		<li class="search-result-item" data-score="`+ hit[1].score.toFixed(2)+`">
 		  <a href="`+hit[1].href+`" target="_blank" class="search-result-page-title">`+hit[1].heading+`</a>
-		  <p><small>In <i>`+hit[1].title+`</i></small></p>
+		  <p><small>`+in_lbl+`  <i>`+hit[1].title+`</i></small></p>
 		  <p>`+createSearchResultBlurb(query, hit[1].content)+`</p>
 		</li>
 		`;
