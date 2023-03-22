@@ -3,6 +3,14 @@
     <head>
         <title>ARIA node semantics example</title>
         <style>
+
+            [role="form"] { max-width: 12em; }
+            
+
+            [role="heading"][level="2"] { 
+				font-size: 1.5em;
+				margin: 0 0 1em 0;
+            }
             .legend {
                 padding: 5px;
                 border-radius: 5px;
@@ -18,6 +26,7 @@
                 border-radius: 5px;
                 padding: 10px;
                 position: relative;
+                margin-bottom: 0.5em;
             }
 
             [role="radiogroup"] .legend {
@@ -79,13 +88,12 @@
             [role="button"]:hover {
                 background-color: #0056b3;
             }
-
         </style>
     </head>
 <body>
     <div role="main">
         <div role="form" aria-labelledby="form-title">
-            <h2 id="form-title">Generate tune</h2>
+            <div role="heading" level="2" id="form-title">Generate tune</div>
             <div role="radiogroup" aria-labelledby="guitar-legend">
                 <div id="guitar-legend" class="legend">Guitar</div>
                 <div role="radio" aria-checked="true" tabindex="0">
