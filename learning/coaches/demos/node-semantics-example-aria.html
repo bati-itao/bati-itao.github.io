@@ -144,17 +144,23 @@
             th.value {
                 width: auto;
             }
+            
             [data-sliding="true"] tbody tr,
-            [data-checked="true"] tbody tr.first-focus,
+            [data-details-seen="true"] tr.first-focus,
+            [data-checked="false"] .subsequent-view,
             [role="complementary"] > div { 
                 display: none;
             }
             [data-sliding="true"] tbody tr.sliding {
                 display:  table-row;
             }
+            [data-sliding="true"] .first-focus {
+                display:  none;
+            }
             [role="complementary"] > div.active { 
                 display: block;
             }
+            
           /*  body:has(li[role="radio"]:focus) [role="complementary"] #radio { display: block;} */
 
             
@@ -166,7 +172,7 @@
         <div role="form" aria-label="Generate tune">
             <div role="radiogroup" aria-labelledby="guitar-legend" aria-orientation="vertical">
                 <div id="guitar-legend" class="legend">Guitar</div>
-                <div role="radio" id="radio-a" aria-checked="false" tabindex="0">
+                <div role="radio" id="radio-a" aria-checked="false" tabindex="0" data-check-count="0">
                     <span class="control"></span>
                     <span>Electric</span>
                 </div>
@@ -187,8 +193,8 @@
         </div>
     </div>
     <div role="complementary" aria-label="JAWS output">
-        <h2 id="output-heading">JAWS output</h2>
-        <div id="radio-a-output" data-checked="false">
+        <h2 id="output-heading">NVDA output</h2>
+        <div id="radio-a-output" data-checked="false" data-details-seen="false">
             <table>
                 <thead>
                     <tr>
@@ -202,7 +208,7 @@
                 <tbody>
                     <tr class="first-focus">
                         <td></td>
-                        <td>main region</td>
+                        <td>main landmark</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -216,30 +222,23 @@
                     </tr>
                     <tr class="first-focus">
                         <td></td>
-                        <td>form region</td>
+                        <td>form landmark</td>
                         <td></td>
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr class="first-focus">
+                    <tr class="revisit">
                         <td>Guitar</td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr class="first-focus">
+                    <tr class="revisit">
                         <td></td>
-                        <td>group</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
+                        <td>grouping</td>
                         <td></td>
                         <td></td>
-                        <td></td>
-                        <td>vertical</td>
                         <td></td>
                     </tr>
                     <tr>
@@ -272,6 +271,9 @@
                     </tr>
                 </tbody>
             </table>
+            <p class="revisit"><em>JAWS role-based instructions:</em>
+                <br aria-hidden="true"/>
+            To change the selection, press up or down arrow.</p>
         </div>
         <div id="radio-b-output">
             <table>
@@ -338,13 +340,14 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr>
+                  <!--  <tr>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td>left/right</td>
                         <td></td>
                     </tr>
+-->
                     <tr>
                         <td></td>
                         <td>slider</td>
@@ -361,7 +364,7 @@
                     </tr>
                 </tbody>
             </table>
-            <p><em>JAWS role-based instructions:</em>
+            <p class="first-focus"><em>JAWS role-based instructions:</em>
                 <br aria-hidden="true"/>
             To increase or decrease, use the arrow keys.</p>
         </div>
@@ -398,8 +401,8 @@
             To activate, press enter.</p>
         </div>
     </div>
-    <script>
- document.addEventListener("DOMContentLoaded", () => {
+<script>
+document.addEventListener("DOMContentLoaded", () => {
   const showOutput = (elementId) => {
     const outputDivs = document.querySelectorAll('[role="complementary"] > div');
     outputDivs.forEach((outputDiv) => {
@@ -473,8 +476,8 @@
     event.preventDefault();
   });
 
-  // RadioGroup class and initialization
-  class RadioGroup {
+// RadioGroup class and initialization
+class RadioGroup {
   constructor(groupNode) {
     this.groupNode = groupNode;
     this.radioButtons = [];
@@ -500,25 +503,26 @@
     this.firstRadioButton.tabIndex = 0;
   }
 
-    setChecked(currentItem) {
-        for (var i = 0; i < this.radioButtons.length; i++) {
-            var rb = this.radioButtons[i];
-            rb.setAttribute('aria-checked', 'false');
-            rb.tabIndex = -1;
-        }
-        currentItem.setAttribute('aria-checked', 'true');
-        currentItem.tabIndex = 0;
-        currentItem.focus();
-
-        if (currentItem.id === 'radio-a') {
-            document.getElementById('radio-a-output').setAttribute('data-checked', 'true');
-            document.getElementById('checkedness').textContent = 'checked';
-        } else {
-            document.getElementById('radio-a-output').setAttribute('data-checked', 'false');
-            document.getElementById('checkedness').textContent = 'not checked';
-        }
+  setChecked(currentItem) {
+    for (var i = 0; i < this.radioButtons.length; i++) {
+      var rb = this.radioButtons[i];
+      rb.setAttribute('aria-checked', 'false');
+      rb.tabIndex = -1;
     }
+    currentItem.setAttribute('aria-checked', 'true');
+    currentItem.tabIndex = 0;
+    currentItem.focus();
 
+    if (currentItem.id === 'radio-a') {
+      document.getElementById('radio-a-output').setAttribute('data-checked', 'true');
+      document.getElementById('checkedness').textContent = 'checked';
+      const checkCount = parseInt(currentItem.getAttribute('data-check-count')) + 1;
+      currentItem.setAttribute('data-check-count', checkCount);
+    } else {
+      document.getElementById('radio-a-output').setAttribute('data-checked', 'false');
+      document.getElementById('checkedness').textContent = 'not checked';
+    }
+  }
 
   setCheckedToPreviousItem(currentItem) {
     var index;
@@ -584,6 +588,13 @@
 
   handleBlur(event) {
     event.currentTarget.classList.remove('focus');
+    if (event.currentTarget.id === 'radio-a') {
+      const radioAOutput = document.getElementById('radio-a-output');
+      const checkCount = parseInt(event.currentTarget.getAttribute('data-check-count'));
+      if (checkCount > 0) {
+        radioAOutput.setAttribute('data-details-seen', 'true');
+      }
+    }
   }
 }
 
@@ -594,14 +605,7 @@ window.addEventListener('load', function () {
     new RadioGroup(radios[i]);
   }
 });
-
-
 });
-
-</script>
-
-      
-
-        
+</script> 
 </body>
 </html>
