@@ -12,6 +12,9 @@ Element with ARIA role is missing:
 - require parent roles
 Attribute value is invalid
 Attribute beginning aria- is invalid ARIA attribute
+
+Using ARIA when equivalent HTML semantics exist
+Redundant ARIA semantics
         </pre>
         
 	<!-- redundant role; attribute not allowed on role -->
@@ -24,6 +27,7 @@ Attribute beginning aria- is invalid ARIA attribute
         <div role="form" aria-labelledby="Generate tune">
         
 			<!-- "none" is not a valid value for aria-orientation -->
+			<!-- using ARIA when equivalent HTML exists -->
             <div role="radiogroup" aria-labelledby="guitar-legend" aria-orientation="none">
                 <div id="guitar-legend" class="legend">Guitar</div>
                 <!-- missing required child role aria-checked -->
@@ -32,13 +36,15 @@ Attribute beginning aria- is invalid ARIA attribute
                     <span>Electric</span>
                 </div>
                 
-                <!-- native input element uses aria-checked -->
+                <!-- ARIA attribute not allowed on role (aria-checked -->
                 <input type="radio" role="radio" id="radio-b" aria-checked="false" tabindex="-1">
                     <span class="control"></span>
                     <span>Acoustic</span>
                 </input>
             </div>
-            <div class="form-group">
+            
+			<!-- Attribute value is invalid (godzilla) -->
+            <div class="form-group" aria-level="godzilla">
                 <span id="cowbell-label" class="label">Cowbell</span>
                 <div role="slider" tabindex="0" id="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0.7" aria-labelledby="cowbell-label" onkeydown="updateSlider(event);">
                     <div class="slider-track">
@@ -46,15 +52,16 @@ Attribute beginning aria- is invalid ARIA attribute
                     </div>
                 </div>
             </div>
-            <!-- Attribute beginning aria- is invalid ARIA attribute -->
-            <!-- Attribute value is invalid -->
+            <!-- Attribute beginning aria- is invalid ARIA attribute (aria-godzilla) -->
             <div role="button" id="button" tabindex="0" aria-godzilla="true" aria-selected="five">Generate</div>
         </div>
     </main>
     
-    <!-- attribute value not allowed on role -->
-    <div role="complementary" aria-checked="false">
-        <h2 id="output-heading">NVDA output</h2>
+
+    <!-- using ARIA when equivalent HTML exists -->
+    <div role="complementary">
+        <!-- attribute value not allowed on role (aria-checked) -->
+        <h2 id="output-heading" aria-checked="false">NVDA output</h2>
         <div id="radio-a-output" data-checked="false" data-details-seen="false">
             
         </div>
