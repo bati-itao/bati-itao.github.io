@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Static WET alerts</title>
+	<link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_45/wet-boew/css/theme.min.css">
+	<link rel="stylesheet" href="alerts.css">
+    <script src="https://kit.fontawesome.com/27885d2ef5.js" crossorigin="anonymous"></script>
+      
+  </head>
+  <body class="alerts-static">
+<nav>
+	<h2>Alert techniques</h2>
+    <ol>
+		<li><a role="link" aria-disabled="true" aria-current="true">Static alerts</a></li>
+		<li><a href="alerts.html">Live: CSS display</a></li>
+		<li><a href="alerts2.html">Live: JavaScript injection</a></li>
+		<li><a href="alerts3.html">Live: HTML hidden</a></li>
+	</ol>
+</nav>
+
+<main>
+
+    <h1>Test: WET static alerts</h1>
+
+    <p>All use role="note" and aria-roledescription="[type] alert" ("success alert")</p>
+
+	<p>Expectation: the aria-roledescription is declared on entry and exit</p>
+
+    <section class="alert alert-success" role="note" aria-roledescription="success alert"><h2>Your profile was updated.</h2><p>Time for coffee.</p></section>
+
+    <section class="alert alert-info" role="note" aria-roledescription="info alert"><h2>Keyboard shortcuts</h2><p>Press Alt + 0</p></section>
+
+    <section class="alert alert-warning" role="note" aria-roledescription="warning alert"><h2>Shiny red buttons</h2><p>If you press one, bad things may happen.</p></section>
+
+    <section class="alert alert-danger" role="note" aria-roledescription="danger alert"><h2>Are you sure you want to press the shiny red button?</h2><p>There's no going back!</p></section>
+
+    <div>
+     
+        <h2>JAWS</h2>
+        <p><i class="fa-solid fa-circle-check"></i> Firefox: works as expected!</p>
+		<p><i class="fa-solid fa-circle-check"></i> Chrome: works as expected!</p>
+		<p><i class="fa-solid fa-circle-check"></i> Edge: works as expected!</p>
+		
+ 		<h2>NVDA</h2>
+		<p><i class="fa-solid fa-circle-check"></i> Firefox: works as expected!</p>
+		<p><i class="fa-solid fa-circle-check"></i> Chrome: works as expected!</p>
+		<p><i class="fa-solid fa-circle-check"></i> Edge: works as expected!</p>
+	
+		<h2>macOS: VoiceOver 10 + Safari 16</h2>
+		<p><i class="fa-solid fa-bug"></i> Safari: doesn't declare the aria-roledescription.</p>
+
+		<h2>iOS: VoiceOver 15 + Safari 15</h2>
+		<p><i class="fa-solid fa-bug"></i> Safari: doesn't declare the aria-roledescription. Declares "landmark".</p>
+
+		<h2>Android</h2>
+		<p><i class="fa-solid fa-bug"></i> Talkback: doesn't declare the aria-roledescription.</p>
+    </div>
+ 
+
+    <div>
+	    <h2>Version numbers</h2>
+	    <ul>
+		    <li>JAWS 2022.2202.38</li>
+		    <li>NVDA 2021.3.5</li>
+		    <li>macOS: VoiceOver 10 + Safari 16</li>
+		    <li>iOS: VoiceOver 15 + Safari 15</li>
+		    <li>TalkBack 13.1 + Android 11</li>
+		    <li>Firefox 109</li>
+		    <li>Chrome 109.0.5414.75</li>
+		    <li>Edge 109.0.1518.61</li>
+	    </ul>
+    </div>	
+</main>
+  </body>
+</html>

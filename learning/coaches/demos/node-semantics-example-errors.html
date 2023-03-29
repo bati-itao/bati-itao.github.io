@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+    <head>
+        <title>ARIA node semantics error example</title>
+    </head>
+<body>
+        <pre>
+ARIA attribute not allowed on role.
+Element with ARIA role is missing:
+- required attributes
+- required child roles
+- require parent roles
+Attribute value is invalid
+Attribute beginning aria- is invalid ARIA attribute
+
+Using ARIA when equivalent HTML semantics exist
+Redundant ARIA semantics
+        </pre>
+        
+	<!-- redundant role; attribute not allowed on role -->
+    <main role="main" aria-posinset="2">
+		<!-- static role applied to interactive element -->
+        <button role="heading" leve="1" id="form-title">Generate tune</button>
+        
+
+        <!-- aria-labelledby holds a string label with a space not an id -->
+        <div role="form" aria-labelledby="Generate tune">
+        
+			<!-- "none" is not a valid value for aria-orientation -->
+			<!-- using ARIA when equivalent HTML exists -->
+            <div role="radiogroup" aria-labelledby="guitar-legend" aria-orientation="none">
+                <div id="guitar-legend" class="legend">Guitar</div>
+                <!-- missing required child role aria-checked -->
+                <div role="radio" id="radio-a" tabindex="0" data-check-count="0">
+                    <span class="control"></span>
+                    <span>Electric</span>
+                </div>
+                
+                <!-- ARIA attribute not allowed on role (aria-checked -->
+                <input type="radio" role="radio" id="radio-b" aria-checked="false" tabindex="-1">
+                    <span class="control"></span>
+                    <span>Acoustic</span>
+                </input>
+            </div>
+            
+			<!-- Attribute value is invalid (godzilla) -->
+            <div class="form-group" aria-level="godzilla">
+                <span id="cowbell-label" class="label">Cowbell</span>
+                <div role="slider" tabindex="0" id="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0.7" aria-labelledby="cowbell-label" onkeydown="updateSlider(event);">
+                    <div class="slider-track">
+                        <div class="slider-thumb" style="left: 70%;"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Attribute beginning aria- is invalid ARIA attribute (aria-godzilla) -->
+            <div role="button" id="button" tabindex="0" aria-godzilla="true" aria-selected="five">Generate</div>
+        </div>
+    </main>
+    
+
+    <!-- using ARIA when equivalent HTML exists -->
+    <div role="complementary">
+        <!-- attribute value not allowed on role (aria-checked) -->
+        <h2 id="output-heading" aria-checked="false">NVDA output</h2>
+        <div id="radio-a-output" data-checked="false" data-details-seen="false">
+            
+        </div>
+    </div>        
+   
+   <!-- attribute not allowed -->
+  <nav aria-label="Mythical University" aria-checked="false">
+    <ul class="menubar-navigation" role="menubar" aria-label="Mythical University">
+    <!-- missing required parent role="none" -->
+      <li>
+        <a role="menuitem" href="#home"> Home </a>
+      </li>
+      <li role="none">
+        <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#about">
+          About
+          <svg xmlns="http://www.w3.org/2000/svg" class="down" width="12" height="9" viewBox="0 0 12 9">
+            <polygon points="1 0, 11 0, 6 8"></polygon>
+          </svg>
+        </a>
+        <!-- missing required parent role="menu" -->
+        <ul aria-label="About">
+          <li role="none">
+            <a role="menuitem" href="#overview">Overview</a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="#administration">Administration</a>
+          </li>
+          <li role="none">
+            <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#facts">
+              Facts
+              <svg xmlns="http://www.w3.org/2000/svg" class="right" width="9" height="12" viewBox="0 0 9 12">
+                <polygon points="0 1, 0 11, 8 6"></polygon>
+              </svg>
+            </a>
+            <ul role="menu" aria-label="Facts">
+              <li role="none">
+                <a role="menuitem" href="#history">History</a>
+              </li>
+              <li role="none">
+                <a role="menuitem" href="#current-statistics">Current Statistics</a>
+              </li>
+              <li role="none">
+                <a role="menuitem" href="#awards">Awards</a>
+              </li>
+            </ul>
+          </li>
+          <li role="none">
+            <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#campus-tours">
+              Campus Tours
+              <svg xmlns="http://www.w3.org/2000/svg" class="right" width="9" height="12" viewBox="0 0 9 12">
+                <polygon points="0 1, 0 11, 8 6"></polygon>
+              </svg>
+            </a>
+            <ul role="menu" aria-label="Campus Tours">
+              <li role="none">
+                <a role="menuitem" href="#for-prospective-students">For prospective students</a>
+              </li>
+              <li role="none">
+                <a role="menuitem" href="#for-alumni">For alumni</a>
+              </li>
+              <li role="none">
+                <a role="menuitem" href="#for-visitors">For visitors</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li role="none">
+        <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#admissions">
+          Admissions
+          <svg xmlns="http://www.w3.org/2000/svg" class="down" width="12" height="9" viewBox="0 0 12 9">
+            <polygon points="1 0, 11 0, 6 8"></polygon>
+          </svg>
+        </a>
+        <ul role="menu" aria-label="Admissions">
+          <li role="none">
+            <a role="menuitem" href="#apply">Apply</a>
+          </li>
+          <li role="none">
+            <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#tuition">
+              Tuition
+              <svg xmlns="http://www.w3.org/2000/svg" class="right" width="9" height="12" viewBox="0 0 9 12">
+                <polygon points="0 1, 0 11, 8 6"></polygon>
+              </svg>
+            </a>
+            <ul role="menu" aria-label="Tuition">
+              <li role="none">
+                <a role="menuitem" href="#undergraduate">Undergraduate</a>
+              </li>
+              <li role="none">
+                <a role="menuitem" href="#graduate">Graduate</a>
+              </li>
+              <li role="none">
+                <a role="menuitem" href="#professional-schools">Professional Schools</a>
+              </li>
+            </ul>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="#sign-up">Sign Up</a>
+          </li>
+          <li role="separator"></li>
+          <li role="none">
+            <a role="menuitem" href="#visit">Visit</a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="#photo-tour">Photo Tour</a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="#connect">Connect</a>
+          </li>
+        </ul>
+      </li>
+      <li role="none">
+        <a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#academics">
+          Academics
+          <svg xmlns="http://www.w3.org/2000/svg" class="down" width="12" height="9" viewBox="0 0 12 9">
+            <polygon points="1 0, 11 0, 6 8"></polygon>
+          </svg>
+        </a>
+        <ul role="menu" id="sub-menu-academics" aria-label="Academics">
+          <li role="none">
+            <a role="menuitem" href="#colleges-and-schools">Colleges &amp; Schools</a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="#programs-of-study">Programs of Study</a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="#honors-programs">Honors Programs</a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="#online-courses">Online Courses</a>
+          </li>
+          <li role="separator"></li>
+          <li role="none">
+            <a role="menuitem" href="#course-explorer">Course Explorer</a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="#register-for-class">Register for Class</a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="#academic-calendar">Academic Calendar</a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="#tanscripts">Transcripts</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+</body>
+</html>

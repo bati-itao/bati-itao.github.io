@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ARIA node semantics example</title>
+        <style>
+            body {
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                margin: 1rem 0 0 3rem;
+            }
+            #tabstop { position: fixed; top: 0px; left: 0px; }
+
+            [role="main"] {
+                float: 14rem;
+            }
+            
+            [role="complementary"] {
+                position: absolute;
+                top: 0;
+                left: 16rem;
+                right: 3rem;
+            }
+
+            h1 { 
+                font-size: 1.4rem; 
+                margin-bottom: 1.5rem;
+            }
+            h2 { 
+                font-size: 1.2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            [role="form"] {
+                max-width: 12rem;
+            }
+            .legend {
+                padding: 5px;
+                border-radius: 5px;
+                display: inline-block;
+            }
+            .label {
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+
+            [role="radiogroup"] {
+                display: inline-block;
+                border: 2px solid #ccc;
+                border-radius: 5px;
+                /* padding: 10px; */
+                position: relative;
+                padding-top: 0.75rem;
+                min-width: 100%;
+            }
+
+            [role="radiogroup"] .legend {
+                position: absolute;
+                top: -1em;
+                left: 10px;
+                background-color: white;
+            }
+
+            [role="radio"] {
+                display: block;
+                cursor: pointer;
+                margin: 5px 0 5px 10px;
+            }
+
+            .control {
+                display: inline-block;
+                background-color: #ccc;
+                width: 12px;
+                height: 12px;
+                margin-right: 5px;
+                border-radius: 50%;
+            }
+
+            [role="radio"][aria-checked="true"] .control {
+                background-color: blue;
+            }
+            
+            .slider-track {
+                width: 100%;
+                height: 4px;
+                background-color: #ccc;
+            }
+
+            .slider-thumb {
+                position: relative;
+                width: 10px;
+                height: 10px;
+                background-color: blue;
+                top: -3px;
+            }
+
+            .form-group {
+                margin: 1em 0;
+            }
+
+            [role="button"] {
+                display: inline-block;
+                margin-top: 0.5rem;
+                background-color: #4672C4;
+                color: #fff;
+                padding: 6px 12px;
+                font-size: 14px;
+                cursor: pointer;
+                border-radius: 4px;
+                border: none;
+                float: right;
+            }
+
+            [role="button"]:hover {
+                background-color: #0056b3;
+            }
+            [role="complementary"] div { display: none; }
+            
+            [role="complementary"] h2, table, p {
+                margin-left: 30px;
+            }
+            
+            table {
+                border-collapse: collapse;
+            }
+            th {
+                background-color: #007BFF;
+                color: #fff;
+            }
+            th, td {
+                border: 1px solid #AAA;
+                padding: 0.2em 0.4em;
+            }
+            th.name {
+                width: 25%;
+            }
+            th.role {
+                width: 23%;
+            }
+            th.property {
+                width: 14%;
+            }
+            th.state {
+                width: 23%;
+            }
+            th.value {
+                width: auto;
+            }
+            
+            [data-sliding="true"] tbody tr,
+            [data-details-seen="true"] tr.first-focus,
+            [data-checked="false"] .subsequent-view,
+            [role="complementary"] > div { 
+                display: none;
+            }
+            [data-sliding="true"] tbody tr.sliding {
+                display:  table-row;
+            }
+            [data-sliding="true"] .first-focus {
+                display:  none;
+            }
+            [role="complementary"] > div.active { 
+                display: block;
+            }
+            
+          /*  body:has(li[role="radio"]:focus) [role="complementary"] #radio { display: block;} */
+
+            
+        </style>
+    </head>
+<body>
+    <div role="main">
+        <h1 id="form-title">Generate tune</h1>
+        <div role="form" aria-label="Generate tune">
+            <div role="radiogroup" aria-labelledby="guitar-legend" aria-orientation="vertical">
+                <div id="guitar-legend" class="legend">Guitar</div>
+                <div role="radio" id="radio-a" aria-checked="false" tabindex="0" data-check-count="0">
+                    <span class="control"></span>
+                    <span>Electric</span>
+                </div>
+                <div role="radio" id="radio-b" aria-checked="false" tabindex="-1">
+                    <span class="control"></span>
+                    <span>Acoustic</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <span id="cowbell-label" class="label">Cowbell</span>
+                <div role="slider" tabindex="0" id="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0.7" aria-labelledby="cowbell-label" onkeydown="updateSlider(event);">
+                    <div class="slider-track">
+                        <div class="slider-thumb" style="left: 70%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div role="button" id="button" tabindex="0">Generate</div>
+        </div>
+    </div>
+    <div role="complementary" aria-label="JAWS output">
+        <h2 id="output-heading">NVDA output</h2>
+        <div id="radio-a-output" data-checked="false" data-details-seen="false">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="name">name</th>
+                        <th class="role">role</th>
+                        <th class="state">state</th>
+                        <th class="property">property</th>
+                        <th class="value">value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="first-focus">
+                        <td></td>
+                        <td>main landmark</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="first-focus">
+                        <td>Generate tune</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="first-focus">
+                        <td></td>
+                        <td>form landmark</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="revisit">
+                        <td>Guitar</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="revisit">
+                        <td></td>
+                        <td>grouping</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Electric</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>radio button</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td id="checkedness">not checked</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>1 of 2</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="revisit"><em>JAWS role-based instructions:</em>
+                <br aria-hidden="true"/>
+            To change the selection, press up or down arrow.</p>
+        </div>
+        <div id="radio-b-output">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="name">name</th>
+                        <th class="role">role</th>
+                        <th class="state">state</th>
+                        <th class="property">property</th>
+                        <th class="value">value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Acoustic</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>radio button</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>checked</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>2 of 2</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><em>JAWS role-based instructions:</em>
+                <br aria-hidden="true"/>
+            To change the selection, press up or down arrow.</p>
+        </div>
+        <div id="slider-output" data-sliding="false">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="name">name</th>
+                        <th class="role">role</th>
+                        <th class="state">state</th>
+                        <th class="property">property</th>
+                        <th class="value">value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cowbell</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                  <!--  <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>left/right</td>
+                        <td></td>
+                    </tr>
+-->
+                    <tr>
+                        <td></td>
+                        <td>slider</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="sliding">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td id="valuetext">7</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="first-focus"><em>JAWS role-based instructions:</em>
+                <br aria-hidden="true"/>
+            To increase or decrease, use the arrow keys.</p>
+        </div>
+        <div id="button-output">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="name">name</th>
+                        <th class="role">role</th>
+                        <th class="state">state</th>
+                        <th class="property">property</th>
+                        <th class="value">value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Generate</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>button</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><em>JAWS role-based instructions:</em>
+                <br aria-hidden="true"/>
+            To activate, press enter.</p>
+        </div>
+    </div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const showOutput = (elementId) => {
+    const outputDivs = document.querySelectorAll('[role="complementary"] > div');
+    outputDivs.forEach((outputDiv) => {
+      if (outputDiv.id === elementId) {
+        outputDiv.classList.add("active");
+      } else {
+        outputDiv.classList.remove("active");
+      }
+    });
+  };
+
+  const hideOutput = (elementId) => {
+    const outputDiv = document.getElementById(elementId);
+    if (outputDiv) {
+      outputDiv.classList.remove("active");
+    }
+  };
+
+  const widgets = document.querySelectorAll('[role="radio"], [role="slider"], [role="button"]');
+
+  widgets.forEach((widget) => {
+    widget.addEventListener("focus", () => {
+      showOutput(widget.id + "-output");
+    });
+
+    widget.addEventListener("blur", () => {
+      hideOutput(widget.id + "-output");
+    });
+  });
+
+  const slider = document.getElementById("slider");
+  slider.setAttribute("aria-valuetext", (parseFloat(slider.getAttribute("aria-valuenow")) * 10).toFixed(0));
+
+  const updateSlider = (value) => {
+    const minValue = parseFloat(slider.getAttribute("aria-valuemin"));
+    const maxValue = parseFloat(slider.getAttribute("aria-valuemax"));
+    const valuetext = (value * 10).toFixed(0);
+
+    slider.setAttribute("aria-valuenow", value.toFixed(1));
+    slider.setAttribute("aria-valuetext", valuetext);
+    slider.querySelector(".slider-thumb").style.left = ((value - minValue) / (maxValue - minValue) * 100) + "%";
+
+    document.getElementById("valuetext").textContent = valuetext;
+    showOutput("slider-output");
+  };
+
+  slider.addEventListener("input", (event) => {
+    const value = parseFloat(event.target.value);
+    updateSlider(value);
+  });
+
+  slider.addEventListener('keydown', (event) => {
+    const minValue = parseFloat(slider.getAttribute('aria-valuemin'));
+    const maxValue = parseFloat(slider.getAttribute('aria-valuemax'));
+    const sliderDiv = document.getElementById('slider-output');
+    let value = parseFloat(slider.getAttribute('aria-valuenow'));
+    const step = 0.1;
+
+    if (event.key === 'ArrowUp' || event.key === 'ArrowRight') {
+      value = Math.min(value + step, maxValue);
+      sliderDiv.setAttribute('data-sliding', 'true');
+    } else if (event.key === 'ArrowDown' || event.key === 'ArrowLeft') {
+      value = Math.max(value - step, minValue);
+      sliderDiv.setAttribute('data-sliding', 'true');
+    } else {
+      sliderDiv.setAttribute('data-sliding', 'false');
+      return;
+    }
+
+    updateSlider(value);
+    event.preventDefault();
+  });
+
+// RadioGroup class and initialization
+class RadioGroup {
+  constructor(groupNode) {
+    this.groupNode = groupNode;
+    this.radioButtons = [];
+    this.firstRadioButton = null;
+    this.lastRadioButton = null;
+
+    var rbs = this.groupNode.querySelectorAll('[role=radio]');
+
+    for (var i = 0; i < rbs.length; i++) {
+      var rb = rbs[i];
+      rb.tabIndex = -1;
+      rb.setAttribute('aria-checked', 'false');
+      rb.addEventListener('keydown', this.handleKeydown.bind(this));
+      rb.addEventListener('click', this.handleClick.bind(this));
+      rb.addEventListener('focus', this.handleFocus.bind(this));
+      rb.addEventListener('blur', this.handleBlur.bind(this));
+      this.radioButtons.push(rb);
+      if (!this.firstRadioButton) {
+        this.firstRadioButton = rb;
+      }
+      this.lastRadioButton = rb;
+    }
+    this.firstRadioButton.tabIndex = 0;
+  }
+
+  setChecked(currentItem) {
+    for (var i = 0; i < this.radioButtons.length; i++) {
+      var rb = this.radioButtons[i];
+      rb.setAttribute('aria-checked', 'false');
+      rb.tabIndex = -1;
+    }
+    currentItem.setAttribute('aria-checked', 'true');
+    currentItem.tabIndex = 0;
+    currentItem.focus();
+
+    if (currentItem.id === 'radio-a') {
+      document.getElementById('radio-a-output').setAttribute('data-checked', 'true');
+      document.getElementById('checkedness').textContent = 'checked';
+      const checkCount = parseInt(currentItem.getAttribute('data-check-count')) + 1;
+      currentItem.setAttribute('data-check-count', checkCount);
+    } else {
+      document.getElementById('radio-a-output').setAttribute('data-checked', 'false');
+      document.getElementById('checkedness').textContent = 'not checked';
+    }
+  }
+
+  setCheckedToPreviousItem(currentItem) {
+    var index;
+
+    if (currentItem === this.firstRadioButton) {
+      this.setChecked(this.lastRadioButton);
+    } else {
+      index = this.radioButtons.indexOf(currentItem);
+      this.setChecked(this.radioButtons[index - 1]);
+    }
+  }
+
+  setCheckedToNextItem(currentItem) {
+    var index;
+
+    if (currentItem === this.lastRadioButton) {
+      this.setChecked(this.firstRadioButton);
+    } else {
+      index = this.radioButtons.indexOf(currentItem);
+      this.setChecked(this.radioButtons[index + 1]);
+    }
+  }
+
+  handleKeydown(event) {
+    var tgt = event.currentTarget,
+      flag = false;
+
+    switch (event.key) {
+      case ' ':
+        this.setChecked(tgt);
+        flag = true;
+        break;
+
+      case 'ArrowUp':
+      case 'ArrowLeft':
+        this.setCheckedToPreviousItem(tgt);
+        flag = true;
+        break;
+
+      case 'ArrowDown':
+      case 'ArrowRight':
+        this.setCheckedToNextItem(tgt);
+        flag = true;
+        break;
+
+      default:
+        break;
+    }
+
+    if (flag) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+  }
+
+  handleClick(event) {
+    this.setChecked(event.currentTarget);
+  }
+
+  handleFocus(event) {
+    event.currentTarget.classList.add('focus');
+  }
+
+  handleBlur(event) {
+    event.currentTarget.classList.remove('focus');
+    if (event.currentTarget.id === 'radio-a') {
+      const radioAOutput = document.getElementById('radio-a-output');
+      const checkCount = parseInt(event.currentTarget.getAttribute('data-check-count'));
+      if (checkCount > 0) {
+        radioAOutput.setAttribute('data-details-seen', 'true');
+      }
+    }
+  }
+}
+
+// Initialize radio button group
+window.addEventListener('load', function () {
+  var radios = document.querySelectorAll('[role="radiogroup"]');
+  for (var i = 0; i < radios.length; i++) {
+    new RadioGroup(radios[i]);
+  }
+});
+});
+</script> 
+</body>
+</html>

@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS hidden attribute - Live WET alerts</title>
+	<link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_45/wet-boew/css/theme.min.css">
+	<link rel="stylesheet" href="alerts.css">
+    <script src="https://kit.fontawesome.com/27885d2ef5.js" crossorigin="anonymous"></script>
+    <script>
+      window.onload = function() {
+        let sections = document.querySelectorAll("[id^=alert]");
+        let toggleButtons = document.querySelectorAll("[id^=toggle]");
+
+        for (let i = 0; i < sections.length; i++) {
+          toggleButtons[i].addEventListener("click", function() {
+            sections[i].classList.toggle("hidden");
+          });
+        }
+      };
+      </script>
+      
+  </head>
+  <body class="alerts-css">
+<nav>
+	<h2>Alert techniques</h2>
+    <ol>
+		<li><a href="alerts-static.html">Static alerts</a></li>
+		<li><a role="link" aria-disabled="true" aria-current="true">Live: CSS display property</a></li>
+		<li><a href="alerts2.html">Live: JavaScript injection</a></li>
+		<li><a href="alerts3.html">Live: HTML hidden attribute</a></li>
+	</ol>
+</nav>
+
+<main>
+   <h1>Test: Live WET alerts toggling CSS display</h1>
+
+    <p>The JS technique here toggles the value of the CSS display property ("none" and "block") by toggling a class named "hidden".</p>
+
+    <div>
+      <h2>Test 1: role=alert, aria-label=Danger</h2>
+      <button id="toggle1">Trigger a live alert 1</button>
+
+      <div role="alert" aria-atomic="true" aria-label="Danger">
+        <section class="alert alert-danger hidden" id="alert1">
+          <h3 tabindex="-1">Are you sure you want to press the shiny red button?</h3>
+          <p>There's no going back!</p>
+        </section>
+      </div>
+
+      <h3>JAWS</h3>
+      <p><i class="fa-solid fa-circle-check"></i> Firefox: works as expected!</p>
+      <p><i class="fa-solid fa-bug"></i> Chrome: doesn't declare role</p>
+      <p><i class="fa-solid fa-bug"></i> Edge: doesn't declare role</p>
+
+      <h3>NVDA</h3>
+      <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Firefox: doesn't declare the heading unless you assign it tabindex="-1"; however, it reads the heading after the paragraph: "Danger. Alert. There's no going back! Are you sure ..."</p>
+      <p><i class="fa-solid fa-bug"></i> Chrome: doesn't declare the role.</p>
+      <p><i class="fa-solid fa-bug"></i> Edge: doesn't declare the role.</p>
+
+      <h3>macOS: VoiceOver 10 + Safari 16</h3>
+      <p><i class="fa-solid fa-bug"></i> Safari: doesn't declare the role.</p>
+
+		
+	  <h3>iOS: VoiceOver 15 + Safari 15</h3>
+ 	   <p><i class="fa-solid fa-bug"></i> VoiceOver doesn't declare the role or aria-label.</p>
+
+      <h3>Android</h3>
+      <p><i class="fa-solid fa-bug"></i> Talkback: doesn't declare the role or aria-label.</p>	    
+    </div>
+    
+    <div>
+      <h2>Test 2: role=alert, hidden heading prefix "Danger"</h2>
+      <button id="toggle2">Trigger a live alert 2</button>
+
+    <div role="alert" aria-atomic="true">
+      <section class="alert alert-danger hidden" id="alert2">
+        <h3 tabindex="-1"><span class="wb-inv">Danger: </span>Are you sure you want to press the shiny red button?</h3>
+        <p>There's no going back!</p>
+      </section>
+    </div>
+
+      <h3>JAWS</h3>
+      <p><i class="fa-solid fa-circle-check"></i> Firefox: works as expected!</p>
+      <p><i class="fa-solid fa-bug"></i> Edge: doesn't declare the role.</p>
+      <p><i class="fa-solid fa-bug"></i> Chrome: doesn't declare the role.</p>
+
+      <h3>NVDA</h3>
+      <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Firefox: doesn't declare the heading unless you assign it tabindex="-1"; 
+        however, it reads the heading after the paragraph: "Alert. There's no going back! Danger: Are you sure ..."</p>
+      <p><i class="fa-solid fa-bug"></i> Chrome: doesn't declare the role.</p>
+      <p><i class="fa-solid fa-bug"></i> Edge: doesn't declare the role.</p>
+
+      <h3>macOS: VoiceOver 10 + Safari 16</h3>
+      <p><i class="fa-solid fa-bug"></i> Safari: doesn't declare the role.</p>
+
+	  <h3>iOS: VoiceOver 15 + Safari 15</h3>
+ 	  <p><i class="fa-solid fa-bug"></i> Safari: doesn't declare the role.</p>
+    
+      <h3>Android</h3>
+      <p><i class="fa-solid fa-bug"></i> Talkback: doesn't declare the role. Users need to swipe to hear live declaration.</p>
+    </div>
+
+    <div>
+      <h2>Test 3: role=alert, aria-roledescription="Danger alert"</h2>
+      <button id="toggle3">Trigger a live alert 3</button>
+
+      <div role="alert" aria-atomic="true" aria-roledescription="Danger alert">
+        <section class="alert alert-danger hidden" id="alert3">
+          <h3><span class="wb-inv"></span>Are you sure you want to press the shiny red button?</h3>
+          <p>There's no going back!</p>
+        </section>
+      </div>
+
+      <h3>JAWS</h3>
+      <p><i class="fa-solid fa-bug"></i> Firefox: doesn't declare the aria-roledescription.</p>
+      <p><i class="fa-solid fa-bug"></i> Chrome: doesn't declare the role or the aria-roledescription.</p>
+      <p><i class="fa-solid fa-bug"></i> Edge: doesn't declare the role or the aria-roledescription.</p>
+
+      <h3>NVDA</h3>
+      <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Firefox: doesn't declare the role or the heading.</p>
+      <p><i class="fa-solid fa-bug"></i> Chrome: doesn't declare the role or aria-roledescription</p>
+      <p><i class="fa-solid fa-bug"></i> Edge: doesn't declare the role or aria-roledescription</p>
+
+      <h3>macOS: VoiceOver 10 + Safari 16</h3>
+      <p><i class="fa-solid fa-bug"></i> Safari: doesn't declare the role or aria-roledescription.</p>
+
+	  <h3>iOS: VoiceOver 15 + Safari 15</h3>
+ 	  <p><i class="fa-solid fa-bug"></i> Safari: doesn't declare the role or aria-roledescription.</p>
+
+      <h3>Android</h3>
+      <p><i class="fa-solid fa-bug"></i> Talkback: doesn't declare the role or aria-roledescription.</p>      
+    </div>
+  
+    <div>
+      <h2>Test 4: role=status, hidden heading prefix "Success alert:"</h2>
+      <button id="toggle4">Trigger a live status</button>
+
+      <!-- Tried a live container in case it makes a dif -->
+      <div role="status" aria-atomic="true">
+        <section class="alert alert-success hidden" id="alert4">
+          <h3><span class="wb-inv">Success alert: </span>Your profile was updated.</h3>
+          <p>Time for coffee.</p>
+        </section>
+      </div>
+
+      <h3>JAWS</h3>
+      <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Firefox: doesn't declare anything (related <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1810596">Github issue</a>)</p>
+      <p><i class="fa-solid fa-circle-check"></i> Chrome: works as expected!</p>
+      <p><i class="fa-solid fa-circle-check"></i> Edge: works as expected!</p>
+    
+      <h3>NVDA</h3>
+      <p><i class="fa-solid fa-circle-check"></i> Firefox: works as expected!</p>
+      <p><i class="fa-solid fa-circle-check"></i> Chrome: works as expected!</p>
+      <p><i class="fa-solid fa-circle-check"></i> Edge: works as expected!</p>
+	    
+      <h3>macOS: VoiceOver 10 + Safari 16</h3>
+      <p><i class="fa-solid fa-circle-check"></i> Safari: works as expected!</p>	
+
+	  <h3>iOS: VoiceOver 15 + Safari 15</h3>
+	  <p><i class="fa-solid fa-circle-check"></i> Safari: works as expected!</p>  
+	  
+	  <h3>Android</h3>
+      <p><i class="fa-solid fa-bug"></i> Talkback: users need to swipe to hear live declaration.</p>
+	  
+    </div>
+  
+      
+    <div>
+      <h2>Test 5: aria-live=assertive, aria-atomic=true, hidden heading prefix "Success alert:"</h2>
+      <button id="toggle5">Trigger aria-live assertive</button>
+
+      <!-- Tried a live container in case it makes a dif -->
+      <div aria-live="assertive" aria-atomic="true">
+        <section class="alert alert-success hidden" id="alert5">
+          <h3><span class="wb-inv">Success alert: </span>Your profile was updated.</h3>
+          <p>Time for coffee.</p>
+        </section>
+      </div>
+
+      <h3>JAWS</h3>
+      <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Firefox: doesn't declare anything.</p>
+      <p><i class="fa-solid fa-circle-check"></i> Chrome: works as expected!</p>
+      <p><i class="fa-solid fa-circle-check"></i> Edge: works as expected!</p>
+    
+      <h3>NVDA</h3>
+      <p><i class="fa-solid fa-circle-check"></i> Firefox: works as expected!</p>
+      <p><i class="fa-solid fa-circle-check"></i> Chrome: works as expected!</p>
+      <p><i class="fa-solid fa-circle-check"></i> Edge: works as expected!</p>	   
+	    
+      <h3>macOS: VoiceOver 10 + Safari 16</h3>
+       <p><i class="fa-solid fa-circle-check"></i> Safari: works as expected!</p>
+
+	  <h3>iOS: VoiceOver 15 + Safari 15</h3>
+	  <p><i class="fa-solid fa-circle-check"></i> Safari: works as expected!</p>
+	  
+	  <h3>Android</h3>
+      <p><i class="fa-solid fa-bug"></i> Talkback: users need to swipe to hear live declaration.</p>
+	  
+    </div>  
+      
+    <div>
+      <h2>Test 6: aria-live=polite, aria-atomic=true, hidden heading prefix "Success alert:"</h2>
+      <button id="toggle6">Trigger aria-live polite</button>
+
+      <div aria-live="polite" aria-atomic="true">
+        <section class="alert alert-success hidden" id="alert6">
+          <h3><span class="wb-inv">Success alert: </span>Your profile was updated.</h3>
+          <p>Time for coffee.</p>
+        </section>
+      </div>
+
+      <h3>JAWS</h3>
+      <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Firefox: doesn't declare anything.</p>
+      <p><i class="fa-solid fa-circle-check"></i> Chrome: works as expected!</p>
+      <p><i class="fa-solid fa-circle-check"></i> Edge: works as expected!</p>
+    
+      <h3>NVDA</h3>
+      <p><i class="fa-solid fa-circle-check"></i> Firefox: works as expected!</p>
+      <p><i class="fa-solid fa-circle-check"></i> Chrome: works as expected!</p>
+      <p><i class="fa-solid fa-circle-check"></i> Edge: works as expected!</p>	   
+	    
+      <h3>macOS: VoiceOver 10 + Safari 16</h3>
+       <p><i class="fa-solid fa-circle-check"></i> Safari: works as expected!</p>
+
+	  <h3>iOS: VoiceOver 15 + Safari 15</h3>
+	  <p><i class="fa-solid fa-circle-check"></i> Safari: works as expected!</p>
+	  
+	  <h3>Android</h3>
+      <p><i class="fa-solid fa-bug"></i> Talkback: users need to swipe to hear live declaration.</p>
+    </div>
+
+    <div>
+	    <h2>Version numbers</h2>
+	    <ul>
+		    <li>JAWS 2022.2202.38</li>
+		    <li>NVDA 2021.3.5</li>
+		    <li>macOS: VoiceOver 10 + Safari 16</li>
+		    <li>iOS: VoiceOver 15 + Safari 15</li>
+		    <li>TalkBack 13.1 + Android 11</li>
+		    <li>Firefox 109</li>
+		    <li>Chrome 109.0.5414.75</li>
+		    <li>Edge 109.0.1518.61</li>
+	    </ul>
+    </div>	
+</main>
+  </body>
+</html>

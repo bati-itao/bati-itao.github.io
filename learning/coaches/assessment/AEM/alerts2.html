@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>JS injection - Live WET alerts</title>
+	<link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_45/wet-boew/css/theme.min.css">
+	<link rel="stylesheet" href="alerts.css">
+    <script src="https://kit.fontawesome.com/27885d2ef5.js" crossorigin="anonymous"></script>
+    <script>
+ window.addEventListener("load", function() {
+  // Select the two buttons
+  const toggle1 = document.querySelector("#toggle1");
+  const toggle2 = document.querySelector("#toggle2");
+  const toggle3 = document.querySelector("#toggle3");
+  const toggle4 = document.querySelector("#toggle4");
+  const toggle5 = document.querySelector("#toggle5");
+  const toggle6 = document.querySelector("#toggle6");
+  
+  // Create a function to toggle the alerts
+  function toggleAlert(container, alertContent) {
+    if (container.innerHTML === "") {
+      container.innerHTML = alertContent;
+    } else {
+      container.innerHTML = "";
+    }
+  }
+  
+  // Trigger the toggleAlert function when the buttons are clicked
+  toggle1.addEventListener("click", function() {
+    const container = document.querySelector("#alertContainer1");
+    const alertContent = `
+      <section class="alert alert-danger" id="alert1">
+        <h3 tabindex="-1">Are you sure you want to press the shiny red button?</h3>
+        <p>There's no going back!</p>
+      </section>
+    `;
+    toggleAlert(container, alertContent);
+  });
+  
+  toggle2.addEventListener("click", function() {
+    const container = document.querySelector("#alertContainer2");
+    const alertContent = `
+      <section class="alert alert-danger" id="alert2">
+        <h3 tabindex="-1"><span class="wb-inv">Danger alert: </span>Are you sure you want to press the shiny red button?</h3>
+        <p>There's no going back!</p>
+      </section>
+    `;
+    toggleAlert(container, alertContent);
+  });  
+  
+  toggle3.addEventListener("click", function() {
+    const container = document.querySelector("#alertContainer3");
+    const alertContent = `
+      <section class="alert alert-danger" id="alert3">
+        <h3 tabindex="-1"><span class="wb-inv">Danger alert: </span>Are you sure you want to press the shiny red button?</h3>
+        <p>There's no going back!</p>
+      </section>
+    `;
+    toggleAlert(container, alertContent);
+  });  
+  
+  toggle4.addEventListener("click", function() {
+    const container = document.querySelector("#alertContainer4");
+    const alertContent = `
+      <section class="alert alert-success" id="alert4">
+        <h3 tabindex="-1"><span class="wb-inv">Success alert: </span>Your profile was updated.</h3>
+        <p>Time for coffee.</p>
+      </section>
+    `;
+    toggleAlert(container, alertContent);
+  });  
+
+  toggle5.addEventListener("click", function() {
+    const container = document.querySelector("#alertContainer5");
+    const alertContent = `
+      <section class="alert alert-danger" id="alert5">
+        <h3><span class="wb-inv">Danger alert: </span>Are you sure you want to press the shiny red button?</h3>
+        <p>There's no going back!</p>
+      </section>
+    `;
+    toggleAlert(container, alertContent);
+  });  
+
+  toggle6.addEventListener("click", function() {
+    const container = document.querySelector("#alertContainer6");
+    const alertContent = `
+      <section class="alert alert-danger" id="alert6">
+        <h3><span class="wb-inv">Danger alert: </span>Are you sure you want to press the shiny red button?</h3>
+        <p>There's no going back!</p>
+      </section>
+    `;
+    toggleAlert(container, alertContent);
+  });
+});
+
+
+
+      </script>
+      
+  </head>
+  <body class="alerts-injection">
+<nav>
+	<h2>Alert techniques</h2>
+    <ol>
+		<li><a href="alerts-static.html">Static alerts</a></li>
+		<li><a href="alerts.html">Live: CSS display property</a></li>
+		<li><a role="link" aria-disabled="true" aria-current="true">Live: JavaScript injection</a></li>
+		<li><a href="alerts3.html">Live: HTML hidden attribute</a></li>
+	</ol>
+</nav>
+
+<main>
+    
+    <h1>Test: Live WET alerts using JS injection</h1>
+<div>	    
+    <h2>Test 1: role=alert, aria-atomic=true, aria-label=danger</h2>
+    <button id="toggle1">Trigger a live alert 1</button>
+    <div id="alertContainer1" role="alert" aria-atomic="true" aria-label="Danger"></div>
+
+    <h3>JAWS</h3>
+    <p><i class="fa-solid fa-circle-check"></i> Firefox: works as expected!</p>
+    <p><i class="fa-solid fa-bug"></i> Chrome: doesn't declare role</p>
+    <p><i class="fa-solid fa-bug"></i> Edge: doesn't declare role</p>
+
+    <h3>NVDA</h3>
+    <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Firefox: doesn't declare the heading unless you assign it tabindex="-1"; 
+      however, it reads the heading after the paragraph: "Danger. Alert. There's no going back! Are you sure ..."</p>
+    <p><i class="fa-solid fa-bug"></i> Chrome: doesn't declare the role.</p>
+    <p><i class="fa-solid fa-bug"></i> Edge: doesn't declare the role.</p>
+	
+      <h3>macOS: VoiceOver 10 + Safari 16</h3>
+      <p><i class="fa-solid fa-bug"></i> Safari: doesn't declare the role.</p>
+
+	  <h3>iOS: VoiceOver 15 + Safari 15</h3>
+      <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Safari: doesn't declare the role or the aria-label.</p>
+
+      <h3>Android</h3>
+      <p><i class="fa-solid fa-bug"></i> Talkback: doesn't declare the role or aria-label.</p>	
+
+</div>
+<div>
+    <h2>Test 2: role=alert, aria-atomic=true, hidden heading prefix "danger alert"</h2>
+    <button id="toggle2">Trigger a live alert 2</button>
+    <div id="alertContainer2" role="alert" aria-atomic="true"></div>
+
+    <h3>JAWS</h3>
+    <p><i class="fa-solid fa-circle-check"></i> Firefox: works as expected!</p>
+    <p><i class="fa-solid fa-bug"></i> Chrome: doesn't declare role</p>
+    <p><i class="fa-solid fa-bug"></i> Edge: doesn't declare role</p>
+
+    <h3>NVDA</h3>
+    <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Firefox: doesn't declare the heading unless you assign it tabindex="-1"; however, it reads the heading after the paragraph: "Alert. There's no going back! Danger alert. Are you sure ..."</p>
+    <p><i class="fa-solid fa-bug"></i> Chrome: doesn't declare the role.</p>
+    <p><i class="fa-solid fa-bug"></i> Edge: doesn't declare the role.</p>
+ 	
+      <h3>macOS: VoiceOver 10 + Safari 16</h3>
+      <p><i class="fa-solid fa-bug"></i> Safari: doesn't declare the role.</p>
+
+	  <h3>iOS: VoiceOver 15 + Safari 15</h3>
+	  <p><i class="fa-solid fa-bug"></i> Safari: doesn't declare the role.</p>
+	  
+      <h3>Android</h3>
+      <p><i class="fa-solid fa-bug"></i> Talkback: doesn't declare the role. Users need to swipe to hear live declaration.</p>
+</div>
+
+
+<div>
+    <h2>Test 3: role=alert, aria-atomic=true, aria-roledescription="danger alert"</h2>
+    <button id="toggle3">Trigger a live alert 3</button>
+    <div id="alertContainer3" role="alert" aria-atomic="true" aria-roledescription="danger alert"></div>
+
+    <h3>JAWS</h3>
+    <p><i class="fa-solid fa-circle-check"></i> Firefox: works, but also declares the role.</p>
+    <p><i class="fa-solid fa-circle-check"></i> Chrome: works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Chrome: works as expected!</p>
+
+    <h3>NVDA</h3>
+    <p><i class="fa-solid fa-bug"></i> <i class="fa-solid fa-bomb"></i> Firefox: doesn't declare the heading unless you assign it  tabindex="-1"; however, it declares the heading after the paragraph, and repeats the roledescription before each: "Danger alert. There's no going back! Danger alert. Are you sure ..."</p>
+    <p><i class="fa-solid fa-circle-check"></i> Chrome: works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Edge: works as expected!</p>
+   	
+      <h3>macOS: VoiceOver 10 + Safari 16</h3>
+      <p><i class="fa-solid fa-circle-check"></i> Safari: works as expected!</p>
+
+	  <h3>iOS: VoiceOver 15 + Safari 15</h3>
+	  <p><i class="fa-solid fa-circle-check"></i> Safari: works as expected!</p>
+	  
+      <h3>Android</h3>
+      <p><i class="fa-solid fa-bug"></i> Talkback: users need to swipe to hear live declaration.</p>
+</div>
+
+<div>
+    <h2>Test 4: role=status, aria-atomic=true, hidden heading prefix "success alert"</h2>
+    <button id="toggle4">Trigger a live status</button>
+    <div id="alertContainer4" role="status" aria-atomic="true"></div>
+
+    <h3>JAWS</h3>
+    <p><i class="fa-solid fa-circle-check"></i> Firefox: works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Chrome: works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Edge: works as expected!</p>
+
+    <h3>NVDA</h3>
+    <p><i class="fa-solid fa-circle-check"></i> Firefox: works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Chrome: works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Edge: works as expected!</p>
+   	
+      <h3>macOS: VoiceOver 10 + Safari 16</h3>
+      <p><i class="fa-solid fa-circle-check"></i> Safari: works as expected!</p>
+
+	  <h3>iOS: VoiceOver 15 + Safari 15</h3>
+      <p><i class="fa-solid fa-circle-check"></i> Safari: works as expected!</p>
+	  
+      <h3>Android</h3>
+      <p><i class="fa-solid fa-bug"></i> Talkback: users need to swipe to hear live declaration.</p>
+</div>
+
+
+
+<div>
+   
+    <h2>Test 5: aria-live="polite", aria-atomic=true, hidden heading prefix "danger alert"</h2>
+    <button id="toggle5">Trigger aria-live polite</button>
+    <div id="alertContainer5" aria-live="polite" aria-atomic="true"></div>
+
+    <h3>JAWS</h3>
+    <p><i class="fa-solid fa-circle-check"></i> Firefox: works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Chrome: works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Edge: works as expected!</p>
+  
+    <h3>NVDA</h3>
+    <p><i class="fa-solid fa-circle-check"></i> Firefox: works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Chrome: works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Edge: works as expected!</p>
+   	
+      <h3>macOS: VoiceOver 10 + Safari 16</h3>
+      <p><i class="fa-solid fa-circle-check"></i> Safari: works as expected!</p>
+
+	  <h3>iOS: VoiceOver 15 + Safari 15</h3>
+      <p><i class="fa-solid fa-circle-check"></i> Safari: works as expected!</p>
+
+      <h3>Android</h3>
+      <p><i class="fa-solid fa-bug"></i> Talkback: users need to swipe to hear live declaration.</p>
+</div>
+<div>
+   
+    <h2>Test 6: aria-live="assertive", aria-atomic=true, hidden heading prefix "danger alert"</h2>
+    <button id="toggle6">Trigger aria-live assertive</button>
+    <div id="alertContainer6" aria-live="assertive" aria-atomic="true"></div>
+
+    <h3>JAWS</h3>
+    <p><i class="fa-solid fa-circle-check"></i> Firefox: works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Chrome: works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Edge: works as expected!</p>
+
+    <h3>NVDA</h3>
+    <p><i class="fa-solid fa-circle-check"></i> Firefox: works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Chrome: works as expected!</p>
+    <p><i class="fa-solid fa-circle-check"></i> Edge: works as expected!</p>
+   	
+      <h3>macOS: VoiceOver 10 + Safari 16</h3>
+      <p><i class="fa-solid fa-circle-check"></i> Safari: works as expected!</p>
+
+	  <h3>iOS: VoiceOver 15 + Safari 15</h3>
+      <p><i class="fa-solid fa-circle-check"></i> Safari: works as expected!</p>
+
+      <h3>Android</h3>
+      <p><i class="fa-solid fa-bug"></i> Talkback: users need to swipe to hear live declaration.</p>
+</div>
+
+    <div>
+	    <h2>Version numbers</h2>
+	    <ul>
+		    <li>JAWS 2022.2202.38</li>
+		    <li>NVDA 2021.3.5</li>
+		    <li>macOS: VoiceOver 10 + Safari 16</li>
+		    <li>iOS: VoiceOver 15 + Safari 15</li>
+		    <li>TalkBack 13.1 + Android 11</li>
+		    <li>Firefox 109</li>
+		    <li>Chrome 109.0.5414.75</li>
+		    <li>Edge 109.0.1518.61</li>
+	    </ul>
+    </div>
+   </main>
+  </body>
+</html>
