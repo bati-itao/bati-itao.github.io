@@ -344,7 +344,7 @@ const indexJSON = [{
  categories: 'module1',
  content: "  Government of Canada The Government of Canada Standard of Web Accessibility was developed to ensure the uniform application of a high level of web accessibility across Government of Canada public facing websites and web applications. The Government of Canada Standard on Web Accessibility will soon be deprecated. It will be replaced by the upcoming ICT Accessibility Standard. The new ICT Accessibility Standard states that public-facing and internal-facing web content must meet the EN 301 549 (European Standard for Digital Accessibility). EN 301 549 is updated to adopt the Web Content Accessibility Guidelines (WCAG) 2.1 (level AA) for web content, electronic documents, and non-web software. The Guideline on Making Information Technology Usable by All also requires that web content conform to EN 301 549 and WCAG 2.1 level AA. The ESDC IT Accessibility Office is leading the Accessibility Compliance Project (ACP) to ensure compliance of internally used websites and applications. The target conformance level is also WCAG 2.1 AA. ",
  href: '../module1/laws-and-government-standards.html#gov'  ,
- title: ' Accessibility Fundamentals - Disabilities, Guidelines and Laws' ,
+ title: 'Module 1 - Accessibility Fundamentals - Disabilities, Guidelines and Laws' ,
  heading: " Government of Canada"
 },{
  categories: 'module1',
@@ -1154,127 +1154,127 @@ const indexJSON = [{
  categories: 'module5',
  content: "  Related WCAG resources Related WCAG resources Success criteria 1.1.1: Non-text Content 1.4.5: Images of Text 3.3.2: Labels or Instructions Techniques H2: Combining adjacent image and text links for the same resource H67: Using null alt text and no title attribute on img elements for images that AT should ignore H36: Using alt attributes on images used as submit buttons H37: Using alt attributes on img elements G92: Providing long description for non-text content that serves the same purpose and presents the same information G73: Providing a long description in another location with a link to it that is immediately adjacent to the non-text content G74: Providing a long description in text near the non-text content, with a reference to the location of the long description in the short description Failures ",
  href: '../module5/alt-decision-tree.html#wcag'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Related WCAG resources"
 },{
  categories: 'module5',
  content: "  Designing with animated images An animated Image (including video) can distract users, particularly those with Attention Deficit Disorder. If it includes flashes, the animation can also cause seizures among users with photosensitive epilepsy. Follow these Best practices for animated images: Ensure the animation stops after five seconds or provide users with a pause button. Ensure the animation doesn’t flash more than three times per second. For more information on flashing content, see Module 9: Audio, video, animations and motion > Flashing content. ",
  href: '../module5/animated-images.html#designing'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Designing with animated images"
 },{
  categories: 'module5',
  content: "  Related WCAG resources Related WCAG resources Success criteria 2.2.2: Pause, Stop, Hide Techniques G4: Allowing the content to be paused and restarted from where it was paused G11: Creating content that blinks for less than 5 seconds G152: Setting animated gif images to stop blinking after n cycles (within 5 seconds) SCR22: Using scripts to control blinking and stop it in five seconds or less ",
  href: '../module5/animated-images.html#wcag'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Related WCAG resources"
 },{
  categories: 'module5',
  content: "  Informative images Use the alt attribute on the element Provide meaningful text alternatives that serve the equivalent purpose to convey the intent, purpose and meaning of the image. Do not include words like “image of” or “graphic of” in the alt text. Keep alternative text concise and less than 150 characters. ",
  href: '../module5/best-practice-mod-5.html#informative'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Informative images"
 },{
  categories: 'module5',
  content: "  Decorative and redundant images Use 'null' alt attributes (alt='') to hide decorative or redundant images from assistive technology. The role=presentation attribute also hide the image role, though it’s not as widely supported as alt. Implement decorative images as CSS backgrounds if possible. Do not leave out the alt attribute of elements. ",
  href: '../module5/best-practice-mod-5.html#decorative'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Decorative and redundant images"
 },{
  categories: 'module5',
  content: "  Functional images When linking an image and accompanying text, use a null (empty) alt attribute (alt='') on the image if it adds no information to the link text. If using an icon to indicate that links open in a new window, provide the text alternative 'new window'. Provide alternative text for stand-alone icon images that have a function. Use text alternative for images that are used in a button ",
  href: '../module5/best-practice-mod-5.html#functional'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Functional images"
 },{
  categories: 'module5',
  content: "  Images of text Avoid using images of text unless it is essential or customizable. Text that is part of a logo or brand name is considered essential. Use actual text styled with CSS to avoid distortion and pixelation when resized. Images of text used as logos are exempt from accessibility requirements like minimum colour contrast and no images of text . Use images of math expressions only when math is the exception to the website content. Provide a text alternative in the alt attribute or in a long description. Use MathML with MathJax to render math expressions semantically. ",
  href: '../module5/best-practice-mod-5.html#images-text'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Images of text"
 },{
  categories: 'module5',
  content: "  Linked images Always provide alt text for any image serving as a link. Even if the image is considered decorative, write the alt text if the image is a link. ",
  href: '../module5/best-practice-mod-5.html#linked'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Linked images"
 },{
  categories: 'module5',
  content: "  Animated images Ensure the animation stops after five seconds or provide users with a pause button. Ensure the animation doesn’t flash more than three times per second. ",
  href: '../module5/best-practice-mod-5.html#animated'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Animated images"
 },{
  categories: 'module5',
  content: "  Complex images A complex image requires both a short and a long description: A short description or title identifies the image and indicates the location of the long description. This is stored in the element’s alt attribute and shouldn’t exceed 150 characters. A long description of the image contains the essential information conveyed by the image. It can consist of nothing but text or it can require structural markup – headings, paragraphs, lists, and/or tables. ",
  href: '../module5/best-practice-mod-5.html#complex'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Complex images"
 },{
  categories: 'module5',
  content: "  Groups of images When a group of images represent a single piece of information: one image holds the message in its alt attribute, the other images use a null alt attributes (alt=''), ensuring they’re ignored by assistive technology . When a group of images represent a collection: nest each image in a element with a child element, and nest all the figures in a single parent element. Use its to describe the context. ",
  href: '../module5/best-practice-mod-5.html#groups'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Groups of images"
 },{
  categories: 'module5',
  content: "  Image maps Describe the context in the source element’s alt attribute. Describe each clickable region in the element’s alt attribute. ",
  href: '../module5/best-practice-mod-5.html#maps'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Image maps"
 },{
  categories: 'module5',
  content: "  Figure and figcaption Use element to describe contextual information that isn’t apparent from looking at the image. This includes the who, what, when, where, and/or why of an image. Do not use the exact same words for both alt text and . Screen readers will read the information twice. Always provide an alt text for images even if they have a . Providing an empty or null alt attribute will prevent a screen reader from announcing that an image is present. ",
  href: '../module5/best-practice-mod-5.html#figure'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Figure and figcaption"
 },{
  categories: 'module5',
  content: "  SVG Use the element and reference the SVG via the src attribute. Use the element to embed the SVG directly into the HTML code. Do not embed SVG using or For simple, uncomplicated images with basic alt text description Use and src attribute Add role='img' to improve accessibility support Provide text alternative that conveys the same intent and meaning as the image. Use the alt attribute to provide alt text (preferred) Can also use aria-label or aria-labelledby to provide alt text For complex images with extended alt text description Use element Add role=image' to improve accessibility support Provide text alternative that conveys the same intent and meaning as the image. Use element to provide short alt text must be the first child of its parent element text will appear as tooltip when user moves mouse pointer over it Use element to provide longer text description if needed, for complex images. Text in a element is not visible. To improve accessibility support: Add appropriate, unique ID values to the and Use aria-labelledby to reference the ID values Hide decorative SVG images by using aria-hidden='true' For text in SVG: Avoid text within elements or keep text to a minimum Add role='img' to improve accessibility support Provide text alternative that conveys the same intent and meaning as the image. Use element to provide short alt text must be the first child of its parent element text will appear as tooltip when user moves mouse pointer over it Use element to provide text in SVG To ensure accessjibility support: Add appropriate, unique ID values to the and Use aria-labelledby to reference the ID values Put text outside the SVG instead of inside (preferred) Include a background colour behind text and other important parts of the image For SVG animation: Use JavaScript or CSS, not Avoid SVG that flash or blink more than 3 times per second Avoid SVG that auto-play to avoid distracting users Allow users to play and pause SVG animations Use animated SVG to serve a specific purpose, not distract For interactive SVG: Ensure interactive objects are keyboard accessible Ensure interactive objects are touchscreen accessible Ensure interactive objects convey applicable name, role and value Ensure interactive objects meet all applicable WCAG 2.1 guidelines ",
  href: '../module5/best-practice-mod-5.html#svg'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " SVG"
 },{
  categories: 'module5',
  content: "  CAPTCHA Provide two different modalities of CAPTCHA (e.g., a visual task and an audio task). Provide alt text saying the CAPTCHA requires completing a task and what type of task it is. When an alternate version of a CAPTCHA is available, include instructions in the alt text on how to find it. Optional steps to reach edge cases: Provide more than two modalities of CAPTCHAs. Provide access to a human customer service representative who can bypass CAPTCHA. Don't require CAPTCHAs for authorized users. Use Google's reCAPTCHA v3, if possible. ",
  href: '../module5/best-practice-mod-5.html#captcha'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " CAPTCHA"
 },{
  categories: 'module5',
  content: "  Additional tips and tricks for images Prioritize information in text alternative. Put the most important information at the beginning. Use punctuation in the text alternative to make information easier to understand. Ensure there is no space character in between the quotes of null (empty) text alternative (alt=''). ",
  href: '../module5/best-practice-mod-5.html#tips'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Additional tips and tricks for images"
 },{
  categories: 'module5',
  content: "  Designing with CAPTCHA Web sites use CAPTCHA to protect their mail systems from spam robots, presenting the user with a simple challenge that a robot would find difficult. The word is an initialism for 'Completely Automated Public Turing test to tell Computers and Humans Apart'. Example begins This CAPTCHA of 'smwm' obscures its message from computer interpretation by adding a slight background colour gradient and twisting the letters. Example ends The primary barrier with any traditional CAPTCHA is that it serves a test to a single sense (sight or sound), which excludes people with related disabilities. To make CAPTCHA as accessible as possible, WCAG 2.1 requires two Techniques and recommends some optional steps to reach the edge cases: Provide two different modalities of CAPTCHA. For example, provide a visual task, such as typing words displayed in a image, and an audio task, such as typing letters spoken in an audio file Provide alt text saying the CAPTCHA requires completing a task and what type of task it is; for instance, 'Type the word in the image' or 'Type the letters spoken in the audio'. When an alternate version of a CAPTCHA is available, include instructions in the alt text on how to find it. Optional steps: Provide more than two modalities of CAPTCHAs. For instance, a third test might be a logic puzzle. Provide access to a human customer service representative who can bypass CAPTCHA. Don't require CAPTCHAs for authorized users. Recent CAPTCHA technology determines a human user by analyzing, among other things, the user's cookies, plugins, and javascript objects: The W3C Draft Note Inaccessibility of CAPTCHA reports that Google's reCAPTCHA v2 overwhelmingly dominates CAPTCHA deployment on the web and is accessible to most users. It consists of a simple checkbox proclaiming 'I'm not a robot', while under the hood the software is rigorously analyzing user data. However, the W3C Draft Note reports that keyboard navigation has been widely observed to fail, and audio CAPTCHAs are sometimes no longer being provided. Interestingly, optional step 3 of not requiring CAPTCHAs appears to be feasible. The same W3C report offers 'praise and gratitude' for Google's non-interactive reCAPTCHA v3, when it works. It removes v2's checkbox. The W3C authors have two caveats, both related to when v3 produces an ambiguous reliability score: If the score is ambiguous Google encourages users to use reCAPTCHA v2 as backup, which has some reported barriers. Methods for disambiguating an ambiguous non-interactive score must be well documented and easily implementable, or developers will use the older backup. ",
  href: '../module5/captcha.html#captcha'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Designing with CAPTCHA"
 },{
  categories: 'module5',
  content: "  Overview – Complex images A complex image conveys more information than can fit in the 150-character limit of an element’s alt attribute. Images dense in information tend to be graphs, charts, maps, and diagrams and illustrations that need to be understood for the page itself to make sense. A complex image requires both a short and a long description: A short description or title identifies the image and indicates the location of the long description. This is stored in the element’s alt attribute and shouldn’t exceed 150 characters. A long description of the image contains the essential information conveyed by the image. It can consist of nothing but text or it can require structural markup – headings, paragraphs, lists, and/or tables. ",
  href: '../module5/complex-images.html#overview'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Overview – Complex images"
 },{
  categories: 'module5',
  content: "  Guidelines for writing long descriptions The DIAGRAM Center provides authoritative guidelines on how to write long descriptions for STEM (Science, Technology, Engineering and Math) graphics. The first part covers description guidelines that apply to any type of image. The second part covers guidelines for describing images of different categories, such as graphs and diagrams. Image Description Guidelines - DIAGRAM Center Good example: Long description containing structured information In this example, the alt text reads “Bar chart showing physical activity by three age groups pre-COVID and during COVID. Long description follows”. The long description provides detailed information, including scales, values, relationships and trends that are represented visually. For example, the long description can point out the declining values for youth, consistent values for adults (18 to 64), and increasing values for older adults. This example includes the long description in a / toggle widget below the chart. Example begins Example ends Text description of chart 1 Chart 1: Percentage of Canadian youth and adults who reported meeting physical activity recommendations in the past week, prior to and during the COVID-19 pandemic Overview The chart compares physical activity pre-COVID and post-COVID for three age groups. Youth, aged 12 to 17, reported less physical activity; adults, aged 18 to 64, reported the same amount; older adults, aged 65+, reported more physical activity. Results for Youth and Older adults in Fall 2020 are significantly different from Fall 2018 (p < 0.01). Values Numerical values presented on the image: Data table for Chart 1 Fall 2018 (Pre-COVID) (Percent) Fall 2020 (During COVID) (Percent) Youth (12 to 17) 50.8 37.2 Adults (18 to 64) 57.1 57.1 Older adults (65+) 35.4 40.3 Data source for “Good example: Long description containing structured information”: Youth - but not adults - reported less physical activity during the COVID-19 pandemic (statcan.gc.ca) ",
  href: '../module5/complex-images.html#guidelines'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Guidelines for writing long descriptions"
 },{
  categories: 'module5',
  content: "  Approaches to providing short and long descriptions Approach 1: A text link to the long description next to the image This approach and markup work universally across user agents: Add a link directly after the image. The link can target a different page or the same page. The link text describes its purpose and topic (e.g., “Text description of Topic X”). Set the image in a element and the link in a element. The element’s alt attribute contains the short description or title. In this approach, the alt text doesn’t need to indicate the location of the long description (the link does that). HTML Code begins Text description of the physical activity bar chart. Code ends Approach 2: A details/summary block for the long description next to the image As per Approach 1, but instead of a link the summary element next to the image expands to show the details. The image alt text mentions that “The text description follows.” The summary element must describe its purpose and topic (e.g., “Text description of Topic X”). Ensure any headings used in the text description fit correctly into the existing page’s heading hierarchy. HTML Code begins Text description of the physical activity bar chart. Chart 1: Percentage of Canadian youth and adults who reported meeting physical activity recommendations in the past week, prior to and during the COVID-19 pandemic Overview […] Code ends Approach 3: Structurally associating the image and its adjacent long description The element encloses both the image and its long description. The headings, text, and table comprising the long description are wrapped in the element. HTML Code begins Overview The bar chart shows physical activity by three age groups pre-COVID and during COVID Values Physical activity by three age groups pre-COVID and during COVID […] Code ends Approach 4: Providing a link to the long description via longdesc The element’s longdesc attribute takes a URI as value, like a link’s href attribute. The link targets a long description either on a separate web page or the same page. Implementation of the link is up to the user agent. For instance, Firefox provides a “View Description” link via the image’s context menu, while Chrome offers the same functionality through an extension. Since the attribute is not well-supported (Safari has no support and neither do mobile platforms), we do not recommend you use longdesc. If you do, only use longdesc along with a redundant, visible link positioned below the image, as per Approach 1. HTML Code begins Text Description Code ends ",
  href: '../module5/complex-images.html#approaches'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Approaches to providing short and long descriptions"
 },{
  categories: 'module5',
  content: "  Related WCAG resources Related WCAG resources Success criteria 1.1.1: Non-text Content Techniques G92: Providing long description for non-text content that serves the same purpose and presents the same information G73: Providing a long description in another location with a link to it that is immediately adjacent to the non-text content G74: Providing a long description in text near the non-text content, with a reference to the location of the long description in the short description ARIA15: Using aria-describedby to provide descriptions of images ARIA15 has poor user agent support and must only be used with plain text descriptions (containing no structural markup). H45: Using longdesc This technique has poor user agent support and should only be used in conjunction with G73. ",
  href: '../module5/complex-images.html#wcag'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Related WCAG resources"
 },{
  categories: 'module5',
@@ -1304,181 +1304,181 @@ const indexJSON = [{
  categories: 'module5',
  content: "  Designing with figure and figcation The HTML element can contain a variety of content, including images, illustrations, diagrams, tables and charts. It can also contain videos, quotes, poems and code snippets. It can be accompanied by an optional element. The element represents a visible caption for the figure. It is optional and not required to be in every element. While both the alt attribute and the element provide a way to describe images, their purposes are different: The alt text conveys the meaning or essential content of the image in a short phrase. The provides context to describe information that isn't apparent from looking at the image. This includes the who, what, when, where, and/or why of an image. Best practices around the use of alt text and : Do not use the exact same words for both alt text and . Screen readers will read the information twice. Always provide alt text for images even if they have a . Providing an empty or null alt attribute (alt='') will prevent a screen reader from announcing that an image is present. ",
  href: '../module5/figcaption.html#designing'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Designing with figure and figcation"
 },{
  categories: 'module5',
  content: "  Good example: Figure and figcaption Example begins Row of trullo houses (dry stone huts) on Monte Pertica street in Alberobello, Bari Province, Italy Example ends HTML Code begins Row of trullo houses (dry stone huts) on Monte Pertica street in Alberobello, Bari Province, Italy Code ends ",
  href: '../module5/figcaption.html#example'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: "  Good example: Figure and figcaption "
 },{
  categories: 'module5',
  content: "  Overview – Functional images Functional images are used as buttons, links, and custom controls. The image is nested in the control. The concern is ensuring the control has an accessible name. There are two approaches. ",
  href: '../module5/functional-images.html#overview'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Overview – Functional images"
 },{
  categories: 'module5',
  content: "  Approach 1: Providing an accessible name using the img element's alt attribute With this approach, a functional image's alt attribute value provides the link text or the control name, declared by screen readers. The text alternative for the image should convey the action or result rather than the literal description of the image. Missing or empty alt values in functional images create significant problems for screen reader users. Buttons and custom controls declare only their role (e.g., “button”, “tab”) and state (e.g., “expanded”). Linked images declare their role (“link”), and in the absence of an alt attribute value, screen readers take a guess and instead declare the image file name or link URL, neither of which may be descriptive. Good example: Linked image In the example below, the Canada.ca logo in the banner links to the Canada.ca homepage. The element is nested in the link. The alt text “Government of Canada home page” provides the link text. Example begins Example ends HTML Code begins Code ends Good example: Icon with meaningful alt text nested in link text In this example, an icon with the meaningful alt text “Opens in new window” is nested inside the link along with the link text “W3C Homepage”. Screen reader users experience the link as “W3C homepage, opens in new window.” Example begins W3C Homepage Example ends HTML Code begins W3C Homepage Code ends Note: This technique is often used with icons to indicate different file formats such as AVI, ODF, MP3, PDF, Word, etc. In that case, the text alternative should convey the format represented by each icon. Good example: Functional icon In this example, a clickable icon representing a printer denotes print functionality. Its text alternative is “Print this page”, rather than the literal “Printer”, because the purpose is to activate the print dialog. Example begins Example ends HTML Code begins Code ends Good example: Image used in a button The following image is used to give the button a distinct style. In this case, it is the button to initiate a search request and the nested icon is a magnifying lens. The text alternative for the image is “search” to convey the purpose of the button, rather than the literal “magnifying lens”. Example begins Search Example ends HTML Code begins Code ends Good example: Redundant image within link text In this example, the Company XYZ logo accompanies a text link that leads to the Company XYZ home page. The image does not represent different functionality or convey other information than that already provided in the link text. In effect the image is a simple visual assist to the link text. A null (empty) alt value is applied, (alt=''), to avoid redundancy and repetition. Example begins Company XYZ home page Example ends HTML Code begins Company XYZ home page Code ends ",
  href: '../module5/functional-images.html#approach1'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Approach 1: Providing an accessible name using the img element's alt attribute "
 },{
  categories: 'module5',
  content: "  Approach 2: Providing an accessible name using either the aria-label or aria-labelledby attribute With this approach, an ARIA label on the control provides the accessible name for the functional image. The alt attribute of the nested element is set to null (empty): alt=''. The child element's alt attribute could hold any value and it wouldn’t matter. It’s overridden by the aria-label or aria-labelledby attribute, which take precedence over child text when naming an element. Good example: Naming a functional image using the aria-label attribute In this example, an aria-label attribute names the button, rather than the child element's alt attribute. The alt attribute is set to null (empty): alt=''. HTML Code begins Code ends Good example: Naming functional images using the aria-label and aria-labelledby attributes In this example, two text-styling buttons are each accompanied by an identical “more” details button. The styling buttons are named with the aria-label attribute. The “more” buttons are named with the aria-labelledby attribute, pointing to the id attribute values of the elements holding the desired label fragments: “More” + either “Bullets” or “Text alignment”. The alt attribute of each button element is set to null (empty): alt=''. Example begins Example ends HTML Code begins Code ends Alternative approach: One instance of the “more” text label When using the aria-labelledby attribute, developers may prefer targeting a single id attribute value for the name of a repeating element With this approach, one defining instance of the text “More” is given an id attribute value and set to CSS display: none. The aria-labelledby (and aria-describedby) attribute can target an element that’s set to display: none. The aria-labelledby attribute concatenates a name by pointing to the id attribute values of that defining instance and the partner button, resulting in labels ”More Bullets” and “More Text alignment”. Unlike in the first approach, the “more” buttons do not need id or aria-label attributes, as they’re not contributing to the concatenated label. HTML Code begins More Code ends ",
  href: '../module5/functional-images.html#approach2'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Approach 2: Providing an accessible name using either the aria-label or aria-labelledby attribute "
 },{
  categories: 'module5',
  content: "  Related WCAG resources Related WCAG resources Success criteria 1.1.1: Non-text Content 3.3.2: Labels or Instructions Techniques H36: Using alt attributes on images used as submit buttons H37: Using alt attributes on img elements H67: Using null alt text and no title attribute on img elements for images that AT should ignore ARIA6: Using aria-label to provide labels for objects ARIA9: Using aria-labelledby to concatenate a label from several text nodes ARIA10: Using aria-labelledby to provide a text alternative for non-text content ",
  href: '../module5/functional-images.html#wcag'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Related WCAG resources"
 },{
  categories: 'module5',
  content: "  Designing with groups of images Groups of images represent either a single piece of information, such as a star rating, or a collection of images, such as a gallery. Follow these best practices for groups of images: When a group of images represent a single piece of information: One image holds the message in its alt attribute, the other images use a null alt attributes (alt=''), ensuring assistive technology ignores the other images. When a group of images represent a collection: Nest each image in a element with a child element, and nest all the figures in a single parent element. Use its to describe the context. ",
  href: '../module5/groups-images.html#designing-with-group'  ,
- title: ' Images' ,
- heading: " Designing with groups of images"
+ title: ' Module 5 - Images' ,
+ heading: " Module 5 - Designing with groups of images"
 },{
  categories: 'module5',
  content: "  Good example: A group of images representing a single piece of information A star rating consists of 5 star images, yet it needs to communicate just one message in its alt text – the rating out of five. Rating: HTML Code begins Rating: Code ends ",
  href: '../module5/groups-images.html#example1'  ,
- title: ' Images' ,
+ title: ' Module 5 -  Images' ,
  heading: "  Good example: A group of images representing a single piece of information "
 },{
  categories: 'module5',
  content: "  Good example: A group of images representing a collection A collection of images may be a gallery, in which case each image needs its own alt text and the group itself needs alt text. In this example, the holds the element and the provides a caption for each image in a collection. The element can be nested, with the parent providing a caption for the entire collection of images. Example begins The castle through the ages: 1423, 1756, and 1936 respectively Charcoal on wood. Anonymous, circa 1423. Oil-based paint on canvas. Eloisa Faulkner, 1756. Film photograph. Séraphin Médéric Mieusement, 1936. Example ends HTML Code begins The castle through the ages: 1423, 1756, and 1936 respectively. Charcoal on wood. Anonymous, circa 1423. Oil-based paint on canvas. Eloisa Faulkner, 1756. Film photograph. Séraphin Médéric Mieusement, 1936. Code ends Examples are from the Web Accessibility Initiative (WAI) document: Groups of Images (WAI) from the Images Concepts tutorial. Eric Eggert and Shadi Abou-Zahra, eds. Copyright © 2019 W3C® (MIT, ERCIM, Keio). Status: Draft Updated 27 July 2019. ",
  href: '../module5/groups-images.html#example2'  ,
- title: ' Images' ,
+ title: ' Module 5 -  Images' ,
  heading: "  Good example: A group of images representing a collection "
 },{
  categories: 'module5',
  content: "  Related WCAG resources Related WCAG resources Success criteria 1.1.1: Non-text Content Techniques G196: Using a text alternative on one item within a group of images that describes all items in the group ",
  href: '../module5/groups-images.html#wcag'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Related WCAG resources"
 },{
  categories: 'module5',
  content: "  Designing with image maps An image map links geometric areas of an image. It consists of an element and a element. The element uses its usemap='IDREF' attribute to reference the id attribute value of the element. The elements in turn hold elements that each define a clickable region of the image and act as links. Follow these Best practices for image maps: Describe the context in the source element’s alt attribute. Describe each clickable region in the element’s alt attribute. ",
  href: '../module5/image-maps.html#designing-with-image-maps'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Designing with image maps"
 },{
  categories: 'module5',
  content: "  Good example: Image map Please select a shape: HTML Code begins Please select a shape: Code ends The image map example is from the WHATWG document: 4.8.15: Image maps from the HTML Living Standard. Status: Draft Updated 12 October 2021. ",
  href: '../module5/image-maps.html#example1'  ,
- title: ' Images' ,
+ title: ' Module 5 -  Images' ,
  heading: "  Good example: Image map"
 },{
  categories: 'module5',
  content: "  Related WCAG resources Related WCAG resources Success criteria 1.1.1: Non-text Content 2.4.4: Link Purpose (In Context) Techniques H24: Providing text alternatives for the area elements of image maps ",
  href: '../module5/image-maps.html#wcag'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Related WCAG resources"
 },{
  categories: 'module5',
  content: "  Avoiding images of text Images of text are more likely to distort and pixelate when resized and can be problematic for mobile users and users of low vision. In situations where images of text must be used, the text alternative must contain the same text presented in the image. It is good design practice to use real text, formatted and styled with CSS to fit the design rather than an image of text. Actual text can be modified, resized without losing clarity to suit the reading preferences of users and is more flexible than images. Unless the image of text is essential or customizable, images should not include informative text. Text that is part of a logo or brand name is considered essential. Good example: Text styled with CSS In this example, real text styled with CSS is used rather than an image of text. The CSS properties are solely responsible for font and text styling, spacing and layout. Example begins Accessibility at your fingertips Example ends CSS Code begins Accessibility at your fingertips .checker { border: 2px solid black; background: #aa061a; margin: auto; padding: 20px; padding-top:10px; text-align: center; text-shadow: 5px 5px 5px #620915; font-size:45px; color:white; } Code ends Bad example: Image of text Avoid images of text unless they are essential (like a logo) or customizable. In the example below, three links nest images of text. Screen magnification users may have difficulty reading an image of text when enlarged and pixelated, as shown in the image below. ",
  href: '../module5/images-text.html#avoid'  ,
- title: ' Images' ,
+ title: ' Module 5 -  Images' ,
  heading: " Avoiding images of text"
 },{
  categories: 'module5',
  content: "  Mathematical expressions Designing with mathematical expressions HTML lacks markup for mathematical expressions as structures, and there is no simple way to produce anything essentially two-dimen­sion­al beyond superscripting or subscripting. There are two approaches: Use an image with alt text or long description describing the math expression. Tag the math expression semantically in MathML and use a JavaScript math library. Approach 1: Use an image with alt text describing the math expression Images of math expressions should only be used when math is an exception to the regular content of the website. In these cases, the element’s alt attribute value should communicate the math expression, unless more than 150 characters is required, in which case a long description should be used. In the example below, the image displays a recurring decimal number and the alt text is “zero point one, recurring” Example begins Example ends HTML Code begins Code ends Approach 2: Use MathML The preferred method for capturing math expressions as semantic, accessible content is with the markup language MathML. MathML markup allows user agents to determine the structure of math expressions in a machine-readable way. Most web browsers need plugins to render MathML correctly for presentation, such as the open-source MathJax library, which provides support for display and additional accessibility features. JavaScript math libraries commonly support math expressions written in Tex and LaTeX and AsciiMath, not just MathML. In the example below, MathML communicates a math expression with semantic markup and proper syntax to assistive technologies like screen readers. MathJax renders it for the screen with the correct typesetting. Example begins E= 2πh c 2 λ 5 ( e hc−λ k b T −1 ) Example ends View MathML Code begins […] E= 2πh c 2 λ 5 ( e hc−λ k b T −1 ) Code ends Source: Penn State MathML Test Page ",
  href: '../module5/images-text.html#math'  ,
- title: ' Images' ,
+ title: ' Module 5 -  Images' ,
  heading: " Mathematical expressions"
 },{
  categories: 'module5',
  content: "  Related WCAG resources Related WCAG resources Success criteria 1.1.1: Non-text Content 1.4.5: Images of Text Techniques C22: Using CSS to control visual presentation of text G94: Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content ",
  href: '../module5/images-text.html#wcag'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Related WCAG resources"
 },{
  categories: 'module5',
  content: "  Best practice for informative images Informative images convey simple information that can be expressed in a short phrase. The text alternative should convey the meaning or essential content of the image. Follow these best practices for informative images: Use the alt attribute on the img element Provide meaningful text alternatives that convey the intent, purpose and meaning of the image. Do not include the words “image of” or “graphic of” in the alt text, since screen readers already declare an image role. Keep alternative text concise and less than 150 characters. When an image contains words that are important to understanding the content, the alt text should include those words. ",
  href: '../module5/informative-images.html#informative-img'  ,
- title: ' Images' ,
+ title: ' Module 5 -  Images' ,
  heading: " Best practice for informative images"
 },{
  categories: 'module5',
  content: "  Good example: Images used to supplement other information The following image shows a dog wearing a bell. It supplements the adjacent text that explains the purpose of this bell. A short text alternative is sufficient to describe the information that is displayed visually but is not explained in the text; in this case, the text alternative is “Dog with a bell attached to its collar”. Note: If the adjacent text included an explanation of how the dog wears a bell ('attached to its collar'), the image would be considered redundant. As this isn’t mentioned in the text, the image is deemed to be informative. Example begins Off-duty guide dogs often wear a bell. Its ring helps the blind owner keep track of the dog's location. Example ends HTML Code begins Off-duty guide dogs often wear a bell. Its ring helps the blind owner keep track of the dog's location Code ends This example is from the WAI Web Accessibility Tutorials: Informative Images. Eric Eggert, Shadi Abou-Zahra, eds. Copyright © 2019 W3C® (MIT, ERCIM, Keio, Beihang). Status: Updated 27 July 2019. Informative Images (WAI) ",
  href: '../module5/informative-images.html#eg'  ,
- title: ' Images' ,
+ title: ' Module 5 -  Images' ,
  heading: "  Good example: Images used to supplement other information"
 },{
  categories: 'module5',
  content: "  Related WCAG resources Related WCAG resources Success criteria 1.1.1: Non-text Content 1.4.5: Images of Text Techniques G94:Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content H37: Using alt attributes on img elements ",
  href: '../module5/informative-images.html#wcag'  ,
- title: ' Images' ,
+ title: ' Module 5 -  Images' ,
  heading: " Related WCAG resources"
 },{
  categories: 'module5',
  content: "  Designing with SVG images SVG stands for Scalable Vector Graphics. SVG are 2D images defined in XML text files. They can be searched, indexed, scripted and compressed. SVG can also be dynamic, interactive and animated. Created in 1999, they now have good browser support. Some accessibility benefits of SVG: SVG can scale to any size without loss of quality. SVG colours are highly customizable by creator and end user. SVG supports accessibility markup and features. This image illustrates the difference between bitmap and vector images. The bitmap image, called a Raster image, is composed of a fixed set of pixels, while the vector image is composed of a fixed set of shapes. In this image, scaling the bitmap reveals the pixels while scaling the vector image preserves the shapes: Example begins Illustration of the difference between bitmap and vector images. Scaling the bitmap image reveals pixels while scaling the vector image preserves the shapes Raster Vector GIF, JPEG, PNG SVG Example ends Wikipedia contributors. (2021, November 4). Scalable Vector Graphics. Wikipedia. Retrieved November 17, 2021. There are two ways of adding SVG to a page that can be accessible: Use the element and reference the SVG file via the src attribute. Use the element to embed the SVG directly into the HTML code. A third way of adding SVG to a page, nesting the SVG in an or element, is poorly supported by assistive technologies. Do not embed SVG using or ",
  href: '../module5/svg-images.html#designing-with-SVG'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Designing with SVG images"
 },{
  categories: 'module5',
  content: "  Technique 1: Use the element to reference the SVG via the src attribute Use for simple, uncomplicated images with basic alt text description Use the element and src attribute Add the role='img' attribute to improve accessibility support Provide text alternative that conveys the same intent and meaning as the image. Use the alt attribute to provide alt text (preferred) Can also use aria-label or aria-labelledby attribute to provide alt text Example begins Example ends HTML Code begins Code ends ",
  href: '../module5/svg-images.html#technique1'  ,
- title: ' Images' ,
+ title: ' Module 5 -  Images' ,
  heading: " Technique 1: Use the element to reference the SVG via the src attribute"
 },{
  categories: 'module5',
  content: "  Technique 2: Use the element to embed the SVG directly (inline) into the HTML code Use for simple and more complex images Inline SVG can be animated and manipulated by CSS and JavaScript Use element Add role='img' to improve accessibility support Provide text alternative that conveys the same intent and meaning as the image. Use element to provide short alt text must be the first child of its parent element text will appear as tooltip when user moves mouse pointer over it Use element to provide longer text description if needed, for complex images. Text in a element is not visible. Refer to Complex Images section for more approaches on displaying long descriptions To improve accessibility support: Add unique id attribute values to the and elements Add an aria-labelledby attribute to the SVG element referencing the id attribute values Example begins Red square SVG image of a red square with a black border Example ends SVG Code begins red square SVG image of a red square with black border Code ends Image source: Wikimedia Red square svg ",
  href: '../module5/svg-images.html#technique2'  ,
- title: ' Images' ,
+ title: ' Module 5 -  Images' ,
  heading: " Technique 2: Use the element to embed the SVG directly (inline) into the HTML code"
 },{
  categories: 'module5',
  content: "  Decorative SVG Decorative SVG images do not add useful information to a page. Examples include images used for visual styling (borders) or for ambiance or visual interest (eye-candy). Hide decorative SVG images by using the aria-hidden='true' attribute HTML Code begins Code ends ",
  href: '../module5/svg-images.html#decorative-svg'  ,
- title: ' Images' ,
+ title: ' Module 5 -  Images' ,
  heading: " Decorative SVG"
 },{
  categories: 'module5',
  content: "  Text in SVG Text within elements scales well and remains sharp when magnified. However, screen readers read all text elements in an SVG as one continuous string of text. This can be confusing if text elements are meant to identify different parts of the image, and not read together as a single string. Follow these Best practices: Avoid text within elements or keep text to a minimum. Put text outside the SVG (preferred) instead of inside. Add role='img' to improve accessibility support. Provide text alternative that conveys the same intent and meaning as the image. Use element to provide short alt text must be the first child of its parent element. text will appear as tooltip when user moves mouse pointer over it. Use element to provide text in SVG. To ensure screen reader support: Add unique ID values to the and . Use aria-labelledby to reference the ID values. Example begins A rectangle with red border with text inside Hello World! Example ends SVG Code begins A rectangle with red border with text inside Hello World! Code ends ",
  href: '../module5/svg-images.html#text-svg'  ,
- title: ' Images' ,
+ title: ' Module 5 -  Images' ,
  heading: " Text in SVG"
 },{
  categories: 'module5',
  content: "  SVG colour contrast Users can change colour themes on their computer (e.g. Windows High Contrast Mode), to modify the text and background colour to make content easier to see. If the SVG image has text without a background colour, the text may become hard to read, depending on the user background changes. Include a background colour behind text and other important parts of the image ",
  href: '../module5/svg-images.html#contrast'  ,
- title: ' Images' ,
+ title: ' Module 5 -  Images' ,
  heading: " SVG colour contrast"
 },{
  categories: 'module5',
  content: "  SVG animation Use JavaScript or CSS, not Avoid SVG that flash or blink more than 3 times per second Avoid SVG that auto-play to avoid distracting users Allow users to play and pause SVG animations Use animated SVG to serve a specific purpose, not distract ",
  href: '../module5/svg-images.html#animation'  ,
- title: ' Images' ,
+ title: ' Module 5 -  Images' ,
  heading: " SVG animation"
 },{
  categories: 'module5',
  content: "  Interactive SVG Ensure interactive objects are keyboard accessible Ensure interactive objects are touchscreen accessible Ensure interactive objects convey applicable name, role and value Ensure interactive objects meet all applicable WCAG 2.1 guidelines ",
  href: '../module5/svg-images.html#interactive'  ,
- title: ' Images' ,
+ title: ' Module 5 -  Images' ,
  heading: " Interactive SVG"
 },{
  categories: 'module5',
  content: "  Related WCAG resources Related WCAG resources Success criteria 1.1.1: Non-text Content ",
  href: '../module5/svg-images.html#wcag'  ,
- title: ' Images' ,
+ title: ' Module 5 -  Images' ,
  heading: " Related WCAG resources"
 },{
  categories: 'module5',
  content: "  Providing text alternatives Images that convey information must have text alternatives that serve the equivalent purpose. Text alternatives make information accessible because text can be changed into other forms people need, such as large print, braille, speech, symbols or simpler language. Accessible images have many benefits: A person with a visual disability can use a screen reader to read the text alternative of images. A person with a motor disability can use speech input software to put focus onto an image link. A person with a learning disability can use reading software to read text aloud. Images can be indexed by search engines. Image text alternatives require context to be tested properly. It is important that the text alternative conveys the same intent and meaning (equivalent purpose) as the image. Sometimes images may seem decorative but are conveying information and vice versa. Testers should never hesitate to question the author of the content on the purpose of images. ",
  href: '../module5/text-alternatives.html#alt'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Providing text alternatives"
 },{
  categories: 'module5',
  content: "  Related WCAG resources Related WCAG resources Success criteria 1.1.1: Non-text Content 1.4.5: Images of Text ",
  href: '../module5/text-alternatives.html#wcag'  ,
- title: ' Images' ,
+ title: ' Module 5 - Images' ,
  heading: " Related WCAG resources"
 },{
  categories: 'module6',
@@ -1838,157 +1838,157 @@ const indexJSON = [{
  categories: 'module7',
  content: "  Colour Ensure that information conveyed by colour differences is also available in text. Include a text cue for coloured form labels. Ensure that additional visual cues are available when text colour differences are used to convey information. Ensure a contrast ratio of 3:1 with surrounding text and provide an additional visual cue on focus for links or controls where colour alone is used to identify them. ",
  href: '../module7/best-practice-mod-7.html#bp-colour'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 -  Visual design and colours' ,
  heading: " Colour"
 },{
  categories: 'module7',
  content: "  Contrast Ensure small text (under 18 point regular font or under 14 point bold font) has a contrast ratio of at least 4.5:1 with the background. Ensure large text (at least 18 point regular font or 14 point bold font) has a contrast ratio of at least 3:1 with the background. Ensure active user interface components (i.e., controls), their states, and meaningful graphics have a contrast ratio of at least 3:1 with adjacent colours. Implement enhanced contrast whenever possible, aiming for the stronger 7:1 contrast for small text and 4.5:1 contrast for large text. ",
  href: '../module7/best-practice-mod-7.html#bp-contrast'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 -  Visual design and colours' ,
  heading: " Contrast"
 },{
  categories: 'module7',
  content: "  Visual proximity of labels Position labels for form fields immediately before the field, either: above the field (preferred by the WET Style Guide), or to the left of the field, aligned right (preferred by the WET Style Guide when there’s a need to conserve vertical space). Position labels for radio buttons and checkboxes after the field. ",
  href: '../module7/best-practice-mod-7.html#visual-proximity-of-labels'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 -  Visual design and colours' ,
  heading: " Visual proximity of labels"
 },{
  categories: 'module7',
  content: "  Text spacing Your design should be flexible enough to render without any loss of content or functionality when the user modifies the text spacing, within these constraints: Line height (line spacing) to at least 1.5 times the font size; Spacing following paragraphs to at least 2 times the font size; Letter spacing (tracking) to at least 0.12 times the font size; Word spacing to at least 0.16 times the font size. To design for text spacing override: Don’t use fixed containers in your CSS styles. Ensure that content reflows without overlapping or clipped text. Use relative units of font size, line height, spaces between characters, words, lines and paragraphs. ",
  href: '../module7/best-practice-mod-7.html#text-spacing'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 -  Visual design and colours' ,
  heading: " Text spacing"
 },{
  categories: 'module7',
  content: "  CSS-generated content Hide decorative CSS-generated content from screen readers with the aria-hidden='true' attribute. Don't use CSS-generated text. Exception: Use CSS-generated text to expose mark, del, ins, and s elements to screen reader users. For informative CSS-generated icons: Set the icon on a element, and: Hide it from screen reader users with the aria-hidden attribute. Add a visible label for mouse users with the title attribute. Add a label for screen-reader users in a second element, visually-hidden with the WET CSS class .wb-inv. ",
  href: '../module7/best-practice-mod-7.html#css-generated-content'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 -  Visual design and colours' ,
  heading: " CSS-generated content"
 },{
  categories: 'module7',
  content: "  Hiding content Content can be hidden from three groups of users: From all users, by using either the CSS display:none or visibility:hidden attribute. When hiding inactive content, such as untriggered modal windows and unselected sub-menus, hide it from all users. From users of assistive technology, by using the aria-hidden='true' attribute to remove the element from the Accessibility API. From sighted users, by using the WET CSS class .wb-inv to visually hide the content. ",
  href: '../module7/best-practice-mod-7.html#hiding-content'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 -  Visual design and colours' ,
  heading: " Hiding content"
 },{
  categories: 'module7',
  content: "  Exposing content on hover or focus When exposing hidden content via pointer hover or focus, ensure the exposed content has these three properties: Dismissable The user can dismiss the exposed content without moving the mouse or keyboard focus, typically by pressing the Escape key. Hoverable The user can hover the mouse over the exposed content. Persistent The exposed content doesn’t disappear until mouse hover or keyboard focus leaves it. ",
  href: '../module7/best-practice-mod-7.html#exposing-content-on-hover-or-focus'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 -  Visual design and colours' ,
  heading: " Exposing content on hover or focus"
 },{
  categories: 'module7',
  content: "  Overview – Colour Colour enhances the design of Web content by increasing its aesthetic appeal, its usability, and its accessibility. As useful as it is, colour must not be the only way information is conveyed. Colour conveys information when it emphasizes text, distinguishes between visual elements, and distinguishes interactive elements from static elements. People who are colourblind, have low vision or are blind must be provided a text alternative of the information conveyed by colour. The same is true for those using text-only, limited colour, or monochrome displays. To accommodate the needs of all, ensure colour is not the only way information is conveyed. Also, ensure your CSS colour design is customizable, so users can compensate for painfully bright and low contrast colours via the operating system or browser by applying a custom style sheet. ",
  href: '../module7/colour.html#colour-overview'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 -  Visual design and colours' ,
  heading: " Overview – Colour"
 },{
  categories: 'module7',
  content: "  Information conveyed by colour Information conveyed by colour must have an accurate text alternative. Bad example: Coloured table data without text labels In this bad example, colour alone communicates severity. There are no text labels. A legend / key below the table uses colour to define the severity values. Example begins Defect report # of defects Severity Status 20 Open 30 Closed 15 In progress Red = High, Yellow = Medium, Green = Low Figure 1: An inaccessible table that uses colour alone to identify severity levels. No text labels are provided. Example ends Example begins Defect report # of defects Severity Status 20 Open 30 Closed 15 In progress Red = High, Yellow = Medium, Green = Low Figure 2: The colours from Figure 1 as seen by a user with protanopia (red-blind). Bronze instead of red. Beige instead of yellow. lightly darker bronze instead of green. Example ends Example begins Defect report # of defects Severity Status 20 Open 30 Closed 15 In progress Red = High, Yellow = Medium, Green = Low Figure 3: The colours from Figure 1 as seen by a user with deuteranopia (green-blind). Brown instead of red. Beige instead of yellow. Slightly darker brown instead of green. Example ends Good example: Coloured table data with text labels The table uses colours to convey information with text labels that ensure the meaning is perceivable. Example begins Defect report # of defects Severity Status 20 High Open 30 Medium Closed 15 Low In progress Figure 4: An accessible table that combines colour and text label in the same cell to convey information Example ends Bad example: Error field indicated only with colour In this bad example, the red text is the only indication of an error. Red and black are practically indiscernible for some users with colour blindness. Also, the red text fails to meet the WCAG’s minimum contrast ratio requirement of 4.5:1 (basic red, or #FF000, has a contrast ratio of 4:1 with background white, #FFFFFF). Finally, without additional semantic markup it would be impossible for screen reader users to identify the problem field. Example begins Please complete the fields marked in red User Login Information (Required) Username Password Email Phone Example ends Good example: Highlighted form field error with explanatory text In this example, validation highlights an error with both a colourful background and explanatory text “Error 1: This field is required.” Example begins Figure 5: After validation, a bold text error message on a pinkish grey background displays at the problem field. Example ends Example begins Title (required) Dr. Esq. Mr. Ms. First name (required) Last name (required) Email address (yourname@domain.com) Example ends This example is from WET guide: Form validation Bad example: Colour alone communicates information In the bad example below, the chart legend uses colour alone to identify the different bar columns. Example begins Example ends Good example: Information communicated through colour and pattern In the good example below, the chart legend uses colour and patterns to identify the different bar columns. The alternative text adequately describes the data conveyed in the bar chart. Example begins Alt text: Bar chart depicting game console sales in first 3 months of 2021: in January 84 Nintendo, 66 PlayStation; in February 48 Nintendo, 22 PlayStation; in March 25 Nintendo, 57 PlayStation. Example ends Bad example: Colour-coded information not communicated through alternative text In the bad example below, the chart legend uses colour and patterns to identify the different bar columns. However, there is no alternative text for screen reader users. Example begins Example ends HTML Code begins Code ends ",
  href: '../module7/colour.html#information-conveyed-by-colour'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 - Visual design and colours' ,
  heading: " Information conveyed by colour"
 },{
  categories: 'module7',
  content: "  Distinguishing links and controls from text Users with low vision and colour blindness need to distinguish links and controls from neighbouring text. The easiest way to do this is with an underline on the link and a border on a control. When colour is used as the only way to identify a link (meaning the underline has been removed) or a control, two conditions must be met: 3:1 contrast between the body text and the link text or control. A 'visual cue' (not just a colour change) that appears on mouse hover and keyboard focus. The most common way to meet this is to underline the link on hover and focus, but you could also provide a background colour or border or outline. Note that this is only an issue when the link or control and the body text appear together. It doesn’t apply to links or controls in the header or stacked in a menu, where they’re understood to be links or controls by their position on the page. These requirements are in addition to the minimum contrast requirement of 4.5:1 between foreground text and background. It can be difficult to find a link or control colour that has both a 3:1 contrast with black body text and a 4.5:1 contrast with a white background. WCAG Technique G183 lists colour values that do, in Example 1. Good example: Underline hyperlink text In this example, the hyperlink text is differentiated from the surrounding normal text by underlining. Example begins The IT Accessibility Office (ITAO) remains to be a provider of adaptive technology and an advocate for inclusiveness of people with disabilities in the workplace. Example ends Good example: High contrast with a visual effect on hover and focus This example avoids a static underline by: Using blue (#3333FF) as the link colour, which has a 3.1:1 contrast with neighbouring black text (just exceeds the minimum 3:1) a 6.9:1 contrast with the background white (well exceeds the minimum 4.5:1) As an additional visual cue on hover or focus, the link text is set in a very high contrast (21:1) of white against black background. Example begins The IT Accessibility Office (ITAO) remains to be a provider of adaptive technology and an advocate for inclusiveness of people with disabilities in the workplace. Example ends Results from the Colour Contrast Analyser Figure 6: The Colour Contrast Analyser finds a 3.1:1 contrast ratio between the links’ blue (hex #333FF) and the neighbouring text’s black (hex #000000). Figure 7: The Colour Contrast Analyser finds a 6.9:1 contrast ratio between the links’ blue (hex #3333FF) and the background white (hex #FFFFFF). After receiving keyboard focus or mouse hover Figure 8: The Colour Contrast Analyser finds a 21:1 contrast ratio between the links’ white (hex #FFFFFF) and the background’s black (hex #000000). Bad example: Colour alone distinguishes links from text In this bad example, the blue foreground colour indicates that the last two icons are links. The blue has the required 3:1 contrast with the black of the neighbouring text, but it has no additional visual effect on hover or focus. Example begins A bright new idea The latest model of Tesla Navigation Contact us Example ends Good example: Border supplements colour to distinguish links from basic text In this good example, the borders on hover and focus indicate that the last two icons are links. Example begins A bright new idea The latest model of Tesla Navigation Contact us Example ends Customization of interface colour and contrast Some users with sensitivity to brightness or with low vision will expect to be able to modify colours. Whenever possible, use native controls and features of HTML. That allows users to customize interface colour and contrast for the visible UI components. Good example: Button using CSS In this example, the appearance of the button is set with CSS rules, including colours. The values are easily overridden by a custom user style sheet. Example begins Next Example ends View the CSS Code begins .button-ex { background-color: #0065CB; border: none; color: white; padding: 10px 25px; text-align: center; text-decoration: none; display: inline-block; font-size: 36px; margin: 4px 2px; cursor: pointer; } Code ends Bad example: Button using an image of text When buttons use an image of text, user style sheets are not able to customize the text properties, including foreground and background colours. Screen magnification pixelates and blurs images of text, diminishing readability. Example begins Example ends HTML Code begins Code ends ",
  href: '../module7/colour.html#distinguishing-links-and-controls-from-text'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 - Visual design and colours' ,
  heading: " Distinguishing links and controls from text"
 },{
  categories: 'module7',
  content: "  Related WCAG resources Related WCAG resources Success criteria 1.4.1: Use of Color 1.4.3: Contrast (Minimum) 1.4.11: Non-text Contrast 1.3.3: Sensory Characteristics Techniques G18: Ensuring that contrast of at least 4.5:1 exists between text (and images of text) and background behind the text G145: Ensuring that a contrast ratio of at least 3:1 exists between text (and images of text) and background behind the text G182: Ensuring that additional visual cues are available when text color differences are used to convey information G183: Using a contrast ratio of 3:1 with surrounding text and providing additional visual cues on focus for links or controls where color alone is used to identify them G195: Using an author-supplied, highly visible focus indicator G207: Ensuring that a contrast ratio of 3:1 is provided for icons G209: Provide sufficient contrast at the boundaries between adjoining colours Failures F13: Failure of Success Criterion 1.1.1 and 1.4.1 due to having a text alternative that does not include information that is conveyed by color differences in the image F73: Failure of Success Criterion 1.4.1 due to creating links that are not visually evident without color vision F81: Failure of Success Criterion 1.4.1 due to identifying required or error fields using color differences only ",
  href: '../module7/colour.html#color-wcag'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 - Visual design and colours' ,
  heading: " Related WCAG resources"
 },{
  categories: 'module7',
  content: "  Designing with sufficient contrast If text, including images of text, lacks sufficient contrast with its background it won’t be legible to users with low vision or colour blindness. Controls and meaningful graphics also require good contrast. To meet the WCAG Level AA Success Criterion for minimum contrast, follow these best practices: Ensure small text (under 18 point [24 pixels] regular font or under 14 point [19 pixels] bold font) has a contrast ratio of at least 4.5:1 with the background. Ensure large text (at least 18 point [24 pixels] regular font or 14 point [19 pixels] bold font) has a contrast ratio of at least 3:1 with the background. Ensure non-text content – active user interface components (i.e., controls) and their states, and meaningful graphics – has a contrast ratio of at least 3:1 with adjacent colours. Meeting WCAG Level AAA criteria is often difficult, but that's not the case with enhanced contrast. We should strive for it whenever possible. To meet the WCAG Level AAA Success Criterion for enhanced contrast, increase the contrast ratio of small and large text as follows: Ensure small text (under 18 point [24 pixels] regular font or under 14 point [19 pixels] bold font) has a contrast ratio of at least 7:1 with the background. Ensure large text (at least18 point [24 pixels] regular font or 14 point [19 pixels] bold font) has a contrast ratio of at least 4.5:1 with the background. For user interface components, the 3:1 contrast ratio with adjacent colours: Applies to the control and the control’s state information, such as whether a component is selected or focused. Applies to the visual boundary indicating the hit area, unless the control contains text that meets the 4.5:1 contrast ratio. Doesn’t apply if the appearance of the control and its states are controlled by the user agent and not modified by the author. Doesn’t apply if the control is disabled. Check contrast manually using the Colour Contrast Analyzer (CCA). Automated tools check background contrast, but manual inspection is necessary when the background is a gradient, an image, an animation or video. If the background changes over time, or as the user scrolls or as the viewport changes, the contrast should persist, though brief (1 second) intervals of poor contrast won’t interfere with the user experience. The 3:1 contrast ratio for adjacent colours also applies to meaningful graphics, which includes informative icons, lines in line graphs, and slices in pie charts: Check the contrast of the graphical object against its adjacent colours. If there are multiple colours and/or a gradient, choose the least contrasting area to test. If the least-contrasting area is less than 3:1, assume that area is invisible. Is the graphical object still understandable? If there is enough of the graphical object to understand, it passes, else it fails. Bad example: Low contrast with background (text) In this example, the dark grey text (#777) on a grey background (#ccc) has a contrast ratio of 2.8:1, falling short of the required 4.5:1 ratio. Example begins Privacy Example ends Bad example: Low contrast with background (control) The grey border colour of the checkbox (#9D9D9D) has a contrast ratio of 2.7:1 with the white background, which is insufficient to identify the checkbox to some users. The grey border of the input (#CCCCCC) has a contrast ratio of 1.6:11 with the white background, falling short of the 3:1 required for non-text content. Example begins Label 1 Label 2 Example ends The input fields example is the current (2021) WET implementation, so you need to override the WET stylesheet with the input border colour value from Good example: Sufficient contrast (control). This is the problem line of CSS: CSS Code begins .form-control { border: 1px solid #ccc; } Code ends Good example: Sufficient contrast (control) The grey border of the input (#93958A) has a contrast ratio of 3:1, just meeting WCAG Success Criterion 1.4.11: Non-text Contrast Example begins Label 1 Label 2 Example ends CSS Code begins .form-control { border: 1px solid #93958A; } Code ends Bad example: Low contrast with adjacent colour (graphic) This alert graphic consists of a red triangle-shaped icon with a white exclamation mark, set against a grey background. The triangle is usually reserved for alerts like these, so both shapes are important. There are 2 contrast ratios to consider with this icon: The contrast ratio between the white exclamation mark and the red triangle, which is 5:1. The contrast ratio between the red triangle and the grey background, which is 2:1. The red triangle and the grey background lack sufficient contrast. See more examples in Success Criterion 1.4.11: Non-text Contrast 'Bad example: Low contrast with adjacent colour (graphic)' is from Contrast and Colour Accessibility, © WebAIM, 2021. ",
  href: '../module7/contrast.html#designing-with-sufficient-contrast'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 - Visual design and colours' ,
  heading: " Designing with sufficient contrast "
 },{
  categories: 'module7',
  content: "  Related WCAG resources Related WCAG resources Success criteria 1.4.3: Contrast (Minimum) 1.4.6: Contrast (Enhanced) (Level AAA) 1.4.11: Non-text Contrast Techniques G17: Ensuring that contrast of at least 7:1 exists between text (and images of text) and background behind the text (Level AAA, small text) G18: Ensuring that contrast of at least 4.5:1 exists between text (and images of text) and background behind the text (Level AA, small text; Level AAA, large text) G145: Ensuring that a contrast ratio of at least 3:1 exists between text (and images of text) and background behind the text (Level AA, large text) G195: Using an author-supplied, highly visible focus indicator G207: Ensuring that a contrast ratio of 3:1 is provided for icons G209: Provide sufficient contrast at the boundaries between adjoining colours ",
  href: '../module7/contrast.html#contrast-wcag'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 -  Visual design and colours' ,
  heading: " Related WCAG resources"
 },{
  categories: 'module7',
  content: "  Designing with CSS-generated content CSS can generate text and icons through the ::before and ::after pseudo-classes. However, WCAG 2.1 fails any use of non-decorative CSS-generated content, since it can be overwritten by user style sheets (used by users with low vision), it lacks a role, and it's invisible to browser find functionality, among other reasons mentioned in this defense of WCAG Failure F87. That said, there is a use case for supplemental, CSS-generated text and a mostly-accessible technique for informative icons. Follow these best practices with CSS-generated content: Hide decorative CSS-generated content from screen readers with the aria-hidden='true' attribute. Don't use CSS-generated text. Exception: Use CSS-generated text to expose mark, del, ins, and s elements to screen reader users. For informative CSS-generated icons: Set the icon on a element, and: Hide it from screen reader users with the aria-hidden attribute. Add a visible label for mouse users with the title attribute. Add a label for screen-reader users in a second element, visually-hidden with the WET CSS class .wb-inv. This approach differs from the WET Style Guide's Icons pattern by adding the title and aria-hidden attributes. It doesn't address the needs of low vision keyboard users. WCAG 2.1 also offers an informative CSS icon technique, ARIA24: Semantically identifying a font icon with role='img', but it requires a specific style declaration in the user's stylesheet, intended to protect the icon font family declaration from being overwritten. Though not mentioned in WCAG 2.1, using ARIA24 entails promoting its existence to your users with low vision. Also, the defense of WCAG Failure F87 suggests that ARIA24's solution lacks necessary semantics. There is no ideal technique for CSS-generated icon fonts. ",
  href: '../module7/css-generated.html#designing-with-CSS-generated-content'  ,
- title: 'generated content – Module 7 - Visual design and colours' ,
+ title: 'Module 7 - Visual design and colours' ,
  heading: " Designing with CSS-generated content"
 },{
  categories: 'module7',
  content: "  Good example: CSS-generated boundary declarations for elements not exposed to screen readers The roles of the element and the editorial elements , and are not declared by screen readers. To alert screen reader users to their presence, visually-hidden CSS-generated text flags the start and end of each. CSS Code begins mark::before { content: ' [highlight start] '; } mark::after { content: ' [highlight end] '; } del::before { content: ' [deletion start] '; } del::after { content: ' [deletion end] '; } ins::before { content: ' [insertion start] '; } ins::after { content: ' [insertion end] '; } s::before { content: ' [start of stricken text] '; } s::after { content: ' [end stricken text] '; } /* visually hide the generated content */ mark::before, mark::after, del::before, del::after, ins::before, ins::after, s::before, s::after { clip-path: inset(100%); clip: rect(1px, 1px, 1px, 1px); height: 1px; width: 1px; overflow: hidden; position: absolute; white-space: nowrap; } Code ends Source: Adrian Roselli's blog post F87: CSS Generated Content and WCAG Conformance. February 24, 2019. ",
  href: '../module7/css-generated.html#css-boundaries'  ,
- title: 'generated content – Module 7 - Visual design and colours' ,
+ title: 'Module 7 - Visual design and colours' ,
  heading: "  Good example: CSS-generated boundary declarations for elements not exposed to screen readers "
 },{
  categories: 'module7',
  content: "  Good example: Informative CSS icon In this example, the Font Awesome hammer icon is used to represent a task. The element with classes .fas and .fa-hammer displays the icon via a CSS ::before pseudo-class. Its title attribute holds a tooltip for mouse users, 'Task'. Its aria-hidden='true' attribute hides the element from screen readers, since their support for the title attribute is inconsistent. Directly following the icon is a visually-hidden element holding the name “Task”, which declares in all screen readers. Example begins Task Complete the application Example ends If their custom style sheets overwrite the icon's font-family declaration, mouse users with low vision can access the icon name by hovering over the placeholder square, triggering the title attribute's tooltip. HTML Code begins Task Complete the application Code ends CSS Code begins .fa-hammer:before { content: '\f6e3'; } .fas { font-family: 'Font Awesome 5 Free'; } .wb-inv { clip: rect(1px,1px,1px,1px); height: 1px; margin: 0; overflow: hidden; position: absolute; width: 1px; } Code ends ",
  href: '../module7/css-generated.html#informative-css'  ,
- title: 'generated content – Module 7 - Visual design and colours' ,
+ title: 'Module 7 - Visual design and colours' ,
  heading: "  Good example: Informative CSS icon "
 },{
  categories: 'module7',
  content: "  Related WCAG resources Related WCAG resources Success criteria 1.1.1: Non-text Content 1.3.1: Info and Relationships Techniques G94: Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content ARIA6: Using aria-label to provide labels for objects ARIA24: Semantically identifying a font icon with role='img' Failures F87: Failure of Success Criterion 1.3.1 due to inserting non-decorative content by using :before and :after pseudo-elements and the 'content' property in CSS ",
  href: '../module7/css-generated.html#css-generated-wcag'  ,
- title: 'generated content – Module 7 - Visual design and colours' ,
+ title: 'Module 7 - Visual design and colours' ,
  heading: " Related WCAG resources"
 },{
  categories: 'module7',
  content: "  Hiding content Content can be hidden from three groups of users: From all users, by using either the CSS display:none or visibility:hidden declaration. From users of assistive technology, by using the aria-hidden='true' attribute to remove the element from the Accessibility API. From sighted users, by using the WET CSS class .wb-inv to visually hide the content. When hiding inactive content, such as untriggered modal windows and unselected sub-menus, hide it from all users. Developers frequently introduce a barrier by visually hiding such content offscreen via CSS positioning, leaving the content exposed to the accessibility API, where it’s encountered by screen reader users and others. If it needs to be hidden from sighted users, it needs to be hidden from screen reader users. Use the aria-hidden attribute with caution, and only to improve the experience for users of assistive technology by removing redundant or extraneous information. If you use aria-hidden to hide meaningful visible content you must ensure that identical or equivalent meaning and functionality is exposed to assistive technologies. Visually-hidden text can: provide a name where ARIA labels won’t work because the element doesn’t receive focus. This is illustrated in the example of CSS-generated content in the previous section. The same approach would work with a CSS background image needing a name; for instance, a list holding logos set as CSS background images could use a visually-hidden name in each list item. name or extend the name of elements as an alternative to ARIA labels. For example, on a page with multiple “read more” links, to distinguish each link’s purpose from the other, the preceding heading text is inserted as a visually-hidden element into the link text. Good example: Visually-hidden text Example begins How to Apply [Teaser paragraph.] About How to Apply Read more Example ends HTML Code begins How to Apply [Teaser paragraph.] About How to Apply Read more Code ends CSS Code begins .wb-inv { clip: rect(1px,1px,1px,1px); height: 1px; margin: 0; overflow: hidden; position: absolute; width: 1px; } Code ends ",
  href: '../module7/hiding-content.html#hiding-content'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 -  Visual design and colours' ,
  heading: " Hiding content"
 },{
  categories: 'module7',
  content: "  Exposing hidden content on hover or focus When exposing hidden content via pointer hover or keyboard focus, ensure the exposed content has these three properties: Dismissable The user can dismiss the exposed content without moving the mouse or keyboard focus, typically by pressing the Escape key. Hoverable The user can hover the mouse over the exposed content. Persistent The exposed content doesn’t disappear until mouse hover or keyboard focus leaves it. For more details, see Module 10: Input Modalities > Mouse Input > Content on Hover or Focus ",
  href: '../module7/hiding-content.html#exposing-hidden-content-on-hover-or-focus'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 -  Visual design and colours' ,
  heading: " Exposing hidden content on hover or focus"
 },{
  categories: 'module7',
  content: "  Related WCAG resources Related WCAG resources Success criteria 1.1.1: Non-text Content 1.4.13: Content on Hover or Focus Techniques G94: Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content SCR39: Making content on focus or hover hoverable, dismissible, and persistent ",
  href: '../module7/hiding-content.html#hiding-content-wcag'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 -  Visual design and colours' ,
  heading: " Related WCAG resources"
 },{
  categories: 'module7',
  content: "  About visual design and colours This module covers topics to help make user interface design and visual design more accessible to people with disabilities. Topic includes colour, contrast, positioning labels, text spacing, CSS-generated content, hiding content, and exposing content on hover or focus. Accessible visual design benefits everyone including people with disabilities: People with partial sight and colour-blindness benefit when information conveyed by colour is available in other visual ways. People with low vision and colour-blindness can read text that meet minimum contrast ratio. People with dyslexia may increase space between lines, words, and letters to improve reading. People using screen readers benefit by accessing text alternatives of CSS-generated content. People using screen readers benefit from hiding inactive and redundant content. These visual design concerns are discussed in module 3: Visual focus indicator Distinguishing links from text ",
  href: '../module7/introduction.html#about-visual-design-and-colours'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 -  Visual design and colours' ,
  heading: " About visual design and colours"
 },{
  categories: 'module7',
  content: "  Related WCAG resources Related WCAG resources Success criteria 1.1.1: Non-text Content 1.4.1: Use of Colour 1.4.3: Contrast (Minimum) 1.4.11: Non-text Contrast 1.4.12: Text Spacing 1.4.13: Content on Hover or Focus 3.3.2: Labels or Instructions ",
  href: '../module7/introduction.html#resources1'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 -  Visual design and colours' ,
  heading: " Related WCAG resources"
 },{
  categories: 'module7',
  content: "  Accessible text spacing Increased space between paragraphs, lines, words, and letters helps some users with low vision to read, and helps users with dyslexia to increase their reading speed. Your design should be flexible enough to render without any loss of content or functionality when the user modifies the text spacing, within these constraints: Line height (line spacing) to at least 1.5 times the font size; Spacing following paragraphs to at least 2 times the font size; Letter spacing (tracking) to at least 0.12 times the font size; Word spacing to at least 0.16 times the font size. Users modify the text spacing of your design using a custom style sheet, a bookmarklet or other tool. Test your design with this bookmarklet: Test spacing bookmarklet It applies the expanded spacing styles. Be on the lookout for clipped text and overlapping text, as per the Bad examples below. To design for text spacing override: Don’t use fixed containers in your CSS styles. Ensure that content reflows without overlapping or clipped text. Use relative units of font size, line height, spaces between characters, words, lines and paragraphs. Bad examples: Text spacing The following images show some types of failures when authors do not take into consideration that users may override spacing. Text cut off The bottom portion of the words 'Your Needs' is cut off in a heading making that text unreadable in Figure 1. It should read 'We Provide a Mobile Application Service to Meet Your Needs.' Example begins Figure 1 Vertical text cut off is a failure. Example ends In Figure 2 the last portion of text is cut off in 3 side-by-side headings. The 1st heading should read 'A cog in the wheel.' But it reads 'A cog in the whe'. Only half of the second 'e' is visible and the letter 'l' is completely missing. The 2nd heading should read 'A penny for your thoughts'. But it reads 'A penny for your'. The 3rd should read 'Back to the drawing board.' But it reads 'Back to the drawi'. Example begins Figure 2 Horizontal text cut off is a failure. Example ends Text overlap In Figure 3 the last 3 words 'Groups and Programs' of the heading 'Technologists Seeking Input from Groups and Programs' overlap the following sentence. That sentence should read, 'You are invited to share ideas and areas of interest related to the integration of technology from a group or program perspective.' But the words 'You are invited to share ideas and areas' are obscured and unreadable. Example begins Figure 3 Overlapping text is a failure. Example ends ",
  href: '../module7/textspacing.html#accessible-text-spacing'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 -  Visual design and colours' ,
  heading: " Accessible text spacing"
 },{
  categories: 'module7',
  content: "  Related WCAG resources Related WCAG resources Success criteria 1.4.12: Text Spacing Techniques C36: Allowing for text spacing override C35: Allowing for text spacing without wrapping ",
  href: '../module7/textspacing.html#textspacing-wcag'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 -  Visual design and colours' ,
  heading: " Related WCAG resources"
 },{
  categories: 'module7',
  content: "  Positioning labels Make your forms more understandable by positioning labels for form fields where the user expects them visually: either above the field or to the left, right-aligned. Labels for radio buttons and checkboxes are positioned after the field. Good example: Label above the field This layout is preferred by the WET Style Guide - Form Labels. Users can process the information in half the time of left-aligned labels. The labels are positioned above the form fields. Good example: Label to the left, right-aligned This layout is preferred by the WET Style Guide when there’s a need to conserve vertical space. The labels are positioned to the left of the form fields and right-aligned. Bad example: Label to the left, left-aligned This layout positions the labels far away from the controls. Screen magnification users may have trouble fitting both on the screen, forcing horizontal scrolling. ",
  href: '../module7/visual-proximity.html#positioning-labels'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 -  Visual design and colours' ,
  heading: " Positioning labels"
 },{
  categories: 'module7',
  content: "  Related WCAG resources Related WCAG resources Success criteria 3.3.2: Labels or Instructions Techniques G162: Positioning labels to maximize predictability of relationships ",
  href: '../module7/visual-proximity.html#visual-proximity-wcag'  ,
- title: ' Visual design and colours' ,
+ title: ' Module 7 -  Visual design and colours' ,
  heading: " Related WCAG resources"
 },{
  categories: 'module8',
