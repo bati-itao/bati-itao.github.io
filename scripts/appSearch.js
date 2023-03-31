@@ -1,0 +1,3 @@
+
+var defSearch = document.getElementById("def-search");
+defSearch.outerHTML = '<form action="../search/search_form.html" method="GET" class="search-form"  role=”search”>  <div class="search-field-container">  <button type="submit" class="btn btn-default srchBtn" type="submit">    Search</button> <input type="text" aria-label="Search course"  id="search" name="q" class="search-field" placeholder="Search course..." />  <input type="hidden" name="lang" value="en">  </div>   </form>'
