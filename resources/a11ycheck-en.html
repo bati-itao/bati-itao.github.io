@@ -5,13 +5,63 @@
 <!--<![endif]-->
 
 <head>
+
     <meta charset="utf-8">
     <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
     <title>Web Accessibility Checklist - ESDC / IT Accessibility office</title>
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <!-- Meta data -->
-    <meta name="description"
-        content="">  
+    <meta name="description" content="">
+    <style>
+        ul>p {
+            font-weight: 400;
+            margin: 0;
+        }
+
+        details summary {
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        details p {
+            margin: 10px 0;
+        }
+
+        details img {
+            margin-top: 10px;
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+        }
+
+        i.far {
+            margin-right: 10px;
+            /* Adjust the spacing between the icon and the heading */
+        }
+
+        .icon-heading {
+            display: flex;
+            align-items: center;
+            /* Vertically align items to the center */
+        }
+
+        .icon-heading i {
+            margin-right: 10px;
+            /* Adjust the spacing between the icon and the heading */
+        }
+
+        /* Larger margin for top-level list items */
+        ul.list-unstyled>li {
+            margin-bottom: 20px;
+            /* Adjust the value as needed */
+        }
+
+        /* Smaller margin for nested list items */
+        ul.list-unstyled ul>li {
+            margin-bottom: 10px;
+            /* Adjust the value as needed */
+        }
+    </style>
     <!-- Meta data-->
     <!-- Load closure template scripts -->
     <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
@@ -47,25 +97,428 @@
         });
     </script>
     <main role="main" property="mainContentOfPage" class="container">
-        <h1 property="name" id="wb-cont">Web Accessibility Checklist</h1>
-	<ul class="list-unstyled mrgn-tp-lg">
-		<li class="mrgn-bttm-md"><span class="far fa-square mrgn-rght-md" aria-hidden="true"></span>Do not use a <code>&lt;table&gt;</code> for layout.</li>
-		<li class="mrgn-bttm-md"><span class="far fa-square mrgn-rght-md" aria-hidden="true"></span>Do not use <code>&lt;br&gt;</code> tags, or &nbsp; to create whitespace. Use CSS instead.</li>
-		<li class="mrgn-bttm-md"><span class="far fa-square mrgn-rght-md" aria-hidden="true"></span>The visual presentation of text and images of text on all pages has a contrast ratio of at least 4.5:1.</li>
-		<li class="mrgn-bttm-md"><span class="far fa-square mrgn-rght-md" aria-hidden="true"></span>You need to be able to resize (ie: zoom in) up to 200%, without loss of content or functionality.</li>
-		<li class="mrgn-bttm-md"><span class="far fa-square mrgn-rght-md" aria-hidden="true"></span>Ensure pages work on mobile devices (by changing the viewport size).</li>
-		<li class="mrgn-bttm-md"><span class="far fa-square mrgn-rght-md" aria-hidden="true"></span>All functionality of the content is operable through a keyboard.</li>
-		<li class="mrgn-bttm-md"><span class="far fa-square mrgn-rght-md" aria-hidden="true"></span>A mechanism is available to bypass blocks of content that are repeated on multiple Web pages.</li>
-		<li class="mrgn-bttm-md"><span class="far fa-square mrgn-rght-md" aria-hidden="true"></span>Web pages have unique titles that describe topic or purpose.</li>
-		<li class="mrgn-bttm-md"><span class="far fa-square mrgn-rght-md" aria-hidden="true"></span>The purpose of each link can be determined from the link text.</li>
-		<li class="mrgn-bttm-md"><span class="far fa-square mrgn-rght-md" aria-hidden="true"></span>Headings must be meaningful and used to create a hierarchical structure. (Heading levels should not be skipped.).</li>
-		<li class="mrgn-bttm-md"><span class="far fa-square mrgn-rght-md" aria-hidden="true"></span>Focus is always visible when using keyboard.</li>
-		<li class="mrgn-bttm-md"><span class="far fa-square mrgn-rght-md" aria-hidden="true"></span>All form elements must have an associated label.</li>
-		<li class="mrgn-bttm-md"><span class="far fa-square mrgn-rght-md" aria-hidden="true"></span>Language of the page and content must be programmatically determined.</li>
-		<li class="mrgn-bttm-md"><span class="far fa-square mrgn-rght-md" aria-hidden="true"></span>All pages that contain tables to convey relational data markup are using either <code><a href="https://webaim.org/techniques/tables/data#scope">scope</a></code> or <a href="https://webaim.org/techniques/tables/data#id"><code>id</code> with <code>headers</code></a>.</li>
-		<li class="mrgn-bttm-md"><span class="far fa-square mrgn-rght-md" aria-hidden="true"></span>Use <a href="https://wet-boew.github.io/wet-boew/index-en.html"><abbr title="Web Experience Toolkit">WET</abbr></a>’s <a href="https://wet-boew.github.io/wet-boew/demos/formvalid/formvalid-en.html">form validation</a>.</li>
-		<li class="mrgn-bttm-md"><span class="far fa-square mrgn-rght-md" aria-hidden="true"></span>All pages must validate: Use the <a href="https://validator.w3.org/"> Markup Validation Service</a>.</li>
-	</ul>
+        <div class="ajax-selection">
+            <h1 id="wb-cont">Easy Checks For Web Accessibility</h1>
+            <p>This guide provides developers and content creators with easy steps to check if a web page is accessible.
+                These simple checks will help you find basic accessibility issues to fix, get ready for a full audit,
+                and
+                reduce the number of review rounds needed after asking ITAO for an accessibility audit.</p>
+
+
+            <button onclick="toggleDetails(true)">Collapse All</button>
+            <button onclick="toggleDetails(false)">Expand All</button>
+
+            <h2>General</h2>
+            <ul class="list-unstyled mrgn-tp-lg">
+                <li class="mrgn-bttm-md">
+                    <details>
+                        <summary>The page has a title that
+                            describes the page content and purpose.</summary>
+                        <p>Ensure the page title is descriptive and provides an accurate summary of the page
+                            content. This can be set using the <code>&lt;title&gt;</code> tag within the
+                            <code>&lt;head&gt;</code> section of your HTML document.
+                        </p>
+                        <figure>
+                            <img src="images/tag-in-title.png"
+                                alt="Good example showing the title structure of a webpage. Long description provided below.">
+                            <figcaption>
+                                The inspect element window highlights the title tag, which references the title
+                                displayed at the top of the webpage. An arrow points from the
+                                HTML tag to the matching title on the webpage.
+                            </figcaption>
+                        </figure>
+
+                    </details>
+                </li>
+
+                <li class="mrgn-bttm-md">
+                    <details>
+                        <summary>Using semantic HTML to mark up the structure of the page and
+                            represent the information, rather than relying on custom CSS.</summary>
+                        <p>Check the code to see if correct HTML elements are used to structure the content
+                            based on each element's meaning, and not its appearance. Examples: Headings should
+                            use semantic HTML like <code>&lt;h1&gt;</code> instead of using CSS to style the
+                            text to look like an <code>&lt;h1&gt;</code>, and lists should use semantic list
+                            HTML like <code>&lt;ul&gt;</code> and <code>&lt;ol&gt;</code> instead of using
+                            bullets to style the text to look like a list.</p>
+                    </details>
+                </li>
+
+                <li class="mrgn-bttm-md">
+                    <details>
+                        <summary>The page has accurate and informative headings that are structured
+                            using <code>&lt;h1&gt; - &lt;h6&gt;</code> heading tags without skipping hierarchical
+                            levels.</summary>
+                        <p>Use an automated accessibility checker such as Accessibility Insights to check
+                            heading hierarchy and structure issues and ensure headings are accurate and
+                            informative.</p>
+                        <figure>
+                            <img src="images/heading-structure-en.jpg"
+                                alt="Good example of a well-organized heading structure. Long description provided below.">
+                            <figcaption>
+                                A well-structured heading hierarchy using <code>&lt;h1&gt;</code>,
+                                <code>&lt;h2&gt;</code>, and <code>&lt;h3&gt;</code> tags, represented using a tree
+                                view.
+                            </figcaption>
+                        </figure>
+
+                    </details>
+                </li>
+
+                <li class="mrgn-bttm-md">
+                    <details>
+                        <summary>Pages remain functional and readable when text is magnified to 200%
+                            of its initial size.</summary>
+                        <p>Zoom the page to 200% on a 1280 by 1024 viewport, and make sure that no content or
+                            functionality is lost, or that any text is clipped, truncated, or obscured.</p>
+                        <figure>
+                            <img src="images/responsive-design-en.jpg"
+                                alt="An example of text resizing issue. Long description provided below.">
+                            <figcaption>The label text does not fit within the search input field, causing the text to
+                                be truncated.</figcaption>
+                        </figure>
+                    </details>
+                </li>
+
+                <li class="mrgn-bttm-md">
+                    <details>
+                        <summary>Page content reflow does not cause loss of content or functionality
+                            and does not require horizontal scrolling when the viewport width is set to
+                            320px.</summary>
+                        <p>Open the developer tools in your browser and use responsive design mode. Set the
+                            viewport width to 320px by narrowing the browser window or by zooming in so that the
+                            viewport width is now 320px. To do this when starting with a 1280px viewport width
+                            at 100% browser zoom, zoom in to 400%. Ensure no text is clipped or content
+                            disappears.</p>
+                        <figure>
+                            <img src="images/reflow-design.png"
+                                alt="An Example of content with zoomed-in borders and scrollbars. Long description provided below.">
+                            <figcaption>
+                                Zoomed-in text with scrollbars highlighted. Arrows point to the horizontal
+                                scrollbar and the zoomed-in content's borders to show the relationship between these
+                                elements.
+                            </figcaption>
+                        </figure>
+                    </details>
+                </li>
+
+                <li class="mrgn-bttm-md">
+                    <details>
+                        <summary>The primary language of the page is set using <code>lang</code>
+                            attribute and using a standard language code. (e.g. <code>&lt;html lang="en"&gt;</code>
+                            or <code>&lt;html lang="fr"&gt;</code>).</summary>
+                        <p>Identify passages or phrases in a language different from the main language of the
+                            page. Then, check the code to make sure that any changes in language are marked
+                            using the <code>lang</code> attribute.</p>
+                        <figure>
+                            <img src="images/lang-attribute-page.png"
+                                alt="Example of a lang attribute. Long description provided below.">
+                            <figcaption>The lang attribute is highlighted within the inspect element window, showing
+                                that this is an English page with the "en" lang attribute applied.</figcaption>
+                        </figure>
+                    </details>
+                </li>
+
+                <li class="mrgn-bttm-md">
+                    <details>
+                        <summary>All text elements and non-text elements have sufficient color
+                            contrast between the foreground and background color.</summary>
+                        <p>Use the Colour Contrast Analyzer tool or an <a
+                                href="https://webaim.org/resources/contrastchecker/">online contrast checker</a>
+                        </p>
+                        <ul>
+                            <li>Text and images of text should have a contrast ratio of at least 4.5:1 between
+                                any text (and images of text) and the background behind the text.</li>
+                            <li>Non-textual elements should have a minimum contrast ratio of 3:1 with adjacent
+                                colours.</li>
+                        </ul>
+                        <figure>
+                            <img src="images/contrast-checker-en.jpg"
+                                alt="An example of a contrast checker tool interface. Long description provided below.">
+                            <figcaption>
+                                A page where a button with a pink background and white text is highlighted. The pink and
+                                white color combination is being tested using a colour contrast analyser tool, with
+                                alerts notifying the user that this combination fails to meet the necessary contrast
+                                ratio.
+                            </figcaption>
+                        </figure>
+
+                    </details>
+                </li>
+
+                <li class="mrgn-bttm-md">
+                    <details>
+                        <summary>Inline language changes are marked up and have valid
+                            <code>lang</code> attribute values. (e.g. <code>lang="en"</code> or
+                            <code>lang="fr"</code>).
+                        </summary>
+                        <p>Identify passages or phrases in a language different from the main language of the
+                            page. Then, check the code to make sure that any changes in language are marked
+                            using the <code>lang</code> attribute.</p>
+                        <figure>
+                            <img src="images/lang-attribute.png"
+                                alt="An example of the inspect element displaying the HTML lang attribute. Long description provided below.">
+                            <figcaption>
+                                An inspect element view showing a <code>lang</code> attribute applied to a specific tag,
+                                differentiating it from the main language of the webpage. The <code>lang</code>
+                                attribute is
+                                highlighted in red, with an arrow pointing to the corresponding text associated with
+                                this tag on the webpage.
+                            </figcaption>
+                        </figure>
+
+                    </details>
+                </li>
+
+                <li class="mrgn-bttm-md">
+                    <details>
+                        <summary>The purpose of each link can be understandable from the link
+                            text.</summary>
+                        <p>Check to see if link labels give a clearer idea of what user can expect to find by
+                            clicking on the link.</p>
+                        <figure>
+                            <img src="images/link-purpose-en.jpg"
+                                alt="Examples of accessible and inaccessible links. Long description provided below.">
+                            <figcaption>Two examples of hyperlink text, with one example labelled accessible (“Read more
+                                about Tax Calculation”) and the other inaccessible (“Read more”). The link tag for each
+                                has been highlighted in the inspect element window.</figcaption>
+                        </figure>
+                    </details>
+                </li>
+
+
+            </ul>
+
+
+
+            <h2>Keyboard</h2>
+            <ul class=" list-unstyled mrgn-tp-lg">
+                <li class="mrgn-bttm-md">
+                    <details>
+                        <summary>
+                            The navigation order of focusable elements (e.g., links, form elements, modal dialogs, etc.)
+                            is logical and intuitive, preserving the meaning and operability of the content.
+                        </summary>
+                        <p>
+                            Navigate through the page using Tab or Shift + Tab to ensure that the tabbing order makes
+                            sense according to the content on the webpage. Best practices recommend that the tab order
+                            follows the reading order of the webpage for improved accessibility.
+                        </p>
+                        <figure>
+                            <img src="images/tab-order-en.jpg"
+                                alt="An example illustrating accessible and inaccessible tab orders on a webpage. Long description provided below.">
+                            <figcaption>
+                                Instructions on structuring the tab order of a webpage. Two examples are presented: one
+                                demonstrating an accessible and logical tab sequence, and the other showcasing an
+                                inaccessible, disorganized sequence.
+                            </figcaption>
+                        </figure>
+                    </details>
+                </li>
+
+
+                <li class="mrgn-bttm-md">
+                    <details>
+                        <summary>All focusable elements show a visual focus indicator when in focus
+                            and do not disappear while tabbing.</summary>
+                        <p>Navigate through the page using Tab or Shift + Tab to ensure that focusable elements
+                            have a clear, visible indicator that identifies visual focus.</p>
+                        <figure>
+                            <img src="images/focus-indicator-en.jpg"
+                                alt="Examples of focus visibility on buttons. Long description provided below.">
+                            <figcaption>Two examples of buttons demonstrating a principle of accessibility. The first
+                                example shows a button where the focus is visible when focused, making it
+                                accessible. In the second example, the focus is not visible, making the button
+                                inaccessible.</figcaption>
+                        </figure>
+                    </details>
+                </li>
+
+                <li class="mrgn-bttm-md">
+                    <details>
+                        <summary>The page has a keyboard-accessible method to bypass repetitive
+                            content.</summary>
+                        <p>Using the keyboard keys, check if there is a list of links to skip blocks of repeated
+                            material.</p>
+                        <p>Example: The first interactive item on the page is a link (titled Skip to Main
+                            Content) to the beginning of the main content. Activating the link sets focus to the
+                            main content.</p>
+                        <figure>
+                            <img src="images/skip-to-main-content-en.png"
+                                alt="Example of a 'Skip to main content' link. Long description provided below.">
+                            <figcaption>A tag link highlighted in the inspect element window with an arrow pointing to
+                                the top of the webpage, indicating the corresponding “Skip to main content” link which
+                                enables users to skip to the main content.</figcaption>
+                        </figure>
+                    </details>
+                </li>
+
+                <li class="mrgn-bttm-md">
+                    <details>
+                        <summary>Keyboard access and control are available for all interactive
+                            components that have mouse access and control.</summary>
+                        <p>Ensure that all elements such as links, form fields, buttons, and media player
+                            controls are accessible and operable using only the keyboard keys.</p>
+                        <ul>
+                            <li>Use the <code>Tab</code> key to navigate in a linear direction through focusable
+                                elements like links, form controls, and buttons.</li>
+                            <li>Use the <code>Enter</code> key (and sometimes <code>Space</code>) to select an element.
+                            </li>
+                            <li>Use the Arrow keys to move within certain elements, element groups, and widgets, such as
+                                form select elements, radio button groups, and sets of tabs.</li>
+                        </ul>
+
+                        <figure>
+                            <img src="images/tab-order-website-en.jpg"
+                                alt="An example of keyboard navigation on a user interface, showing the tab order. Long description provided below.">
+                            <figcaption>
+                                A user interface displaying multiple elements such as selectable fields, buttons, and
+                                links, with arrows indicating the tabbing sequence between elements.
+                            </figcaption>
+                        </figure>
+
+
+                    </details>
+                </li>
+
+
+
+            </ul>
+
+
+
+            <h2>Images and Multimedia</h2>
+            <ul class="list-unstyled mrgn-tp-lg">
+                <li class="mrgn-bttm-md">
+                    <details>
+                        <summary>Informative images have a text alternative that serves the
+                            equivalent purpose.</summary>
+                        <p>Check the code to see if the image has <code>alt</code> attribute and ensure its
+                            value contains appropriate alternative text that describes the purpose of the image
+                            in a way that adequately substitutes for the image.</p>
+                        <figure>
+                            <img src="images/informative-image.png"
+                                alt="An example of alternative text showing the symbol of the Goverment of Canada. Long description provided below.">
+                            <figcaption>
+                                Within the inspect element window, an arrow points to the alternative text of an image,
+                                describing a symbol of the Govermenet of Canada. This demonstrates how alternative text
+                                provides a brief
+                                and meaningful description of the image for accessibility.
+                            </figcaption>
+                        </figure>
+
+                    </details>
+                </li>
+
+                <li class="mrgn-bttm-md">
+                    <details>
+                        <summary>Decorative images are coded in such a way that screen readers can
+                            ignore them.</summary>
+                        <p>Check the code to see if the image has <code>alt</code> attribute and ensure the
+                            value is empty (<code>alt=""</code>).</p>
+                        <figure>
+                            <img src="images/decorative-image-en.jpg"
+                                alt="Example of HTML code for decorative images. Long description provided below.">
+                            <figcaption>The inspect element window displaying HTML code for three decorative images. The
+                                sections of code demonstrating that each image’s alt text is empty have been highlighted
+                                in green.</figcaption>
+                        </figure>
+                    </details>
+                </li>
+
+                <li class="mrgn-bttm-md">
+                    <details>
+                        <summary>Pre-recorded multimedia (video) content has captions.</summary>
+                        <p>Look to see if captions are available for both video and audio content, either
+                            through open captions (captions that are always on and that cannot be turned off) or
+                            closed captions (look for a closed captions button or a way to turn on captions).
+                        </p>
+                        <figure>
+                            <img src="images/captions-en.jpg"
+                                alt="An example of a video with captions. Long description provided below.">
+                            <figcaption>A screencapture of a video displaying captions that correspond to the host's
+                                speech. Displayed within the video is an image of the 'Job Bank Canada' website
+                            </figcaption>
+                        </figure>
+                    </details>
+                </li>
+
+
+            </ul>
+
+
+
+            <h2>Forms</h2>
+            <ul class="list-unstyled mrgn-tp-lg">
+                <li class="mrgn-bttm-md">
+                    <details>
+                        <summary>All form elements (e.g. text fields, checkboxes, radio buttons,
+                            drop-down menus etc.) have descriptive and meaningful labels.</summary>
+                        <p>Use an automated accessibility checker like <a
+                                href="https://accessibilityinsights.io/downloads">Accessibility Insights</a> or
+                            use <a
+                                href="https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd">aXe
+                                DevTools</a> in Chrome or Firefox. Running a scan of the page will automatically
+                            detect any errors.</p>
+                        <figure>
+                            <img src="images/form-labels-en.jpg" alt="Example of descriptive form labels (e.g. text fields, checkboxes, radio buttons,
+                            drop-down menus etc.). Long description provided below.">
+                            <figcaption>A form page with the inspect element window to its right. Arrows point to each
+                                descriptive label field.</figcaption>
+                        </figure>
+                    </details>
+                </li>
+
+                <li class="mrgn-bttm-md">
+                    <details>
+                        <summary>Labels or instructions are provided when content requires user
+                            input.</summary>
+                        <p>Check the code to see if any fields are marked as required. If an asterisk (*) symbol
+                            is used to indicate a required form field, instructions must also be provided to
+                            define the meaning of the symbol at the top of the form.</p>
+                        <figure>
+                            <img src="images/required-field-instructions-en.jpg"
+                                alt="Example of form instructions for required fields. Long description provided below.">
+                            <figcaption>A form legend with a label indicating that the fields are required.</figcaption>
+                        </figure>
+                    </details>
+                </li>
+
+                <li class="mrgn-bttm-md">
+                    <details>
+                        <summary>Error messages clearly identify where the issue occurred (e.g.,
+                            field name) and what needs to be corrected.</summary>
+                        <p>Check to see if error messages are easy to understand and provide clear instructions
+                            on how they can be resolved.</p>
+                        <p>Example: "Please enter your name" is not as helpful as "Please enter your first
+                            name".</p>
+                        <figure>
+                            <img src="images/validation-error-en.jpg"
+                                alt="Example of error message displayed on a form. Long description provided below.">
+                            <figcaption>An arrow pointing to an error message indicating that a field cannot be left
+                                empty and instructing the user to enter a value. The error text above the input field is
+                                highlighted in red.</figcaption>
+                        </figure>
+                    </details>
+                </li>
+            </ul>
+
+
+            </ul>
+
+            <script>
+                function toggleDetails(collapse) {
+                    const details = document.querySelectorAll('details');
+                    details.forEach(detail => {
+                        detail.open = !collapse;
+                    });
+                }
+            </script>
+
+
+
+
+        </div>
         <div id="def-preFooter"></div>
         <script src="../scripts/preFooter.min.js"></script>
     </main>
