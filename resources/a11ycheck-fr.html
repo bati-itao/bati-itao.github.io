@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-    <title>Liste de vérification pour l’accessibilité Web - EDSC / Bureau de l’accessibilité des TI</title>
+    <title>Vérifications faciles pour l’accessibilité du Web - EDSC / Bureau de l’accessibilité des TI</title>
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <!-- Meta data -->
     <meta name="description" content="">
@@ -27,6 +27,56 @@
 <body vocab="https://schema.org/" typeof="WebPage">
     <div id="def-top">
     </div>
+    <style>
+        ul>p {
+            font-weight: 400;
+            margin: 0;
+        }
+
+        details summary {
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        details p {
+            margin: 10px 0;
+        }
+
+        details img {
+            margin-top: 10px;
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+        }
+
+        i.far {
+            margin-right: 10px;
+            /* Adjust the spacing between the icon and the heading */
+        }
+
+        .icon-heading {
+            display: flex;
+            align-items: center;
+            /* Vertically align items to the center */
+        }
+
+        .icon-heading i {
+            margin-right: 10px;
+            /* Adjust the spacing between the icon and the heading */
+        }
+
+        /* Larger margin for top-level list items */
+        ul.list-unstyled>li {
+            margin-bottom: 20px;
+            /* Adjust the value as needed */
+        }
+
+        /* Smaller margin for nested list items */
+        ul.list-unstyled ul>li {
+            margin-bottom: 10px;
+            /* Adjust the value as needed */
+        }
+    </style>
     <!-- Write closure template -->
     <script>
         var defTop = document.getElementById("def-top");
@@ -54,12 +104,10 @@
 
 
 
-        <h1 id="wb-cont">Contrôles faciles pour l’accessibilité du Web</h1>
-        <p>Ce guide propose un ensemble de listes de contrôle à l’usage des développeurs et des créateurs de contenu
-            pour déterminer si une page Web est accessible. Ces contrôles simples vous aideront à détecter les problèmes
-            d’accessibilité simples qui doivent être résolus, à vous préparer à un audit complet et à réduire le nombre
-            de cycles d’examen nécessaires après avoir demandé un audit d’accessibilité au Bureau de l’accessibilité des
-            TI (BATI).</p>
+        <h1 id="wb-cont">Vérifications faciles pour l’accessibilité du Web</h1>
+        <p>Ce guide fournit aux équipes de développement d’EDSC des étapes faciles pour repérer & corriger les problèmes
+            d’accessibilité de base, se préparer pour l’audit du bureau d’accessibilité TI (BATI), gagner du temps et
+            réduire les cycles d’examen nécessaires pour réparer les problèmes liés à l'accessibilité.</p>
 
 
         <button onclick="toggleDetails(true)">Tout réduire</button>
@@ -107,9 +155,15 @@
                     <summary>La page comporte des titres précis et pertinents, structurés à l’aide des balises de
                         titre <code>&lt;h1&gt; à &lt;h6&gt;</code>, sans sauter de niveaux hiérarchiques.
                     </summary>
-                    <p>Utilisez un vérificateur d’accessibilité automatisé tel que Accessibility Insights pour vérifier
+                    <p>Utilisez un vérificateur d’accessibilité automatisé tel que <a
+                            href="https://accessibilityinsights.io/downloads/">Accessibility Insights for Web (anglais
+                            seulement)</a>  ou utiliser <a
+                            href="https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd">axe
+                            DevTools (anglais seulement)</a> pour identifier 
                         les problèmes de hiérarchie et de structure des titres et vous assurer que les titres sont
-                        précis et pertinents.</p>
+                        précis et pertinents. Pour plus d'informations, veuillez consulter <a
+                            href="https://accessibilityinsights.io/docs/web/getstarted/quickassess/">Quick Assess in
+                            Accessibility Insights for Web (anglais seulement)</a>.</p>
                     <figure>
                         <img src="images/heading-structure-fr.jpg"
                             alt="Bon exemple d’une structure bien organisée de titres. Description détaillée fournie ci-dessous.">
@@ -145,14 +199,13 @@
                     <summary>La refonte du contenu de la page n’entraîne pas de perte de contenu ou de fonctionnalité et
                         ne nécessite pas de défilement horizontal lorsque la largeur de la fenêtre de visualisation est
                         fixée à 320px. </summary>
-                    <p>Ouvrir les outils de développement dans votre navigateur. Utiliser le mode de conception réactive
-                        et régler la largeur de la fenêtre de visualisation à 320 px en réduisant la fenêtre du
+                    <p>Utilisez un simulateur de dispositif mobile, comme la <a href="https://developer.chrome.com/docs/devtools/device-mode?hl=fr">barre d’outils de l’appareil dans Chrome
+                        Dev Tools</a>, pour vérifier.
+                        Ouvrir les outils de développement dans votre navigateur. Utiliser le mode de conception
+                        réactive et régler la largeur de la fenêtre de visualisation à 320 px en réduisant la fenêtre du
                         navigateur ou en effectuant un zoom avant. Pour ce faire, à partir d’une fenêtre de 1280 px et
-                        d’un zoom de 100 %, effectuez un zoom avant de 400 %.
-                        Le contenu doit être présenté de manière à éviter toute perte d’information ou de fonctionnalité
-                        avec un zoom avant et à ne pas nécessiter de défilement horizontal (à l’exception du contenu qui
-                        requiert une mise en page bidimensionnelle, comme les diagrammes, les cartes, les jeux vidéo et
-                        les tableaux de données).</p>
+                        d’un zoom de 100 %, effectuez un zoom avant de 400 %. Le contenu doit être présenté de manière à
+                        éviter toute perte d’information ou de fonctionnalité.</p>
                     <figure>
                         <img src="images/reflow-design.png"
                             alt="Un exemple de contenu avec des bordures agrandies et des barres de défilement. Description détaillée fournie ci-dessous.">
@@ -171,7 +224,7 @@
                     <summary>La langue principale de la page est définie à l’aide de l’attribut <code>lang</code>
                         et d’un code de langue (par exemple <code>&lt;html lang="en"&gt;</code>
                         ou <code>&lt;html lang="fr"&gt;</code>).</summary>
-                    <p>Vérifiez le code pour confirmer que la valeur de l’attribut <code>lang</code> de l’élément est
+                    <p>Repérer des passages ou des phrases rédigés dans une langue différente de la langue principale de la page. Ensuite, vérifiez le code pour confirmer que la valeur de l’attribut <code>lang</code> de l’élément est
                         valide pour la langue dans laquelle le contenu est rédigé.</p>
                     <figure>
                         <img src="images/lang-attribute-page.png"
@@ -190,7 +243,7 @@
                     <summary>Tous les éléments textuels et non textuels présentent un contraste suffisant entre les
                         couleurs d’avant-plan et d’arrière-plan. </summary>
                     <p>Utiliser l’outil d’analyse du contraste des couleurs ou un <a
-                            href="https://webaim.org/resources/contrastchecker/">vérificateur de contraste en ligne</a>
+                            href="https://webaim.org/resources/contrastchecker/">vérificateur de contraste en ligne (anglais seulement)</a>
                     </p>
                     <ul>
                         <li>Le texte et les images de texte doivent présenter un rapport de contraste d’au moins 4,5:1
@@ -417,9 +470,10 @@
                         boutons radio, les menus déroulants, etc.) ont des étiquettes descriptives et pertinentes.
                     </summary>
                     <p>Utiliser un vérificateur d’accessibilité automatisé comme <a
-                            href="https://accessibilityinsights.io/downloads">Accessibility Insights</a> ou utiliser <a
+                            href="https://accessibilityinsights.io/downloads">Accessibility Insights for Web - Fast Pass (anglais
+                            seulement)</a> ou utiliser <a
                             href="https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd">axe
-                            DevTools</a> dans Chrome ou Firefox. Lancer une analyse de la page pour détecter
+                            DevTools (anglais seulement)</a> dans Chrome ou Firefox. Lancer une analyse de la page pour détecter
                         automatiquement les éventuelles erreurs.</p>
                     <figure>
                         <img src="images/form-labels-fr.jpg"
