@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-    <title>Alt Text – Module 2 - Page structure and semantics</title>
+    <title>Alt Text: Creating Accessible Images</title>
     <meta content="width=device-width,initial-scale=1" name="viewport" />
     <!-- Meta data -->
     <meta
@@ -73,13 +73,16 @@
         <div id="def-search"></div>
         <script src="../../../scripts/appSearch.js"></script>
         <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
-          <h1 property="name" id="wb-cont">Alt Text</h1>
+          <h1 property="name" id="wb-cont">Alt Text: Creating Accessible Images</h1>
 
           <nav aria-labelledby="nav-table" class="mrgn-tp-md">
             <h2 id="nav-table" class="wb-inv">Table of contents</h2>
             <details class="mrgn-bttm-lg on" open="open">
               <summary class="bg-info">Table of contents</summary>
               <ul>
+                <li>
+                  <a href="#introduction-alt">Introduction to alt text</a>
+                </li>
                 <li>
                   <a href="#why-alt-text">Why alt text matters</a>
                 </li>
@@ -90,7 +93,19 @@
                   <a href="#decorative-images">Decorative images</a>
                 </li>
                 <li>
+                  <a href="#functional-images">Functional images</a>
+                </li>
+                <li>
                   <a href="#complex-images">Complex images and graphics</a>
+                </li>
+                <li>
+                  <a href="#best-practices-alt">Best practices summary</a>
+                </li>
+                <li>
+                  <a href="#common-mistakes">Common mistakes to avoid</a>
+                </li>
+                <li>
+                  <a href="#testing-alt">Testing your alt text</a>
                 </li>
                 <li>
                   <a href="#resources-alt">Related WCAG resources</a>
@@ -118,6 +133,19 @@
           >
             Collapse all<span class="wb-inv"> details</span>
           </button>
+
+          <section>
+            <h2 id="introduction-alt">Introduction to alt text</h2>
+            <p>
+              Alternative text, commonly referred to as "alt text," is one of the most fundamental aspects of web accessibility. It serves as a bridge between visual content and users who cannot see images, whether due to visual impairments, assistive technology use, slow internet connections, or browser settings that disable images. Alt text transforms visual information into text that can be read aloud by screen readers, displayed as text when images fail to load, and understood by search engines for better content indexing.
+            </p>
+            <p>
+              The concept of alt text emerged from the recognition that the web should be universally accessible. When Tim Berners-Lee created the World Wide Web, he envisioned a platform where information would be available to everyone, regardless of their abilities or the technology they used. Alt text embodies this principle by ensuring that visual content doesn't create barriers to information access.
+            </p>
+            <p>
+              In the context of document accessibility, alt text plays a crucial role in making documents inclusive and compliant with accessibility standards. Whether you're creating web pages, PDFs, Word documents, or presentations, implementing proper alt text is essential for reaching all users and meeting legal accessibility requirements such as the AODA (Accessibility for Ontarians with Disabilities Act) and WCAG (Web Content Accessibility Guidelines).
+            </p>
+          </section>
 
           <section>
             <h2 id="why-alt-text">Why alt text matters</h2>
@@ -224,6 +252,121 @@
               class="mrgn-tp-0"
             ><code class="language-html">&lt;img src="bar-chart.png" alt="Bar chart showing sales growth from 2021 to 2023" aria-describedby="chart-description"&gt;
 &lt;p id="chart-description"&gt;Sales increased steadily from 2021 ($1M) to 2023 ($2.5M), with the highest growth in Q2 2023.&lt;/p&gt;</code></pre>
+          </section>
+
+          <section>
+            <h2 id="functional-images">Functional images</h2>
+            <p>
+              Functional images serve a specific purpose beyond decoration, such as buttons, links, icons, or interactive elements. These images require alt text that describes their function rather than their appearance. The alt text should clearly indicate what will happen when the user interacts with the image.
+            </p>
+            <h3>Icons and buttons</h3>
+            <p>
+              For icon-based buttons, focus on the action rather than the visual appearance. For example, a magnifying glass icon used for search should have alt text like "Search" rather than "magnifying glass icon."
+            </p>
+            <div class="panel panel-primary mrgn-tp-md">
+              <div class="panel-body well mrgn-bttm-0">
+                <button><img src="../../../images/search-icon.png" alt="Search" /> Find products</button>
+              </div>
+            </div>
+            <p class="lang-label small">HTML</p>
+            <pre class="mrgn-tp-0"><code class="language-html">&lt;button&gt;&lt;img src="search-icon.png" alt="Search"&gt; Find products&lt;/button&gt;</code></pre>
+            
+            <h3>Linked images</h3>
+            <p>
+              When images are used as links, the alt text should describe the link's destination or purpose. If the image is accompanied by text that already describes the link, you may use empty alt text to avoid repetition.
+            </p>
+            <div class="panel panel-primary mrgn-tp-md">
+              <div class="panel-body well mrgn-bttm-0">
+                <a href="accessibility-guide.pdf"><img src="../../../images/pdf-icon.png" alt="Download accessibility guide PDF" /></a>
+              </div>
+            </div>
+            <p class="lang-label small">HTML</p>
+            <pre class="mrgn-tp-0"><code class="language-html">&lt;a href="accessibility-guide.pdf"&gt;&lt;img src="pdf-icon.png" alt="Download accessibility guide PDF"&gt;&lt;/a&gt;</code></pre>
+          </section>
+
+          <section>
+            <h2 id="best-practices-alt">Best practices summary</h2>
+            <p>
+              Implementing effective alt text requires following established best practices that ensure consistency, clarity, and usefulness across all your content. These guidelines help create a reliable and accessible user experience.
+            </p>
+            <h3>Length and brevity</h3>
+            <ul>
+              <li>Keep alt text concise, typically under 125 characters</li>
+              <li>Screen readers may truncate longer descriptions</li>
+              <li>For complex images requiring longer descriptions, use the image caption or link to a detailed description</li>
+            </ul>
+            <h3>Content focus</h3>
+            <ul>
+              <li>Describe the image's purpose and meaning, not just its appearance</li>
+              <li>Include relevant context that relates to the surrounding content</li>
+              <li>Avoid redundancy with nearby text or captions</li>
+              <li>Use specific, descriptive language rather than generic terms</li>
+            </ul>
+            <h3>Technical considerations</h3>
+            <ul>
+              <li>Always include the alt attribute, even if it's empty (alt="")</li>
+              <li>Don't use phrases like "image of" or "picture of" - screen readers already identify images</li>
+              <li>For mathematical expressions or formulas, provide the mathematical meaning rather than a visual description</li>
+              <li>Consider cultural context and avoid assumptions about users' background knowledge</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 id="common-mistakes">Common mistakes to avoid</h2>
+            <p>
+              Understanding common alt text mistakes helps prevent accessibility barriers and ensures your content serves all users effectively. Many of these mistakes stem from misunderstanding the purpose of alt text or rushing through the content creation process.
+            </p>
+            <h3>Overly generic descriptions</h3>
+            <p>
+              Avoid vague descriptions like "image," "photo," or "graphic." These provide no useful information to users. Instead, focus on what makes the image meaningful in context.
+            </p>
+            <div class="panel panel-danger mrgn-tp-md">
+              <div class="panel-body well mrgn-bttm-0">
+                <p><strong>Poor example:</strong> <code>alt="image"</code></p>
+                <p><strong>Better example:</strong> <code>alt="Team celebrating project completion in office conference room"</code></p>
+              </div>
+            </div>
+            
+            <h3>Missing alt text entirely</h3>
+            <p>
+              Forgetting to include alt attributes creates significant barriers for screen reader users. Always include the alt attribute, using empty alt text (alt="") only for truly decorative images.
+            </p>
+            
+            <h3>Repeating nearby text</h3>
+            <p>
+              If an image is immediately followed by a caption that describes it completely, use empty alt text to avoid redundant information for screen reader users.
+            </p>
+            
+            <h3>Describing irrelevant details</h3>
+            <p>
+              Focus on information that serves the user's needs. Describing clothing colors, background details, or other irrelevant visual elements can distract from the image's purpose.
+            </p>
+          </section>
+
+          <section>
+            <h2 id="testing-alt">Testing your alt text</h2>
+            <p>
+              Regular testing ensures your alt text effectively serves its intended purpose. Multiple testing methods provide different perspectives on alt text quality and effectiveness.
+            </p>
+            <h3>Screen reader testing</h3>
+            <p>
+              The most authentic way to test alt text is with actual screen reader software. Popular options include NVDA (free), JAWS, and VoiceOver (built into Mac and iOS). Listen to how your alt text sounds when read aloud and consider whether it provides sufficient context.
+            </p>
+            <h3>Browser-based testing</h3>
+            <p>
+              Disable images in your browser to see how alt text appears visually. This helps identify missing or inadequate descriptions. Most browsers allow you to disable images through accessibility or content settings.
+            </p>
+            <h3>User feedback</h3>
+            <p>
+              Involve users with disabilities in your testing process when possible. Their insights provide valuable perspective on alt text effectiveness and identify improvements that automated testing might miss.
+            </p>
+            <h3>Automated validation</h3>
+            <p>
+              Use accessibility testing tools like axe, WAVE, or Lighthouse to identify missing alt attributes. While these tools can't evaluate alt text quality, they ensure you haven't forgotten to include alt attributes.
+            </p>
+            <p>
+              Remember that effective alt text writing improves with practice. Regular review and testing help develop skills for creating meaningful, accessible image descriptions that serve all users effectively.
+            </p>
           </section>
 
           <section>
