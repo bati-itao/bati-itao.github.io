@@ -2,13 +2,13 @@
 <html class="no-js" lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-    <title>Language: Creating Accessible Language Declaration</title>
+    <!-- Web Experience Toolkit (WET) / BOEW -->
+    <title>Language: Set the Document Language</title>
     <meta content="width=device-width,initial-scale=1" name="viewport" />
     <!-- Meta data -->
     <meta
       name="description"
-      content="Accessibility guidelines for language declaration and language changes. Learn how to properly identify document language and language changes for screen readers and other assistive technologies."
+      content="How to set the document language and mark passages with different languages for accurate screen reader pronunciation."
     />
     <!-- Meta data-->
     <!-- Load closure template scripts -->
@@ -19,9 +19,7 @@
     <script src="../../../scripts/refTop.min.js"></script>
     <link rel="stylesheet" href="../../../css/a11y-dark.css" />
     <script src="../../../scripts/highlight.min.js"></script>
-    <script>
-      hljs.highlightAll();
-    </script>
+    <script>hljs.highlightAll();</script>
     <link rel="stylesheet" href="../../../css/esdc-course.css" />
   </head>
 
@@ -31,600 +29,165 @@
     <script>
       var defTop = document.getElementById("def-top");
       defTop.outerHTML = wet.builder.appTop({
-        appName: [
-          {
-            text: "ESDC / IT Accessibility office",
-            href: "../../../index.html",
-          },
-        ],
+        appName: [{ text: "ESDC / IT Accessibility office", href: "../../../index.html" }],
         breadcrumbs: [
-          {
-            title: "Home",
-            href: "../../../index.html",
-          },
-          {
-            title: "Learning",
-            href: "../../index.html",
-          },
-          {
-            title: "Document accessibility course",
-            href: "../index.html",
-          },
-          {
-            title: "Module 2 – Global Accessibility Techniques",
-
-            href: "index.html",
-          },
-          {
-            title: "Language",
-          },
+          { title: "Home", href: "../../../index.html" },
+          { title: "Learning", href: "../../index.html" },
+          { title: "Document accessibility course", href: "../index.html" },
+          { title: "Module 2 – Global Accessibility Techniques", href: "index.html" },
+          { title: "Language" }
         ],
-        lngLinks: [
-          {
-            lang: "fr",
-            href: "language-fr.html",
-            text: "Français",
-          },
-        ],
+        lngLinks: [{ lang: "fr", href: "language-fr.html", text: "Français" }],
         menuPath: "../../../ajax/menu-en.html",
       });
     </script>
+
     <div class="container">
       <div class="row">
         <div id="def-search"></div>
         <script src="../../../scripts/appSearch.js"></script>
+
         <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
-          <h1 property="name" id="wb-cont">Language: Creating Accessible Language Declaration</h1>
+          <h1 property="name" id="wb-cont">Language: Set the document language</h1>
+
           <nav aria-labelledby="nav-table" class="mrgn-tp-md">
             <h2 id="nav-table" class="wb-inv">Table of contents</h2>
             <details class="mrgn-bttm-lg on" open="open">
               <summary class="bg-info">Table of contents</summary>
               <ul>
-                <li>
-                  <a href="#introduction-language">Introduction to language accessibility</a>
-                </li>
-                <li>
-                  <a href="#page-language">Page language declaration</a>
-                </li>
-                <li>
-                  <a href="#language-changes">Language changes within content</a>
-                </li>
-                <li>
-                  <a href="#lang-attribute">Using the lang attribute</a>
-                </li>
-                <li>
-                  <a href="#language-codes">Language codes and subtags</a>
-                </li>
-                <li>
-                  <a href="#screen-reader-impact">Screen reader pronunciation</a>
-                </li>
-                <li>
-                  <a href="#multilingual-content">Multilingual content strategies</a>
-                </li>
-                <li>
-                  <a href="#best-practices-language">Best practices summary</a>
-                </li>
-                <li>
-                  <a href="#testing-language">Testing language declaration</a>
-                </li>
-                <li>
-                  <a href="#resources-language">Related WCAG resources</a>
-                </li>
+                <li><a href="#why">Why language settings matter</a></li>
+                <li><a href="#set-doc">Set the document language</a></li>
+                <li><a href="#passages">Mark passages in other languages</a></li>
+                <li><a href="#check">Check your work</a></li>
               </ul>
             </details>
           </nav>
 
-          <button
-            type="button"
-            class="btn btn-default wb-toggle wb-init wb-toggle-inited"
-            data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}"
-            aria-controls="details-1"
-            id="expandAllButton"
-          >
+          <button type="button" class="btn btn-default wb-toggle"
+            data-toggle='{"selector": ".grouped", "group": ".grouped", "type": "on"}'
+            aria-controls="details-1" id="expandAllButton">
             Expand all details
           </button>
-          <button
-            type="button"
-            class="btn btn-default wb-toggle wb-init wb-toggle-inited"
-            aria-controls="details-1 "
-            data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}"
-            id="collapseAllButton"
-            disabled="disabled"
-          >
+          <button type="button" class="btn btn-default wb-toggle"
+            aria-controls="details-1"
+            data-toggle='{"group": ".grouped", "type": "off"}'
+            id="collapseAllButton" disabled="disabled">
             Collapse all<span class="wb-inv"> details</span>
           </button>
-          <section>
-            <h2 id="introduction-language">Introduction to language accessibility</h2>
-            <p>
-              Language declaration is a fundamental aspect of web accessibility that enables assistive technologies to provide appropriate pronunciation, voice selection, and linguistic processing for content. When documents don't properly declare their language, screen readers and other assistive technologies may use incorrect pronunciation rules, leading to confusion and poor user experience. Language accessibility ensures that content is not only readable but also audibly comprehensible for users who rely on text-to-speech technologies.
-            </p>
-            <p>
-              The importance of language declaration extends beyond basic pronunciation. Modern assistive technologies use language information to apply appropriate grammar rules, select culturally appropriate voices, and provide context-sensitive navigation options. For users who speak multiple languages or rely on translation services, proper language markup helps ensure accurate interpretation and processing of content.
-            </p>
-            <p>
-              Language accessibility requirements encompass both document-level language declaration and inline language changes within content. Understanding when and how to implement each type of language markup is essential for creating truly accessible documents that serve diverse, multilingual audiences effectively.
-            </p>
-          </section>
 
           <section>
-            <h2 id="page-language">Page language declaration</h2>
-            <p>
-              Every HTML document should declare its primary language using the lang attribute on the html element. This declaration informs assistive technologies about the document's primary language, enabling appropriate pronunciation and processing rules from the beginning of the document.
-            </p>
-            <h3>HTML lang attribute implementation</h3>
-            <p>
-              The lang attribute uses standardized language codes to identify languages. For most documents, a simple two-letter language code is sufficient:
-            </p>
-            <div class="panel panel-primary mrgn-tp-md">
-              <div class="panel-body well mrgn-bttm-0">
-                <p><strong>English document:</strong></p>
-                <code>&lt;html lang="en"&gt;</code>
-              </div>
-            </div>
-            <div class="panel panel-primary mrgn-tp-md">
-              <div class="panel-body well mrgn-bttm-0">
-                <p><strong>French document:</strong></p>
-                <code>&lt;html lang="fr"&gt;</code>
-              </div>
-            </div>
-            <div class="panel panel-primary mrgn-tp-md">
-              <div class="panel-body well mrgn-bttm-0">
-                <p><strong>Spanish document:</strong></p>
-                <code>&lt;html lang="es"&gt;</code>
-              </div>
-            </div>
-            
-            <h3>Regional variations</h3>
-            <p>
-              When regional pronunciation or linguistic differences are significant, you can specify regional subtags to provide more precise language information:
-            </p>
-            <div class="panel panel-primary mrgn-tp-md">
-              <div class="panel-body well mrgn-bttm-0">
-                <p><strong>Canadian English:</strong> <code>&lt;html lang="en-CA"&gt;</code></p>
-                <p><strong>Canadian French:</strong> <code>&lt;html lang="fr-CA"&gt;</code></p>
-                <p><strong>Mexican Spanish:</strong> <code>&lt;html lang="es-MX"&gt;</code></p>
-              </div>
-            </div>
-            
-            <h3>Impact on assistive technologies</h3>
-            <p>
-              Screen readers use page language declaration to select appropriate pronunciation rules, voice characteristics, and speech patterns. Without proper language declaration, content may be read with incorrect pronunciation, making it difficult or impossible for users to understand. Additionally, some screen readers allow users to configure different voice settings for different languages, which requires accurate language markup to function properly.
-            </p>
-          </section>
-
-          <section>
-            <h2 id="language-changes">Language changes within content</h2>
-            <p>
-              When content includes words, phrases, or passages in languages different from the document's primary language, these changes should be marked up to ensure proper pronunciation and processing by assistive technologies.
-            </p>
-            <h3>Inline language changes</h3>
-            <p>
-              Use the lang attribute on any HTML element to indicate language changes within content. This helps screen readers switch to appropriate pronunciation rules for foreign words or phrases:
-            </p>
-            <div class="panel panel-primary mrgn-tp-md">
-              <div class="panel-body well mrgn-bttm-0">
-                <p>The French phrase <span lang="fr">"bonjour"</span> means "hello" in English.</p>
-              </div>
-            </div>
-            <p class="lang-label small">HTML</p>
-            <pre class="mrgn-tp-0"><code class="language-html">&lt;p&gt;The French phrase &lt;span lang="fr"&gt;"bonjour"&lt;/span&gt; means "hello" in English.&lt;/p&gt;</code></pre>
-            
-            <h3>Block-level language changes</h3>
-            <p>
-              For larger sections of content in different languages, apply the lang attribute to block-level elements like paragraphs, divs, or sections:
-            </p>
-            <div class="panel panel-primary mrgn-tp-md">
-              <div class="panel-body well mrgn-bttm-0">
-                <p>Welcome to our website. We also provide information in French:</p>
-                <blockquote lang="fr">
-                  <p>Bienvenue sur notre site web. Nous fournissons des services d'accessibilité pour tous nos utilisateurs.</p>
-                </blockquote>
-              </div>
-            </div>
-            <p class="lang-label small">HTML</p>
-            <pre class="mrgn-tp-0"><code class="language-html">&lt;p&gt;Welcome to our website. We also provide information in French:&lt;/p&gt;
-&lt;blockquote lang="fr"&gt;
-  &lt;p&gt;Bienvenue sur notre site web...&lt;/p&gt;
-&lt;/blockquote&gt;</code></pre>
-          </section>
-
-          <section>
-            <h2 id="lang-attribute">Using the lang attribute</h2>
-            <p>
-              The lang attribute is the primary mechanism for declaring language in HTML documents. Understanding its proper implementation and inheritance behavior is crucial for effective language accessibility.
-            </p>
-            <h3>Attribute inheritance</h3>
-            <p>
-              The lang attribute value is inherited by all child elements unless explicitly overridden. This means that setting lang="en" on the html element makes all content within the document default to English, unless a descendant element specifies a different language.
-            </p>
-            <h3>When to use language markup</h3>
-            <p>
-              Not every foreign word requires language markup. Consider marking up language changes when:
-            </p>
+            <h2 id="why">Why language settings matter</h2>
             <ul>
-              <li>The foreign content is more than a single common word</li>
-              <li>Pronunciation significantly differs from the primary language</li>
-              <li>The foreign content is essential for understanding</li>
-              <li>Screen reader mispronunciation would cause confusion</li>
-            </ul>
-            
-            <h3>Common words and proper nouns</h3>
-            <p>
-              Very common foreign words that have been adopted into the primary language typically don't need language markup. Similarly, proper nouns like place names or personal names usually don't require special language declaration unless pronunciation is critical to understanding.
-            </p>
-            <div class="panel panel-info mrgn-tp-md">
-              <div class="panel-body well mrgn-bttm-0">
-                <p><strong>Usually don't need markup:</strong> café, résumé, Toronto, McDonald's</p>
-                <p><strong>Usually need markup:</strong> longer phrases, technical terms, culturally specific expressions</p>
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <h2 id="language-codes">Language codes and subtags</h2>
-            <p>
-              Language codes follow the IETF BCP 47 standard, which provides a standardized way to identify languages and their variations. Understanding this system helps ensure accurate and consistent language declaration across your content.
-            </p>
-            <h3>Primary language subtags</h3>
-            <p>
-              The most common language codes use ISO 639-1 two-letter codes:
-            </p>
-            <ul>
-              <li><strong>en</strong> - English</li>
-              <li><strong>fr</strong> - French</li>
-              <li><strong>es</strong> - Spanish</li>
-              <li><strong>de</strong> - German</li>
-              <li><strong>it</strong> - Italian</li>
-              <li><strong>pt</strong> - Portuguese</li>
-              <li><strong>zh</strong> - Chinese</li>
-              <li><strong>ja</strong> - Japanese</li>
-              <li><strong>ar</strong> - Arabic</li>
-            </ul>
-            
-            <h3>Regional subtags</h3>
-            <p>
-              Regional subtags use ISO 3166-1 country codes to specify regional variations:
-            </p>
-            <ul>
-              <li><strong>en-US</strong> - English (United States)</li>
-              <li><strong>en-GB</strong> - English (United Kingdom)</li>
-              <li><strong>en-CA</strong> - English (Canada)</li>
-              <li><strong>fr-FR</strong> - French (France)</li>
-              <li><strong>fr-CA</strong> - French (Canada)</li>
-              <li><strong>es-ES</strong> - Spanish (Spain)</li>
-              <li><strong>es-MX</strong> - Spanish (Mexico)</li>
-            </ul>
-            
-            <h3>Script subtags</h3>
-            <p>
-              For languages that can be written in multiple scripts, script subtags provide additional specificity:
-            </p>
-            <ul>
-              <li><strong>zh-Hans</strong> - Chinese (Simplified script)</li>
-              <li><strong>zh-Hant</strong> - Chinese (Traditional script)</li>
-              <li><strong>sr-Latn</strong> - Serbian (Latin script)</li>
-              <li><strong>sr-Cyrl</strong> - Serbian (Cyrillic script)</li>
+              <li>Screen readers rely on language metadata for pronunciation.</li>
+              <li>Spellcheck and hyphenation use the language setting.</li>
+              <li>Search, translation, and voice assistants improve with correct language.</li>
             </ul>
           </section>
 
           <section>
-            <h2 id="screen-reader-impact">Screen reader pronunciation</h2>
-            <p>
-              Understanding how screen readers process language information helps inform decisions about when and how to implement language markup for optimal user experience.
-            </p>
-            <h3>Voice selection and characteristics</h3>
-            <p>
-              Many screen readers allow users to configure different voices for different languages. When content is properly marked with language codes, screen readers can automatically switch between these configured voices, providing more natural and understandable pronunciation for multilingual content.
-            </p>
-            <h3>Pronunciation rules and phonetics</h3>
-            <p>
-              Screen readers apply language-specific pronunciation rules based on language markup. These rules affect how letters, letter combinations, and words are pronounced. For example, the letter "j" is pronounced very differently in English, Spanish, and German, and proper language markup ensures the correct pronunciation is used.
-            </p>
-            <h3>Handling language transitions</h3>
-            <p>
-              Screen readers handle language transitions differently depending on their configuration and capabilities. Some provide audio cues when switching between languages, while others switch seamlessly. Understanding this variability helps in making informed decisions about language markup granularity.
-            </p>
-            <h3>Performance considerations</h3>
-            <p>
-              Excessive language markup can create a choppy listening experience if overused. Balance accessibility needs with user experience by marking up language changes that genuinely improve comprehension while avoiding unnecessary markup for minor variations or very short phrases.
-            </p>
-          </section>
-
-          <section>
-            <h2 id="multilingual-content">Multilingual content strategies</h2>
-            <p>
-              Creating accessible multilingual content requires thoughtful planning and consistent implementation of language markup throughout the content development process.
-            </p>
-            <h3>Content organization</h3>
-            <p>
-              Organize multilingual content in ways that support clear language declaration:
-            </p>
+            <h2 id="set-doc">Set the document language</h2>
             <ul>
-              <li><strong>Separate pages:</strong> Maintain separate pages for each language with appropriate lang attributes</li>
-              <li><strong>Clear sections:</strong> When mixing languages on one page, organize content into clear, well-marked sections</li>
-              <li><strong>Navigation clarity:</strong> Provide clear navigation between language versions</li>
-            </ul>
-            
-            <h3>Language switching interfaces</h3>
-            <p>
-              Design language switching interfaces that are accessible and clearly labeled:
-            </p>
-            <div class="panel panel-primary mrgn-tp-md">
-              <div class="panel-body well mrgn-bttm-0">
-                <p>Language selection:</p>
-                <ul>
-                  <li><a href="page-en.html" lang="en">English</a></li>
-                  <li><a href="page-fr.html" lang="fr">Français</a></li>
-                  <li><a href="page-es.html" lang="es">Español</a></li>
-                </ul>
-              </div>
-            </div>
-            <p class="lang-label small">HTML</p>
-            <pre class="mrgn-tp-0"><code class="language-html">&lt;ul&gt;
-  &lt;li&gt;&lt;a href="page-en.html" lang="en"&gt;English&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="page-fr.html" lang="fr"&gt;Français&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="page-es.html" lang="es"&gt;Español&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
-            
-            <h3>Translation workflow considerations</h3>
-            <p>
-              Establish workflows that ensure language markup is preserved and properly updated during translation processes. Train translators and content managers about the importance of maintaining language attributes when updating multilingual content.
-            </p>
-          </section>
-
-          <section>
-            <h2 id="best-practices-language">Best practices summary</h2>
-            <p>
-              Implementing accessible language declaration requires attention to both technical accuracy and user experience considerations.
-            </p>
-            <h3>Essential requirements</h3>
-            <ul>
-              <li>Always declare the primary page language using lang attribute on html element</li>
-              <li>Mark up significant language changes within content using lang attributes</li>
-              <li>Use accurate, standardized language codes following BCP 47 specifications</li>
-              <li>Test language markup with actual screen reader software when possible</li>
-            </ul>
-            
-            <h3>Content guidelines</h3>
-            <ul>
-              <li>Mark up language changes for phrases longer than single common words</li>
-              <li>Consider the pronunciation impact when deciding whether to mark up foreign terms</li>
-              <li>Avoid excessive markup that could create choppy screen reader experience</li>
-              <li>Maintain consistency in language markup patterns across similar content</li>
-            </ul>
-            
-            <h3>Technical implementation</h3>
-            <ul>
-              <li>Ensure language attributes are inherited properly through document structure</li>
-              <li>Use regional subtags only when pronunciation differences are significant</li>
-              <li>Validate language codes using BCP 47 standards</li>
-              <li>Consider content management system capabilities for maintaining language markup</li>
+              <li><strong>HTML:</strong> Set the <code>lang</code> attribute on <code>&lt;html&gt;</code>.
+                <pre><code>&lt;html lang="en"&gt;...&lt;/html&gt;</code></pre>
+              </li>
+              <li><strong>Word/PowerPoint:</strong> Review or Set Proofing Language for the whole document.</li>
+              <li><strong>Google Docs:</strong> File → Language → choose the document language.</li>
+              <li><strong>PDF (from source):</strong> Ensure the source document’s language is set before export.</li>
             </ul>
           </section>
 
           <section>
-            <h2 id="testing-language">Testing language declaration</h2>
-            <p>
-              Validating language accessibility requires both automated checking and human evaluation with assistive technologies.
-            </p>
-            <h3>Screen reader testing</h3>
-            <p>
-              Test language pronunciation with multiple screen readers when possible. Listen for appropriate voice changes, correct pronunciation, and smooth transitions between languages. Popular screen readers for testing include NVDA (free), JAWS, and VoiceOver.
-            </p>
-            
-            <h3>Automated validation</h3>
-            <p>
-              Use accessibility testing tools to identify missing or invalid language declarations:
-            </p>
+            <h2 id="passages">Mark passages in other languages</h2>
             <ul>
-              <li>HTML validators check for proper lang attribute syntax</li>
-              <li>Accessibility checkers identify missing page language declarations</li>
-              <li>BCP 47 validators confirm language code accuracy</li>
+              <li><strong>HTML:</strong> Wrap spans with <code>lang</code>.
+                <pre><code>&lt;p&gt;We said &lt;span lang="fr"&gt;bonjour&lt;/span&gt; to our guests.&lt;/p&gt;</code></pre>
+              </li>
+              <li><strong>Word/Google Docs:</strong> Select the phrase → set language for that selection.</li>
+              <li><strong>PowerPoint:</strong> Set language per text box or selection.</li>
             </ul>
-            
-            <h3>User testing</h3>
-            <p>
-              Include users who rely on screen readers in testing processes, particularly users who are familiar with multiple languages. Their feedback provides valuable insights into the practical effectiveness of language markup implementation.
-            </p>
-            
-            <h3>Content auditing</h3>
-            <p>
-              Regularly audit content for:
-            </p>
-            <ul>
-              <li>Consistent application of language markup across similar content types</li>
-              <li>Appropriate granularity of language change markup</li>
-              <li>Accuracy of language codes and regional subtags</li>
-              <li>Maintenance of language markup through content updates and revisions</li>
-            </ul>
-            <p>
-              Effective language accessibility requires ongoing attention and refinement based on user feedback, technology changes, and evolving content needs.
-            </p>
+            <p>Do not mark brand names or proper nouns as different language unless pronunciation differs substantially.</p>
           </section>
 
           <section>
-            <h2 id="resources-language" class="wb-inv">Related WCAG resources</h2>
+            <h2 id="check">Check your work</h2>
+            <ul>
+              <li>Run your tool’s accessibility checker and verify language settings.</li>
+              <li>Test with a screen reader (e.g., NVDA/VoiceOver) to hear pronunciation on foreign words.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 id="resources-1" class="wb-inv">Related WCAG resources</h2>
             <details id="details-1" class="mrgn-tp-lg grouped on">
               <summary class="bg-info">Related WCAG resources</summary>
               <h3>Success criteria</h3>
               <ul>
-                <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Understanding/language-of-page">3.1.1: Language of Page</a>
-                </li>
-                <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Understanding/language-of-parts">3.1.2: Language of Parts</a>
-                </li>
+                <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/language-of-page">3.1.1: Language of Page</a></li>
+                <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/language-of-parts">3.1.2: Language of Parts</a></li>
               </ul>
               <h3>Techniques</h3>
               <ul>
-                <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H57">H57: Using the language attribute on the html element</a>
-                </li>
-                <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H58">H58: Using language attributes to identify changes in the human language</a>
-                </li>
+                <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H57">H57: Using language attributes on the html element</a></li>
+                <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H58">H58: Using language attributes to identify changes</a></li>
               </ul>
             </details>
-            <hr />
-            <p class="small">
-              The guidance for language accessibility is based on the Web Content Accessibility Guidelines 
-              (<a href="https://www.w3.org/WAI/">WCAG</a>) and international standards for language identification. 
-              Copyright © 2023 W3C® (<a href="https://www.csail.mit.edu/">MIT</a>, 
-              <a href="http://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>).
-            </p>
           </section>
 
           <nav aria-labelledby="nav-pagination">
             <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
             <ul class="pager">
-              <li class="previous">
-                <a rel="prev" href="infoPane.html">Previous - Info Pane</a>
-              </li>
-              <li class="next">
-                <a rel="next" href="accessibleTemplates.html">Next - Accessible Templates</a>
-              </li>
+              <li class="previous"><a rel="prev" href="infoPane.html">Previous - Info Pane</a></li>
+              <li class="next"><a rel="next" href="accessibleTemplates.html">Next - Accessible Templates</a></li>
             </ul>
           </nav>
 
-          <a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"
-            ><span
-              class="glyphicon glyphicon-arrow-up"
-              aria-hidden="true"
-            ></span>
-            Back to top</a
-          >
+          <a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn">
+            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top
+          </a>
           <script src="../../../scripts/esdc-course.js"></script>
         </main>
 
-        <nav
-          id="wb-sec"
-          class="wb-sec col-md-3 col-md-pull-9"
-          typeof="SiteNavigationElement"
-          aria-labelledby="wb-sec-h"
-        >
+        <nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">
           <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
-          <!-- Sidebar menu block for Language page (active on Language) -->
           <section class="list-group menu list-unstyled">
-            <h3 class="wb-navcurr">
-              Module 2 – Global Accessibility Techniques
-            </h3>
+            <h3 class="wb-navcurr">Module 2 – Global Accessibility Techniques</h3>
             <ul class="list-group menu list-unstyled">
-              <li>
-                <a class="list-group-item" href="infoPane.html">Info Pane</a>
-              </li>
-              <li>
-                <a class="list-group-item active" aria-current="page"
-                  >Language</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="accessibleTemplates.html"
-                  >Accessible Templates</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="textAndFonts.html">Text and Fonts</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="altText.html">Alt Text</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="contrast.html">Contrast</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="acronyms.html">Acronyms</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="multimedia.html">Multimedia</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="plainLanguage.html"
-                  >Plain Language</a
-                >
-              </li>
+              <li><a class="list-group-item" href="infoPane.html">Info Pane</a></li>
+              <li><a class="list-group-item active" aria-current="page">Language</a></li>
+              <li><a class="list-group-item" href="accessibleTemplates.html">Accessible Templates</a></li>
+              <li><a class="list-group-item" href="textAndFonts.html">Text and Fonts</a></li>
+              <li><a class="list-group-item" href="altText.html">Alt Text</a></li>
+              <li><a class="list-group-item" href="contrast.html">Contrast</a></li>
+              <li><a class="list-group-item" href="acronyms.html">Acronyms</a></li>
+              <li><a class="list-group-item" href="multimedia.html">Multimedia</a></li>
+              <li><a class="list-group-item" href="plainLanguage.html">Plain Language</a></li>
             </ul>
           </section>
-          <!-- All modules and Appendix sections remain unchanged -->
           <section class="list-group menu list-unstyled">
             <h3 class="wb-navcurr">All modules</h3>
             <ul class="list-group menu list-unstyled">
-              <li>
-                <a
-                  class="list-group-item"
-                  href="../module1/document-accessibility.html"
-                  >Module 1 - Accessibility fundamentals</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item active" href="landmarks.html"
-                  >Module 2 – Global Accessibility Techniques</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../module3/links.html"
-                  >Module 3 – Accessible PowerPoint Techniques</a
-                >
-              </li>
-              <li>
-                <a
-                  class="list-group-item"
-                  href="../module4/tables-concepts.html"
-                  >Module 4 – Accessible Word Techniques</a
-                >
-              </li>
-              <li>
-                <a
-                  class="list-group-item"
-                  href="../module5/text-alternatives.html"
-                  >Module 5 – Accessible Outlook (Email) Techniques</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../module6/forms-concepts.html"
-                  >Module 6 – Introduction to Accessible PDFs</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../module7/introduction.html"
-                  >Module 7 – Exporting Word to PDF</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../module8/introduction.html"
-                  >Module 8 – Exporting PowerPoint to PDF</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../module10/introduction.html"
-                  >Module 10 - Accessible PDFs</a
-                >
-              </li>
+              <li><a class="list-group-item" href="../module1/document-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+              <li><a class="list-group-item active" href="landmarks.html">Module 2 – Global Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module3/links.html">Module 3 – Accessible PowerPoint Techniques</a></li>
+              <li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Accessible Word Techniques</a></li>
+              <li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Accessible Outlook (Email) Techniques</a></li>
+              <li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Introduction to Accessible PDFs</a></li>
+              <li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Exporting Word to PDF</a></li>
+              <li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Exporting PowerPoint to PDF</a></li>
+              <li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Accessible PDFs</a></li>
             </ul>
           </section>
           <section class="list-group menu list-unstyled">
             <h3 class="wb-navcurr">Appendix</h3>
             <ul class="list-group menu list-unstyled">
-              <li>
-                <a class="list-group-item" href="../sitemap/sitemap.html"
-                  >Site map</a
-                >
-              </li>
-              <li>
-                <a
-                  class="list-group-item"
-                  href="../best-practice/all-best-practice.html"
-                  >All best practices</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../wcag/wcag-view.html"
-                  >WCAG view</a
-                >
-              </li>
+              <li><a class="list-group-item" href="../sitemap/sitemap.html">Site map</a></li>
+              <li><a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a></li>
+              <li><a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a></li>
             </ul>
           </section>
         </nav>
       </div>
+
       <div id="def-preFooter2"></div>
       <script src="../../../scripts/preFooter2.min.js"></script>
       <div id="def-preFooter"></div>

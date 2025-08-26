@@ -2,389 +2,174 @@
 <html class="no-js" lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-    <title>Text and Fonts: Creating Accessible Typography</title>
+    <title>Text and Fonts: Readability and Spacing</title>
     <meta content="width=device-width,initial-scale=1" name="viewport" />
-    <!-- Meta data -->
-    <meta
-      name="description"
-      content="Accessibility guidelines related to headings. This helps users identify different sections within the content."
-    />
-    <!-- Meta data-->
-    <!-- Load closure template scripts -->
+    <meta name="description" content="Choose readable fonts, sizes, spacing, and alignment to improve legibility and accessibility." />
     <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
-    <!-- Write closure template -->
     <script src="../../../scripts/refTop.min.js"></script>
     <link rel="stylesheet" href="../../../css/a11y-dark.css" />
     <script src="../../../scripts/highlight.min.js"></script>
-    <script>
-      hljs.highlightAll();
-    </script>
+    <script>hljs.highlightAll();</script>
     <link rel="stylesheet" href="../../../css/esdc-course.css" />
   </head>
-
   <body vocab="https://schema.org/" typeof="WebPage">
     <div id="def-top"></div>
-    <!-- Write closure template -->
     <script>
       var defTop = document.getElementById("def-top");
       defTop.outerHTML = wet.builder.appTop({
-        appName: [
-          {
-            text: "ESDC / IT Accessibility office",
-            href: "../../../index.html",
-          },
-        ],
+        appName: [{ text: "ESDC / IT Accessibility office", href: "../../../index.html" }],
         breadcrumbs: [
-          {
-            title: "Home",
-            href: "../../../index.html",
-          },
-          {
-            title: "Learning",
-            href: "../../index.html",
-          },
-          {
-            title: "Document accessibility course",
-            href: "../index.html",
-          },
-          {
-            title: "Module 2 – Page structure and semantics",
-
-            href: "index.html",
-          },
-          {
-            title: "Headings",
-          },
+          { title: "Home", href: "../../../index.html" },
+          { title: "Learning", href: "../../index.html" },
+          { title: "Document accessibility course", href: "../index.html" },
+          { title: "Module 2 – Global Accessibility Techniques", href: "index.html" },
+          { title: "Text and Fonts" }
         ],
-        lngLinks: [
-          {
-            lang: "fr",
-            href: "headings-fr.html",
-            text: "Français",
-          },
-        ],
+        lngLinks: [{ lang: "fr", href: "textAndFonts-fr.html", text: "Français" }],
         menuPath: "../../../ajax/menu-en.html",
       });
     </script>
+
     <div class="container">
       <div class="row">
         <div id="def-search"></div>
         <script src="../../../scripts/appSearch.js"></script>
+
         <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
-          <h1 property="name" id="wb-cont">Text and Fonts: Creating Accessible Typography</h1>
+          <h1 property="name" id="wb-cont">Text, fonts, and spacing</h1>
+
           <nav aria-labelledby="nav-table" class="mrgn-tp-md">
             <h2 id="nav-table" class="wb-inv">Table of contents</h2>
             <details class="mrgn-bttm-lg on" open="open">
               <summary class="bg-info">Table of contents</summary>
               <ul>
-                <li>
-                  <a href="../module2/headings.html#designing-headings"
-                    >Designing with headings</a
-                  >
-                  <ul>
-                    <li>
-                      <a href="../module2/headings.html#heading-hierarchy"
-                        >Good example: Heading hierarchy</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="../module2/headings.html#resources-2"
-                    >Related WCAG resources</a
-                  >
-                </li>
+                <li><a href="#fonts">Fonts and size</a></li>
+                <li><a href="#spacing">Line spacing and alignment</a></li>
+                <li><a href="#emphasis">Emphasis and color</a></li>
+                <li><a href="#check">Check your work</a></li>
               </ul>
             </details>
           </nav>
 
-          <button
-            type="button"
-            class="btn btn-default wb-toggle wb-init wb-toggle-inited"
-            data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}"
-            aria-controls="details-1"
-            id="expandAllButton"
-          >
+          <button type="button" class="btn btn-default wb-toggle"
+            data-toggle='{"selector": ".grouped", "group": ".grouped", "type": "on"}'
+            aria-controls="details-1" id="expandAllButton">
             Expand all details
           </button>
-          <button
-            type="button"
-            class="btn btn-default wb-toggle wb-init wb-toggle-inited"
-            aria-controls="details-1 "
-            data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}"
-            id="collapseAllButton"
-            disabled="disabled"
-          >
+          <button type="button" class="btn btn-default wb-toggle"
+            aria-controls="details-1"
+            data-toggle='{"group": ".grouped", "type": "off"}'
+            id="collapseAllButton" disabled="disabled">
             Collapse all<span class="wb-inv"> details</span>
           </button>
 
           <section>
-            <h2 id="designing-headings">Designing with headings</h2>
-            <p>
-              Web page headings help users identify different sections within
-              the content. Headings are visually larger and more distinct than
-              the surrounding text and provide an outline of the page structure.
-            </p>
-            <p>
-              Sighted users can skim through the page by reading the headings.
-              Screen reader users can use headings to navigate to different
-              sections quickly. Users with cognitive disabilities can understand
-              the structure and find content more easily. It is important to
-              mark up headings semantically so that everyone benefits.
-            </p>
-            <p>Follow these best practices for headings:</p>
+            <h2 id="fonts">Fonts and size</h2>
             <ul>
-              <li>Provide headings for each page</li>
-              <li>
-                Use heading elements <code>&lt;h1&gt;</code> -
-                <code>&lt;h6&gt;</code> for all headings
-              </li>
-              <li>
-                Don’t use heading elements for text that is not a heading.
-                Instead, use CSS to change font size or styles
-              </li>
-              <li>
-                Ensure headings are meaningful, concise and describe the topic
-                or purpose
-              </li>
-              <li>
-                Ensure headings follow a hierarchical sequence without skipping
-                any levels
-              </li>
-              <li>Provide one h1 heading that describes the page content</li>
+              <li>Use common, readable fonts (e.g., Arial, Helvetica, Calibri, Verdana, Noto, Source Sans).</li>
+              <li>Body text size: at least 12–14 pt in documents; 18–24+ pt for slide content.</li>
+              <li>Avoid decorative fonts in body text; use them sparingly in headings if contrast is strong.</li>
+              <li>Avoid ALL CAPS and excessive italics; they reduce readability.</li>
             </ul>
           </section>
+
           <section>
-            <div class="panel panel-success mrgn-tp-lg">
-              <div class="panel-body">
-                <h2 id="heading-hierarchy" class="text-success mrgn-tp-0 h3">
-                  <span class="glyphicon glyphicon-ok-circle"></span> Good
-                  example: Heading hierarchy
-                </h2>
-                <p>
-                  Example of descriptive headings following a hierarchy without
-                  skipping a level:
-                </p>
-                <p class="lang-label small">HTML</p>
-                <p class="wb-inv" role="separator">Code begins</p>
-                <pre
-                  class="mrgn-tp-0"
-                ><code class="language-html">&lt;h1&gt;Web Accessibility Fundamentals&lt;/h1&gt;
-   &lt;h2&gt;What is Web Accessibility?&lt;/h2&gt;
-   &lt;h2&gt;Types of Disabilities&lt;/h2&gt;
-      &lt;h3&gt;Blind&lt;/h3&gt;
-   &lt;h2&gt;Accessibility Guidelines&lt;h2&gt;
-      &lt;h3&gt;Web Content Accessibility Guidelines&lt;/h3&gt;</code>
-</pre>
-                <p class="wb-inv" role="separator">Code ends</p>
-              </div>
-            </div>
+            <h2 id="spacing">Line spacing and alignment</h2>
+            <ul>
+              <li>Line spacing around 1.2–1.5 improves readability.</li>
+              <li>Use left-aligned text; avoid full justification.</li>
+              <li>Use sufficient paragraph spacing rather than extra blank lines.</li>
+            </ul>
           </section>
+
           <section>
-            <h2 id="resources-2" class="wb-inv">Related WCAG resources</h2>
+            <h2 id="emphasis">Emphasis and color</h2>
+            <ul>
+              <li>Don’t use color alone for meaning; pair with text or icons.</li>
+              <li>Ensure contrast meets WCAG thresholds (see the contrast lesson).</li>
+              <li>Use consistent styles for emphasis.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 id="check">Check your work</h2>
+            <ul>
+              <li>Zoom to 200% to confirm content remains legible.</li>
+              <li>Print preview or export to PDF to check spacing consistency.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 id="resources-1" class="wb-inv">Related WCAG resources</h2>
             <details id="details-1" class="mrgn-tp-lg grouped on">
               <summary class="bg-info">Related WCAG resources</summary>
               <h3>Success criteria</h3>
               <ul>
-                <li>
-                  <a
-                    href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships"
-                    >1.3.1: Info and Relationships</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks"
-                    >2.4.1: Bypass Blocks&nbsp;</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels"
-                    >2.4.6: Headings and Labels</a
-                  >
-                </li>
-              </ul>
-              <h3>Techniques</h3>
-              <ul>
-                <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA12"
-                    >ARIA12: Using role=heading to identify headings</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="https://www.w3.org/WAI/WCAG21/Techniques/general/G130"
-                    >G130: Providing descriptive headings</a
-                  >
-                </li>
-                <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H42"
-                    >H42: Using h1-h6 to identify headings</a
-                  >
-                </li>
-                <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H69"
-                    >H69: Providing heading elements at the beginning of each
-                    section of content</a
-                  >
-                </li>
+                <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum">1.4.3: Contrast (Minimum)</a></li>
+                <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast">1.4.11: Non-text Contrast</a></li>
+                <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/resize-text">1.4.4: Resize Text</a></li>
+                <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/text-spacing">1.4.12: Text Spacing</a></li>
               </ul>
             </details>
           </section>
+
           <nav aria-labelledby="nav-pagination">
             <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
             <ul class="pager">
-              <li class="previous">
-                <a rel="prev" href="landmarks.html">Previous - Landmarks</a>
-              </li>
-              <li class="next">
-                <a rel="next" href="content-structure.html"
-                  >Next - Content structure</a
-                >
-              </li>
+              <li class="previous"><a rel="prev" href="accessibleTemplates.html">Previous - Accessible Templates</a></li>
+              <li class="next"><a rel="next" href="altText.html">Next - Alt Text</a></li>
             </ul>
           </nav>
 
-          <a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"
-            ><span
-              class="glyphicon glyphicon-arrow-up"
-              aria-hidden="true"
-            ></span>
-            Back to top</a
-          >
+          <a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn">
+            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top
+          </a>
           <script src="../../../scripts/esdc-course.js"></script>
         </main>
-        <nav
-          id="wb-sec"
-          class="wb-sec col-md-3 col-md-pull-9"
-          typeof="SiteNavigationElement"
-          aria-labelledby="wb-sec-h">
-          <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
 
-          <!-- Sidebar menu block for Plain Language page (active on Plain Language) -->
+        <nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">
+          <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
           <section class="list-group menu list-unstyled">
-            <h3 class="wb-navcurr">
-              Module 2 – Global Accessibility Techniques
-            </h3>
+            <h3 class="wb-navcurr">Module 2 – Global Accessibility Techniques</h3>
             <ul class="list-group menu list-unstyled">
-              <li>
-                <a class="list-group-item" href="infoPane.html">Info Pane</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="language.html">Language</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="accessibleTemplates.html"
-                  >Accessible Templates</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item active" aria-current="page">Text and Fonts</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="altText.html">Alt Text</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="contrast.html">Contrast</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="acronyms.html">Acronyms</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="multimedia.html">Multimedia</a>
-              </li>
-              <li>
-                <a class="list-group-item active" aria-current="page"
-                  >Plain Language</a
-                >
-              </li>
+              <li><a class="list-group-item" href="infoPane.html">Info Pane</a></li>
+              <li><a class="list-group-item" href="language.html">Language</a></li>
+              <li><a class="list-group-item" href="accessibleTemplates.html">Accessible Templates</a></li>
+              <li><a class="list-group-item active" aria-current="page">Text and Fonts</a></li>
+              <li><a class="list-group-item" href="altText.html">Alt Text</a></li>
+              <li><a class="list-group-item" href="contrast.html">Contrast</a></li>
+              <li><a class="list-group-item" href="acronyms.html">Acronyms</a></li>
+              <li><a class="list-group-item" href="multimedia.html">Multimedia</a></li>
+              <li><a class="list-group-item" href="plainLanguage.html">Plain Language</a></li>
             </ul>
           </section>
-          <!-- All modules and Appendix sections remain unchanged -->
           <section class="list-group menu list-unstyled">
             <h3 class="wb-navcurr">All modules</h3>
             <ul class="list-group menu list-unstyled">
-              <li>
-                <a
-                  class="list-group-item"
-                  href="../module1/document-accessibility.html"
-                  >Module 1 - Accessibility fundamentals</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item active" href="landmarks.html"
-                  >Module 2 – Global Accessibility Techniques</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../module3/links.html"
-                  >Module 3 – Accessible PowerPoint Techniques</a
-                >
-              </li>
-              <li>
-                <a
-                  class="list-group-item"
-                  href="../module4/tables-concepts.html"
-                  >Module 4 – Accessible Word Techniques</a
-                >
-              </li>
-              <li>
-                <a
-                  class="list-group-item"
-                  href="../module5/text-alternatives.html"
-                  >Module 5 – Accessible Outlook (Email) Techniques</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../module6/forms-concepts.html"
-                  >Module 6 – Introduction to Accessible PDFs</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../module7/introduction.html"
-                  >Module 7 – Exporting Word to PDF</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../module8/introduction.html"
-                  >Module 8 – Exporting PowerPoint to PDF</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../module10/introduction.html"
-                  >Module 10 - Accessible PDFs</a
-                >
-              </li>
+              <li><a class="list-group-item" href="../module1/document-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+              <li><a class="list-group-item active" href="landmarks.html">Module 2 – Global Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module3/links.html">Module 3 – Accessible PowerPoint Techniques</a></li>
+              <li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Accessible Word Techniques</a></li>
+              <li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Accessible Outlook (Email) Techniques</a></li>
+              <li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Introduction to Accessible PDFs</a></li>
+              <li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Exporting Word to PDF</a></li>
+              <li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Exporting PowerPoint to PDF</a></li>
+              <li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Accessible PDFs</a></li>
             </ul>
           </section>
           <section class="list-group menu list-unstyled">
             <h3 class="wb-navcurr">Appendix</h3>
             <ul class="list-group menu list-unstyled">
-              <li>
-                <a class="list-group-item" href="../sitemap/sitemap.html"
-                  >Site map</a
-                >
-              </li>
-              <li>
-                <a
-                  class="list-group-item"
-                  href="../best-practice/all-best-practice.html"
-                  >All best practices</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../wcag/wcag-view.html"
-                  >WCAG view</a
-                >
-              </li>
+              <li><a class="list-group-item" href="../sitemap/sitemap.html">Site map</a></li>
+              <li><a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a></li>
+              <li><a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a></li>
             </ul>
           </section>
         </nav>
       </div>
+
       <div id="def-preFooter2"></div>
       <script src="../../../scripts/preFooter2.min.js"></script>
       <div id="def-preFooter"></div>
