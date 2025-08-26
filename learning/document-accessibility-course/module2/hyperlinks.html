@@ -8,7 +8,7 @@
     <!-- Meta data -->
     <meta
       name="description"
-      content="Accessibility guidelines related to iFrames. This enables designers to embed any type of content from another web page."
+      content="Guidance for writing accessible hyperlinks in Microsoft 365 documents and communications. Covers descriptive link text, context, visual distinction, and common pitfalls."
     />
     <!-- Meta data-->
     <!-- Load closure template scripts -->
@@ -47,18 +47,17 @@
             href: "../index.html",
           },
           {
-            title: "Module 2 – Page structure and semantics",
-
+            title: "Module 2 – Global Accessibility Techniques",
             href: "index.html",
           },
           {
-            title: "IFrames",
+            title: "Hyperlinks",
           },
         ],
         lngLinks: [
           {
             lang: "fr",
-            href: "iframes-fr.html",
+            href: "hyperlinks-fr.html",
             text: "Français",
           },
         ],
@@ -76,24 +75,23 @@
             <details class="mrgn-bttm-lg on" open="open">
               <summary class="bg-info">Table of contents</summary>
               <ul>
-                <li>
-                  <a href="../module2/iframes.html#designing-iframes"
-                    >Designing with Iframes</a
-                  >
-                </li>
-                <li>
-                  <a href="../module2/iframes.html#resources-iframes"
-                    >Related WCAG resources</a
-                  >
-                </li>
+                <li><a href="#purpose">Why descriptive links matter</a></li>
+                <li><a href="#write-links">How to write link text</a></li>
+                <li><a href="#context">Provide context around links</a></li>
+                <li><a href="#visual">Visual distinction and placement</a></li>
+                <li><a href="#lists">Link lists, collections, and repeated links</a></li>
+                <li><a href="#files">Linking to files and documents</a></li>
+                <li><a href="#pitfalls">Common pitfalls and fixes</a></li>
+                <li><a href="#testing">Quick checks and testing</a></li>
+                <li><a href="#standards">Standards and resources</a></li>
               </ul>
             </details>
           </nav>
 
           <button
             type="button"
-            class="btn btn-default wb-toggle wb-init wb-toggle-inited"
-            data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}"
+            class="btn btn-default wb-toggle"
+            data-toggle='{"selector": ".grouped", "group": ".grouped", "type": "on"}'
             aria-controls="details-1"
             id="expandAllButton"
           >
@@ -101,9 +99,9 @@
           </button>
           <button
             type="button"
-            class="btn btn-default wb-toggle wb-init wb-toggle-inited"
+            class="btn btn-default wb-toggle"
             aria-controls="details-1 "
-            data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}"
+            data-toggle='{"group": ".grouped", "type": "off"}'
             id="collapseAllButton"
             disabled="disabled"
           >
@@ -111,75 +109,175 @@
           </button>
 
           <section>
-            <h2 id="designing-iframes">Designing with iFrames</h2>
+            <h2 id="purpose">Why descriptive links matter</h2>
             <p>
-              Iframes enable designers to embed any type of content from another
-              web page.
+              Hyperlinks connect readers to actions, supplementary information, and documents. Clear, descriptive links help everyone—especially keyboard and screen reader users—understand where a link goes and whether it’s relevant. In Microsoft 365 documents and emails, accessible links support navigation, scanning, and decision-making without forcing the reader to guess a destination.
             </p>
             <p>
-              If the <code>&lt;iframe&gt;</code> consists of decorative images
-              or JavaScript, hide it from screen readers by setting the
-              <code>aria-hidden="true"</code> attribute on the
-              <code>&lt;iframe&gt;</code> element.
+              CAN/ASC – EN 301 549:2024 requires that information and relationships be programmatically determinable and understandable. In practice, that means link purpose should be clear from the text or its surrounding context, and links should be visually perceivable and operable for all users.
             </p>
-            <p>
-              If the <code>&lt;iframe&gt;</code> contains content intended for
-              the user:
-            </p>
+          </section>
+
+          <section>
+            <h2 id="write-links">How to write link text</h2>
             <ul>
               <li>
-                Give the <code>&lt;iframe&gt;</code> element a descriptive
-                <code>title</code> attribute value.
+                Make the link text describe the destination or action. Example: “Submit travel expense form” or “IT accessibility policy (PDF)”.
               </li>
               <li>
-                Ensure the <code>&lt;iframe&gt;</code>
-                <code>title</code> attribute value is unique across iframes on
-                the page.
+                Avoid non-descriptive phrases such as “click here,” “more,” “read more,” or bare URLs (https://…).
+              </li>
+              <li>
+                Keep link text concise; use nearby text to provide extra context if needed.
+              </li>
+              <li>
+                If linking to a document, include format or key attributes when helpful: “Quarterly results (Excel)” or “Employee handbook (PDF, 1.2 MB)”.
+              </li>
+              <li>
+                When the same page includes multiple links to similar destinations, vary the link text to differentiate purpose (e.g., “Benefits overview” vs. “Benefits enrollment dates”).
               </li>
             </ul>
           </section>
+
           <section>
-            <h2 id="resources-iframes" class="wb-inv">
-              Related WCAG resources
-            </h2>
+            <h2 id="context">Provide context around links</h2>
+            <p>
+              Many readers navigate documents by tabbing between links or by reviewing a list of links read out of context. Make sure the purpose remains clear even when the link text is isolated.
+            </p>
+            <ul>
+              <li>
+                Introduce a link with a short description that explains why the reader should follow it.
+              </li>
+              <li>
+                Avoid making an entire sentence the link; link only the meaningful words.
+              </li>
+              <li>
+                Place links close to the relevant discussion so readers don’t have to search for context.
+              </li>
+              <li>
+                In long documents, provide a short “Related resources” section with descriptive links rather than scattered, repeated links.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 id="visual">Visual distinction and placement</h2>
+            <ul>
+              <li>
+                Ensure links are visually distinguishable from surrounding text using more than color alone (e.g., underline, weight). This supports users with color vision differences and low vision.
+              </li>
+              <li>
+                Maintain sufficient color contrast for link text. As a general target, normal-size text should meet 4.5:1 contrast against the background. If a non-underlined link relies on color alone, ensure both contrast and a clear hover/focus style.
+              </li>
+              <li>
+                Don’t rely on visual location cues (“the link on the right”). Describe the destination or action.
+              </li>
+              <li>
+                Avoid placing different links too close together, which can make selection difficult for some users.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 id="lists">Link lists, collections, and repeated links</h2>
+            <ul>
+              <li>
+                Group related links into short, descriptive lists (e.g., “Policies and forms”) rather than embedding many inline links in paragraphs.
+              </li>
+              <li>
+                If several links go to the same destination, consolidate them or keep one primary link per context. Duplicate ambiguous links increase noise for assistive technology users.
+              </li>
+              <li>
+                When linking to different sections of the same destination (e.g., different SharePoint pages), make each link text unique.
+              </li>
+              <li>
+                Avoid consecutive identical links with different destinations (for example, using “Learn more” multiple times with different targets).
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 id="files">Linking to files and documents</h2>
+            <ul>
+              <li>
+                Use descriptive file names and link text that communicates the document’s purpose. Example: “Project plan – Q4 2025 (Word)”.
+              </li>
+              <li>
+                Include the file type and size when it affects user choice, especially for large documents or formats like PDF.
+              </li>
+              <li>
+                Prefer accessible source formats. If you must link to a PDF, ensure it’s tagged and accessible or provide an accessible alternative.
+              </li>
+              <li>
+                For time-sensitive communications (e.g., emails), link to a single canonical location that will remain valid and up to date.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 id="pitfalls">Common pitfalls and fixes</h2>
+            <ul>
+              <li>
+                Problem: Using “click here.” Fix: Replace with the action or destination, such as “Complete the security training.”
+              </li>
+              <li>
+                Problem: Bare URLs in body text. Fix: Convert to descriptive links. Reserve bare URLs for technical contexts where copying the address is necessary.
+              </li>
+              <li>
+                Problem: Multiple “Read more” links on the same page. Fix: Make each one unique, such as “Read more about leave entitlements.”
+              </li>
+              <li>
+                Problem: Links differentiated by color alone. Fix: Add underline or another non-color cue, and verify contrast.
+              </li>
+              <li>
+                Problem: Linking entire paragraphs. Fix: Link only the specific words that convey the action or destination.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 id="testing">Quick checks and testing</h2>
+            <ul>
+              <li>
+                Read only the link texts in order. Do they make sense without surrounding paragraphs?
+              </li>
+              <li>
+                Tab through links to check logical order and focus visibility.
+              </li>
+              <li>
+                Verify contrast and underline/weight are sufficient to distinguish links.
+              </li>
+              <li>
+                In shared documents or emails, ask a colleague to scan the links and predict destinations before clicking.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 id="standards" class="wb-inv">Standards and resources</h2>
             <details id="details-1" class="mrgn-tp-lg grouped on">
-              <summary class="bg-info">Related WCAG resources</summary>
-              <h3>Success criteria</h3>
+              <summary class="bg-info">Standards and resources</summary>
               <ul>
                 <li>
-                  <a
-                    href="https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks"
-                    >2.4.1: Bypass Blocks</a
-                  >
+                  CAN/ASC – EN 301 549:2024 Accessibility requirements for ICT products and services: 
+                  <a href="https://accessible.canada.ca/creating-accessibility-standards/canasc-en-301-5492024-accessibility-requirements-ict-products-and-services">Official publication</a>
                 </li>
                 <li>
-                  <a
-                    href="https://www.w3.org/WAI/WCAG21/Understanding/name-role-value"
-                    >4.1.2: Name, Role, Value</a
-                  >
-                </li>
-              </ul>
-              <h3>Techniques</h3>
-              <ul>
-                <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H64"
-                    >H64: Using the title attribute of the frame and iframe
-                    elements</a
-                  >
+                  BATI/ITAO Accessible Documents resources:
+                  <a href="https://bati-itao.github.io/resources/accessible-documents-en.html">https://bati-itao.github.io/resources/accessible-documents-en.html</a>
                 </li>
               </ul>
             </details>
           </section>
+
           <nav aria-labelledby="nav-pagination">
             <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
             <ul class="pager">
               <li class="previous">
-                <a rel="prev" href="lists.html">Previous - Lists</a>
+                <a rel="prev" href="contrast.html">Previous - Contrast</a>
               </li>
               <li class="next">
-                <a rel="next" href="parsing-and-validity.html"
-                  >Next - Parsing and validity</a
-                >
+                <a rel="next" href="acronyms.html">Next - Acronyms</a>
               </li>
             </ul>
           </nav>
@@ -230,6 +328,11 @@
                 <a class="list-group-item" href="acronyms.html">Acronyms</a>
               </li>
               <li>
+                <a class="list-group-item active" aria-current="page"
+                  >Hyperlinks</a
+                >
+              </li>
+              <li>
                 <a class="list-group-item" href="multimedia.html">Multimedia</a>
               </li>
               <li>
@@ -239,7 +342,7 @@
               </li>
             </ul>
           </section>
-          <!-- All modules and Appendix sections remain unchanged -->
+
           <section class="list-group menu list-unstyled">
             <h3 class="wb-navcurr">All modules</h3>
             <ul class="list-group menu list-unstyled">
@@ -289,6 +392,7 @@
                   >Module 8 – Exporting PowerPoint to PDF</a
                 >
               </li>
+
               <li>
                 <a class="list-group-item" href="../module10/introduction.html"
                   >Module 10 - Accessible PDFs</a
@@ -298,6 +402,7 @@
           </section>
           <section class="list-group menu list-unstyled">
             <h3 class="wb-navcurr">Appendix</h3>
+
             <ul class="list-group menu list-unstyled">
               <li>
                 <a class="list-group-item" href="../sitemap/sitemap.html"
