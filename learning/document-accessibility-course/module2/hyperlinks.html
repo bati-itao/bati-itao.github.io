@@ -3,19 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-    <title>Hyperlinks: Creating Accessible Link Navigation</title>
+    <title>Hyperlinks: Make links clear and useful</title>
     <meta content="width=device-width,initial-scale=1" name="viewport" />
-    <!-- Meta data -->
-    <meta
-      name="description"
-      content="Guidance for writing accessible hyperlinks in Microsoft 365 documents and communications. Covers descriptive link text, context, visual distinction, and common pitfalls."
-    />
-    <!-- Meta data-->
-    <!-- Load closure template scripts -->
+    <meta name="description" content="Plain-language tips for writing clear, accessible links in Microsoft 365 documents and emails. Keep link text descriptive, short, and easy to understand." />
     <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
-    <!-- Write closure template -->
     <script src="../../../scripts/refTop.min.js"></script>
     <link rel="stylesheet" href="../../../css/a11y-dark.css" />
     <link rel="stylesheet" href="../../../css/esdc-course.css" />
@@ -23,248 +16,95 @@
 
   <body vocab="https://schema.org/" typeof="WebPage">
     <div id="def-top"></div>
-    <!-- Write closure template -->
     <script>
       var defTop = document.getElementById("def-top");
       defTop.outerHTML = wet.builder.appTop({
-        appName: [
-          {
-            text: "ESDC / IT Accessibility office",
-            href: "../../../index.html",
-          },
-        ],
+        appName: [{ text: "ESDC / IT Accessibility office", href: "../../../index.html" }],
         breadcrumbs: [
-          {
-            title: "Home",
-            href: "../../../index.html",
-          },
-          {
-            title: "Learning",
-            href: "../../index.html",
-          },
-          {
-            title: "Document accessibility course",
-            href: "../index.html",
-          },
-          {
-            title: "Module 2 – Global Accessibility Techniques",
-            href: "index.html",
-          },
-          {
-            title: "Hyperlinks",
-          },
+          { title: "Home", href: "../../../index.html" },
+          { title: "Learning", href: "../../index.html" },
+          { title: "Document accessibility course", href: "../index.html" },
+          { title: "Module 2 – Global Accessibility Techniques", href: "index.html" },
+          { title: "Hyperlinks" }
         ],
-        lngLinks: [
-          {
-            lang: "fr",
-            href: "hyperlinks-fr.html",
-            text: "Français",
-          },
-        ],
-        menuPath: "../../../ajax/menu-en.html",
+        lngLinks: [{ lang: "fr", href: "hyperlinks-fr.html", text: "Français" }],
+        menuPath: "../../../ajax/menu-en.html"
       });
     </script>
+
     <div class="container">
       <div class="row">
         <div id="def-search"></div>
         <script src="../../../scripts/appSearch.js"></script>
+
         <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
-          <h1 property="name" id="wb-cont">Hyperlinks: Creating Accessible Link Navigation</h1>
-          <nav aria-labelledby="nav-table" class="mrgn-tp-md">
-            <h2 id="nav-table" class="wb-inv">Table of contents</h2>
-            <details class="mrgn-bttm-lg on" open="open">
-              <summary class="bg-info">Table of contents</summary>
-              <ul>
-                <li><a href="#purpose">Why descriptive links matter</a></li>
-                <li><a href="#write-links">How to write link text</a></li>
-                <li><a href="#context">Provide context around links</a></li>
-                <li><a href="#visual">Visual distinction and placement</a></li>
-                <li><a href="#lists">Link lists, collections, and repeated links</a></li>
-                <li><a href="#files">Linking to files and documents</a></li>
-                <li><a href="#pitfalls">Common pitfalls and fixes</a></li>
-                <li><a href="#testing">Quick checks and testing</a></li>
-                <li><a href="#standards">Standards and resources</a></li>
-              </ul>
-            </details>
-          </nav>
+          <h1 property="name" id="wb-cont">Hyperlinks: Make links clear and useful</h1>
 
-          <button
-            type="button"
-            class="btn btn-default wb-toggle"
-            data-toggle='{"selector": ".grouped", "group": ".grouped", "type": "on"}'
-            aria-controls="details-1"
-            id="expandAllButton"
-          >
-            Expand all details
-          </button>
-          <button
-            type="button"
-            class="btn btn-default wb-toggle"
-            aria-controls="details-1 "
-            data-toggle='{"group": ".grouped", "type": "off"}'
-            id="collapseAllButton"
-            disabled="disabled"
-          >
-            Collapse all<span class="wb-inv"> details</span>
-          </button>
+          <details class="mrgn-bttm-lg">
+            <summary class="bg-info">What you will learn</summary>
+            <p>You will learn how to write link text that is easy to scan and easy to understand. This helps everyone, especially people who use a keyboard or a screen reader.</p>
+          </details>
 
           <section>
-            <h2 id="purpose">Why descriptive links matter</h2>
-            <p>
-              Hyperlinks connect readers to actions, supplementary information, and documents. Clear, descriptive links help everyone—especially keyboard and screen reader users—understand where a link goes and whether it’s relevant. In Microsoft 365 documents and emails, accessible links support navigation, scanning, and decision-making without forcing the reader to guess a destination.
-            </p>
-            <p>
-              CAN/ASC – EN 301 549:2024 requires that information and relationships be programmatically determinable and understandable. In practice, that means link purpose should be clear from the text or its surrounding context, and links should be visually perceivable and operable for all users.
-            </p>
+            <h2>Why clear link text matters</h2>
+            <p>Good links tell people exactly what they will get. Clear link text saves time, reduces confusion, and helps people decide if they should follow the link. It also helps people who scan a list of links without the surrounding paragraph.</p>
           </section>
 
           <section>
-            <h2 id="write-links">How to write link text</h2>
+            <h2>How to write links</h2>
             <ul>
-              <li>
-                Make the link text describe the destination or action. Example: “Submit travel expense form” or “IT accessibility policy (PDF)”.
-              </li>
-              <li>
-                Avoid non-descriptive phrases such as “click here,” “more,” “read more,” or bare URLs (https://…).
-              </li>
-              <li>
-                Keep link text concise; use nearby text to provide extra context if needed.
-              </li>
-              <li>
-                If linking to a document, include format or key attributes when helpful: “Quarterly results (Excel)” or “Employee handbook (PDF, 1.2 MB)”.
-              </li>
-              <li>
-                When the same page includes multiple links to similar destinations, vary the link text to differentiate purpose (e.g., “Benefits overview” vs. “Benefits enrollment dates”).
-              </li>
+              <li>Use short, descriptive text that names the action or the destination. Example: “Apply for travel reimbursement”.</li>
+              <li>Avoid “click here”, “read more”, or pasting long web addresses. These do not explain the purpose.</li>
+              <li>Put the link on the words that matter, not on a whole sentence.</li>
+              <li>If the link opens a file, say so when it helps. Example: “Quarterly results (PDF)”.</li>
+              <li>If you have several similar links, make each one specific. Example: “Benefits overview” and “Benefits dates”.</li>
             </ul>
           </section>
 
           <section>
-            <h2 id="context">Provide context around links</h2>
-            <p>
-              Many readers navigate documents by tabbing between links or by reviewing a list of links read out of context. Make sure the purpose remains clear even when the link text is isolated.
-            </p>
+            <h2>Give helpful context</h2>
+            <p>Place links close to the information they relate to. Add a short line before the link if you need to explain why the link is useful. Avoid writing “the link on the right” or other visual directions.</p>
+          </section>
+
+          <section>
+            <h2>Linking to files</h2>
             <ul>
-              <li>
-                Introduce a link with a short description that explains why the reader should follow it.
-              </li>
-              <li>
-                Avoid making an entire sentence the link; link only the meaningful words.
-              </li>
-              <li>
-                Place links close to the relevant discussion so readers don’t have to search for context.
-              </li>
-              <li>
-                In long documents, provide a short “Related resources” section with descriptive links rather than scattered, repeated links.
-              </li>
+              <li>Use clear file names and link text so people know what the file is.</li>
+              <li>Mention the file type and size when it could affect someone’s choice to download.</li>
+              <li>Share the main, up-to-date location when possible, not copies that may go out of date.</li>
             </ul>
           </section>
 
           <section>
-            <h2 id="visual">Visual distinction and placement</h2>
+            <h2>Avoid common mistakes</h2>
             <ul>
-              <li>
-                Ensure links are visually distinguishable from surrounding text using more than color alone (e.g., underline, weight). This supports users with color vision differences and low vision.
-              </li>
-              <li>
-                Maintain sufficient color contrast for link text. As a general target, normal-size text should meet 4.5:1 contrast against the background. If a non-underlined link relies on color alone, ensure both contrast and a clear hover/focus style.
-              </li>
-              <li>
-                Don’t rely on visual location cues (“the link on the right”). Describe the destination or action.
-              </li>
-              <li>
-                Avoid placing different links too close together, which can make selection difficult for some users.
-              </li>
+              <li>Replace “click here” with the action: “Complete security training”.</li>
+              <li>Turn bare URLs into descriptive links. Keep bare URLs only when people need to copy the address.</li>
+              <li>Do not use the same vague link text for different destinations.</li>
+              <li>Make sure links look like links. Use an underline or another clear visual cue.</li>
             </ul>
           </section>
 
           <section>
-            <h2 id="lists">Link lists, collections, and repeated links</h2>
+            <h2>Quick check</h2>
             <ul>
-              <li>
-                Group related links into short, descriptive lists (e.g., “Policies and forms”) rather than embedding many inline links in paragraphs.
-              </li>
-              <li>
-                If several links go to the same destination, consolidate them or keep one primary link per context. Duplicate ambiguous links increase noise for assistive technology users.
-              </li>
-              <li>
-                When linking to different sections of the same destination (e.g., different SharePoint pages), make each link text unique.
-              </li>
-              <li>
-                Avoid consecutive identical links with different destinations (for example, using “Learn more” multiple times with different targets).
-              </li>
+              <li>Read the links on the page out loud, one by one. Do they make sense on their own?</li>
+              <li>Tab through the links. Is the order logical? Can you see where focus is?</li>
+              <li>Are links easy to see next to body text?</li>
             </ul>
           </section>
 
           <section>
-            <h2 id="files">Linking to files and documents</h2>
-            <ul>
-              <li>
-                Use descriptive file names and link text that communicates the document’s purpose. Example: “Project plan – Q4 2025 (Word)”.
-              </li>
-              <li>
-                Include the file type and size when it affects user choice, especially for large documents or formats like PDF.
-              </li>
-              <li>
-                Prefer accessible source formats. If you must link to a PDF, ensure it’s tagged and accessible or provide an accessible alternative.
-              </li>
-              <li>
-                For time-sensitive communications (e.g., emails), link to a single canonical location that will remain valid and up to date.
-              </li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 id="pitfalls">Common pitfalls and fixes</h2>
-            <ul>
-              <li>
-                Problem: Using “click here.” Fix: Replace with the action or destination, such as “Complete the security training.”
-              </li>
-              <li>
-                Problem: Bare URLs in body text. Fix: Convert to descriptive links. Reserve bare URLs for technical contexts where copying the address is necessary.
-              </li>
-              <li>
-                Problem: Multiple “Read more” links on the same page. Fix: Make each one unique, such as “Read more about leave entitlements.”
-              </li>
-              <li>
-                Problem: Links differentiated by color alone. Fix: Add underline or another non-color cue, and verify contrast.
-              </li>
-              <li>
-                Problem: Linking entire paragraphs. Fix: Link only the specific words that convey the action or destination.
-              </li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 id="testing">Quick checks and testing</h2>
-            <ul>
-              <li>
-                Read only the link texts in order. Do they make sense without surrounding paragraphs?
-              </li>
-              <li>
-                Tab through links to check logical order and focus visibility.
-              </li>
-              <li>
-                Verify contrast and underline/weight are sufficient to distinguish links.
-              </li>
-              <li>
-                In shared documents or emails, ask a colleague to scan the links and predict destinations before clicking.
-              </li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 id="standards" class="wb-inv">Standards and resources</h2>
-            <details id="details-1" class="mrgn-tp-lg grouped on">
+            <details class="mrgn-tp-lg">
               <summary class="bg-info">Standards and resources</summary>
               <ul>
                 <li>
-                  CAN/ASC – EN 301 549:2024 Accessibility requirements for ICT products and services: 
+                  CAN/ASC – EN 301 549:2024 Accessibility requirements for ICT products and services:
                   <a href="https://accessible.canada.ca/creating-accessibility-standards/canasc-en-301-5492024-accessibility-requirements-ict-products-and-services">Official publication</a>
                 </li>
                 <li>
                   BATI/ITAO Accessible Documents resources:
-                  <a href="https://bati-itao.github.io/resources/accessible-documents-en.html">https://bati-itao.github.io/resources/accessible-documents-en.html</a>
+                  <a href="https://bati-itao.github.io/resources/accessible-documents-en.html">Accessible documents</a>
                 </li>
               </ul>
             </details>
@@ -273,158 +113,62 @@
           <nav aria-labelledby="nav-pagination">
             <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
             <ul class="pager">
-              <li class="previous">
-                <a rel="prev" href="contrast.html">Previous - Contrast</a>
-              </li>
-              <li class="next">
-                <a rel="next" href="acronyms.html">Next - Acronyms</a>
-              </li>
+              <li class="previous"><a rel="prev" href="contrast.html">Previous - Contrast</a></li>
+              <li class="next"><a rel="next" href="acronyms.html">Next - Acronyms</a></li>
             </ul>
           </nav>
 
-          <a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"
-            ><span
-              class="glyphicon glyphicon-arrow-up"
-              aria-hidden="true"
-            ></span>
-            Back to top</a
-          >
+          <a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn">
+            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+            Back to top
+          </a>
           <script src="../../../scripts/esdc-course.js"></script>
         </main>
 
-        <nav
-          id="wb-sec"
-          class="wb-sec col-md-3 col-md-pull-9"
-          typeof="SiteNavigationElement"
-          aria-labelledby="wb-sec-h"
-        >
+        <nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">
           <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
           <section class="list-group menu list-unstyled">
-            <h3 class="wb-navcurr">
-              Module 2 – Global Accessibility Techniques
-            </h3>
+            <h3 class="wb-navcurr">Module 2 – Global Accessibility Techniques</h3>
             <ul class="list-group menu list-unstyled">
-              <li>
-                <a class="list-group-item" href="infoPane.html">Info Pane</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="language.html">Language</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="accessibleTemplates.html"
-                  >Accessible Templates</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="textAndFonts.html">Text and Fonts</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="altText.html">Alt Text</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="contrast.html">Contrast</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="acronyms.html">Acronyms</a>
-              </li>
-              <li>
-                <a class="list-group-item active" aria-current="page"
-                  >Hyperlinks</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="multimedia.html">Multimedia</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="plainLanguage.html"
-                  >Plain Language</a
-                >
-              </li>
+              <li><a class="list-group-item" href="infoPane.html">Info Pane</a></li>
+              <li><a class="list-group-item" href="language.html">Language</a></li>
+              <li><a class="list-group-item" href="accessibleTemplates.html">Accessible Templates</a></li>
+              <li><a class="list-group-item" href="textAndFonts.html">Text and Fonts</a></li>
+              <li><a class="list-group-item" href="altText.html">Alt Text</a></li>
+              <li><a class="list-group-item" href="contrast.html">Contrast</a></li>
+              <li><a class="list-group-item" href="acronyms.html">Acronyms</a></li>
+              <li><a class="list-group-item active" aria-current="page">Hyperlinks</a></li>
+              <li><a class="list-group-item" href="multimedia.html">Multimedia</a></li>
+              <li><a class="list-group-item" href="plainLanguage.html">Plain Language</a></li>
             </ul>
           </section>
 
           <section class="list-group menu list-unstyled">
             <h3 class="wb-navcurr">All modules</h3>
             <ul class="list-group menu list-unstyled">
-              <li>
-                <a
-                  class="list-group-item"
-                  href="../module1/document-accessibility.html"
-                  >Module 1 - Accessibility fundamentals</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item active" href="landmarks.html"
-                  >Module 2 – Global Accessibility Techniques</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../module3/links.html"
-                  >Module 3 – Accessible PowerPoint Techniques</a
-                >
-              </li>
-              <li>
-                <a
-                  class="list-group-item"
-                  href="../module4/tables-concepts.html"
-                  >Module 4 – Accessible Word Techniques</a
-                >
-              </li>
-              <li>
-                <a
-                  class="list-group-item"
-                  href="../module5/text-alternatives.html"
-                  >Module 5 – Accessible Outlook (Email) Techniques</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../module6/forms-concepts.html"
-                  >Module 6 – Introduction to Accessible PDFs</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../module7/introduction.html"
-                  >Module 7 – Exporting Word to PDF</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../module8/introduction.html"
-                  >Module 8 – Exporting PowerPoint to PDF</a
-                >
-              </li>
-
-              <li>
-                <a class="list-group-item" href="../module10/introduction.html"
-                  >Module 10 - Accessible PDFs</a
-                >
-              </li>
+              <li><a class="list-group-item" href="../module1/document-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+              <li><a class="list-group-item active" href="landmarks.html">Module 2 – Global Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module3/links.html">Module 3 – Accessible PowerPoint Techniques</a></li>
+              <li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Accessible Word Techniques</a></li>
+              <li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Accessible Outlook (Email) Techniques</a></li>
+              <li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Introduction to Accessible PDFs</a></li>
+              <li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Exporting Word to PDF</a></li>
+              <li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Exporting PowerPoint to PDF</a></li>
+              <li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Accessible PDFs</a></li>
             </ul>
           </section>
+
           <section class="list-group menu list-unstyled">
             <h3 class="wb-navcurr">Appendix</h3>
-
             <ul class="list-group menu list-unstyled">
-              <li>
-                <a class="list-group-item" href="../sitemap/sitemap.html"
-                  >Site map</a
-                >
-              </li>
-              <li>
-                <a
-                  class="list-group-item"
-                  href="../best-practice/all-best-practice.html"
-                  >All best practices</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../wcag/wcag-view.html"
-                  >WCAG view</a
-                >
-              </li>
+              <li><a class="list-group-item" href="../sitemap/sitemap.html">Site map</a></li>
+              <li><a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a></li>
+              <li><a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a></li>
             </ul>
           </section>
         </nav>
       </div>
+
       <div id="def-preFooter2"></div>
       <script src="../../../scripts/preFooter2.min.js"></script>
       <div id="def-preFooter"></div>

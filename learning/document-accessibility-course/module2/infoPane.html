@@ -3,427 +3,162 @@
   <head>
     <meta charset="utf-8" />
     <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-    <title>Info Pane: Creating Accessible Information Organization</title>
+    <title>Info Pane: Fill in document details that help everyone</title>
     <meta content="width=device-width,initial-scale=1" name="viewport" />
-    <!-- Meta data -->
-    <meta
-      name="description"
-      content="Accessibility guidelines related to page regions. This enables screen reader users to identify and navigate directly to important sections of a web page."
-    />
-    <!-- Meta data-->
-    <!-- Load closure template scripts -->
+    <meta name="description" content="Plain-language guidance on document properties in Microsoft 365. Set a clear title, language, author, and keywords so people can find, open, and use your files." />
     <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
-    <!-- Write closure template -->
     <script src="../../../scripts/refTop.min.js"></script>
     <link rel="stylesheet" href="../../../css/a11y-dark.css" />
-    <script src="../../../scripts/highlight.min.js"></script>
-    <script>
-      hljs.highlightAll();
-    </script>
     <link rel="stylesheet" href="../../../css/esdc-course.css" />
   </head>
 
   <body vocab="https://schema.org/" typeof="WebPage">
     <div id="def-top"></div>
-    <!-- Write closure template -->
     <script>
       var defTop = document.getElementById("def-top");
       defTop.outerHTML = wet.builder.appTop({
-        appName: [
-          {
-            text: "ESDC / IT Accessibility office",
-            href: "../../../index.html",
-          },
-        ],
+        appName: [{ text: "ESDC / IT Accessibility office", href: "../../../index.html" }],
         breadcrumbs: [
-          {
-            title: "Home",
-            href: "../../../index.html",
-          },
-          {
-            title: "Learning",
-            href: "../../index.html",
-          },
-          {
-            title: "Document accessibility course",
-            href: "../index.html",
-          },
-          {
-            title: "Module 2 – Global Accessibility Techniques",
-
-            href: "index.html",
-          },
-          {
-            title: "The Info Pane",
-          },
+          { title: "Home", href: "../../../index.html" },
+          { title: "Learning", href: "../../index.html" },
+          { title: "Document accessibility course", href: "../index.html" },
+          { title: "Module 2 – Global Accessibility Techniques", href: "index.html" },
+          { title: "The Info Pane" }
         ],
-        lngLinks: [
-          {
-            lang: "fr",
-            href: "infoPane-fr.html",
-            text: "Français",
-          },
-        ],
-        menuPath: "../../../ajax/menu-en.html",
+        lngLinks: [{ lang: "fr", href: "infoPane-fr.html", text: "Français" }],
+        menuPath: "../../../ajax/menu-en.html"
       });
     </script>
+
     <div class="container">
       <div class="row">
         <div id="def-search"></div>
         <script src="../../../scripts/appSearch.js"></script>
-        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
-          <h1 property="name" id="wb-cont">Info Pane: Creating Accessible Information Organization</h1>
-          <nav aria-labelledby="nav-table" class="mrgn-tp-md">
-            <h2 id="nav-table" class="wb-inv">Table of contents</h2>
-            <details class="mrgn-bttm-lg on" open="open">
-              <summary class="bg-info">Table of contents</summary>
-              <ul>
-                <li>
-                  <a href="../module2/landmarks.html#designing-landmarks"
-                    >Title</a
-                  >
-                </li>
-                <li>
-                  <a href="../module2/landmarks.html#example-common-landmarks"
-                    >Author</a
-                  >
-                </li>
-                <li>
-                  <a href="../module2/landmarks.html#regions-landmarks">Tags</a>
-                </li>
-              </ul>
-            </details>
-          </nav>
 
-          <button
-            type="button"
-            class="btn btn-default wb-toggle wb-init wb-toggle-inited"
-            data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}"
-            aria-controls="details-1"
-            id="expandAllButton"
-          >
-            Expand all details
-          </button>
-          <button
-            type="button"
-            class="btn btn-default wb-toggle wb-init wb-toggle-inited"
-            aria-controls="details-1 "
-            data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}"
-            id="collapseAllButton"
-            disabled="disabled"
-          >
-            Collapse all<span class="wb-inv"> details</span>
-          </button>
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Info Pane: Fill in document details that help everyone</h1>
+
+          <details class="mrgn-bttm-lg">
+            <summary class="bg-info">Why this matters</summary>
+            <p>Document details like Title, Author, Language, and Keywords help people find and use your file. Screen readers use this information too. Clear details save time and reduce mistakes when files are shared or exported.</p>
+          </details>
 
           <section>
-            <h2 id="designing-landmarks">The Info Pane</h2>
-            <p>
-              Landmarks, also known as page regions, enable screen reader users
-              to identify and navigate directly to important sections of a web
-              page, skipping over blocks of content. Once you introduce
-              landmarks, ensure all content on the page is included in a
-              landmark as content outside a landmark can be easily missed.
-            </p>
-            <p>
-              You identify regions of the page with HTML5 sectioning elements or
-              ARIA landmark <code>role</code> attributes.
-            </p>
+            <h2>What to fill in</h2>
+            <ul>
+              <li><strong>Title:</strong> A short, clear name that explains what the file is. Avoid codes or internal acronyms.</li>
+              <li><strong>Subject (if available):</strong> A brief description or series name.</li>
+              <li><strong>Author/Organization:</strong> Use your team or organization when that makes sense.</li>
+              <li><strong>Keywords/Tags:</strong> 3–5 words people might search for.</li>
+              <li><strong>Language:</strong> Set the main language of the document so spelling and pronunciation are correct.</li>
+            </ul>
+            <p>Keep titles and file names aligned so people can recognize the file without opening it.</p>
           </section>
 
           <section>
-            <h2 id="regions-landmarks">Best practice for landmarks</h2>
+            <h2>Language and mixed content</h2>
+            <p>Set the document’s main language. If a section uses another language for more than a short phrase, mark that section in the file so it is pronounced correctly. Expand acronyms the first time you use them.</p>
+          </section>
+
+          <section>
+            <h2>Sharing and exporting</h2>
+            <p>Good properties carry into other formats, like PDF. Set the Title and Language before you export. After export, quickly check that the new file shows the right title and language in its properties.</p>
+          </section>
+
+          <section>
+            <h2>Common fixes</h2>
             <ul>
-              <li>
-                Ensure all content on the page is contained within a landmark.
-              </li>
-              <li>
-                Use HTML5 sectioning elements (preferred) to identify regions on
-                a page. Use ARIA landmark role attributes if HTML5 sectioning
-                elements cannot be used.
-              </li>
-              <li>
-                Ensure only one instance of:
-                <ul>
-                  <li>
-                    <code>&lt;header&gt;</code> as child of
-                    <code>&lt;body&gt;</code>, or <code>role="banner"</code>. A
-                    <code>&lt;header&gt;</code> is not considered a banner when
-                    it is the child of <code>&lt;article&gt;</code>,
-                    <code>&lt;aside&gt;</code>, <code>&lt;main&gt;</code>,
-                    <code>&lt;nav&gt;</code> or <code>&lt;section&gt;</code>.
-                  </li>
-                  <li><code>&lt;footer&gt;</code></li>
-                  <li><code>&lt;main&gt;</code></li>
-                </ul>
-              </li>
-              <li>
-                Ensure these landmarks are direct children of
-                <code>&lt;body&gt;</code>:
-                <ul>
-                  <li><code>&lt;header&gt;</code> (when the banner)</li>
-                  <li><code>&lt;footer&gt;</code></li>
-                  <li><code>&lt;main&gt;</code></li>
-                </ul>
-              </li>
-              <li>
-                Limit the use of <code>&lt;nav&gt;</code> to primary and
-                secondary navigations.
-                <ul>
-                  <li>
-                    Use the <code>aria-label</code> or
-                    <code>aria-labelledby</code> attribute to differentiate
-                    multiple <code>&lt;nav&gt;</code> items.
-                  </li>
-                  <li>
-                    Use the <code>aria-labelledby</code> attribute to label a
-                    <code>&lt;nav&gt;</code> region that begins with a heading
-                    element.
-                  </li>
-                  <li>Provide short and descriptive labels.</li>
-                </ul>
-              </li>
-              <li>
-                The landmark role is declared by a screen reader along with the
-                name, if any. Do not use the landmark role (e.g., "navigation")
-                as part of the name; for instance, the label is "Site" not "Site
-                Navigation" for a navigation landmark.
-              </li>
-              <li>
-                Use <code>role="search"</code> rather than
-                <code>role="form"</code> when the form is used for search
-                functionality.
-              </li>
-              <li>
-                If the <code>&lt;form&gt;</code> element is named (using
-                <code>aria-label</code>, <code>aria-labelledby</code> or
-                <code>title</code> attribute), it will be designated as a
-                landmark.
-              </li>
-              <li>
-                If you use <code>role="form"</code>, provide a brief label
-                (using <code>aria-label</code>, <code>aria-labelledby</code> or
-                <code>title</code> attribute) that describes the purpose of the
-                form.
-              </li>
-              <li>
-                If the <code>&lt;section&gt;</code> element is named (using
-                <code>aria-label</code>, <code>aria-labelledby</code> or
-                <code>title</code> attribute), it will be designated as a
-                landmark.
-              </li>
-              <li>
-                If you use <code>role="region"</code>, provide a brief label
-                (using <code>aria-label</code>, <code>aria-labelledby</code> or
-                <code>title</code> attribute) that describes the purpose of the
-                content in the region.
-              </li>
+              <li>Change “Document1” to a clear title.</li>
+              <li>Switch individual names to the team name if that is your standard.</li>
+              <li>Correct the language setting and mark longer passages in other languages.</li>
+              <li>Remove “DRAFT” from the title when the document is final.</li>
             </ul>
           </section>
 
           <section>
-            <h2 id="resources-1" class="wb-inv">Related WCAG resources</h2>
-            <details id="details-1" class="mrgn-tp-lg grouped on">
-              <summary class="bg-info">Related WCAG resources</summary>
-              <h3>Success criteria</h3>
+            <h2>Quick check</h2>
+            <ul>
+              <li>Look at Title, Author/Organization, Language, and Keywords before sharing.</li>
+              <li>Make sure the file name and Title match.</li>
+              <li>Ask a colleague if they can tell what the file is from its Title alone.</li>
+            </ul>
+          </section>
+
+          <section>
+            <details class="mrgn-tp-lg">
+              <summary class="bg-info">Standards and resources</summary>
               <ul>
                 <li>
-                  <a
-                    href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships"
-                    >1.3.1: Info and Relationships</a
-                  >
+                  CAN/ASC – EN 301 549:2024 Accessibility requirements for ICT products and services:
+                  <a href="https://accessible.canada.ca/creating-accessibility-standards/canasc-en-301-5492024-accessibility-requirements-ict-products-and-services">Official publication</a>
                 </li>
                 <li>
-                  <a
-                    href="https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks"
-                    >2.4.1: Bypass Blocks&nbsp;</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels"
-                    >2.4.6: Headings and Labels</a
-                  >
-                </li>
-              </ul>
-              <h3>Techniques</h3>
-              <ul>
-                <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA11"
-                    >ARIA11: Using ARIA landmarks to identify regions of a
-                    page</a
-                  >
-                </li>
-                <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA6"
-                    >ARIA6: Using aria-label to provide labels for objects</a
-                  >
-                </li>
-                <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA13"
-                    >ARIA13: Using aria-labelledby to name regions and
-                    landmarks</a
-                  >
-                </li>
-              </ul>
-              <h3>WAI-ARIA Authoring Practices</h3>
-              <ul>
-                <li>
-                  <a
-                    href="https://www.w3.org/WAI/ARIA/apg/practices/landmark-regions/"
-                    >Landmark Regions</a
-                  >
+                  BATI/ITAO Accessible Documents resources:
+                  <a href="https://bati-itao.github.io/resources/accessible-documents-en.html">Accessible documents</a>
                 </li>
               </ul>
             </details>
           </section>
+
           <nav aria-labelledby="nav-pagination">
             <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
             <ul class="pager">
-              <li class="next">
-                <a rel="next" href="headings.html">Next - Headings</a>
-              </li>
+              <li class="next"><a rel="next" href="language.html">Next - Language</a></li>
             </ul>
           </nav>
 
-          <a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"
-            ><span
-              class="glyphicon glyphicon-arrow-up"
-              aria-hidden="true"
-            ></span>
-            Back to top</a
-          >
+          <a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn">
+            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+            Back to top
+          </a>
           <script src="../../../scripts/esdc-course.js"></script>
         </main>
 
-        <nav
-          id="wb-sec"
-          class="wb-sec col-md-3 col-md-pull-9"
-          typeof="SiteNavigationElement"
-          aria-labelledby="wb-sec-h"
-        >
+        <nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">
           <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
-          <!-- Sidebar menu block for Info Pane page (active on Info Pane) -->
           <section class="list-group menu list-unstyled">
-            <h3 class="wb-navcurr">
-              Module 2 – Global Accessibility Techniques
-            </h3>
+            <h3 class="wb-navcurr">Module 2 – Global Accessibility Techniques</h3>
             <ul class="list-group menu list-unstyled">
-              <li>
-                <a class="list-group-item active" aria-current="page">Info Pane</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="language.html">Language</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="accessibleTemplates.html"
-                  >Accessible Templates</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="textAndFonts.html">Text and Fonts</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="altText.html">Alt Text</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="contrast.html">Contrast</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="acronyms.html">Acronyms</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="multimedia.html">Multimedia</a>
-              </li>
-              <li>
-                <a class="list-group-item" href="plainLanguage.html"
-                  >Plain Language</a
-                >
-              </li>
+              <li><a class="list-group-item active" aria-current="page">Info Pane</a></li>
+              <li><a class="list-group-item" href="language.html">Language</a></li>
+              <li><a class="list-group-item" href="accessibleTemplates.html">Accessible Templates</a></li>
+              <li><a class="list-group-item" href="textAndFonts.html">Text and Fonts</a></li>
+              <li><a class="list-group-item" href="altText.html">Alt Text</a></li>
+              <li><a class="list-group-item" href="contrast.html">Contrast</a></li>
+              <li><a class="list-group-item" href="acronyms.html">Acronyms</a></li>
+              <li><a class="list-group-item" href="multimedia.html">Multimedia</a></li>
+              <li><a class="list-group-item" href="plainLanguage.html">Plain Language</a></li>
             </ul>
           </section>
-          <!-- All modules and Appendix sections remain unchanged -->
+
           <section class="list-group menu list-unstyled">
             <h3 class="wb-navcurr">All modules</h3>
             <ul class="list-group menu list-unstyled">
-              <li>
-                <a
-                  class="list-group-item"
-                  href="../module1/document-accessibility.html"
-                  >Module 1 - Accessibility fundamentals</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item active" href="landmarks.html"
-                  >Module 2 – Global Accessibility Techniques</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../module3/links.html"
-                  >Module 3 – Accessible PowerPoint Techniques</a
-                >
-              </li>
-              <li>
-                <a
-                  class="list-group-item"
-                  href="../module4/tables-concepts.html"
-                  >Module 4 – Accessible Word Techniques</a
-                >
-              </li>
-              <li>
-                <a
-                  class="list-group-item"
-                  href="../module5/text-alternatives.html"
-                  >Module 5 – Accessible Outlook (Email) Techniques</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../module6/forms-concepts.html"
-                  >Module 6 – Introduction to Accessible PDFs</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../module7/introduction.html"
-                  >Module 7 – Exporting Word to PDF</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../module8/introduction.html"
-                  >Module 8 – Exporting PowerPoint to PDF</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../module10/introduction.html"
-                  >Module 10 - Accessible PDFs</a
-                >
-              </li>
+              <li><a class="list-group-item" href="../module1/document-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+              <li><a class="list-group-item active" href="landmarks.html">Module 2 – Global Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module3/links.html">Module 3 – Accessible PowerPoint Techniques</a></li>
+              <li><a class="list-group-item" href="../module4/tables-concepts.html">Module 4 – Accessible Word Techniques</a></li>
+              <li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Accessible Outlook (Email) Techniques</a></li>
+              <li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Introduction to Accessible PDFs</a></li>
+              <li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Exporting Word to PDF</a></li>
+              <li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Exporting PowerPoint to PDF</a></li>
+              <li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Accessible PDFs</a></li>
             </ul>
           </section>
+
           <section class="list-group menu list-unstyled">
             <h3 class="wb-navcurr">Appendix</h3>
             <ul class="list-group menu list-unstyled">
-              <li>
-                <a class="list-group-item" href="../sitemap/sitemap.html"
-                  >Site map</a
-                >
-              </li>
-              <li>
-                <a
-                  class="list-group-item"
-                  href="../best-practice/all-best-practice.html"
-                  >All best practices</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="../wcag/wcag-view.html"
-                  >WCAG view</a
-                >
-              </li>
+              <li><a class="list-group-item" href="../sitemap/sitemap.html">Site map</a></li>
+              <li><a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a></li>
+              <li><a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a></li>
             </ul>
           </section>
         </nav>
       </div>
+
       <div id="def-preFooter2"></div>
       <script src="../../../scripts/preFooter2.min.js"></script>
       <div id="def-preFooter"></div>
