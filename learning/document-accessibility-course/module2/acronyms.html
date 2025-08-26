@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-    <title>Alt Text – Module 2 - Page structure and semantics</title>
+    <title>Acronyms: Creating Accessible Abbreviations and Acronyms</title>
     <meta content="width=device-width,initial-scale=1" name="viewport" />
     <!-- Meta data -->
     <meta
       name="description"
-      content="Accessibility guidelines for writing effective alt text for images and graphics. Explains why alt text is important and how to create meaningful descriptions for everyone."
+      content="Accessibility guidelines for acronyms and abbreviations. Learn how to make abbreviations clear and accessible for all users, including proper markup and expansion techniques."
     />
     <!-- Meta data-->
     <!-- Load closure template scripts -->
@@ -55,13 +55,13 @@
             href: "index.html",
           },
           {
-            title: "Alt Text",
+            title: "Acronyms",
           },
         ],
         lngLinks: [
           {
             lang: "fr",
-            href: "altText-fr.html",
+            href: "acronyms-fr.html",
             text: "Français",
           },
         ],
@@ -73,7 +73,7 @@
         <div id="def-search"></div>
         <script src="../../../scripts/appSearch.js"></script>
         <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
-          <h1 property="name" id="wb-cont">Alt Text</h1>
+          <h1 property="name" id="wb-cont">Acronyms: Creating Accessible Abbreviations and Acronyms</h1>
 
           <nav aria-labelledby="nav-table" class="mrgn-tp-md">
             <h2 id="nav-table" class="wb-inv">Table of contents</h2>
@@ -81,19 +81,34 @@
               <summary class="bg-info">Table of contents</summary>
               <ul>
                 <li>
-                  <a href="#why-alt-text">Why alt text matters</a>
+                  <a href="#introduction-acronyms">Introduction to acronyms and abbreviations</a>
                 </li>
                 <li>
-                  <a href="#writing-alt-text">Writing effective alt text</a>
+                  <a href="#why-acronyms-matter">Why acronym accessibility matters</a>
                 </li>
                 <li>
-                  <a href="#decorative-images">Decorative images</a>
+                  <a href="#acronym-markup">Proper markup for acronyms</a>
                 </li>
                 <li>
-                  <a href="#complex-images">Complex images and graphics</a>
+                  <a href="#abbreviation-markup">Using the abbreviation element</a>
                 </li>
                 <li>
-                  <a href="#resources-alt">Related WCAG resources</a>
+                  <a href="#first-occurrence">First occurrence guidelines</a>
+                </li>
+                <li>
+                  <a href="#common-acronyms">Managing common acronyms</a>
+                </li>
+                <li>
+                  <a href="#pronunciation-guidelines">Pronunciation and clarity</a>
+                </li>
+                <li>
+                  <a href="#best-practices-acronyms">Best practices summary</a>
+                </li>
+                <li>
+                  <a href="#testing-acronyms">Testing acronym accessibility</a>
+                </li>
+                <li>
+                  <a href="#resources-acronyms">Related WCAG resources</a>
                 </li>
               </ul>
             </details>
@@ -118,161 +133,276 @@
           >
             Collapse all<span class="wb-inv"> details</span>
           </button>
-
           <section>
-            <h2 id="why-alt-text">Why alt text matters</h2>
+            <h2 id="introduction-acronyms">Introduction to acronyms and abbreviations</h2>
             <p>
-              Alternative text (“alt text”) is essential for ensuring that
-              images and graphics are accessible to everyone, including people
-              who use screen readers or have images turned off. Alt text
-              provides a concise description of an image’s meaning or function,
-              allowing users to understand content that is otherwise visual.
+              Acronyms and abbreviations are shortened forms of words or phrases that can significantly impact accessibility when not properly implemented. While they serve to make content more concise and readable, they can create barriers for users who rely on screen readers, have cognitive disabilities, or are unfamiliar with specific terminology. An acronym typically uses the first letters of a phrase (like "HTML" for HyperText Markup Language), while an abbreviation can be any shortened form of a word or phrase.
             </p>
             <p>
-              Without appropriate alt text, users may miss critical information,
-              context, or instructions. Well-written alt text supports
-              accessibility, improves search engine optimization (SEO), and
-              aligns with WCAG guidelines for providing text alternatives.
+              The accessibility challenge with acronyms lies in how assistive technologies interpret them. Screen readers may attempt to pronounce unfamiliar acronyms as words, spell them out letter by letter, or misinterpret their meaning entirely. For users with cognitive disabilities, unexplained acronyms can disrupt comprehension and create confusion. Additionally, abbreviations and acronyms can be particularly challenging for users who are learning the language or are unfamiliar with domain-specific terminology.
+            </p>
+            <p>
+              Proper implementation of acronyms and abbreviations involves both semantic markup and editorial guidelines. The HTML specification provides specific elements for marking up abbreviations, while content strategy determines when and how to introduce new acronyms. Understanding these principles is essential for creating truly accessible documents that serve all users effectively.
             </p>
           </section>
 
           <section>
-            <h2 id="writing-alt-text">Writing effective alt text</h2>
+            <h2 id="why-acronyms-matter">Why acronym accessibility matters</h2>
             <p>
-              Good alt text is brief, descriptive, and communicates the purpose
-              of the image. Focus on what is important for understanding the
-              page, not on describing every detail. The alt text should answer:
-              “What does this image convey or accomplish?”
+              Making acronyms and abbreviations accessible is crucial for ensuring equal access to information across diverse user groups. The impact extends beyond basic usability to fundamental comprehension and user experience.
+            </p>
+            <h3>Screen reader interpretation</h3>
+            <p>
+              Screen readers handle acronyms differently depending on their markup and pronunciation patterns. Without proper markup, a screen reader might pronounce "FAQ" as "fack" instead of spelling it out as "F-A-Q," or attempt to pronounce "XML" as a word rather than individual letters. The &lt;abbr&gt; element with a title attribute provides screen readers with explicit expansion information, ensuring consistent and accurate pronunciation.
+            </p>
+            <h3>Cognitive accessibility</h3>
+            <p>
+              Users with cognitive disabilities, attention disorders, or reading difficulties may struggle to remember what acronyms represent, especially when they appear multiple times throughout a document. Providing clear expansions and consistent usage patterns reduces cognitive load and improves comprehension. This is particularly important in technical documentation, legal texts, and instructional materials where acronyms are frequently used.
+            </p>
+            <h3>Language barriers and domain knowledge</h3>
+            <p>
+              Non-native speakers and users unfamiliar with specific domains face additional challenges with acronyms. What seems obvious to subject matter experts may be completely foreign to other users. Proper acronym markup and expansion help bridge these knowledge gaps, making content more inclusive and accessible to broader audiences.
+            </p>
+            <h3>Context and comprehension</h3>
+            <p>
+              Acronyms can have different meanings in different contexts. "AI" might refer to "Artificial Intelligence" in a technology context or "Adobe Illustrator" in a design context. Clear expansion and contextual information help users understand the intended meaning, reducing ambiguity and improving overall document clarity.
+            </p>
+          </section>
+
+          <section>
+            <h2 id="acronym-markup">Proper markup for acronyms</h2>
+            <p>
+              HTML provides the &lt;abbr&gt; element specifically for marking up abbreviations and acronyms. This element, combined with appropriate attributes, gives assistive technologies the information they need to present acronyms effectively to users.
+            </p>
+            <h3>Basic abbreviation markup</h3>
+            <p>
+              The simplest form of abbreviation markup uses the &lt;abbr&gt; element with a title attribute that contains the full expansion:
+            </p>
+            <div class="panel panel-primary mrgn-tp-md">
+              <div class="panel-body well mrgn-bttm-0">
+                <p>The <abbr title="World Wide Web Consortium">W3C</abbr> develops web standards to ensure long-term growth of the Web.</p>
+              </div>
+            </div>
+            <p class="lang-label small">HTML</p>
+            <pre class="mrgn-tp-0"><code class="language-html">&lt;p&gt;The &lt;abbr title="World Wide Web Consortium"&gt;W3C&lt;/abbr&gt; develops web standards.&lt;/p&gt;</code></pre>
+            
+            <h3>First occurrence best practices</h3>
+            <p>
+              When an acronym appears for the first time in a document, provide both the expanded form and the abbreviation markup. This approach ensures clarity while establishing the acronym for later use:
+            </p>
+            <div class="panel panel-primary mrgn-tp-md">
+              <div class="panel-body well mrgn-bttm-0">
+                <p>The Web Content Accessibility Guidelines (<abbr title="Web Content Accessibility Guidelines">WCAG</abbr>) provide comprehensive recommendations for making web content accessible.</p>
+              </div>
+            </div>
+            <p class="lang-label small">HTML</p>
+            <pre class="mrgn-tp-0"><code class="language-html">&lt;p&gt;The Web Content Accessibility Guidelines (&lt;abbr title="Web Content Accessibility Guidelines"&gt;WCAG&lt;/abbr&gt;) provide comprehensive recommendations.&lt;/p&gt;</code></pre>
+          </section>
+
+          <section>
+            <h2 id="abbreviation-markup">Using the abbreviation element</h2>
+            <p>
+              The &lt;abbr&gt; element serves multiple purposes beyond simple acronyms. It can be used for various types of shortened forms, each requiring slightly different approaches to ensure optimal accessibility.
+            </p>
+            <h3>Different types of abbreviations</h3>
+            <p>
+              Abbreviations come in several forms, each with specific markup considerations:
             </p>
             <ul>
-              <li>
-                <strong>Descriptive:</strong> Describe the content and function.
-                For example, <code>alt="Submit button"</code>.
-              </li>
-              <li>
-                <strong>Concise:</strong> Keep alt text short (typically under
-                125 characters).
-              </li>
-              <li>
-                <strong>Avoid redundancy:</strong> Do not repeat information
-                already provided in nearby text.
-              </li>
-              <li>
-                <strong>No “image of...” needed:</strong> Screen readers already
-                announce graphics as images.
-              </li>
-              <li>
-                <strong>Functional images:</strong> If the image is a link or
-                button, alt text should explain its action, e.g.,
-                <code>alt="Search"</code>.
-              </li>
+              <li><strong>Acronyms:</strong> Formed from initial letters (NASA, HTML, CSS)</li>
+              <li><strong>Initialisms:</strong> Letter-by-letter pronunciation (FBI, USA, FAQ)</li>
+              <li><strong>Contractions:</strong> Shortened words (Dr., Mr., etc.)</li>
+              <li><strong>Technical abbreviations:</strong> Domain-specific shortened forms (kg, mm, MHz)</li>
+            </ul>
+            
+            <h3>Contextual expansion</h3>
+            <p>
+              Sometimes the title attribute alone isn't sufficient for providing context. Consider combining abbreviation markup with additional explanatory text:
+            </p>
+            <div class="panel panel-primary mrgn-tp-md">
+              <div class="panel-body well mrgn-bttm-0">
+                <p>The <abbr title="Application Programming Interface">API</abbr> documentation explains how developers can integrate with our system programmatically.</p>
+              </div>
+            </div>
+            <p class="lang-label small">HTML</p>
+            <pre class="mrgn-tp-0"><code class="language-html">&lt;p&gt;The &lt;abbr title="Application Programming Interface"&gt;API&lt;/abbr&gt; documentation explains how developers can integrate with our system.&lt;/p&gt;</code></pre>
+          </section>
+
+          <section>
+            <h2 id="first-occurrence">First occurrence guidelines</h2>
+            <p>
+              How you introduce acronyms in a document significantly impacts user comprehension and accessibility. Establishing clear patterns for first occurrences helps users understand and remember acronym meanings throughout the document.
+            </p>
+            <h3>Expansion strategies</h3>
+            <p>
+              Several approaches work well for introducing acronyms, depending on context and audience:
+            </p>
+            <ul>
+              <li><strong>Full form followed by acronym:</strong> "Cascading Style Sheets (CSS) control..."</li>
+              <li><strong>Acronym followed by full form:</strong> "CSS (Cascading Style Sheets) enables..."</li>
+              <li><strong>Descriptive introduction:</strong> "The styling language CSS (Cascading Style Sheets)..."</li>
+            </ul>
+            
+            <h3>Document scope considerations</h3>
+            <p>
+              In longer documents, consider reintroducing acronyms in new sections or chapters, especially if significant content separates the instances. This helps users who might be accessing specific sections directly or those who need reminders after extended reading.
+            </p>
+            <h3>Audience-specific approaches</h3>
+            <p>
+              Tailor your acronym introduction strategy to your audience's familiarity with the subject matter. Technical documentation for developers might assume knowledge of common programming acronyms, while general-audience content should explain most abbreviations on first use.
+            </p>
+          </section>
+
+          <section>
+            <h2 id="common-acronyms">Managing common acronyms</h2>
+            <p>
+              Some acronyms are so widely recognized that expanding them every time might seem unnecessary. However, accessibility guidelines recommend careful consideration of what constitutes "common knowledge" and consistent application of expansion rules.
+            </p>
+            <h3>Universal acronyms</h3>
+            <p>
+              Very few acronyms are truly universal, but some examples might include:
+            </p>
+            <ul>
+              <li>TV (Television)</li>
+              <li>AM/PM (Ante Meridiem/Post Meridiem)</li>
+              <li>DVD (Digital Versatile Disc)</li>
             </ul>
             <p>
-              <strong>Example:</strong>
+              Even with these common examples, providing markup with title attributes ensures screen reader users receive consistent information.
             </p>
-            <div class="panel panel-primary mrgn-tp-md">
-              <div class="panel-body well mrgn-bttm-0">
-                <img src="../../../images/search-icon.png" alt="Search" />
-              </div>
-            </div>
-            <p class="lang-label small">HTML</p>
-            <pre
-              class="mrgn-tp-0"
-            ><code class="language-html">&lt;img src="search-icon.png" alt="Search"&gt;</code></pre>
-          </section>
-
-          <section>
-            <h2 id="decorative-images">Decorative images</h2>
+            
+            <h3>Domain-specific common acronyms</h3>
             <p>
-              Images that do not convey information or meaning can be marked as
-              decorative. Use an empty alt attribute (<code>alt=""</code>) so
-              that assistive technologies ignore them.
+              Within specific fields or organizations, certain acronyms become commonplace. However, remember that documents may be accessed by users outside that domain. Consider your actual audience rather than your intended audience when deciding whether to expand acronyms.
             </p>
-            <div class="panel panel-primary mrgn-tp-md">
-              <div class="panel-body well mrgn-bttm-0">
-                <img src="../../../images/curve.png" alt="" />
-              </div>
-            </div>
-            <p class="lang-label small">HTML</p>
-            <pre
-              class="mrgn-tp-0"
-            ><code class="language-html">&lt;img src="curve.png" alt=""&gt;</code></pre>
-          </section>
-
-          <section>
-            <h2 id="complex-images">Complex images and graphics</h2>
+            
+            <h3>Consistency principles</h3>
             <p>
-              For charts, diagrams, infographics, or other complex images,
-              provide a brief alt text and a longer text description elsewhere
-              on the page. The alt text should summarize the main point, while a
-              nearby caption or linked description explains details.
+              Establish and follow consistent rules for acronym usage throughout your organization or project. Document these standards and ensure all content creators understand and apply them consistently.
             </p>
-            <div class="panel panel-primary mrgn-tp-md">
-              <div class="panel-body well mrgn-bttm-0">
-                <img
-                  src="../../../images/bar-chart.png"
-                  alt="Bar chart showing sales growth from 2021 to 2023"
-                />
-                <p id="chart-description" class="mrgn-tp-sm">
-                  Sales increased steadily from 2021 ($1M) to 2023 ($2.5M), with
-                  the highest growth in Q2 2023.
-                </p>
-              </div>
-            </div>
-            <p class="lang-label small">HTML</p>
-            <pre
-              class="mrgn-tp-0"
-            ><code class="language-html">&lt;img src="bar-chart.png" alt="Bar chart showing sales growth from 2021 to 2023" aria-describedby="chart-description"&gt;
-&lt;p id="chart-description"&gt;Sales increased steadily from 2021 ($1M) to 2023 ($2.5M), with the highest growth in Q2 2023.&lt;/p&gt;</code></pre>
           </section>
 
           <section>
-            <h2 id="resources-alt" class="wb-inv">Related WCAG resources</h2>
+            <h2 id="pronunciation-guidelines">Pronunciation and clarity</h2>
+            <p>
+              How acronyms are pronounced affects both screen reader output and user comprehension. Understanding pronunciation patterns helps inform markup decisions and content strategy.
+            </p>
+            <h3>Screen reader pronunciation</h3>
+            <p>
+              Screen readers use various heuristics to determine acronym pronunciation:
+            </p>
+            <ul>
+              <li><strong>Letter patterns:</strong> Consonant-heavy acronyms are often spelled out (HTML, CSS)</li>
+              <li><strong>Vowel patterns:</strong> Acronyms with vowels might be pronounced as words (NASA, ARIA)</li>
+              <li><strong>Length:</strong> Very long acronyms are typically spelled out</li>
+              <li><strong>Recognition:</strong> Known words in the screen reader's dictionary</li>
+            </ul>
+            
+            <h3>Ambiguous pronunciation</h3>
+            <p>
+              When acronym pronunciation is ambiguous or inconsistent across screen readers, consider providing additional context or choosing alternative presentation methods. Some organizations spell out ambiguous acronyms on first use to establish pronunciation expectations.
+            </p>
+            
+            <h3>International considerations</h3>
+            <p>
+              Acronym pronunciation can vary significantly across languages and regions. Consider your international audience when deciding on acronym strategies, and be prepared to provide additional context for users who might encounter unfamiliar pronunciation patterns.
+            </p>
+          </section>
+
+          <section>
+            <h2 id="best-practices-acronyms">Best practices summary</h2>
+            <p>
+              Implementing accessible acronyms requires attention to both technical markup and editorial guidelines. These best practices help ensure consistent, accessible implementation across all your content.
+            </p>
+            <h3>Technical implementation</h3>
+            <ul>
+              <li>Always use the &lt;abbr&gt; element with title attribute for acronym markup</li>
+              <li>Ensure title attributes contain the full, properly capitalized expansion</li>
+              <li>Avoid nested abbreviation elements or complex formatting within expansions</li>
+              <li>Test acronym markup with actual screen readers when possible</li>
+            </ul>
+            
+            <h3>Editorial guidelines</h3>
+            <ul>
+              <li>Expand acronyms on first occurrence in each document or section</li>
+              <li>Consider your audience's familiarity with domain-specific terms</li>
+              <li>Maintain consistent expansion patterns throughout documents</li>
+              <li>Review acronym usage during content audits and updates</li>
+            </ul>
+            
+            <h3>Content strategy</h3>
+            <ul>
+              <li>Develop organization-wide acronym standards and style guides</li>
+              <li>Train content creators on proper acronym markup and usage</li>
+              <li>Consider providing acronym glossaries for complex documents</li>
+              <li>Regularly review and update acronym usage based on user feedback</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 id="testing-acronyms">Testing acronym accessibility</h2>
+            <p>
+              Validating acronym accessibility requires both automated testing and human evaluation. Multiple testing approaches help ensure acronyms work effectively for all users.
+            </p>
+            <h3>Screen reader testing</h3>
+            <p>
+              Test acronym pronunciation and expansion with multiple screen readers when possible. Popular options include NVDA (free), JAWS, and VoiceOver. Pay attention to how different screen readers handle your acronym markup and whether the expansions provide sufficient context.
+            </p>
+            
+            <h3>User feedback</h3>
+            <p>
+              Involve users with disabilities in testing processes when possible. They can provide insights into acronym effectiveness that automated tools and cursory testing might miss. Consider conducting usability tests focused specifically on content comprehension.
+            </p>
+            
+            <h3>Automated validation</h3>
+            <p>
+              Use accessibility testing tools to identify missing abbreviation markup or inconsistent patterns. While these tools can't evaluate the quality of expansions, they can catch technical implementation issues.
+            </p>
+            
+            <h3>Content auditing</h3>
+            <p>
+              Regularly audit your content for acronym usage patterns. Look for:
+            </p>
+            <ul>
+              <li>Unexpanded acronyms that might confuse users</li>
+              <li>Inconsistent expansion patterns across similar content</li>
+              <li>Opportunities to simplify or eliminate unnecessary acronyms</li>
+              <li>Changes in domain terminology that affect acronym relevance</li>
+            </ul>
+            <p>
+              Remember that acronym accessibility is an ongoing process that improves with experience, user feedback, and regular evaluation of your content's effectiveness in serving diverse user needs.
+            </p>
+          </section>
+
+          <section>
+            <h2 id="resources-acronyms" class="wb-inv">Related WCAG resources</h2>
             <details id="details-1" class="mrgn-tp-lg grouped on">
               <summary class="bg-info">Related WCAG resources</summary>
               <h3>Success criteria</h3>
               <ul>
                 <li>
-                  <a
-                    href="https://www.w3.org/WAI/WCAG21/Understanding/text-alternatives"
-                    >1.1.1: Text Alternatives</a
-                  >
+                  <a href="https://www.w3.org/WAI/WCAG21/Understanding/abbreviations">3.1.4: Abbreviations</a>
+                </li>
+                <li>
+                  <a href="https://www.w3.org/WAI/WCAG21/Understanding/unusual-words">3.1.3: Unusual Words</a>
                 </li>
               </ul>
               <h3>Techniques</h3>
               <ul>
                 <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H37"
-                    >H37: Using alt attributes on images</a
-                  >
+                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H28">H28: Providing definitions for abbreviations by using the abbr element</a>
                 </li>
                 <li>
-                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H67"
-                    >H67: Using null alt text and no title attribute for
-                    decorative images</a
-                  >
+                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G102">G102: Providing the expansion or explanation of an abbreviation</a>
                 </li>
               </ul>
             </details>
             <hr />
             <p class="small">
-              The guidance for writing alt text is adapted from the Web
-              Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a
-              >) documents:
-              <a href="https://www.w3.org/WAI/tutorials/images/"
-                >Images Tutorial <span class="wb-inv"> (WAI)</span></a
-              >
-              in the
-              <a href="https://www.w3.org/WAI/tutorials/"
-                >Web Accessibility Tutorials</a
-              >. Copyright © 2019 W3C® (<a href="https://www.csail.mit.edu/"
-                >MIT</a
-              >, <a href="http://www.ercim.eu/">ERCIM</a>,
-              <a href="https://www.keio.ac.jp/">Keio</a>). Status: Updated 27
-              July 2019.
-              <a href="https://www.w3.org/WAI/tutorials/images/"
-                >https://www.w3.org/WAI/tutorials/images/</a
-              >
+              The guidance for acronym accessibility is based on the Web Content Accessibility Guidelines 
+              (<a href="https://www.w3.org/WAI/">WCAG</a>) and best practices from the Web Accessibility Initiative. 
+              Copyright © 2023 W3C® (<a href="https://www.csail.mit.edu/">MIT</a>, 
+              <a href="http://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>).
             </p>
           </section>
 
@@ -280,10 +410,10 @@
             <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
             <ul class="pager">
               <li class="previous">
-                <a rel="prev" href="language.html">Previous - Language</a>
+                <a rel="prev" href="contrast.html">Previous - Contrast</a>
               </li>
               <li class="next">
-                <a rel="next" href="iframes.html">Next - Iframes</a>
+                <a rel="next" href="multimedia.html">Next - Multimedia</a>
               </li>
             </ul>
           </nav>
@@ -309,30 +439,20 @@
             <h3 class="wb-navcurr">
               Module 2 – Global Accessibility Techniques
             </h3>
-
             <ul class="list-group menu list-unstyled">
               <li>
-                <a class="list-group-item href" href="infoPane.html"
-                  >Info Pane</a
-                >
+                <a class="list-group-item" href="infoPane.html">Info Pane</a>
               </li>
               <li>
-                <a class="list-group-item href" href="accessibleTemplates.html"
+                <a class="list-group-item" href="language.html">Language</a>
+              </li>
+              <li>
+                <a class="list-group-item" href="accessibleTemplates.html"
                   >Accessible Templates</a
                 >
               </li>
               <li>
-                <a class="list-group-item href" href="language.html"
-                  >Language</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="textAndFonts.html"
-                  >Text and Fonts</a
-                >
-              </li>
-              <li>
-                <a class="list-group-item" href="hyperlinks.html">Hyperlinks</a>
+                <a class="list-group-item" href="textAndFonts.html">Text and Fonts</a>
               </li>
               <li>
                 <a class="list-group-item" href="altText.html">Alt Text</a>
@@ -341,10 +461,7 @@
                 <a class="list-group-item" href="contrast.html">Contrast</a>
               </li>
               <li>
-                <a
-                  class="list-group-item active"
-                  aria-current="page"
-                  href="acronyms.html"
+                <a class="list-group-item active" aria-current="page"
                   >Acronyms</a
                 >
               </li>
