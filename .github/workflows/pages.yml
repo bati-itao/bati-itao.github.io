@@ -104,6 +104,7 @@ jobs:
           if [ ! -f "$SITE_DIR/index.html" ]; then
             echo "::error ::$SITE_DIR/index.html not found. Your deployed site needs a root index.html."
             exit 1
+          fi
           THRESHOLD=$((250*1024*1024))
           BYTES=$(du -sb "$SITE_DIR" | cut -f1)
           echo "Build size: ${BYTES} bytes"
