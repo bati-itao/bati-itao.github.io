@@ -4,6 +4,11 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
+    inputs:
+      site_dir:
+        description: 'Subfolder to deploy'
+        required: false
+        default: 'learning/document-accessibility-course'
 
 permissions:
   contents: read
@@ -15,7 +20,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  SITE_DIR: learning/document-accessibility-course
+  SITE_DIR: ${{ inputs.site_dir || 'learning/document-accessibility-course' }}
 
 jobs:
   deploy:
