@@ -2,8 +2,8 @@ name: Deploy static subfolder to GitHub Pages
 
 on:
   push:
-    branches: [ main ]   # change if your default branch differs
-  workflow_dispatch:      # allow manual runs from Actions tab
+    branches: [ main ]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -19,39 +19,94 @@ env:
 
 jobs:
   deploy:
-    # Optional: uncomment & change to keep this workflow running ONLY on your fork
-    # if: github.repository == 'YOUR_GITHUB_USERNAME/YOUR_REPO'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@v4
 
-      # 1) Make the subfolder self-contained by staging shared assets into it
+      # --- Debug: show env and tree so we know what we're deploying
+      - name: Debug — environment & layout
+        run: |
+          set -euxo pipefail
+          echo "BASH_VERSION=$BASH_VERSION"
+          echo "SITE_DIR=$SITE_DIR"
+          if [ ! -d "$SITE_DIR" ]; then
+            echo "::error ::$SITE_DIR does not exist in this repo."
+            exit 1
+          fi
+          sudo apt-get update -y
+          sudo apt-get install -y tree
+          tree -a -L 2
+
+      # --- Stage assets the page expects (no-op if these don't exist at repo root)
       - name: Stage shared assets into SITE_DIR
         run: |
+          set -euxo pipefail
           mkdir -p "$SITE_DIR/scripts" "$SITE_DIR/ajax"
-          if [ -d scripts ]; then cp -a scripts/. "$SITE_DIR/scripts/"; fi
-          if [ -d ajax ];    then cp -a ajax/.    "$SITE_DIR/ajax/";    fi
+          [ -d scripts ] && cp -a scripts/. "$SITE_DIR/scripts/" || true
+          [ -d ajax ]    && cp -a ajax/.    "$SITE_DIR/ajax/"    || true
 
-      # 2) Rewrite upward-relative URLs inside the subfolder to local paths
+      # --- Rewrite ../../ -> ./  (use sed with .bak backups to avoid sed -i portability quirks)
       - name: Rewrite URLs to be subfolder-local
         run: |
-          shopt -s nullglob
-          mapfile -t files < <(find "$SITE_DIR" -type f \( -name "*.html" -o -name "*.js" -o -name "*.css" \))
+          set -euxo pipefail
+          mapfile -t files < <(find "$SITE_DIR" -type f \( -name '*.html' -o -name '*.js' -o -name '*.css' \))
           for f in "${files[@]}"; do
-            # ../../scripts/...  and ../../ajax/...  ->  ./scripts/...  &  ./ajax/...
-            sed -i 's|\.\./\.\./scripts/|./scripts/|g' "$f"
-            sed -i 's|\.\./\.\./ajax/|./ajax/|g' "$f"
-
-            # Common JSON-in-HTML attributes (data-wb-ajax, menuPath)
-            sed -i 's|"url":[[:space:]]*"\.\./\.\./ajax/|"url":"./ajax/|g' "$f"
-            sed -i 's|"menuPath":[[:space:]]*"\.\./\.\./ajax/|"menuPath":"./ajax/|g' "$f"
-
-            # Breadcrumb "Home" pointing to repo root -> local index
-            sed -i 's|href="\.\./\.\./index\.html"|href="./index.html"|g' "$f"
+            # paths in attributes
+            sed -E -i.bak 's|\.\./\.\./scripts/|./scripts/|g' "$f"
+            sed -E -i.bak 's|\.\./\.\./ajax/|./ajax/|g' "$f"
+            # JSON-ish occurrences inside attributes / inline JS
+            sed -E -i.bak 's|"url":[[:space:]]*"\.\./\.\./ajax/|"url":"./ajax/|g' "$f"
+            sed -E -i.bak 's|"menuPath":[[:space:]]*"\.\./\.\./ajax/|"menuPath":"./ajax/|g' "$f"
+            # breadcrumb to local index
+            sed -E -i.bak 's|href="\.\./\.\./index\.html"|href="./index.html"|g' "$f"
+            rm -f "${f}.bak"
           done
 
-      # 3) Sanity check: no escaping paths should remain (href/src/url/menuPath)
+      # --- Sanity check: don’t let grep exit non-zero; capture output ourselves
       - name: Sanity check for escaping paths
         run: |
-          set -e
-          if grep -RInE 'href="\.\./|src="\.\./|url":"\.\./|menuPath":"\.\./' "$SITE_DIR"; then
+          set -euxo pipefail
+          tmpout="$(mktemp)"
+          # Collect any remaining upward-relative refs in href/src/url/menuPath
+          grep -RInE 'href="(\.\./)+' "$SITE_DIR" >>"$tmpout" 2>/dev/null || true
+          grep -RInE 'src="(\.\./)+'  "$SITE_DIR" >>"$tmpout" 2>/dev/null || true
+          grep -RInE '"url":"(\.\./)+' "$SITE_DIR" >>"$tmpout" 2>/dev/null || true
+          grep -RInE '"menuPath":"(\.\./)+' "$SITE_DIR" >>"$tmpout" 2>/dev/null || true
+          if [ -s "$tmpout" ]; then
+            echo "::error ::Found remaining upward-relative paths:"
+            cat "$tmpout"
+            exit 1
+          fi
+          rm -f "$tmpout"
+
+      # --- Ensure a landing page exists
+      - name: Ensure index.html exists at SITE_DIR root
+        run: |
+          set -euxo pipefail
+          if [ ! -f "$SITE_DIR/index.html" ]; then
+            echo "::error ::$SITE_DIR/index.html not found. Your deployed site needs a root index.html."
+            exit 1
+          fi
+
+      # --- Skip Jekyll
+      - name: Add .nojekyll
+        run: |
+          set -euxo pipefail
+          touch "$SITE_DIR/.nojekyll"
+
+      # --- Optional: largest files
+      - name: Show largest files (top 30)
+        run: |
+          set -euxo pipefail
+          find "$SITE_DIR" -type f -printf "%s %p\n" | sort -nr | head -n 30 | awk '{printf "%10.0f KB  %s\n",$1/1024,$2}'
+
+      # --- Upload & deploy
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.SITE_DIR }}
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
