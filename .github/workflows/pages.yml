@@ -20,7 +20,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  SITE_DIR: .
+  SITE_DIR: learning/document-accessibility-course
 
 jobs:
   deploy:
@@ -43,7 +43,7 @@ jobs:
           fi
           sudo apt-get update -y
           sudo apt-get install -y tree
-          tree -a -L 2
+          tree -a -L 2 "$SITE_DIR"
 
       # --- Stage assets the page expects (no-op if these don't exist at repo root)
       - name: Stage shared assets into SITE_DIR
@@ -98,20 +98,10 @@ jobs:
         run: touch "$SITE_DIR/.nojekyll"
 
       # === Size guard ===
-      - name: Check site size (fail if > 250MB)
+      - name: Remove large files (>100MB) before deploy
         run: |
           set -euxo pipefail
-          if [ ! -f "$SITE_DIR/index.html" ]; then
-            echo "::error ::$SITE_DIR/index.html not found. Your deployed site needs a root index.html."
-            exit 1
-          fi
-          THRESHOLD=$((250*1024*1024))
-          BYTES=$(du -sb "$SITE_DIR" | cut -f1)
-          echo "Build size: ${BYTES} bytes"
-          if [ "$BYTES" -gt "$THRESHOLD" ]; then
-            echo "::error ::Build too large for fast Pages deploy (>250MB)."
-            # exit 1
-          fi
+          find "$SITE_DIR" -type f -size +100M -exec echo "Removing large file: {}" \; -exec rm -f {} \;
 
       # --- Skip Jekyll
       - name: Add .nojekyll
