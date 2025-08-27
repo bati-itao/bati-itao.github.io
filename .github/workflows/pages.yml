@@ -1,9 +1,9 @@
-name: Deploy to GitHub Pages (static subfolder)
+name: Deploy static subfolder to GitHub Pages
 
 on:
   push:
-    branches: [ main ]   # change to your default branch if not 'main'
-  workflow_dispatch:      # lets you run it manually from the Actions tab
+    branches: [ main ]   # change if your default branch differs
+  workflow_dispatch:      # allow manual runs from Actions tab
 
 permissions:
   contents: read
@@ -18,39 +18,40 @@ env:
   SITE_DIR: learning/document-accessibility-course
 
 jobs:
-  build:
+  deploy:
+    # Optional: uncomment & change to keep this workflow running ONLY on your fork
+    # if: github.repository == 'YOUR_GITHUB_USERNAME/YOUR_REPO'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Add .nojekyll
-        run: touch "$SITE_DIR/.nojekyll"
-
-      - name: Check site size (fail if > 250MB)
+      # 1) Make the subfolder self-contained by staging shared assets into it
+      - name: Stage shared assets into SITE_DIR
         run: |
-          THRESHOLD=$((250*1024*1024))
-          BYTES=$(du -sb "$SITE_DIR" | cut -f1)
-          echo "Build size: ${BYTES} bytes"
-          if [ "$BYTES" -gt "$THRESHOLD" ]; then
-            echo "::error ::Build too large for fast Pages deploy (>250MB)."
-            exit 1
-          fi
+          mkdir -p "$SITE_DIR/scripts" "$SITE_DIR/ajax"
+          if [ -d scripts ]; then cp -a scripts/. "$SITE_DIR/scripts/"; fi
+          if [ -d ajax ];    then cp -a ajax/.    "$SITE_DIR/ajax/";    fi
 
-      - name: Show largest files (top 30)
+      # 2) Rewrite upward-relative URLs inside the subfolder to local paths
+      - name: Rewrite URLs to be subfolder-local
         run: |
-          echo "Largest files in $SITE_DIR:"
-          find "$SITE_DIR" -type f -printf "%s %p\n" | sort -nr | head -n 30 | awk '{printf "%10.0f KB  %s\n",$1/1024,$2}'
+          shopt -s nullglob
+          mapfile -t files < <(find "$SITE_DIR" -type f \( -name "*.html" -o -name "*.js" -o -name "*.css" \))
+          for f in "${files[@]}"; do
+            # ../../scripts/...  and ../../ajax/...  ->  ./scripts/...  &  ./ajax/...
+            sed -i 's|\.\./\.\./scripts/|./scripts/|g' "$f"
+            sed -i 's|\.\./\.\./ajax/|./ajax/|g' "$f"
 
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: ${{ env.SITE_DIR }}
+            # Common JSON-in-HTML attributes (data-wb-ajax, menuPath)
+            sed -i 's|"url":[[:space:]]*"\.\./\.\./ajax/|"url":"./ajax/|g' "$f"
+            sed -i 's|"menuPath":[[:space:]]*"\.\./\.\./ajax/|"menuPath":"./ajax/|g' "$f"
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+            # Breadcrumb "Home" pointing to repo root -> local index
+            sed -i 's|href="\.\./\.\./index\.html"|href="./index.html"|g' "$f"
+          done
+
+      # 3) Sanity check: no escaping paths should remain (href/src/url/menuPath)
+      - name: Sanity check for escaping paths
+        run: |
+          set -e
+          if grep -RInE 'href="\.\./|src="\.\./|url":"\.\./|menuPath":"\.\./' "$SITE_DIR"; then
