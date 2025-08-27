@@ -96,7 +96,7 @@ jobs:
           fi
           fi
       - name: Add .nojekyll
-        run: touch "learning/document-accessibility-course/.nojekyll"
+        run: touch "$SITE_DIR/.nojekyll"
 
       # === Size guard ===
       - name: Check site size (fail if > 250MB)
@@ -106,7 +106,7 @@ jobs:
             echo "::error ::$SITE_DIR/index.html not found. Your deployed site needs a root index.html."
             exit 1
           THRESHOLD=$((250*1024*1024))
-          BYTES=$(du -sb "learning/document-accessibility-course" | cut -f1)
+          BYTES=$(du -sb "$SITE_DIR" | cut -f1)
           echo "Build size: ${BYTES} bytes"
           if [ "$BYTES" -gt "$THRESHOLD" ]; then
             echo "::error ::Build too large for fast Pages deploy (>250MB)."
@@ -125,7 +125,7 @@ jobs:
           set -euxo pipefail
           find "$SITE_DIR" -type f -printf "%s %p\n" | sort -nr | head -n 30 | awk '{printf "%10.0f KB  %s\n",$1/1024,$2}'
           echo "Largest files:"
-          find "learning/document-accessibility-course" -type f -printf "%s %p\n" | sort -nr | head -n 30 | awk '{printf "%10.0f KB  %s\n",$1/1024,$2}'
+          find "$SITE_DIR" -type f -printf "%s %p\n" | sort -nr | head -n 30 | awk '{printf "%10.0f KB  %s\n",$1/1024,$2}'
 
       # --- Upload & deploy
       # === Preflight: your link-check script (if present) ===
@@ -143,13 +143,13 @@ jobs:
       - name: Run link-check script
         if: ${{ hashFiles('package.json') != '' }}
         run: npm run link-check
-        working-directory: learning/document-accessibility-course
+        working-directory: ${{ env.SITE_DIR }}
 
       # === Preflight: deep link crawl (Lychee) ===
       - name: Link check with lycheeverse/lychee-action
         uses: lycheeverse/lychee-action@v1
         with:
-          args: --verbose --no-progress --max-concurrency 8 --timeout 20 --base . "learning/document-accessibility-course/**/*.html"
+          args: --verbose --no-progress --max-concurrency 8 --timeout 20 --base . "$SITE_DIR/**/*.html"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -160,7 +160,7 @@ jobs:
           node-version: 20
           cache: 'npm'
       - name: Run html-validate
-        run: npx --yes html-validate "learning/document-accessibility-course/**/*.html"
+        run: npx --yes html-validate "$SITE_DIR/**/*.html"
 
       # === Upload for Pages ===
       - uses: actions/upload-pages-artifact@v3
