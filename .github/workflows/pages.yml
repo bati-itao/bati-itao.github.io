@@ -84,6 +84,11 @@ jobs:
 
       # --- Ensure a landing page exists
       - name: Ensure index.html exists at SITE_DIR root
+        run: |
+          if [ ! -f "$SITE_DIR/index.html" ]; then
+            echo "::error ::$SITE_DIR/index.html not found. Your deployed site needs a root index.html."
+            exit 1
+          fi
       - name: Add .nojekyll
         run: touch "learning/document-accessibility-course/.nojekyll"
 
