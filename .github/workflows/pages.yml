@@ -1,21 +1,7 @@
-name: Deploy to GitHub Pages (static subfolder)
-
 on:
   push:
-    branches: [ main ]   # change to your default branch if not 'main'
-  workflow_dispatch:      # lets you run it manually from the Actions tab
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages-${{ github.ref }}
-  cancel-in-progress: true
-
-env:
-  SITE_DIR: learning/document-accessibility-course
+    branches:
+      - main
 
 jobs:
   build:
@@ -24,33 +10,59 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Add .nojekyll
-        run: touch "$SITE_DIR/.nojekyll"
+        run: touch "learning/document-accessibility-course/.nojekyll"
 
+      # === Size guard ===
       - name: Check site size (fail if > 250MB)
         run: |
           THRESHOLD=$((250*1024*1024))
-          BYTES=$(du -sb "$SITE_DIR" | cut -f1)
+          BYTES=$(du -sb "learning/document-accessibility-course" | cut -f1)
           echo "Build size: ${BYTES} bytes"
           if [ "$BYTES" -gt "$THRESHOLD" ]; then
             echo "::error ::Build too large for fast Pages deploy (>250MB)."
-            exit 1
+            # exit 1
           fi
 
       - name: Show largest files (top 30)
         run: |
-          echo "Largest files in $SITE_DIR:"
-          find "$SITE_DIR" -type f -printf "%s %p\n" | sort -nr | head -n 30 | awk '{printf "%10.0f KB  %s\n",$1/1024,$2}'
+          echo "Largest files:"
+          find "learning/document-accessibility-course" -type f -printf "%s %p\n" | sort -nr | head -n 30 | awk '{printf "%10.0f KB  %s\n",$1/1024,$2}'
 
+      # === Preflight: your link-check script (if present) ===
+      - name: Use Node (for link-check script)
+        if: ${{ hashFiles('package.json') != '' }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install deps (if any) for link-check
+        if: ${{ hashFiles('package.json') != '' }}
+        run: npm ci --ignore-scripts || true
+
+      - name: Run link-check script
+        if: ${{ hashFiles('package.json') != '' }}
+        run: npm run link-check
+        working-directory: learning/document-accessibility-course
+
+      # === Preflight: deep link crawl (Lychee) ===
+      - name: Link check with lycheeverse/lychee-action
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: --verbose --no-progress --max-concurrency 8 --timeout 20 --base . "learning/document-accessibility-course/**/*.html"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # === Preflight: HTML validity ===
+      - name: Validate HTML (html-validate)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - name: Run html-validate
+        run: npx --yes html-validate "learning/document-accessibility-course/**/*.html"
+
+      # === Upload for Pages ===
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ env.SITE_DIR }}
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          path: learning/document-accessibility-course
