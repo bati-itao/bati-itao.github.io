@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="no-js" dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Pratiques exemplaire – Module 7 – Conception visuelle et couleurs - IT Accessibility office</title>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<!-- Meta data -->
+<meta content="" name="description"/>
+<!-- Meta data-->
+<!-- Load closure template scripts -->
+<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+<!-- Write closure template -->
+<script src="scripts/refTop.min.js"></script>
+<link href="css/a11y-dark.css" rel="stylesheet"/>
+<script src="scripts/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="css/esdc-course.css" rel="stylesheet"/>
+</head>
+<body typeof="WebPage" vocab="https://schema.org/">
+<div id="def-top">
+</div>
+<!-- Write closure template -->
+<script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "index.html"
+            }],
+           "breadcrumbs" : ,
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "",
+            "text": "Français",
+          }],
+        "menuPath": "ajax/menu-en.html"
+      });
+</script> 
+<div class="container"> 
+<div class="row">
+<div id="def-search"></div>
+<script src="scripts/appSearch.js"></script>
+
+<main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+<h1 id="wb-cont" property="name">Pratiques exemplaire – Module 7 – Conception visuelle et couleurs</h1>
+
+
+          <h1 property="name" id="wb-cont">Pratique exemplaire</h1>
+          
+                  <section>
+                     <h2 id="bp-colour">Couleur</h2>
+                     <ul>
+                        <li>Assurez-vous que l’information véhiculée par les différences de couleur est également disponible en texte.</li>
+                        <li>Incluez un indice textuel pour les étiquettes de formulaire en couleur.</li>
+                        <li>Assurez-vous qu’il y a des indices visuels supplémentaires lorsque des différences de couleur de texte sont utilisées pour transmettre de l’information.</li>
+                        <li>Assurez-vous que le rapport de contraste par rapport au texte environnant est de 3:1 et utilisez un indice visuel supplémentaire en cas de sélection de liens ou de commandes lorsque seule leur couleur les distingue.</li>
+                     </ul>
+                  </section>
+                  <section>
+                     <h2 id="bp-contrast">Contraste</h2>
+                     <ul>
+                        <li>Assurez-vous que le rapport de contraste du texte en petits caractères (police ordinaire de moins de 18 points ou caractères gras de moins de 14 points) est d’au moins 4,5:1 par rapport à l’arrière-plan.</li>
+                        <li>Assurez-vous que le rapport de contraste du texte en gros caractères (police standard d’au moins 18 points ou caractères gras de 14 points) est d’au moins 3:1 par rapport à l’arrière-plan.</li>
+                        <li>Assurez-vous que le rapport de contraste des composants actifs de l’interface utilisateur (c.-à-d. les commandes), leurs états et les graphiques significatifs est d’au moins 3:1 par rapport aux couleurs adjacentes.</li>
+                        <li>Dans la mesure du possible, augmentez le contraste et visez les valeurs maximales de 7:1 pour les textes en petits caractères et de 4,5:1 pour ceux en gros caractères.</li>
+                     </ul>
+                  </section>
+                  <section>
+                     <h2 id="visual-proximity-of-labels">Proximité visuelle des étiquettes</h2>
+                     <ul>
+                        <li>Placez les étiquettes relatives aux champs du formulaire immédiatement avant ceux-ci:
+                        <ul>
+                           <li>soit au-dessus du champ (privilégié par le Guide de style de la BOEW);</li>
+                           <li>soit à gauche du champ, aligné à droite (privilégié par le Guide de style de la BOEW lorsqu’il faut conserver un espace vertical).</li>
+                        </ul>
+			</li>
+                        <li>Placez les étiquettes des boutons radio et des cases à cocher après le champ.</li>
+                     </ul>
+                  </section>
+                  <section>
+                     <h2 id="text-spacing">Espacement des textes</h2>
+                     <p>Votre conception doit être suffisamment souple pour conserver son contenu et sa fonctionnalité lorsque l’utilisateur modifie l’espacement des textes, en tenant compte de ces contraintes:</p>
+                     <ul>
+                        <li>hauteur de ligne (espacement des lignes) à au moins 1,5 fois la taille de la police;</li>
+                        <li>espacement suivant les paragraphes d’au moins 2 fois la taille de la police;</li>
+                        <li>interlettrage (approche de groupe) d’au moins 0,12 fois la taille de la police;</li>
+                        <li>espacement entre les mots d’au moins 0,16 fois la taille de la police.</li>
+                     </ul>
+                     <p>Pour contourner l’espacement des textes dans votre conception :</p>
+                     <ul>
+                        <li>N’utilisez pas de contenants fixes dans vos styles de CSS.</li>
+                        <li>Veiller à ce que le contenu s’affiche sans chevauchement ou perte de texte.</li>
+                        <li>Utilisez des unités relatives de taille de police, de hauteur de ligne, d’espaces entre les caractères, les mots, les lignes et les paragraphes.</li>
+                     </ul>
+                  </section>
+                  <section>
+                     <h2 id="css-generated-content">Contenu produit par une CSS</h2>
+					<ul>
+						
+						<li>Masquer le contenu décoratif généré par des feuilles de style en cascade des lecteurs d’écrans en utilisant l’attribut <code>aria-hidden="true"</code>.</li>
+						<li>Ne pas utiliser du texte généré par des feuilles de style en cascade.
+							<ul>
+								<li>Exception&nbsp;: Utiliser du texte généré par des feuilles de style en cascade pour afficher les éléments <code>mark</code>, <code>del</code>, <code>ins</code> et <code>s</code> aux utilisateurs de lecteur d’écran.</li>
+							</ul>
+						</li>
+						<li>Concernant les icônes d’information générées par des feuilles de style en cascade&nbsp;:
+							<ul>
+                        <li>Configurer l’icône sur un élément <code>&lt;span&gt;</code>, et&nbsp;:
+									<ul>
+										<li>Le masquer sur le lecteur d’écran des utilisateurs avec l’attribut <code>aria-hidden</code>.</li>
+										<li>Ajouter une étiquette visible pour les utilisateurs de souris en utilisant l’attribut <code>title</code>.</li>
+									</ul>
+                        </li>
+                        <li>Ajouter une étiquette pour les utilisateurs de lecteur d’écran dans un deuxième élément <code>&lt;span&gt;</code> , masqué visuellement avec la classe CSS de la BOEW <code>.wb-inv</code>.</li>
+					</ul>
+                  </li></ul></section>
+                  <section>
+                     <h2 id="hiding-content">Masquer un contenu</h2>
+                     <p>Il peut l’être pour trois groupes d’utilisateurs:</p>
+                     <ul>
+                        <li>Pour tous les utilisateurs, en utilisant l’attribut <code lang="en">display:none</code> ou <code lang="en">visibility:hidden</code> de la CSS. Lorsque vous masquez du contenu inactif, comme les fenêtres modales non déclenchées et les sous-menus non sélectionnés, vous devez le masquer pour tous les utilisateurs.</li>
+                        <li>Pour les utilisateurs d’une technologie d’aide, au moyen de l’attribut <code lang="en">aria-hidden="true"</code> pour supprimer l’élément de l’API d’accessibilité; </li>
+                        <li>Pour les utilisateurs voyants, par l’entremise de la classe <code lang="en">.wb-inv</code> de CSS de la BOEW pour masquer le contenu.</li>
+                     </ul>
+                  </section>
+                  <section>
+                     <h2 id="exposing-content-on-hover-or-focus">Affichage d’un contenu lorsqu’on le survole avec le pointeur ou qu’on le sélectionne avec le clavier</h2>
+                     <p>Lorsque vous affichez un contenu masqué à l’aide du pointeur, assurez-vous que ce contenu satisfait aux trois critères suivants:</p>
+                    <dl>
+                        <dt>Peut être ignoré</dt>
+                        <dd class="mrgn-lft-lg">L’utilisateur peut ignorer le contenu affiché sans déplacer le pointeur de la souris ou annuler la sélection avec le clavier, habituellement en appuyant sur la touche Escape.</dd>
+                        <dt>Peut être survolé</dt>
+                        <dd class="mrgn-lft-lg">L’utilisateur peut placer le pointeur de la souris sur le contenu affiché.</dd>
+                        <dt>Persistant</dt>
+                        <dd class="mrgn-lft-lg">Le contenu affiché ne disparaît pas tant que le pointeur ne l’a pas dépassé ou que la sélection avec le clavier n’est pas annulée.</dd>
+                     </dl>
+                  </section>
+                  
+               <a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	 <script src="../../../scripts/esdc-course.js"></script>
+
+
+
+<a class="btn btn-primary btn-xs topBtn" href="#wb-tphp" id="topBtn"><span aria-hidden="true" class="glyphicon glyphicon-arrow-up"></span> Back to top</a>
+<script src="scripts/esdc-course.js"></script>
+</main>
+
+
+
+<nav aria-labelledby="wb-sec-h" class="wb-sec col-md-3 col-md-pull-9" id="wb-sec" typeof="SiteNavigationElement">
+<h2 class="wb-inv" id="wb-sec-h">Section menu</h2>
+<section class="list-group menu list-unstyled">
+<h3 class="wb-navcurr">
+Module 1 – Accessibility Fundamentals
+</h3>
+
+<ul class="list-group menu list-unstyled">
+
+<li><a class="list-group-item" href="module1/document-accessibility.html">Document accessibility</a></li>
+
+<li><a class="list-group-item" href="module1/types-of-disabilities.html">Type of disabilities</a></li>
+
+<li><a class="list-group-item" href="module1/accessibility-guidelines.html">Accessibility guidelines</a></li>
+
+<li><a class="list-group-item" href="module1/laws-and-government-standards.html">Laws and government standards</a></li>
+
+</ul>
+
+</section>
+
+<section class="list-group menu list-unstyled">
+    <h3 class="wb-navcurr">All modules</h3>
+    <ul class="list-group menu list-unstyled">
+    
+        <li><a class="list-group-item" href="module1/index.html">Module 1 – Accessibility Fundamentals</a></li>
+    
+        <li><a class="list-group-item" href="module2/landmarks.html">Module 2 – Global Document Accessibility</a></li>
+    
+        <li><a class="list-group-item" href="module3/links.html">Module 3 – PowerPoint Accessibility</a></li>
+    
+        <li><a class="list-group-item" href="module4/tables-concepts.html">Module 4 – Word Accessibility Techniques</a></li>
+    
+        <li><a class="list-group-item" href="module5/text-alternatives.html">Module 5 – Outlook Email Accessibility Techniques</a></li>
+    
+        <li><a class="list-group-item" href="module6/forms-concepts.html">Module 6 – Introduction to Accessible PDFs</a></li>
+    
+        <li><a class="list-group-item active" href="module7/introduction.html">Module 7 – Exporting Word to PDF</a></li>
+    
+        <li><a class="list-group-item" href="module8/introduction.html">Module 8 – Exporting PowerPoint to PDF</a></li>
+    
+        <li><a class="list-group-item" href="module9/captions.html">Module 9 – Foxit PDF Editor for Accessibility</a></li>
+    
+    </ul>
+</section>
+</nav>
+
+</div>
+</div>
+
+<div id="def-preFooter"></div>
+<script src="scripts/preFooter.min.js"></script>
+
+<div id="def-footer"></div>
+<script src="scripts/appFooter.min.js"></script>
+<script src="scripts/refFooter.min.js"></script>
+<script src="scripts/bati-itao.min.js"></script>
+</body>
+</html>

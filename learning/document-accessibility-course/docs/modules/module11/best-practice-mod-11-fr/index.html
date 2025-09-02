@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html class="no-js" dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Pratique exemplaire - Module 11 – Zones live ARIA et limites de temps - IT Accessibility office</title>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<!-- Meta data -->
+<meta content="" name="description"/>
+<!-- Meta data-->
+<!-- Load closure template scripts -->
+<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+<!-- Write closure template -->
+<script src="scripts/refTop.min.js"></script>
+<link href="css/a11y-dark.css" rel="stylesheet"/>
+<script src="scripts/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="css/esdc-course.css" rel="stylesheet"/>
+</head>
+<body typeof="WebPage" vocab="https://schema.org/">
+<div id="def-top">
+</div>
+<!-- Write closure template -->
+<script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "index.html"
+            }],
+           "breadcrumbs" : ,
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "",
+            "text": "Français",
+          }],
+        "menuPath": "ajax/menu-en.html"
+      });
+</script> 
+<div class="container"> 
+<div class="row">
+<div id="def-search"></div>
+<script src="scripts/appSearch.js"></script>
+
+<main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+<h1 id="wb-cont" property="name">Pratique exemplaire - Module 11 – Zones live ARIA et limites de temps</h1>
+
+
+          <h1 property="name" id="wb-cont">Pratique exemplaire</h1>
+
+          
+
+          <section>
+            <h2 id="aria-regions">Zones live ARIA</h2>
+            <ul>
+              <li>
+                Identifiez une zone live avec un attribut
+                <code lang="en">aria-live</code> associé à un élément conteneur.
+		
+					  <ul>
+						<li>
+						  La zone live doit être vide au moment du chargement de la page
+						  ou au moment de son ajout initial au DOM.
+						</li>
+		
+						<li>
+						  Utilisez <code lang="en">aria-live="polite"</code> pour la plupart des
+						  annonces.
+						</li>
+		
+						<li>
+						  Utilisez <code lang="en">aria-live="assertive"</code> lorsque
+						  l’utilisateur a besoin d’une rétroaction immédiate.
+						</li>
+					  </ul>
+				</li>
+              <li>
+                Utilisez l’attribut <code lang="en">aria-atomic</code> pour préciser si
+                toute la zone live doit être annoncé, ou seulement le texte qui
+                a changé.
+
+					  <ul>
+						<li>
+						  Utilisez <code lang="en">aria-atomic="false"</code> pour annoncer
+						  seulement le texte actualisé.
+						</li>
+		
+						<li>
+						  Utilisez <code lang="en">aria-atomic="true"</code> pour annoncer le
+						  texte statique et actualisé.
+						</li>
+					  </ul>
+              </li>
+              <li>
+                Utilisez l’attribut <code lang="en">aria-relevant</code> seulement si la
+                suppression du contenu d’une zone live doit être annoncée.
+              </li>
+
+              <li>
+                Utilisez l’attribut <code lang="en">aria-busy="true"</code> pour aviser la
+                technologie d’assistance qu’elle doit ignorer temporairement les
+                changements apportés à un élément lorsque des éléments sont en
+                cours de chargement. Une fois tous les éléments chargés, effacez
+                l’attribut ou configurez-le à <code lang="en">aria-busy="false"</code>.
+              </li>
+
+              <li>
+                Utilisez un type spécial de rôle de zone live, le cas
+                échéant&nbsp;:
+                <ul>
+                  <li>
+                    Utilisez <code lang="en">role="alert"</code> pour annoncer des
+                    informations importantes et généralement urgentes qui
+                    nécessitent l’attention immédiate de l’utilisateur.
+                  </li>
+                  <li>
+                    Utilisez <code lang="en">role="status"</code> pour annoncer à
+                    l’utilisateur une information moins urgente qu’une alerte.
+                  </li>
+                  <li>
+                    Utilisez <code lang="en">role="timer"</code> pour identifier un
+                    compteur numérique indiquant le temps écoulé depuis un point
+                    de départ ou le temps restant avant un point de fin.
+                  </li>
+                  <li>
+                    Utilisez <code lang="en">role="marquee"</code> pour définir une zone
+                    comme un type de zone live comportant des annonces non
+                    essentielles qui changent fréquemment.
+                  </li>
+                  <li>
+                    Utilisez <code lang="en">role="log"</code> pour faire le suivi des
+                    actualisations séquentielles, par exemple un journal de
+                    clavardage, un historique des messages, un journal de jeu ou
+                    un journal des erreurs.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2 id="time-limits">Limites de temps</h2>
+            <ul>
+              <li>
+                Toute conception comportant une limite de temps doit offrir à
+                l’utilisateur l’une de ces options&nbsp;:
+	
+				  <ul>
+					<li>
+					  <strong>Désactiver</strong> la limite de temps avant qu’elle soit
+					  activée.
+					</li>
+	
+					<li>
+					  <strong>Ajuster</strong> la limite de temps avant qu’elle soit activée à
+					  une durée d’au moins dix fois la valeur par défaut.
+					</li>
+	
+					<li>
+					  <strong>Prolonger</strong> la limite de temps. L’utilisateur doit être
+					  averti au moins 20&nbsp;secondes avant l’expiration du délai.
+					</li>
+				  </ul>
+			</li>
+
+              <li>
+                Lorsque la session est expirée, présentez des messages
+                d’avertissement dans une boîte de dialogue contextuelle avec des
+                options permettant à l’utilisateur de prolonger ou de terminer
+                la session.
+              </li>
+
+              <li>
+                Pour les minuteries comportant des échéances fixes, offrez un
+                compte à rebours avec annonces ARIA live à des intervalles
+                appropriés.
+              </li>
+
+              <li>
+                Lorsqu’une page est rafraîchie ou rechargée, le système doit
+                demander la permission de l’utilisateur. Il faut avertir
+                l’utilisateur que du contenu plus récent est disponible et à lui
+                offrir des options pour actualiser le contenu ou poursuivre avec
+                l’ancien contenu.
+              </li>
+            </ul>
+          </section>
+
+          
+        <a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	 <script src="../../../scripts/esdc-course.js"></script>
+
+
+
+<a class="btn btn-primary btn-xs topBtn" href="#wb-tphp" id="topBtn"><span aria-hidden="true" class="glyphicon glyphicon-arrow-up"></span> Back to top</a>
+<script src="scripts/esdc-course.js"></script>
+</main>
+
+
+
+<nav aria-labelledby="wb-sec-h" class="wb-sec col-md-3 col-md-pull-9" id="wb-sec" typeof="SiteNavigationElement">
+<h2 class="wb-inv" id="wb-sec-h">Section menu</h2>
+<section class="list-group menu list-unstyled">
+<h3 class="wb-navcurr">
+Module 1 – Accessibility Fundamentals
+</h3>
+
+<ul class="list-group menu list-unstyled">
+
+<li><a class="list-group-item" href="module1/document-accessibility.html">Document accessibility</a></li>
+
+<li><a class="list-group-item" href="module1/types-of-disabilities.html">Type of disabilities</a></li>
+
+<li><a class="list-group-item" href="module1/accessibility-guidelines.html">Accessibility guidelines</a></li>
+
+<li><a class="list-group-item" href="module1/laws-and-government-standards.html">Laws and government standards</a></li>
+
+</ul>
+
+</section>
+
+<section class="list-group menu list-unstyled">
+    <h3 class="wb-navcurr">All modules</h3>
+    <ul class="list-group menu list-unstyled">
+    
+        <li><a class="list-group-item" href="module1/index.html">Module 1 – Accessibility Fundamentals</a></li>
+    
+        <li><a class="list-group-item" href="module2/landmarks.html">Module 2 – Global Document Accessibility</a></li>
+    
+        <li><a class="list-group-item" href="module3/links.html">Module 3 – PowerPoint Accessibility</a></li>
+    
+        <li><a class="list-group-item" href="module4/tables-concepts.html">Module 4 – Word Accessibility Techniques</a></li>
+    
+        <li><a class="list-group-item" href="module5/text-alternatives.html">Module 5 – Outlook Email Accessibility Techniques</a></li>
+    
+        <li><a class="list-group-item" href="module6/forms-concepts.html">Module 6 – Introduction to Accessible PDFs</a></li>
+    
+        <li><a class="list-group-item" href="module7/introduction.html">Module 7 – Exporting Word to PDF</a></li>
+    
+        <li><a class="list-group-item" href="module8/introduction.html">Module 8 – Exporting PowerPoint to PDF</a></li>
+    
+        <li><a class="list-group-item" href="module9/captions.html">Module 9 – Foxit PDF Editor for Accessibility</a></li>
+    
+    </ul>
+</section>
+</nav>
+
+</div>
+</div>
+
+<div id="def-preFooter"></div>
+<script src="scripts/preFooter.min.js"></script>
+
+<div id="def-footer"></div>
+<script src="scripts/appFooter.min.js"></script>
+<script src="scripts/refFooter.min.js"></script>
+<script src="scripts/bati-itao.min.js"></script>
+</body>
+</html>

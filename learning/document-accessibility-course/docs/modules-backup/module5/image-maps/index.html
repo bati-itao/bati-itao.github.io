@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="no-js" dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Image maps – Module 5 - Images - IT Accessibility office</title>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<!-- Meta data -->
+<meta content="" name="description"/>
+<!-- Meta data-->
+<!-- Load closure template scripts -->
+<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+<!-- Write closure template -->
+<script src="scripts/refTop.min.js"></script>
+<link href="css/a11y-dark.css" rel="stylesheet"/>
+<script src="scripts/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="css/esdc-course.css" rel="stylesheet"/>
+</head>
+<body typeof="WebPage" vocab="https://schema.org/">
+<div id="def-top">
+</div>
+<!-- Write closure template -->
+<script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "index.html"
+            }],
+           "breadcrumbs" : ,
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "",
+            "text": "Français",
+          }],
+        "menuPath": "ajax/menu-en.html"
+      });
+</script> 
+<div class="container"> 
+<div class="row">
+<div id="def-search"></div>
+<script src="scripts/appSearch.js"></script>
+
+<main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+<h1 id="wb-cont" property="name">Image maps – Module 5 - Images</h1>
+
+
+          <h1 property="name" id="wb-cont">Image maps</h1>
+		                
+					<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&quot;selector&quot;: &quot;.grouped&quot;, &quot;group&quot;: &quot;.grouped&quot;, &quot;type&quot;: &quot;on&quot;}" aria-controls="details-1" id="expandAllButton">Expand all details</button><button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1 " data-toggle="{&quot;group&quot;: &quot;.grouped&quot;, &quot;type&quot;: &quot;off&quot;}" id="collapseAllButton" disabled="disabled">	Collapse all<span class="wb-inv"> details</span></button><section>
+		<h2 id="designing-with-image-maps">Designing with image maps</h2>
+		<p>An image map links geometric areas of an image. It consists of an <code>&lt;img&gt;</code> element and a <code>&lt;map&gt;</code> element. The <code>&lt;img&gt;</code> element uses its <code>usemap="IDREF"</code> attribute to reference the <code>id</code> attribute value of the <code>&lt;map&gt;</code> element. The <code>&lt;map&gt;</code> elements in turn hold <code>&lt;area&gt;</code> elements that each define a clickable region of the image and act as links. </p>
+		<p>Follow these Best practices for image maps:</p>
+		<ul>
+			<li>Describe the context in the source <code>&lt;img&gt;</code> element’s <code>alt</code> attribute. </li>
+			<li>Describe each clickable region in the <code>&lt;area&gt;</code> element’s <code>alt</code> attribute.</li>
+		</ul>
+	</section>
+	<section>
+		<div class="panel panel-success mrgn-tp-lg">
+				<div class="panel-body">
+		<h2 id="example1" class="text-success mrgn-tp-0 h3">
+			<span class="glyphicon glyphicon-ok-circle"></span> Good example: Image map</h2>
+
+		<p> Please select a shape: 
+			<img src="images/shapes.png" usemap="#shapes" alt="Four shapes are available: a red hollow box, a green circle, a blue triangle, and a yellow four-pointed star."> 
+			<map name="shapes"> 
+				<area shape="rect" coords="50,50,100,100" alt=""> <!-- the hole in the red box --> 
+				<area shape="rect" coords="25,25,125,125" href="red.html" alt="Red box with square hole."> 
+				<area shape="circle" coords="200,75,50" href="green.html" alt="Green circle."> 
+				<area shape="poly" coords="325,25,262,125,388,125" href="blue.html" alt="Blue triangle."> 
+				<area shape="poly" coords="450,25,435,60,400,75,435,90,450,125,465,90,500,75,465,60" href="yellow.html" alt="Yellow star."> 
+			</map> 
+		</p>
+		
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv" role="separator">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;p&gt; Please select a shape: 
+   &lt;img src="shapes.png" usemap="#shapes" alt="Four shapes are available: a red hollow box, a green circle, a blue triangle, and a yellow four-pointed star."&gt; 
+   &lt;map name="shapes"&gt; 
+      &lt;area shape=rect coords="50,50,100,100"&gt; &lt;!-- the hole in the red box --&gt; 
+      &lt;area shape=rect coords="25,25,125,125" href="red.html" alt="Red box with square hole."&gt; 
+      &lt;area shape=circle coords="200,75,50" href="green.html" alt="Green circle."&gt; 
+      &lt;area shape=poly coords="325,25,262,125,388,125" href="blue.html" alt="Blue triangle."&gt; 
+      &lt;area shape=poly coords="450,25,435,60,400,75,435,90,450,125,465,90,500,75,465,60" href="yellow.html" alt="Yellow star."&gt; 
+   &lt;/map&gt; 
+&lt;/p&gt;</code>
+</pre>
+		<p class="wb-inv" role="separator">Code ends</p>	
+				</div>
+		</div>	
+		<hr>
+		<p class="small">The image map example is from the WHATWG document: <a href="https://html.spec.whatwg.org/">4.8.15: Image maps</a> from the <a href="https://html.spec.whatwg.org">HTML Living Standard</a>. Status: Draft Updated 12 October 2021.</p>
+	</section>
+	<section>
+		<h2 id="wcag" class="wb-inv">Related WCAG resources</h2>
+		<details id="details-1" class="mrgn-tp-lg grouped on">
+			<summary class="bg-info">Related WCAG resources</summary>
+			<h3>Success criteria</h3>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">1.1.1: Non-text Content</a>
+				</li>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context">2.4.4: Link Purpose (In Context)</a>
+				</li>
+			</ul>
+			<h3>Techniques</h3>
+			<ul>
+				<li>
+					<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H24">H24: Providing text alternatives for the area elements of image maps</a>
+				</li>
+			</ul>
+		</details>
+	</section>
+			
+						
+
+<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script>
+
+
+
+<a class="btn btn-primary btn-xs topBtn" href="#wb-tphp" id="topBtn"><span aria-hidden="true" class="glyphicon glyphicon-arrow-up"></span> Back to top</a>
+<script src="scripts/esdc-course.js"></script>
+</main>
+
+
+
+<nav aria-labelledby="wb-sec-h" class="wb-sec col-md-3 col-md-pull-9" id="wb-sec" typeof="SiteNavigationElement">
+<h2 class="wb-inv" id="wb-sec-h">Section menu</h2>
+<section class="list-group menu list-unstyled">
+<h3 class="wb-navcurr">
+Module 1 – Accessibility Fundamentals
+</h3>
+
+<ul class="list-group menu list-unstyled">
+
+<li><a class="list-group-item" href="module1/document-accessibility.html">Document accessibility</a></li>
+
+<li><a class="list-group-item" href="module1/types-of-disabilities.html">Type of disabilities</a></li>
+
+<li><a class="list-group-item" href="module1/accessibility-guidelines.html">Accessibility guidelines</a></li>
+
+<li><a class="list-group-item" href="module1/laws-and-government-standards.html">Laws and government standards</a></li>
+
+</ul>
+
+</section>
+
+<section class="list-group menu list-unstyled">
+    <h3 class="wb-navcurr">All modules</h3>
+    <ul class="list-group menu list-unstyled">
+    
+        <li><a class="list-group-item" href="module1/index.html">Module 1 – Accessibility Fundamentals</a></li>
+    
+        <li><a class="list-group-item" href="module2/landmarks.html">Module 2 – Global Document Accessibility</a></li>
+    
+        <li><a class="list-group-item" href="module3/links.html">Module 3 – PowerPoint Accessibility</a></li>
+    
+        <li><a class="list-group-item" href="module4/tables-concepts.html">Module 4 – Word Accessibility Techniques</a></li>
+    
+        <li><a class="list-group-item active" href="module5/text-alternatives.html">Module 5 – Outlook Email Accessibility Techniques</a></li>
+    
+        <li><a class="list-group-item" href="module6/forms-concepts.html">Module 6 – Introduction to Accessible PDFs</a></li>
+    
+        <li><a class="list-group-item" href="module7/introduction.html">Module 7 – Exporting Word to PDF</a></li>
+    
+        <li><a class="list-group-item" href="module8/introduction.html">Module 8 – Exporting PowerPoint to PDF</a></li>
+    
+        <li><a class="list-group-item" href="module9/captions.html">Module 9 – Foxit PDF Editor for Accessibility</a></li>
+    
+    </ul>
+</section>
+</nav>
+
+</div>
+</div>
+
+<div id="def-preFooter"></div>
+<script src="scripts/preFooter.min.js"></script>
+
+<div id="def-footer"></div>
+<script src="scripts/appFooter.min.js"></script>
+<script src="scripts/refFooter.min.js"></script>
+<script src="scripts/bati-itao.min.js"></script>
+</body>
+</html>
