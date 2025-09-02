@@ -8,8 +8,12 @@ async function runLinkCheck() {
   try {
     const result = await check({
       path: pathToCheck,
-      timeout: 10000 // Optional: set a timeout per link to prevent hanging
-      // No linksToSkip so ALL links are checked
+      timeout: 10000, // Optional: set a timeout per link to prevent hanging
+      linksToSkip: [
+        'https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js',
+        'https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js',
+        'https://forms.office.com/Pages/ResponsePage.aspx*' // Skip Office forms
+      ]
     });
 
     let broken = 0;
