@@ -1,0 +1,54 @@
+---
+layout: base.njk
+---
+
+<main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+<h1 id="wb-cont" property="name">{{ title }}</h1>
+
+{{ content | safe }}
+
+{% if pageNavigation %}
+<nav aria-labelledby="nav-pagination">
+<h2 class="wb-inv" id="nav-pagination">Pagination menu</h2>
+<ul class="pager">
+{% if pageNavigation.previous %}
+<li class="previous"> <a href="{{ pageNavigation.previous.href }}" rel="prev">Previous - {{ pageNavigation.previous.title }}</a> </li>
+{% endif %}
+{% if pageNavigation.next %}
+<li class="next"> <a href="{{ pageNavigation.next.href }}" rel="next">Next - {{ pageNavigation.next.title }}</a> </li>
+{% endif %}
+</ul>
+</nav>
+{% endif %}
+
+<a class="btn btn-primary btn-xs topBtn" href="#wb-tphp" id="topBtn"><span aria-hidden="true" class="glyphicon glyphicon-arrow-up"></span> Back to top</a>
+<script src="{{ relativeToRoot }}scripts/esdc-course.js"></script>
+</main>
+
+{% if moduleId %}
+{% set currentModule = courseNavigation.modules | selectattr("id", "equalto", moduleId) | first %}
+<nav aria-labelledby="wb-sec-h" class="wb-sec col-md-3 col-md-pull-9" id="wb-sec" typeof="SiteNavigationElement">
+<h2 class="wb-inv" id="wb-sec-h">Section menu</h2>
+<section class="list-group menu list-unstyled">
+<h3 class="wb-navcurr">
+{{ currentModule.title }}
+</h3>
+{% if currentModule.items %}
+<ul class="list-group menu list-unstyled">
+{% for item in currentModule.items %}
+<li><a class="list-group-item{% if item.id == pageId %} active{% endif %}" href="{{ item.href }}"{% if item.id == pageId %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+</section>
+
+<section class="list-group menu list-unstyled">
+    <h3 class="wb-navcurr">All modules</h3>
+    <ul class="list-group menu list-unstyled">
+    {% for module in courseNavigation.modules %}
+        <li><a class="list-group-item{% if module.id == moduleId %} active{% endif %}" href="{{ module.href }}">{{ module.title }}</a></li>
+    {% endfor %}
+    </ul>
+</section>
+</nav>
+{% endif %}
