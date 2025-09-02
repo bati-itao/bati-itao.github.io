@@ -5,7 +5,7 @@ eleventyConfig.addPassthroughCopy("../scripts");
   return {
     dir: {
       input: "src",
-      output: "docs", // or "docs" for GitHub Pages
+      output: "../../docs", // or "docs" for GitHub Pages
       includes: "_includes",
       layouts: "_includes",
       data: "_data"
