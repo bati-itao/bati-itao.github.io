@@ -1,0 +1,899 @@
+"title": "Document accessibility course",
+                "href" : "../index.html""title": "Document accessibility course",
+                "href" : "../index.html""title": "Document accessibility course",
+                "href" : "../index.html""title": "Document accessibility course",
+                "href" : "../index.html""title": "Document accessibility course",
+                "href" : "../index.html""title": "Document accessibility course",
+                "href" : "../index.html""title": "Document accessibility course",
+                "href" : "../index.html""title": "Document accessibility course",
+                "href" : "../index.html"<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>Responsive design - Module 8 - Zoom and responsive design</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <!-- Meta data -->
+    <meta
+      name="description"
+      content="Accessibility guidelines related to responsive design. Responsive design use HTML and CSS to automatically resize, hide, shrink, or enlarge a website"
+    />
+    <!-- Meta data-->
+    <!-- Load closure template scripts -->
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+    <!-- Write closure template -->
+    <script src="../../../scripts/refTop.min.js"></script>
+    <link rel="stylesheet" href="../../../css/a11y-dark.css" />
+    <script src="../../../scripts/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+
+    <link rel="stylesheet" href="../../../css/esdc-course.css" />
+  </head>
+
+  <body vocab="https://schema.org/" typeof="WebPage">
+    <div id="def-top"></div>
+    <!-- Write closure template -->
+    <script>
+      var defTop = document.getElementById("def-top");
+      defTop.outerHTML = wet.builder.appTop({
+        appName: [
+          {
+            text: "ESDC / IT Accessibility office",
+            href: "../../../index.html",
+          },
+        ],
+        breadcrumbs: [
+          {
+            title: "Home",
+            href: "../../../index.html",
+          },
+          {
+            title: "Learning",
+            href: "../../index.html",
+          },
+          {
+            title: "Web accessibility course",
+            href: "../index.html",
+          },
+          {
+            title: "Module 8 - Zoom and responsive design",
+
+            href: "index.html",
+          },
+          {
+            title: "Responsive design",
+          },
+        ],
+        lngLinks: [
+          {
+            lang: "fr",
+            href: "responsive-design-fr.html",
+            text: "Français",
+          },
+        ],
+        menuPath: "../../../ajax/menu-en.html",
+      });
+    </script>
+    <div class="container">
+      <div class="row">
+        <div id="def-search"></div>
+        <script src="../../../scripts/appSearch.js"></script>
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Responsive design</h1>
+
+          <nav aria-labelledby="nav-table" class="mrgn-tp-md">
+            <h2 id="nav-table" class="wb-inv">Table of contents</h2>
+            <details class="mrgn-bttm-lg on" open="open">
+              <summary class="bg-info">Table of contents</summary>
+              <ul>
+                <li>
+                  <a href="#overview-responsive-design"
+                    >Overview – Responsive design</a
+                  >
+                </li>
+                <li>
+                  <a href="#css-media-queries">CSS media queries</a>
+                </li>
+                <li>
+                  <a href="#breakpoints">Breakpoints</a>
+                  <ul>
+                    <li>
+                      <a href="#good-example-single-breakpoint"
+                        >Good example: Single breakpoint</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#gov-canada-breakpoints"
+                        >Government of Canada breakpoints</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#wet-breakpoints">WET breakpoints</a>
+                    </li>
+                    <li>
+                      <a href="#common-breakpoints">Common breakpoints</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#set-the-viewport">Set the viewport</a>
+                  <ul>
+                    <li>
+                      <a href="#pinch-to-zoom"
+                        >Good example: Pinch-to-zoom set to 200%
+                        magnification</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#disabling-pinch-to-zoom"
+                        >Bad example: Disabling pinch-to-zoom</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#viewport-emulators">Viewport emulators</a>
+                  <ul>
+                    <li>
+                      <a href="#checking-it-accessibility-office-viewport"
+                        >Good example: Checking the IT Accessibility Office
+                        using the Viewport Emulator</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#checking-it-accessibility-office-chrome"
+                        >Good example: Checking the IT Accessibility Office
+                        using the Chrome emulator</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#benefits-to-low-vision-users"
+                    >Benefits to low vision users</a
+                  >
+                </li>
+                <li>
+                  <a href="#mod8-responsive-design-wcag"
+                    >Related WCAG resources</a
+                  >
+                </li>
+              </ul>
+            </details>
+          </nav>
+          <button
+            type="button"
+            class="btn btn-default wb-toggle wb-init wb-toggle-inited"
+            data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}"
+            aria-controls="details-1  details-2  details-3  details-4"
+            id="expandAllButton"
+          >
+            Expand all details
+          </button>
+          <button
+            type="button"
+            class="btn btn-default wb-toggle wb-init wb-toggle-inited"
+            aria-controls="details-1  details-2  details-3  details-4 "
+            data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}"
+            id="collapseAllButton"
+            disabled="disabled"
+          >
+            Collapse all<span class="wb-inv"> details</span>
+          </button>
+
+          <section>
+            <h2 id="overview-responsive-design">
+              Overview – Responsive design
+            </h2>
+            <p>
+              Responsive web design uses HTML and CSS to automatically resize,
+              hide, shrink, or enlarge a website, ensuring the design looks good
+              and the information and functionality are preserved across devices
+              of all screen size.
+            </p>
+          </section>
+
+          <section>
+            <h2 id="css-media-queries">CSS media queries</h2>
+            <p>
+              The technique leverages CSS “media queries”, which run tests to
+              determine users’ screen size then serve distinct layouts to
+              different screen widths. A typical strategy targets the three
+              broad categories of device display: large screens, tablets and
+              phones. The HTML and CSS of the page’s components are tailored to
+              avoid introducing horizontal scrolling, as described in later
+              sections.
+            </p>
+            <p>
+              The points at which a media query is introduced, and the layout
+              changed, are known as “breakpoints”. This is the syntax:
+            </p>
+            <p class="lang-label small">CSS</p>
+            <p class="wb-inv" role="separator">Code begins</p>
+            <pre
+              class="mrgn-tp-0"
+            ><code class="language-css">@media media type and (condition: breakpoint) {
+   // CSS rules
+}</code></pre>
+            <p class="wb-inv" role="separator">Code ends</p>
+            <p>Media types available for media queries include:</p>
+            <dl>
+              <dt>all</dt>
+              <dd class="mrgn-lft-lg">for all devices</dd>
+              <dt>print</dt>
+              <dd class="mrgn-lft-lg">for printers</dd>
+              <dt>screen</dt>
+              <dd class="mrgn-lft-lg">
+                for computer screens, including tablets, phones, etc.
+              </dd>
+              <dt>speech</dt>
+              <dd class="mrgn-lft-lg">for screen readers</dd>
+            </dl>
+          </section>
+
+          <section>
+            <h2 id="breakpoints">Breakpoints</h2>
+            <div class="panel panel-success mrgn-tp-lg">
+              <div class="panel-body">
+                <h3
+                  class="text-success mrgn-tp-0 h3"
+                  id="good-example-single-breakpoint"
+                >
+                  <span class="glyphicon glyphicon-ok-circle"></span> Good
+                  example: Single breakpoint
+                </h3>
+                <p>
+                  In this example , the media type is <code>screen</code> and
+                  the breakpoint is 480px. If the width of a device is 480px or
+                  smaller the <code>.button</code> style rule is applied.
+                </p>
+                <p class="lang-label small">CSS</p>
+                <p class="wb-inv" role="separator">Code begins</p>
+                <pre
+                  class="mrgn-tp-0"
+                ><code class="language-css">@media screen and (max-width: 480px) {
+   .button { background-color: red; }
+}</code></pre>
+                <p class="wb-inv" role="separator">Code ends</p>
+              </div>
+            </div>
+            <h3 id="gov-canada-breakpoints">
+              Government of Canada breakpoints
+            </h3>
+            <p>
+              The Government of Canada Treasury Board Secretariat
+              <a
+                href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/web-mobile-presence.html"
+                >Technical specifications for the Web and mobile presence</a
+              >
+              specifies two breakpoints for large and small screens at 768
+              pixels.
+            </p>
+            <p>
+              These media queries target the “screen” type, so their rules are
+              not applied to print output.
+            </p>
+            <p class="lang-label small">CSS</p>
+            <p class="wb-inv" role="separator">Code begins</p>
+            <pre
+              class="mrgn-tp-0"
+            ><code class="language-css">@media screen and (min-width: 768px) {
+   /* styles for large screen device */
+}
+@media screen and (max-width: 767px) { 
+   /* styles for small screen device */
+}</code></pre>
+            <p class="wb-inv" role="separator">Code ends</p>
+            <h3 id="wet-breakpoints">WET breakpoints</h3>
+            <p>
+              The Web Experience Toolkit boasts a mobile friendly responsive
+              design. It implements the Bootstrap 3 breakpoints:
+            </p>
+            <ul>
+              <li>Extra extra small – below 480px</li>
+              <li>Extra small - between 480px to 768px</li>
+              <li>Small – between 768px to 992px – Mobile size</li>
+              <li>Medium – between 992px to 1200px – Tablet size</li>
+              <li>Large – between 1200px to 1600px – Desktop size</li>
+              <li>Extra large – larger than 1600px</li>
+            </ul>
+            <h3 id="common-breakpoints">Common breakpoints</h3>
+            <h4 id="small-phones">Small (phones)</h4>
+            <ul>
+              <li>320px – 480px: Mobile devices</li>
+            </ul>
+            <h4 id="medium-tablets">Medium (tablets)</h4>
+            <ul>
+              <li>481px – 768px: iPads, Tablets</li>
+            </ul>
+            <h4 id="large-desktops">Large (desktops)</h4>
+            <ul>
+              <li>769px – 1024px: Small screens, laptops</li>
+              <li>1025px – 1200px: Desktops, large screens</li>
+              <li>1201px and more – Extra-large screens</li>
+            </ul>
+
+            <div class="panel panel-success mrgn-tp-lg">
+              <div class="panel-body">
+                <h3
+                  class="text-success mrgn-tp-0 h3"
+                  id="good-example-reflow-conent"
+                >
+                  <span class="glyphicon glyphicon-ok-circle"></span> Good
+                  example: Reflow content
+                </h3>
+                <p>
+                  <a href="example-reflow-2.html" target="_blank" rel="noopener"
+                    >See this example in action<span class="wb-inv">
+                      (Opens in new tab)</span
+                    ></a
+                  >. Narrow your browser window to trigger the responsive
+                  layout.
+                </p>
+                <details id="details-1" class="mrgn-tp-lg grouped on">
+                  <summary class="bg-info">
+                    View screenshots of the responsive layout
+                  </summary>
+                  <h4 id="desktop-media">Desktop: @media (min-width:960px)</h4>
+                  <div class="panel panel-primary">
+                    <div class="panel-body mrgn-bttm-0">
+                      <p class="wb-inv" role="separator">Example begins</p>
+
+                      <img
+                        src="images/image3.png"
+                        class="img-responsive"
+                        alt="Content is displayed in three columns, with text wrapping around floating images."
+                      />
+                      <p class="wb-inv" role="separator">Example ends</p>
+                    </div>
+                  </div>
+
+                  <h4 id="tablet-media">
+                    Tablet: @media (min-width:481px) and (max-width:959px)
+                  </h4>
+                  <div class="panel panel-primary">
+                    <div class="panel-body mrgn-bttm-0">
+                      <p class="wb-inv" role="separator">Example begins</p>
+
+                      <img
+                        src="images/image4.png"
+                        class="img-responsive"
+                        alt="Content is stacked in one column, with text wrapping around floating images."
+                      />
+                      <p class="wb-inv" role="separator">Example ends</p>
+                    </div>
+                  </div>
+
+                  <h4 id="phone-media">Phone: @media (max-width:480px)</h4>
+                  <p>Note that the float is removed from the images.</p>
+                  <div class="panel panel-primary">
+                    <div class="panel-body mrgn-bttm-0">
+                      <p class="wb-inv" role="separator">Example begins</p>
+
+                      <img
+                        src="images/image5.png"
+                        class="img-responsive"
+                        alt="Content is stacked in one column with no floats."
+                      />
+                      <p class="wb-inv" role="separator">Example ends</p>
+                    </div>
+                  </div>
+                </details>
+                <!-- changed above heading to h4 Mohammed Qadeer-->
+                <details id="details-2" class="grouped on mrgn-tp-md">
+                  <summary class="bg-info">View HTML</summary>
+                  <p class="wb-inv" role="separator">Code begins</p>
+                  <pre
+                    class="mrgn-tp-md"
+                  ><code class="language-html">&lt;article&gt;
+   &lt;header&gt; 
+      &lt;h1&gt;Responsive Tips...&lt;/h1&gt; 
+   &lt;/header&gt; 
+   &lt;div class="columns"&gt;
+      &lt;section id="a"&gt; 
+         &lt;h2&gt;One Size Doesn't Fit All! &lt;/h2&gt; 
+         &lt;img src="images/a11yicon.jpg" alt="Accessibility icon"&gt;
+         &lt;p&gt;Lorem ipsum dolor sit amet&lt;/p&gt;  
+      &lt;/section&gt; 
+      &lt;section id="b"&gt; 
+         &lt;h2&gt;One Speed Doesn't Work for Everyone! &lt;/h2&gt; 
+         &lt;img src="images/a11yicon.jpg" alt="Accessibility icon"&gt;
+         &lt;p&gt;Lorem ipsum dolor sit amet&lt;/p&gt;  
+      &lt;/section&gt;
+      &lt;section id="c"&gt; 
+         &lt;h2&gt;Assistive Technologies... &lt;/h2&gt; 
+         &lt;p&gt;Lorem ipsum dolor sit amet&lt;/p&gt;  
+      &lt;/section&gt; 
+   &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+                  <p class="wb-inv" role="separator">Code ends</p>
+                </details>
+
+                <details id="details-3" class="grouped on mrgn-tp-md">
+                  <summary class="bg-info">View CSS</summary>
+                  <p class="wb-inv" role="separator">Code begins</p>
+                  <pre class="mrgn-tp-md"><code class="language-css">article {
+   margin: 0 auto;
+}
+header { 
+   margin: 0 auto;
+   text-align: center; 
+} 
+.columns {
+   display: flex;
+   flex-wrap: wrap;
+}
+section {
+   background-color: white;
+   color: black;
+   border: 1px solid black;
+   padding: 1%;
+   margin:1%; 
+}
+h2 {
+   margin: 0;
+}
+section img {
+   width: 100px;
+   float: left;
+}
+@media (min-width:960px) {
+   article { 
+      width:960px; 
+   } 
+   #a { 
+      flex: 2;  
+   } 
+   #b { 
+      flex: 1;  
+   } 
+   #c {  
+      flex: 1;
+   }
+}
+@media (min-width:481px) and (max-width:959px) { 
+   article {  
+      width:100%;
+   }  
+   #a, #b, #c { 
+      flex:100%; 
+   }  
+} 
+@media (max-width:480px){ 
+   article { 
+      width:100%; 
+   } 
+   section img { 
+      float: none; 
+   } 
+   #a, #b, #c {  
+      flex:100%;  
+   } 
+}</code></pre>
+                  <p class="wb-inv" role="separator">Code ends</p>
+                </details>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 id="set-the-viewport">Set the viewport</h2>
+            <p>
+              Pages optimized for a variety of devices must include a
+              <code>&lt;meta&gt;</code> element in the
+              <code>&lt;head&gt;</code> of the document, specifying a couple of
+              properties of the viewport. A <code>meta</code> viewport tag
+              instructs the browser on how to control the page’s dimensions and
+              scaling. A page is not responsive on mobile devices without it.
+            </p>
+            <p class="lang-label small">HTML</p>
+            <p class="wb-inv" role="separator">Code begins</p>
+            <pre
+              class="mrgn-tp-0"
+            ><code class="language-html">&lt;html lang="en"&gt;
+   &lt;head&gt;
+      […]
+      &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+   &lt;/head&gt;</code></pre>
+
+            <p class="wb-inv" role="separator">Code ends</p>
+            <p>
+              The <code>width=device-width</code> parameter instructs the page
+              to match the device’s screen width. This allows the page to reflow
+              content to match different screen sizes.
+            </p>
+            <p>
+              The <code>initial-scale</code> parameter sets the default zoom
+              level of the page. Setting it to
+              <code>initial-scale=1</code> instructs browsers to establish a 1:1
+              relationship between CSS pixels and viewport pixels. This property
+              is needed in large part to address a resizing and content-clipping
+              bug in some devices triggered by using
+              <code>width=device-width</code> and viewing the page in landscape
+              orientation.
+            </p>
+            <p>
+              Mobile pages must support the pinch-to-zoom feature to enable
+              users to enlarge small text and controls and to compensate for
+              poor contrast. To enable the pinch-to-zoom feature, set
+              <code>user-scalable=1</code> and <code>maximum-scale=2.0</code>.
+              That’s a 200% value, the minimum zoom required to meet WCAG. You
+              can enable greater zoom by setting <code>maximum-scale</code> to a
+              higher value, or by removing the
+              <code>maximum-scale</code> parameter to remove the zoom limit
+              entirely.
+            </p>
+            <div class="panel panel-success mrgn-tp-lg">
+              <div class="panel-body">
+                <h3 class="text-success mrgn-tp-0 h3" id="pinch-to-zoom">
+                  <span class="glyphicon glyphicon-ok-circle"></span> Good
+                  example: Pinch-to-zoom set to 200% magnification
+                </h3>
+                <p>
+                  In this example, the page is configured to allow a maximum
+                  200% zoom via the <code>maximum-scale</code> property. 200% is
+                  the minimum zoom value required by WCAG.
+                </p>
+                <p class="lang-label small">HTML</p>
+                <p class="wb-inv" role="separator">Code begins</p>
+                <pre
+                  class="mrgn-tp-0"
+                ><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0; user-scalable=1"&gt;</code></pre>
+                <p class="wb-inv" role="separator">Code ends</p>
+              </div>
+            </div>
+            <div class="panel panel-success mrgn-tp-lg">
+              <div class="panel-body">
+                <h3
+                  class="text-danger mrgn-tp-0 h3"
+                  id="disabling-pinch-to-zoom"
+                >
+                  <span class="glyphicon glyphicon-remove-circle"></span> Bad
+                  example: Disabling pinch-to-zoom
+                </h3>
+                <p>
+                  Developers often disable the pinch-to-zoom feature by setting
+                  two parameters on the <code>meta</code> viewport element:
+                  <code>user-scalable=no</code> and
+                  <code>maximum-scale=1.0</code>.
+                </p>
+                <p class="lang-label small">HTML</p>
+                <p class="wb-inv" role="separator">Code begins</p>
+                <pre
+                  class="mrgn-tp-0"
+                ><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0; user-scalable=no"&gt;</code></pre>
+                <p class="wb-inv" role="separator">Code ends</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 id="viewport-emulators">Viewport emulators</h2>
+
+            <p>
+              You can test breakpoints using viewport emulators to accurately
+              represent your media query and style, bearing in mind that
+              emulators don't represent the functionality or the features of the
+              browser.
+            </p>
+            <p>
+              You can also test breakpoints using the online service
+              <a href="http://www.viewportemulator.com">Viewport Emulator</a>,
+              as per the example below.
+            </p>
+            <div class="panel panel-success mrgn-tp-lg">
+              <div class="panel-body">
+                <h3
+                  class="text-success mrgn-tp-0 h3"
+                  id="checking-it-accessibility-office-viewport"
+                >
+                  <span class="glyphicon glyphicon-ok-circle"></span> Good
+                  example: Checking the IT Accessibility Office using the
+                  Viewport Emulator
+                </h3>
+                <p>
+                  In this example, the
+                  <a href="https://bati-itao.github.io/index.html"
+                    >IT Accessibility Office</a
+                  >
+                  is tested using the
+                  <a href="http://www.viewportemulator.com"
+                    >online Viewport Emulator</a
+                  >.
+                </p>
+                <div class="panel panel-primary mrgn-tp-md">
+                  <div class="panel-body well mrgn-bttm-0">
+                    <p class="wb-inv" role="separator">Example begins</p>
+                    <img
+                      src="images/image7.png"
+                      class="img-responsive"
+                      alt="The mobile layout includes all content and functionality of the desktop layout."
+                    />
+                    <p class="wb-inv" role="separator">Example ends</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-success mrgn-tp-lg">
+              <div class="panel-body">
+                <h3
+                  class="text-success mrgn-tp-0 h3"
+                  id="checking-it-accessibility-office-chrome"
+                >
+                  <span class="glyphicon glyphicon-ok-circle"></span> Good
+                  example: Checking the IT Accessibility Office using the Chrome
+                  emulator
+                </h3>
+                <p>
+                  Chrome mobile emulator can be accessed through its developer
+                  tools options by using keyboard shortcuts: Command + Option +
+                  I (Mac) OR Ctrl + Shift + I (Windows).
+                </p>
+                <div class="panel panel-primary mrgn-tp-md">
+                  <div class="panel-body well mrgn-bttm-0">
+                    <p class="wb-inv" role="separator">Example begins</p>
+                    <img
+                      src="images/image8.png"
+                      class="img-responsive"
+                      alt="The mobile layout includes all content and functionality of the desktop layout."
+                    />
+                    <p class="wb-inv" role="separator">Example ends</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2 id="benefits-to-low-vision-users">
+              Benefits to low vision users
+            </h2>
+            <p>
+              Many users with low vision can’t magnify small screens well enough
+              to read them. Instead, they read sites on large devices and
+              magnify the screen. As the user magnifies, the browser window
+              grows smaller relative to the size of the content, eventually
+              triggering CSS breakpoints for smaller screen layouts. On a large
+              device, a small screen layout optimized to display as a single
+              column can take up the entire width of the large screen, enabling
+              quite large text.
+            </p>
+          </section>
+
+          <section>
+            <h2 id="mod8-responsive-design-wcag" class="wb-inv">
+              Related WCAG resources
+            </h2>
+            <details id="details-4" class="mrgn-tp-lg grouped on">
+              <summary class="bg-info">Related WCAG resources</summary>
+              <h3 id="low-vision-success-criteria">Success criteria</h3>
+              <ul>
+                <li>
+                  <a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow"
+                    >1.4.10: Reflow</a
+                  >
+                </li>
+              </ul>
+              <h3 id="low-vision-techniques">Techniques</h3>
+              <ul>
+                <li>
+                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C32"
+                    >C32: Using media queries and grid CSS to reflow columns</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C31"
+                    >C31: Using CSS Flexbox to reflow content</a
+                  >
+                </li>
+              </ul>
+            </details>
+          </section>
+
+          <nav aria-labelledby="nav-pagination">
+            <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+            <ul class="pager">
+              <li class="previous">
+                <a rel="prev" href="zoom.html">Previous - Zoom</a>
+              </li>
+              <li class="next">
+                <a rel="next" href="responsive-forms.html"
+                  >Next - Responsive forms</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"
+            ><span
+              class="glyphicon glyphicon-arrow-up"
+              aria-hidden="true"
+            ></span>
+            Back to top</a
+          >
+          <script src="../../../scripts/esdc-course.js"></script>
+        </main>
+
+        <nav
+          id="wb-sec"
+          class="wb-sec col-md-3 col-md-pull-9"
+          typeof="SiteNavigationElement"
+          aria-labelledby="wb-sec-h"
+        >
+          <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">Module 8 - Zoom and responsive design</h3>
+            <ul class="list-group menu list-unstyled">
+              <li>
+                <a class="list-group-item" href="introduction.html"
+                  >Introduction</a
+                >
+              </li>
+              <li><a class="list-group-item" href="zoom.html">Zoom</a></li>
+              <li class="expanded-white">
+                <a
+                  class="list-group-item active expanded-white"
+                  aria-current="page"
+                  href="responsive-design.html"
+                >
+                  Responsive design
+                  <span class="wb-inv">Expanded</span>
+                </a>
+                <ul class="list-group menu list-unstyled inner">
+                  <li>
+                    <a class="list-group-item" href="responsive-forms.html"
+                      >Responsive forms</a
+                    >
+                  </li>
+                  <li>
+                    <a class="list-group-item" href="responsive-images.html"
+                      >Responsive images</a
+                    >
+                  </li>
+                  <li>
+                    <a class="list-group-item" href="responsive-text.html"
+                      >Responsive text</a
+                    >
+                  </li>
+                  <li>
+                    <a class="list-group-item" href="responsive-objects.html"
+                      >Responsive objects and plugins</a
+                    >
+                  </li>
+                  <li>
+                    <a class="list-group-item" href="responsive-tables.html"
+                      >Responsive tables</a
+                    >
+                  </li>
+                  <li>
+                    <a class="list-group-item" href="responsive-ui.html"
+                      >Responsive UI components</a
+                    >
+                  </li>
+                  <li>
+                    <a class="list-group-item" href="responsive-video.html"
+                      >Responsive video</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a class="list-group-item" href="orientation.html"
+                  >Orientation</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="best-practice-mod-8.html"
+                  >Best practice</a
+                >
+              </li>
+            </ul>
+          </section>
+
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">All modules</h3>
+            <ul class="list-group menu list-unstyled">
+              <li>
+                <a
+                  class="list-group-item"
+                  href="../module1/web-accessibility.html"
+                  >Module 1 - Accessibility fundamentals</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module2/landmarks.html"
+                  >Module 2 – Page structure and semantics</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module3/links.html"
+                  >Module 3 – Links and navigation</a
+                >
+              </li>
+              <li>
+                <a
+                  class="list-group-item"
+                  href="../module4/tables-concepts.html"
+                  >Module 4 – Tables</a
+                >
+              </li>
+              <li>
+                <a
+                  class="list-group-item"
+                  href="../module5/text-alternatives.html"
+                  >Module 5 – Images</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module6/forms-concepts.html"
+                  >Module 6 – Forms</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module7/introduction.html"
+                  >Module 7 – Visual design and colours</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item active" href="introduction.html"
+                  >Module 8 – Zoom and responsive design</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module9/introduction.html"
+                  >Module 9 - Audio, video, animation and motion</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module10/introduction.html"
+                  >Module 10 - Input modalities</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module11/aria-live.html"
+                  >Module 11 - ARIA live and time limits</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">Appendix</h3>
+
+            <ul class="list-group menu list-unstyled">
+              <li>
+                <a class="list-group-item" href="../sitemap/sitemap.html"
+                  >Site map</a
+                >
+              </li>
+              <li>
+                <a
+                  class="list-group-item"
+                  href="../best-practice/all-best-practice.html"
+                  >All best practices</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../wcag/wcag-view.html"
+                  >WCAG view</a
+                >
+              </li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+
+      <div id="def-preFooter2"></div>
+      <script src="../../../scripts/preFooter2.min.js"></script>
+      <div id="def-preFooter"></div>
+      <script src="../../../scripts/preFooter.min.js"></script>
+    </div>
+
+    <div id="def-footer"></div>
+    <script src="../../../scripts/appFooter.min.js"></script>
+    <script src="../../../scripts/refFooter.min.js"></script>
+    <script src="../../../scripts/bati-itao.min.js"></script>
+  </body>
+</html>

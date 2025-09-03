@@ -1,0 +1,58 @@
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ 
+ <style>
+ #modalOverlay {
+width:100%;
+height:100%;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+}
+[role=alertdialog] {
+	position: relative;
+	width: 80%;
+	margin-left: -40%;
+	height: 400px;
+	margin-top: -200px;
+padding: 5px;
+border: thin #000 solid;
+background-color:#fff;
+}</style>
+<script>
+startTimeout();
+function startTimeout(){
+setTimeout(function(){
+$('main').attr('aria-hidden','true').css('display','none');
+setTimeout(function(){
+$('main').attr('aria-hidden','true').css('display','inherit');
+}, 1);
+$('body').attr('style','background-color:gray;');
+$('a').attr('tabindex','-1');
+$('a').attr('style','cursor:default;');
+$('button').attr('disabled','true');
+var modalOverlay = $('<div>').attr({id:"modalOverlay"});
+$(modalOverlay).appendTo('body');		
+var dialog = $('<div>').attr({role:"alertdialog", "aria-labelledby":"alertHeading", "aria-describedby":"alertText"});
+$(dialog).html('<h1 id="alertHeading">Session Timeout!</h1><div id="alertText"><p>Due to inactivity, your session will expire in 2 minutes. If additional time is required, please click "Continue Session". To allow this session to end, click "End Session".</p></div><button id="continue">Continue Session</button><button onclick="window.location.href=\'https:\\\accessible.canada.ca\'"> End Session </button>').appendTo('#modalOverlay');
+$('#continue').focus();
+$('#continue').click(function(e) {
+$('main').attr('aria-hidden','false');
+$('body, a').removeAttr('style');
+$('a').removeAttr('tabindex');
+$('button').removeAttr('disabled');
+$(modalOverlay).remove();
+$(dialog).remove();
+startTimeout();
+});
+}, 15000);
+}
+
+</script>
+
+<main>
+  <h1>Accessible session timeout dialog</h1>
+  <p> after 15 seconds of inactivity JavaScript launches and shifts user focus to a pop-up dialog that uses the role=”alertdialog" attribute. The user can choose to Continue Session or End Session. If the user clicks Continue Session, JavaScript resets the 15 second counter. If the user clicks End Session, JavaScript exits the page.</p>
+<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
+
+
+<span class="wb-sessto wb-init wb-sessto-inited" data-wb-sessto="{"inactivity": 15000, "logouturl": "../index.html"}" id="wb-auto-1"></span>

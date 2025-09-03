@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>Alt Text – Module 2 - Page structure and semantics</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <!-- Meta data -->
+    <meta
+      name="description"
+      content="Accessibility guidelines for writing effective alt text for images and graphics. Explains why alt text is important and how to create meaningful descriptions for everyone."
+    />
+    <!-- Meta data-->
+    <!-- Load closure template scripts -->
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+    <!-- Write closure template -->
+    <script src="../../../scripts/refTop.min.js"></script>
+    <link rel="stylesheet" href="../../../css/a11y-dark.css" />
+    <script src="../../../scripts/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <link rel="stylesheet" href="../../../css/esdc-course.css" />
+  </head>
+
+  <body vocab="https://schema.org/" typeof="WebPage">
+    <div id="def-top"></div>
+    <!-- Write closure template -->
+    <script>
+      var defTop = document.getElementById("def-top");
+      defTop.outerHTML = wet.builder.appTop({
+        appName: [
+          {
+            text: "ESDC / IT Accessibility office",
+            href: "../../../index.html",
+          },
+        ],
+        breadcrumbs: [
+          {
+            title: "Home",
+            href: "../../../index.html",
+          },
+          {
+            title: "Learning",
+            href: "../../index.html",
+          },
+          {
+            title: "Web accessibility course",
+            href: "../index.html",
+          },
+          {
+            title: "Module 2 – Page structure and semantics",
+            href: "index.html",
+          },
+          {
+            title: "Alt Text",
+          },
+        ],
+        lngLinks: [
+          {
+            lang: "fr",
+            href: "altText-fr.html",
+            text: "Français",
+          },
+        ],
+        menuPath: "../../../ajax/menu-en.html",
+      });
+    </script>
+    <div class="container">
+      <div class="row">
+        <div id="def-search"></div>
+        <script src="../../../scripts/appSearch.js"></script>
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Alt Text</h1>
+
+          <nav aria-labelledby="nav-table" class="mrgn-tp-md">
+            <h2 id="nav-table" class="wb-inv">Table of contents</h2>
+            <details class="mrgn-bttm-lg on" open="open">
+              <summary class="bg-info">Table of contents</summary>
+              <ul>
+                <li>
+                  <a href="#why-alt-text">Why alt text matters</a>
+                </li>
+                <li>
+                  <a href="#writing-alt-text">Writing effective alt text</a>
+                </li>
+                <li>
+                  <a href="#decorative-images">Decorative images</a>
+                </li>
+                <li>
+                  <a href="#complex-images">Complex images and graphics</a>
+                </li>
+                <li>
+                  <a href="#resources-alt">Related WCAG resources</a>
+                </li>
+              </ul>
+            </details>
+          </nav>
+
+          <button
+            type="button"
+            class="btn btn-default wb-toggle wb-init wb-toggle-inited"
+            data-toggle='{"selector": ".grouped", "group": ".grouped", "type": "on"}'
+            aria-controls="details-1"
+            id="expandAllButton"
+          >
+            Expand all details
+          </button>
+          <button
+            type="button"
+            class="btn btn-default wb-toggle wb-init wb-toggle-inited"
+            aria-controls="details-1 "
+            data-toggle='{"group": ".grouped", "type": "off"}'
+            id="collapseAllButton"
+            disabled="disabled"
+          >
+            Collapse all<span class="wb-inv"> details</span>
+          </button>
+
+          <section>
+            <h2 id="why-alt-text">Why alt text matters</h2>
+            <p>
+              Alternative text (“alt text”) is essential for ensuring that
+              images and graphics are accessible to everyone, including people
+              who use screen readers or have images turned off. Alt text
+              provides a concise description of an image’s meaning or function,
+              allowing users to understand content that is otherwise visual.
+            </p>
+            <p>
+              Without appropriate alt text, users may miss critical information,
+              context, or instructions. Well-written alt text supports
+              accessibility, improves search engine optimization (SEO), and
+              aligns with WCAG guidelines for providing text alternatives.
+            </p>
+          </section>
+
+          <section>
+            <h2 id="writing-alt-text">Writing effective alt text</h2>
+            <p>
+              Good alt text is brief, descriptive, and communicates the purpose
+              of the image. Focus on what is important for understanding the
+              page, not on describing every detail. The alt text should answer:
+              “What does this image convey or accomplish?”
+            </p>
+            <ul>
+              <li>
+                <strong>Descriptive:</strong> Describe the content and function.
+                For example, <code>alt="Submit button"</code>.
+              </li>
+              <li>
+                <strong>Concise:</strong> Keep alt text short (typically under
+                125 characters).
+              </li>
+              <li>
+                <strong>Avoid redundancy:</strong> Do not repeat information
+                already provided in nearby text.
+              </li>
+              <li>
+                <strong>No “image of...” needed:</strong> Screen readers already
+                announce graphics as images.
+              </li>
+              <li>
+                <strong>Functional images:</strong> If the image is a link or
+                button, alt text should explain its action, e.g.,
+                <code>alt="Search"</code>.
+              </li>
+            </ul>
+            <p>
+              <strong>Example:</strong>
+            </p>
+            <div class="panel panel-primary mrgn-tp-md">
+              <div class="panel-body well mrgn-bttm-0">
+                <img src="../../../images/search-icon.png" alt="Search" />
+              </div>
+            </div>
+            <p class="lang-label small">HTML</p>
+            <pre
+              class="mrgn-tp-0"
+            ><code class="language-html">&lt;img src="search-icon.png" alt="Search"&gt;</code></pre>
+          </section>
+
+          <section>
+            <h2 id="decorative-images">Decorative images</h2>
+            <p>
+              Images that do not convey information or meaning can be marked as
+              decorative. Use an empty alt attribute (<code>alt=""</code>) so
+              that assistive technologies ignore them.
+            </p>
+            <div class="panel panel-primary mrgn-tp-md">
+              <div class="panel-body well mrgn-bttm-0">
+                <img src="../../../images/curve.png" alt="" />
+              </div>
+            </div>
+            <p class="lang-label small">HTML</p>
+            <pre
+              class="mrgn-tp-0"
+            ><code class="language-html">&lt;img src="curve.png" alt=""&gt;</code></pre>
+          </section>
+
+          <section>
+            <h2 id="complex-images">Complex images and graphics</h2>
+            <p>
+              For charts, diagrams, infographics, or other complex images,
+              provide a brief alt text and a longer text description elsewhere
+              on the page. The alt text should summarize the main point, while a
+              nearby caption or linked description explains details.
+            </p>
+            <div class="panel panel-primary mrgn-tp-md">
+              <div class="panel-body well mrgn-bttm-0">
+                <img
+                  src="../../../images/bar-chart.png"
+                  alt="Bar chart showing sales growth from 2021 to 2023"
+                />
+                <p id="chart-description" class="mrgn-tp-sm">
+                  Sales increased steadily from 2021 ($1M) to 2023 ($2.5M), with
+                  the highest growth in Q2 2023.
+                </p>
+              </div>
+            </div>
+            <p class="lang-label small">HTML</p>
+            <pre
+              class="mrgn-tp-0"
+            ><code class="language-html">&lt;img src="bar-chart.png" alt="Bar chart showing sales growth from 2021 to 2023" aria-describedby="chart-description"&gt;
+&lt;p id="chart-description"&gt;Sales increased steadily from 2021 ($1M) to 2023 ($2.5M), with the highest growth in Q2 2023.&lt;/p&gt;</code></pre>
+          </section>
+
+          <section>
+            <h2 id="resources-alt" class="wb-inv">Related WCAG resources</h2>
+            <details id="details-1" class="mrgn-tp-lg grouped on">
+              <summary class="bg-info">Related WCAG resources</summary>
+              <h3>Success criteria</h3>
+              <ul>
+                <li>
+                  <a
+                    href="https://www.w3.org/WAI/WCAG21/Understanding/text-alternatives"
+                    >1.1.1: Text Alternatives</a
+                  >
+                </li>
+              </ul>
+              <h3>Techniques</h3>
+              <ul>
+                <li>
+                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H37"
+                    >H37: Using alt attributes on images</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H67"
+                    >H67: Using null alt text and no title attribute for
+                    decorative images</a
+                  >
+                </li>
+              </ul>
+            </details>
+            <hr />
+            <p class="small">
+              The guidance for writing alt text is adapted from the Web
+              Accessibility Initiative (<a href="https://www.w3.org/WAI/">WAI</a
+              >) documents:
+              <a href="https://www.w3.org/WAI/tutorials/images/"
+                >Images Tutorial <span class="wb-inv"> (WAI)</span></a
+              >
+              in the
+              <a href="https://www.w3.org/WAI/tutorials/"
+                >Web Accessibility Tutorials</a
+              >. Copyright © 2019 W3C® (<a href="https://www.csail.mit.edu/"
+                >MIT</a
+              >, <a href="http://www.ercim.eu/">ERCIM</a>,
+              <a href="https://www.keio.ac.jp/">Keio</a>). Status: Updated 27
+              July 2019.
+              <a href="https://www.w3.org/WAI/tutorials/images/"
+                >https://www.w3.org/WAI/tutorials/images/</a
+              >
+            </p>
+          </section>
+
+          <nav aria-labelledby="nav-pagination">
+            <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+            <ul class="pager">
+              <li class="previous">
+                <a rel="prev" href="language.html">Previous - Language</a>
+              </li>
+              <li class="next">
+                <a rel="next" href="iframes.html">Next - Iframes</a>
+              </li>
+            </ul>
+          </nav>
+
+          <a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"
+            ><span
+              class="glyphicon glyphicon-arrow-up"
+              aria-hidden="true"
+            ></span>
+            Back to top</a
+          >
+          <script src="../../../scripts/esdc-course.js"></script>
+        </main>
+
+        <nav
+          id="wb-sec"
+          class="wb-sec col-md-3 col-md-pull-9"
+          typeof="SiteNavigationElement"
+          aria-labelledby="wb-sec-h"
+        >
+          <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">
+              Module 2 – Global Accessibility Techniques
+            </h3>
+
+            <ul class="list-group menu list-unstyled">
+              <li>
+                <a class="list-group-item href" href="infoPane.html"
+                  >Info Pane</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item href" href="accessibleTemplates.html"
+                  >Accessible Templates</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item href" href="language.html"
+                  >Language</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="textAndFonts.html"
+                  >Text and Fonts</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="hyperlinks.html">Hyperlinks</a>
+              </li>
+              <li>
+                <a
+                  class="list-group-item active"
+                  aria-current="page"
+                  href="altText.html"
+                  >Alt Text</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="contrast.html">Contrast</a>
+              </li>
+              <li>
+                <a class="list-group-item" href="acronyms.html">Acronyms</a>
+              </li>
+              <li>
+                <a class="list-group-item" href="multimedia.html">Multimedia</a>
+              </li>
+              <li>
+                <a class="list-group-item" href="plainLanguage.html"
+                  >Plain Language</a
+                >
+              </li>
+            </ul>
+          </section>
+
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">All modules</h3>
+
+            <ul class="list-group menu list-unstyled">
+              <li>
+                <a
+                  class="list-group-item"
+                  href="../module1/document-accessibility.html"
+                  >Module 1 - Accessibility fundamentals</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item active" href="landmarks.html"
+                  >Module 2 – Global Accessibility Techniques</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module3/links.html"
+                  >Module 3 – Accessible PowerPoint Techniques</a
+                >
+              </li>
+              <li>
+                <a
+                  class="list-group-item"
+                  href="../module4/tables-concepts.html"
+                  >Module 4 – Accessible Word Techniques</a
+                >
+              </li>
+              <li>
+                <a
+                  class="list-group-item"
+                  href="../module5/text-alternatives.html"
+                  >Module 5 – Accessible Outlook (Email) Techniques</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module6/forms-concepts.html"
+                  >Module 6 – Introduction to Accessible PDFs</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module7/introduction.html"
+                  >Module 7 – Exporting Word to PDF</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module8/introduction.html"
+                  >Module 8 – Exporting PowerPoint to PDF</a
+                >
+              </li>
+
+              <li>
+                <a class="list-group-item" href="../module10/introduction.html"
+                  >Module 10 - Accessible PDFs</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">Appendix</h3>
+
+            <ul class="list-group menu list-unstyled">
+              <li>
+                <a class="list-group-item" href="../sitemap/sitemap.html"
+                  >Site map</a
+                >
+              </li>
+              <li>
+                <a
+                  class="list-group-item"
+                  href="../best-practice/all-best-practice.html"
+                  >All best practices</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../wcag/wcag-view.html"
+                  >WCAG view</a
+                >
+              </li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+      <div id="def-preFooter2"></div>
+      <script src="../../../scripts/preFooter2.min.js"></script>
+      <div id="def-preFooter"></div>
+      <script src="../../../scripts/preFooter.min.js"></script>
+    </div>
+
+    <div id="def-footer"></div>
+    <script src="../../../scripts/appFooter.min.js"></script>
+    <script src="../../../scripts/refFooter.min.js"></script>
+    <script src="../../../scripts/bati-itao.min.js"></script>
+  </body>
+</html>

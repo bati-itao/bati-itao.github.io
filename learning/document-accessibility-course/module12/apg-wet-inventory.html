@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ARIA WET inventory</title>
+		<style type="text/css">
+			body { font-size: 1.2em; }
+			main { margin: 0 10%; }
+			table {  border-collapse: collapse; margin-bottom: 2em;}
+			th, td { border: 1px solid black; width: 40%; text-align: left; padding: 0.25em;}
+			tr > th:first-child { width: 19%; }
+			tr > td:first-child { width: 19%; }
+			p { margin: 0 0 0.5em 0 }
+		</style>		
+	</head>
+	<body>
+<main>
+<h1>APG and WET examples by ARIA pattern, role and state and property</h1>
+<nav>
+	<ul>
+		<li><a href="#examples_by_pattern_name">ARIA patterns without dedicated roles and their WET equivalents</a></li>
+		<li><a href="#examples_by_role_label">Examples by role</a></li>
+		<li><a href="#examples_by_props_label">Examples by property and state</a></li>
+	</ul>
+</nav>
+
+<h2 id="examples_by_pattern_name">APG patterns without dedicated roles and their WET equivalents</h2>
+<p>Some ARIA patterns, like Accordion and Disclosure, don't have dedicated roles. Their child elements use roles (like button, region).</p>
+<table aria-labelledby="examples_by_role_label" class="data attributes">
+		
+        <thead>
+          <tr>
+            <th>Pattern</th>
+            <th>APG examples</th>
+            <th>WET examples</th>
+          </tr>
+        </thead>
+        <tbody id="examples_by_pattern_tbody">
+          <tr>
+            <td>Disclosure</td>
+            <td>
+              Disclosure
+            </td>
+            <td>
+            <p><a href="https://wet-boew.github.io/v4.0-ci/demos/details/details-en.html">Details/summary polyfill (expandable/collapsible content)</a>. Adds ARIA attributes for legacy browsers. Adds role="button" to summary (its inherent role) and aria-expanded. Lacks aria-controls.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>Accordion</td>
+            <td>
+              Accordion
+            </td>
+            <td>
+            <p>The Accordion option of the <a href="https://wet-boew.github.io/v4.0-ci/demos/toggle/j-en.html">Toggle</a> incorrectly mixes tab and tablist roles and nests details/summary inside the tab role. Very incorrect.</p>
+            </td>
+          </tr>
+        </thead>
+</table>
+
+<h2 id="examples_by_role_label">Examples by role</h2>
+<table aria-labelledby="examples_by_role_label" class="data attributes">
+        <thead>
+          <tr>
+            <th>Role</th>
+            <th>APG examples</th>
+            <th>WET examples</th>
+          </tr>
+        </thead>
+        <tbody id="examples_by_role_tbody">
+          <tr>
+            <td><code>alert</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/alert/alert.html">Alert</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/alertdialog.html">Alert Dialog</a></p>
+              
+            </td>
+            <td>
+            <p>No example use in WET. Use the WET ".alert" CSS class to style visible role="alert" messages.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>alertdialog</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/alertdialog.html">Alert Dialog</a></td>
+            <td>
+				<p>No example use in WET.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>article</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/feed/feed.html">Feed</a></td>
+            <td>
+				<p>No example use in WET.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>banner</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-navigation.html">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-navigation.html">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/landmarks/banner.html">Banner Landmark</a></p>
+              
+            </td>
+            <td>
+				<p>No example use in WET.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>button</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/button/button_idl.html">Button  (IDL Version)</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/button/button.html">Button</a></p>
+              
+            </td>
+            <td>
+            <p><a href="https://wet-boew.github.io/wet-boew-styleguide/design/buttons-en.html">Buttons</a></p>
+            <p>role="button" used in multimedia overlay, details.</p>
+            <p>Interesting use with the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/overlay/overlay-en.html">Overlay</a> trigger, which can be an event or a link with role="button" leveraging the still-functional href attribute. The link trigger is used in the "Multimedia player in an overlay" example on the <a href="https://wet-boew.github.io/v4.0-ci/demos/multimedia/multimedia-en.html">Multimedia Player - Video</a> example page.</p>
+            
+            </td>
+          </tr>
+          <tr>
+            <td><code>cell</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/table/table.html">Table</a></td>
+            <td>
+				<p>No example use in WET.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>checkbox</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/checkbox/checkbox-mixed.html">Checkbox  (Mixed-State)</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/checkbox/checkbox.html">Checkbox  (Two State)</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+              
+            </td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>columnheader</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/table/table.html">Table</a></td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>combobox</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-both.html">Editable Combobox With Both List and Inline Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-list.html">Editable Combobox With List Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-none.html">Editable Combobox without Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-datepicker.html">Date Picker Combobox</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-select-only.html">Select-Only Combobox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/grid-combo.html">Editable Combobox with Grid Popup</a></p>
+              
+            </td>
+            <td>
+            <p><a href="https://wet-boew.github.io/v4.0-ci/demos/datalist/datalist-en.html">datalist polyfill</a> implements the ARIA pattern in browsers that don't support the HTML5 input list attribute and the datalist element.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>complementary</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/landmarks/complementary.html">Complementary Landmark</a></td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>contentinfo</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-navigation.html">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-navigation.html">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/landmarks/contentinfo.html">Contentinfo Landmark</a></p>
+              
+            </td>
+            <td>Aside element used in footnotes, but the role is overwritten with role="note".</td>
+          </tr>
+          <tr>
+            <td><code>dialog</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-datepicker.html">Date Picker Combobox</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/datepicker-dialog.html">Date Picker Dialog</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/dialog.html">Modal Dialog</a></p>
+              
+            </td>
+            <td><a href="https://wet-boew.github.io/v4.0-ci/docs/ref/overlay/overlay-en.html">Overlay</a>. Dialog lacks aria-labelledby. Main content lacks aria-hidden="true" when Dialog is triggered, a requirement for implementations that don't use aria-modal="true" (though that is not the case for (Lightbox + Modal pattern). Links in main content visible beneath overlay can be triggered.</td>
+          </tr>
+          <tr>
+            <td><code>feed</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/feed/feed.html">Feed</a></td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>form</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/landmarks/form.html">Form Landmark</a></td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>grid</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-datepicker.html">Date Picker Combobox</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/grid-combo.html">Editable Combobox with Grid Popup</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/datepicker-dialog.html">Date Picker Dialog</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/grid/dataGrids.html">Data Grid</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/grid/LayoutGrids.html">Layout Grid</a></p>
+              
+            </td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>gridcell</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/grid-combo.html">Editable Combobox with Grid Popup</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/grid/LayoutGrids.html">Layout Grid</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treegrid/treegrid-1.html">Treegrid Email Inbox</a></p>
+              
+            </td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>group</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/carousel/carousel-1-prev-next.html">Auto-Rotating Image Carousel  with Buttons for Slide Control</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/checkbox/checkbox.html">Checkbox  (Two State)</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-grouped.html">Listbox  with Grouped Options</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-editor.html">Editor Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-color-viewer.html">Color Viewer Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/spinbutton/datepicker-spinbuttons.html">Date Picker Spin Button</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/switch/switch-button.html">Switch  Using HTML Button</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-1/treeview-1a.html">File Directory Treeview  Using Computed Properties</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-1/treeview-1b.html">File Directory Treeview  Using Declared Properties</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-navigation.html">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+              
+            </td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>link</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/link/link.html">Link</a></td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>listbox</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-both.html">Editable Combobox With Both List and Inline Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-list.html">Editable Combobox With List Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-none.html">Editable Combobox without Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-select-only.html">Select-Only Combobox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-collapsible.html">(Deprecated) Collapsible Dropdown Listbox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-grouped.html">Listbox  with Grouped Options</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-rearrangeable.html">Listboxes with Rearrangeable Options</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-scrollable.html">Scrollable Listbox</a></p>
+              
+            </td>
+            <td>Used in both geomap and datalist to hold a live region of listbox search results.</td>
+          </tr>
+          <tr>
+            <td><code>main</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/landmarks/main.html">Main Landmark</a></td>
+            <td>Used incorrectly (redundantly) on default template.</td>
+          </tr>
+          <tr>
+            <td><code>menu</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menu-button/menu-button-actions-active-descendant.html">Actions Menu Button  Using aria-activedescendant</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menu-button/menu-button-actions.html">Actions Menu Button  Using element.focus()</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menu-button/menu-button-links.html">Navigation Menu Button</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-editor.html">Editor Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-navigation.html">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
+              
+            </td>
+            <td>
+            <p><a href="https://wet-boew.github.io/v4.0-ci/demos/menu/menu-en.html">Menu working example</a>. Menu is missing from the Style Guide. The aria-expanded attribute is set incorrectly on the menu rather than the triggering menuitem. The li elements lack role="none". Adds aria-posinset and aria-setsize, though they are not part of the ARIA pattern.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>menubar</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-editor.html">Editor Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-navigation.html">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+              
+            </td>
+            <td><a href="https://wet-boew.github.io/v4.0-ci/demos/menu/menu-en.html">Menu working example</a></td>
+          </tr>
+          <tr>
+            <td><code>menuitem</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menu-button/menu-button-actions-active-descendant.html">Actions Menu Button  Using aria-activedescendant</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menu-button/menu-button-actions.html">Actions Menu Button  Using element.focus()</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menu-button/menu-button-links.html">Navigation Menu Button</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-editor.html">Editor Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-navigation.html">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+              
+            </td>
+            <td><a href="https://wet-boew.github.io/v4.0-ci/demos/menu/menu-en.html">Menu working example</a></td>
+          </tr>
+          <tr>
+            <td><code>menuitemcheckbox</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-editor.html">Editor Menubar</a></td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>menuitemradio</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-editor.html">Editor Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
+              
+            </td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>meter</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/meter/meter.html">Meter</a></td>
+            <td>Meter polyfill documentation claims to emulate the HTML5 meter element with generic HTML and ARIA, but it doesn't use any of the ARIA attributes.</td>
+          </tr>
+          <tr>
+            <td><code>navigation</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-navigation.html">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-navigation.html">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/landmarks/navigation.html">Navigation Landmark</a></p>
+              
+            </td>
+            <td>breadcrumbs, footer, site menu, <a href="https://wet-boew.github.io/v4.0-ci/demos/menu/menu-en.html">menu</a> (demo, not style guide)</td>
+          </tr>
+          <tr>
+            <td><code>none</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menu-button/menu-button-links.html">Navigation Menu Button</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-navigation.html">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/radio/radio-rating.html">Rating Radio Group</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-multithumb.html">Horizontal Multi-Thumb Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-seek.html">Media Seek Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-temperature.html">Vertical Temperature Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-navigation.html">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+              
+            </td>
+            <td>No example use in WET. The equivalent role="presentation" is used in the Tabbed Interface.</td>
+          </tr>
+          <tr>
+            <td><code>option</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-both.html">Editable Combobox With Both List and Inline Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-list.html">Editable Combobox With List Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-none.html">Editable Combobox without Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-select-only.html">Select-Only Combobox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-collapsible.html">(Deprecated) Collapsible Dropdown Listbox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-grouped.html">Listbox  with Grouped Options</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-rearrangeable.html">Listboxes with Rearrangeable Options</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-scrollable.html">Scrollable Listbox</a></p>
+              
+            </td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>presentation</code></td>
+            <td>
+              No example use in APG. Instead, APG uses the equivalent role="none".
+            </td>
+            <td><a href="https://wet-boew.github.io/v4.0-ci/docs/ref/tabs/tabs-en.html">Tabbed Interface</a>. Set via JS on the li elements nesting the tabs.</td>
+          </tr>
+          <tr>
+            <td><code>radio</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/radio/radio-activedescendant.html">Radio Group  Using aria-activedescendant</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/radio/radio-rating.html">Rating Radio Group</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/radio/radio.html">Radio Group  Using Roving tabindex</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
+              
+            </td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>radiogroup</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/radio/radio-activedescendant.html">Radio Group  Using aria-activedescendant</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/radio/radio-rating.html">Rating Radio Group</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/radio/radio.html">Radio Group  Using Roving tabindex</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
+              
+            </td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>region</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion.html">Accordion</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/carousel/carousel-1-prev-next.html">Auto-Rotating Image Carousel  with Buttons for Slide Control</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/carousel/carousel-2-tablist.html">Auto-Rotating Image Carousel with Tabs for Slide Control</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-navigation.html">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-navigation.html">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/landmarks/region.html">Region Landmark</a></p>
+              
+            </td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>row</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/grid-combo.html">Editable Combobox with Grid Popup</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/grid/LayoutGrids.html">Layout Grid</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/table/table.html">Table</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treegrid/treegrid-1.html">Treegrid Email Inbox</a></p>
+              
+            </td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>rowgroup</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/table/table.html">Table</a></td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>search</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/landmarks/search.html">Search Landmark</a></td>
+            <td>No example use in WET (other than on the WET site's own search form).</td>
+          </tr>
+          <tr>
+            <td><code>separator</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-editor.html">Editor Menubar</a></td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>slider</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-color-viewer.html">Color Viewer Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-multithumb.html">Horizontal Multi-Thumb Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-rating.html">Rating Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-seek.html">Media Seek Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-temperature.html">Vertical Temperature Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+              
+            </td>
+            <td>
+            <p><a href="https://wet-boew.github.io/v4.0-ci/demos/slider/slider-en.html">Input type="range" polyfill</a>. Slider role and related attributes added via JS to legacy browsers that don't support the HTML5 input element's type="range" attribute.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>spinbutton</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/spinbutton/datepicker-spinbuttons.html">Date Picker Spin Button</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
+              
+            </td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>switch</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/switch/switch-button.html">Switch  Using HTML Button</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/switch/switch-checkbox.html">Switch  Using HTML Checkbox Input</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/switch/switch.html">Switch</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+              
+            </td>
+            <td>No example use in WET. Can adapt the WET <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/toggle/toggle-en.html">Toggle</a>b to be a switch by adding the role and aria-checked.</td>
+          </tr>
+          <tr>
+            <td><code>tab</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/carousel/carousel-2-tablist.html">Auto-Rotating Image Carousel with Tabs for Slide Control</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-automatic.html">Tabs with Automatic Activation</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-manual.html">Tabs with Manual Activation</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+              
+            </td>
+            <td><a href="https://wet-boew.github.io/v4.0-ci/docs/ref/tabs/tabs-en.html">Tabbed interface</a>. The mobile view semantics are incorrect. The official line is that the widget is accessible via the basic view (with no JS).</td>
+          </tr>
+          <tr>
+            <td><code>table</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/table/table.html">Table</a></td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>tablist</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/carousel/carousel-2-tablist.html">Auto-Rotating Image Carousel with Tabs for Slide Control</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-automatic.html">Tabs with Automatic Activation</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-manual.html">Tabs with Manual Activation</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+              
+            </td>
+            <td><a href="https://wet-boew.github.io/v4.0-ci/docs/ref/tabs/tabs-en.html">Tabbed interface</a>. The mobile view semantics are incorrect.</td>
+          </tr>
+          <tr>
+            <td><code>tabpanel</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/carousel/carousel-2-tablist.html">Auto-Rotating Image Carousel with Tabs for Slide Control</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-automatic.html">Tabs with Automatic Activation</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-manual.html">Tabs with Manual Activation</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+              
+            </td>
+            <td><a href="https://wet-boew.github.io/v4.0-ci/docs/ref/tabs/tabs-en.html">Tabbed interface</a>. The mobile view semantics are incorrect.</td>
+          </tr>
+          <tr>
+            <td><code>toolbar</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></td>
+            <td>Toolbars in buttons. Uses the toolbar role but lacks the rest of the roles and attributes.</td>
+          </tr>
+          <tr>
+            <td><code>tree</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-1/treeview-1a.html">File Directory Treeview  Using Computed Properties</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-1/treeview-1b.html">File Directory Treeview  Using Declared Properties</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-navigation.html">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+              
+            </td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>treegrid</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treegrid/treegrid-1.html">Treegrid Email Inbox</a></td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>treeitem</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-1/treeview-1a.html">File Directory Treeview  Using Computed Properties</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-1/treeview-1b.html">File Directory Treeview  Using Declared Properties</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-navigation.html">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+              
+            </td>
+            <td><p>No example use in WET.</p></td>
+          </tr></tbody>
+      </table>
+
+
+
+      
+      <h2 id="examples_by_props_label">Examples by property and state</h2>
+<table aria-labelledby="examples_by_props_label" class="data attributes">
+        <thead>
+          <tr>
+            <th class="attribute">Property or State</th>
+            <th>APG examples</th>
+            <th>WET examples</th>
+          </tr>
+        </thead>
+        <tbody id="examples_by_props_tbody">
+          <tr>
+            <td><code>aria-activedescendant</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-both.html">Editable Combobox With Both List and Inline Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-list.html">Editable Combobox With List Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-none.html">Editable Combobox without Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-select-only.html">Select-Only Combobox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/grid-combo.html">Editable Combobox with Grid Popup</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-collapsible.html">(Deprecated) Collapsible Dropdown Listbox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-grouped.html">Listbox  with Grouped Options</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-rearrangeable.html">Listboxes with Rearrangeable Options</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-scrollable.html">Scrollable Listbox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menu-button/menu-button-actions-active-descendant.html">Actions Menu Button  Using aria-activedescendant</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/radio/radio-activedescendant.html">Radio Group  Using aria-activedescendant</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+              
+            </td>
+            <td><a href="https://wet-boew.github.io/v4.0-ci/docs/ref/datalist/datalist-en.html">Datalist polyfill (auto-complete)</a> and <a href="https://wet-boew.github.io/v4.0-ci/demos/datalist/datalist-dynamic-en.html">Datalist polyfill (auto-complete) - Dynamic</a> use <code>aria-activedescendant</code> and other ARIA attributes to emulate the HTML5 input list attribute and the datalist element.</td>
+          </tr>
+          <tr>
+            <td><code>aria-atomic</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/alert/alert.html">Alert</a></td>
+            <td>Used once, on the summary of results of the WET <a href="https://wet-boew.github.io/v4.0-ci/demos/wamethod/wamethod-AA-en.html">Web Accessibility Assessment Methodology (Level AA)</a>. A live region is set incorrectly on each of the five summary cells instead of their parent rows, where aria-atomic would include the row header identifying the statistic. Changing a radio box status for any of the success criteria causes a cascade of meaningless percentage value declarations, lacking their labels.</td>
+          </tr>
+          <tr>
+            <td><code>aria-autocomplete</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-both.html">Editable Combobox With Both List and Inline Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-list.html">Editable Combobox With List Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-none.html">Editable Combobox without Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-datepicker.html">Date Picker Combobox</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/grid-combo.html">Editable Combobox with Grid Popup</a></p>
+              
+            </td>
+            <td><a href="https://wet-boew.github.io/v4.0-ci/docs/ref/datalist/datalist-en.html">Datalist polyfill (auto-complete)</a> and <a href="https://wet-boew.github.io/v4.0-ci/demos/datalist/datalist-dynamic-en.html">Datalist polyfill (auto-complete) - Dynamic</a> use <code>aria-autocomplete</code> and other ARIA attributes to emulate the HTML5 input list attribute and the datalist element.</td>
+          </tr>
+          <tr>
+            <td><code>aria-busy</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/feed/feed.html">Feed</a></td>
+            <td>Used once, on the summary of results of the WET <a href="https://wet-boew.github.io/v4.0-ci/demos/wamethod/wamethod-AA-en.html">Web Accessibility Assessment Methodology (Level AA)</a>. The JavaScript sets the live regions in the summary table to aria-busy="true" before modifying the values, then sets it to aria-busy="false". A live region is set incorrectly on each of the five summary cells instead of their parent rows, where aria-atomic would include the row header identifying the statistic. Changing a radio box status for any of the success criteria causes a cascade of meaningless percentage value declarations, lacking their labels.</td>
+          </tr>
+          <tr>
+            <td><code>aria-checked</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/checkbox/checkbox-mixed.html">Checkbox  (Mixed-State)</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/checkbox/checkbox.html">Checkbox  (Two State)</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-editor.html">Editor Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/radio/radio-activedescendant.html">Radio Group  Using aria-activedescendant</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/radio/radio-rating.html">Rating Radio Group</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/radio/radio.html">Radio Group  Using Roving tabindex</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/switch/switch-button.html">Switch  Using HTML Button</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/switch/switch.html">Switch</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
+              
+            </td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>aria-colcount</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/grid/dataGrids.html">Data Grid</a></td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>aria-colindex</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/grid/dataGrids.html">Data Grid</a></td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>aria-controls</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion.html">Accordion</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/carousel/carousel-1-prev-next.html">Auto-Rotating Image Carousel  with Buttons for Slide Control</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/carousel/carousel-2-tablist.html">Auto-Rotating Image Carousel with Tabs for Slide Control</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/checkbox/checkbox-mixed.html">Checkbox  (Mixed-State)</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-both.html">Editable Combobox With Both List and Inline Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-list.html">Editable Combobox With List Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-none.html">Editable Combobox without Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-datepicker.html">Date Picker Combobox</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-select-only.html">Select-Only Combobox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/grid-combo.html">Editable Combobox with Grid Popup</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/disclosure/disclosure-faq.html">Disclosure (Show/Hide) for Answers to Frequently Asked Questions</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/disclosure/disclosure-image-description.html">Disclosure (Show/Hide) for Image Description</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/disclosure/disclosure-navigation-hybrid.html">Disclosure Navigation Menu with Top-Level Links</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/disclosure/disclosure-navigation.html">Disclosure Navigation Menu</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menu-button/menu-button-actions-active-descendant.html">Actions Menu Button  Using aria-activedescendant</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menu-button/menu-button-actions.html">Actions Menu Button  Using element.focus()</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menu-button/menu-button-links.html">Navigation Menu Button</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-automatic.html">Tabs with Automatic Activation</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-manual.html">Tabs with Manual Activation</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
+              
+            </td>
+            <td>
+            
+				<p>Used by the button triggering an <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/overlay/overlay-en.html">Overlay</a>. The <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/share/share-en.html">Share widget</a> is a link that triggers an Overlay but it lacks the button role.</p>
+				<p><a href="https://wet-boew.github.io/v4.0-ci/docs/ref/feedback/feedback-en.html">Feedback form</a>. Set on a <code>select</code> element with one option that toggles the display of related details. The other options don't target related details, so the semantics don't apply to them. <mark>todo: test.</mark></p>
+				<p>The <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/geomap/geomap-en.html">Geomap</a> plugin's filter button uses <code>aria-controls</code> pointing to the map.</p>
+				<p>The <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/multimedia/multimedia-en.html">Multimedia Player</a>'s play, mute and closed caption buttons and the volume slider use <code>aria-controls</code> pointing to the video element. The closed captions button should instead point to the element nesting the captions.</p>
+				<p>The JavaScript for the open-source datatables plugin used by WET <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/tables/tables-en.html">Data Tables</a> sets aria-controls on a dynamic table's sorting and filtering buttons, each instance pointing to the table itself.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/tabs/tabs-en.html">Tabbed Interface</a> in desktop view to associate tabs with their panels.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/toggle/toggle-en.html">Toggle</a> buttons to indicate the elements they toggle between on and off states.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/datepicker/datepicker-en.html">Input type="date" polyfill (date picker)</a> to associate the calendar trigger with the calendar. It and other ARIA attributes are served by the polyfill to legacy browsers to emulate the HTML5 input type="date" functionality.</p>
+				
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-current</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/disclosure/disclosure-navigation-hybrid.html">Disclosure Navigation Menu with Top-Level Links</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/disclosure/disclosure-navigation.html">Disclosure Navigation Menu</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-navigation.html">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-navigation.html">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+              
+            </td>
+            <td><p>No example use in WET.</p></td>
+          </tr>
+          <tr>
+            <td><code>aria-describedby</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-datepicker.html">Date Picker Combobox</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/alertdialog.html">Alert Dialog</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/datepicker-dialog.html">Date Picker Dialog</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/dialog.html">Modal Dialog</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/feed/feed.html">Feed</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/table/table.html">Table</a></p>
+              
+            </td>
+            <td>
+				<p>Used by the button triggering an <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/overlay/overlay-en.html">Overlay</a>. The <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/share/share-en.html">Share widget</a> is a link that triggers an Overlay but it lacks the button role.</p>
+				<p>Incorrectly used by the volume slider of the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/multimedia/multimedia-en.html">Multimedia Player</a> to grab the label, "Volume", while <code>aria-labelledby</code> points to the video (retrieving the video title from the video element's title attribute).</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-disabled</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/alertdialog.html">Alert Dialog</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-editor.html">Editor Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
+              
+            </td>
+            <td>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/slider/slider-en.html">Input type="range" polyfill (slider control)</a> to indicate a disabled state. Intended for legacy browsers.</td>
+          </tr>
+          <tr>
+            <td><code>aria-expanded</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion.html">Accordion</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-both.html">Editable Combobox With Both List and Inline Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-list.html">Editable Combobox With List Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-none.html">Editable Combobox without Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-datepicker.html">Date Picker Combobox</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-select-only.html">Select-Only Combobox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/grid-combo.html">Editable Combobox with Grid Popup</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/disclosure/disclosure-faq.html">Disclosure (Show/Hide) for Answers to Frequently Asked Questions</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/disclosure/disclosure-image-description.html">Disclosure (Show/Hide) for Image Description</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/disclosure/disclosure-navigation-hybrid.html">Disclosure Navigation Menu with Top-Level Links</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/disclosure/disclosure-navigation.html">Disclosure Navigation Menu</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-collapsible.html">(Deprecated) Collapsible Dropdown Listbox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menu-button/menu-button-actions-active-descendant.html">Actions Menu Button  Using aria-activedescendant</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menu-button/menu-button-actions.html">Actions Menu Button  Using element.focus()</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menu-button/menu-button-links.html">Navigation Menu Button</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-editor.html">Editor Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-navigation.html">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treegrid/treegrid-1.html">Treegrid Email Inbox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-1/treeview-1a.html">File Directory Treeview  Using Computed Properties</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-1/treeview-1b.html">File Directory Treeview  Using Declared Properties</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-navigation.html">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+              
+            </td>
+            <td>
+            <p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/demos/datalist/datalist-en.html">datalist polyfill</a> as part of the ARIA combobox pattern to indicate the state of the list. Intended for browsers that don't support the HTML5 input list attribute and the datalist element.</p>
+			<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/demos/menu/menu-en.html">Menu</a> component to indicate the state of a submenu. It's set incorrectly on the submenu container rather than the trigger.</p>
+			<p>Used in error by the <a href="https://wet-boew.github.io/v4.0-ci/demos/tabs/tabs-en.html">Tabbed Interface</a> component on the panel. The APG Tabs pattern doesn't use <code>aria-expanded</code>; it indicates state via <code>aria-selected</code> on the tab.</p>
+			<p>Used in error by the Accordion option of the <a href="https://wet-boew.github.io/v4.0-ci/demos/toggle/toggle-en.html">Toggle</a> on a tabpanel role. The Accordion incorrectly mixes tab and tablist roles and nests details/summary inside the tab role. Very incorrect.</p>
+			<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/demos/details/details-en.html">Details/summary polyfill (expandable/collapsible content)</a> component to indicate the status of the <code>details</code> element. Adds other ARIA attributes to simulate <code>details/summary</code> functionality for legacy browsers. Lacks <code>aria-controls</code>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-haspopup</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-datepicker.html">Date Picker Combobox</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/grid-combo.html">Editable Combobox with Grid Popup</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-collapsible.html">(Deprecated) Collapsible Dropdown Listbox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menu-button/menu-button-actions-active-descendant.html">Actions Menu Button  Using aria-activedescendant</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menu-button/menu-button-actions.html">Actions Menu Button  Using element.focus()</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menu-button/menu-button-links.html">Navigation Menu Button</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-editor.html">Editor Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-navigation.html">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
+              
+            </td>
+            <td>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/demos/menu/menu-en.html">Menu</a> component on a menu item to indicate it opens a submenu.</p>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/demos/datalist/datalist-en.html">datalist polyfill</a> to indicate it opens a menu of options. The polyfill implements the ARIA Combobox pattern in browsers that don't support the HTML5 input <code>list</code> attribute and the <code>datalist</code> element. </p>	
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-hidden</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/button/button_idl.html">Button  (IDL Version)</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-editor.html">Editor Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-color-viewer.html">Color Viewer Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-multithumb.html">Horizontal Multi-Thumb Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-rating.html">Rating Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-seek.html">Media Seek Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-temperature.html">Vertical Temperature Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/spinbutton/datepicker-spinbuttons.html">Date Picker Spin Button</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/switch/switch-button.html">Switch  Using HTML Button</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/switch/switch-checkbox.html">Switch  Using HTML Checkbox Input</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/switch/switch.html">Switch</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/table/sortable-table.html">Sortable Table</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
+              
+            </td>
+            <td>
+				<p>Recommended by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/formvalid/formvalid-en.html">Form validation</a> component to silence the <code>span</code> in the <code>label</code> holding the redundant text "required" (it's already communicated by <code>aria-required</code>).</p>
+				
+				<p><a href="https://wet-boew.github.io/v4.0-ci/docs/ref/feedback/feedback-en.html">Feedback form</a>. Set on hidden form questions revealed by selecting a particular <code>option</code> from a <code>select</code> element.</p>
+				
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/demos/datalist/datalist-en.html">datalist polyfill</a> to hide the menu of options when inactive. The polyfill implements the ARIA Combobox pattern in browsers that don't support the HTML5 input <code>list</code> attribute and the <code>datalist</code> element.</p>
+				
+				<p>Set by the Feed component on details.</p>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/lightbox/lightbox-en.html">Lightbox</a> component on modal windows. </p>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/overlay/overlay-en.html">Overlay</a> component on modal windows.</p>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/demos/menu/menu-en.html">Menu</a> component on submenus.</p>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/demos/toggle/toggle-en.html">Toggle</a> component on panels.</p>
+				<p>The JavaScript for the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/tables/tables-en.html">Data Tables</a> plugin uses aria-hidden to silence CSS-generated icons used by buttons.</p>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/tabs/tabs-en.html">Tabbed Interface</a> component on tab panels.</p>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/datepicker/datepicker-en.html">Input type="date" polyfill (date picker)</a> component on the calendar's containing <code>dialog</code>. It and other ARIA attributes are served by the polyfill to legacy browsers to emulate the HTML5 input type="date" functionality.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-label</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/carousel/carousel-1-prev-next.html">Auto-Rotating Image Carousel  with Buttons for Slide Control</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/carousel/carousel-2-tablist.html">Auto-Rotating Image Carousel with Tabs for Slide Control</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-both.html">Editable Combobox With Both List and Inline Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-list.html">Editable Combobox With List Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-none.html">Editable Combobox without Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-datepicker.html">Date Picker Combobox</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/datepicker-dialog.html">Date Picker Dialog</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/link/link.html">Link</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-editor.html">Editor Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-navigation.html">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/radio/radio-rating.html">Rating Radio Group</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-multithumb.html">Horizontal Multi-Thumb Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/spinbutton/datepicker-spinbuttons.html">Date Picker Spin Button</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/table/table.html">Table</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treegrid/treegrid-1.html">Treegrid Email Inbox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-navigation.html">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+              
+            </td>
+            <td>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/geomap/geomap-en.html">geomap</a> component to name its data tables and map controls.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/tables/tables-en.html">Data Tables</a> plugin to name its tables.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/charts/charts-en.html">Charts and graphs</a> component to name the chart. The chart and its legend are set in a div with <mark>role="image"</mark> and named with <code>aria-label</code>. The combination ensures the text in the legend is not declared by screen readers.</p>
+			</td>
+          </tr>
+          <tr>
+            <td><code>aria-labelledby</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/accordion/accordion.html">Accordion</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/checkbox/checkbox.html">Checkbox  (Two State)</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-datepicker.html">Date Picker Combobox</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-select-only.html">Select-Only Combobox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/grid-combo.html">Editable Combobox with Grid Popup</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/alertdialog.html">Alert Dialog</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/datepicker-dialog.html">Date Picker Dialog</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/dialog.html">Modal Dialog</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/feed/feed.html">Feed</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/grid/dataGrids.html">Data Grid</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/grid/LayoutGrids.html">Layout Grid</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-collapsible.html">(Deprecated) Collapsible Dropdown Listbox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-grouped.html">Listbox  with Grouped Options</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-rearrangeable.html">Listboxes with Rearrangeable Options</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-scrollable.html">Scrollable Listbox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menu-button/menu-button-actions-active-descendant.html">Actions Menu Button  Using aria-activedescendant</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menu-button/menu-button-actions.html">Actions Menu Button  Using element.focus()</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menu-button/menu-button-links.html">Navigation Menu Button</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-navigation.html">Navigation Menubar</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/meter/meter.html">Meter</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/radio/radio-activedescendant.html">Radio Group  Using aria-activedescendant</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/radio/radio-rating.html">Rating Radio Group</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/radio/radio.html">Radio Group  Using Roving tabindex</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-color-viewer.html">Color Viewer Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-rating.html">Rating Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-seek.html">Media Seek Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-temperature.html">Vertical Temperature Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/spinbutton/datepicker-spinbuttons.html">Date Picker Spin Button</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/switch/switch-button.html">Switch  Using HTML Button</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-automatic.html">Tabs with Automatic Activation</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-manual.html">Tabs with Manual Activation</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-1/treeview-1a.html">File Directory Treeview  Using Computed Properties</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-1/treeview-1b.html">File Directory Treeview  Using Declared Properties</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-navigation.html">Navigation Treeview</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/landmarks/complementary.html">Complementary Landmark</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/landmarks/form.html">Form Landmark</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/landmarks/main.html">Main Landmark</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/landmarks/navigation.html">Navigation Landmark</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/landmarks/region.html">Region Landmark</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/landmarks/search.html">Search Landmark</a></p>
+              
+            </td>
+            <td>
+            
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/multimedia/multimedia-en.html">Multimedia Player</a> component to name play, pause, mute, volume and closed caption buttons. The buttons concatenate a label out of <code>aria-labelledby</code> and <code>title</code> attribute values, which according to the naming spec shouldn't be possible. The former should trump the latter.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/tabs/tabs-en.html">Tabs</a> component to name each tab panel after its controlling tab.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/demos/toggle/toggle-en.html">Toggle</a> component's accordion variant to name each tab panel after its controlling tab. The accordion variant's semantics are incorrect.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/datepicker/datepicker-en.html">Input type="date" polyfill (date picker)</a> component to name the calendar's containing <code>dialog</code>. It and other ARIA attributes are served by the polyfill to legacy browsers to emulate the HTML5 input type="date" functionality.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/demos/slider/slider-en.html">Input type="range" polyfill</a> component to name the slider handle. Slider role and related attributes added via JS to legacy browsers that don't support the HTML5 input element's type="range" attribute.</p>
+
+            
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-level</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treegrid/treegrid-1.html">Treegrid Email Inbox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-1/treeview-1b.html">File Directory Treeview  Using Declared Properties</a></p>
+              
+            </td>
+            <td>
+				<p>No example use in WET.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-live</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/alert/alert.html">Alert</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/carousel/carousel-1-prev-next.html">Auto-Rotating Image Carousel  with Buttons for Slide Control</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/carousel/carousel-2-tablist.html">Auto-Rotating Image Carousel with Tabs for Slide Control</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-datepicker.html">Date Picker Combobox</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/datepicker-dialog.html">Date Picker Dialog</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+              
+            </td>
+            <td>
+				<p>Used on the summary of results of the WET <a href="https://wet-boew.github.io/v4.0-ci/demos/wamethod/wamethod-AA-en.html">Web Accessibility Assessment Methodology (Level AA)</a>. A live region is set incorrectly on each of the five summary cells instead of the parent row, which would include the label for the statistic. Changing a radio box status for any of the success criteria causes a cascade of meaningless percentage value declarations, lacking their labels.</p>
+				<p>Set unnecessarily as <code>aria-live="off"</code> by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/multimedia/multimedia-en.html">Multimedia Player</a> component on the video's progress bar. It's unnecessary since the <code>progress</code> element isn't by default a live region.</p>
+				<p>Set unnecessarily as <code>aria-live="off</code>" by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/tabs/tabs-en.html">Tabbed Interface</a>  component on the <code>tablist</code>. It's unnecessary since the <code>tablist</code> role isn't by default a live region.</p>
+				<p>Missing from the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/tabs/tabs-en.html">Carousel</a> slide.</p>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/demos/datalist/datalist-en.html">datalist polyfill</a> to declare the dynamic menu of options. The polyfill implements the ARIA Combobox pattern in browsers that don't support the HTML5 input <code>list</code> attribute and the <code>datalist</code> element.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-modal</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-datepicker.html">Date Picker Combobox</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/alertdialog.html">Alert Dialog</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/datepicker-dialog.html">Date Picker Dialog</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-Qindex/dialog-modal/dialog.html">Modal Dialog</a></p>
+              
+            </td>
+            <td>
+				 <p>No example use in WET.</p>
+				<p>Not used by <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/overlay/overlay-en.html">Overlay</a>, which uses the older aria-hidden="true" technique (though the main content lacks it).</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-multiselectable</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-rearrangeable.html">Listboxes with Rearrangeable Options</a></td>
+            <td>
+				<p>No example use in WET.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-orientation</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-temperature.html">Vertical Temperature Slider</a></td>
+            <td>
+				<p>No example use in WET.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-owns</code></td>
+            <td><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-navigation.html">Navigation Treeview</a></td>
+            <td>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/demos/datalist/datalist-en.html">datalist polyfill</a> component though it's not part of the APG pattern. The polyfill implements the ARIA Combobox pattern in browsers that don't support the HTML5 input <code>list</code> attribute and the <code>datalist</code> element.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-posinset</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/feed/feed.html">Feed</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treegrid/treegrid-1.html">Treegrid Email Inbox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-1/treeview-1b.html">File Directory Treeview  Using Declared Properties</a></p>
+              
+            </td>
+            <td>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/demos/menu/menu-en.html">Menu</a> component on the menuitem role.</p>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/demos/toggle/toggle-en.html">Toggle</a> component's Accordion option on each tab. Incorrectly mixes tab and tablist roles and nests details/summary inside the tab role.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-pressed</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/button/button_idl.html">Button  (IDL Version)</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/button/button.html">Button</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
+              
+            </td>
+            <td>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/multimedia/multimedia-en.html">Multimedia Player</a> commponent on the closed captions button.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-roledescription</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/carousel/carousel-1-prev-next.html">Auto-Rotating Image Carousel  with Buttons for Slide Control</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/carousel/carousel-2-tablist.html">Auto-Rotating Image Carousel with Tabs for Slide Control</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+              
+            </td>
+            <td>
+				<p>No example use in WET. Could be used on the carousel.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-rowcount</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/grid/dataGrids.html">Data Grid</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/grid/LayoutGrids.html">Layout Grid</a></p>
+              
+            </td>
+            <td>
+				 <p>No example use in WET.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-rowindex</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/grid/dataGrids.html">Data Grid</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/grid/LayoutGrids.html">Layout Grid</a></p>
+              
+            </td>
+            <td>
+				 <p>No example use in WET.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-selected</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/carousel/carousel-2-tablist.html">Auto-Rotating Image Carousel with Tabs for Slide Control</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-both.html">Editable Combobox With Both List and Inline Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-list.html">Editable Combobox With List Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-autocomplete-none.html">Editable Combobox without Autocomplete</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-datepicker.html">Date Picker Combobox</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-select-only.html">Select-Only Combobox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/combobox/grid-combo.html">Editable Combobox with Grid Popup</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/dialog-modal/datepicker-dialog.html">Date Picker Dialog</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-collapsible.html">(Deprecated) Collapsible Dropdown Listbox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-grouped.html">Listbox  with Grouped Options</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-rearrangeable.html">Listboxes with Rearrangeable Options</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-scrollable.html">Scrollable Listbox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-automatic.html">Tabs with Automatic Activation</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-manual.html">Tabs with Manual Activation</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-1/treeview-1a.html">File Directory Treeview  Using Computed Properties</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-1/treeview-1b.html">File Directory Treeview  Using Declared Properties</a></p>
+              
+            </td>
+            <td>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/demos/toggle/toggle-en.html">Toggle</a> component's Accordion option on a selected tab. The accordion incorrectly mixes tab and tablist roles and nests details/summary inside the tab role.</p>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/datepicker/datepicker-en.html">Input type="date" polyfill (date picker)</a> component on the selected day. It and other ARIA attributes are served by the polyfill to legacy browsers to emulate the HTML5 <code>input type="date"</code> functionality.</p>            
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-setsize</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/feed/feed.html">Feed</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treegrid/treegrid-1.html">Treegrid Email Inbox</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/treeview/treeview-1/treeview-1b.html">File Directory Treeview  Using Declared Properties</a></p>
+              
+            </td>
+            <td>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/demos/menu/menu-en.html">Menu</a> component on the menuitem role.</p>
+				<p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/demos/toggle/toggle-en.html">Toggle</a> component's Accordion option on each tab. The accordion incorrectly mixes tab and tablist roles and nests details/summary inside the tab role.</p>
+			</td>
+          </tr>
+          <tr>
+            <td><code>aria-sort</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/grid/dataGrids.html">Data Grid</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/table/sortable-table.html">Sortable Table</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+              
+            </td>
+            <td>
+            <p>Set by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/tables/tables-en.html">Data Tables</a> component on a dynamic table's column-sorting buttons.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-valuemax</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/meter/meter.html">Meter</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-color-viewer.html">Color Viewer Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-multithumb.html">Horizontal Multi-Thumb Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-rating.html">Rating Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-seek.html">Media Seek Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-temperature.html">Vertical Temperature Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/spinbutton/datepicker-spinbuttons.html">Date Picker Spin Button</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
+              
+            </td>
+            <td>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/progress/progress-en.html">Progress polyfill (progress bar)</a> component. It and other ARIA attributes are served by the polyfill to legacy browsers to emulate the HTML5 <code>progress</code> element's features.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/demos/slider/slider-en.html">Input type="range" polyfill</a> component. The Slider role and related attributes are served to legacy browsers that don't support the HTML5 input element's <code>type="range"</code> attribute.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-valuemin</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/meter/meter.html">Meter</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-color-viewer.html">Color Viewer Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-multithumb.html">Horizontal Multi-Thumb Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-rating.html">Rating Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-seek.html">Media Seek Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-temperature.html">Vertical Temperature Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/spinbutton/datepicker-spinbuttons.html">Date Picker Spin Button</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
+              
+            </td>
+            <td>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/progress/progress-en.html">Progress polyfill (progress bar)</a> component. It and other ARIA attributes are served by the polyfill to legacy browsers to emulate the HTML5 <code>progress</code> element's features.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/demos/slider/slider-en.html">Input type="range" polyfill</a> component. It and other ARIA attributes are served by the polyfill to legacy browsers to emulate the HTML5 input element's <code>type="range"</code> attribute.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-valuenow</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/meter/meter.html">Meter</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-color-viewer.html">Color Viewer Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-multithumb.html">Horizontal Multi-Thumb Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-rating.html">Rating Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-seek.html">Media Seek Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-temperature.html">Vertical Temperature Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/spinbutton/datepicker-spinbuttons.html">Date Picker Spin Button</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
+              
+            </td>
+            <td>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/progress/progress-en.html">Progress polyfill (progress bar)</a> component. It and other ARIA attributes are served by the polyfill to legacy browsers to emulate the HTML5 <code>progress</code> element's features.</p>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/demos/slider/slider-en.html">Input type="range" polyfill</a> component. It and other ARIA attributes are served by the polyfill to legacy browsers to emulate the HTML5 input element's <code>type="range"</code> attribute.</p>
+            </td>
+          </tr>
+          <tr>
+            <td><code>aria-valuetext</code></td>
+            <td>
+              
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-rating.html">Rating Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-seek.html">Media Seek Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/slider/slider-temperature.html">Vertical Temperature Slider</a> (<abbr title="High Contrast Support">HC</abbr>)</p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/spinbutton/datepicker-spinbuttons.html">Date Picker Spin Button</a></p>
+                <p><a href="https://www.w3.org/WAI/ARIA/apg/example-index/toolbar/toolbar.html">Toolbar</a></p>
+              
+            </td>
+            <td>
+				<p>Used by the <a href="https://wet-boew.github.io/v4.0-ci/demos/slider/slider-en.html">Input type="range" polyfill</a> component. It and other ARIA attributes are served by the polyfill to legacy browsers to emulate the HTML5 input element's <code>type="range"</code> attribute.</p>
+            </td>
+          </tr></tbody>
+      </table>
+      </main>
+	</body>
+</html>

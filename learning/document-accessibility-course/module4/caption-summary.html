@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Caption & Summary - Module 4 – Tables </title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Accessibility guidelines related to table caption and summary.">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+	<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../../index.html"
+            },
+			{
+                "title": "Web accessibility course",
+                "href" : "../index.html"
+            },
+			{
+                "title": "Module 4 – Tables",
+                
+                "href" : "index.html"
+            },
+          {
+            "title": "Caption and summary",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "caption-summary-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
+      </script> <div class="container"> <div class="row"><div id="def-search"></div><script src="../../../scripts/appSearch.js"></script>
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Caption and summary</h1>
+		
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table of contents</summary>
+							<ul>
+						<li>
+							<a href="../module4/caption-summary.html#overview-caption-summary">Overview – Caption and summary</a>
+						</li>
+						<li>
+							<a href="../module4/caption-summary.html#caption">Identifying a table using a caption</a>
+							<ul>
+								<li>
+									<a href="../module4/caption-summary.html#good-example-caption">Good example: Caption</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="../module4/caption-summary.html#summaries">Summaries for complex tables</a>
+							<ul>
+								<li>
+									<a href="../module4/caption-summary.html#summary-inside-caption">Good example: Nesting summary inside the &lt;caption&gt; element</a>
+								</li>
+								<li>
+									<a href="../module4/caption-summary.html#aria-describedby">Good example: Using aria-describedby to provide table summary</a>
+								</li>
+								<li>
+									<a href="../module4/caption-summary.html#figcaption">Good example: Using the &lt;figcaption&gt; element to hold the table summary</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="../module4/caption-summary.html#caption-summary-wcag">Related WCAG resources</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+					<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4" id="expandAllButton" id="expandAllButton">Expand all details</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}" id="collapseAllButton"  disabled="disabled">	Collapse all<span class="wb-inv"> details</span></button>
+				
+		<section>
+			<h2 id="overview-caption-summary">Overview – Caption and summary</h2>
+			<p>The <code>&lt;caption&gt;</code> element specifies the name or title of a table.</p>
+			<p>A table summary introduces the purpose of the table, outlines its basic cell structure, highlights any trends or patterns, and generally teaches the user how to use the table. </p>  
+		</section>
+		<section>
+			<h2 id="caption">Identifying a table using a caption</h2>
+			<p>The <code>&lt;caption&gt;</code> element is the first child of the <code>&lt;table&gt;</code> element. It serves as a name or short heading for the table content. Without a caption, screen reader users must navigate the headers across row 1 and/or down column 1, at least, just to figure out what a table is about.</p>
+			<p>If the caption duplicates the preceding heading, visually-hide the caption with the WET CSS class <code>.wb-inv</code>. The duplication is necessary since screen reader users can navigate from table to table with a key press, missing any preceding heading.</p>
+			<div class="panel panel-success  mrgn-tp-lg">
+				<div class="panel-body">
+					<h3 id="good-example-caption" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Caption</h3>			
+					<p>In this example &ldquo;Movies Releases&rdquo; tells users what information is in the table.</p>
+					<div class="panel panel-primary mrgn-tp-md">
+						<div class="panel-body well mrgn-bttm-0">
+							<p class="wb-inv" role="separator">Example begins</p>
+							<table class="table table-bordered table-hover">
+								<caption>Movies releases</caption>
+								<tr>
+									<th>Date</th>
+									<th>Movie</th>
+									<th>Locations</th>
+								</tr>
+								<tr>
+									<td>12 Feb</td>
+									<td>Spiderman - The Dark Fate</td>
+									<td>AMC Toronto</td>
+								</tr>
+								<tr>
+									<td>24 Mar</td>
+									<td>Avengers</td>
+									<td>AMC Mississauga</td>
+								</tr>
+								<tr>
+									<td>14 Apr</td>
+									<td>Superman 4</td>
+									<td>Cineplex London</td>
+								</tr>
+							</table>
+							<p class="wb-inv" role="separator">Example ends</p>
+						</div>
+					</div>
+					<details id="details-2" class="mrgn-tp-lg grouped on">
+						<summary class="bg-info">View HTML</summary>
+						<p class="wb-inv" role="separator">Code begins</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;table&gt;
+  &lt;caption&gt;Movies releases&lt;/caption&gt;
+  &lt;tr&gt;
+   &lt;th&gt;Date&lt;/th&gt;
+   &lt;th&gt;Movie&lt;/th&gt;
+   &lt;th&gt;Locations&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;12 Feb&lt;/td&gt;
+   &lt;td&gt;Spiderman - The Dark Fate&lt;/td&gt;
+   &lt;td&gt;AMC Toronto&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;24 Mar&lt;/td&gt;
+   &lt;td&gt;Avengers&lt;/td&gt;
+   &lt;td&gt;AMC Mississauga&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td&gt;14 Apr&lt;/td&gt;
+   &lt;td&gt;Superman 4&lt;/td&gt;
+   &lt;td&gt;Cineplex London&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code>
+</pre>
+						<p class="wb-inv" role="separator">Code ends</p>
+					</details>
+				</div>
+			</div>
+		</section>
+		
+		<section>
+			<h2 id="summaries">Summaries for complex tables</h2>
+			<p>For complex tables, summaries should include explanatory information to introduce the purpose of the table, describe the table composition, highlight any trends and teach the user how to use the table.</p>
+			<p>Wherever possible, convert complex tables into simple tables or lists, so that less or no explanation is required. </p>
+			<p>
+			If both caption and summary are provided for a table, then the summary should not duplicate information in the caption.</p>
+			<p>
+			There are different ways to present complex table summaries:</p>
+			<ul>
+				<li>Nest the summary inside the <code>&lt;caption&gt;</code> element </li>
+				<li>Set the summary in a paragraph preceding or following the table. Reference the paragraph's <code>id</code> attribute value from an <code>aria-describedby</code> attribute on the <code>&lt;table&gt;</code> element.</li>
+				<li>Use the <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code> elements to mark up a table summary. Set the <code>aria-labelledby</code> and <code>aria-describedby</code> attributes on the <code>&lt;table&gt;</code> element:
+					<ul>
+						<li>Use the <code>aria-labelledby</code> attribute to reference the <code>id</code> attribute value of the table's <code>&lt;caption&gt;</code> element.</li>
+						<li>Use the <code>aria-describedby</code> attribute to reference the <code>id</code> attribute value of the <code>&lt;figcaption&gt;</code> holding the summary.</li>
+					</ul>
+				</li>
+		  </ul>
+
+			<div class="panel panel-success  mrgn-tp-lg">
+				<div class="panel-body">
+					<h3 class="text-success mrgn-tp-0 h3" id="summary-inside-caption"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Nesting summary inside the caption element</h3>
+					<p>In the example below, the complex table shows the number of students enrolled in two countries across four semester seasons. The <code>&lt;caption&gt;</code> element acts as a heading for the table and provides a summary that describes the structure of the table.</p>
+					<div class="panel panel-primary mrgn-tp-md">
+						<div class="panel-body well mrgn-bttm-0">
+							<p class="wb-inv" role="separator">Example begins</p>
+							<table class="table table-bordered table-hover">
+							  <caption>
+								Information on number of students enrolled
+								<span style="font-weight: normal; display: block">Column one holds the country and the programs, other columns show the semester season. Cells hold the number of students enrolled.</span>
+							  </caption>
+							  <thead>
+								<tr>
+								  <td></td>
+								  <th id="winter">Winter</th>
+								  <th id="spring">Spring</th>
+								  <th id="summer">Summer</th>
+								  <th id="fall">Fall</th>
+								</tr>
+							  </thead>
+							  <tbody>
+								<tr>
+								  <th id="usa" class="span" colspan="5">USA</th>
+								</tr>
+								<tr>
+								 <th headers="usa" id="usmba">MBA</th>
+								 <td headers="usa usmba winter">40</td>
+								 <td headers="usa usmba spring">80</td>
+								 <td headers="usa usmba summer">125</td>
+								 <td headers="usa usmba fall">93</td>
+							   </tr>
+							   <tr>
+								 <th headers="usa" id="usms">MS</th>
+								 <td headers="usa usms winter">60</td>
+								 <td headers="usa usms spring">83</td>
+								 <td headers="usa usms summer">152</td>
+								 <td headers="usa usms fall">132</td>
+							   </tr>
+							   <tr>
+								 <th headers="usa" id="usdip">Diploma</th>
+								 <td headers="usa usdip winter">66</td>
+								 <td headers="usa usdip spring">103</td>
+								 <td headers="usa usdip summer">115</td>
+								 <td headers="usa usdip fall">20</td>
+							   </tr>
+							   <tr>
+								 <th id="can" class="span" colspan="5">Canada</th>
+							   </tr>
+							   <tr>
+								 <th id="camba" headers="can">MBA</th>
+								 <td headers="can camba winter">113</td>
+								 <td headers="can camba spring">81</td>
+								 <td headers="can camba summer">122</td>
+								 <td headers="can camba fall">33</td>
+							   </tr>
+							   <tr>
+								 <th id="cams" headers="can">MS</th>
+								 <td headers="can cams winter">87</td>
+								 <td headers="can cams spring">53</td>
+								 <td headers="can cams summer">143</td>
+								 <td headers="can cams fall">90</td>
+							   </tr>
+							   <tr>
+								 <th id="cadip" headers="can">Diploma</th>
+								 <td headers="can cadip winter">39</td>
+								 <td headers="can cadip spring">16</td>
+								 <td headers="can cadip summer">32</td>
+								 <td headers="can cadip fall">40</td>
+								</tr>
+							  </tbody>
+							</table>
+							<p class="wb-inv" role="separator">Example ends</p>
+						</div>
+					</div>
+					<details  id="details-3" class="mrgn-tp-lg grouped on">
+						<summary class="bg-info">View HTML</summary>
+						<p class="wb-inv" role="separator">Code begins</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;table&gt;
+  &lt;caption&gt;
+    Information on number of students enrolled
+    &lt;span style="font-weight: normal; display: block"&gt;Column one holds the country and the programs, other columns show the semester season. Cells hold the number of students enrolled.&lt;/span&gt;
+  &lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;/td&gt;
+      &lt;th id=&quot;winter&quot;&gt;Winter&lt;/th&gt;
+      &lt;th id=&quot;spring&quot;&gt;Spring&lt;/th&gt;
+      &lt;th id=&quot;summer&quot;&gt;Summer&lt;/th&gt;
+      &lt;th id=&quot;fall&quot;&gt;Fall&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th id=&quot;usa&quot; class=&quot;span&quot; colspan=&quot;5&quot;&gt;USA&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+     &lt;th headers=&quot;usa&quot; id=&quot;usmba&quot;&gt;MBA&lt;/th&gt;
+     &lt;td headers=&quot;usa usmba winter&quot;&gt;40&lt;/td&gt;
+     &lt;td headers=&quot;usa usmba spring&quot;&gt;80&lt;/td&gt;
+     &lt;td headers=&quot;usa usmba summer&quot;&gt;125&lt;/td&gt;
+     &lt;td headers=&quot;usa usmba fall&quot;&gt;93&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;th headers=&quot;usa&quot; id=&quot;usms&quot;&gt;MS&lt;/th&gt;
+     &lt;td headers=&quot;usa usms winter&quot;&gt;60&lt;/td&gt;
+     &lt;td headers=&quot;usa usms spring&quot;&gt;83&lt;/td&gt;
+     &lt;td headers=&quot;usa usms summer&quot;&gt;152&lt;/td&gt;
+     &lt;td headers=&quot;usa usms fall&quot;&gt;132&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;th headers=&quot;usa&quot; id=&quot;usdip&quot;&gt;Diploma&lt;/th&gt;
+     &lt;td headers=&quot;usa usdip winter&quot;&gt;66&lt;/td&gt;
+     &lt;td headers=&quot;usa usdip spring&quot;&gt;103&lt;/td&gt;
+     &lt;td headers=&quot;usa usdip summer&quot;&gt;115&lt;/td&gt;
+     &lt;td headers=&quot;usa usdip fall&quot;&gt;20&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;th id=&quot;can&quot; class=&quot;span&quot; colspan=&quot;5&quot;&gt;Canada&lt;/th&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;th id=&quot;camba&quot; headers=&quot;can&quot;&gt;MBA&lt;/th&gt;
+     &lt;td headers=&quot;can camba winter&quot;&gt;113&lt;/td&gt;
+     &lt;td headers=&quot;can camba spring&quot;&gt;81&lt;/td&gt;
+     &lt;td headers=&quot;can camba summer&quot;&gt;122&lt;/td&gt;
+     &lt;td headers=&quot;can camba fall&quot;&gt;33&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;th id=&quot;cams&quot; headers=&quot;can&quot;&gt;MS&lt;/th&gt;
+     &lt;td headers=&quot;can cams winter&quot;&gt;87&lt;/td&gt;
+     &lt;td headers=&quot;can cams spring&quot;&gt;53&lt;/td&gt;
+     &lt;td headers=&quot;can cams summer&quot;&gt;143&lt;/td&gt;
+     &lt;td headers=&quot;can cams fall&quot;&gt;90&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;th id=&quot;cadip&quot; headers=&quot;can&quot;&gt;Diploma&lt;/th&gt;
+     &lt;td headers=&quot;can cadip winter&quot;&gt;39&lt;/td&gt;
+     &lt;td headers=&quot;can cadip spring&quot;&gt;16&lt;/td&gt;
+     &lt;td headers=&quot;can cadip summer&quot;&gt;32&lt;/td&gt;
+     &lt;td headers=&quot;can cadip fall&quot;&gt;40&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+ &lt;/table&gt;</code>
+</pre>
+							<p class="wb-inv" role="separator">Code ends</p>
+						</details>
+					</div>
+				</div>
+
+				<div class="panel panel-success  mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0 h3" id="aria-describedby"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp; Good example: Using aria-describedby to provide table summary</h3>
+						<p>In this example, the summary precedes the table in a paragraph element. The table takes an <code>aria-describedby</code> attribute, which holds the <code>id</code> attribute value of the paragraph.</p>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv" role="separator">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;p id=&quot;tblDesc&quot;&gt;Column one holds the country and the programs, other columns show the semester season. Cells hold the number of students enrolled &lt;/p&gt; 
+&lt;table aria-describedby=&quot;tblDesc&quot;&gt;[…]&lt;/table&gt;</code>
+</pre>
+						<p class="wb-inv" role="separator">Code ends</p>
+
+					</div>
+				</div>
+
+				<div class="panel panel-success  mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 class="text-success mrgn-tp-0 h3" id="figcaption"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Good example: Using the figcaption element to hold the table summary</h3>
+						<p>In this example the table is wrapped in a <code>&lt;figure&gt;</code> element while the <code>&lt;figcaption&gt;</code> element contains the caption and summary text.</p>
+						<p>The table title in the <code>&lt;figcaption&gt;</code> element is explicitly associated with the table using the <code>aria-labelledby</code> attribute. </p>
+						<p>The summary paragraph in the <code>&lt;figcaption&gt;</code> element is explicitly associated with the table using the <code>aria-describedby</code> attribute.</p>
+						<div class="panel panel-primary mrgn-tp-md">
+							<div class="panel-body well mrgn-bttm-0">
+								<p class="wb-inv" role="separator">Example begins</p>
+								<figure>
+									  <figcaption>
+										<strong id="studentinfo-caption-b">Information on number of students enrolled</strong>
+										<div id="studentinfo-summary">Column one has the country and different programs, other columns show the semester type and number of students enrolled.</div>
+									  </figcaption>
+									  <table class="table table-bordered table-hover" aria-labelledby="studentinfo-caption-b" aria-describedby="studentinfo-summary">
+										<thead>
+										<tr>
+										  <td></td>
+										  <th id="winter-b" scope="col">Winter</th>
+										  <th id="spring-b" scope="col">Spring</th>
+										  <th id="summer-b" scope="col">Summer</th>
+										  <th id="fall-b" scope="col">Fall</th>
+										</tr>
+									  </thead>
+									  <tbody>
+										<tr>
+										  <th id="usa-b" class="span" colspan="5" scope="colgroup">USA</th>
+										</tr>
+										<tr>
+										  <th headers="usa-b" id="usmba-b">MBA</th>
+										  <td headers="usa-b usmba-b winter-b">40</td>
+										  <td headers="usa-b usmba-b spring-b">80</td>
+										  <td headers="usa-b usmba-b summer-b">125</td>
+										  <td headers="usa-b usmba-b fall-b">93</td>
+										</tr>
+										<tr>
+										  <th headers="usa-b" id="usms-b">MS</th>
+										  <td headers="usa-b usms-b winter-b">60</td>
+										  <td headers="usa-b usms-b spring-b">83</td>
+										  <td headers="usa-b usms-b summer-b">152</td>
+										  <td headers="usa-b usms-b fall-b">132</td>
+										</tr>
+										<tr>
+										  <th headers="usa-b" id="usdip-b"> Diploma </th>
+										  <td headers="usa-b usdip-b winter-b"> 66 </td>
+										  <td headers="usa-b usdip-b spring-b"> 103 </td>
+										  <td headers="usa-b usdip-b summer-b"> 115 </td>
+										  <td headers="usa-b usdip-b fall-b"> 20 </td>
+										</tr>
+									  </tbody>
+									  </table>
+								</figure>
+								<p class="wb-inv" role="separator">Example ends</p>
+							</div>
+						</div>
+						<details id="details-4"  class="mrgn-tp-lg grouped on">
+							<summary class="bg-info">View HTML</summary>
+							<p class="wb-inv" role="separator">Code begins</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;figure&gt;
+   &lt;figcaption&gt;
+      &lt;strong id=&quot;studentinfo-caption-b&quot;&gt;USA: Information on number of students enrolled&lt;/strong&gt;
+      &lt;div id=&quot;studentinfo-summary&quot;&gt;Column one has the country and different programs, other columns show    the semester type and number of students enrolled.&lt;/div&gt;
+   &lt;/figcaption&gt;
+   &lt;table aria-labelledby=&quot;studentinfo-caption-b&quot; aria-describedby=&quot;studentinfo-summary&quot;&gt;
+      &lt;thead&gt;
+         &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;th id=&quot;winter-b&quot; scope=&quot;col&quot;&gt;Winter&lt;/th&gt;
+            &lt;th id=&quot;spring-b&quot; scope=&quot;col&quot;&gt;Spring&lt;/th&gt;
+            &lt;th id=&quot;summer-b&quot; scope=&quot;col&quot;&gt;Summer&lt;/th&gt;
+            &lt;th id=&quot;fall=b&quot; scope=&quot;col&quot;&gt;Fall&lt;/th&gt;
+         &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+         &lt;tr&gt;
+            &lt;th id=&quot;usa&quot; class=&quot;span&quot; colspan=&quot;5&quot; scope=&quot;colgroup&quot;&gt;USA&lt;/th&gt;
+         &lt;/tr&gt;
+         &lt;tr&gt;
+            &lt;th headers=&quot;usa&quot; id=&quot;usmba-b&quot;&gt;MBA&lt;/th&gt;
+            &lt;td headers="usa-b usmba-b winter-b"&gt;40&lt;/td&gt;
+            &lt;td headers="usa-b usmba-b spring-b"&gt;80&lt;/td&gt;
+            &lt;td headers="usa-b usmba-b summer-b"&gt;125&lt;/td&gt;
+            &lt;td headers="usa-b usmba-b fall-b"&gt;93&lt;/td&gt;
+         &lt;/tr&gt;
+         &lt;tr&gt;
+            &lt;th headers=&quot;usa&quot; id=&quot;usms-b&quot;&gt;MS&lt;/th&gt;
+            &lt;td headers="usa-b usms-b winter-b"&gt;60&lt;/td&gt;
+            &lt;td headers="usa-b usms-b spring-b"&gt;83&lt;/td&gt;
+            &lt;td headers="usa-b usms-b summer-b"&gt;152&lt;/td&gt;
+            &lt;td headers="usa-b usms-b fall-b"&gt;132&lt;/td&gt;
+         &lt;/tr&gt;
+         &lt;tr&gt;
+            &lt;th headers=&quot;usa&quot; id=&quot;usdip-b&quot;&gt; Diploma &lt;/th&gt;
+            &lt;td headers="usa-b usdip-b winter-b"&gt; 66 &lt;/td&gt;
+            &lt;td headers="usa-b usdip-b spring-b"&gt; 103 &lt;/td&gt;
+            &lt;td headers="usa-b usdip-b summer-b"&gt; 115 &lt;/td&gt;
+            &lt;td headers="usa-b usdip-b fall-b"&gt; 20 &lt;/td&gt;
+         &lt;/tr&gt;
+      &lt;/tbody&gt;
+   &lt;/table&gt;
+&lt;/figure&gt;</code>
+</pre>
+							<p class="wb-inv" role="separator">Code ends</p>
+						</details>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2 class="wb-inv" id="caption-summary-wcag">Related WCAG resources</h2>
+				<details id="details-1"  class="mrgn-tp-lg grouped on">
+					<summary class="bg-info">Related WCAG resources</summary>
+					<h3>Success criteria</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1: Info and Relationships</a>
+						</li>
+					</ul>
+					<h3>Techniques</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H51">H51: Using table markup to present tabular information</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H39">H39: Using caption elements to associate data table captions with data tables</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA1">ARIA1: Using aria-describedby property to provide a descriptive, programmatically determined label</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA16">ARIA16: Using aria-labelledby to provide a name for user interface controls</a>
+						</li>
+					</ul>
+				</details>
+			</section>
+			
+			<nav aria-labelledby="nav-pagination">
+				<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+				<ul class="pager">
+				 <li class="previous"> <a rel="prev" href="multi-level-headers.html">Previous - Multi-level headers</a> </li>
+				  <li class="next"> <a rel="next" href="additional-tips-and-tricks.html">Next - Additional tips and tricks</a> </li>
+				</ul>
+			</nav>
+		<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
+			
+		
+
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+			
+			
+
+		  <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				Module 4 – Tables
+				</h3>
+				
+				
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="tables-concepts.html">Tables concepts</a></li>
+						<li><a class="list-group-item" href="one-header.html">One header</a></li>
+						<li><a class="list-group-item" href="two-headers.html">Two headers</a></li>
+						<li><a class="list-group-item" href="irregular-headers.html">Irregular headers</a></li>
+						<li><a class="list-group-item" href="multi-level-headers.html">Multi-level headers</a></li>
+						<li><a class="list-group-item active" href="caption-summary.html">Caption &amp; summary</a></li>
+						<li><a class="list-group-item" href="additional-tips-and-tricks.html">Additional tips and tricks</a></li>
+						<li><a class="list-group-item" href="tables-resources.html">Table resources in WET</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-4.html">Best practice</a></li>
+					</ul>
+				
+			
+			</section>
+			
+			
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				All modules
+				</h3>
+				
+				
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="../module1/web-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/landmarks.html">Module 2 – Page structure and semantics</a></li>			
+						<li><a class="list-group-item" href="../module3/links.html">Module 3 – Links and navigation</a></li>
+						<li><a class="list-group-item active" href="tables-concepts.html">Module 4 – Tables</a></li>
+						<li><a class="list-group-item" href="../module5/text-alternatives.html">Module 5 – Images</a></li>
+						<li><a class="list-group-item" href="../module6/forms-concepts.html">Module 6 – Forms</a></li>	
+						<li><a class="list-group-item" href="../module7/introduction.html">Module 7 – Visual design and colours</a></li>
+						<li><a class="list-group-item" href="../module8/introduction.html">Module 8 – Zoom and responsive design</a></li>
+						<li><a class="list-group-item" href="../module9/introduction.html">Module 9 - Audio, video, animation and motion</a></li>
+						<li><a class="list-group-item" href="../module10/introduction.html">Module 10 - Input modalities</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Appendix</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
+				</ul>
+			</section>
+		
+	</nav>
+	
+		
+
+		
+		
+	
+			
+</div>
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+</div>	
+		
+		
+	<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+</body>
+	
+</html>

@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths no-ie8compat skrollr skrollr-desktop" style=""><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Demo - How to create a parallax scrolling website</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+		<!--
+			* This demo was prepared for you by Petr Tichy - Ihatetomatoes.net
+			* Want to see more similar demos and tutorials?
+			* Help by spreading the word about Ihatetomatoes blog.
+			* Facebook - https://www.facebook.com/ihatetomatoesblog
+			* Twitter - https://twitter.com/ihatetomatoes
+			* Google+ - https://plus.google.com/u/0/109859280204979591787/about
+		-->
+
+        <link rel="stylesheet" href="https://media.dequeuniversity.com/courses/generic/web-multimedia-animations-and-motion/2.0/en/html/parallax/index2_files/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="https://media.dequeuniversity.com/courses/generic/web-multimedia-animations-and-motion/2.0/en/html/parallax/index2_files/ga.js"></script>
+        <script id="twitter-wjs" src="https://media.dequeuniversity.com/courses/generic/web-multimedia-animations-and-motion/2.0/en/html/parallax/index2_files/widgets.js"></script>
+        <script id="facebook-jssdk" src="https://media.dequeuniversity.com/courses/generic/web-multimedia-animations-and-motion/2.0/en/html/parallax/index2_files/all.js"></script>
+        <script src="https://media.dequeuniversity.com/courses/generic/web-multimedia-animations-and-motion/2.0/en/html/parallax/index2_files/modernizr-2.js"></script>
+        <style type="text/css">
+			
+			
+			h1 {
+				height: 100%;
+				/* The html and body elements cannot have any padding or margin. */
+				margin: 0;
+				font-size: 14px;
+				font-family: 'Open Sans', sans-serif;
+				color: #1c1d1e;
+				font-size: 32px;
+				margin-bottom: 3px;
+			}
+			h2 {
+				color: #1c1d1e;
+				font-family: 'Open Sans', sans-serif;
+				font-weight: normal;
+			}
+			
+			
+			
+		</style>
+    <script type="text/javascript" charset="utf-8" async="" src="https://media.dequeuniversity.com/courses/generic/web-multimedia-animations-and-motion/2.0/en/html/parallax/index2_files/button.js"></script>
+    
+    </head>
+    <body class="loaded" style="height: 9991px;">
+           	
+   	<main>
+       	 
+	        <section id="slide-1" class="homeSlide" style="height: 1383px;">
+	        		<div class="bcg skrollable skrollable-between" data-center="background-position: 50% 0px;" data-top-bottom="background-position: 50% -500px;" data-anchor-target="#slide-1" style="background-position: 50% -69.4143px;">
+		        	<div class="hsContainer">
+			    		<div class="hsContent skrollable skrollable-after" data-center="opacity: 1" data-106-top="opacity: 0" data-anchor-target="#slide-1 h2" style="opacity: 0;">
+				    		<h2>Bad Example:<br>Large images shifting significantly, and at different rates than the text or other elements</h2>
+				    		<p>The first background image moves up 500px as the user scrolls, but the text moves up more quickly, plus this text fades away before it reaches the top.</p>
+			    		</div>
+		        	</div>
+	        	</div>
+		    </section>
+		    
+		    <section id="slide-2">
+		    	<div class="bcg skrollable skrollable-between" data-0="background-color:rgb(1,27,59);" data-top="background-color:(0,0,0);" data-anchor-target="#slide-2" style="background-color: rgb(0, 8, 18);" data-top-bottom="background-position: 50% -500px;" >
+			    	<div class="hsContainer">
+			    		<div class="hsContent">
+				    		<h2 data-center="opacity: 1" data--200-bottom="opacity: 0" data-206-top="opacity: 1" data-106-top="opacity: 0" data-anchor-target="#slide-2 h2" class="skrollable skrollable-between" style="opacity: 1;">This text moves quickly, compared to the background</h2>
+				    		<p data-center="opacity: 1" data--200-bottom="opacity: 0" data-206-top="opacity: 1" data-106-top="opacity: 0" data-anchor-target="#slide-2 h2" class="skrollable skrollable-between" style="opacity: 1;"></p>
+			    		</div>
+		        	</div>
+		    	</div>
+		    </section>
+
+			<section id="slide-3" class="homeSlide" style="height: 1383px;">
+				<div class="bcg skrollable skrollable-between" data-center="background-position: 0px 50%;" data-bottom-top="background-position: 200px 40%;" data-top-bottom="background-position: -400px -300px;" data-anchor-target="#slide-3" style="background-position: 0px 44.6999%;" data-top-bottom="background-position: 50% -500px;" >
+			    	<div class="hsContainer">
+			    		<div class="hsContent">
+			    			<div class="plaxEl skrollable skrollable-before" data-106-top="opacity: 0" data--30p-top="opacity: 1;" data--60p-top="opacity: 0;" data-bottom="opacity: 1; position: fixed; top: 206px; width: 100%; left: 0;" data-anchor-target="#slide-3" style="opacity: 0; position: fixed; top: 206px; width: 100%; left: 0px;">
+					    		<h2>The background image behind this text shifts from right to left as the user scrolls, which can be a confusing effect.</h2>
+					    		
+				    		</div>
+			    		</div>
+			    	</div>
+			    	
+			    </div>
+			</section>
+			    
+			<section id="slide-4" class="homeSlide homeSlideTall" style="height: 2766px;">
+				<div class="bcg skrollable skrollable-before" data-center="background-position: 50% 0px;" data-bottom-top="background-position: 50% 600px;" data-top-bottom="background-position: 50% -800px;" data-anchor-target="#slide-4" style="background-position: 50% 100px;">
+					<div class="curtainContainer">
+			
+						<div class="curtain skrollable skrollable-before" data-bottom-top="opacity: 0" data-106-top="height: 1%; opacity: 0; top: -10%;" data-center="height: 100%; opacity: 0.6; top: 0%;" data-anchor-target="#slide-4" style="height: 100%; opacity: 0; top: 0%;"></div>
+						<div class="copy skrollable skrollable-before" data-bottom-top="opacity: 0" data--100-bottom="opacity: 0" data--280-bottom="opacity: 1;" data-280-top="opacity: 1;" data-106-top="opacity: 0;" data-anchor-target="#slide-4 .copy" style="opacity: 0;">
+							<h2>Curtain effect while you scroll darkens the background.<br>The text is again moving more quickly than the background image.</h2>
+						</div>
+						
+					</div>
+				</div>
+			</section>
+		    
+		    <section id="slide-5" class="homeSlide " style="height: 4149px;">
+		    	<div class="bcg">
+			    	&nbsp;
+		    	</div>
+		    	<div class="bcg bcg2 skrollable skrollable-before" data-bottom-top="opacity: 0;" data--33p-top="opacity: 0;" data--66p-top="opacity: 1;" data-anchor-target="#slide-5" style="opacity: 0;">
+			    	<div class="hsContainer">
+				    	<div class="hsContent skrollable skrollable-before" data-bottom-top="opacity: 1;" data-center="opacity: 1" data-anchor-target="#slide-5" style="opacity: 1;">
+				    		
+			    		</div>
+			    	</div>
+		    	</div>
+		    	<div class="bcg bcg3 skrollable skrollable-before" data-300-bottom="opacity: 0;" data-100-bottom="opacity: 1;" data-anchor-target="#slide-5" style="opacity: 0;">
+			    	<div class="hsContainer">
+				    	<div class="hsContent skrollable skrollable-before" data-100-bottom="opacity: 0;" data-bottom="opacity: 1;" data-anchor-target="#slide-5" style="opacity: 0;">
+				    		<h2>The End</h2>
+				    		<p>This is the bottom of the page.</p>
+			    		</div>
+			    	</div>
+		    	</div>
+		    </section>
+		    
+		<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
+
+        <script src="https://media.dequeuniversity.com/courses/generic/web-multimedia-animations-and-motion/2.0/en/html/parallax/index2_files/jquery.js"></script>
+ 
+        <script src="https://media.dequeuniversity.com/courses/generic/web-multimedia-animations-and-motion/2.0/en/html/parallax/index2_files/imagesloaded.js"></script>
+        <script src="https://media.dequeuniversity.com/courses/generic/web-multimedia-animations-and-motion/2.0/en/html/parallax/index2_files/skrollr.js"></script>
+        <script src="https://media.dequeuniversity.com/courses/generic/web-multimedia-animations-and-motion/2.0/en/html/parallax/index2_files/_main.js"></script>
+        
+        <!-- Google Analytics: change UA-839919-3 to be your site's ID. -->
+        <script src="https://dequeuniversity.com/assets/js/googleAnalytics.js">
+        </script>
+    
+
+</body></html>

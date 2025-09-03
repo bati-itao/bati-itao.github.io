@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Good example: Reflow content</title>
+		<meta content="width=device-width,initial-scale=1" name="viewport">
+		<style type="text/css">
+			article {
+				margin: 0 auto;
+			}
+			header { 
+				margin: 0 auto;
+				text-align: center; 
+			} 
+			.columns {
+				display: flex;
+				flex-wrap: wrap;
+			}
+			.columns section {
+				background-color: white;
+				color: black;
+				border: 1px solid black;
+				padding: 1%;
+				margin:1%; 
+			}
+			h2 {
+				margin: 0;
+			}
+			section img {
+				width: 100px;
+				float: left;
+			}
+			/* for visually-hidden content */
+			.wb-inv {
+				clip: rect(1px,1px,1px,1px);
+				height: 1px;
+				margin: 0;
+				overflow: hidden;
+				position: absolute;
+				width: 1px;
+			}
+			@media (min-width:960px) {
+				article { 
+					width:960px; 
+				} 
+				#a { 
+					flex: 2;  
+				} 
+				#b { 
+					flex: 1;  
+				} 
+				#c {  
+					flex: 1;
+				}
+			}
+			@media (min-width:481px) and (max-width:959px) { 
+				article {  
+					width:100%;
+				}  
+				#a, #b, #c { 
+					flex:100%; 
+				}  
+			} 
+			@media (max-width:480px){ 
+				article { 
+					width:100%; 
+				} 
+				section img { 
+					float: none; 
+				} 
+				#a, #b, #c {  
+					flex:100%;  
+				} 
+			}
+		</style>
+		<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+	<body>				
+		<article>
+			<section style="text-align: right">
+				<h2 class="wb-inv">Language selection</h2>
+				<p>
+					<a lang="fr" href="example-reflow-2-fr.html">Fran&ccedil;ais</a>
+				</p>
+			</section>		
+		   <header> 
+			  <h1>Good example: Reflow content</h1> 
+		   </header> 
+		   <div class="columns">
+			  <section id="a"> 
+				 <h2 class="mrgn-tp-0">One Size Doesn't Fit All! </h2> 
+				 <img src="images/a11yicon.png" alt="Accessibility icon">
+				 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>  
+			  </section> 
+			  <section id="b"> 
+				 <h2 class="mrgn-tp-0">One Speed Doesn't Work for Everyone! </h2> 
+				 <img src="images/a11yicon.png" alt="Accessibility icon">
+				 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>  
+			  </section>
+			  <section id="c"> 
+				 <h2 class="mrgn-tp-0">Assistive Technologies</h2> 
+				 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p> 
+			  </section> 
+		   </div>
+		</article>
+	</body>
+</html>

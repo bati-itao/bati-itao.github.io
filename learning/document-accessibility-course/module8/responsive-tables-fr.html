@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Tableaux adaptés - Module 8 - Zoom et conception adaptée</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Lignes directrices sur l’accessibilité relative aux tableaux adaptées. Décrit la façon de concevoir des tableaux qui sont compatibles avec des fenêtres d’affichage de différentes tailles">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-fr.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	
+	
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.appTop({
+                "appName": [{
+                    "text": "EDSC / Bureau de l’accessibilité des TI",
+                    "href": "../../../index-fr.html"
+                }],
+               "breadcrumbs" : [{
+                    "title": "Accueil",
+                    "href" : "../../../index-fr.html"
+                },{
+                    "title": "Apprentissage",
+                    "href" : "../../index-fr.html"
+                },
+            {
+                    "title": "Cours d'accessibilité Web",
+                    "href" : "../index-fr.html"
+                },
+            {
+                    "title": "Module 8 - Zoom et conception adaptée",
+                    
+                    "href" : "index-fr.html"
+                },
+          {
+            "title": "Tableaux adaptés",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "en",
+            "href": "responsive-tables.html",
+            "text": "English",
+          }],
+        "menuPath": "../../../ajax/menu-fr.html"
+      });
+
+      </script> <div class="container"> <div class="row"><div id="def-search"></div><script src="../../../scripts/appSearch-fr.js"></script>
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Tableaux adaptés</h1>
+						
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table des matières</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table des matières</summary>
+							<ul>
+						<li>
+							<a href="#resp-tables">Conception de tableaux adaptés</a>
+						</li>
+						<li>
+							<a href="#overflow-table">Bon exemple : Débordement du tableau avec barre de défilement horizontale</a>
+						</li>
+						<li>
+							<a href="#reflow-list">Bon exemple : Reformater en une liste imbriquée</a>
+						</li>
+						<li>
+							<a href="#reflow-table">Mauvais example : Reformater le tableau en une seule colonne</a>
+						</li>
+						<li>
+							<a href="#wcag">Ressources WCAG connexes</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+	<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1  details-2  details-3  details-4   details-5  details-6  details-7 details-8 " id="expandAllButton">Afficher tout les détails</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  details-2  details-3  details-4   details-5  details-6  details-7 details-8 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}"  id="collapseAllButton"  disabled="disabled">	Réduire tout<span class="wb-inv">les détails</span></button>
+				
+			<section>				
+				<h2 id="resp-tables">Conception de tableaux adaptés</h2>
+		
+				<p>Les tableaux de grande taille qui débordent de la zone d’affichage ne sont pas adaptés. Il est difficile pour les utilisateurs de se rappeler quelle information ils regardent si les en-têtes de ligne et de colonne défilent hors de vue. Suivre ces conseils pour éviter les débordements:</p>
+
+				<ul>
+					<li>Utiliser un pourcentage plutôt que des pixels fixes pour définir la largeur des colonnes et des tableaux</li>
+					<li>Diviser les tableaux de grande taille ou largeur en plusieurs tableaux plus petits ou étroits</li>
+					<li>Afficher une barre de défilement horizontale si l’écran est trop petit ou afficher le tableau complet (<a href="#overflow-table">exemple de débordement</a>)</li>
+					<li>Rendre les tableaux plus étroits comme suit:
+						<ul>
+							<li>Réduire le nombre de colonnes</li>
+							<li>Fusionner des colonnes</li>
+							<li>Utiliser des acronymes ou des abréviations pour les mots longs </li>
+							<li>Ajouter d’un tiret conditionnel <code lang="en">&amp;shy;</code> pour couper les mots longs</li>
+						</ul>
+					</li>
+					<li>Redimensionner les tableaux en fonction de la zone d’affichage (<a href="#reflow-list">exemple de redimensionnement</a>)</li>
+				</ul>
+				<p>Veuillez noter que le critère de succès des WCAG <a href="https://www.w3.org/WAI/WCAG21/Understanding/reflow.html" lang="en">1.4.10: Reflow</a> exempte les tableaux de données des exigences de reformatage. Il est acceptable de faire défiler les tableaux de données. Le système de conception de Canada.ca et la BOEW ne comportent aucune fonctionnalité permettant de transformer et de réorganiser les tableaux, comme le montrent les exemples ci-dessous.</p>
+			
+	
+			</section>
+
+			<section>				
+				
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h2 id="overflow-table" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple&nbsp;: Débordement du tableau avec barre de défilement horizontale</h2>
+						<p>Dans cet exemple, un grand tableau d&eacute;bordant force une barre de défilement horizontale sur l’élément <code lang="en">&lt;div&gt;</code> parent, générée par la déclaration CSS <code lang="en">overflow-x: auto</code>. Le <code lang="en">&lt;div&gt;</code> utilise l’attribut <code lang="en">tabindex="0"</code> pour s’assurer que la barre de défilement reçoit la cible du clavier (conformément à la règle W3C-IAW TIA <a href="https://www.w3.org/WAI/standards-guidelines/act/rules/scrollable-element-keyboard-accessible-0ssw9k/" lang="en">Scrollable element is keyboard accessible (l’élément de défilement est accessible au clavier)</a>). Comme le <code lang="en">&lt;div&gt;</code> est un taquet de tabulation, nous l'identifions aux utilisateurs de lecteurs d'écran avec un nom (le titre du tableau "<span lang="en">Sprints</span>" via <code lang="en">aria-labelledby</code>) et un rôle ("<code lang="en">group</code>"). </p>
+						<p>Il est toujours préférable de diviser les grands tableaux en plusieurs petits tableaux.</p>
+				
+						<div class="panel panel-primary">
+							<div class="panel-body mrgn-bttm-0">
+								<p class="wb-inv" role="separator">L'exemple commence</p>
+								<div style="overflow-x:auto;" tabindex="0" role="group" aria-labelledby="tbl-caption">
+									 <table class="table table-bordered">
+										 <caption id="tbl-caption">Sprints</caption>
+										 <thead>
+											<tr>
+											   <th scope="col">Sprint #</th>
+											   <th scope="col">Fermé</th>
+											   <th scope="col">En cours</th>
+											   <th scope="col">Nouveau</th>
+											   <th scope="col">Refaire un test</th>
+											   <th scope="col">Réouverture</th>
+											   <th scope="col">Par sévérité</th>
+											   <th scope="col">Par priorité</th>
+											   <th scope="col">Par sprint</th>
+											   <th scope="col">Par sortie</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+											   <td>101</td>
+											   <td>234</td>
+											   <td>55</td>
+											   <td>75</td>
+											   <td>121</td>
+											   <td>33</td>
+											   <td>566</td>
+											   <td>343</td>
+											   <td>577</td>
+											   <td>976</td>
+											</tr>
+											<tr>
+											   <td>102</td>
+											   <td>344</td>
+											   <td>33</td>
+											   <td>65</td>
+											   <td>887</td>
+											   <td>66</td>
+											   <td>564</td>
+											   <td>344</td>
+											   <td>76</td>
+											   <td>543</td>
+											</tr>
+											<tr>
+											  <td>103</td>
+											  <td>290</td>
+											  <td>32</td>
+											  <td>77</td>
+											  <td>93</td>
+											  <td>82</td>
+											  <td>138</td>
+											  <td>532</td>
+											  <td>293</td>
+											  <td>202</td>
+											</tr>
+										</tbody>
+									 </table>
+								</div>
+								<p class="wb-inv" role="separator">L'exemple finit</p>
+							</div>
+						</div>
+						
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv" role="separator">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;div style="overflow-x:auto;" tabindex="0" role="group" aria-labelledby="tbl-caption"&gt;
+   &lt;table&gt;
+      &lt;caption id="tbl-caption"&gt;Sprints&lt;/caption&gt;
+      […]
+   &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+				<p class="wb-inv" role="separator">Fin du code</p>	
+
+						<details  id="details-1" class="mrgn-tp-lg grouped on">
+							<summary class="bg-info">Voir les captures d'écran</summary>
+							
+							<h3 id="rtables-desktop1">Bureau</h3>
+							<img src="images/image19-fr.png" class="img-responsive" alt="Capture d'&eacute;cran d'une grande table.">
+
+							<h3 id="rtables-mobile1">Cellulaire</h3>
+
+							<img src="images/image20-fr.png" class="img-responsive" alt="Capture d'&eacute;cran d'une grande table avec une barre de d&eacute;filement horizontale apr&egrave;s redimensionnement.">
+
+						</details>	
+					</div>
+				</div>
+
+			</section>
+			<section>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">										
+						<h2 id="reflow-list" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Bon exemple : Reformater en une liste imbriquée</h2>
+
+						<p>Dans l’exemple ci-dessous, il y a deux structures distinctes - une liste et une table. Mais une seule est visible à l’écran à la fois. Le tableau se transforme en une liste imbriquée si la largeur de l’affichage du navigateur est inférieure à 768 pixels. La liste imbriquée demeure dans la zone d’affichage pour éviter le défilement horizontal.</p>
+
+						<p>Redimensionner la fenêtre du navigateur pour voir l’effet.</p>			
+
+						<div class="panel panel-primary">
+							<div class="panel-body mrgn-bttm-0">
+								<p class="wb-inv" role="separator">L'exemple commence</p>
+
+									<table id="desktop-table">
+									<caption>Résumé du compte</caption>
+									<thead>
+										<tr>
+											<th scope="col">Compte</th>
+											<th scope="col">Date d'échéance</th>
+											<th scope="col">Balance</th>
+											<th scope="col">Date du relevé</th>
+										</tr>
+									</thead>
+									
+									<tbody> 
+										<tr> 
+											<th scope="row">Mastercard - 5555</th> 
+											<td>04/01/2021</td> 
+											<td>$5,390</td> 
+											<td>03/01/2021 - 03/31/2021</td> 
+										</tr> 
+										<tr> 
+											<th scope="row">Visa - 5155</th> 
+											<td>03/01/2020</td> 
+											<td>$2,013</td> 
+											<td>02/01/2020 - 02/29/2020</td> 
+										</tr> 
+										<tr> 
+											<th scope="row">AMEX - 9010</th> 
+											<td>03/01/2020</td> 
+											<td>$3,251</td> 
+											<td>02/01/2020 - 02/29/2020</td> 
+										</tr> 
+										<tr> 
+											<th scope="row">Capital One - 8800</th> 
+											<td>02/01/2021</td> 
+											<td>$4,842</td> 
+											<td>01/01/2021 - 01/31/2021</td> 
+										</tr> 
+									</tbody>
+									</table>
+								
+								<div id="mobile-list">
+								  <h3>Résumé du compte</h3>
+								  <ul>
+									<li>Mastercard – 5555 
+									  <ul>
+										<li>Date d'échéance: 04/01/2021</li>
+										<li>Balance: $5,390</li>
+										<li>Date du relevé: 03/01/2021 - 03/31/2021</li>
+									  </ul>
+									</li>
+									<li>Visa – 5155
+									  <ul>
+										<li>Date d'échéance: 03/01/2020</li>
+										<li>Balance: $2,013</li>
+										<li>Date du relevé: 02/01/2020 - 02/29/2020</li>
+									  </ul>
+									</li>
+									<li>AMEX – 9010
+									  <ul>
+										<li>Date d'échéance: 03/01/2020</li>
+										<li>Balance: $3,251</li>
+										<li>Date du relevé: 02/01/2020 - 02/29/2020</li>
+									  </ul>
+									</li>
+									<li>Capital One – 8800 
+									  <ul>
+										<li>Date d'échéance: 02/01/2021</li>
+										<li>Balance: $4,842</li>
+										<li>Date du relevé: 01/01/2021 - 01/31/2021</li>
+										
+									  </ul>
+									</li>
+								  </ul>
+								</div>	
+								
+								<style type="text/css">
+
+								#desktop-table {
+									display:none;
+								}
+
+								#mobile-list {
+									display:block;
+								}
+
+								#mobile-list ul {
+									position: relative;
+								}
+
+								#mobile-list ul {
+								  list-style-type: none;
+								}
+
+								#mobile-list ul li {
+									font-weight:bold;
+								}
+
+								#mobile-list ul li ul li {
+									font-weight:normal;
+								}
+
+								#desktop-table {
+								   border: 0px solid #777; 
+								   border-collapse: collapse; 
+								   padding: 0px;
+								   width: 100%;
+								   table-layout: fixed; 
+								}
+
+								#desktop-table caption {
+								   font-size: 1.2em; 
+								   margin: .5em 0 .75em;
+								}
+
+								#desktop-table th,td {
+								   padding: .625em; 
+								   text-align: center; 
+								   border: 1px solid #777;
+								   background-color:white;
+								}
+
+								#desktop-table thead th{
+								   letter-spacing: .1em;
+								   text-transform: uppercase; 
+								   border-bottom: 3px solid #777;
+								}
+
+								@media screen and (min-width: 767px) {
+
+									#desktop-table {
+										display:block;
+									}
+
+									#mobile-list {
+										display:none;
+									}
+								}
+
+								</style>
+								<p class="wb-inv" role="separator">L'exemple finit</p>					
+							</div>
+						</div>
+
+						<details id="details-2" class="mrgn-tp-lg grouped on">
+							<summary class="bg-info">Voir les captures d'écran de la mise en page réactive</summary>
+							<h3 id="rtables-desktop2">Desktop</h3>
+							<div class="panel panel-primary">
+								<div class="panel-body well mrgn-bttm-0">
+									<p class="wb-inv" role="separator">L'exemple commence</p>
+									<img src="images/table-desktop-fr.png" class="img-responsive" alt="Une table conventionnelle avec quatre en-têtes de colonne et quatre en-têtes de rangée"/>
+									<p class="wb-inv" role="separator">L'exemple finit</p>
+								</div>
+							</div>
+							
+							<h3 id="rtables-mobile2">Mobile</h3>
+							<div class="panel panel-primary">
+								<div class="panel-body well mrgn-bttm-0">
+									<p class="wb-inv" role="separator">L'exemple commence</p>
+									<img src="images/table-list-fr.png" class="img-responsive" alt="Table transformée en liste imbriquée"/>
+									<p class="wb-inv" role="separator">L'exemple finit</p>
+								</div>
+							</div>
+						</details>						
+						
+						<details  id="details-3" class="grouped on mrgn-tp-md">
+							<summary class="bg-info">Voir le CSS </summary>
+							<p class="wb-inv" role="separator">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-css">
+#desktop-table {
+    display:none;
+}
+
+#mobile-list {
+    display:block;
+}
+
+#mobile-list ul {
+    position: relative;
+}
+
+#mobile-list ul {
+  list-style-type: none;
+}
+
+#mobile-list ul li {
+    font-weight:bold;
+}
+
+#mobile-list ul li ul li {
+    font-weight:normal;
+}
+
+#desktop-table {
+   border: 0px solid #777; 
+   border-collapse: collapse; 
+   padding: 0px;
+   width: 100%;
+   table-layout: fixed; 
+}
+
+#desktop-table caption {
+   font-size: 1.2em; 
+   margin: .5em 0 .75em;
+}
+
+#desktop-table th,td {
+   padding: .625em; 
+   text-align: center; 
+   border: 1px solid #777;
+   background-color:white;
+}
+
+#desktop-table thead th{
+   letter-spacing: .1em;
+   text-transform: uppercase; 
+   border-bottom: 3px solid #777;
+}
+
+@media screen and (min-width: 767px) {
+
+    #desktop-table {
+        display:block;
+    }
+
+    #mobile-list {
+        display:none;
+    }
+}</code></pre>
+							<p class="wb-inv" role="separator">Fin du code</p>
+						</details>	
+						<details  id="details-4" class="grouped on mrgn-tp-md">
+							<summary class="bg-info">Voir le HTML </summary>
+							<p class="wb-inv" role="separator">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;table id="desktop-table"&gt;
+   &lt;caption&gt;Résumé du compte&lt;/caption&gt;
+   &lt;thead&gt;
+      &lt;tr&gt;
+         &lt;th scope="col"&gt;Compte&lt;/th&gt;
+         &lt;th scope="col"&gt;Date d'échéance&lt;/th&gt;
+         &lt;th scope="col"&gt;Balance&lt;/th&gt;
+         &lt;th scope="col"&gt;Date du relevé&lt;/th&gt;
+      &lt;/tr&gt;
+   &lt;/thead&gt;
+   &lt;tbody&gt; 
+      &lt;tr&gt; 
+         &lt;th scope="row"&gt;Mastercard - 5555&lt;/th&gt; 
+         &lt;td&gt;04/01/2021&lt;/td&gt; 
+         &lt;td&gt;$5,390&lt;/td&gt; 
+         &lt;td&gt;03/01/2021 - 03/31/2021&lt;/td&gt; 
+      &lt;/tr&gt; 
+      &lt;tr&gt; 
+         &lt;th scope="row"&gt;Visa - 5155&lt;/th&gt; 
+         &lt;td&gt;03/01/2020&lt;/td&gt; 
+         &lt;td&gt;$2,013&lt;/td&gt; 
+         &lt;td&gt;02/01/2020 - 02/29/2020&lt;/td&gt; 
+      &lt;/tr&gt; 
+      &lt;tr&gt; 
+         &lt;th scope="row"&gt;AMEX - 9010&lt;/th&gt; 
+         &lt;td&gt;03/01/2020&lt;/td&gt; 
+         &lt;td&gt;$3,251&lt;/td&gt; 
+         &lt;td&gt;02/01/2020 - 02/29/2020&lt;/td&gt; 
+      &lt;/tr&gt; 
+      &lt;tr&gt; 
+         &lt;th scope="row"&gt;Capital One - 8800&lt;/th&gt; 
+         &lt;td&gt;02/01/2021&lt;/td&gt; 
+         &lt;td&gt;$4,842&lt;/td&gt; 
+         &lt;td&gt;01/01/2021 - 01/31/2021&lt;/td&gt; 
+      &lt;/tr&gt; 
+   &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;div id="mobile-list"&gt;
+   &lt;h3&gt;Résumé du compte&lt;/h3&gt;
+   &lt;ul&gt;
+     &lt;li&gt;Mastercard – 5555 
+        &lt;ul&gt;
+           &lt;li&gt;Date d'échéance: 04/01/2021&lt;/li&gt;
+           &lt;li&gt;Balance: $5,390&lt;/li&gt;
+           &lt;li&gt;Date du relevé: 03/01/2021 - 03/31/2021&lt;/li&gt;
+        &lt;/ul&gt;
+     &lt;/li&gt;
+     &lt;li&gt;Visa – 5155
+        &lt;ul&gt;
+           &lt;li&gt;Date d'échéance: 03/01/2020&lt;/li&gt;
+           &lt;li&gt;Balance: $2,013&lt;/li&gt;
+           &lt;li&gt;Date du relevé: 02/01/2020 - 02/29/2020&lt;/li&gt;
+        &lt;/ul&gt;
+     &lt;/li&gt;
+     &lt;li&gt;AMEX – 9010
+        &lt;ul&gt;
+           &lt;li&gt;Date d'échéance: 03/01/2020&lt;/li&gt;
+           &lt;li&gt;Balance: $3,251&lt;/li&gt;
+           &lt;li&gt;Date du relevé: 02/01/2020 - 02/29/2020&lt;/li&gt;
+        &lt;/ul&gt;
+     &lt;/li&gt;
+     &lt;li&gt;Capital One – 8800 
+        &lt;ul&gt;
+           &lt;li&gt;Date d'échéance: 02/01/2021&lt;/li&gt;
+           &lt;li&gt;Balance: $4,842&lt;/li&gt;
+           &lt;li&gt;Date du relevé: 01/01/2021 - 01/31/2021&lt;/li&gt;
+        &lt;/ul&gt;
+     &lt;/li&gt;
+   &lt;/ul&gt;
+&lt;/div&gt;</code>
+</pre>
+								<p class="wb-inv" role="separator">Fin du code</p>
+						</details>	
+					
+					</div>
+				</div>
+						
+	
+			
+			</section>			
+			<section>
+				<div class="panel panel-danger mrgn-tp-lg">
+					<div class="panel-body">
+						<h2 id="reflow-table" class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;Mauvais example: Reformater le tableau en une seule colonne</h2>
+						<p>Dans l’exemple ci-dessous, le tableau est reformaté à une colonne si la largeur du navigateur est inférieure à 768 pixels, ce qui maintient la lisibilité sans qu’un défilement horizontal soit nécessaire.</p>
+				<p>La technique consiste à empiler les cellules du tableau les unes sur les autres, à masquer les en-têtes de colonne et à les reproduire à gauche de la cellule comme des en-têtes de rangée. Les en-têtes de rangée sont créés avec le <a href="../module7/css-generated-fr.html">contenu généré par CSS</a>, en s’appuyant sur la valeur d’un attribut personnalisé <code lang="en">data-label</code>. Malheureusement, comme indiqu&eacute; dans le module 7, le texte généré par CSS &eacute;choue aux WCAG.</p>
+						
+		<p class="lang-label small">HTML</p>
+		<p class="wb-inv" role="separator">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;td data-label="Account"&gt;Mastercard - 5555&lt;/td&gt;</code></pre>
+		<p class="wb-inv" role="separator">Fin du code</p>
+		<p class="lang-label small">CSS</p>
+		<p class="wb-inv" role="separator">Début du code</p>
+<pre class="mrgn-tp-0"><code class="language-css">@media screen and (max-width: 767px) {
+   table td::before {
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+   }
+}</code></pre>
+						<p class="wb-inv" role="separator">Fin du code</p>
+						
+						<p>Redimensionner la fenêtre du navigateur pour voir l’effet.</p>
+
+						<div class="panel panel-primary">
+							<div class="panel-body mrgn-bttm-0">
+								<p class="wb-inv" role="separator">L'exemple commence</p>
+ 
+							
+								<table class="example table table-hover">
+									<caption>Résumé du compte</caption>
+									<thead>
+										<tr>
+											<th scope="col">Compte</th>
+											<th scope="col">Date d'échéance</th>
+											<th scope="col">Balance</th>
+											<th scope="col">Date du relevé</th>
+										</tr>
+									</thead>
+									<tbody> 
+										<tr> 
+											<th scope="row" data-label="Compte">Mastercard - 5555</th> 
+											<td data-label="Date d'echeance">04/01/2021</td> 
+											<td data-label="Montant">$5,390</td> 
+											<td data-label="Periode">03/01/2021 - 03/31/2021</td> 
+										</tr> 
+										<tr> 
+											<th scope="row" data-label="Compte">Visa - 5155</th> 
+											<td data-label="Date d'echeance">03/01/2020</td> 
+											<td data-label="Montant">$2,013</td> 
+											<td data-label="Periode">02/01/2020 - 02/29/2020</td> 
+										</tr> 
+										<tr> 
+											<th scope="row" data-label="Compte">AMEX - 9010</th> 
+											<td data-label="Date d'echeance">03/01/2020</td> 
+											<td data-label="Montant">$3,251</td> 
+											<td data-label="Periode">02/01/2020 - 02/29/2020</td> 
+										</tr> 
+										<tr> 
+											<th scope="row" data-label="Compte">Capital One - 8800</th> 
+											<td data-label="Date d'echeance">02/01/2021</td> 
+											<td data-label="Montant">$4,842</td> 
+											<td data-label="Periode">01/01/2021 - 01/31/2021</td> 
+										</tr> 
+									</tbody>
+								</table>
+<style type="text/css">
+table.example { 
+   border: 1px solid #777; 
+   border-collapse: collapse; 
+   margin: 0; 
+   padding: 0;
+   width: 100%;
+   table-layout: fixed; 
+} 
+table.example caption { 
+   font-size: 1.2em; 
+   margin: .5em 0 .75em;
+} 
+table.example th, 
+table.example td,
+table.example>thead>tr>th {
+   padding: .625em; 
+   text-align: center; 
+   border: 1px solid #777;
+} 
+table.example>thead>tr>th {
+   border-bottom: 3px solid #777;
+} 
+table.example thead th {
+   letter-spacing: .1em;
+   text-transform: uppercase; 
+} 
+@media screen and (max-width: 767px) { 
+   table.example { 
+      border: 0; 
+   } 
+   table.example caption { 
+      font-size: 1.2em; 
+   } 
+   table.example thead { 
+      border: none;
+      clip: rect(0, 0, 0, 0); 
+      height: 1px; 
+      margin: -1px; 
+      overflow: hidden; 
+      padding: 0;
+      position: absolute; 
+      width: 1px;
+   } 
+   table.example tr { 
+      border-bottom: 3px solid #777;
+      display: block;
+      margin-bottom: 1em;
+   }
+   table.example td, table.example tbody th { 
+      border-bottom: 1px solid #777; 
+      display: block; 
+      text-align: right; 
+      width:95%;
+   } 
+   table.example td::before, 
+   table.example tbody th::before { 
+      content: attr(data-label); 
+      float: left; 
+      font-weight: bold; 
+      text-transform: uppercase; 
+   }
+   table.example td:last-child { 
+      border-bottom: 0; 
+   } 
+}
+</style>					
+								<p class="wb-inv" role="separator">L'exemple finit</p>
+							</div>
+						</div>
+						
+						<details  id="details-5" class="mrgn-tp-lg grouped on">
+							<summary class="bg-info">Voir les captures d'écran de la mise en page réactive</summary>
+							
+							<h3 id="rtables-desktop3">Bureau</h3>
+							<div class="panel panel-primary">
+								<div class="panel-body well mrgn-bttm-0">
+									<p class="wb-inv" role="separator">L'exemple commence</p>
+									<img src="images/table-desktop-fr.png" class="img-responsive" alt="Un tableau classique avec quatre en-têtes de colonne et quatre en-têtes de ligne."/>
+									<p class="wb-inv" role="separator">L'exemple finit</p>
+								</div>
+							</div>
+							<h3 id="rtables-mobile3">Cellulaire</h3>
+							<div class="panel panel-primary">
+								<div class="panel-body well mrgn-bttm-0">
+									<p class="wb-inv" role="separator">L'exemple commence</p>
+									<img src="images/table-mobile-fr.png" class="img-responsive" alt="Les en-têtes de colonne sont maintenant des en-têtes de ligne, empilés par groupes de quatre, chaque groupe contenant une ligne de données."/>
+									<p class="wb-inv" role="separator">L'exemple finit</p>
+								</div>
+							</div>
+						</details>	
+						
+						<details  id="details-6" class="grouped on mrgn-tp-md">
+							<summary class="bg-info">Voir le CSS </summary>
+							<p class="wb-inv" role="separator">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-css">table { 
+   border: 1px solid #ccc; 
+   border-collapse: collapse; 
+   margin: 0; 
+   padding: 0;
+   width: 100%;
+   table-layout: fixed; 
+} 
+table caption { 
+   font-size: 1.2em; 
+   margin: .5em 0 .75em;
+} 
+table th, 
+table td {
+   padding: .625em; 
+   text-align: center; 
+   border: 1px solid #CCC;
+} 
+table thead th {
+   letter-spacing: .1em;
+   text-transform: uppercase; 
+} 
+@media screen and (max-width: 767px) { 
+   table { 
+      border: 0; 
+   } 
+   table caption { 
+      font-size: 1.2em; 
+   } 
+   table thead { 
+      border: none;
+      clip: rect(0 0 0 0); 
+      height: 1px; 
+      margin: -1px; 
+      overflow: hidden; 
+      padding: 0;
+      position: absolute; 
+      width: 1px;
+   } 
+   table tr { 
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: 1em;
+   }
+   table td, table tbody th { 
+      border-bottom: 1px solid #ddd; 
+      display: block; 
+      text-align: right; 
+      width:95%;
+   } 
+   table td::before, 
+   table tbody th::before { 
+      content: attr(data-label); 
+      float: left; 
+      font-weight: bold; 
+      text-transform: uppercase; 
+   }
+   table td:last-child { 
+      border-bottom: 0; 
+   } 
+}</code></pre>
+							<p class="wb-inv" role="separator">Fin du code</p>
+						</details>	
+						<details  id="details-7" class="grouped on mrgn-tp-md">
+							<summary class="bg-info">Voir le HTML </summary>
+								
+							<p class="wb-inv" role="separator">Début du code</p>
+<pre class="mrgn-tp-md"><code class="language-html">&lt;table&gt;
+   &lt;caption&gt;Résumé du compte&lt;/caption&gt;
+   &lt;thead&gt;
+      &lt;tr&gt;
+         &lt;th scope="col"&gt;Compte&lt;/th&gt;
+         &lt;th scope="col"&gt;Date d'échéance&lt;/th&gt;
+         &lt;th scope="col"&gt;Balance&lt;/th&gt;
+         &lt;th scope="col"&gt;Date du relevé&lt;/th&gt;
+      &lt;/tr&gt;
+   &lt;/thead&gt;
+   &lt;tbody&gt; 
+      &lt;tr&gt; 
+         &lt;th scope="row" data-label="Compte"&gt;Mastercard - 5555&lt;/th&gt; 
+         &lt;td data-label="Date d'échéance"&gt;04/01/2021&lt;/td&gt; 
+         &lt;td data-label="Montant"&gt;$5,390&lt;/td&gt; 
+         &lt;td data-label="Periode"&gt;03/01/2021 - 03/31/2021&lt;/td&gt; 
+      &lt;/tr&gt; 
+      &lt;tr&gt; 
+         &lt;th scope="row" data-label="Compte"&gt;Visa - 5155&lt;/th&gt; 
+         &lt;td data-label="Date d'échéance"&gt;03/01/2020&lt;/td&gt; 
+         &lt;td data-label="Montant"&gt;$2,013&lt;/td&gt; 
+         &lt;td data-label="Periode"&gt;02/01/2020 - 02/29/2020&lt;/td&gt; 
+      &lt;/tr&gt; 
+      &lt;tr&gt; 
+         &lt;th scope="row" data-label="Compte"&gt;AMEX - 9010&lt;/th&gt; 
+         &lt;td data-label="Date d'échéance"&gt;03/01/2020&lt;/td&gt; 
+         &lt;td data-label="Montant"&gt;$3,251&lt;/td&gt; 
+         &lt;td data-label="Periode"&gt;02/01/2020 - 02/29/2020&lt;/td&gt; 
+      &lt;/tr&gt; 
+      &lt;tr&gt; 
+         &lt;th scope="row" data-label="Compte"&gt;Capital One - 8800&lt;/th&gt; 
+         &lt;td data-label="Date d'échéance"&gt;02/01/2021&lt;/td&gt; 
+         &lt;td data-label="Montant"&gt;$4,842&lt;/td&gt; 
+         &lt;td data-label="Periode"&gt;01/01/2021 - 01/31/2021&lt;/td&gt; 
+      &lt;/tr&gt; 
+   &lt;/tbody&gt;
+&lt;/table&gt;</code>
+</pre>
+								<p class="wb-inv" role="separator">Fin du code</p>
+							
+							</details>	
+					
+					</div>
+				</div>
+			</section>
+
+		  <section>
+			 <h2 id="wcag" class="wb-inv">Ressources WCAG connexes</h2>
+			 <details  id="details-8" class="mrgn-tp-lg grouped on">
+				<summary class="bg-info">Ressources WCAG connexes</summary>
+				<h3>Critères de succès</h3>
+				<ul>
+				   <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships
+" lang="en">1.3.1: Information et relations</a></li>
+				</ul>
+				 <h3>Échecs</h3>
+				<ul>
+				   <li>
+					  <a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F87
+" lang="en">F87&nbsp;: Échec du critère de succès 1.3.1 consistant à utiliser les pseudo-éléments :before et :after et la propriété content en CSS (en anglais)</a>
+				   </li>
+				</ul>
+			 </details>
+		  </section>
+		
+		
+	<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Menu de la pagination</h2>
+		<ul class="pager">
+			<li class="previous"><a rel="prev" href="responsive-objects-fr.html">Précédent - Objets et modules d’extension adaptés</a></li>
+			<li class="next"><a rel="next" href="responsive-ui-fr.html">Suivant - Composantes d’interface utilisateur adaptées</a></li>
+		</ul>
+	</nav>
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Haut de la page</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 8 - Zoom et conception adaptée</h3>
+					<ul class="list-group menu list-unstyled">
+												
+						<li><a class="list-group-item" href="introduction-fr.html">Introduction</a></li>
+						<li><a class="list-group-item" href="zoom-fr.html">Zoom</a></li>
+						<li class="expanded-black">
+						<a class="list-group-item expanded-black" href="responsive-design-fr.html">
+							Conception adaptée
+							<span class="wb-inv" lang="en">Expanded</span>
+						</a>
+							<ul class="list-group menu list-unstyled inner">
+								<li><a class="list-group-item" href="responsive-forms-fr.html">Formulaires adaptés</a></li>
+								<li><a class="list-group-item" href="responsive-images-fr.html">Images adaptées</a></li>
+								<li><a class="list-group-item" href="responsive-text-fr.html">Texte adapté</a></li>
+								<li><a class="list-group-item" href="responsive-objects-fr.html">Objets et modules d’extension adaptés</a></li>
+								<li><a class="list-group-item active" aria-current="page" href="responsive-tables-fr.html">Tableaux adaptés</a></li>
+								<li><a class="list-group-item" href="responsive-ui-fr.html">Composantes d’interface utilisateur adaptées</a></li>
+								<li><a class="list-group-item" href="responsive-video-fr.html">Vidéo adaptée</a></li>
+							</ul>
+						</li>
+						<li><a class="list-group-item" href="orientation-fr.html">Orientation</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-8-fr.html">Pratique exemplaire</a></li>
+						
+					</ul>
+			</section>
+						
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Tous les modules</h3>
+                     <ul class="list-group menu list-unstyled">
+                        <li><a class="list-group-item" href="../module1/web-accessibility-fr.html">Module 1 - Principes fondamentaux de l'accessilité</a></li>
+                        <li><a class="list-group-item" href="../module2/landmarks-fr.html">Module 2 – Structure et sémantique des pages</a></li>
+                        <li><a class="list-group-item" href="../module3/links-fr.html">Module 3 – Liens et navigation</a></li>
+                        <li><a class="list-group-item" href="../module4/tables-concepts-fr.html">Module 4 – Tableaux</a></li>
+                        <li><a class="list-group-item" href="../module5/text-alternatives-fr.html">Module 5 – Images</a></li>
+                        <li><a class="list-group-item" href="../module6/forms-concepts-fr.html">Module 6 – Formulaires</a></li>
+                        <li><a class="list-group-item" href="../module7/introduction-fr.html">Module 7 – Conception visuelle et couleurs</a></li>
+                        <li><a class="list-group-item active" href="introduction-fr.html">Module 8 – Zoom et conception adaptée</a></li>
+                        <li><a class="list-group-item" href="../module9/introduction-fr.html">Module 9 - Audio, vidéo, etc.</a></li>
+						<li><a class="list-group-item" href="../module10/introduction-fr.html">Module 10 - Méthodes de saisie de données</a></li>
+						<li><a class="list-group-item" href="../module11/aria-live-fr.html">Module 11 - Zones live ARIA et limites de temps</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Appendice</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap-fr.html">Plan du site</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice-fr.html">Toutes les pratiques exemplaires</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view-fr.html">Vue WCAG</a>
+					</li>
+				</ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2-fr.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter-fr.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>
