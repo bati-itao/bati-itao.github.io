@@ -105,118 +105,89 @@
 						</details>
 					</nav>
 			<section>
-				<h2 id="document-structure">Document structure and headings</h2>
+				<h2 id="tables-concepts">Tables concepts</h2>
 				<ul>
-					<li>Use only one Heading 1 for the document title</li>
-					<li>Create hierarchical structure with Heading 2 for main sections, Heading 3 for subsections</li>
-					<li>Don't skip heading levels in the hierarchy</li>
-					<li>Use Word's built-in heading styles instead of manual formatting</li>
-					<li>Write descriptive, meaningful heading text that accurately describes content</li>
-					<li>Use the Navigation Pane to check document structure</li>
-					<li>Generate automatic table of contents from heading styles</li>
+					<li>Mark up tables semantically to define the relationship between header cells and data cells. </li>
+					<li>For simple tables with one row of column headers and/or one column of row headers, 
+					  <ul>
+					    <li>use the <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, and <code>&lt;td&gt;</code> elements for mark up. </li>
+					    <li>use the <code>scope</code> attribute to associate headers with their data cells and any parent headers</li>
+				      </ul>
+				    </li>
+					<li>For complex tables, use <code>id</code> and <code>headers</code> attributes for explicit associations.</li>
 				</ul>
 			</section>
 			<section>
-				<h2 id="styles-formatting">Using Word styles and formatting</h2>
+				<h2 id="content-style-guide">Canada.ca Content Style Guide</h2>
 				<ul>
-					<li>Always use built-in styles instead of manual formatting</li>
-					<li>Maintain consistent styling throughout the document</li>
-					<li>Use sufficient color contrast for text and backgrounds</li>
-					<li>Don't use color as the only way to convey information</li>
-					<li>Use at least 12-point font for body text</li>
-					<li>Choose clear, readable fonts like Calibri, Arial, or Verdana</li>
-					<li>Use proper list formatting with bullets or numbers instead of manual formatting</li>
-					<li>Apply document themes for consistent, professional appearance</li>
+					<li>Use tables to organize and present data</li>
+					<li>Value of each cell relates to the column and row headers</li>
+					<li>Entries in a column don't contain information that could be considered a subhead</li>
+					<li>Value of each cell aligns with the column header that appears directly above it</li>
+					<li>Give your table a clear title (using <code>&lt;caption&gt;</code>) that describes the information in it</li>
+					<li>Convert complex tables into one or more simple tables</li>
+					<li>Convert a table to a list if the data is simple</li>
 				</ul>
 			</section>
 			<section>
-				<h2 id="accessible-content">Writing accessible content</h2>
+				<h2 id="irregular-tables">Irregular tables  </h2>
 				<ul>
-					<li>Write in plain language using everyday words instead of jargon</li>
-					<li>Keep sentences clear and concise (typically 15-20 words)</li>
-					<li>Use active voice when possible</li>
-					<li>Break up long paragraphs into shorter ones</li>
-					<li>Define technical terms when first used</li>
-					<li>Use terms consistently throughout the document</li>
-					<li>Use inclusive and accessible language</li>
-					<li>Consider appropriate reading level for your audience</li>
-					<li>Start paragraphs with the main idea</li>
-					<li>Use descriptive, informative headings that help users navigate</li>
+					<li>In irregular tables, represent the relationship between row- and column-spanning headers and their data cells with the <code>scope</code> attribute:
+					  <ul>
+					    <li>When a header spans multiple columns, add the <code>scope="colgroup"</code> attribute to the <code>&lt;th&gt;</code> element.</li>
+					    <li>When a header spans multiple rows, add the <code>scope="rowgroup"</code> attribute to the <code>&lt;th&gt;</code> element.</li>
+				      </ul>
+				    </li>
+					<li>Define groups in the table with <code>&lt;colgroup&gt;</code> and <code>&lt;tbody&gt;</code> elements:
+					  <ul>
+					    <li>Define column groups with the <code>&lt;colgroup&gt;</code> element, solo columns with <code>&lt;col&gt;</code>, as first children of the table element.</li>
+					    <li>Define row groups with the <code>&lt;tbody&gt;</code> element. The solo <code>&lt;thead&gt;</code> and <code>&lt;tfoot&gt;</code> elements define their own groups.</li>
+				      </ul>
+					</li>
 				</ul>
 			</section>
 			<section>
-				<h2 id="tables-word">Tables in Word documents</h2>
+				<h2 id="multi-level-headers">Tables with multi-level headers</h2>
 				<ul>
-					<li>Use tables only for structured data with relationships, not for layout</li>
-					<li>Always include table headers for data tables</li>
-					<li>Designate header rows using Table Design > Header Row option</li>
-					<li>Use descriptive captions that explain the table's purpose</li>
-					<li>Keep table structure simple and regular</li>
-					<li>Avoid merged cells when possible</li>
-					<li>Use repeat header rows for long tables that span multiple pages</li>
-					<li>Ensure sufficient contrast between text and background in tables</li>
-					<li>Consider alternatives like simple lists for data without complex relationships</li>
+					<li>To associate multi-level headers with data cells:
+					  <ul>
+					    <li>Give each header a unique <code>id</code> attribute value.</li>
+					    <li>Reference those <code>id</code> attribute values in the <code>headers</code> attribute of data cells defined by the header.</li>
+				      </ul>
+				    </li>
+					<li>The <code>id/headers</code> technique is not currently (2021) well-supported by screen readers. Simplify the data presentation by breaking a complex table into two or more simpler tables.</li>
 				</ul>
 			</section>
 			<section>
-				<h2 id="images-alt-text">Images and alternative text</h2>
+				<h2 id="captions-summary">Captions and summary</h2>
 				<ul>
-					<li>Add meaningful alternative text to all informative images</li>
-					<li>Keep alt text under 125 characters when possible</li>
-					<li>Be accurate and descriptive in alt text</li>
-					<li>Include relevant context and purpose in descriptions</li>
-					<li>Mark purely decorative images as decorative</li>
-					<li>Don't start alt text with "Image of" or "Picture of"</li>
-					<li>For complex images, provide detailed descriptions in document text</li>
-					<li>Use captions for images that need additional context</li>
-					<li>Place images near related text content</li>
-					<li>Avoid using images that contain text unless necessary</li>
+					<li>Use the <code>&lt;caption&gt;</code> element to provide a name or title for the table</li>
+					<li>If the caption duplicates the preceding heading, visually-hide the <code>&lt;caption&gt;</code> with the WET CSS class <code>.wb-inv</code>.</li>
+					<li>Place the <code>&lt;caption&gt;</code> element as a direct child of the <code>&lt;table&gt;</code> element</li>
+					<li>Provide a summary for complex tables that includes purpose, composition, trends and/or usage</li>
+					<li>Wherever possible, convert complex tables into simple tables or lists, so that less or no explanation is required.</li>
+					<li>Do no duplicate caption information in the summary.</li>
+					<li>Pick a method for presenting table summaries:
+					  <ul>
+					    <li>Nest the summary inside the <code>&lt;caption&gt;</code> element</li>
+					    <li>Set the summary in a paragraph preceding or following the table. Reference the summary from the table with the <code>aria-describedby</code> attribute.</li>
+					    <li>Use the <code>&lt;figure&gt;</code> element to mark up a table summary. Use <code>aria-labelledby</code> and <code>aria-describedby</code> attributes to associate the caption and summary, respectively, with the table.</li>
+				      </ul>
+				    </li>
 				</ul>
 			</section>
 			<section>
-				<h2 id="hyperlinks">Hyperlinks and cross-references</h2>
+				<h2 id="tips-tricks">Additional tips and tricks</h2>
 				<ul>
-					<li>Use descriptive, meaningful link text that makes sense out of context</li>
-					<li>Avoid generic phrases like "click here" or "read more"</li>
-					<li>Keep link text concise but informative</li>
-					<li>Use cross-references for internal navigation to maintain accuracy</li>
-					<li>Indicate file types and sizes for downloads</li>
-					<li>Test all links before sharing documents</li>
-					<li>Maintain consistent link formatting throughout</li>
-					<li>Group related links in lists or sections</li>
-					<li>Don't underline non-link text</li>
-					<li>Use screen tips for additional context when helpful</li>
-				</ul>
-			</section>
-			<section>
-				<h2 id="accessibility-tools">Accessibility checker and review tools</h2>
-				<ul>
-					<li>Run the Accessibility Checker regularly during document creation</li>
-					<li>Address accessibility issues as they appear rather than fixing them all at the end</li>
-					<li>Keep the Accessibility Checker running while you work</li>
-					<li>Don't rely solely on automated tools - perform manual reviews</li>
-					<li>Test keyboard navigation through your document</li>
-					<li>Use the Navigation Pane to verify document structure</li>
-					<li>Test your documents with assistive technologies when possible</li>
-					<li>Review documents at different zoom levels</li>
-					<li>Verify accessibility is maintained when converting to other formats</li>
-					<li>Create accessibility review checklists for consistent checking</li>
-				</ul>
-			</section>
-			<section>
-				<h2 id="templates">Document templates and best practices</h2>
-				<ul>
-					<li>Build accessibility features into templates from the start</li>
-					<li>Use clear, descriptive placeholder text that guides users</li>
-					<li>Include accessibility reminders and guidance in templates</li>
-					<li>Make accessible templates the default choice in your organization</li>
-					<li>Provide comprehensive training and support for template users</li>
-					<li>Establish clear accessibility policies and standards</li>
-					<li>Integrate accessibility into existing document workflows</li>
-					<li>Monitor and measure accessibility compliance over time</li>
-					<li>Regularly review and update templates based on feedback</li>
-					<li>Share best practices across the organization</li>
-					<li>Test templates with accessibility checker before distribution</li>
+					<li>Break up a complex table into simpler smaller tables, each containing data for one sub-topic of the original table.</li>
+					<li>Start a new <code>&lt;table&gt;</code> when the topic changes.</li>
+					<li>Separate each piece of data into its own cell.</li>
+					<li>Don’t use line breaks (<code>&lt;br&gt;</code> elements) to create table rows. </li>
+					<li>Align text to the left and numeric data to the right.</li>
+					<li>Differentiate header <code>&lt;th&gt;</code> and data <code>&lt;td&gt;</code> cells visually.</li>
+					<li>Style even and odd rows in a different way to improve readability.</li>
+					<li>Ensure table isn’t cut off (e.g., do not use <code>overflow: hidden</code> in CSS).</li>
+					<li>Avoid using tables for layout. Use CSS for layout instead.</li>
 				</ul>
 			</section>
 			
