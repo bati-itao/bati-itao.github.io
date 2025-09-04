@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Tables in Word documents - Module 4 – Word Accessibility Techniques</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Learn how to create accessible tables in Microsoft Word using proper headers, structure, and formatting for screen reader users.">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+	<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../../index.html"
+            },
+			{
+                "title": "Document accessibility course",
+                "href" : "../index.html"
+            },
+			{
+                "title": "Module 4 – Word Accessibility Techniques",
+                
+                "href" : "index.html"
+            },
+          {
+            "title": "Tables in Word documents",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "tables-in-word-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
+      </script> <div class="container"> <div class="row"><div id="def-search"></div><script src="../../../scripts/appSearch.js"></script>
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Tables in Word documents</h1>
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table of contents</summary>
+							<ul>
+						<li>
+							<a href="#overview">Overview</a>
+						</li>
+						<li>
+							<a href="#when-to-use">When to use tables</a>
+						</li>
+						<li>
+							<a href="#creating-accessible-tables">Creating accessible tables</a>
+						</li>
+						<li>
+							<a href="#header-rows">Designating header rows and columns</a>
+						</li>
+						<li>
+							<a href="#table-structure">Proper table structure</a>
+						</li>
+						<li>
+							<a href="#formatting">Table formatting and style</a>
+						</li>
+						<li>
+							<a href="#alternatives">Alternatives to complex tables</a>
+						</li>
+						<li>
+							<a href="#best-practices">Best practices</a>
+						</li>
+						<li>
+							<a href="#wcag-resources">Related WCAG resources</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+					<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1 " id="expandAllButton" id="expandAllButton">Expand all details</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1  " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}" id="collapseAllButton"  disabled="disabled">	Collapse all<span class="wb-inv"> details</span></button>
+				
+			<section>
+				<h2 id="overview">Overview</h2>
+				<p>Tables in Microsoft Word can be powerful tools for presenting structured data, but they must be created with accessibility in mind. Properly formatted tables allow screen readers to convey the relationships between data points, while poorly formatted tables can create confusion and barriers for users with disabilities.</p>
+				<p>This section covers how to create tables that work for all users, including those using assistive technologies.</p>
+			</section>
+
+			<section>
+				<h2 id="when-to-use">When to use tables</h2>
+				<p>Tables should be used for presenting structured data with relationships between rows and columns, not for layout purposes.</p>
+				
+				<h3>Good uses for tables</h3>
+				<ul>
+					<li>Financial data with categories and totals</li>
+					<li>Schedules showing time and activities</li>
+					<li>Comparison charts with multiple attributes</li>
+					<li>Statistical data with headers and values</li>
+					<li>Product specifications with features and details</li>
+				</ul>
+				
+				<h3>When NOT to use tables</h3>
+				<ul>
+					<li>Page layout or positioning elements</li>
+					<li>Creating multi-column text layouts</li>
+					<li>Simple lists that don't have relationships</li>
+					<li>Purely visual arrangements</li>
+				</ul>
+				
+				<div class="panel panel-danger mrgn-tp-lg">
+					<div class="panel-body">
+						<p class="wb-inv" role="separator">Bad example begins</p>
+						<h4>Don't use tables for layout</h4>
+						<p>Never use tables just to arrange text in columns or create visual layouts. Use proper formatting tools, columns, or text boxes instead.</p>
+						<p class="wb-inv" role="separator">Bad example ends</p>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<h2 id="creating-accessible-tables">Creating accessible tables</h2>
+				<p>Follow these steps to create an accessible table in Word:</p>
+				
+				<h3>Insert a table properly</h3>
+				<ol>
+					<li>Go to the <strong>Insert</strong> tab</li>
+					<li>Click <strong>Table</strong></li>
+					<li>Choose <strong>Insert Table</strong> for precise control</li>
+					<li>Specify number of rows and columns</li>
+					<li>Check <strong>My table has headers</strong> if applicable</li>
+				</ol>
+				
+				<h3>Essential table elements</h3>
+				<ul>
+					<li><strong>Headers:</strong> Clear, descriptive column and/or row headers</li>
+					<li><strong>Caption:</strong> Brief description of the table's content and purpose</li>
+					<li><strong>Simple structure:</strong> Avoid merged cells when possible</li>
+					<li><strong>Logical reading order:</strong> Data flows logically from left to right, top to bottom</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2 id="header-rows">Designating header rows and columns</h2>
+				<p>Properly designated headers are crucial for accessibility:</p>
+				
+				<h3>Setting up header rows</h3>
+				<ol>
+					<li>Select your table</li>
+					<li>Go to <strong>Table Design</strong> tab</li>
+					<li>Check <strong>Header Row</strong> in Table Style Options</li>
+					<li>Ensure header text is descriptive and concise</li>
+				</ol>
+				
+				<h3>Using repeat header rows</h3>
+				<ol>
+					<li>Select the header row(s)</li>
+					<li>Go to <strong>Table Layout</strong> tab</li>
+					<li>Click <strong>Repeat Header Rows</strong></li>
+					<li>Headers will now appear on each page if the table spans multiple pages</li>
+				</ol>
+				
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<p class="wb-inv" role="separator">Good example begins</p>
+						<h4>Example: Simple accessible table structure</h4>
+						<table class="table table-bordered">
+							<caption>Monthly sales figures by region</caption>
+							<thead>
+								<tr>
+									<th scope="col">Region</th>
+									<th scope="col">January</th>
+									<th scope="col">February</th>
+									<th scope="col">March</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">North</th>
+									<td>$25,000</td>
+									<td>$28,000</td>
+									<td>$30,000</td>
+								</tr>
+								<tr>
+									<th scope="row">South</th>
+									<td>$22,000</td>
+									<td>$24,000</td>
+									<td>$26,000</td>
+								</tr>
+							</tbody>
+						</table>
+						<p class="wb-inv" role="separator">Good example ends</p>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<h2 id="table-structure">Proper table structure</h2>
+				<p>Keep table structure simple and logical for best accessibility:</p>
+				
+				<h3>Structural guidelines</h3>
+				<ul>
+					<li>Use regular table layouts with consistent rows and columns</li>
+					<li>Avoid merged cells unless absolutely necessary</li>
+					<li>Don't use blank cells for spacing</li>
+					<li>Ensure data flows in a logical reading order</li>
+					<li>Keep related information in the same row or column</li>
+				</ul>
+				
+				<h3>Working with complex tables</h3>
+				<p>If you must create complex tables:</p>
+				<ul>
+					<li>Consider breaking them into multiple simple tables</li>
+					<li>Use clear, descriptive headers</li>
+					<li>Provide additional context in a caption or summary</li>
+					<li>Test with screen readers if possible</li>
+				</ul>
+				
+				<h3>Adding table captions</h3>
+				<ol>
+					<li>Right-click on your table</li>
+					<li>Select <strong>Insert Caption</strong></li>
+					<li>Choose <strong>Table</strong> as the label</li>
+					<li>Write a descriptive caption</li>
+					<li>Click <strong>OK</strong></li>
+				</ol>
+			</section>
+
+			<section>
+				<h2 id="formatting">Table formatting and style</h2>
+				<p>Proper formatting improves both accessibility and readability:</p>
+				
+				<h3>Visual formatting guidelines</h3>
+				<ul>
+					<li>Use sufficient contrast between text and background</li>
+					<li>Avoid using color alone to convey information</li>
+					<li>Use consistent formatting within the table</li>
+					<li>Ensure text is large enough to read</li>
+					<li>Use table styles for consistency</li>
+				</ul>
+				
+				<h3>Using built-in table styles</h3>
+				<ol>
+					<li>Select your table</li>
+					<li>Go to <strong>Table Design</strong> tab</li>
+					<li>Choose a style from the Table Styles gallery</li>
+					<li>Modify options in Table Style Options as needed</li>
+				</ol>
+				
+				<h3>Text alignment and spacing</h3>
+				<ul>
+					<li>Left-align text in most cases</li>
+					<li>Right-align numbers for easier comparison</li>
+					<li>Center-align headers if appropriate</li>
+					<li>Use consistent spacing throughout</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2 id="alternatives">Alternatives to complex tables</h2>
+				<p>Consider these alternatives for complex or problematic tables:</p>
+				
+				<h3>Simple lists</h3>
+				<p>For data without complex relationships:</p>
+				<ul>
+					<li>Use bulleted or numbered lists</li>
+					<li>Group related items with subheadings</li>
+					<li>Use description lists for name-value pairs</li>
+				</ul>
+				
+				<h3>Multiple simple tables</h3>
+				<p>Break complex tables into:</p>
+				<ul>
+					<li>Separate tables by category or time period</li>
+					<li>Individual tables for different data types</li>
+					<li>Summary tables with detailed breakdowns</li>
+				</ul>
+				
+				<h3>Charts and graphs</h3>
+				<p>Consider visual alternatives:</p>
+				<ul>
+					<li>Charts for trend data</li>
+					<li>Graphs for comparisons</li>
+					<li>Always include alternative text and data tables</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2 id="best-practices">Best practices</h2>
+				<ul>
+					<li>Always include table headers for data tables</li>
+					<li>Use descriptive captions that explain the table's purpose</li>
+					<li>Keep table structure simple and regular</li>
+					<li>Avoid using tables for layout purposes</li>
+					<li>Use consistent formatting throughout the table</li>
+					<li>Test tables with screen readers when possible</li>
+					<li>Consider the reading order of your data</li>
+					<li>Use repeat header rows for long tables</li>
+					<li>Provide summaries for complex numerical tables</li>
+					<li>Don't use empty cells for formatting</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2 id="wcag-resources">Related WCAG resources</h2>
+				<details id="details-1" class="mrgn-tp-lg grouped on">
+					<summary class="bg-info">WCAG 2.1 success criteria</summary>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">1.3.1: Info and Relationships</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence">1.3.2: Meaningful Sequence</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels">2.4.6: Headings and Labels</a>
+						</li>
+					</ul>
+					<h4>Techniques</h4>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H51">H51: Using table markup to present tabular data</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H63">H63: Using the scope attribute to associate header cells and data cells in data tables</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H39">H39: Using caption elements to associate data table captions with data tables</a>
+						</li>
+					</ul>
+				</details>
+			</section>
+			
+		<nav aria-labelledby="nav-pagination">
+	<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+	<ul class="pager">
+	  <li class="previous"> <a rel="prev" href="accessible-content.html">Previous - Writing accessible content</a> </li>
+	  <li class="next"> <a rel="next" href="images-and-alt-text.html">Next - Images and alternative text</a> </li>
+	</ul>
+  </nav>
+					
+
+<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	 <script src="../../../scripts/esdc-course.js"></script></main>
+		
+
+<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+			
+
+	<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+	  <section class="list-group menu list-unstyled">
+		  <h3 class="wb-navcurr">
+		  Module 4 –  Word Accessibility Techniques
+		  </h3>
+		  
+		  
+			<ul class="list-group menu list-unstyled">
+				<li><a class="list-group-item" href="document-structure.html">Document structure and headings</a></li>
+				<li><a class="list-group-item" href="styles-and-formatting.html">Using Word styles and formatting</a></li>
+				<li><a class="list-group-item" href="accessible-content.html">Writing accessible content</a></li>
+				<li><a class="list-group-item active" href="tables-in-word.html">Tables in Word documents</a></li>
+				<li><a class="list-group-item" href="images-and-alt-text.html">Images and alternative text</a></li>
+				<li><a class="list-group-item" href="hyperlinks-navigation.html">Hyperlinks and cross-references</a></li>
+				<li><a class="list-group-item" href="accessibility-checker.html">Accessibility checker and review tools</a></li>
+				<li><a class="list-group-item" href="templates-best-practices.html">Document templates and best practices</a></li>
+				<li><a class="list-group-item" href="best-practice-mod-4.html">Best practice</a></li>
+			</ul>
+		
+	  
+	  </section>
+	  
+	  
+	  <section class="list-group menu list-unstyled">
+		  <h3 class="wb-navcurr">
+		  All modules
+		  </h3>
+		  
+	  	
+			<ul class="list-group menu list-unstyled">
+				<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
+				<li><a class="list-group-item" href="../module2/index.html">Module 2 – Global M365 Document Techniques</a></li>			
+				<li><a class="list-group-item" href="../module3/index.html">Module 3 – PowerPoint Accessibility Techniques</a></li>
+				<li><a class="list-group-item active" href="index.html">Module 4 – Word Accessibility Techniques</a></li>
+				<li><a class="list-group-item" href="../module5/index.html">Module 5 – Outlook Email Accessibility Techniques</a></li>
+				<li><a class="list-group-item" href="../module6/index.html">Module 6 – Introduction to Accessible PDFs</a></li><li><a class="list-group-item" href="../module11/index.html">Module 11 - ARIA live and time limits</a></li>
+			</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Appendix</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
+				</ul>
+			</section>
+  
+  </nav>
+
+
+  
+
+
+	  
+</div>
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+</div>	
+  
+  
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+</body>
+
+</html>
