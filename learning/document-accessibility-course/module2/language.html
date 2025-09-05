@@ -19,7 +19,9 @@
     <script src="../../../scripts/refTop.min.js"></script>
     <link rel="stylesheet" href="../../../css/a11y-dark.css" />
     <script src="../../../scripts/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+    <script>
+      hljs.highlightAll();
+    </script>
     <link rel="stylesheet" href="../../../css/esdc-course.css" />
   </head>
 
@@ -29,13 +31,21 @@
     <script>
       var defTop = document.getElementById("def-top");
       defTop.outerHTML = wet.builder.appTop({
-        appName: [{ text: "ESDC / IT Accessibility office", href: "../../../index.html" }],
+        appName: [
+          {
+            text: "ESDC / IT Accessibility office",
+            href: "../../../index.html",
+          },
+        ],
         breadcrumbs: [
           { title: "Home", href: "../../../index.html" },
           { title: "Learning", href: "../../index.html" },
           { title: "Document accessibility course", href: "../index.html" },
-          { title: "Module 2 – Global Accessibility Techniques", href: "index.html" },
-          { title: "Language" }
+          {
+            title: "Module 2 – Global Accessibility Techniques",
+            href: "index.html",
+          },
+          { title: "Language" },
         ],
         lngLinks: [{ lang: "fr", href: "language-fr.html", text: "Français" }],
         menuPath: "../../../ajax/menu-en.html",
@@ -48,7 +58,9 @@
         <script src="../../../scripts/appSearch.js"></script>
 
         <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
-          <h1 property="name" id="wb-cont">Language: Set the document language</h1>
+          <h1 property="name" id="wb-cont">
+            Language: Set the document language
+          </h1>
 
           <nav aria-labelledby="nav-table" class="mrgn-tp-md">
             <h2 id="nav-table" class="wb-inv">Table of contents</h2>
@@ -57,62 +69,104 @@
               <ul>
                 <li><a href="#why">Why language settings matter</a></li>
                 <li><a href="#set-doc">Set the document language</a></li>
-                <li><a href="#passages">Mark passages in other languages</a></li>
+                <li>
+                  <a href="#passages">Mark passages in other languages</a>
+                </li>
                 <li><a href="#check">Check your work</a></li>
               </ul>
             </details>
           </nav>
 
-          <button type="button" class="btn btn-default wb-toggle"
+          <button
+            type="button"
+            class="btn btn-default wb-toggle"
             data-toggle='{"selector": ".grouped", "group": ".grouped", "type": "on"}'
-            aria-controls="details-1" id="expandAllButton">
+            aria-controls="details-1"
+            id="expandAllButton"
+          >
             Expand all details
           </button>
-          <button type="button" class="btn btn-default wb-toggle"
+          <button
+            type="button"
+            class="btn btn-default wb-toggle"
             aria-controls="details-1"
             data-toggle='{"group": ".grouped", "type": "off"}'
-            id="collapseAllButton" disabled="disabled">
+            id="collapseAllButton"
+            disabled="disabled"
+          >
             Collapse all<span class="wb-inv"> details</span>
           </button>
 
           <section>
             <h2 id="why">Why language settings matter</h2>
             <ul>
-              <li>Screen readers rely on language metadata for pronunciation.</li>
+              <li>
+                Screen readers rely on language metadata for pronunciation.
+              </li>
               <li>Spellcheck and hyphenation use the language setting.</li>
-              <li>Search, translation, and voice assistants improve with correct language.</li>
+              <li>
+                Search, translation, and voice assistants improve with correct
+                language.
+              </li>
             </ul>
           </section>
 
           <section>
             <h2 id="set-doc">Set the document language</h2>
             <ul>
-              <li><strong>HTML:</strong> Set the <code>lang</code> attribute on <code>&lt;html&gt;</code>.
+              <li>
+                <strong>HTML:</strong> Set the <code>lang</code> attribute on
+                <code>&lt;html&gt;</code>.
                 <pre><code>&lt;html lang="en"&gt;...&lt;/html&gt;</code></pre>
               </li>
-              <li><strong>Word/PowerPoint:</strong> Review or Set Proofing Language for the whole document.</li>
-              <li><strong>Google Docs:</strong> File → Language → choose the document language.</li>
-              <li><strong>PDF (from source):</strong> Ensure the source document’s language is set before export.</li>
+              <li>
+                <strong>Word/PowerPoint:</strong> Review or Set Proofing
+                Language for the whole document.
+              </li>
+              <li>
+                <strong>Google Docs:</strong> File → Language → choose the
+                document language.
+              </li>
+              <li>
+                <strong>PDF (from source):</strong> Ensure the source document’s
+                language is set before export.
+              </li>
             </ul>
           </section>
 
           <section>
             <h2 id="passages">Mark passages in other languages</h2>
             <ul>
-              <li><strong>HTML:</strong> Wrap spans with <code>lang</code>.
+              <li>
+                <strong>HTML:</strong> Wrap spans with <code>lang</code>.
                 <pre><code>&lt;p&gt;We said &lt;span lang="fr"&gt;bonjour&lt;/span&gt; to our guests.&lt;/p&gt;</code></pre>
               </li>
-              <li><strong>Word/Google Docs:</strong> Select the phrase → set language for that selection.</li>
-              <li><strong>PowerPoint:</strong> Set language per text box or selection.</li>
+              <li>
+                <strong>Word/Google Docs:</strong> Select the phrase → set
+                language for that selection.
+              </li>
+              <li>
+                <strong>PowerPoint:</strong> Set language per text box or
+                selection.
+              </li>
             </ul>
-            <p>Do not mark brand names or proper nouns as different language unless pronunciation differs substantially.</p>
+            <p>
+              Do not mark brand names or proper nouns as different language
+              unless pronunciation differs substantially.
+            </p>
           </section>
 
           <section>
             <h2 id="check">Check your work</h2>
             <ul>
-              <li>Run your tool’s accessibility checker and verify language settings.</li>
-              <li>Test with a screen reader (e.g., NVDA/VoiceOver) to hear pronunciation on foreign words.</li>
+              <li>
+                Run your tool’s accessibility checker and verify language
+                settings.
+              </li>
+              <li>
+                Test with a screen reader (e.g., NVDA/VoiceOver) to hear
+                pronunciation on foreign words.
+              </li>
             </ul>
           </section>
 
@@ -122,13 +176,31 @@
               <summary class="bg-info">Related WCAG resources</summary>
               <h3>Success criteria</h3>
               <ul>
-                <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/language-of-page">3.1.1: Language of Page</a></li>
-                <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/language-of-parts">3.1.2: Language of Parts</a></li>
+                <li>
+                  <a
+                    href="https://www.w3.org/WAI/WCAG21/Understanding/language-of-page"
+                    >3.1.1: Language of Page</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3.org/WAI/WCAG21/Understanding/language-of-parts"
+                    >3.1.2: Language of Parts</a
+                  >
+                </li>
               </ul>
               <h3>Techniques</h3>
               <ul>
-                <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H57">H57: Using language attributes on the html element</a></li>
-                <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H58">H58: Using language attributes to identify changes</a></li>
+                <li>
+                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H57"
+                    >H57: Using language attributes on the html element</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H58"
+                    >H58: Using language attributes to identify changes</a
+                  >
+                </li>
               </ul>
             </details>
           </section>
@@ -136,49 +208,141 @@
           <nav aria-labelledby="nav-pagination">
             <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
             <ul class="pager">
-              <li class="previous"><a rel="prev" href="infoPane.html">Previous - Info Pane</a></li>
-              <li class="next"><a rel="next" href="accessibleTemplates.html">Next - Accessible Templates</a></li>
+              <li class="previous">
+                <a rel="prev" href="infoPane.html">Previous - Info Pane</a>
+              </li>
+              <li class="next">
+                <a rel="next" href="accessibleTemplates.html"
+                  >Next - Accessible Templates</a
+                >
+              </li>
             </ul>
           </nav>
 
           <a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn">
-            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top
+            <span
+              class="glyphicon glyphicon-arrow-up"
+              aria-hidden="true"
+            ></span>
+            Back to top
           </a>
           <script src="../../../scripts/esdc-course.js"></script>
         </main>
 
-        <nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">
+        <nav
+          id="wb-sec"
+          class="wb-sec col-md-3 col-md-pull-9"
+          typeof="SiteNavigationElement"
+          aria-labelledby="wb-sec-h"
+        >
           <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+
           <section class="list-group menu list-unstyled">
-            <h3 class="wb-navcurr">Module 2 – Global Accessibility Techniques</h3>
+            <h3 class="wb-navcurr">
+              Module 2 – Global Accessibility Techniques
+            </h3>
             <ul class="list-group menu list-unstyled">
-              <li><a class="list-group-item" href="infoPane.html">Info Pane</a></li>
-              <li><a class="list-group-item active" aria-current="page">Language</a></li>
-              <li><a class="list-group-item" href="accessibleTemplates.html">Accessible Templates</a></li>
-              <li><a class="list-group-item" href="textAndFonts.html">Text and Fonts</a></li>
-              <li><a class="list-group-item" href="altText.html">Alt Text</a></li>
-              <li><a class="list-group-item" href="contrast.html">Contrast</a></li>
-              <li><a class="list-group-item" href="acronyms.html">Acronyms</a></li>
-              <li><a class="list-group-item" href="multimedia.html">Multimedia</a></li>
-              <li><a class="list-group-item" href="plainLanguage.html">Plain Language</a></li>
+              <li>
+                <a class="list-group-item" href="infoPane.html">Info Pane</a>
+              </li>
+              <li>
+                <a
+                  class="list-group-item active"
+                  aria-current="page"
+                  href="language.html"
+                  >Language</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="accessibleTemplates.html"
+                  >Accessible Templates</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="textAndFonts.html"
+                  >Text and Fonts</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="altText.html">Alt Text</a>
+              </li>
+              <li>
+                <a class="list-group-item" href="contrast.html">Contrast</a>
+              </li>
+              <li>
+                <a class="list-group-item" href="acronyms.html">Acronyms</a>
+              </li>
+              <li>
+                <a class="list-group-item" href="hyperlinks.html">Hyperlinks</a>
+              </li>
+              <li>
+                <a class="list-group-item" href="multimedia.html">Multimedia</a>
+              </li>
+              <li>
+                <a class="list-group-item" href="plainLanguage.html"
+                  >Plain Language</a
+                >
+              </li>
             </ul>
           </section>
+
           <section class="list-group menu list-unstyled">
             <h3 class="wb-navcurr">All modules</h3>
             <ul class="list-group menu list-unstyled">
-              <li><a class="list-group-item" href="../module1/document-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
-              <li><a class="list-group-item active" href="index.html">Module 2 – Global Accessibility Techniques</a></li>
-              <li><a class="list-group-item" href="../module3/index.html">Module 3 – Accessible PowerPoint Techniques</a></li>
-              <li><a class="list-group-item" href="../module4/index.html">Module 4 – Accessible Word Techniques</a></li>
-              <li><a class="list-group-item" href="../module5/index.html">Module 5 – Accessible Outlook (Email) Techniques</a></li>
-              <li><a class="list-group-item" href="../module6/index.html">Module 6 – Introduction to Accessible PDFs</a></li></ul>
+              <li>
+                <a
+                  class="list-group-item"
+                  href="../module1/document-accessibility.html"
+                  >Module 1 - Accessibility fundamentals</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item active" href="index.html"
+                  >Module 2 – Global Accessibility Techniques</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module3/index.html"
+                  >Module 3 – Accessible PowerPoint Techniques</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module4/index.html"
+                  >Module 4 – Accessible Word Techniques</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module5/index.html"
+                  >Module 5 – Accessible Outlook (Email) Techniques</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module6/index.html"
+                  >Module 6 – Introduction to Accessible PDFs</a
+                >
+              </li>
+            </ul>
           </section>
           <section class="list-group menu list-unstyled">
             <h3 class="wb-navcurr">Appendix</h3>
             <ul class="list-group menu list-unstyled">
-              <li><a class="list-group-item" href="../sitemap/sitemap.html">Site map</a></li>
-              <li><a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a></li>
-              <li><a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a></li>
+              <li>
+                <a class="list-group-item" href="../sitemap/sitemap.html"
+                  >Site map</a
+                >
+              </li>
+              <li>
+                <a
+                  class="list-group-item"
+                  href="../best-practice/all-best-practice.html"
+                  >All best practices</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../wcag/wcag-view.html"
+                  >WCAG view</a
+                >
+              </li>
             </ul>
           </section>
         </nav>
