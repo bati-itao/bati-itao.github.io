@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>Accessible Tables: Organize data for everyone</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta name="description" content="Learn when and why to use tables, how to make them accessible across platforms, and best practices for organizing data that works with assistive technologies." />
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+    <script src="../../../scripts/refTop.min.js"></script>
+    <link rel="stylesheet" href="../../../css/a11y-dark.css" />
+    <script src="../../../scripts/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <link rel="stylesheet" href="../../../css/esdc-course.css" />
+  </head>
+  <body vocab="https://schema.org/" typeof="WebPage">
+    <div id="def-top"></div>
+    <script>
+      var defTop = document.getElementById("def-top");
+      defTop.outerHTML = wet.builder.appTop({
+        appName: [
+          {
+            text: "ESDC / IT Accessibility office",
+            href: "../../../index.html",
+          },
+        ],
+        breadcrumbs: [
+          { title: "Home", href: "../../../index.html" },
+          { title: "Learning", href: "../../index.html" },
+          { title: "Document accessibility course", href: "../index.html" },
+          {
+            title: "Module 2 – Global Accessibility Techniques",
+            href: "index.html",
+          },
+          { title: "Accessible Tables" },
+        ],
+        lngLinks: [{ lang: "fr", href: "accessibleTables-fr.html", text: "Français" }],
+        menuPath: "../../../ajax/menu-en.html",
+      });
+    </script>
+
+    <div class="container">
+      <div class="row">
+        <div id="def-search"></div>
+        <script src="../../../scripts/appSearch.js"></script>
+
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">
+            Accessible Tables: Organize data for everyone
+          </h1>
+
+          <nav aria-labelledby="nav-table" class="mrgn-tp-md">
+            <h2 id="nav-table" class="wb-inv">Table of contents</h2>
+            <details class="mrgn-bttm-lg on" open="open">
+              <summary class="bg-info">Table of contents</summary>
+              <ul>
+                <li><a href="#what">What are accessible tables?</a></li>
+                <li><a href="#when-why">When and why to use tables</a></li>
+                <li><a href="#charts-graphs">Tables with charts and graphs</a></li>
+                <li><a href="#best-practices">Best practices for accessible tables</a></li>
+                <li><a href="#structure">Table structure essentials</a></li>
+                <li><a href="#headers">Clear headers and captions</a></li>
+                <li><a href="#complex">Complex tables and relationships</a></li>
+                <li><a href="#how-to">How to create accessible tables step-by-step</a></li>
+                <li><a href="#check">Check your work</a></li>
+                <li><a href="#resources">Related WCAG resources</a></li>
+              </ul>
+            </details>
+          </nav>
+
+          <button
+            type="button"
+            class="btn btn-default wb-toggle"
+            data-toggle='{"selector": ".grouped", "group": ".grouped", "type": "on"}'
+            aria-controls="details-1"
+            id="expandAllButton"
+          >
+            Expand all details
+          </button>
+          <button
+            type="button"
+            class="btn btn-default wb-toggle"
+            aria-controls="details-1"
+            data-toggle='{"group": ".grouped", "type": "off"}'
+            id="collapseAllButton"
+            disabled="disabled"
+          >
+            Collapse all<span class="wb-inv"> details</span>
+          </button>
+
+          <section>
+            <h2 id="what">What are accessible tables?</h2>
+            <p>
+              Accessible tables organize data in a way that everyone can understand, including people using screen readers, voice control, and other assistive technologies. Well-structured tables provide clear relationships between data, making information easier to find and compare across different platforms and applications.
+            </p>
+            <p>
+              Unlike web tables that use HTML markup, document tables rely on built-in accessibility features in applications like Microsoft Word, Excel, PowerPoint, and Google Workspace. These features help assistive technologies understand table structure and navigate data efficiently.
+            </p>
+          </section>
+
+          <section>
+            <h2 id="when-why">When and why to use tables</h2>
+            <h3>Use tables when you need to:</h3>
+            <ul>
+              <li><strong>Compare data:</strong> Show relationships between different categories, such as budget items by department</li>
+              <li><strong>Display structured information:</strong> Present systematic data like schedules, contact lists, or specifications</li>
+              <li><strong>Organize complex data:</strong> Make large datasets easier to scan and understand</li>
+              <li><strong>Show numerical relationships:</strong> Compare values, percentages, or trends across categories</li>
+            </ul>
+
+            <h3>Don't use tables for:</h3>
+            <ul>
+              <li><strong>Layout purposes:</strong> Use proper formatting tools instead of invisible tables for positioning</li>
+              <li><strong>Simple lists:</strong> Use bullet points or numbered lists for single-column information</li>
+              <li><strong>Text alignment:</strong> Use paragraph formatting rather than table cells</li>
+              <li><strong>Visual spacing:</strong> Use proper margins and spacing tools instead of empty table cells</li>
+            </ul>
+
+            <details class="grouped mrgn-tp-lg">
+              <summary class="bg-info">Examples of good table use</summary>
+              <div class="mrgn-tp-md">
+                <h4>Good: Quarterly sales comparison</h4>
+                <p>This data shows clear relationships that benefit from table structure:</p>
+                <table class="table table-bordered">
+                  <caption>Quarterly Sales by Region (in thousands)</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Region</th>
+                      <th scope="col">Q1</th>
+                      <th scope="col">Q2</th>
+                      <th scope="col">Q3</th>
+                      <th scope="col">Q4</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">East</th>
+                      <td>125</td>
+                      <td>134</td>
+                      <td>128</td>
+                      <td>142</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">West</th>
+                      <td>118</td>
+                      <td>126</td>
+                      <td>135</td>
+                      <td>129</td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+                <h4>Bad: Using a table for layout</h4>
+                <p>Don't use tables just to position text side by side. Use proper formatting instead.</p>
+              </div>
+            </details>
+          </section>
+
+          <section>
+            <h2 id="charts-graphs">Tables with charts and graphs</h2>
+            <p>
+              Tables and charts work together to improve accessibility. While charts provide visual insight, tables offer the precise data that assistive technology users need. This combination ensures everyone can access and understand your information.
+            </p>
+
+            <h3>How to combine tables and charts effectively:</h3>
+            <ul>
+              <li><strong>Provide the data table:</strong> Include the underlying data that your chart represents</li>
+              <li><strong>Place tables strategically:</strong> Put tables immediately after charts or in an appendix with clear references</li>
+              <li><strong>Use consistent terminology:</strong> Match column headers and labels between charts and tables</li>
+              <li><strong>Summarize key insights:</strong> Add a brief text summary of the main trends or findings</li>
+            </ul>
+
+            <details class="grouped mrgn-tp-lg">
+              <summary class="bg-info">Chart and table example</summary>
+              <div class="mrgn-tp-md">
+                <p><strong>Chart:</strong> A pie chart showing "Website Traffic Sources"</p>
+                <p><strong>Supporting table:</strong></p>
+                <table class="table table-bordered">
+                  <caption>Website Traffic Sources - January 2024</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Traffic Source</th>
+                      <th scope="col">Percentage</th>
+                      <th scope="col">Visitors</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Organic Search</th>
+                      <td>45%</td>
+                      <td>4,500</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Direct</th>
+                      <td>30%</td>
+                      <td>3,000</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Social Media</th>
+                      <td>15%</td>
+                      <td>1,500</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Email</th>
+                      <td>10%</td>
+                      <td>1,000</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p><strong>Summary:</strong> Organic search remains our primary traffic source, accounting for nearly half of all visitors.</p>
+              </div>
+            </details>
+          </section>
+
+          <section>
+            <h2 id="best-practices">Best practices for accessible tables</h2>
+            
+            <h3>Essential accessibility principles:</h3>
+            <ul>
+              <li><strong>Keep it simple:</strong> Use the simplest table structure that effectively presents your data</li>
+              <li><strong>Logical reading order:</strong> Organize data so it makes sense when read left-to-right, top-to-bottom</li>
+              <li><strong>Consistent formatting:</strong> Use the same format for similar data types throughout your document</li>
+              <li><strong>Clear relationships:</strong> Make sure column headers clearly describe the data below them</li>
+              <li><strong>Avoid merged cells:</strong> Merged cells confuse assistive technologies and should be used sparingly</li>
+            </ul>
+
+            <h3>Platform-agnostic principles:</h3>
+            <ul>
+              <li><strong>Use built-in table tools:</strong> Every application has proper table creation tools—use them instead of manual formatting</li>
+              <li><strong>Enable table accessibility features:</strong> Turn on header row designation and other accessibility options</li>
+              <li><strong>Test with navigation:</strong> Try using Tab and arrow keys to move through your table</li>
+              <li><strong>Consider export formats:</strong> Ensure your table structure survives conversion to PDF or other formats</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 id="structure">Table structure essentials</h2>
+            
+            <h3>Required elements for accessible tables:</h3>
+            <dl>
+              <dt><strong>Table caption or title</strong></dt>
+              <dd>A clear description of what the table contains and its purpose</dd>
+              
+              <dt><strong>Header rows and columns</strong></dt>
+              <dd>Designated cells that label what each row or column represents</dd>
+              
+              <dt><strong>Logical organization</strong></dt>
+              <dd>Data arranged in a predictable, scannable pattern</dd>
+              
+              <dt><strong>Consistent data types</strong></dt>
+              <dd>Each column contains the same type of information (numbers, dates, names, etc.)</dd>
+            </dl>
+
+            <details class="grouped mrgn-tp-lg">
+              <summary class="bg-info">Structure comparison: Good vs. Poor</summary>
+              <div class="mrgn-tp-md">
+                <h4>Good table structure:</h4>
+                <table class="table table-bordered">
+                  <caption>Employee Training Completion Status</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Employee Name</th>
+                      <th scope="col">Department</th>
+                      <th scope="col">Training Module</th>
+                      <th scope="col">Completion Date</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Sarah Johnson</th>
+                      <td>Marketing</td>
+                      <td>Accessibility Basics</td>
+                      <td>2024-01-15</td>
+                      <td>Complete</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Mike Chen</th>
+                      <td>IT</td>
+                      <td>Accessibility Basics</td>
+                      <td>2024-01-18</td>
+                      <td>Complete</td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+                <h4>Poor table structure:</h4>
+                <p>❌ No caption<br>
+                ❌ Headers not clearly designated<br>
+                ❌ Inconsistent data formatting<br>
+                ❌ Merged cells without clear purpose</p>
+              </div>
+            </details>
+          </section>
+
+          <section>
+            <h2 id="headers">Clear headers and captions</h2>
+            
+            <h3>Writing effective table captions:</h3>
+            <ul>
+              <li><strong>Be descriptive:</strong> Explain what data the table contains and its scope</li>
+              <li><strong>Include timeframe:</strong> Specify dates, quarters, or other time periods when relevant</li>
+              <li><strong>Mention units:</strong> Include currency, percentages, or measurement units</li>
+              <li><strong>Keep it concise:</strong> One clear sentence is usually sufficient</li>
+            </ul>
+
+            <h3>Designing clear headers:</h3>
+            <ul>
+              <li><strong>Use descriptive labels:</strong> Avoid abbreviations or unclear terms</li>
+              <li><strong>Be specific:</strong> "Total Sales ($)" is better than just "Total"</li>
+              <li><strong>Use consistent terminology:</strong> Don't switch between "Revenue" and "Sales" for the same concept</li>
+              <li><strong>Consider context:</strong> Headers should make sense even when read independently</li>
+            </ul>
+
+            <details class="grouped mrgn-tp-lg">
+              <summary class="bg-info">Header examples: Better alternatives</summary>
+              <div class="mrgn-tp-md">
+                <table class="table table-bordered">
+                  <caption>Improving table headers for clarity</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Instead of...</th>
+                      <th scope="col">Use...</th>
+                      <th scope="col">Why it's better</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Q1, Q2, Q3, Q4</th>
+                      <td>Q1 2024, Q2 2024, Q3 2024, Q4 2024</td>
+                      <td>Specifies the year</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">$</th>
+                      <td>Amount (CAD)</td>
+                      <td>Clear currency designation</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">%</th>
+                      <td>Percentage Change</td>
+                      <td>Explains what the percentage represents</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Status</th>
+                      <td>Project Status</td>
+                      <td>More specific context</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          </section>
+
+          <section>
+            <h2 id="complex">Complex tables and relationships</h2>
+            
+            <p>
+              Sometimes you need tables with multiple header levels or complex relationships. While these can be accessible, simpler alternatives are often better for everyone.
+            </p>
+
+            <h3>Strategies for complex data:</h3>
+            <ul>
+              <li><strong>Split complex tables:</strong> Break one complex table into several simpler ones</li>
+              <li><strong>Use consistent patterns:</strong> Establish clear patterns for how data relates across rows and columns</li>
+              <li><strong>Add explanatory text:</strong> Include a paragraph explaining how to read the table</li>
+              <li><strong>Consider alternative formats:</strong> Sometimes lists, charts, or summary paragraphs work better</li>
+            </ul>
+
+            <h3>When you must use complex tables:</h3>
+            <ul>
+              <li><strong>Group related headers:</strong> Use consistent formatting to show header relationships</li>
+              <li><strong>Provide reading instructions:</strong> Explain the table structure before presenting the data</li>
+              <li><strong>Test thoroughly:</strong> Have colleagues review the table using only keyboard navigation</li>
+              <li><strong>Consider summaries:</strong> Provide key findings in text form as well</li>
+            </ul>
+
+            <details class="grouped mrgn-tp-lg">
+              <summary class="bg-info">Complex table alternatives</summary>
+              <div class="mrgn-tp-md">
+                <h4>Instead of one complex table:</h4>
+                <p>A single table with 15 columns and multiple header levels</p>
+                
+                <h4>Consider these alternatives:</h4>
+                <ul>
+                  <li><strong>Multiple focused tables:</strong> Break into 3-4 tables, each covering specific aspects</li>
+                  <li><strong>Summary + detail approach:</strong> A simple summary table with links to detailed breakdowns</li>
+                  <li><strong>Progressive disclosure:</strong> Start with overview data, then provide detailed views</li>
+                  <li><strong>Combined presentation:</strong> Charts for trends, tables for specific values</li>
+                </ul>
+              </div>
+            </details>
+          </section>
+
+          <section id="how-to">
+            <h2>How to create accessible tables step-by-step</h2>
+            
+            <p>Follow these platform-agnostic steps to create accessible tables in any application:</p>
+
+            <details class="grouped mrgn-tp-lg">
+              <summary class="bg-info">Step 1: Plan your table structure</summary>
+              <div class="mrgn-tp-md">
+                <ol>
+                  <li><strong>Identify your data:</strong> What information needs to be organized?</li>
+                  <li><strong>Determine relationships:</strong> How do different data points relate to each other?</li>
+                  <li><strong>Choose the simplest structure:</strong> Use the minimum number of columns and rows needed</li>
+                  <li><strong>Plan your headers:</strong> What labels will make each column and row clear?</li>
+                  <li><strong>Write your caption:</strong> How will you describe the table's purpose?</li>
+                </ol>
+              </div>
+            </details>
+
+            <details class="grouped mrgn-tp-lg">
+              <summary class="bg-info">Step 2: Create the table using proper tools</summary>
+              <div class="mrgn-tp-md">
+                <h4>In Microsoft Word, Excel, or PowerPoint:</h4>
+                <ol>
+                  <li>Go to Insert → Table</li>
+                  <li>Choose the number of rows and columns</li>
+                  <li>Use the Table Design tab to designate header row</li>
+                  <li>Add a table title using the table properties</li>
+                </ol>
+
+                <h4>In Google Docs, Sheets, or Slides:</h4>
+                <ol>
+                  <li>Go to Insert → Table</li>
+                  <li>Select your table size</li>
+                  <li>Use Format → Table to set header row options</li>
+                  <li>Add a title above the table</li>
+                </ol>
+
+                <h4>In other applications:</h4>
+                <ol>
+                  <li>Look for Table or Insert Table functions</li>
+                  <li>Avoid manual formatting with tabs or spaces</li>
+                  <li>Use built-in table accessibility features when available</li>
+                </ol>
+              </div>
+            </details>
+
+            <details class="grouped mrgn-tp-lg">
+              <summary class="bg-info">Step 3: Add content and formatting</summary>
+              <div class="mrgn-tp-md">
+                <ol>
+                  <li><strong>Add your caption:</strong> Place a descriptive title above or within the table</li>
+                  <li><strong>Fill in headers:</strong> Use clear, descriptive labels for all columns and rows</li>
+                  <li><strong>Enter data consistently:</strong> Use the same format for similar data types</li>
+                  <li><strong>Apply minimal formatting:</strong> Use simple, consistent styling that doesn't interfere with structure</li>
+                  <li><strong>Avoid merged cells:</strong> Keep the structure simple whenever possible</li>
+                </ol>
+              </div>
+            </details>
+
+            <details class="grouped mrgn-tp-lg">
+              <summary class="bg-info">Step 4: Enable accessibility features</summary>
+              <div class="mrgn-tp-md">
+                <h4>Check these settings in your application:</h4>
+                <ul>
+                  <li><strong>Header row designation:</strong> Ensure the first row is marked as headers</li>
+                  <li><strong>Header column designation:</strong> Mark the first column as headers if applicable</li>
+                  <li><strong>Table properties:</strong> Add alt text or description if your application supports it</li>
+                  <li><strong>Reading order:</strong> Verify the table reads logically from left to right, top to bottom</li>
+                </ul>
+
+                <h4>Application-specific features:</h4>
+                <ul>
+                  <li><strong>Microsoft Office:</strong> Use Table Design → Header Row and Table Properties → Alt Text</li>
+                  <li><strong>Google Workspace:</strong> Use Format → Table and Table → Table properties</li>
+                  <li><strong>PDF creation:</strong> Ensure table structure is preserved when exporting</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="grouped mrgn-tp-lg">
+              <summary class="bg-info">Step 5: Test your table</summary>
+              <div class="mrgn-tp-md">
+                <ol>
+                  <li><strong>Navigation test:</strong> Use Tab and arrow keys to move through the table</li>
+                  <li><strong>Screen reader test:</strong> If available, test with screen reader software</li>
+                  <li><strong>Reading order test:</strong> Read the table aloud to check if it makes sense</li>
+                  <li><strong>Context test:</strong> Can someone understand the table without seeing surrounding text?</li>
+                  <li><strong>Export test:</strong> Check if the table structure survives conversion to PDF or other formats</li>
+                </ol>
+              </div>
+            </details>
+          </section>
+
+          <section>
+            <h2 id="check">Check your work</h2>
+            
+            <h3>Quick accessibility checklist:</h3>
+            <ul>
+              <li>✓ Table has a clear caption or title</li>
+              <li>✓ Headers are designated and descriptive</li>
+              <li>✓ Data is organized logically</li>
+              <li>✓ Reading order makes sense (left-to-right, top-to-bottom)</li>
+              <li>✓ Consistent formatting within columns</li>
+              <li>✓ Minimal use of merged cells</li>
+              <li>✓ Table can be navigated with keyboard only</li>
+              <li>✓ Structure is preserved when exported</li>
+            </ul>
+
+            <h3>User testing questions:</h3>
+            <ul>
+              <li>Can someone understand the table purpose from the caption alone?</li>
+              <li>Are the headers clear without seeing the data?</li>
+              <li>Does the table make sense when read row by row?</li>
+              <li>Can users find specific information quickly?</li>
+              <li>Would this table be useful if converted to audio?</li>
+            </ul>
+
+            <details class="grouped mrgn-tp-lg">
+              <summary class="bg-info">Common issues and fixes</summary>
+              <div class="mrgn-tp-md">
+                <table class="table table-bordered">
+                  <caption>Troubleshooting accessible table problems</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Problem</th>
+                      <th scope="col">Solution</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Headers not recognized by assistive technology</th>
+                      <td>Use your application's header designation feature, not just bold formatting</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Table structure lost when exported to PDF</th>
+                      <td>Check export settings for accessibility options; avoid image-based PDFs</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Complex table is confusing to navigate</th>
+                      <td>Split into multiple simpler tables or provide alternative presentation formats</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Data relationships are unclear</th>
+                      <td>Add explanatory text before the table and improve header specificity</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          </section>
+
+          <section>
+            <h2 id="resources">Related WCAG resources</h2>
+            <p>
+              These Web Content Accessibility Guidelines (WCAG) provide additional technical details for accessible tables:
+            </p>
+            <ul>
+              <li>
+                <a href="../wcag/wcag-view.html#success-criterion-131-info-and-relationships">
+                  WCAG 1.3.1: Info and Relationships
+                </a> - How information and structure are communicated
+              </li>
+              <li>
+                <a href="../wcag/wcag-view.html#success-criterion-241-keyboard">
+                  WCAG 2.4.1: Bypass Blocks
+                </a> - Navigation efficiency in complex content
+              </li>
+              <li>
+                <a href="../wcag/wcag-view.html#success-criterion-246-headings-and-labels">
+                  WCAG 2.4.6: Headings and Labels
+                </a> - Clear and descriptive labels
+              </li>
+            </ul>
+          </section>
+
+          <nav aria-labelledby="nav-pagination">
+            <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+            <ul class="pager">
+              <li class="previous">
+                <a rel="prev" href="contrast.html"
+                  >Previous - Contrast</a
+                >
+              </li>
+              <li class="next">
+                <a rel="next" href="acronyms.html">Next - Acronyms</a>
+              </li>
+            </ul>
+          </nav>
+
+          <a href="#wb-cont" aria-label="Return to top of page" class="btn btn-primary btn-xs topBtn">
+            <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+            Back to top
+          </a>
+          <script src="../../../scripts/esdc-course.js"></script>
+        </main>
+
+        <nav
+          id="wb-sec"
+          class="wb-sec col-md-3 col-md-pull-9"
+          typeof="SiteNavigationElement"
+          aria-labelledby="wb-sec-h"
+        >
+          <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">
+              Module 2 – Global Accessibility Techniques
+            </h3>
+            <ul class="list-group menu list-unstyled">
+              <li>
+                <a class="list-group-item" href="infoPane.html">Info Pane</a>
+              </li>
+              <li>
+                <a class="list-group-item" href="language.html">Language</a>
+              </li>
+              <li>
+                <a class="list-group-item" href="textAndFonts.html"
+                  >Text and Fonts</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="altText.html">Alt Text</a>
+              </li>
+              <li>
+                <a class="list-group-item" href="contrast.html">Contrast</a>
+              </li>
+              <li>
+                <a class="list-group-item active" aria-current="page"
+                  >Accessible Tables</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="acronyms.html">Acronyms</a>
+              </li>
+              <li>
+                <a class="list-group-item" href="hyperlinks.html">Hyperlinks</a>
+              </li>
+              <li>
+                <a class="list-group-item" href="plainLanguage.html"
+                  >Plain Language</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="accessibleTemplates.html"
+                  >Accessible Templates</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">All modules</h3>
+            <ul class="list-group menu list-unstyled">
+              <li>
+                <a class="list-group-item" href="../module1/index.html"
+                  >Module 1 - Accessibility fundamentals</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item active" href="../module2/index.html"
+                  >Module 2 – Global Accessibility Techniques</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module3/index.html"
+                  >Module 3 – Accessible PowerPoint (Presentation) Techniques</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module4/index.html"
+                  >Module 4 – Accessible Word Document Techniques</a
+                >
+              </li>
+              <li>
+                <a
+                  class="list-group-item"
+                  href="../module5/index.html"
+                  >Module 5 – Accessible Outlook (Email) Techniques</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../module6/index.html"
+                  >Module 6 – Introduction to Accessible PDFs</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">Appendix</h3>
+            <ul class="list-group menu list-unstyled">
+              <li>
+                <a class="list-group-item" href="../sitemap/sitemap.html"
+                  >Site map</a
+                >
+              </li>
+              <li>
+                <a
+                  class="list-group-item"
+                  href="../best-practice/all-best-practice.html"
+                  >All best practices</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="../wcag/wcag-view.html"
+                  >WCAG view</a
+                >
+              </li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+
+      <div id="def-preFooter2"></div>
+      <script src="../../../scripts/preFooter2.min.js"></script>
+      <div id="def-preFooter"></div>
+      <script src="../../../scripts/preFooter.min.js"></script>
+    </div>
+
+    <div id="def-footer"></div>
+    <script src="../../../scripts/appFooter.min.js"></script>
+    <script src="../../../scripts/refFooter.min.js"></script>
+    <script src="../../../scripts/bati-itao.min.js"></script>
+  </body>
+</html>
