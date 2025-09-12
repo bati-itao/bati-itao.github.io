@@ -21,6 +21,14 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+- name: Remove git index.lock if exists
+  run: |
+    LOCK_FILE="/home/runner/work/ocs/ocs/.git/index.lock"
+    if [ -f "$LOCK_FILE" ]; then
+      echo "Removing stale git lock file."
+      rm "$LOCK_FILE"
+    fi
+
 jobs:
   # Single deploy job since we're just deploying
   deploy:
@@ -40,13 +48,4 @@ jobs:
           path: '.'
       - name: Deploy to GitHub Pages
 
-      - name: Remove git index.lock if exists
-  run: |
-    if [ -f .git/index.lock ]; then
-      rm .git/index.lock
-      echo "Removed stale index.lock file."
-    fi
-
-      
-        id: deployment
-        uses: actions/deploy-pages@v4
+    
