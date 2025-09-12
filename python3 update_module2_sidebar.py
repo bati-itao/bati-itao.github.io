@@ -4,7 +4,7 @@ import shutil
 
 # === CONFIG ===
 # Adjust this to your Module 2 folder path relative to this script.
-MODULE_DIR = Path("Module 2")  # e.g., "module2" or "content/Module 2"
+MODULE_DIR = Path("learning/document-accessibility-course/module2")  # e.g., "module2" or "content/Module 2"
 
 # Your standardized sidebar block (without the "active" class).
 # The script will add the "active" class and aria-current="page" to the matching link per file.
@@ -17,10 +17,10 @@ BASE_SIDEBAR = '''<section class="list-group menu list-unstyled">
       <a class="list-group-item" href="infoPane.html">Info Pane</a>
     </li>
     <li>
-      <a class="list-group-item" href="language.html">Language</a>
+      <a class="list-group-item" href="accessibilityAssistant.html">Accessibility Assistant</a>
     </li>
     <li>
-      <a class="list-group-item" href="accessibleTemplates.html">Accessible Templates</a>
+      <a class="list-group-item" href="language.html">Language</a>
     </li>
     <li>
       <a class="list-group-item" href="textAndFonts.html">Text and Fonts</a>
@@ -32,13 +32,19 @@ BASE_SIDEBAR = '''<section class="list-group menu list-unstyled">
       <a class="list-group-item" href="contrast.html">Contrast</a>
     </li>
     <li>
+      <a class="list-group-item" href="accessibleTables.html">Accessible Tables</a>
+    </li>
+    <li>
       <a class="list-group-item" href="acronyms.html">Acronyms</a>
     </li>
     <li>
-      <a class="list-group-item" href="multimedia.html">Multimedia</a>
+      <a class="list-group-item" href="hyperlinks.html">Hyperlinks</a>
     </li>
     <li>
       <a class="list-group-item" href="plainLanguage.html">Plain Language</a>
+    </li>
+    <li>
+      <a class="list-group-item" href="accessibleTemplates.html">Accessible Templates</a>
     </li>
   </ul>
 </section>'''
@@ -55,7 +61,7 @@ SECTION_PATTERN = re.compile(
 def add_active_to_block(block_html: str, current_filename: str) -> str:
     """
     Adds 'active' to the class of the <a> whose href matches current_filename.
-    Also adds aria-current="page" to that <a>.
+    Also adds aria-current="page" to that <a> and removes the href attribute.
     """
     # Build a pattern that finds the <a ... href="current_filename" ...>
     href_pat = re.compile(
@@ -63,18 +69,23 @@ def add_active_to_block(block_html: str, current_filename: str) -> str:
         flags=re.IGNORECASE
     )
 
-    def ensure_class_and_aria(a_tag_inner: str) -> str:
+    def ensure_class_and_aria_remove_href(a_tag_inner: str) -> str:
+        # Remove href attribute
+        a_tag_inner = re.sub(r'\s*\bhref\s*=\s*"[^"]*"', '', a_tag_inner, flags=re.IGNORECASE)
+        
         # Ensure class includes 'active'
         if re.search(r'\bclass\s*=\s*"', a_tag_inner, flags=re.IGNORECASE):
-            a_tag_inner = re.sub(
-                r'(\bclass\s*=\s*")([^"]*)(")',
-                lambda m: f'{m.group(1)}{m.group(2)}{" " if m.group(2).strip() else ""}active{m.group(3)}',
-                a_tag_inner,
-                flags=re.IGNORECASE
-            )
+            # Check if 'active' is already in the class
+            if not re.search(r'\bactive\b', a_tag_inner, flags=re.IGNORECASE):
+                a_tag_inner = re.sub(
+                    r'(\bclass\s*=\s*")([^"]*)(")',
+                    lambda m: f'{m.group(1)}{m.group(2)}{" " if m.group(2).strip() else ""}active{m.group(3)}',
+                    a_tag_inner,
+                    flags=re.IGNORECASE
+                )
         else:
-            # Insert class="active" at the start of the attributes
-            a_tag_inner = ' class="active"' + a_tag_inner
+            # Insert class="list-group-item active" at the start of the attributes
+            a_tag_inner = ' class="list-group-item active"' + a_tag_inner
 
         # Ensure aria-current="page"
         if not re.search(r'\baria-current\s*=\s*"page"', a_tag_inner, flags=re.IGNORECASE):
@@ -83,7 +94,7 @@ def add_active_to_block(block_html: str, current_filename: str) -> str:
 
     def replacer(match: re.Match) -> str:
         start, inner, end = match.groups()
-        return start + ensure_class_and_aria(inner) + end
+        return start + ensure_class_and_aria_remove_href(inner) + end
 
     new_block, n = href_pat.subn(replacer, block_html, count=1)  # only one match expected
     return new_block
