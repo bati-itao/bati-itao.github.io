@@ -21,14 +21,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-- name: Remove git index.lock if exists
-  run: |
-    LOCK_FILE="/home/runner/work/ocs/ocs/.git/index.lock"
-    if [ -f "$LOCK_FILE" ]; then
-      echo "Removing stale git lock file."
-      rm "$LOCK_FILE"
-    fi
-
 jobs:
   # Single deploy job since we're just deploying
   deploy:
@@ -39,13 +31,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
+      # Upload the folder that contains the final static files
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
+          # Upload entire repository (adjust if your site is in a subfolder)
           path: '.'
-      - name: Deploy to GitHub Pages
 
-    
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
