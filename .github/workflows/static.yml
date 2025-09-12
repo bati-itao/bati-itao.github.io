@@ -39,5 +39,14 @@ jobs:
           # Upload entire repository
           path: '.'
       - name: Deploy to GitHub Pages
+
+      - name: Remove git index.lock if exists
+  run: |
+    if [ -f .git/index.lock ]; then
+      rm .git/index.lock
+      echo "Removed stale index.lock file."
+    fi
+
+      
         id: deployment
         uses: actions/deploy-pages@v4
