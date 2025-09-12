@@ -43,9 +43,7 @@ BASE_SIDEBAR = '''<section class="list-group menu list-unstyled">
     <li>
       <a class="list-group-item" href="plainLanguage.html">Plain Language</a>
     </li>
-    <li>
-      <a class="list-group-item" href="accessibleTemplates.html">Accessible Templates</a>
-    </li>
+
   </ul>
 </section>'''
 
