@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>
+      Slide Titles on Every Slide – Module 3 - PowerPoint Accessibility
+    </title>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <!-- Meta data -->
+    <meta
+      name="description"
+      content="Learn how to create unique, meaningful slide titles that act as navigation landmarks for screen reader users, including techniques for hidden titles on design-heavy slides."
+    />
+    <!-- Meta data-->
+    <!-- Load closure template scripts -->
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- Write closure template -->
+    <script src="../../../../scripts/refTop.min.js"></script>
+    <link rel="stylesheet" href="../../../../css/a11y-dark.css" />
+    <script src="../../../../scripts/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <link rel="stylesheet" href="../../../../css/esdc-course.css" />
+  </head>
+
+  <body vocab="https://schema.org/" typeof="WebPage">
+    <div id="def-top"></div>
+    <!-- Write closure template -->
+    <script>
+      var defTop = document.getElementById("def-top");
+      defTop.outerHTML = wet.builder.appTop({
+        appName: [
+          {
+            text: "ESDC / IT Accessibility office",
+            href: "../../../../index.html",
+          },
+        ],
+        breadcrumbs: [
+          {
+            title: "Home",
+            href: "../../../../index.html",
+          },
+          {
+            title: "Learning",
+            href: "../../../index.html",
+          },
+          {
+            title: "Document accessibility course",
+            href: "../../index.html",
+          },
+          {
+            title: "Module 3 – PowerPoint Accessibility",
+            href: "../index.html",
+          },
+          {
+            title: "Slide Titles on Every Slide",
+          },
+        ],
+        lngLinks: [
+          {
+            lang: "fr",
+            href: "slide-titles-fr.html",
+            text: "Français",
+          },
+        ],
+        menuPath: "../../../../ajax/menu-en.html",
+      });
+    </script>
+    <div class="container">
+      <div class="row">
+        <div id="def-search"></div>
+        <script src="../../../../scripts/appSearch.js"></script>
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">
+            Slide Titles on Every Slide (Including Hidden Titles)
+          </h1>
+
+          <nav aria-labelledby="nav-table" class="mrgn-tp-md">
+            <h2 id="nav-table" class="wb-inv">Table of contents</h2>
+            <details class="mrgn-bttm-lg on" open="open">
+              <summary class="bg-info">Table of contents</summary>
+              <ul>
+                <li><a href="#why-it-matters">Why it matters</a></li>
+                <li><a href="#practical-tips">Practical tips</a></li>
+                <li><a href="#creating-meaningful-titles">Creating meaningful titles</a></li>
+                <li><a href="#hidden-titles">Hidden titles for design-heavy slides</a></li>
+                <li><a href="#examples">Good and bad examples</a></li>
+                <li><a href="#quick-checklist">Quick checklist</a></li>
+              </ul>
+            </details>
+          </nav>
+
+          <section id="why-it-matters">
+            <h2>Why it matters</h2>
+            <p>
+              <strong>Titles act like navigation landmarks for screen reader users and make the slide deck easier to skim.</strong> Each slide should have a unique, descriptive title—even if it isn't visibly shown.
+            </p>
+            
+            <p>
+              Slide titles serve multiple critical accessibility functions:
+            </p>
+            <ul>
+              <li><strong>Navigation landmarks:</strong> Screen reader users can jump between slides by title</li>
+              <li><strong>Content preview:</strong> Titles give users a sense of what each slide contains before diving into details</li>
+              <li><strong>Slide identification:</strong> Helps users track their location within the presentation</li>
+              <li><strong>Quick browsing:</strong> Users can skip slides that aren't relevant to their needs</li>
+            </ul>
+
+            <div class="panel panel-info">
+              <div class="panel-body">
+                <h3 class="mrgn-tp-0">Real-world impact</h3>
+                <p>Consider a presentation with 20 slides. Without proper titles, a screen reader user would need to:</p>
+                <ul>
+                  <li>Listen to content on each slide to understand its purpose</li>
+                  <li>Remember which slide contained specific information</li>
+                  <li>Navigate sequentially through all slides to find relevant content</li>
+                </ul>
+                <p>With proper titles, the same user can quickly scan all slide titles and jump directly to relevant content.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="practical-tips">
+            <h2>Practical tips</h2>
+            
+            <h3>Ensure every slide has a title placeholder</h3>
+            <ul>
+              <li>Use layouts that include a Title placeholder (most built-in layouts do)</li>
+              <li>If using a custom layout, always include a title placeholder via Slide Master</li>
+              <li>Avoid layouts without title areas unless absolutely necessary</li>
+            </ul>
+
+            <h3>Make titles unique and descriptive</h3>
+            <ul>
+              <li><strong>Avoid repetitive titles</strong> like "Overview" or "Continuing" across multiple slides</li>
+              <li><strong>Be specific:</strong> Instead of "Results," use "Q3 Sales Results by Region"</li>
+              <li><strong>Include key context:</strong> "Project Timeline (Q3–Q4)" rather than just "Timeline"</li>
+              <li><strong>Use action-oriented language:</strong> "How to Set Up Your Account" vs. "Account Setup"</li>
+            </ul>
+
+            <h3>Keep titles concise but informative</h3>
+            <ul>
+              <li>Aim for 5-10 words when possible</li>
+              <li>Include the most important keywords first</li>
+              <li>Reflect the slide's main purpose or takeaway</li>
+            </ul>
+          </section>
+
+          <section id="creating-meaningful-titles">
+            <h2>Creating meaningful titles</h2>
+            
+            <div class="row">
+              <div class="col-md-6">
+                <div class="panel panel-danger">
+                  <div class="panel-body">
+                    <h3 class="mrgn-tp-0">❌ Poor titles</h3>
+                    <ul>
+                      <li>Slide 1</li>
+                      <li>Overview</li>
+                      <li>Continuing...</li>
+                      <li>Data</li>
+                      <li>Questions?</li>
+                      <li>Next Steps</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="panel panel-success">
+                  <div class="panel-body">
+                    <h3 class="mrgn-tp-0">✅ Better titles</h3>
+                    <ul>
+                      <li>Welcome to Digital Transformation Workshop</li>
+                      <li>Project Goals and Success Metrics</li>
+                      <li>Phase 2: Implementation Strategy</li>
+                      <li>Customer Satisfaction Survey Results</li>
+                      <li>Q&A: Implementation Timeline</li>
+                      <li>Action Items and Deadlines</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h3>Title writing techniques</h3>
+            <dl>
+              <dt><strong>Use parallel structure</strong></dt>
+              <dd>If one slide is titled "Planning Phase," make the next "Implementation Phase" not "How We'll Implement"</dd>
+              
+              <dt><strong>Include numbers or time periods</strong></dt>
+              <dd>"Q1 Revenue Growth" or "Step 3: Validation Process"</dd>
+              
+              <dt><strong>Indicate the slide's function</strong></dt>
+              <dd>"Introduction to APIs" (learning), "API Implementation Checklist" (reference), "API Troubleshooting" (problem-solving)</dd>
+              
+              <dt><strong>Use audience-focused language</strong></dt>
+              <dd>"Your Next Actions" instead of "What Needs to Happen"</dd>
+            </dl>
+          </section>
+
+          <section id="hidden-titles">
+            <h2>Hidden titles for design-heavy slides</h2>
+            <p>
+              For design-heavy slides where visible titles would interfere with the visual layout, you can hide titles while keeping them accessible to screen readers.
+            </p>
+
+            <h3>Method 1: Hide via Selection Pane</h3>
+            <ol>
+              <li>Add meaningful text to the Title placeholder</li>
+              <li>Open <strong>Home → Arrange → Selection Pane</strong></li>
+              <li>Find the title object in the list</li>
+              <li>Click the eye icon next to the title to hide it visually</li>
+              <li>The title remains accessible to screen readers</li>
+            </ol>
+
+            <h3>Method 2: Move title off-slide</h3>
+            <ol>
+              <li>Add meaningful text to the Title placeholder</li>
+              <li>Drag the title placeholder outside the visible slide area</li>
+              <li>Ensure the title text is still accessible to assistive technologies</li>
+            </ol>
+
+            <h3>Method 3: Make title transparent</h3>
+            <ol>
+              <li>Add meaningful text to the Title placeholder</li>
+              <li>Select the title text</li>
+              <li>Set font color to match background exactly</li>
+              <li>Note: This method may not work well with all screen readers</li>
+            </ol>
+
+            <div class="panel panel-warning">
+              <div class="panel-body">
+                <h3 class="mrgn-tp-0">⚠️ Important considerations for hidden titles</h3>
+                <ul>
+                  <li><strong>Test with screen readers:</strong> Verify that hidden titles are still announced</li>
+                  <li><strong>Consider your audience:</strong> Hidden titles may confuse sighted users who expect visible headings</li>
+                  <li><strong>Use sparingly:</strong> Most slides benefit from visible titles</li>
+                  <li><strong>Maintain consistency:</strong> If hiding titles, apply the same method throughout the presentation</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="examples">
+            <h2>Good and bad examples</h2>
+            
+            <h3>Example 1: Training presentation</h3>
+            <div class="row">
+              <div class="col-md-6">
+                <h4>❌ Before (Poor titles)</h4>
+                <ol>
+                  <li>Introduction</li>
+                  <li>Overview</li>
+                  <li>Module 1</li>
+                  <li>Module 2</li>
+                  <li>Module 3</li>
+                  <li>Summary</li>
+                  <li>Questions</li>
+                </ol>
+              </div>
+              <div class="col-md-6">
+                <h4>✅ After (Good titles)</h4>
+                <ol>
+                  <li>Welcome to Customer Service Excellence</li>
+                  <li>Learning Objectives and Agenda</li>
+                  <li>Module 1: Active Listening Techniques</li>
+                  <li>Module 2: Conflict Resolution Strategies</li>
+                  <li>Module 3: Follow-up Best Practices</li>
+                  <li>Key Takeaways and Resources</li>
+                  <li>Q&A and Next Steps</li>
+                </ol>
+              </div>
+            </div>
+
+            <h3>Example 2: Business presentation</h3>
+            <div class="row">
+              <div class="col-md-6">
+                <h4>❌ Before (Vague titles)</h4>
+                <ol>
+                  <li>Quarterly Update</li>
+                  <li>Numbers</li>
+                  <li>Challenges</li>
+                  <li>Solutions</li>
+                  <li>Moving Forward</li>
+                </ol>
+              </div>
+              <div class="col-md-6">
+                <h4>✅ After (Specific titles)</h4>
+                <ol>
+                  <li>Q4 Performance: Meeting Revenue Goals</li>
+                  <li>Key Metrics: 15% Growth in New Customers</li>
+                  <li>Supply Chain Challenges and Impact</li>
+                  <li>Three-Point Recovery Strategy</li>
+                  <li>Q1 Priorities and Success Metrics</li>
+                </ol>
+              </div>
+            </div>
+          </section>
+
+          <section id="quick-checklist">
+            <h2>Quick checklist</h2>
+            <div class="panel panel-primary">
+              <div class="panel-body">
+                <h3 class="mrgn-tp-0">Before finalizing your presentation:</h3>
+                <ul class="list-unstyled">
+                  <li>☐ Every slide has a Title placeholder filled with meaningful text</li>
+                  <li>☐ No duplicate titles across the deck (unless truly intended)</li>
+                  <li>☐ Titles are descriptive and reflect the slide's main purpose</li>
+                  <li>☐ Hidden titles (if used) are still accessible to screen readers</li>
+                  <li>☐ Titles use parallel structure where appropriate</li>
+                  <li>☐ Titles are concise but informative (5-10 words when possible)</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <nav role="navigation" aria-labelledby="nav-pagination">
+            <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+            <ul class="pager">
+              <li class="previous">
+                <a rel="prev" href="slide-layouts-placeholders.html"
+                  >Previous - Use built-in slide layouts & placeholders</a
+                >
+              </li>
+              <li class="next">
+                <a rel="next" href="reading-order-selection-pane.html"
+                  >Next - Reading order with the Selection Pane</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </main>
+        <nav class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement">
+          <h2 class="wb-inv">Section menu</h2>
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">PowerPoint Accessibility</h3>
+            <ul class="list-group menu list-unstyled">
+              <li><a class="list-group-item" href="index.html">Overview</a></li>
+              <li><a class="list-group-item" href="slide-layouts-placeholders.html">Slide layouts & placeholders</a></li>
+              <li><a class="list-group-item active" href="slide-titles.html">Slide titles</a></li>
+              <li><a class="list-group-item" href="reading-order-selection-pane.html">Reading order</a></li>
+              <li><a class="list-group-item" href="slide-master-templates.html">Slide Master & templates</a></li>
+              <li><a class="list-group-item" href="images-decorative-longdesc.html">Images & decorative graphics</a></li>
+              <li><a class="list-group-item" href="charts-smartart-diagrams.html">Charts & SmartArt</a></li>
+              <li><a class="list-group-item" href="tables.html">Tables</a></li>
+              <li><a class="list-group-item" href="multimedia-captions-subtitles.html">Multimedia & captions</a></li>
+              <li><a class="list-group-item" href="animations-transitions.html">Animations & transitions</a></li>
+              <li><a class="list-group-item" href="color-contrast-themes.html">Color & contrast</a></li>
+              <li><a class="list-group-item" href="exporting-sharing.html">Exporting & sharing</a></li>
+              <li><a class="list-group-item" href="presenting-accessibly.html">Presenting accessibly</a></li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+      <div id="def-preFooter2"></div>
+      <script src="../../../../scripts/preFooter2.min.js"></script>
+      <div id="def-preFooter"></div>
+      <script src="../../../../scripts/preFooter.min.js"></script>
+    </div>
+
+    <div id="def-footer"></div>
+    <script src="../../../../scripts/appFooter.min.js"></script>
+    <script src="../../../../scripts/refFooter.min.js"></script>
+    <script src="../../../../scripts/bati-itao.min.js"></script>
+  </body>
+</html>
