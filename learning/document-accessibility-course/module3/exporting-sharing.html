@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Exporting & Sharing Accessible Presentations – Module 3 - PowerPoint Accessibility</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta name="description" content="Learn how to export and share PowerPoint presentations while maintaining accessibility features across different formats and platforms." />
+    <!-- Load closure template scripts -->
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="../../../scripts/refTop.min.js"></script>
+    <link rel="stylesheet" href="../../../css/a11y-dark.css" />
+    <script src="../../../scripts/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <link rel="stylesheet" href="../../../css/esdc-course.css" />
+  </head>
+  <body vocab="https://schema.org/" typeof="WebPage">
+    <div id="def-top"></div>
+    <script>
+      var defTop = document.getElementById("def-top");
+      defTop.outerHTML = wet.builder.appTop({
+        appName: [{ text: "ESDC / IT Accessibility office", href: "../../../index.html" }],
+        breadcrumbs: [
+          { title: "Home", href: "../../../index.html" },
+          { title: "Learning", href: "../../../index.html" },
+          { title: "Document accessibility course", href: "../../index.html" },
+          { title: "Module 3 – PowerPoint Accessibility", href: "../index.html" },
+          { title: "Exporting & Sharing Accessible Presentations" }
+        ],
+        lngLinks: [{ lang: "fr", href: "exporting-sharing-fr.html", text: "Français" }],
+        menuPath: "../../../ajax/menu-en.html"
+      });
+    </script>
+    <div class="container">
+      <div class="row">
+        <div id="def-search"></div>
+        <script src="../../../scripts/appSearch.js"></script>
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Exporting & Sharing Accessible Presentations</h1>
+          
+          <nav aria-labelledby="nav-table" class="mrgn-tp-md">
+            <h2 id="nav-table" class="wb-inv">Table of contents</h2>
+            <details class="mrgn-bttm-lg on" open="open">
+              <summary class="bg-info">Table of contents</summary>
+              <ul>
+                <li><a href="#why-it-matters">Why it matters</a></li>
+                <li><a href="#recommendations">Format recommendations</a></li>
+                <li><a href="#pdf-export">Accessible PDF export</a></li>
+                <li><a href="#web-sharing">Web sharing options</a></li>
+                <li><a href="#platform-considerations">Platform considerations</a></li>
+                <li><a href="#quick-checklist">Quick checklist</a></li>
+              </ul>
+            </details>
+          </nav>
+
+          <section id="why-it-matters">
+            <h2>Why it matters</h2>
+            <p><strong>Some export paths can strip structure or alter reading order. Share the most accessible format your audience can use.</strong> The format you choose for sharing can significantly impact whether your accessibility efforts reach the end user.</p>
+            
+            <div class="panel panel-warning">
+              <div class="panel-body">
+                <h3 class="mrgn-tp-0">⚠️ Common accessibility losses during export</h3>
+                <ul>
+                  <li><strong>Alternative text:</strong> May be stripped in some formats</li>
+                  <li><strong>Reading order:</strong> Can become illogical in converted documents</li>
+                  <li><strong>Speaker notes:</strong> Often lost when exporting to image formats</li>
+                  <li><strong>Structure:</strong> Slide titles and layouts may lose semantic meaning</li>
+                  <li><strong>Interactive elements:</strong> Navigation and controls may become inaccessible</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="recommendations">
+            <h2>Format recommendations</h2>
+            <ol>
+              <li><strong>Prefer sharing the PPTX</strong> when feasible so users can adjust view, zoom, and access speaker notes</li>
+              <li><strong>If you must share PDF:</strong> File → Save As → PDF (Options → check 'Document structure tags for accessibility')</li>
+              <li><strong>Verify reading order and tags</strong> in the resulting PDF; complex slides may require remediation</li>
+              <li><strong>If posting to the web,</strong> also provide a handout or HTML summary of key content</li>
+            </ol>
+            
+            <h3>Format comparison:</h3>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Format</th>
+                  <th>Accessibility Retention</th>
+                  <th>Best Use Cases</th>
+                  <th>Considerations</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>PPTX (Native)</strong></td>
+                  <td>Excellent</td>
+                  <td>Collaborative editing, full feature access</td>
+                  <td>Requires PowerPoint or compatible software</td>
+                </tr>
+                <tr>
+                  <td><strong>Tagged PDF</strong></td>
+                  <td>Good</td>
+                  <td>Read-only sharing, archival</td>
+                  <td>May need post-export accessibility fixes</td>
+                </tr>
+                <tr>
+                  <td><strong>HTML/Web</strong></td>
+                  <td>Variable</td>
+                  <td>Web publishing, broad accessibility</td>
+                  <td>Depends on export method and platform</td>
+                </tr>
+                <tr>
+                  <td><strong>Images (JPG/PNG)</strong></td>
+                  <td>Poor</td>
+                  <td>Visual previews only</td>
+                  <td>Avoid for primary sharing; supplement only</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="pdf-export">
+            <h2>Accessible PDF export</h2>
+            <h3>Step-by-step process:</h3>
+            <ol>
+              <li>Go to <strong>File → Save As</strong></li>
+              <li>Choose <strong>PDF</strong> as the file type</li>
+              <li>Click <strong>Options</strong></li>
+              <li>Check <strong>'Document structure tags for accessibility'</strong></li>
+              <li>Ensure <strong>'Include hidden slides'</strong> is unchecked unless needed</li>
+              <li>Click <strong>OK</strong> and save</li>
+            </ol>
+            
+            <h3>Post-export verification:</h3>
+            <ul>
+              <li><strong>Test with screen reader:</strong> Verify content is announced correctly</li>
+              <li><strong>Check reading order:</strong> Ensure logical flow through content</li>
+              <li><strong>Verify alt text:</strong> Confirm images have appropriate alternative text</li>
+              <li><strong>Test navigation:</strong> Ensure bookmarks and structure work properly</li>
+            </ul>
+            
+            <h3>Common PDF accessibility issues:</h3>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h4>Issues that may require fixing:</h4>
+                <ul>
+                  <li><strong>Incorrect reading order:</strong> Content may be read out of sequence</li>
+                  <li><strong>Missing alt text:</strong> Images may lose their descriptions</li>
+                  <li><strong>Poor heading structure:</strong> Slide titles may not be tagged as headings</li>
+                  <li><strong>Broken links:</strong> Hyperlinks may not function properly</li>
+                </ul>
+                
+                <h4>Remediation tools:</h4>
+                <ul>
+                  <li><strong>Adobe Acrobat Pro:</strong> Full PDF accessibility editing</li>
+                  <li><strong>PAC (PDF Accessibility Checker):</strong> Free accessibility validation</li>
+                  <li><strong>CommonLook PDF:</strong> Professional accessibility remediation</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="web-sharing">
+            <h2>Web sharing options</h2>
+            <h3>Microsoft platforms:</h3>
+            <ul>
+              <li><strong>SharePoint:</strong> Native PowerPoint viewing with accessibility features</li>
+              <li><strong>OneDrive:</strong> Web-based viewing and sharing</li>
+              <li><strong>Teams:</strong> Integrated presentation sharing</li>
+              <li><strong>PowerPoint Online:</strong> Browser-based editing and viewing</li>
+            </ul>
+            
+            <h3>Third-party platforms:</h3>
+            <ul>
+              <li><strong>SlideShare:</strong> Check accessibility features before uploading</li>
+              <li><strong>Google Slides:</strong> Consider converting and verifying accessibility</li>
+              <li><strong>Prezi:</strong> Limited accessibility features; use with caution</li>
+              <li><strong>Custom websites:</strong> Export to HTML and enhance accessibility</li>
+            </ul>
+            
+            <h3>Web accessibility enhancements:</h3>
+            <ul>
+              <li><strong>Provide transcripts:</strong> Full text version of presentation content</li>
+              <li><strong>Add navigation:</strong> Table of contents or slide index</li>
+              <li><strong>Include metadata:</strong> Proper titles, descriptions, and keywords</li>
+              <li><strong>Test with assistive technologies:</strong> Verify web accessibility</li>
+            </ul>
+          </section>
+
+          <section id="platform-considerations">
+            <h2>Platform considerations</h2>
+            <h3>Audience needs assessment:</h3>
+            <ul>
+              <li><strong>Technical capabilities:</strong> What software can your audience use?</li>
+              <li><strong>Device preferences:</strong> Desktop, mobile, or mixed usage?</li>
+              <li><strong>Accessibility requirements:</strong> Known assistive technology users?</li>
+              <li><strong>Security constraints:</strong> Any file format restrictions?</li>
+            </ul>
+            
+            <h3>Multi-format strategy:</h3>
+            <div class="row">
+              <div class="col-md-6">
+                <h4>Primary format:</h4>
+                <ul>
+                  <li>Choose most accessible option for your audience</li>
+                  <li>Usually PPTX for internal sharing</li>
+                  <li>Tagged PDF for broader distribution</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h4>Supplementary formats:</h4>
+                <ul>
+                  <li>HTML summary for web users</li>
+                  <li>Audio recordings for complex content</li>
+                  <li>Text transcripts for reference</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h3>Documentation and support:</h3>
+            <ul>
+              <li><strong>Include instructions:</strong> How to access and use the presentation</li>
+              <li><strong>Provide contact information:</strong> Support for accessibility questions</li>
+              <li><strong>List system requirements:</strong> Software or hardware needed</li>
+              <li><strong>Offer alternatives:</strong> What to do if the primary format doesn't work</li>
+            </ul>
+          </section>
+
+          <section id="quick-checklist">
+            <h2>Quick checklist</h2>
+            <div class="panel panel-primary">
+              <div class="panel-body">
+                <h3 class="mrgn-tp-0">Before sharing your presentation:</h3>
+                <ul class="list-unstyled">
+                  <li>☐ Most accessible format offered (PPTX preferred)</li>
+                  <li>☐ Tagged PDF option used if exporting to PDF</li>
+                  <li>☐ Reading order verified in exported formats</li>
+                  <li>☐ Alternative text preserved in shared versions</li>
+                  <li>☐ Instructions provided for accessing content</li>
+                  <li>☐ Multiple formats available when needed</li>
+                  <li>☐ Contact information included for accessibility support</li>
+                  <li>☐ Content tested with assistive technologies where possible</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <nav role="navigation" aria-labelledby="nav-pagination">
+            <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+            <ul class="pager">
+              <li class="previous"><a rel="prev" href="color-contrast-themes.html">Previous - Color & contrast using themes</a></li>
+              <li class="next"><a rel="next" href="presenting-accessibly.html">Next - Presenting accessibly</a></li>
+            </ul>
+          </nav>
+        </main>
+        <nav class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement">
+          <h2 class="wb-inv">Section menu</h2>
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">PowerPoint Accessibility</h3>
+            <ul class="list-group menu list-unstyled">
+              <li><a class="list-group-item" href="index.html">Overview</a></li>
+              <li><a class="list-group-item" href="slide-layouts-placeholders.html">Slide layouts & placeholders</a></li>
+              <li><a class="list-group-item" href="slide-titles.html">Slide titles</a></li>
+              <li><a class="list-group-item" href="reading-order-selection-pane.html">Reading order</a></li>
+              <li><a class="list-group-item" href="slide-master-templates.html">Slide Master & templates</a></li>
+              <li><a class="list-group-item" href="images-decorative-longdesc.html">Images & decorative graphics</a></li>
+              <li><a class="list-group-item" href="charts-smartart-diagrams.html">Charts & SmartArt</a></li>
+              <li><a class="list-group-item" href="tables.html">Tables</a></li>
+              <li><a class="list-group-item" href="multimedia-captions-subtitles.html">Multimedia & captions</a></li>
+              <li><a class="list-group-item" href="animations-transitions.html">Animations & transitions</a></li>
+              <li><a class="list-group-item" href="color-contrast-themes.html">Color & contrast</a></li>
+              <li><a class="list-group-item active" href="exporting-sharing.html">Exporting & sharing</a></li>
+              <li><a class="list-group-item" href="presenting-accessibly.html">Presenting accessibly</a></li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+      <div id="def-preFooter2"></div><script src="../../../scripts/preFooter2.min.js"></script>
+      <div id="def-preFooter"></div><script src="../../../scripts/preFooter.min.js"></script>
+    </div>
+    <div id="def-footer"></div>
+    <script src="../../../scripts/appFooter.min.js"></script>
+    <script src="../../../scripts/refFooter.min.js"></script>
+    <script src="../../../scripts/bati-itao.min.js"></script>
+  </body>
+</html>

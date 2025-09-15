@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>
+      Images, Icons & Decorative Graphics – Module 3 - PowerPoint Accessibility
+    </title>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <!-- Meta data -->
+    <meta
+      name="description"
+      content="Learn PowerPoint-specific workflows for making images, icons, and decorative graphics accessible, including techniques for complex visuals and long descriptions."
+    />
+    <!-- Meta data-->
+    <!-- Load closure template scripts -->
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- Write closure template -->
+    <script src="../../../scripts/refTop.min.js"></script>
+    <link rel="stylesheet" href="../../../css/a11y-dark.css" />
+    <script src="../../../scripts/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <link rel="stylesheet" href="../../../css/esdc-course.css" />
+  </head>
+
+  <body vocab="https://schema.org/" typeof="WebPage">
+    <div id="def-top"></div>
+    <!-- Write closure template -->
+    <script>
+      var defTop = document.getElementById("def-top");
+      defTop.outerHTML = wet.builder.appTop({
+        appName: [
+          {
+            text: "ESDC / IT Accessibility office",
+            href: "../../../index.html",
+          },
+        ],
+        breadcrumbs: [
+          {
+            title: "Home",
+            href: "../../../index.html",
+          },
+          {
+            title: "Learning",
+            href: "../../../index.html",
+          },
+          {
+            title: "Document accessibility course",
+            href: "../../index.html",
+          },
+          {
+            title: "Module 3 – PowerPoint Accessibility",
+            href: "../index.html",
+          },
+          {
+            title: "Images, Icons & Decorative Graphics",
+          },
+        ],
+        lngLinks: [
+          {
+            lang: "fr",
+            href: "images-decorative-longdesc-fr.html",
+            text: "Français",
+          },
+        ],
+        menuPath: "../../../ajax/menu-en.html",
+      });
+    </script>
+    <div class="container">
+      <div class="row">
+        <div id="def-search"></div>
+        <script src="../../../scripts/appSearch.js"></script>
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">
+            Images, Icons & Decorative Graphics (PowerPoint-specific)
+          </h1>
+
+          <nav aria-labelledby="nav-table" class="mrgn-tp-md">
+            <h2 id="nav-table" class="wb-inv">Table of contents</h2>
+            <details class="mrgn-bttm-lg on" open="open">
+              <summary class="bg-info">Table of contents</summary>
+              <ul>
+                <li><a href="#scope-note">Scope note</a></li>
+                <li><a href="#decorative-images">Decorative images (Windows)</a></li>
+                <li><a href="#complex-visuals">Complex visuals (diagrams, dense charts)</a></li>
+                <li><a href="#icons-and-symbols">Icons and symbols</a></li>
+                <li><a href="#reading-order-considerations">Reading order considerations</a></li>
+                <li><a href="#speaker-notes-strategy">Speaker notes strategy</a></li>
+                <li><a href="#quick-checklist">Quick checklist</a></li>
+              </ul>
+            </details>
+          </nav>
+
+          <section id="scope-note">
+            <h2>Scope note</h2>
+            <div class="panel panel-info">
+              <div class="panel-body">
+                <p><strong>Note:</strong> The global M365 section covers general guidance on alternative text. Here we focus on PowerPoint-specific workflows for decorative and complex visuals that require special handling in presentation contexts.</p>
+                <p>This section builds upon the foundation concepts covered in <a href="../../module2/altText.html">Module 2: Images and Alt Text</a>.</p>
+              </div>
+            </div>
+            
+            <p>
+              PowerPoint presentations often include complex visual elements that require specialized accessibility approaches beyond basic alt text. This includes decorative graphics that should be hidden from screen readers, complex diagrams that need detailed descriptions, and interactive visual elements that must be properly integrated into the slide's reading order.
+            </p>
+          </section>
+
+          <section id="decorative-images">
+            <h2>Decorative images (Windows)</h2>
+            <p>
+              Decorative images serve aesthetic purposes but don't convey essential information. Properly marking them as decorative prevents screen reader clutter and allows users to focus on meaningful content.
+            </p>
+
+            <h3>How to mark images as decorative</h3>
+            <ol>
+              <li>Select the image → right-click → <strong>View Alt Text</strong></li>
+              <li>Check <strong>'Mark as decorative'</strong> for purely ornamental graphics</li>
+              <li>When marked as decorative, the alt text field becomes unavailable (grayed out)</li>
+              <li>Screen readers will skip these images entirely</li>
+            </ol>
+
+            <h3>What qualifies as decorative in PowerPoint?</h3>
+            <div class="row">
+              <div class="col-md-6">
+                <h4>✅ Typically decorative:</h4>
+                <ul>
+                  <li><strong>Brand logos</strong> (unless they're the main subject)</li>
+                  <li><strong>Background patterns</strong> and textures</li>
+                  <li><strong>Design flourishes</strong> and ornamental shapes</li>
+                  <li><strong>Repeating visual elements</strong> used for layout</li>
+                  <li><strong>Icons that duplicate text</strong> (bullet point icons alongside text)</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h4>❌ Usually not decorative:</h4>
+                <ul>
+                  <li><strong>Photos showing process steps</strong></li>
+                  <li><strong>Diagrams explaining concepts</strong></li>
+                  <li><strong>Charts and graphs</strong> with data</li>
+                  <li><strong>Screenshots</strong> demonstrating software</li>
+                  <li><strong>Icons conveying unique information</strong></li>
+                </ul>
+              </div>
+            </div>
+
+            <h3>Reading order management for decorative images</h3>
+            <ol>
+              <li><strong>Ensure decorative items are placed later in reading order</strong> (or hidden) so they don't interrupt focus</li>
+              <li>Use the <strong>Selection Pane</strong> to move decorative elements to the top of the object list (read last)</li>
+              <li>Consider hiding decorative elements using the eye icon in Selection Pane during content review</li>
+              <li>Group decorative elements together if they're related</li>
+            </ol>
+
+            <div class="panel panel-warning">
+              <div class="panel-body">
+                <h3 class="mrgn-tp-0">⚠️ Common mistake: Over-marking as decorative</h3>
+                <p>Avoid marking images as decorative when they:</p>
+                <ul>
+                  <li>Provide context or emotional tone important to understanding</li>
+                  <li>Show examples or demonstrations</li>
+                  <li>Contain text or data (even if also described elsewhere)</li>
+                  <li>Serve as navigation elements or interactive components</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="complex-visuals">
+            <h2>Complex visuals (diagrams, dense charts)</h2>
+            <p>
+              Complex visuals require a multi-layered accessibility approach: concise alt text for identification, detailed descriptions for full understanding, and alternative formats for data access.
+            </p>
+
+            <h3>Step 1: Provide concise alt text</h3>
+            <ol>
+              <li><strong>Name the visual and its purpose</strong> (e.g., 'Timeline of milestones', 'Organizational chart', 'Process flow diagram')</li>
+              <li>Include the <strong>main takeaway or conclusion</strong> if space allows</li>
+              <li>Keep to 125 characters or less for the primary alt text</li>
+              <li>Don't start with "Image of" or "Picture showing" - be direct</li>
+            </ol>
+
+            <h3>Step 2: Provide detailed descriptions</h3>
+            <p>For complex visuals, use multiple strategies to provide full access:</p>
+            
+            <h4>Option A: Speaker notes</h4>
+            <ul>
+              <li>Put longer explanations or data summaries in the speaker notes</li>
+              <li>Include step-by-step descriptions of processes</li>
+              <li>List all data points for charts and graphs</li>
+              <li>Describe spatial relationships in diagrams</li>
+            </ul>
+
+            <h4>Option B: Following slide</h4>
+            <ul>
+              <li>Create a dedicated slide with text description of the visual</li>
+              <li>Break complex diagrams into step-by-step explanations</li>
+              <li>Use bullet points to describe process flows</li>
+              <li>Include this slide in your presentation flow</li>
+            </ul>
+
+            <h4>Option C: On-slide text summary</h4>
+            <ul>
+              <li>Include a brief takeaway directly on the slide</li>
+              <li>Highlight the most important data points</li>
+              <li>Use callout boxes for key insights</li>
+              <li>Position text logically in reading order</li>
+            </ul>
+
+            <h3>Step 3: Alternative data formats</h3>
+            <ol>
+              <li><strong>When possible, present the underlying data in a simple table</strong> on the slide or linked Excel sheet</li>
+              <li>For processes, create a numbered list of steps</li>
+              <li>For organizational charts, provide a hierarchical text list</li>
+              <li>For timelines, create a chronological list with dates and events</li>
+            </ol>
+
+            <h3>Examples of complex visual descriptions</h3>
+            
+            <h4>Example 1: Process diagram</h4>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <p><strong>Alt text:</strong> "Customer service workflow diagram showing 5-step resolution process"</p>
+                <p><strong>Detailed description (speaker notes):</strong></p>
+                <ol>
+                  <li>Customer contacts support via phone, email, or chat</li>
+                  <li>Support agent logs issue in ticketing system</li>
+                  <li>Issue is categorized and routed to appropriate team</li>
+                  <li>Team member investigates and implements solution</li>
+                  <li>Customer receives resolution notification and feedback request</li>
+                </ol>
+              </div>
+            </div>
+
+            <h4>Example 2: Complex chart</h4>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <p><strong>Alt text:</strong> "Revenue growth chart showing 15% increase over 4 quarters"</p>
+                <p><strong>On-slide summary:</strong> "Key insight: Revenue grew consistently each quarter, with strongest growth in Q4 (22%)"</p>
+                <p><strong>Data table:</strong> Provide exact figures in speaker notes or linked spreadsheet</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="icons-and-symbols">
+            <h2>Icons and symbols</h2>
+            
+            <h3>Functional vs. decorative icons</h3>
+            <p>The same icon can be functional or decorative depending on context:</p>
+            
+            <div class="row">
+              <div class="col-md-6">
+                <h4>Functional icons (need alt text):</h4>
+                <ul>
+                  <li><strong>Navigation elements</strong> (home, back, forward)</li>
+                  <li><strong>Status indicators</strong> (warning, error, success)</li>
+                  <li><strong>Action triggers</strong> (print, save, share)</li>
+                  <li><strong>Category identifiers</strong> (when text doesn't specify)</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h4>Decorative icons (mark as decorative):</h4>
+                <ul>
+                  <li><strong>Bullet point decorations</strong> (when text is clear)</li>
+                  <li><strong>Visual reinforcement</strong> of clear text labels</li>
+                  <li><strong>Aesthetic elements</strong> in headers/footers</li>
+                  <li><strong>Brand symbols</strong> used for layout</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3>Best practices for functional icons</h3>
+            <ul>
+              <li><strong>Describe the function, not the appearance:</strong> "Delete item" not "Trash can icon"</li>
+              <li><strong>Use standard terminology:</strong> Consistent with other applications</li>
+              <li><strong>Include state information:</strong> "Expand menu (currently collapsed)"</li>
+              <li><strong>Consider cultural differences:</strong> Symbols may have different meanings in different regions</li>
+            </ul>
+
+            <h3>Symbol accessibility considerations</h3>
+            <ul>
+              <li><strong>Text alternatives for complex symbols:</strong> Mathematical notation, chemical formulas, etc.</li>
+              <li><strong>Cultural symbol interpretation:</strong> Explain symbols that may not be universally understood</li>
+              <li><strong>Color-dependent symbols:</strong> Ensure meaning isn't lost without color</li>
+              <li><strong>Size and contrast:</strong> Ensure symbols are visible and distinguishable</li>
+            </ul>
+          </section>
+
+          <section id="reading-order-considerations">
+            <h2>Reading order considerations</h2>
+            
+            <h3>Logical placement of images in content flow</h3>
+            <p>Images should be positioned in the reading order where they make most sense contextually:</p>
+            
+            <h4>For explanatory images:</h4>
+            <ol>
+              <li>Place images immediately after the text they illustrate</li>
+              <li>If the image is referenced in text ("as shown in the image below"), ensure the reading order matches</li>
+              <li>Group related images and captions together</li>
+            </ol>
+
+            <h4>For process illustrations:</h4>
+            <ol>
+              <li>Position process diagrams before step-by-step explanations</li>
+              <li>Or place them after the explanation as visual reinforcement</li>
+              <li>Be consistent within your presentation</li>
+            </ol>
+
+            <h3>Managing image-heavy slides</h3>
+            <ul>
+              <li><strong>Prioritize essential images:</strong> Consider if all images are necessary</li>
+              <li><strong>Group related visuals:</strong> Use PowerPoint's grouping feature for related elements</li>
+              <li><strong>Create logical sections:</strong> Organize images into meaningful clusters</li>
+              <li><strong>Use descriptive names:</strong> Name image objects clearly in the Selection Pane</li>
+            </ul>
+          </section>
+
+          <section id="speaker-notes-strategy">
+            <h2>Speaker notes strategy</h2>
+            
+            <h3>When to use speaker notes for image descriptions</h3>
+            <ul>
+              <li><strong>Complex technical diagrams</strong> that require detailed explanation</li>
+              <li><strong>Data visualizations</strong> with multiple data points</li>
+              <li><strong>Artistic or conceptual images</strong> that need interpretation</li>
+              <li><strong>Screenshots</strong> with multiple interface elements</li>
+            </ul>
+
+            <h3>Structure for speaker notes descriptions</h3>
+            <ol>
+              <li><strong>Overview:</strong> General description of what the image shows</li>
+              <li><strong>Key elements:</strong> Important components and their relationships</li>
+              <li><strong>Data/details:</strong> Specific information, measurements, or data points</li>
+              <li><strong>Context/significance:</strong> Why this image matters to your presentation</li>
+            </ol>
+
+            <h3>Making speaker notes accessible</h3>
+            <ul>
+              <li><strong>Use clear, structured writing:</strong> Short sentences and logical flow</li>
+              <li><strong>Include all essential information:</strong> Don't assume visual elements are self-explanatory</li>
+              <li><strong>Provide data alternatives:</strong> Tables, lists, or linked resources</li>
+              <li><strong>Test with screen readers:</strong> Verify that notes are accessible when needed</li>
+            </ul>
+          </section>
+
+          <section id="quick-checklist">
+            <h2>Quick checklist</h2>
+            <div class="panel panel-primary">
+              <div class="panel-body">
+                <h3 class="mrgn-tp-0">Before finalizing slides with images:</h3>
+                <ul class="list-unstyled">
+                  <li>☐ Decorative images marked as decorative</li>
+                  <li>☐ Complex visuals have a meaningful label and a longer description elsewhere if needed</li>
+                  <li>☐ Functional icons have descriptive alt text</li>
+                  <li>☐ Images are positioned logically in reading order</li>
+                  <li>☐ Speaker notes include detailed descriptions for complex visuals</li>
+                  <li>☐ Alternative data formats provided where appropriate</li>
+                  <li>☐ All images meet color contrast requirements</li>
+                  <li>☐ Image object names are descriptive in Selection Pane</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <nav role="navigation" aria-labelledby="nav-pagination">
+            <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+            <ul class="pager">
+              <li class="previous">
+                <a rel="prev" href="slide-master-templates.html"
+                  >Previous - Slide Master, themes, and accessible templates</a
+                >
+              </li>
+              <li class="next">
+                <a rel="next" href="charts-smartart-diagrams.html"
+                  >Next - Charts, SmartArt & diagrams</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </main>
+        <nav class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement">
+          <h2 class="wb-inv">Section menu</h2>
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">PowerPoint Accessibility</h3>
+            <ul class="list-group menu list-unstyled">
+              <li><a class="list-group-item" href="index.html">Overview</a></li>
+              <li><a class="list-group-item" href="slide-layouts-placeholders.html">Slide layouts & placeholders</a></li>
+              <li><a class="list-group-item" href="slide-titles.html">Slide titles</a></li>
+              <li><a class="list-group-item" href="reading-order-selection-pane.html">Reading order</a></li>
+              <li><a class="list-group-item" href="slide-master-templates.html">Slide Master & templates</a></li>
+              <li><a class="list-group-item active" href="images-decorative-longdesc.html">Images & decorative graphics</a></li>
+              <li><a class="list-group-item" href="charts-smartart-diagrams.html">Charts & SmartArt</a></li>
+              <li><a class="list-group-item" href="tables.html">Tables</a></li>
+              <li><a class="list-group-item" href="multimedia-captions-subtitles.html">Multimedia & captions</a></li>
+              <li><a class="list-group-item" href="animations-transitions.html">Animations & transitions</a></li>
+              <li><a class="list-group-item" href="color-contrast-themes.html">Color & contrast</a></li>
+              <li><a class="list-group-item" href="exporting-sharing.html">Exporting & sharing</a></li>
+              <li><a class="list-group-item" href="presenting-accessibly.html">Presenting accessibly</a></li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+      <div id="def-preFooter2"></div>
+      <script src="../../../scripts/preFooter2.min.js"></script>
+      <div id="def-preFooter"></div>
+      <script src="../../../scripts/preFooter.min.js"></script>
+    </div>
+
+    <div id="def-footer"></div>
+    <script src="../../../scripts/appFooter.min.js"></script>
+    <script src="../../../scripts/refFooter.min.js"></script>
+    <script src="../../../scripts/bati-itao.min.js"></script>
+  </body>
+</html>
