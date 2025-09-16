@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>
+      Color & Contrast Using Themes – Module 3 - PowerPoint Accessibility
+    </title>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <!-- Meta data -->
+    <meta
+      name="description"
+      content="Learn how to ensure adequate color contrast in PowerPoint presentations using themes, how to test contrast ratios, and how to design presentations that work for users with color vision differences."
+    />
+    <!-- Meta data-->
+    <!-- Load closure template scripts -->
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- Write closure template -->
+    <script src="../../../scripts/refTop.min.js"></script>
+    <link rel="stylesheet" href="../../../css/a11y-dark.css" />
+    <script src="../../../scripts/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <link rel="stylesheet" href="../../../css/esdc-course.css" />
+  </head>
+
+  <body vocab="https://schema.org/" typeof="WebPage">
+    <div id="def-top"></div>
+    <!-- Write closure template -->
+    <script>
+      var defTop = document.getElementById("def-top");
+      defTop.outerHTML = wet.builder.appTop({
+        appName: [
+          {
+            text: "ESDC / IT Accessibility office",
+            href: "../../../index.html",
+          },
+        ],
+        breadcrumbs: [
+          {
+            title: "Home",
+            href: "../../../index.html",
+          },
+          {
+            title: "Learning",
+            href: "../../index.html",
+          },
+          {
+            title: "Document accessibility course",
+            href: "../index.html",
+          },
+          {
+            title: "Module 3 – PowerPoint Accessibility",
+            href: "index.html",
+          },
+          {
+            title: "Color & Contrast Using Themes",
+          },
+        ],
+        lngLinks: [
+          {
+            lang: "fr",
+            href: "color-contrast-themes-fr.html",
+            text: "Français",
+          },
+        ],
+        menuPath: "../../../ajax/menu-en.html",
+      });
+    </script>
+    <div class="container">
+      <div class="row">
+        <div id="def-search"></div>
+        <script src="../../../scripts/appSearch.js"></script>
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">
+            Color & Contrast Using Themes
+          </h1>
+
+          <nav aria-labelledby="nav-table" class="mrgn-tp-md">
+            <h2 id="nav-table" class="wb-inv">Table of contents</h2>
+            <details class="mrgn-bttm-lg on" open="open">
+              <summary class="bg-info">Table of contents</summary>
+              <ul>
+                <li><a href="#why-contrast-matters">Why color contrast matters</a></li>
+                <li><a href="#contrast-requirements">Contrast requirements and guidelines</a></li>
+                <li><a href="#using-themes">Using PowerPoint themes for accessibility</a></li>
+                <li><a href="#testing-contrast">Testing color contrast</a></li>
+                <li><a href="#color-vision-differences">Designing for color vision differences</a></li>
+                <li><a href="#beyond-color">Beyond color: Using multiple indicators</a></li>
+                <li><a href="#practical-tips">Practical design tips</a></li>
+                <li><a href="#examples">Good and bad examples</a></li>
+              </ul>
+            </details>
+          </nav>
+
+          <section id="why-contrast-matters">
+            <h2>Why color contrast matters</h2>
+            <p>
+              <strong>Adequate color contrast ensures that text and visual elements are readable by everyone</strong>, including people with visual impairments, color vision differences, and those viewing presentations in challenging lighting conditions.
+            </p>
+            
+            <p>
+              Poor contrast affects many people:
+            </p>
+            <ul>
+              <li><strong>Visual impairments:</strong> People with low vision need high contrast to distinguish text from background</li>
+              <li><strong>Color vision differences:</strong> About 8% of men and 0.5% of women have some form of color blindness</li>
+              <li><strong>Environmental factors:</strong> Bright rooms, projector limitations, or mobile devices can reduce visible contrast</li>
+              <li><strong>Age-related changes:</strong> Vision naturally changes with age, affecting contrast sensitivity</li>
+              <li><strong>Temporary impairments:</strong> Eye fatigue, medical conditions, or medications can affect vision</li>
+            </ul>
+
+            <div class="panel panel-info">
+              <div class="panel-body">
+                <h3 class="mrgn-tp-0">Real-world scenarios</h3>
+                <ul>
+                  <li>A presentation in a bright conference room where projector contrast is poor</li>
+                  <li>Someone reviewing slides on their phone during their commute</li>
+                  <li>A team member with color vision differences who can't distinguish red from green status indicators</li>
+                  <li>An older colleague who has difficulty reading light gray text on white backgrounds</li>
+                </ul>
+                <p>Good contrast design benefits everyone in these situations.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="contrast-requirements">
+            <h2>Contrast requirements and guidelines</h2>
+            
+            <h3>WCAG contrast standards</h3>
+            <p>The Web Content Accessibility Guidelines (WCAG) provide specific contrast ratio requirements:</p>
+            
+            <dl>
+              <dt><strong>Normal text (AA level):</strong></dt>
+              <dd>4.5:1 contrast ratio minimum for text smaller than 18pt regular or 14pt bold</dd>
+              
+              <dt><strong>Large text (AA level):</strong></dt>
+              <dd>3:1 contrast ratio minimum for text 18pt+ regular or 14pt+ bold</dd>
+              
+              <dt><strong>Enhanced contrast (AAA level):</strong></dt>
+              <dd>7:1 for normal text, 4.5:1 for large text (higher standard, recommended when possible)</dd>
+              
+              <dt><strong>Non-text elements:</strong></dt>
+              <dd>3:1 contrast ratio for graphics, icons, and interface elements</dd>
+            </dl>
+
+            <h3>Understanding contrast ratios</h3>
+            <p>Contrast ratios represent the difference in brightness between foreground and background:</p>
+            <ul>
+              <li><strong>1:1</strong> = No contrast (same color)</li>
+              <li><strong>3:1</strong> = Minimum for large text and graphics</li>
+              <li><strong>4.5:1</strong> = Minimum for normal text</li>
+              <li><strong>7:1</strong> = Enhanced contrast</li>
+              <li><strong>21:1</strong> = Maximum contrast (black on white)</li>
+            </ul>
+
+            <h3>Government of Canada requirements</h3>
+            <p>ESDC follows Government of Canada digital standards:</p>
+            <ul>
+              <li>All presentations must meet WCAG 2.1 AA standards</li>
+              <li>This includes the 4.5:1 contrast requirement for regular text</li>
+              <li>Consider AAA levels (7:1) for critical information</li>
+              <li>Test all color combinations before using them</li>
+            </ul>
+          </section>
+
+          <section id="using-themes">
+            <h2>Using PowerPoint themes for accessibility</h2>
+            
+            <h3>Choose high-contrast themes</h3>
+            <p>PowerPoint includes several built-in themes designed with good contrast:</p>
+            <ul>
+              <li><strong>Office theme:</strong> Classic white background with dark text</li>
+              <li><strong>Facet theme:</strong> Clean design with strong contrast</li>
+              <li><strong>Ion theme:</strong> Dark background option with light text</li>
+              <li><strong>Retrospect theme:</strong> High contrast with professional appearance</li>
+            </ul>
+
+            <h3>Customizing theme colors</h3>
+            <p>To modify theme colors for better accessibility:</p>
+            <ol>
+              <li>Go to <strong>Design > Variants > Colors</strong></li>
+              <li>Choose "Customize Colors" at the bottom</li>
+              <li>Select colors with adequate contrast ratios</li>
+              <li>Test combinations before applying</li>
+              <li>Save as a custom color scheme</li>
+            </ol>
+
+            <h3>Government of Canada theme compliance</h3>
+            <p>When using official GoC branding:</p>
+            <ul>
+              <li>Ensure brand colors meet contrast requirements</li>
+              <li>Use approved color combinations from brand guidelines</li>
+              <li>Test all custom colors for accessibility</li>
+              <li>Consider creating accessible variants of brand themes</li>
+            </ul>
+
+            <h3>Creating accessible custom themes</h3>
+            <p>When developing custom themes:</p>
+            <ol>
+              <li><strong>Start with high contrast:</strong> Use dark text on light backgrounds or vice versa</li>
+              <li><strong>Test all combinations:</strong> Check every color pairing you plan to use</li>
+              <li><strong>Provide alternatives:</strong> Create both light and dark theme options</li>
+              <li><strong>Document ratios:</strong> Keep track of which combinations meet standards</li>
+            </ol>
+          </section>
+
+          <section id="testing-contrast">
+            <h2>Testing color contrast</h2>
+            
+            <h3>PowerPoint's built-in accessibility checker</h3>
+            <p>PowerPoint can identify some contrast issues:</p>
+            <ol>
+              <li>Go to <strong>Review > Check Accessibility</strong></li>
+              <li>Look for "Hard-to-read text contrast" warnings</li>
+              <li>Address flagged issues by changing colors</li>
+              <li>Note: The checker may not catch all contrast problems</li>
+            </ol>
+
+            <h3>External contrast testing tools</h3>
+            <p>For more accurate testing, use dedicated tools:</p>
+            
+            <h4>WebAIM Contrast Checker (free, online)</h4>
+            <ul>
+              <li>Enter hex color codes or use color picker</li>
+              <li>Shows exact contrast ratios</li>
+              <li>Indicates AA and AAA compliance</li>
+              <li>URL: webaim.org/resources/contrastchecker</li>
+            </ul>
+
+            <h4>Colour Contrast Analyser (free desktop app)</h4>
+            <ul>
+              <li>Eyedropper tool for testing any colors on screen</li>
+              <li>Real-time contrast ratio calculation</li>
+              <li>WCAG compliance indicators</li>
+              <li>Available for Windows and Mac</li>
+            </ul>
+
+            <h4>Browser extensions</h4>
+            <ul>
+              <li>WAVE browser extension</li>
+              <li>Lighthouse accessibility audits</li>
+              <li>axe DevTools</li>
+            </ul>
+
+            <h3>Manual testing methods</h3>
+            <p>Quick visual tests to supplement tools:</p>
+            <ul>
+              <li><strong>Squint test:</strong> Squint at your slides - can you still read the text?</li>
+              <li><strong>Grayscale test:</strong> Convert slides to grayscale - is information still clear?</li>
+              <li><strong>Distance test:</strong> View slides from across the room</li>
+              <li><strong>Lighting test:</strong> Check slides in bright and dim lighting</li>
+            </ul>
+          </section>
+
+          <section id="color-vision-differences">
+            <h2>Designing for color vision differences</h2>
+            
+            <h3>Understanding color vision differences</h3>
+            <p>Common types of color vision differences:</p>
+            <dl>
+              <dt><strong>Protanopia/Protanomaly:</strong></dt>
+              <dd>Difficulty distinguishing red from green (most common)</dd>
+              
+              <dt><strong>Deuteranopia/Deuteranomaly:</strong></dt>
+              <dd>Also affects red-green perception but differently</dd>
+              
+              <dt><strong>Tritanopia/Tritanomaly:</strong></dt>
+              <dd>Difficulty with blue-yellow distinctions (less common)</dd>
+              
+              <dt><strong>Monochromacy:</strong></dt>
+              <dd>Complete color blindness (very rare)</dd>
+            </dl>
+
+            <h3>Avoiding problematic color combinations</h3>
+            <p>Color pairs that often cause problems:</p>
+            <ul>
+              <li><strong>Red and green:</strong> Classic problem combination</li>
+              <li><strong>Orange and red:</strong> Often indistinguishable</li>
+              <li><strong>Blue and purple:</strong> Difficult for some to differentiate</li>
+              <li><strong>Light colors:</strong> Pink, light green, light blue, light gray</li>
+            </ul>
+
+            <h3>Safe color strategies</h3>
+            <p>Color combinations that work well for most people:</p>
+            <ul>
+              <li><strong>High contrast pairs:</strong> Black/white, dark blue/white, white/dark gray</li>
+              <li><strong>Blue and orange:</strong> Opposite on color wheel, good contrast</li>
+              <li><strong>Blue and yellow:</strong> Strong contrast, widely accessible</li>
+              <li><strong>Purple and yellow:</strong> Good contrast and differentiation</li>
+            </ul>
+
+            <h3>Testing for color vision differences</h3>
+            <p>Tools to simulate different types of color vision:</p>
+            <ul>
+              <li><strong>Coblis Color Blindness Simulator:</strong> Upload images to see how they appear</li>
+              <li><strong>Sim Daltonism:</strong> Mac app for real-time color blindness simulation</li>
+              <li><strong>Photoshop:</strong> View > Proof Setup > Color Blindness options</li>
+              <li><strong>Chrome extensions:</strong> Various colorblind simulation tools</li>
+            </ul>
+          </section>
+
+          <section id="beyond-color">
+            <h2>Beyond color: Using multiple indicators</h2>
+            
+            <h3>Don't rely on color alone</h3>
+            <p>
+              <strong>Never use color as the only way to convey information.</strong> Always provide additional visual cues that don't depend on color perception.
+            </p>
+
+            <h3>Alternative visual indicators</h3>
+            <ul>
+              <li><strong>Shapes:</strong> Use different shapes for different categories</li>
+              <li><strong>Patterns:</strong> Add patterns, textures, or hatching</li>
+              <li><strong>Typography:</strong> Use bold, italic, or different fonts</li>
+              <li><strong>Icons:</strong> Add symbols to reinforce meaning</li>
+              <li><strong>Position:</strong> Use layout to convey relationships</li>
+              <li><strong>Size:</strong> Vary size to show importance or data values</li>
+            </ul>
+
+            <h3>Practical examples</h3>
+            
+            <h4>Status indicators</h4>
+            <div class="row">
+              <div class="col-md-6">
+                <h5>❌ Color only</h5>
+                <ul>
+                  <li style="color: green;">●  Complete</li>
+                  <li style="color: orange;">●  In Progress</li>
+                  <li style="color: red;">●  Delayed</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h5>✅ Color plus shape/text</h5>
+                <ul>
+                  <li style="color: green;">✓ Complete</li>
+                  <li style="color: orange;">◐ In Progress</li>
+                  <li style="color: red;">✗ Delayed</li>
+                </ul>
+              </div>
+            </div>
+
+            <h4>Chart data</h4>
+            <div class="row">
+              <div class="col-md-6">
+                <h5>❌ Color-coded lines only</h5>
+                <p>Lines distinguished only by color</p>
+              </div>
+              <div class="col-md-6">
+                <h5>✅ Color plus line styles</h5>
+                <p>Solid, dashed, and dotted lines plus color</p>
+              </div>
+            </div>
+
+            <h4>Priority levels</h4>
+            <div class="row">
+              <div class="col-md-6">
+                <h5>❌ Background color only</h5>
+                <ul>
+                  <li style="background-color: #ffcccc; padding: 2px;">High priority</li>
+                  <li style="background-color: #ffffcc; padding: 2px;">Medium priority</li>
+                  <li style="background-color: #ccffcc; padding: 2px;">Low priority</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h5>✅ Icons plus color</h5>
+                <ul>
+                  <li style="background-color: #ffcccc; padding: 2px;">🔥 High priority</li>
+                  <li style="background-color: #ffffcc; padding: 2px;">⚠️ Medium priority</li>
+                  <li style="background-color: #ccffcc; padding: 2px;">ℹ️ Low priority</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="practical-tips">
+            <h2>Practical design tips</h2>
+            
+            <h3>Text and background combinations</h3>
+            <ul>
+              <li><strong>Dark text on light backgrounds:</strong> Easier to read for most people</li>
+              <li><strong>White text on dark backgrounds:</strong> Can work but test carefully</li>
+              <li><strong>Avoid reverse text:</strong> White text on colored backgrounds often fails contrast</li>
+              <li><strong>Test with various text sizes:</strong> Large text can get away with lower contrast</li>
+            </ul>
+
+            <h3>Working with brand colors</h3>
+            <p>When brand colors don't meet contrast requirements:</p>
+            <ul>
+              <li><strong>Darken or lighten:</strong> Adjust brand colors slightly for accessibility</li>
+              <li><strong>Use as accents:</strong> Reserve brand colors for decorative elements</li>
+              <li><strong>Add borders:</strong> Use borders to separate colors that are too similar</li>
+              <li><strong>Test variations:</strong> Find accessible shades within the brand palette</li>
+            </ul>
+
+            <h3>Image and graphic considerations</h3>
+            <ul>
+              <li><strong>Text over images:</strong> Add semi-transparent overlays for contrast</li>
+              <li><strong>Chart colors:</strong> Choose distinct colors and add patterns</li>
+              <li><strong>Icon design:</strong> Ensure icons have adequate contrast with backgrounds</li>
+              <li><strong>Map graphics:</strong> Don't rely on color alone to show different regions</li>
+            </ul>
+
+            <h3>Presentation environment factors</h3>
+            <ul>
+              <li><strong>Projector limitations:</strong> Colors appear less saturated on projectors</li>
+              <li><strong>Room lighting:</strong> Bright rooms wash out low-contrast content</li>
+              <li><strong>Screen differences:</strong> Colors vary between different displays</li>
+              <li><strong>Mobile viewing:</strong> Small screens and outdoor viewing reduce contrast</li>
+            </ul>
+          </section>
+
+          <section id="examples">
+            <h2>Good and bad examples</h2>
+            
+            <h3>Example 1: Text contrast</h3>
+            <div class="row">
+              <div class="col-md-6">
+                <h4>❌ Poor contrast</h4>
+                <div style="background-color: #f8f8f8; padding: 10px; margin: 10px 0;">
+                  <p style="color: #cccccc; margin: 0;">Light gray text on light background (1.6:1 ratio)</p>
+                </div>
+                <div style="background-color: #4a90e2; padding: 10px; margin: 10px 0;">
+                  <p style="color: #6bb6ff; margin: 0;">Light blue text on blue background (2.1:1 ratio)</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <h4>✅ Good contrast</h4>
+                <div style="background-color: #ffffff; padding: 10px; margin: 10px 0; border: 1px solid #ddd;">
+                  <p style="color: #333333; margin: 0;">Dark text on white background (12.6:1 ratio)</p>
+                </div>
+                <div style="background-color: #2c3e50; padding: 10px; margin: 10px 0;">
+                  <p style="color: #ffffff; margin: 0;">White text on dark background (15.3:1 ratio)</p>
+                </div>
+              </div>
+            </div>
+
+            <h3>Example 2: Status indicators</h3>
+            <div class="row">
+              <div class="col-md-6">
+                <h4>❌ Color only</h4>
+                <ul>
+                  <li style="color: #28a745;">Project Alpha</li>
+                  <li style="color: #ffc107;">Project Beta</li>
+                  <li style="color: #dc3545;">Project Gamma</li>
+                </ul>
+                <p><small>Users with color vision differences can't distinguish status</small></p>
+              </div>
+              <div class="col-md-6">
+                <h4>✅ Multiple indicators</h4>
+                <ul>
+                  <li style="color: #28a745;"><strong>✓ Completed:</strong> Project Alpha</li>
+                  <li style="color: #ffc107;"><strong>⏳ In Progress:</strong> Project Beta</li>
+                  <li style="color: #dc3545;"><strong>⚠ Delayed:</strong> Project Gamma</li>
+                </ul>
+                <p><small>Icons and text labels reinforce the color coding</small></p>
+              </div>
+            </div>
+
+            <h3>Example 3: Chart accessibility</h3>
+            <div class="row">
+              <div class="col-md-6">
+                <h4>❌ Similar colors only</h4>
+                <ul>
+                  <li>Red line for Sales</li>
+                  <li>Green line for Profit</li>
+                  <li>Orange line for Expenses</li>
+                </ul>
+                <p><small>Lines may be indistinguishable for some users</small></p>
+              </div>
+              <div class="col-md-6">
+                <h4>✅ Color plus patterns</h4>
+                <ul>
+                  <li>Blue solid line for Sales</li>
+                  <li>Orange dashed line for Profit</li>
+                  <li>Gray dotted line for Expenses</li>
+                </ul>
+                <p><small>Different line styles work even without color</small></p>
+              </div>
+            </div>
+
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <h3 class="mrgn-tp-0">✅ Color and contrast checklist</h3>
+                <ul>
+                  <li>All text meets minimum 4.5:1 contrast ratio</li>
+                  <li>Large text (18pt+) meets 3:1 contrast ratio</li>
+                  <li>Non-text elements meet 3:1 contrast ratio</li>
+                  <li>Information isn't conveyed by color alone</li>
+                  <li>Color combinations work for color vision differences</li>
+                  <li>Tested with contrast checking tools</li>
+                  <li>Checked in different lighting conditions</li>
+                  <li>Verified on different devices/projectors</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <nav role="navigation" aria-labelledby="nav-pagination">
+            <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+            <ul class="pager">
+              <li class="previous">
+                <a rel="prev" href="animations-transitions.html"
+                  >Previous - Animations & Transitions (Use Sparingly)</a
+                >
+              </li>
+              <li class="next">
+                <a rel="next" href="exporting-sharing.html"
+                  >Next - Exporting & Sharing Accessible Presentations</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </main>
+        <nav class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement">
+          <h2 class="wb-inv">Section menu</h2>
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">PowerPoint Accessibility</h3>
+            <ul class="list-group menu list-unstyled">
+              <li><a class="list-group-item" href="00-overview.html">Overview</a></li>
+              <li><a class="list-group-item" href="slide-layouts-placeholders.html">Slide layouts & placeholders</a></li>
+              <li><a class="list-group-item" href="slide-titles.html">Slide titles</a></li>
+              <li><a class="list-group-item" href="reading-order-selection-pane.html">Reading order</a></li>
+              <li><a class="list-group-item" href="slide-master-templates.html">Slide Master & templates</a></li>
+              <li><a class="list-group-item" href="images-decorative-longdesc.html">Images & decorative graphics</a></li>
+              <li><a class="list-group-item" href="charts-smartart-diagrams.html">Charts & SmartArt</a></li>
+              <li><a class="list-group-item" href="tables.html">Tables</a></li>
+              <li><a class="list-group-item" href="multimedia-captions-subtitles.html">Multimedia & captions</a></li>
+              <li><a class="list-group-item" href="animations-transitions.html">Animations & transitions</a></li>
+              <li><a class="list-group-item active" href="color-contrast-themes.html">Color & contrast</a></li>
+              <li><a class="list-group-item" href="exporting-sharing.html">Exporting & sharing</a></li>
+              <li><a class="list-group-item" href="presenting-accessibly.html">Presenting accessibly</a></li>
+            </ul>
+          </section>
+          
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">All modules</h3>
+            <ul class="list-group menu list-unstyled">
+              <li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
+              <li><a class="list-group-item" href="../module2/index.html">Module 2 – Global Accessibility Techniques</a></li>
+              <li><a class="list-group-item active" href="index.html">Module 3 – PowerPoint Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module4/index.html">Module 4 – Word Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module5/index.html">Module 5 – Outlook Email Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module6/index.html">Module 6 – Introduction to Accessible PDFs</a></li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+      <div id="def-preFooter2"></div>
+      <script src="../../../scripts/preFooter2.min.js"></script>
+      <div id="def-preFooter"></div>
+      <script src="../../../scripts/preFooter.min.js"></script>
+    </div>
+
+    <div id="def-footer"></div>
+    <script src="../../../scripts/appFooter.min.js"></script>
+    <script src="../../../scripts/refFooter.min.js"></script>
+    <script src="../../../scripts/bati-itao.min.js"></script>
+  </body>
+</html>
