@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>Slide Layouts & Structure – Module 3 - PowerPoint Accessibility</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <!-- Meta data -->
+    <meta
+      name="description"
+      content="Learn how to use built-in slide layouts, placeholders, and create meaningful slide titles for proper structure that assistive technologies can interpret."
+    />
+    <!-- Meta data-->
+    <!-- Load closure template scripts -->
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- Write closure template -->
+    <script src="../../../scripts/refTop.min.js"></script>
+    <link rel="stylesheet" href="../../../css/a11y-dark.css" />
+    <script src="../../../scripts/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <link rel="stylesheet" href="../../../css/esdc-course.css" />
+  </head>
+
+  <body vocab="https://schema.org/" typeof="WebPage">
+    <div id="def-top"></div>
+    <!-- Write closure template -->
+    <script>
+      var defTop = document.getElementById('def-top');
+      defTop.outerHTML = wet.builder.appTop({
+        appName: [
+          {
+            text: 'ESDC / IT Accessibility office',
+            href: '../../../index.html',
+          },
+        ],
+        breadcrumbs: [
+          {
+            title: 'Home',
+            href: '../../../index.html',
+          },
+          {
+            title: 'Learning',
+            href: '../../index.html',
+          },
+          {
+            title: 'Document accessibility course',
+            href: '../index.html',
+          },
+          {
+            title: 'Module 3 – PowerPoint Accessibility',
+            href: 'index.html',
+          },
+          {
+            title: 'Slide Layouts & Structure',
+          },
+        ],
+        lngLinks: [
+          {
+            lang: 'fr',
+            href: 'slide-layouts-structure-fr.html',
+            text: 'Français',
+          },
+        ],
+        menuPath: '../../../ajax/menu-en.html',
+      });
+    </script>
+    <div class="container">
+      <div class="row">
+        <div id="def-search"></div>
+        <script src="../../../scripts/appSearch.js"></script>
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Slide Layouts & Structure</h1>
+
+          <nav aria-labelledby="nav-table" class="mrgn-tp-md">
+            <h2 id="nav-table" class="wb-inv">Table of contents</h2>
+            <details class="mrgn-bttm-lg on" open="open">
+              <summary class="bg-info">Table of contents</summary>
+              <ul>
+                <li><a href="#built-in-layouts">Using built-in slide layouts</a></li>
+                <li><a href="#placeholders">Working with placeholders</a></li>
+                <li><a href="#slide-titles">Creating meaningful slide titles</a></li>
+                <li><a href="#structure-hierarchy">Content structure and hierarchy</a></li>
+                <li><a href="#common-layouts">Common accessible layout patterns</a></li>
+                <li><a href="#troubleshooting">Troubleshooting layout issues</a></li>
+              </ul>
+            </details>
+          </nav>
+
+          <section id="built-in-layouts">
+            <h2>Using built-in slide layouts</h2>
+            
+            <p>Built-in slide layouts are the foundation of accessible PowerPoint presentations. They provide proper structure that assistive technologies can understand and navigate efficiently.</p>
+
+            <h3>Why built-in layouts matter</h3>
+            <ul>
+              <li><strong>Semantic structure:</strong> Layouts define clear relationships between content elements</li>
+              <li><strong>Predictable navigation:</strong> Screen readers can reliably find titles, content, and other elements</li>
+              <li><strong>Responsive design:</strong> Content adapts better to different screen sizes and zoom levels</li>
+              <li><strong>Consistency:</strong> Uniform structure across slides helps all users follow along</li>
+            </ul>
+
+            <div class="panel panel-danger">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">❌ Avoid blank slides</h4>
+                <p>Never use the "Blank" slide layout unless absolutely necessary. Blank slides require manual positioning of all elements, which often results in accessibility problems:</p>
+                <ul>
+                  <li>No defined title area</li>
+                  <li>Unpredictable reading order</li>
+                  <li>Difficult navigation for assistive technologies</li>
+                  <li>Content may not be properly identified</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3>Choosing the right layout</h3>
+            <p>PowerPoint 365 offers several built-in layouts designed for different content types:</p>
+
+            <dl>
+              <dt><strong>Title Slide</strong></dt>
+              <dd>Perfect for presentation opening, section dividers, or major topic introductions</dd>
+              
+              <dt><strong>Title and Content</strong></dt>
+              <dd>Most versatile layout - use for text, images, charts, or mixed content</dd>
+              
+              <dt><strong>Section Header</strong></dt>
+              <dd>Ideal for dividing presentation into major sections</dd>
+              
+              <dt><strong>Two Content</strong></dt>
+              <dd>Great for comparisons, before/after, or side-by-side information</dd>
+              
+              <dt><strong>Comparison</strong></dt>
+              <dd>Specialized layout for comparing two concepts or sets of information</dd>
+              
+              <dt><strong>Content with Caption</strong></dt>
+              <dd>Perfect when you need a large image with explanatory text</dd>
+            </dl>
+
+            <h3>Applying layouts in PowerPoint 365</h3>
+            <ol>
+              <li>Select the slide you want to modify</li>
+              <li>Go to <strong>Home > Layout</strong> (in the Slides group)</li>
+              <li>Choose the layout that best matches your content</li>
+              <li>PowerPoint will automatically map existing content to appropriate placeholders</li>
+            </ol>
+
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">✅ Pro tip: Layout first, design second</h4>
+                <p>Always choose your layout based on content structure, not visual appearance. You can modify colors, fonts, and spacing later while maintaining the accessible structure.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="placeholders">
+            <h2>Working with placeholders</h2>
+            
+            <p>Placeholders are predefined areas in slide layouts that tell PowerPoint (and assistive technologies) what type of content belongs where.</p>
+
+            <h3>Types of placeholders</h3>
+            <ul>
+              <li><strong>Title placeholder:</strong> Defines the slide's main heading</li>
+              <li><strong>Content placeholder:</strong> For body text, lists, images, charts, or other media</li>
+              <li><strong>Text placeholder:</strong> Specifically for text content</li>
+              <li><strong>Picture placeholder:</strong> Optimized for images</li>
+              <li><strong>Chart placeholder:</strong> For data visualizations</li>
+              <li><strong>Table placeholder:</strong> For tabular data</li>
+            </ul>
+
+            <h3>Best practices for placeholders</h3>
+            
+            <h4>Use placeholders correctly</h4>
+            <ul>
+              <li><strong>Title placeholders:</strong> Always use for slide titles, never leave empty</li>
+              <li><strong>Content placeholders:</strong> Use for all body content instead of inserting independent text boxes</li>
+              <li><strong>Placeholder purpose:</strong> Use placeholders for their intended content type when possible</li>
+            </ul>
+
+            <h4>When you need to add content outside placeholders</h4>
+            <p>Sometimes you need additional content areas. Here's how to do it accessibly:</p>
+            <ol>
+              <li><strong>Try a different layout first:</strong> Another layout might better fit your needs</li>
+              <li><strong>Modify Slide Master:</strong> Add permanent placeholders for reusable content</li>
+              <li><strong>Use text boxes sparingly:</strong> If you must add text boxes, ensure they're in logical reading order</li>
+              <li><strong>Group related elements:</strong> Use PowerPoint's grouping feature for complex layouts</li>
+            </ol>
+
+            <div class="panel panel-warning">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">⚠️ Common placeholder mistakes</h4>
+                <ul>
+                  <li><strong>Leaving title placeholders empty:</strong> Every slide needs a title</li>
+                  <li><strong>Using text boxes instead of placeholders:</strong> Breaks the semantic structure</li>
+                  <li><strong>Deleting unused placeholders:</strong> Just leave them empty or choose a different layout</li>
+                  <li><strong>Overlapping content areas:</strong> Causes confusion for screen readers</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3>Working with content placeholders</h3>
+            <p>Content placeholders are your most flexible tool. They can contain:</p>
+            
+            <div class="row">
+              <div class="col-md-6">
+                <h4>Text content</h4>
+                <ul>
+                  <li>Bulleted lists</li>
+                  <li>Numbered lists</li>
+                  <li>Body paragraphs</li>
+                  <li>Formatted text</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h4>Media content</h4>
+                <ul>
+                  <li>Images and photos</li>
+                  <li>Charts and graphs</li>
+                  <li>SmartArt diagrams</li>
+                  <li>Videos and audio</li>
+                </ul>
+              </div>
+            </div>
+
+            <p>When you click on a content placeholder, PowerPoint 365 shows options for different content types. This guided approach helps maintain accessibility structure.</p>
+          </section>
+
+          <section id="slide-titles">
+            <h2>Creating meaningful slide titles</h2>
+            
+            <p>Slide titles are crucial for navigation and accessibility. They serve as headings that screen reader users can jump between, making your presentation much easier to navigate.</p>
+
+            <h3>Why every slide needs a title</h3>
+            <ul>
+              <li><strong>Navigation landmarks:</strong> Screen readers use titles to navigate between slides</li>
+              <li><strong>Context understanding:</strong> Titles help users understand where they are in the presentation</li>
+              <li><strong>Search functionality:</strong> Titles are indexed for searching within the presentation</li>
+              <li><strong>Outline view:</strong> Titles create a meaningful presentation outline</li>
+            </ul>
+
+            <h3>Writing effective slide titles</h3>
+            
+            <h4>Title writing principles</h4>
+            <ul>
+              <li><strong>Be descriptive:</strong> Titles should clearly indicate the slide's main topic</li>
+              <li><strong>Be unique:</strong> Each slide should have a different title (unless part of a series)</li>
+              <li><strong>Be concise:</strong> Aim for 5-10 words when possible</li>
+              <li><strong>Use parallel structure:</strong> Maintain consistent title format throughout sections</li>
+            </ul>
+
+            <h4>Title examples</h4>
+            <div class="row">
+              <div class="col-md-6">
+                <h5>❌ Poor titles</h5>
+                <ul>
+                  <li>Introduction</li>
+                  <li>Data</li>
+                  <li>Chart</li>
+                  <li>Next Steps</li>
+                  <li>Questions</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h5>✅ Good titles</h5>
+                <ul>
+                  <li>Welcome to Customer Service Excellence</li>
+                  <li>Q3 Sales Performance by Region</li>
+                  <li>Revenue Growth: 2020-2024</li>
+                  <li>Implementation Timeline and Milestones</li>
+                  <li>Q&A and Contact Information</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3>Hidden titles for visual design</h3>
+            <p>Sometimes visual design requires that titles not be visible on the slide, but you still need them for accessibility:</p>
+            
+            <ol>
+              <li>Add your descriptive title as normal</li>
+              <li>Select the title text</li>
+              <li>Go to <strong>Home > Font > Text Effects > Outline > No Outline</strong></li>
+              <li>Set the text color to match the background</li>
+              <li>Or move the title placeholder off the slide (but keep it accessible)</li>
+            </ol>
+
+            <div class="panel panel-info">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">💡 Alternative: Use subtitle areas</h4>
+                <p>If your design needs visual impact without visible titles, consider:</p>
+                <ul>
+                  <li>Using a large, descriptive subtitle that serves as the main heading</li>
+                  <li>Creating a visual hierarchy with size and color rather than hiding text</li>
+                  <li>Adding the title as the first line of your content area</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3>Title consistency across presentations</h3>
+            <p>For multi-part presentations or series:</p>
+            <ul>
+              <li><strong>Use consistent prefixes:</strong> "Module 1:", "Session 2:", etc.</li>
+              <li><strong>Maintain parallel structure:</strong> If one slide is "Creating Tables", another should be "Creating Charts"</li>
+              <li><strong>Include context:</strong> Help users understand where they are in the larger presentation</li>
+            </ul>
+          </section>
+
+          <section id="structure-hierarchy">
+            <h2>Content structure and hierarchy</h2>
+            
+            <p>Proper content hierarchy helps all users understand the relationship between different pieces of information on your slides.</p>
+
+            <h3>Using headings effectively</h3>
+            <ul>
+              <li><strong>Slide title = H1:</strong> The slide title serves as the main heading</li>
+              <li><strong>Major sections = H2:</strong> Use for main content sections within a slide</li>
+              <li><strong>Subsections = H3:</strong> For sub-topics under major sections</li>
+              <li><strong>Avoid deep nesting:</strong> Rarely go beyond H3 on a single slide</li>
+            </ul>
+
+            <h3>Creating headings in PowerPoint 365</h3>
+            <ol>
+              <li>Select the text you want to make a heading</li>
+              <li>Go to <strong>Home > Styles</strong></li>
+              <li>Choose the appropriate heading level</li>
+              <li>Or use the outline view to organize content hierarchically</li>
+            </ol>
+
+            <h3>Visual hierarchy best practices</h3>
+            <ul>
+              <li><strong>Size relationships:</strong> Larger text for more important headings</li>
+              <li><strong>Color consistency:</strong> Use consistent colors for similar heading levels</li>
+              <li><strong>White space:</strong> More space around higher-level headings</li>
+              <li><strong>Font weight:</strong> Bold for headings, regular for body text</li>
+            </ul>
+
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">✅ Testing your hierarchy</h4>
+                <p>To test if your hierarchy is clear:</p>
+                <ol>
+                  <li>Switch to <strong>View > Outline View</strong></li>
+                  <li>Look at the text-only outline - does it make sense?</li>
+                  <li>Use Tab key to navigate through the slide - is the order logical?</li>
+                  <li>Ask someone else to identify the main points from the visual hierarchy</li>
+                </ol>
+              </div>
+            </div>
+          </section>
+
+          <section id="common-layouts">
+            <h2>Common accessible layout patterns</h2>
+            
+            <p>Here are some layout patterns that work well for accessibility while maintaining visual appeal.</p>
+
+            <h3>Text-heavy slides</h3>
+            <ul>
+              <li><strong>Use "Title and Content" layout</strong></li>
+              <li><strong>Break up text with:</strong>
+                <ul>
+                  <li>Bulleted or numbered lists</li>
+                  <li>Short paragraphs (3-4 sentences max)</li>
+                  <li>Subheadings to organize topics</li>
+                  <li>White space for visual breathing room</li>
+                </ul>
+              </li>
+            </ul>
+
+            <h3>Image-focused slides</h3>
+            <ul>
+              <li><strong>Use "Content with Caption" layout</strong></li>
+              <li><strong>Always include:</strong>
+                <ul>
+                  <li>Descriptive alt text for the image</li>
+                  <li>Caption text that explains the image's relevance</li>
+                  <li>Context about why the image is important</li>
+                </ul>
+              </li>
+            </ul>
+
+            <h3>Data presentation slides</h3>
+            <ul>
+              <li><strong>Use "Title and Content" with chart placeholder</strong></li>
+              <li><strong>Include:</strong>
+                <ul>
+                  <li>Clear chart title describing the data</li>
+                  <li>Alt text summarizing key findings</li>
+                  <li>Data table as backup (can be hidden but available)</li>
+                  <li>Explanation of trends or important points</li>
+                </ul>
+              </li>
+            </ul>
+
+            <h3>Comparison slides</h3>
+            <ul>
+              <li><strong>Use "Comparison" or "Two Content" layout</strong></li>
+              <li><strong>Structure with:</strong>
+                <ul>
+                  <li>Clear headings for each side of the comparison</li>
+                  <li>Parallel structure in content organization</li>
+                  <li>Consistent formatting on both sides</li>
+                  <li>Summary of key differences or similarities</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+
+          <section id="troubleshooting">
+            <h2>Troubleshooting layout issues</h2>
+            
+            <h3>Common problems and solutions</h3>
+
+            <h4>Content doesn't fit in placeholders</h4>
+            <ul>
+              <li><strong>Try a different layout:</strong> Two Content might work better than Title and Content</li>
+              <li><strong>Reduce content:</strong> Consider splitting into multiple slides</li>
+              <li><strong>Adjust font size:</strong> But ensure it remains readable (18pt minimum)</li>
+              <li><strong>Use outline format:</strong> Bulleted lists take up less space than paragraphs</li>
+            </ul>
+
+            <h4>Reading order seems wrong</h4>
+            <ul>
+              <li><strong>Check with Tab key:</strong> Navigate through the slide to see the order</li>
+              <li><strong>Use Reading Order Pane:</strong> View > Reading Order Pane to see and adjust order</li>
+              <li><strong>Simplify the layout:</strong> Complex layouts often have order issues</li>
+              <li><strong>Group related elements:</strong> Use PowerPoint's grouping feature</li>
+            </ul>
+
+            <h4>Accessibility Checker flags layout issues</h4>
+            <ul>
+              <li><strong>Missing slide title:</strong> Always add a descriptive title</li>
+              <li><strong>Reading order problems:</strong> Use the Reading Order Pane to fix</li>
+              <li><strong>Text outside placeholders:</strong> Move content into appropriate placeholders</li>
+              <li><strong>Empty placeholders:</strong> Remove unused ones or choose a different layout</li>
+            </ul>
+
+            <div class="panel panel-primary">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">Quick layout checklist</h4>
+                <ul class="list-unstyled">
+                  <li>☐ Used a built-in layout (not blank slide)</li>
+                  <li>☐ Every slide has a unique, descriptive title</li>
+                  <li>☐ Content is in placeholders, not floating text boxes</li>
+                  <li>☐ Reading order flows logically (test with Tab key)</li>
+                  <li>☐ Visual hierarchy is clear and consistent</li>
+                  <li>☐ Layout serves the content, not just visual design</li>
+                  <li>☐ No accessibility checker errors related to structure</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <nav role="navigation" aria-labelledby="nav-pagination">
+            <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+            <ul class="pager">
+              <li class="previous">
+                <a rel="prev" href="getting-started-accessible-templates.html">Previous - Getting Started with Accessible Templates</a>
+              </li>
+              <li class="next">
+                <a rel="next" href="reading-order-navigation.html">Next - Reading Order & Navigation</a>
+              </li>
+            </ul>
+          </nav>
+        </main>
+        <nav
+          id="wb-sec"
+          class="wb-sec col-md-3 col-md-pull-9"
+          typeof="SiteNavigationElement"
+          aria-labelledby="wb-sec-h"
+        >
+          <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">PowerPoint Accessibility</h3>
+            <ul class="list-group menu list-unstyled">
+              <li><a class="list-group-item" href="getting-started-accessible-templates.html">Getting Started with Accessible Templates</a></li>
+              <li><a class="list-group-item active" href="slide-layouts-structure.html">Slide Layouts & Structure</a></li>
+              <li><a class="list-group-item" href="reading-order-navigation.html">Reading Order & Navigation</a></li>
+              <li><a class="list-group-item" href="alt-text-long-descriptions.html">Adding Alt Text & Long Descriptions in PowerPoint</a></li>
+              <li><a class="list-group-item" href="accessible-tables-charts-graphs.html">Creating Accessible Tables, Charts & Graphs</a></li>
+              <li><a class="list-group-item" href="multimedia-animations.html">Embedding Multimedia & Managing Animations in PowerPoint</a></li>
+              <li><a class="list-group-item" href="powerpoint-live-exporting-pdf.html">PowerPoint Live & Exporting to PDF</a></li>
+              <li><a class="list-group-item" href="additional-resources-support.html">Additional Resources & Support</a></li>
+            </ul>
+          </section>
+
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">All modules</h3>
+            <ul class="list-group menu list-unstyled">
+              <li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
+              <li><a class="list-group-item" href="../module2/index.html">Module 2 – Global Accessibility Techniques</a></li>
+              <li><a class="list-group-item active" href="index.html">Module 3 – PowerPoint Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module4/index.html">Module 4 – Word Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module5/index.html">Module 5 – Outlook Email Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module6/index.html">Module 6 – Introduction to Accessible PDFs</a></li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+      <div id="def-preFooter2"></div>
+      <script src="../../../scripts/preFooter2.min.js"></script>
+      <div id="def-preFooter"></div>
+      <script src="../../../scripts/preFooter.min.js"></script>
+    </div>
+
+    <div id="def-footer"></div>
+    <script src="../../../scripts/appFooter.min.js"></script>
+    <script src="../../../scripts/refFooter.min.js"></script>
+    <script src="../../../scripts/bati-itao.min.js"></script>
+  </body>
+</html>
