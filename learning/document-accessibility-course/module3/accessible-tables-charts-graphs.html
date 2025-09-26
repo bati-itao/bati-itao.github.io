@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>Creating Accessible Tables, Charts & Graphs – Module 3 - PowerPoint Accessibility</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <!-- Meta data -->
+    <meta
+      name="description"
+      content="Learn how to create accessible tables with proper header structure, and design charts and graphs that work for everyone, including data visualization best practices in PowerPoint 365."
+    />
+    <!-- Meta data-->
+    <!-- Load closure template scripts -->
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- Write closure template -->
+    <script src="../../../scripts/refTop.min.js"></script>
+    <link rel="stylesheet" href="../../../css/a11y-dark.css" />
+    <script src="../../../scripts/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <link rel="stylesheet" href="../../../css/esdc-course.css" />
+  </head>
+
+  <body vocab="https://schema.org/" typeof="WebPage">
+    <div id="def-top"></div>
+    <!-- Write closure template -->
+    <script>
+      var defTop = document.getElementById('def-top');
+      defTop.outerHTML = wet.builder.appTop({
+        appName: [
+          {
+            text: 'ESDC / IT Accessibility office',
+            href: '../../../index.html',
+          },
+        ],
+        breadcrumbs: [
+          {
+            title: 'Home',
+            href: '../../../index.html',
+          },
+          {
+            title: 'Learning',
+            href: '../../index.html',
+          },
+          {
+            title: 'Document accessibility course',
+            href: '../index.html',
+          },
+          {
+            title: 'Module 3 – PowerPoint Accessibility',
+            href: 'index.html',
+          },
+          {
+            title: 'Creating Accessible Tables, Charts & Graphs',
+          },
+        ],
+        lngLinks: [
+          {
+            lang: 'fr',
+            href: 'accessible-tables-charts-graphs-fr.html',
+            text: 'Français',
+          },
+        ],
+        menuPath: '../../../ajax/menu-en.html',
+      });
+    </script>
+    <div class="container">
+      <div class="row">
+        <div id="def-search"></div>
+        <script src="../../../scripts/appSearch.js"></script>
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Creating Accessible Tables, Charts & Graphs</h1>
+
+          <nav aria-labelledby="nav-table" class="mrgn-tp-md">
+            <h2 id="nav-table" class="wb-inv">Table of contents</h2>
+            <details class="mrgn-bttm-lg on" open="open">
+              <summary class="bg-info">Table of contents</summary>
+              <ul>
+                <li><a href="#accessible-tables">Creating accessible tables</a></li>
+                <li><a href="#table-headers-structure">Table headers and structure</a></li>
+                <li><a href="#accessible-charts">Designing accessible charts and graphs</a></li>
+                <li><a href="#chart-types-best-practices">Chart types and best practices</a></li>
+                <li><a href="#color-patterns-accessibility">Color, patterns, and visual accessibility</a></li>
+                <li><a href="#smartart-diagrams">SmartArt and diagrams</a></li>
+                <li><a href="#data-alternatives">Alternative data formats</a></li>
+                <li><a href="#testing-validation">Testing and validation</a></li>
+              </ul>
+            </details>
+          </nav>
+
+          <section id="accessible-tables">
+            <h2>Creating accessible tables</h2>
+            
+            <p>Tables are powerful tools for organizing and presenting data, but they must be properly structured to be accessible to screen reader users and others who rely on assistive technologies.</p>
+
+            <h3>Why table structure matters</h3>
+            <p><strong>Properly structured tables allow screen reader users to navigate and understand tabular data</strong> by providing clear relationships between headers and data cells. Without proper structure, tables become confusing lists of unrelated information.</p>
+
+            <p>Screen readers announce table information in a specific way:</p>
+            <ul>
+              <li><strong>Table discovery:</strong> "Table with X columns and Y rows"</li>
+              <li><strong>Header identification:</strong> "Column header: [header text]" or "Row header: [header text]"</li>
+              <li><strong>Cell navigation:</strong> Users can jump between cells and hear associated headers</li>
+              <li><strong>Data relationships:</strong> Clear connections between headers and data</li>
+            </ul>
+
+            <div class="panel panel-info">
+              <div class="panel-body">
+                <h3 class="mrgn-tp-0">Real-world impact</h3>
+                <p>Consider a budget table showing quarterly expenses by department. Without proper headers, a screen reader user would hear:</p>
+                <p><em>"Q1, Q2, Q3, Q4, Marketing, 50000, 55000, 48000, 52000, IT, 75000, 78000, 72000, 80000..."</em></p>
+                <p>With proper structure, they hear:</p>
+                <p><em>"Table with 4 columns and 3 rows. Row header: Marketing. Column header Q1: 50,000. Column header Q2: 55,000..."</em></p>
+              </div>
+            </div>
+
+            <h3>Using PowerPoint's table feature</h3>
+            <p>Always use the Insert > Table feature rather than creating table-like layouts with text boxes:</p>
+            <ol>
+              <li>Go to <strong>Insert > Table</strong></li>
+              <li>Select the number of rows and columns needed</li>
+              <li>PowerPoint will create a properly structured table</li>
+              <li>The table will be recognized by screen readers as a data table</li>
+            </ol>
+
+            <h3>Planning your table structure</h3>
+            <p>Before creating the table, consider:</p>
+            <ul>
+              <li><strong>Data organization:</strong> What information needs to be compared or related?</li>
+              <li><strong>Header placement:</strong> Will you need column headers, row headers, or both?</li>
+              <li><strong>Complexity:</strong> Can the information be simplified or broken into multiple tables?</li>
+              <li><strong>Reading order:</strong> How should users navigate through the data?</li>
+            </ul>
+
+            <h3>Keep tables simple for presentations</h3>
+            <p>For presentations, simpler tables are more accessible and easier to understand:</p>
+            <ul>
+              <li><strong>Limit columns:</strong> Aim for 5 columns or fewer when possible</li>
+              <li><strong>Limit rows:</strong> Consider splitting large tables across multiple slides</li>
+              <li><strong>Focus on key data:</strong> Include only the most important information</li>
+              <li><strong>Use clear, concise headers:</strong> Headers should be self-explanatory</li>
+            </ul>
+
+            <div class="panel panel-warning">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">⚠️ Avoid fake tables</h4>
+                <p>Never create tables using:</p>
+                <ul>
+                  <li>Text boxes arranged to look like tables</li>
+                  <li>Images of tables</li>
+                  <li>Text with tabs or spaces for alignment</li>
+                  <li>Manual formatting without table structure</li>
+                </ul>
+                <p>These approaches break accessibility and don't provide proper navigation for screen readers.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="table-headers-structure">
+            <h2>Table headers and structure</h2>
+            
+            <p>Proper header structure is the most critical aspect of table accessibility.</p>
+
+            <h3>Setting up table headers in PowerPoint 365</h3>
+            
+            <h4>For simple tables with column headers only</h4>
+            <ol>
+              <li>Create your table using Insert > Table</li>
+              <li>Select the first row (header row)</li>
+              <li>Go to <strong>Table Design > Header Row</strong> (check the box)</li>
+              <li>PowerPoint will format the header row and mark it semantically</li>
+              <li>Add descriptive text to each header cell</li>
+            </ol>
+
+            <h4>For tables with both column and row headers</h4>
+            <ol>
+              <li>Set up column headers as above</li>
+              <li>Select the first column (where row headers will be)</li>
+              <li>Go to <strong>Table Design > First Column</strong> (check the box)</li>
+              <li>Add descriptive text to each row header cell</li>
+            </ol>
+
+            <h3>Writing effective table headers</h3>
+            
+            <h4>Header writing principles</h4>
+            <ul>
+              <li><strong>Be descriptive:</strong> Headers should clearly identify the data in each column/row</li>
+              <li><strong>Be concise:</strong> Use clear, brief language</li>
+              <li><strong>Be consistent:</strong> Use parallel structure across headers</li>
+              <li><strong>Include units:</strong> Specify currency, percentages, dates, etc.</li>
+            </ul>
+
+            <h4>Header examples</h4>
+            <div class="row">
+              <div class="col-md-6">
+                <h5>❌ Poor headers</h5>
+                <ul>
+                  <li>Q1, Q2, Q3, Q4</li>
+                  <li>Data, Info, Results</li>
+                  <li>Column A, Column B</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h5>✅ Good headers</h5>
+                <ul>
+                  <li>Q1 2024 Sales ($), Q2 2024 Sales ($)</li>
+                  <li>Department, Budget Allocated, Actual Spent</li>
+                  <li>Product Name, Units Sold, Revenue</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3>Complex table considerations</h3>
+            
+            <h4>When to avoid complex tables</h4>
+            <p>In presentations, avoid tables with:</p>
+            <ul>
+              <li><strong>Multiple header levels:</strong> Nested or grouped headers</li>
+              <li><strong>Merged cells:</strong> Spanning headers or data cells</li>
+              <li><strong>Mixed data types:</strong> Numbers, text, and images in the same table</li>
+              <li><strong>Too many dimensions:</strong> More than two levels of categorization</li>
+            </ul>
+
+            <h4>Alternatives to complex tables</h4>
+            <ul>
+              <li><strong>Multiple simple tables:</strong> Break complex data into several focused tables</li>
+              <li><strong>Charts and graphs:</strong> Visual representations may be clearer</li>
+              <li><strong>Key findings summary:</strong> Highlight the most important data points</li>
+              <li><strong>Appendix reference:</strong> Detailed data available separately</li>
+            </ul>
+
+            <h3>Table formatting for accessibility</h3>
+            
+            <ul>
+              <li><strong>Use adequate white space:</strong> Ensure cells aren't cramped</li>
+              <li><strong>Maintain consistent alignment:</strong> Numbers right-aligned, text left-aligned</li>
+              <li><strong>Use sufficient color contrast:</strong> Between background and text</li>
+              <li><strong>Avoid decorative borders:</strong> Keep formatting simple and clear</li>
+              <li><strong>Ensure readable font size:</strong> At least 18pt for presentation tables</li>
+            </ul>
+          </section>
+
+          <section id="accessible-charts">
+            <h2>Designing accessible charts and graphs</h2>
+            
+            <p>Charts and graphs are powerful visual communication tools, but they can exclude users who cannot see them. Making them accessible ensures everyone can understand your data story.</p>
+
+            <h3>Foundation principles for accessible charts</h3>
+            
+            <h4>Don't rely on color alone</h4>
+            <ul>
+              <li><strong>Use patterns and textures:</strong> Different fill patterns for chart segments</li>
+              <li><strong>Direct labeling:</strong> Label data series directly on the chart</li>
+              <li><strong>Shape variation:</strong> Different markers for line charts</li>
+              <li><strong>High contrast:</strong> Ensure sufficient contrast between elements</li>
+            </ul>
+
+            <h4>Provide multiple ways to access data</h4>
+            <ul>
+              <li><strong>Descriptive alt text:</strong> Summarize key findings</li>
+              <li><strong>Data tables:</strong> Raw data in accessible table format</li>
+              <li><strong>Text summaries:</strong> Written explanation of trends and insights</li>
+              <li><strong>Narrative integration:</strong> Discuss findings in your spoken presentation</li>
+            </ul>
+
+            <h3>Creating charts in PowerPoint 365</h3>
+            
+            <h4>Using built-in chart tools</h4>
+            <ol>
+              <li>Go to <strong>Insert > Chart</strong></li>
+              <li>Choose an appropriate chart type for your data</li>
+              <li>PowerPoint opens Excel for data entry</li>
+              <li>Enter your data with clear headers</li>
+              <li>Close Excel to return to PowerPoint with embedded chart</li>
+            </ol>
+
+            <h4>Advantages of native PowerPoint charts</h4>
+            <ul>
+              <li><strong>Editable:</strong> Data can be updated easily</li>
+              <li><strong>Scalable:</strong> Maintain quality at different sizes</li>
+              <li><strong>Screen reader compatible:</strong> Better than image-based charts</li>
+              <li><strong>Template consistency:</strong> Match your presentation design</li>
+            </ul>
+
+            <h3>Essential chart accessibility features</h3>
+            
+            <h4>Meaningful chart titles</h4>
+            <ul>
+              <li><strong>Descriptive titles:</strong> Explain what the chart shows</li>
+              <li><strong>Include context:</strong> Time period, data source, units</li>
+              <li><strong>Highlight key finding:</strong> What should viewers take away?</li>
+            </ul>
+            <p><strong>Example:</strong> "Q4 2024 Revenue by Region Shows 23% Growth in Asia-Pacific"</p>
+
+            <h4>Comprehensive alt text</h4>
+            <p>Chart alt text should include:</p>
+            <ul>
+              <li><strong>Chart type:</strong> Bar chart, line graph, pie chart, etc.</li>
+              <li><strong>Data overview:</strong> What data is being presented</li>
+              <li><strong>Key trends:</strong> Main patterns or findings</li>
+              <li><strong>Specific values:</strong> Important data points</li>
+            </ul>
+            <p><strong>Example:</strong> "Bar chart showing quarterly sales from Q1 to Q4 2024. Sales increased steadily from $2.1M in Q1 to $3.4M in Q4, with the largest jump of $800K between Q3 and Q4."</p>
+
+            <h4>Data table backup</h4>
+            <p>For complex charts, provide underlying data:</p>
+            <ul>
+              <li><strong>Same slide:</strong> Small table with key values</li>
+              <li><strong>Speaker notes:</strong> Detailed data for reference</li>
+              <li><strong>Appendix slide:</strong> Complete data table</li>
+              <li><strong>Separate handout:</strong> Detailed data document</li>
+            </ul>
+          </section>
+
+          <section id="chart-types-best-practices">
+            <h2>Chart types and best practices</h2>
+            
+            <h3>Bar and column charts</h3>
+            <p><strong>Best for:</strong> Comparing categories, showing changes over time</p>
+            
+            <h4>Accessibility considerations</h4>
+            <ul>
+              <li><strong>Use different patterns:</strong> Solid, striped, dotted fills</li>
+              <li><strong>Direct labeling:</strong> Include values on or near bars</li>
+              <li><strong>Logical ordering:</strong> Arrange bars by value or category</li>
+              <li><strong>Adequate spacing:</strong> Ensure bars are clearly separated</li>
+            </ul>
+
+            <h4>Alt text example</h4>
+            <p>"Column chart showing 2024 monthly sales. Sales ranged from $180K in January to $320K in December, with steady growth throughout the year and a notable spike to $340K in November."</p>
+
+            <h3>Line charts</h3>
+            <p><strong>Best for:</strong> Showing trends over time, continuous data</p>
+            
+            <h4>Accessibility considerations</h4>
+            <ul>
+              <li><strong>Different line styles:</strong> Solid, dashed, dotted lines</li>
+              <li><strong>Distinct markers:</strong> Circles, squares, triangles for data points</li>
+              <li><strong>Line thickness variation:</strong> Make important lines thicker</li>
+              <li><strong>Data point labels:</strong> Key values labeled directly</li>
+            </ul>
+
+            <h4>Alt text example</h4>
+            <p>"Line chart tracking customer satisfaction from January to December 2024. Satisfaction started at 3.2 stars, dipped to 2.8 in March, then steadily improved to 4.1 stars by year end."</p>
+
+            <h3>Pie charts</h3>
+            <p><strong>Best for:</strong> Showing parts of a whole (use sparingly)</p>
+            
+            <h4>Accessibility considerations</h4>
+            <ul>
+              <li><strong>Limit segments:</strong> 5-7 segments maximum</li>
+              <li><strong>Pattern fills:</strong> Different textures for each segment</li>
+              <li><strong>Percentage labels:</strong> Include values on each segment</li>
+              <li><strong>Logical ordering:</strong> Largest to smallest segments</li>
+            </ul>
+
+            <h4>Alt text example</h4>
+            <p>"Pie chart showing marketing budget allocation: Digital advertising 45%, Traditional media 30%, Events 15%, Content creation 10%."</p>
+
+            <div class="panel panel-warning">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">⚠️ Consider alternatives to pie charts</h4>
+                <p>Pie charts are often difficult to interpret accurately. Consider:</p>
+                <ul>
+                  <li><strong>Horizontal bar charts:</strong> Easier to compare values</li>
+                  <li><strong>Simple table:</strong> More precise for exact values</li>
+                  <li><strong>Text list:</strong> Clear hierarchy of categories</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3>Scatter plots and bubble charts</h3>
+            <p><strong>Best for:</strong> Showing relationships between variables</p>
+            
+            <h4>Accessibility considerations</h4>
+            <ul>
+              <li><strong>Clear axis labels:</strong> Describe what each axis represents</li>
+              <li><strong>Trend lines:</strong> Show patterns or correlations</li>
+              <li><strong>Key points highlighted:</strong> Important data points called out</li>
+              <li><strong>Alternative summary:</strong> Text description of relationships</li>
+            </ul>
+
+            <h3>When to avoid certain chart types</h3>
+            <ul>
+              <li><strong>3D charts:</strong> Distort data perception and are harder to read</li>
+              <li><strong>Overly complex combinations:</strong> Multiple chart types in one</li>
+              <li><strong>Too many data series:</strong> More than 4-5 lines/categories</li>
+              <li><strong>Decorative charts:</strong> Design over data clarity</li>
+            </ul>
+          </section>
+
+          <section id="color-patterns-accessibility">
+            <h2>Color, patterns, and visual accessibility</h2>
+            
+            <h3>Color accessibility principles</h3>
+            
+            <h4>Never rely on color alone</h4>
+            <p>Color should enhance understanding but never be the only way to distinguish data:</p>
+            <ul>
+              <li><strong>Add patterns:</strong> Stripes, dots, cross-hatching</li>
+              <li><strong>Use shapes:</strong> Different markers for line charts</li>
+              <li><strong>Include labels:</strong> Direct text labeling</li>
+              <li><strong>Vary line styles:</strong> Solid, dashed, dotted</li>
+            </ul>
+
+            <h4>High contrast requirements</h4>
+            <ul>
+              <li><strong>Text on backgrounds:</strong> Minimum 4.5:1 contrast ratio</li>
+              <li><strong>Chart elements:</strong> Sufficient contrast between adjacent colors</li>
+              <li><strong>Background separation:</strong> Clear distinction from slide background</li>
+            </ul>
+
+            <h3>Colorblind-friendly design</h3>
+            
+            <h4>Problematic color combinations</h4>
+            <ul>
+              <li><strong>Red and green:</strong> Most common colorblindness issue</li>
+              <li><strong>Blue and purple:</strong> Can be indistinguishable</li>
+              <li><strong>Similar shades:</strong> Light blue vs. light green</li>
+            </ul>
+
+            <h4>Better color strategies</h4>
+            <ul>
+              <li><strong>Use high contrast palettes:</strong> Dark blue, orange, yellow, dark green</li>
+              <li><strong>Include patterns:</strong> Redundant encoding with texture</li>
+              <li><strong>Test in grayscale:</strong> Verify charts work without color</li>
+              <li><strong>Use colorblind simulation tools:</strong> Check your designs</li>
+            </ul>
+
+            <h3>PowerPoint 365 accessibility features</h3>
+            
+            <h4>Built-in accessible color themes</h4>
+            <ul>
+              <li><strong>Office theme:</strong> High contrast, colorblind-friendly</li>
+              <li><strong>Custom themes:</strong> Create your own accessible palette</li>
+              <li><strong>Color palette tools:</strong> Choose from pre-tested combinations</li>
+            </ul>
+
+            <h4>Pattern and texture options</h4>
+            <ul>
+              <li><strong>Shape fill options:</strong> Patterns, gradients, textures</li>
+              <li><strong>Line style variations:</strong> Weight, dash patterns</li>
+              <li><strong>Data marker shapes:</strong> Circles, squares, triangles</li>
+            </ul>
+
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">✅ Quick color accessibility test</h4>
+                <ol>
+                  <li><strong>Grayscale test:</strong> Convert chart to grayscale - can you still distinguish elements?</li>
+                  <li><strong>Squint test:</strong> Squint at your chart - do important elements stand out?</li>
+                  <li><strong>Distance test:</strong> View from across the room - is it still clear?</li>
+                  <li><strong>Print test:</strong> Print in black and white - does it make sense?</li>
+                </ol>
+              </div>
+            </div>
+          </section>
+
+          <section id="smartart-diagrams">
+            <h2>SmartArt and diagrams</h2>
+            
+            <p>SmartArt and custom diagrams can effectively communicate processes, relationships, and hierarchies, but they require special attention for accessibility.</p>
+
+            <h3>Making SmartArt accessible</h3>
+            
+            <h4>Choose appropriate SmartArt types</h4>
+            <ul>
+              <li><strong>Process diagrams:</strong> For step-by-step workflows</li>
+              <li><strong>Hierarchy charts:</strong> For organizational structures</li>
+              <li><strong>Relationship diagrams:</strong> For connections between concepts</li>
+              <li><strong>List layouts:</strong> For categorized information</li>
+            </ul>
+
+            <h4>SmartArt accessibility features</h4>
+            <ol>
+              <li><strong>Use the text pane:</strong> Click the arrow on the left side of SmartArt</li>
+              <li><strong>Enter meaningful text:</strong> Each bullet point becomes a shape</li>
+              <li><strong>Structure content logically:</strong> Order reflects reading sequence</li>
+              <li><strong>Keep it simple:</strong> Avoid overly complex diagrams</li>
+            </ol>
+
+            <h3>Alternative approaches to SmartArt</h3>
+            
+            <h4>When to consider alternatives</h4>
+            <ul>
+              <li><strong>Complex relationships:</strong> Too many interconnections</li>
+              <li><strong>Reading order issues:</strong> Unclear navigation path</li>
+              <li><strong>Visual dependency:</strong> Meaning relies heavily on spatial arrangement</li>
+            </ul>
+
+            <h4>Alternative formats</h4>
+            <ul>
+              <li><strong>Bulleted lists:</strong> Hierarchical text structure</li>
+              <li><strong>Numbered sequences:</strong> For step-by-step processes</li>
+              <li><strong>Tables:</strong> For comparing multiple attributes</li>
+              <li><strong>Text descriptions:</strong> Narrative explanation of relationships</li>
+            </ul>
+
+            <h3>Custom diagram accessibility</h3>
+            
+            <h4>Using shapes and objects</h4>
+            <ul>
+              <li><strong>Logical grouping:</strong> Group related elements together</li>
+              <li><strong>Reading order management:</strong> Use Reading Order Pane to sequence</li>
+              <li><strong>Alternative text:</strong> Provide alt text for each meaningful shape</li>
+              <li><strong>Text descriptions:</strong> Include narrative explanation</li>
+            </ul>
+
+            <h4>Best practices for custom diagrams</h4>
+            <ul>
+              <li><strong>Include text labels:</strong> Don't rely only on visual cues</li>
+              <li><strong>Use high contrast:</strong> Ensure elements are distinguishable</li>
+              <li><strong>Maintain simplicity:</strong> Avoid unnecessary complexity</li>
+              <li><strong>Provide context:</strong> Explain what the diagram represents</li>
+            </ul>
+
+            <div class="panel panel-info">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">💡 Diagram accessibility checklist</h4>
+                <ul>
+                  <li>Can someone understand the main concept without seeing the diagram?</li>
+                  <li>Is there a logical reading order through the elements?</li>
+                  <li>Are relationships explained in text as well as visually?</li>
+                  <li>Would a text outline serve the same purpose?</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="data-alternatives">
+            <h2>Alternative data formats</h2>
+            
+            <p>Providing multiple ways to access the same information ensures that everyone can understand your data, regardless of their abilities or preferences.</p>
+
+            <h3>Data table alternatives</h3>
+            
+            <h4>When to provide data tables</h4>
+            <ul>
+              <li><strong>Complex charts:</strong> Charts with many data points</li>
+              <li><strong>Precise values needed:</strong> When exact numbers matter</li>
+              <li><strong>Comparative analysis:</strong> Side-by-side data comparison</li>
+              <li><strong>Reference material:</strong> Data users might want to reference later</li>
+            </ul>
+
+            <h4>Where to include data tables</h4>
+            <ul>
+              <li><strong>Same slide:</strong> For simple, key data</li>
+              <li><strong>Next slide:</strong> For supporting detail</li>
+              <li><strong>Appendix:</strong> For comprehensive data sets</li>
+              <li><strong>Handout:</strong> For offline reference</li>
+              <li><strong>Speaker notes:</strong> For presenter reference</li>
+            </ul>
+
+            <h3>Text summaries and narratives</h3>
+            
+            <h4>Key elements of data narratives</h4>
+            <ul>
+              <li><strong>Context:</strong> What does this data represent?</li>
+              <li><strong>Trends:</strong> What patterns emerge from the data?</li>
+              <li><strong>Significance:</strong> Why do these findings matter?</li>
+              <li><strong>Implications:</strong> What should we do based on this data?</li>
+            </ul>
+
+            <h4>Narrative structure examples</h4>
+            <p><strong>For trend data:</strong> "Sales data shows a clear upward trend over the past year, starting at $2.1M in Q1 and reaching $3.4M in Q4, representing 62% growth. The most significant increase occurred in Q4, suggesting our holiday marketing campaign was highly effective."</p>
+
+            <p><strong>For comparative data:</strong> "Among our five product lines, smartphones generated the highest revenue at $4.2M, followed by tablets at $2.8M. Laptops, despite lower unit sales, contributed $2.1M due to higher average selling prices."</p>
+
+            <h3>Interactive alternatives</h3>
+            
+            <h4>PowerPoint 365 interactive features</h4>
+            <ul>
+              <li><strong>Drill-down capabilities:</strong> Click to reveal detailed data</li>
+              <li><strong>Animated reveals:</strong> Progressive disclosure of information</li>
+              <li><strong>Linked resources:</strong> Connect to detailed data sources</li>
+              <li><strong>Voice narration:</strong> Record explanations of complex data</li>
+            </ul>
+
+            <h4>Ensuring interactive accessibility</h4>
+            <ul>
+              <li><strong>Keyboard access:</strong> All interactions work with keyboard</li>
+              <li><strong>Screen reader compatibility:</strong> Interactive elements are announced</li>
+              <li><strong>Alternative access:</strong> Non-interactive ways to get the same information</li>
+            </ul>
+          </section>
+
+          <section id="testing-validation">
+            <h2>Testing and validation</h2>
+            
+            <h3>Accessibility Checker validation</h3>
+            <ul>
+              <li><strong>Run regular checks:</strong> Use Review > Check Accessibility</li>
+              <li><strong>Address table issues:</strong> Missing headers, unclear structure</li>
+              <li><strong>Fix chart problems:</strong> Missing alt text, poor color contrast</li>
+              <li><strong>Review warnings:</strong> Consider accessibility recommendations</li>
+            </ul>
+
+            <h3>Manual testing techniques</h3>
+            
+            <h4>Keyboard navigation testing</h4>
+            <ol>
+              <li>Tab through tables - does the navigation make sense?</li>
+              <li>Can you understand data relationships using only keyboard?</li>
+              <li>Are all interactive chart elements accessible?</li>
+            </ol>
+
+            <h4>Screen reader testing</h4>
+            <ol>
+              <li>Use Windows Narrator or other screen reader</li>
+              <li>Navigate through tables and charts</li>
+              <li>Listen to how data is announced</li>
+              <li>Verify that alt text provides meaningful information</li>
+            </ol>
+
+            <h4>Visual accessibility testing</h4>
+            <ol>
+              <li><strong>Contrast checking:</strong> Use color contrast analyzers</li>
+              <li><strong>Colorblind simulation:</strong> Test with colorblindness simulators</li>
+              <li><strong>Zoom testing:</strong> Verify readability at 200% zoom</li>
+              <li><strong>Print testing:</strong> Ensure charts work in black and white</li>
+            </ol>
+
+            <div class="panel panel-primary">
+              <div class="panel-body">
+                <h3 class="mrgn-tp-0">Final checklist for tables, charts, and graphs</h3>
+                <ul class="list-unstyled">
+                  <li>☐ Tables use proper header structure (not text boxes)</li>
+                  <li>☐ Table headers are descriptive and include units</li>
+                  <li>☐ Charts have meaningful titles and alt text</li>
+                  <li>☐ Color is not the only way to distinguish data</li>
+                  <li>☐ Patterns, textures, or shapes provide redundant encoding</li>
+                  <li>☐ Data tables or text summaries provided for complex visualizations</li>
+                  <li>☐ Charts work in grayscale/high contrast mode</li>
+                  <li>☐ All elements pass contrast requirements</li>
+                  <li>☐ SmartArt includes meaningful text content</li>
+                  <li>☐ Reading order is logical for all data presentations</li>
+                  <li>☐ Alternative formats available for key data</li>
+                  <li>☐ Accessibility Checker shows no critical errors</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <nav role="navigation" aria-labelledby="nav-pagination">
+            <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+            <ul class="pager">
+              <li class="previous">
+                <a rel="prev" href="alt-text-long-descriptions.html">Previous - Adding Alt Text & Long Descriptions in PowerPoint</a>
+              </li>
+              <li class="next">
+                <a rel="next" href="multimedia-animations.html">Next - Embedding Multimedia & Managing Animations in PowerPoint</a>
+              </li>
+            </ul>
+          </nav>
+        </main>
+        <nav
+          id="wb-sec"
+          class="wb-sec col-md-3 col-md-pull-9"
+          typeof="SiteNavigationElement"
+          aria-labelledby="wb-sec-h"
+        >
+          <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">PowerPoint Accessibility</h3>
+            <ul class="list-group menu list-unstyled">
+              <li><a class="list-group-item" href="getting-started-accessible-templates.html">Getting Started with Accessible Templates</a></li>
+              <li><a class="list-group-item" href="slide-layouts-structure.html">Slide Layouts & Structure</a></li>
+              <li><a class="list-group-item" href="reading-order-navigation.html">Reading Order & Navigation</a></li>
+              <li><a class="list-group-item" href="alt-text-long-descriptions.html">Adding Alt Text & Long Descriptions in PowerPoint</a></li>
+              <li><a class="list-group-item active" href="accessible-tables-charts-graphs.html">Creating Accessible Tables, Charts & Graphs</a></li>
+              <li><a class="list-group-item" href="multimedia-animations.html">Embedding Multimedia & Managing Animations in PowerPoint</a></li>
+              <li><a class="list-group-item" href="powerpoint-live-exporting-pdf.html">PowerPoint Live & Exporting to PDF</a></li>
+              <li><a class="list-group-item" href="additional-resources-support.html">Additional Resources & Support</a></li>
+            </ul>
+          </section>
+
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">All modules</h3>
+            <ul class="list-group menu list-unstyled">
+              <li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
+              <li><a class="list-group-item" href="../module2/index.html">Module 2 – Global Accessibility Techniques</a></li>
+              <li><a class="list-group-item active" href="index.html">Module 3 – PowerPoint Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module4/index.html">Module 4 – Word Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module5/index.html">Module 5 – Outlook Email Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module6/index.html">Module 6 – Introduction to Accessible PDFs</a></li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+      <div id="def-preFooter2"></div>
+      <script src="../../../scripts/preFooter2.min.js"></script>
+      <div id="def-preFooter"></div>
+      <script src="../../../scripts/preFooter.min.js"></script>
+    </div>
+
+    <div id="def-footer"></div>
+    <script src="../../../scripts/appFooter.min.js"></script>
+    <script src="../../../scripts/refFooter.min.js"></script>
+    <script src="../../../scripts/bati-itao.min.js"></script>
+  </body>
+</html>
