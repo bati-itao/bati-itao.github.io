@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>Multimedia: Audio and Video – Module 3 - PowerPoint Accessibility</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <!-- Meta data -->
+    <meta name="description" content="Learn how to make audio and video content accessible with captions, transcripts, and proper embedding in PowerPoint presentations." />
+    <!-- Meta data-->
+    <!-- Load closure template scripts -->
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- Write closure template -->
+    <script src="../../../scripts/refTop.min.js"></script>
+    <link rel="stylesheet" href="../../../css/a11y-dark.css" />
+    <script src="../../../scripts/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <link rel="stylesheet" href="../../../css/esdc-course.css" />
+  </head>
+
+  <body vocab="https://schema.org/" typeof="WebPage">
+    <div id="def-top"></div>
+    <!-- Write closure template -->
+    <script>
+      var defTop = document.getElementById("def-top");
+      defTop.outerHTML = wet.builder.appTop({
+        appName: [
+          {
+            text: "ESDC / IT Accessibility office",
+            href: "../../index.html",
+          },
+        ],
+        breadcrumbs: [
+          {
+            title: "Home",
+            href: "../../index.html",
+          },
+          {
+            title: "Learning",
+            href: "../../index.html",
+          },
+          {
+            title: "Document accessibility course",
+            href: "../../index.html",
+          },
+          {
+            title: "Module 3 – PowerPoint Accessibility",
+            href: "../index.html",
+          },
+          {
+            title: "Multimedia Captions & Subtitles",
+          },
+        ],
+        lngLinks: [
+          {
+            lang: "fr",
+            href: "multimedia-captions-subtitles-fr.html",
+            text: "Français",
+          },
+        ],
+        menuPath: "../../../ajax/menu-en.html",
+      });
+    </script>
+    <div class="container">
+      <div class="row">
+        <div id="def-search"></div>
+        <script src="../../../scripts/appSearch.js"></script>
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Multimedia: Audio and Video</h1>
+
+          <nav aria-labelledby="nav-table" class="mrgn-tp-md">
+            <h2 id="nav-table" class="wb-inv">Table of contents</h2>
+            <details class="mrgn-bttm-lg on" open="open">
+              <summary class="bg-info">Table of contents</summary>
+              <ul>
+                <li><a href="#what-it-is">What it is</a></li>
+                <li><a href="#why-it-matters">Why it matters</a></li>
+                <li><a href="#captions">Captions</a></li>
+                <li><a href="#transcripts">Transcripts</a></li>
+                <li><a href="#powerpoint-live">Presenting with PowerPoint Live</a></li>
+                <li><a href="#embedding">Embedding multimedia</a></li>
+              </ul>
+            </details>
+          </nav>
+
+          <section id="what-it-is">
+            <h2>What it is</h2>
+            <p>
+              Multimedia in PowerPoint refers to audio and video content embedded in or linked from your presentation. 
+              This includes recorded videos, audio narration, sound effects, and music. When made accessible, multimedia 
+              enhances presentations for all users.
+            </p>
+            <p>
+              Accessible multimedia includes captions for video, transcripts for audio, and proper controls that work 
+              with assistive technologies.
+            </p>
+          </section>
+
+          <section id="why-it-matters">
+            <h2>Why it matters</h2>
+            <p>
+              Multimedia accessibility ensures everyone can access your content:
+            </p>
+            <ul>
+              <li><strong>Deaf or hard of hearing:</strong> Need captions to access audio information</li>
+              <li><strong>Blind or low vision:</strong> Need audio descriptions of visual content</li>
+              <li><strong>Cognitive disabilities:</strong> Benefit from both visual and text alternatives</li>
+              <li><strong>Non-native speakers:</strong> Captions help understand spoken content</li>
+              <li><strong>Noisy environments:</strong> Captions allow viewing without sound</li>
+            </ul>
+            <p>
+              Government accessibility standards require captions for pre-recorded audio and video content.
+            </p>
+          </section>
+
+          <section id="captions">
+            <h2>Captions</h2>
+
+            <h3>What captions are</h3>
+            <p>
+              Captions are text versions of spoken words and important sounds synchronized with video. They appear on 
+              screen as the video plays, allowing deaf or hard of hearing users to follow along.
+            </p>
+
+            <h3>How to add captions to embedded video</h3>
+            <p>
+              PowerPoint supports WebVTT (.vtt) caption files for embedded videos.
+            </p>
+
+            <h4>Steps for Windows, Microsoft 365</h4>
+            <ol>
+              <li>Insert your video: <strong>Insert → Video</strong>, select your file</li>
+              <li>Click on the video to activate video tools</li>
+              <li>Go to <strong>Playback</strong> tab → <strong>Insert Captions → From File</strong></li>
+              <li>Browse and add a WebVTT (.vtt) captions file</li>
+              <li>Play the video to ensure captions display correctly</li>
+            </ol>
+
+            <p>
+              <strong>Note:</strong> Keep caption files in the same folder as your video, and ensure captions are 
+              synchronized with audio.
+            </p>
+
+            <h3>Creating caption files</h3>
+
+            <h4>WebVTT (.vtt) format</h4>
+            <p>
+              WebVTT (Web Video Text Tracks) is the standard format for PowerPoint captions:
+            </p>
+            
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h4>Basic WebVTT structure:</h4>
+                <pre><code>WEBVTT
+
+00:00:00.000 --> 00:00:03.000
+Welcome to today's presentation on accessibility.
+
+00:00:03.000 --> 00:00:07.000
+We'll cover key techniques for inclusive design.</code></pre>
+              </div>
+            </div>
+
+            <h4>Free methods to create captions</h4>
+            <p>
+              <strong>Auto-generated captions:</strong>
+            </p>
+            <ul>
+              <li><strong>YouTube:</strong> Upload video (can be unlisted), auto-generate captions, edit for accuracy, download VTT file</li>
+              <li><strong>Microsoft Stream:</strong> Upload video, enable auto-captions, edit, download VTT file</li>
+            </ul>
+
+            <p>
+              <strong>Manual creation:</strong>
+            </p>
+            <ul>
+              <li>Use any text editor to create a .vtt file following the format above</li>
+              <li>Add timestamps and corresponding text for each caption</li>
+              <li>Save with .vtt extension</li>
+            </ul>
+
+            <h3>Caption best practices</h3>
+            <ul>
+              <li>Include all spoken words word-for-word</li>
+              <li>Identify speakers when multiple people speak: [John]: "Hello"</li>
+              <li>Describe important sounds: [applause], [music playing], [door slams]</li>
+              <li>Keep captions to 1-2 lines at a time</li>
+              <li>Synchronize captions accurately with audio</li>
+              <li>Use correct spelling and punctuation</li>
+            </ul>
+          </section>
+
+          <section id="transcripts">
+            <h2>Transcripts</h2>
+
+            <h3>What transcripts are</h3>
+            <p>
+              Transcripts are text documents containing all spoken content and important sound information from audio or 
+              video. Unlike captions, transcripts are separate documents that users can read at their own pace.
+            </p>
+
+            <h3>When transcripts are required</h3>
+            <ul>
+              <li><strong>Audio-only content:</strong> Required for podcasts, narration, recorded speeches</li>
+              <li><strong>Video with audio:</strong> Transcripts complement captions</li>
+              <li><strong>Complex content:</strong> Allow users to review detailed information</li>
+            </ul>
+
+            <h3>What to include in transcripts</h3>
+            <ul>
+              <li>All spoken content word-for-word</li>
+              <li>Speaker identification when multiple speakers</li>
+              <li>Important sounds: [applause], [music], [laughter]</li>
+              <li>Visual descriptions if relevant: [shows chart of Q4 results]</li>
+            </ul>
+
+            <h3>How to provide transcripts in PowerPoint</h3>
+            
+            <h4>Method 1: Speaker notes (recommended)</h4>
+            <p>
+              Include the full transcript in PowerPoint speaker notes so it travels with the presentation and is 
+              accessible to screen readers.
+            </p>
+            <ol>
+              <li>Click in the Notes pane below the slide</li>
+              <li>Paste or type the complete transcript</li>
+              <li>Format for readability with paragraphs and speaker labels</li>
+            </ol>
+
+            <h4>Method 2: Separate document</h4>
+            <p>
+              Provide a separate accessible document (Word or PDF) with the transcript:
+            </p>
+            <ul>
+              <li>Create a Word document with the transcript</li>
+              <li>Ensure the Word document is accessible</li>
+              <li>Provide link or include with presentation files</li>
+            </ul>
+
+            <h4>Method 3: Text on slides</h4>
+            <p>
+              For short audio clips, consider including the transcript directly on slides:
+            </p>
+            <ul>
+              <li>Add a text placeholder with the transcript</li>
+              <li>Clearly label it as "Transcript:"</li>
+              <li>Keep text formatting accessible (sufficient size and contrast)</li>
+            </ul>
+          </section>
+
+          <section id="powerpoint-live">
+            <h2>Presenting with PowerPoint Live</h2>
+
+            <h3>What PowerPoint Live is</h3>
+            <p>
+              PowerPoint Live is a feature in Microsoft Teams that allows presenters to share presentations with 
+              automatically generated live captions. Audience members can view slides on their own devices with captions 
+              in their preferred language.
+            </p>
+
+            <h3>Benefits of PowerPoint Live</h3>
+            <ul>
+              <li><strong>Automatic captions:</strong> Live spoken words are captioned in real-time</li>
+              <li><strong>Translation:</strong> Captions can be translated to different languages</li>
+              <li><strong>Individual control:</strong> Each viewer controls their own slide view</li>
+              <li><strong>Accessibility features:</strong> Viewers can use their own assistive technologies</li>
+              <li><strong>Mobile friendly:</strong> Works on phones and tablets</li>
+            </ul>
+
+            <h3>How to use PowerPoint Live</h3>
+            <ol>
+              <li>Start a Microsoft Teams meeting</li>
+              <li>Click <strong>Share</strong> button</li>
+              <li>Select <strong>PowerPoint Live</strong></li>
+              <li>Choose your presentation file</li>
+              <li>Enable <strong>Live captions</strong> in the meeting controls</li>
+              <li>Present normally - captions appear automatically</li>
+            </ol>
+
+            <h3>Best practices for PowerPoint Live</h3>
+            <ul>
+              <li>Speak clearly and at a moderate pace for better caption accuracy</li>
+              <li>Enable captions at the start of your presentation</li>
+              <li>Inform attendees they can view slides on their devices</li>
+              <li>Test the feature before important presentations</li>
+              <li>Have a backup plan if technology fails</li>
+            </ul>
+          </section>
+
+          <section id="embedding">
+            <h2>Embedding multimedia</h2>
+
+            <h3>Embed versus link</h3>
+            <p>
+              <strong>Embedded media:</strong> Video or audio file is inserted into the presentation file
+            </p>
+            <ul>
+              <li><strong>Pros:</strong> Everything in one file, works offline, no internet needed</li>
+              <li><strong>Cons:</strong> Large file size, may not play on all devices</li>
+            </ul>
+
+            <p>
+              <strong>Linked media:</strong> Presentation links to online video (YouTube, Vimeo, Stream)
+            </p>
+            <ul>
+              <li><strong>Pros:</strong> Small file size, captions built into platform, updates automatically</li>
+              <li><strong>Cons:</strong> Requires internet, links may break, platform must be accessible</li>
+            </ul>
+
+            <h3>How to embed video</h3>
+            <ol>
+              <li>Go to <strong>Insert → Video → This Device</strong></li>
+              <li>Select your video file</li>
+              <li>Click <strong>Insert</strong></li>
+              <li>Add captions as described above</li>
+              <li>Test playback</li>
+            </ol>
+
+            <h3>How to embed audio</h3>
+            <ol>
+              <li>Go to <strong>Insert → Audio → Audio on My PC</strong></li>
+              <li>Select your audio file</li>
+              <li>Click <strong>Insert</strong></li>
+              <li>Add transcript to speaker notes</li>
+            </ol>
+
+            <h3>How to link to online video</h3>
+            <ol>
+              <li>Go to <strong>Insert → Video → Online Video</strong></li>
+              <li>Paste the video URL (YouTube, Vimeo, etc.)</li>
+              <li>Click <strong>Insert</strong></li>
+              <li>Verify captions are available on the platform</li>
+            </ol>
+
+            <h3>Accessibility checklist for embedded media</h3>
+            <ul>
+              <li>Video has captions or caption file included</li>
+              <li>Audio has transcript in speaker notes or separate document</li>
+              <li>Media controls are accessible (play, pause, volume)</li>
+              <li>Media doesn't auto-play</li>
+              <li>File formats are widely supported (MP4 for video, MP3 for audio)</li>
+            </ul>
+          </section>
+
+          <section>
+            <div class="panel panel-primary">
+              <div class="panel-body">
+                <h3 class="mrgn-tp-0">Multimedia Captions and Subtitles checklist</h3>
+                <ul class="list-unstyled">
+                  <li>☐ All embedded videos have captions (.vtt files)</li>
+                  <li>☐ Captions are synchronized with audio</li>
+                  <li>☐ Speaker identification included when needed</li>
+                  <li>☐ Non-speech sounds described [applause], [music]</li>
+                  <li>☐ Audio-only content has text transcripts</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <nav role="navigation" aria-labelledby="nav-pagination">
+            <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+            <ul class="pager">
+              <li class="previous">
+                <a rel="prev" href="accessible-tables-charts-graphs.html">Previous - Charts &amp; Graphs</a>
+              </li>
+              <li class="next">
+                <a rel="next" href="multimedia-animations.html">Next - Animations and Transitions</a>
+              </li>
+            </ul>
+          </nav>
+        </main>
+        <nav
+          id="wb-sec"
+          class="wb-sec col-md-3 col-md-pull-9"
+          typeof="SiteNavigationElement"
+          aria-labelledby="wb-sec-h"
+        >
+          <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">PowerPoint Accessibility</h3>
+                        <ul class="list-group menu list-unstyled">
+              <li><a class="list-group-item" href="esdc-accessible-templates.html">ESDC Accessible Templates</a></li>
+              <li><a class="list-group-item" href="prebuilt-slide-layouts.html">Prebuilt Slide Layouts</a></li>
+              <li><a class="list-group-item" href="reading-order-navigation.html">Reading Order & Navigation</a></li>
+              <li><a class="list-group-item" href="font-text-formatting.html">Font and Text Formatting</a></li>
+              <li><a class="list-group-item" href="accessible-tables-charts-graphs.html">Charts & Graphs</a></li>
+              <li><a class="list-group-item active" href="multimedia-audio-video.html">Multimedia: Audio and Video</a></li>
+              <li><a class="list-group-item" href="multimedia-animations.html">Animations and Transitions</a></li>
+              <li><a class="list-group-item" href="exporting-to-pdf.html">Exporting to PDF</a></li>
+              <li><a class="list-group-item" href="additional-information.html">Additional Information</a></li>
+            </ul>
+          </section>
+          
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">All modules</h3>
+            <ul class="list-group menu list-unstyled">
+              <li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
+              <li><a class="list-group-item" href="../module2/index.html">Module 2 – Global Accessibility Techniques</a></li>
+              <li><a class="list-group-item active" href="index.html">Module 3 – PowerPoint Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module4/index.html">Module 4 – Word Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module5/index.html">Module 5 – Outlook Email Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module6/index.html">Module 6 – Introduction to Accessible PDFs</a></li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+      <div id="def-preFooter2"></div>
+      <script src="../../../scripts/preFooter2.min.js"></script>
+      <div id="def-preFooter"></div>
+      <script src="../../../scripts/preFooter.min.js"></script>
+    </div>
+
+    <div id="def-footer"></div>
+    <script src="../../../scripts/appFooter.min.js"></script>
+    <script src="../../../scripts/refFooter.min.js"></script>
+    <script src="../../../scripts/bati-itao.min.js"></script>
+  </body>
+</html>
