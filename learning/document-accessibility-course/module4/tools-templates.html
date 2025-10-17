@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>Word-Specific Tools and Templates – Module 4 - Word Accessibility Techniques</title>
+    <meta content="width=device-width,initial=1" name="viewport" />
+    <!-- Meta data -->
+    <meta
+      name="description"
+      content="Learn how to use Word's Accessibility Checker with Keep checker running option and leverage accessible Word templates."
+    />
+    <!-- Meta data-->
+    <!-- Load closure template scripts -->
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- Write closure template -->
+    <script src="../../../scripts/refTop.min.js"></script>
+    <link rel="stylesheet" href="../../../css/esdc-course.css" />
+  </head>
+
+  <body vocab="https://schema.org/" typeof="WebPage">
+    <div id="def-top"></div>
+    <!-- Write closure template -->
+    <script>
+      var defTop = document.getElementById('def-top');
+      defTop.outerHTML = wet.builder.appTop({
+        appName: [
+          {
+            text: 'ESDC / IT Accessibility office',
+            href: '../../../index.html',
+          },
+        ],
+        breadcrumbs: [
+          {
+            title: 'Home',
+            href: '../../../index.html',
+          },
+          {
+            title: 'Learning',
+            href: '../../index.html',
+          },
+          {
+            title: 'Document accessibility course',
+            href: '../index.html',
+          },
+          {
+            title: 'Module 4 – Word Accessibility Techniques',
+            href: 'index.html',
+          },
+          {
+            title: 'Word-Specific Tools and Templates',
+          },
+        ],
+        lngLinks: [
+          {
+            lang: 'fr',
+            href: 'tools-templates-fr.html',
+            text: 'Français',
+          },
+        ],
+        menuPath: '../../../ajax/menu-en.html',
+      });
+    </script>
+    <div class="container">
+      <div class="row">
+        <div id="def-search"></div>
+        <script src="../../../scripts/appSearch.js"></script>
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Word-Specific Tools and Templates</h1>
+
+          <nav aria-labelledby="nav-table" class="mrgn-tp-md">
+            <h2 id="nav-table" class="wb-inv">Table of contents</h2>
+            <details class="mrgn-bttm-lg on" open="open">
+              <summary class="bg-info">Table of contents</summary>
+              <ul>
+                <li><a href="#accessibility-checker">Using Accessibility Checker in Word</a></li>
+                <li><a href="#accessible-templates">Leveraging accessible Word templates</a></li>
+              </ul>
+            </details>
+          </nav>
+
+          <section id="accessibility-checker">
+            <h2>Using Accessibility Checker in Word</h2>
+
+            <h3>What it is</h3>
+            <p>
+              The Accessibility Checker is a built-in Word tool that automatically scans your document for accessibility 
+              issues and provides specific recommendations for fixing them. It identifies problems in three categories:
+            </p>
+            <ul>
+              <li><strong>Errors:</strong> Content that makes the document very difficult or impossible for people with disabilities to access</li>
+              <li><strong>Warnings:</strong> Content that may be difficult for people with disabilities to understand</li>
+              <li><strong>Tips:</strong> Suggestions for improving accessibility, though not critical issues</li>
+            </ul>
+            <p>
+              The Accessibility Checker can run in two modes:
+            </p>
+            <ul>
+              <li><strong>On-demand:</strong> Run manually when you want to check your document</li>
+              <li><strong>Keep checker running:</strong> Continuously monitors your document as you work, alerting you to issues in real-time</li>
+            </ul>
+
+            <h3>Why it matters</h3>
+            <p>
+              Using the Accessibility Checker is important because:
+            </p>
+            <ul>
+              <li><strong>Catches mistakes early:</strong> Identifies accessibility issues while you're creating content, when they're easiest to fix</li>
+              <li><strong>Saves time:</strong> Prevents having to go back and fix accessibility issues later</li>
+              <li><strong>Educates as you work:</strong> Provides explanations of why issues matter and how to fix them</li>
+              <li><strong>Ensures compliance:</strong> Helps meet accessibility standards and organizational requirements</li>
+              <li><strong>Improves quality:</strong> Often highlights issues that also affect general usability</li>
+              <li><strong>Real-time feedback:</strong> "Keep checker running" option provides immediate notifications</li>
+            </ul>
+
+            <div class="panel panel-info">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">What the Accessibility Checker detects</h4>
+                <ul>
+                  <li>Missing alt text on images</li>
+                  <li>Tables without header rows</li>
+                  <li>Merged or split cells in tables</li>
+                  <li>Poor color contrast</li>
+                  <li>Missing document title</li>
+                  <li>Hyperlinks with non-descriptive text (like "click here")</li>
+                  <li>Manually formatted headings (not using styles)</li>
+                  <li>Missing document language</li>
+                  <li>Inaccessible content in headers/footers</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3>How to do it</h3>
+
+            <h4>Running the Accessibility Checker</h4>
+            <p><strong>Method 1: From the Review tab</strong></p>
+            <ol>
+              <li>Go to the <strong>Review</strong> tab in the ribbon</li>
+              <li>Click <strong>Check Accessibility</strong> in the Accessibility group</li>
+              <li>The Accessibility pane will open on the right side showing any issues found</li>
+            </ol>
+
+            <p><strong>Method 2: From the File menu</strong></p>
+            <ol>
+              <li>Go to <strong>File</strong> → <strong>Info</strong></li>
+              <li>Click <strong>Check for Issues</strong></li>
+              <li>Select <strong>Check Accessibility</strong></li>
+              <li>Review issues in the Accessibility pane</li>
+            </ol>
+
+            <h4>Enabling "Keep checker running while I work"</h4>
+            <p>
+              This is the most powerful way to use the Accessibility Checker, as it provides real-time feedback:
+            </p>
+            <ol>
+              <li>Open the Accessibility Checker using either method above</li>
+              <li>In the Accessibility pane, find the option <strong>"Keep accessibility checker running while I work"</strong></li>
+              <li>Toggle this option to <strong>On</strong></li>
+              <li>You'll now see a small accessibility icon in the status bar (bottom of the screen)</li>
+              <li>The icon shows the number of issues: 
+                <ul>
+                  <li>No icon = No issues</li>
+                  <li>Number with icon = Issues detected</li>
+                </ul>
+              </li>
+              <li>Click the icon anytime to open the Accessibility pane and see details</li>
+            </ol>
+
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">✅ Benefits of "Keep checker running"</h4>
+                <ul>
+                  <li>Immediate feedback when you add inaccessible content</li>
+                  <li>Easy to fix issues right away, rather than finding them all later</li>
+                  <li>Helps you learn accessible practices through repetition</li>
+                  <li>Always know the accessibility status of your document</li>
+                  <li>Reduces the time spent on final accessibility review</li>
+                </ul>
+              </div>
+            </div>
+
+            <h4>Understanding and fixing issues</h4>
+            <p>When the Accessibility Checker finds issues:</p>
+            <ol>
+              <li>
+                <strong>Review the issue list:</strong> Issues are organized by category (Errors, Warnings, Tips)
+              </li>
+              <li>
+                <strong>Click on an issue:</strong> This will:
+                <ul>
+                  <li>Highlight the problematic content in your document</li>
+                  <li>Show recommended actions</li>
+                  <li>Explain why it matters</li>
+                  <li>Provide a "Learn more" link for additional information</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Use the recommended actions dropdown:</strong> Often provides quick fix options
+              </li>
+              <li>
+                <strong>Fix the issue:</strong> Follow the guidance provided
+              </li>
+              <li>
+                <strong>Issue disappears automatically:</strong> Once fixed, the issue is removed from the list
+              </li>
+            </ol>
+
+            <h4>Common issues and quick fixes</h4>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Issue</th>
+                  <th>Quick Fix</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Missing alt text</td>
+                  <td>Right-click image → Edit Alt Text → Add description</td>
+                </tr>
+                <tr>
+                  <td>Table missing header row</td>
+                  <td>Click table → Table Design → Check "Header Row"</td>
+                </tr>
+                <tr>
+                  <td>Merged cells</td>
+                  <td>Select merged cells → Table Layout → Split Cells, or restructure table</td>
+                </tr>
+                <tr>
+                  <td>Non-descriptive link text</td>
+                  <td>Edit link text to describe the destination</td>
+                </tr>
+                <tr>
+                  <td>Missing document title</td>
+                  <td>File → Info → Properties → Add Title</td>
+                </tr>
+                <tr>
+                  <td>Manual heading formatting</td>
+                  <td>Apply proper Heading styles (Heading 1, 2, 3, etc.)</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4>Best practices for using Accessibility Checker</h4>
+            <ul>
+              <li><strong>Enable "Keep checker running":</strong> Make it a habit to keep this on</li>
+              <li><strong>Fix issues immediately:</strong> Address problems as they're detected rather than accumulating them</li>
+              <li><strong>Prioritize errors:</strong> Fix all errors first, then warnings, then tips</li>
+              <li><strong>Read the explanations:</strong> Understanding why something is an issue helps prevent future mistakes</li>
+              <li><strong>Check before sharing:</strong> Always run a final accessibility check before distributing documents</li>
+              <li><strong>Use it as a learning tool:</strong> The checker helps you understand accessibility requirements</li>
+              <li><strong>Don't ignore warnings:</strong> While not as critical as errors, warnings still impact accessibility</li>
+            </ul>
+
+            <div class="panel panel-warning">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">⚠️ Limitations of Accessibility Checker</h4>
+                <p>The Accessibility Checker is helpful but not perfect. It cannot detect:</p>
+                <ul>
+                  <li>Whether alt text is meaningful and accurate (it only checks if alt text exists)</li>
+                  <li>Whether heading text is descriptive</li>
+                  <li>Whether long descriptions are needed for complex images</li>
+                  <li>Whether links make sense in context</li>
+                  <li>All color contrast issues (it checks some but not all)</li>
+                  <li>Whether content is written in plain language</li>
+                </ul>
+                <p>
+                  Use the Accessibility Checker as one tool in your accessibility toolkit, but also apply your own 
+                  judgment and understanding of accessibility principles.
+                </p>
+              </div>
+            </div>
+
+            <h4>Troubleshooting</h4>
+            <p><strong>If the Accessibility Checker button is grayed out:</strong></p>
+            <ul>
+              <li>Ensure you're not in editing mode for headers/footers or text boxes</li>
+              <li>Check that you have a document open (not just a blank Word window)</li>
+              <li>Verify your Word version supports the feature (Office 365/2016 or later)</li>
+            </ul>
+
+            <p><strong>If issues don't disappear after fixing:</strong></p>
+            <ul>
+              <li>Click the refresh icon in the Accessibility pane</li>
+              <li>Close and reopen the Accessibility Checker</li>
+              <li>Save and reopen the document</li>
+            </ul>
+          </section>
+
+          <section id="accessible-templates">
+            <h2>Leveraging accessible Word templates for consistency</h2>
+
+            <h3>What it is</h3>
+            <p>
+              Accessible Word templates are pre-designed document structures that have accessibility features built in 
+              from the start. They include:
+            </p>
+            <ul>
+              <li>Properly configured heading styles</li>
+              <li>Accessible color schemes with good contrast</li>
+              <li>Pre-formatted table styles with header rows</li>
+              <li>Placeholder text with guidance</li>
+              <li>Correct document properties (title, language, etc.)</li>
+              <li>Accessible page layouts</li>
+            </ul>
+            <p>
+              Templates ensure that every document created from them starts with a strong accessibility foundation, 
+              reducing the effort required to create accessible content.
+            </p>
+
+            <h3>Why it matters</h3>
+            <p>
+              Using accessible templates is important because:
+            </p>
+            <ul>
+              <li><strong>Consistency across organization:</strong> Everyone uses the same accessible structure and styles</li>
+              <li><strong>Saves time:</strong> Don't need to set up accessibility features for each new document</li>
+              <li><strong>Reduces errors:</strong> Less chance of forgetting accessibility requirements</li>
+              <li><strong>Easier to maintain:</strong> Update the template once, and all new documents benefit</li>
+              <li><strong>Professional appearance:</strong> Templates ensure consistent branding and formatting</li>
+              <li><strong>Built-in guidance:</strong> Templates can include instructions and examples</li>
+              <li><strong>Promotes best practices:</strong> Makes accessible practices the default, not an afterthought</li>
+            </ul>
+
+            <div class="panel panel-info">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">ITAO accessible templates</h4>
+                <p>
+                  The IT Accessibility Office (ITAO) provides accessible Word templates specifically designed for 
+                  Government of Canada use. These templates include:
+                </p>
+                <ul>
+                  <li>Federal identity program compliant branding</li>
+                  <li>Bilingual support</li>
+                  <li>Pre-configured accessible styles</li>
+                  <li>Guidance for maintaining accessibility</li>
+                  <li>Tested for compliance with accessibility standards</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3>How to do it</h3>
+
+            <h4>Finding and using ITAO Word templates</h4>
+            <ol>
+              <li>
+                <strong>Visit the ITAO website:</strong>
+                <ul>
+                  <li>Navigate to the ITAO resources section (link provided in Resources and Support page)</li>
+                  <li>Look for "Accessible Document Templates" or "Word Templates"</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Download the appropriate template:</strong>
+                <ul>
+                  <li>Choose based on document type (report, memo, presentation notes, etc.)</li>
+                  <li>Select English or bilingual version as needed</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Save template to your computer:</strong>
+                <ul>
+                  <li>Save to Word's default template location, or</li>
+                  <li>Save to a shared location if your team will use it</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Create new documents from the template:</strong>
+                <ul>
+                  <li>File → New → Personal or Custom templates</li>
+                  <li>Select the ITAO template</li>
+                  <li>Begin adding your content</li>
+                </ul>
+              </li>
+            </ol>
+
+            <h4>Using templates effectively</h4>
+            <p>When working with an accessible template:</p>
+            <ul>
+              <li>
+                <strong>Read the instructions:</strong> Most templates include guidance in the document or as comments
+              </li>
+              <li>
+                <strong>Use the provided styles:</strong> Don't override heading styles or create new ones unnecessarily
+              </li>
+              <li>
+                <strong>Replace placeholder text:</strong> Remove sample content and add your own
+              </li>
+              <li>
+                <strong>Maintain the structure:</strong> Don't remove heading styles or table formats
+              </li>
+              <li>
+                <strong>Follow embedded guidance:</strong> Templates often include tips and reminders
+              </li>
+              <li>
+                <strong>Save as a regular document:</strong> File → Save As → Word Document (not template format) for your working document
+              </li>
+            </ul>
+
+            <h4>Key features of accessible templates</h4>
+
+            <p><strong>1. Pre-configured heading styles</strong></p>
+            <ul>
+              <li>Heading styles already set up with proper hierarchy</li>
+              <li>Good color contrast and readable fonts</li>
+              <li>Appropriate sizing and spacing</li>
+              <li>Consistent with organizational branding</li>
+            </ul>
+
+            <p><strong>2. Accessible table styles</strong></p>
+            <ul>
+              <li>Tables pre-formatted with header rows</li>
+              <li>Banded rows for readability</li>
+              <li>Good contrast between rows</li>
+              <li>Simple structure (no merged cells)</li>
+            </ul>
+
+            <p><strong>3. Document properties</strong></p>
+            <ul>
+              <li>Document language set correctly</li>
+              <li>Placeholders for title and author</li>
+              <li>Metadata structure ready to fill in</li>
+            </ul>
+
+            <p><strong>4. Color schemes</strong></p>
+            <ul>
+              <li>Color palettes that meet contrast requirements</li>
+              <li>Theme colors you can apply consistently</li>
+              <li>Guidance on maintaining contrast</li>
+            </ul>
+
+            <h4>Creating your own accessible templates</h4>
+            <p>
+              If you need to create a custom template for your team or organization:
+            </p>
+            <ol>
+              <li>
+                <strong>Start with an ITAO template or accessible document:</strong> Don't start from scratch
+              </li>
+              <li>
+                <strong>Configure heading styles:</strong>
+                <ul>
+                  <li>Modify Heading 1, 2, 3, etc. to match your brand</li>
+                  <li>Ensure good contrast and readability</li>
+                  <li>Don't change style names or hierarchy levels</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Set up table styles:</strong>
+                <ul>
+                  <li>Create or modify table styles with header rows</li>
+                  <li>Use banded rows</li>
+                  <li>Ensure good contrast</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Add placeholder content:</strong>
+                <ul>
+                  <li>Include sample headings, paragraphs, and tables</li>
+                  <li>Add instructional comments or notes</li>
+                  <li>Provide examples of proper usage</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Set document properties:</strong>
+                <ul>
+                  <li>File → Info → Properties</li>
+                  <li>Set Title, Author, Company</li>
+                  <li>Set document language</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Test with Accessibility Checker:</strong> Ensure template has no accessibility issues
+              </li>
+              <li>
+                <strong>Save as template:</strong>
+                <ul>
+                  <li>File → Save As</li>
+                  <li>Choose file type: <strong>Word Template (.dotx)</strong></li>
+                  <li>Save to Templates folder or shared location</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Document the template:</strong> Create a guide explaining how to use it
+              </li>
+              <li>
+                <strong>Get feedback:</strong> Have others test the template and suggest improvements
+              </li>
+            </ol>
+
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">✅ Accessible template checklist</h4>
+                <ul class="list-unstyled">
+                  <li>☐ All heading styles use proper hierarchy</li>
+                  <li>☐ Color contrast meets minimum requirements (4.5:1)</li>
+                  <li>☐ Fonts are readable (sans-serif, appropriate sizes)</li>
+                  <li>☐ Table styles include header rows</li>
+                  <li>☐ Document language is set</li>
+                  <li>☐ Document title property is filled in (or has placeholder)</li>
+                  <li>☐ Sample content demonstrates accessible practices</li>
+                  <li>☐ Passes Accessibility Checker with no errors</li>
+                  <li>☐ Instructions or guidance included for users</li>
+                  <li>☐ Consistent with organizational branding</li>
+                </ul>
+              </div>
+            </div>
+
+            <h4>Maintaining and updating templates</h4>
+            <p>Templates need periodic maintenance:</p>
+            <ul>
+              <li>
+                <strong>Review annually:</strong> Check if templates still meet current accessibility standards
+              </li>
+              <li>
+                <strong>Gather user feedback:</strong> Ask users about problems or needed improvements
+              </li>
+              <li>
+                <strong>Update for branding changes:</strong> Modify templates when organizational branding updates
+              </li>
+              <li>
+                <strong>Test with new Word versions:</strong> Ensure templates work with updated software
+              </li>
+              <li>
+                <strong>Version control:</strong> Keep track of template versions and changes
+              </li>
+              <li>
+                <strong>Communicate updates:</strong> Let users know when templates are updated and why
+              </li>
+            </ul>
+
+            <h4>Organizational template strategy</h4>
+            <p>For organizations implementing accessible templates:</p>
+            <ul>
+              <li>
+                <strong>Create a template library:</strong> Provide templates for common document types
+              </li>
+              <li>
+                <strong>Make templates easy to find:</strong> Store in a well-known, accessible location
+              </li>
+              <li>
+                <strong>Provide training:</strong> Teach staff how to use templates properly
+              </li>
+              <li>
+                <strong>Enforce template use:</strong> Consider making templates mandatory for certain document types
+              </li>
+              <li>
+                <strong>Designate template owners:</strong> Assign responsibility for maintaining templates
+              </li>
+              <li>
+                <strong>Support and guidance:</strong> Provide help resources for template users
+              </li>
+            </ul>
+
+            <div class="panel panel-primary">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">Benefits of an organizational template program</h4>
+                <ul>
+                  <li>Consistent accessibility across all documents</li>
+                  <li>Reduced training needs (everyone uses same tools)</li>
+                  <li>Faster document creation</li>
+                  <li>Professional, branded appearance</li>
+                  <li>Easier to meet compliance requirements</li>
+                  <li>Lower remediation costs</li>
+                  <li>Better user experience for people with disabilities</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <nav role="navigation" aria-labelledby="nav-pagination">
+            <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+            <ul class="pager">
+              <li class="previous">
+                <a rel="prev" href="non-text-content.html">Previous - Managing Non-Text Content</a>
+              </li>
+              <li class="next">
+                <a rel="next" href="additional-best-practices.html">Next - Additional Best Practices</a>
+              </li>
+            </ul>
+          </nav>
+        </main>
+        <nav
+          id="wb-sec"
+          class="wb-sec col-md-3 col-md-pull-9"
+          typeof="SiteNavigationElement"
+          aria-labelledby="wb-sec-h"
+        >
+          <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">Word Accessibility Techniques</h3>
+            <ul class="list-group menu list-unstyled">
+              <li><a class="list-group-item" href="intro.html">Introduction</a></li>
+              <li><a class="list-group-item" href="structure-navigation.html">Word-Specific Structure and Navigation</a></li>
+              <li><a class="list-group-item" href="tables-word.html">Tables in Word</a></li>
+              <li><a class="list-group-item" href="non-text-content.html">Managing Non-Text Content</a></li>
+              <li><a class="list-group-item active" href="tools-templates.html">Word-Specific Tools and Templates</a></li>
+              <li><a class="list-group-item" href="additional-best-practices.html">Additional Best Practices</a></li>
+              <li><a class="list-group-item" href="resources-support.html">Resources and Support</a></li>
+            </ul>
+          </section>
+
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">All modules</h3>
+            <ul class="list-group menu list-unstyled">
+              <li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
+              <li><a class="list-group-item" href="../module2/index.html">Module 2 – Global Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module3/index.html">Module 3 – PowerPoint Accessibility Techniques</a></li>
+              <li><a class="list-group-item active" href="index.html">Module 4 – Word Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module5/index.html">Module 5 – Outlook Email Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module6/index.html">Module 6 – Introduction to Accessible PDFs</a></li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+      <div id="def-preFooter2"></div>
+      <script src="../../../scripts/preFooter2.min.js"></script>
+      <div id="def-preFooter"></div>
+      <script src="../../../scripts/preFooter.min.js"></script>
+    </div>
+
+    <div id="def-footer"></div>
+    <script src="../../../scripts/appFooter.min.js"></script>
+    <script src="../../../scripts/refFooter.min.js"></script>
+    <script src="../../../scripts/bati-itao.min.js"></script>
+  </body>
+</html>
