@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>Additional Information – Module 4 - Word Accessibility</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <!-- Meta data -->
+    <meta
+      name="description"
+      content="Learn about tables, headers and footers, watermarks, and references in accessible Word documents."
+    />
+    <!-- Meta data-->
+    <!-- Load closure template scripts -->
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- Write closure template -->
+    <script src="../../../scripts/refTop.min.js"></script>
+    <link rel="stylesheet" href="../../../css/a11y-dark.css" />
+    <script src="../../../scripts/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <link rel="stylesheet" href="../../../css/esdc-course.css" />
+  </head>
+
+  <body vocab="https://schema.org/" typeof="WebPage">
+    <div id="def-top"></div>
+    <!-- Write closure template -->
+    <script>
+      var defTop = document.getElementById('def-top');
+      defTop.outerHTML = wet.builder.appTop({
+        appName: [
+          {
+            text: 'ESDC / IT Accessibility office',
+            href: '../../../index.html',
+          },
+        ],
+        breadcrumbs: [
+          {
+            title: 'Home',
+            href: '../../../index.html',
+          },
+          {
+            title: 'Learning',
+            href: '../../index.html',
+          },
+          {
+            title: 'Document accessibility course',
+            href: '../index.html',
+          },
+          {
+            title: 'Module 4 – Word Accessibility Techniques',
+            href: 'index.html',
+          },
+          {
+            title: 'Additional Information',
+          },
+        ],
+        lngLinks: [
+          {
+            lang: 'fr',
+            href: 'additional-information-fr.html',
+            text: 'Français',
+          },
+        ],
+        menuPath: '../../../ajax/menu-en.html',
+      });
+    </script>
+    <div class="container">
+      <div class="row">
+        <div id="def-search"></div>
+        <script src="../../../scripts/appSearch.js"></script>
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Additional Information</h1>
+
+          <nav aria-labelledby="nav-table" class="mrgn-tp-md">
+            <h2 id="nav-table" class="wb-inv">Table of contents</h2>
+            <details class="mrgn-bttm-lg on" open="open">
+              <summary class="bg-info">Table of contents</summary>
+              <ul>
+                <li><a href="#tables">Tables</a></li>
+                <li><a href="#headers-footers">Headers and Footers</a></li>
+                <li><a href="#watermarks">Watermarks</a></li>
+                <li><a href="#references-citations">References and Citations</a></li>
+              </ul>
+            </details>
+          </nav>
+
+          <section id="tables">
+            <h2>Tables</h2>
+
+            <h3>What it is</h3>
+            <p>
+              Tables in Word are structured grids of rows and columns used to organize and present data. Accessible 
+              tables have a clear structure that helps all users, including screen reader users, understand the 
+              relationships between data.
+            </p>
+            <p>
+              Tables consist of:
+            </p>
+            <ul>
+              <li><strong>Header rows:</strong> The first row(s) that label what each column contains</li>
+              <li><strong>Header columns:</strong> The first column(s) that label what each row contains</li>
+              <li><strong>Data cells:</strong> Cells containing the actual data</li>
+            </ul>
+
+            <h3>Why it matters</h3>
+            <p>
+              Properly structured tables are essential for accessibility:
+            </p>
+            <ul>
+              <li>
+                <strong>Screen reader navigation:</strong> Users can navigate by row and column, with headers 
+                announced to provide context
+              </li>
+              <li>
+                <strong>Data comprehension:</strong> Clear headers help all users understand data relationships
+              </li>
+              <li>
+                <strong>Reflow and responsiveness:</strong> Well-structured tables adapt better to different 
+                screen sizes
+              </li>
+              <li>
+                <strong>Document conversion:</strong> Tables with proper headers maintain accessibility when 
+                converted to PDF or other formats
+              </li>
+            </ul>
+
+            <div class="panel panel-danger">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">❌ Don't use tables for layout</h4>
+                <p>
+                  Never use tables to create page layouts, position text, or create visual effects. Tables should 
+                  only be used for actual tabular data. Using tables for layout creates confusion for screen 
+                  reader users and makes content difficult to reflow.
+                </p>
+              </div>
+            </div>
+
+            <h3>How to do it</h3>
+
+            <h4>Creating an accessible table</h4>
+            <ol>
+              <li>Go to <strong>Insert</strong> &gt; <strong>Table</strong></li>
+              <li>Select the number of rows and columns, or draw your table</li>
+              <li>Enter your data, placing column headers in the first row</li>
+              <li>Select the first row (header row)</li>
+              <li>Go to <strong>Table Design</strong> or <strong>Table Tools Design</strong> tab</li>
+              <li>Check the <strong>"Header Row"</strong> checkbox in the Table Style Options group</li>
+              <li>The header row will be formatted distinctly and marked for accessibility</li>
+            </ol>
+
+            <h4>For tables with header columns</h4>
+            <ol>
+              <li>After creating the table, select the first column</li>
+              <li>Right-click and select <strong>Table Properties</strong></li>
+              <li>Go to the <strong>Row</strong> tab</li>
+              <li>Check <strong>"Repeat as header row at the top of each page"</strong> if applicable</li>
+              <li>
+                For proper accessibility, you may need to manually set the header column in the alt text or 
+                ensure it's clearly labeled
+              </li>
+            </ol>
+
+            <h4>Table best practices</h4>
+            <ul>
+              <li><strong>Keep tables simple:</strong> Use simple table structures without merged or split cells when possible</li>
+              <li><strong>Avoid blank cells:</strong> Fill cells with "N/A" or appropriate indicators rather than leaving blank</li>
+              <li><strong>Avoid nested tables:</strong> Don't place tables inside other tables</li>
+              <li><strong>Use clear headers:</strong> Make column and row headers descriptive and concise</li>
+              <li><strong>Add alt text:</strong> Right-click the table, select "Table Properties," go to Alt Text tab, and add a brief description</li>
+              <li><strong>Keep columns consistent:</strong> Don't vary the number of columns within a table</li>
+              <li><strong>Consider splitting:</strong> If a table is very large or complex, consider splitting it into multiple simpler tables</li>
+            </ul>
+
+            <h4>Adding alt text to tables</h4>
+            <ol>
+              <li>Right-click anywhere in the table</li>
+              <li>Select <strong>Table Properties</strong></li>
+              <li>Go to the <strong>Alt Text</strong> tab</li>
+              <li>In the <strong>Title</strong> field, enter a brief name (e.g., "Quarterly Sales Data")</li>
+              <li>
+                In the <strong>Description</strong> field, provide a brief summary of what the table shows 
+                (e.g., "Sales figures by region for Q1-Q4 2024")
+              </li>
+              <li>Click <strong>OK</strong></li>
+            </ol>
+
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">✅ Table accessibility checklist</h4>
+                <ul class="list-unstyled">
+                  <li>☐ Table has header row marked</li>
+                  <li>☐ Headers are clear and descriptive</li>
+                  <li>☐ Table structure is simple (no unnecessary merged cells)</li>
+                  <li>☐ No blank cells (use "N/A" or similar)</li>
+                  <li>☐ Alt text describes the table's purpose</li>
+                  <li>☐ Table is used for data, not layout</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="headers-footers">
+            <h2>Headers and Footers</h2>
+
+            <h3>What it is</h3>
+            <p>
+              Headers and footers are areas at the top (header) and bottom (footer) of each page that typically 
+              contain information like:
+            </p>
+            <ul>
+              <li>Document title or section names</li>
+              <li>Author name or organization</li>
+              <li>Page numbers</li>
+              <li>Date</li>
+              <li>Document version or status</li>
+              <li>Logos or branding elements</li>
+            </ul>
+
+            <h3>Why it matters</h3>
+            <p>
+              Headers and footers require special consideration for accessibility:
+            </p>
+            <ul>
+              <li>
+                <strong>Reading order:</strong> Screen readers may read headers and footers before main content, 
+                potentially causing confusion
+              </li>
+              <li>
+                <strong>Repetition:</strong> Content in headers/footers repeats on every page, which can be 
+                disruptive for screen reader users
+              </li>
+              <li>
+                <strong>Essential content:</strong> Important information should not be exclusively in headers/footers 
+                as some assistive technology may skip them
+              </li>
+              <li>
+                <strong>PDF conversion:</strong> Headers and footers don't always convert properly to accessible PDFs
+              </li>
+            </ul>
+
+            <div class="panel panel-warning">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">⚠️ Keep it simple</h4>
+                <p>
+                  Headers and footers should contain only non-essential, supplementary information. Never put 
+                  critical content that readers need to understand the document in headers or footers.
+                </p>
+              </div>
+            </div>
+
+            <h3>How to do it</h3>
+
+            <h4>Adding headers and footers</h4>
+            <ol>
+              <li>Go to <strong>Insert</strong> &gt; <strong>Header</strong> or <strong>Footer</strong></li>
+              <li>Choose a built-in style or select <strong>Edit Header/Footer</strong></li>
+              <li>Enter your content in the header or footer area</li>
+              <li>Use the <strong>Header &amp; Footer Tools Design</strong> tab to add elements like page numbers or date</li>
+              <li>Click <strong>Close Header and Footer</strong> when done</li>
+            </ol>
+
+            <h4>Best practices for headers and footers</h4>
+            <ul>
+              <li>
+                <strong>Limit content:</strong> Keep headers and footers minimal - page numbers, document title, 
+                date are typically sufficient
+              </li>
+              <li>
+                <strong>No essential information:</strong> Don't put important content that readers need to 
+                understand the document
+              </li>
+              <li>
+                <strong>Simple formatting:</strong> Use plain text with minimal formatting
+              </li>
+              <li>
+                <strong>Accessible images:</strong> If you include logos or images, ensure they have alt text or 
+                mark them as decorative
+              </li>
+              <li>
+                <strong>Readable text:</strong> Ensure text color has adequate contrast with background
+              </li>
+              <li>
+                <strong>Appropriate size:</strong> Use readable font sizes (minimum 10pt)
+              </li>
+            </ul>
+
+            <h4>Adding alt text to images in headers/footers</h4>
+            <ol>
+              <li>Double-click the header or footer area to edit it</li>
+              <li>Right-click the image</li>
+              <li>Select <strong>View Alt Text</strong></li>
+              <li>
+                Add descriptive alt text or mark as decorative if it's purely visual (most logos in 
+                headers/footers can be decorative)
+              </li>
+            </ol>
+
+            <h4>Using page numbers</h4>
+            <ol>
+              <li>Go to <strong>Insert</strong> &gt; <strong>Page Number</strong></li>
+              <li>Choose position (top or bottom of page)</li>
+              <li>Select a format from the gallery</li>
+              <li>Page numbers are automatically accessible and update as you edit</li>
+            </ol>
+
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">✅ Headers and footers checklist</h4>
+                <ul class="list-unstyled">
+                  <li>☐ Headers and footers contain only supplementary information</li>
+                  <li>☐ No essential content is exclusively in headers/footers</li>
+                  <li>☐ Text is readable with adequate contrast</li>
+                  <li>☐ Images have alt text or are marked decorative</li>
+                  <li>☐ Content is kept minimal and simple</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="watermarks">
+            <h2>Watermarks</h2>
+
+            <h3>What it is</h3>
+            <p>
+              A watermark is faded text or an image that appears behind document content, typically used to indicate 
+              document status (Draft, Confidential, Copy) or for branding purposes. Watermarks appear on every page 
+              but don't interfere with the main content.
+            </p>
+
+            <h3>Why it matters</h3>
+            <p>
+              Watermarks can create accessibility challenges:
+            </p>
+            <ul>
+              <li>
+                <strong>Contrast issues:</strong> Watermarks can reduce the contrast between text and background, 
+                making content harder to read
+              </li>
+              <li>
+                <strong>Visual clutter:</strong> Watermarks can be distracting, especially for people with 
+                cognitive disabilities or attention difficulties
+              </li>
+              <li>
+                <strong>Screen reader interaction:</strong> Text watermarks may be read by screen readers, 
+                potentially causing confusion
+              </li>
+              <li>
+                <strong>Printed documents:</strong> Watermarks may print darker than they appear on screen, 
+                reducing readability
+              </li>
+            </ul>
+
+            <h3>How to do it</h3>
+
+            <h4>Adding a text watermark</h4>
+            <ol>
+              <li>Go to <strong>Design</strong> &gt; <strong>Watermark</strong></li>
+              <li>Choose a preset watermark (Confidential, Draft, etc.) or select <strong>Custom Watermark</strong></li>
+              <li>In the Custom Watermark dialog:
+                <ul>
+                  <li>Select <strong>Text watermark</strong></li>
+                  <li>Choose your text or enter custom text</li>
+                  <li>Select font, size, color, and layout</li>
+                  <li><strong>Important:</strong> Check <strong>"Semitransparent"</strong> to reduce visibility</li>
+                </ul>
+              </li>
+              <li>Click <strong>OK</strong></li>
+            </ol>
+
+            <h4>Adding a picture watermark</h4>
+            <ol>
+              <li>Go to <strong>Design</strong> &gt; <strong>Watermark</strong> &gt; <strong>Custom Watermark</strong></li>
+              <li>Select <strong>Picture watermark</strong></li>
+              <li>Click <strong>Select Picture</strong> and choose your image</li>
+              <li>Set the scale (larger scale = more visible)</li>
+              <li><strong>Important:</strong> Check <strong>"Washout"</strong> to make it very faint</li>
+              <li>Click <strong>OK</strong></li>
+            </ol>
+
+            <h4>Best practices for accessible watermarks</h4>
+            <ul>
+              <li>
+                <strong>Minimize use:</strong> Only use watermarks when truly necessary (required for document 
+                status or security)
+              </li>
+              <li>
+                <strong>Very faint:</strong> Ensure watermarks are extremely light (semitransparent/washout) to 
+                avoid reducing text contrast
+              </li>
+              <li>
+                <strong>Test contrast:</strong> Verify that body text still meets 4.5:1 contrast ratio with the 
+                watermark present
+              </li>
+              <li>
+                <strong>Short text:</strong> Use brief watermarks (one word like "DRAFT" is better than long phrases)
+              </li>
+              <li>
+                <strong>Simple images:</strong> If using picture watermarks, use simple, light images
+              </li>
+              <li>
+                <strong>Consider alternatives:</strong> Instead of watermarks, consider:
+                <ul>
+                  <li>Adding status to the document title ("DRAFT - Report Name")</li>
+                  <li>Using a text box or shape at the top of the first page only</li>
+                  <li>Including status information in headers/footers</li>
+                </ul>
+              </li>
+            </ul>
+
+            <h4>Removing watermarks</h4>
+            <ol>
+              <li>Go to <strong>Design</strong> &gt; <strong>Watermark</strong></li>
+              <li>Select <strong>Remove Watermark</strong></li>
+            </ol>
+
+            <div class="panel panel-warning">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">⚠️ Accessibility testing</h4>
+                <p>
+                  After adding a watermark, test your document's readability:
+                </p>
+                <ul>
+                  <li>Check text contrast using a contrast checker tool</li>
+                  <li>Print a page to see how the watermark appears in print</li>
+                  <li>Ask someone to read the document and verify readability</li>
+                  <li>If the watermark reduces readability, make it fainter or remove it</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">✅ Watermarks checklist</h4>
+                <ul class="list-unstyled">
+                  <li>☐ Watermark is used only when necessary</li>
+                  <li>☐ Watermark is very faint (semitransparent/washout enabled)</li>
+                  <li>☐ Text contrast still meets requirements with watermark</li>
+                  <li>☐ Watermark text is brief and simple</li>
+                  <li>☐ Document remains readable when printed</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="references-citations">
+            <h2>References and Citations</h2>
+
+            <h3>What it is</h3>
+            <p>
+              References and citations in Word documents identify sources of information, quotes, and ideas that 
+              aren't your own. Word provides built-in tools to manage citations and automatically generate 
+              bibliographies in various academic and professional styles (APA, MLA, Chicago, etc.).
+            </p>
+            <p>
+              Key components include:
+            </p>
+            <ul>
+              <li><strong>In-text citations:</strong> Brief references within the body text (e.g., "(Smith, 2024)")</li>
+              <li><strong>Bibliography/References:</strong> Full list of sources at the end of the document</li>
+              <li><strong>Footnotes/Endnotes:</strong> Numbered references that appear at the bottom of pages or end of document</li>
+            </ul>
+
+            <h3>Why it matters</h3>
+            <p>
+              Properly formatted references and citations improve accessibility:
+            </p>
+            <ul>
+              <li>
+                <strong>Credibility and trust:</strong> Proper citations build trust and allow readers to verify 
+                information
+              </li>
+              <li>
+                <strong>Navigation:</strong> Well-formatted citations help screen reader users navigate between 
+                references and source material
+              </li>
+              <li>
+                <strong>Consistency:</strong> Using Word's citation tools ensures consistent formatting throughout
+              </li>
+              <li>
+                <strong>Hyperlinks:</strong> Digital citations can include hyperlinks, making sources easy to access
+              </li>
+              <li>
+                <strong>Footnote navigation:</strong> Screen readers can jump between footnotes and their references
+              </li>
+            </ul>
+
+            <h3>How to do it</h3>
+
+            <h4>Inserting citations</h4>
+            <ol>
+              <li>Place your cursor where you want to insert a citation</li>
+              <li>Go to <strong>References</strong> tab &gt; <strong>Insert Citation</strong></li>
+              <li>
+                Select <strong>Add New Source</strong> (or choose an existing source if you've added it before)
+              </li>
+              <li>
+                In the Create Source dialog:
+                <ul>
+                  <li>Select the <strong>Type of Source</strong> (book, journal article, website, etc.)</li>
+                  <li>Fill in the required fields (author, title, year, etc.)</li>
+                  <li>Click <strong>OK</strong></li>
+                </ul>
+              </li>
+              <li>The citation is inserted in your chosen style</li>
+            </ol>
+
+            <h4>Choosing a citation style</h4>
+            <ol>
+              <li>Go to <strong>References</strong> tab</li>
+              <li>In the <strong>Style</strong> dropdown, select your required style (APA, MLA, Chicago, etc.)</li>
+              <li>All citations will automatically format in this style</li>
+            </ol>
+
+            <h4>Creating a bibliography</h4>
+            <ol>
+              <li>Place your cursor where you want the bibliography (typically at the end of the document)</li>
+              <li>Go to <strong>References</strong> tab &gt; <strong>Bibliography</strong></li>
+              <li>Choose a built-in format (Bibliography, References, Works Cited)</li>
+              <li>The bibliography is automatically generated from your citations</li>
+              <li>To update: Click the bibliography and select <strong>Update Citations and Bibliography</strong></li>
+            </ol>
+
+            <h4>Adding footnotes</h4>
+            <ol>
+              <li>Place your cursor where you want to insert the footnote reference</li>
+              <li>Go to <strong>References</strong> tab &gt; <strong>Insert Footnote</strong></li>
+              <li>A superscript number appears at the cursor position</li>
+              <li>The cursor moves to the bottom of the page where you type the footnote text</li>
+              <li>Footnotes are automatically numbered and positioned</li>
+            </ol>
+
+            <h4>Adding endnotes</h4>
+            <ol>
+              <li>Place your cursor where you want to insert the endnote reference</li>
+              <li>Go to <strong>References</strong> tab &gt; <strong>Insert Endnote</strong></li>
+              <li>A superscript number appears at the cursor position</li>
+              <li>The cursor moves to the end of the document where you type the endnote text</li>
+              <li>Endnotes are automatically numbered and positioned</li>
+            </ol>
+
+            <h4>Best practices for accessible citations</h4>
+
+            <p><strong>For in-text citations:</strong></p>
+            <ul>
+              <li>Use Word's built-in citation tools rather than manually typing citations</li>
+              <li>Keep citations concise and within the flow of text</li>
+              <li>Ensure citation format is consistent throughout the document</li>
+            </ul>
+
+            <p><strong>For bibliographies:</strong></p>
+            <ul>
+              <li>Use Word's automatic bibliography feature for consistency</li>
+              <li>Ensure entries are in a readable font and size (at least 11pt)</li>
+              <li>Use hanging indents (Word applies these automatically)</li>
+              <li>For online sources, include working hyperlinks when possible</li>
+            </ul>
+
+            <p><strong>For footnotes and endnotes:</strong></p>
+            <ul>
+              <li>Use Word's Insert Footnote/Endnote feature (never manually number them)</li>
+              <li>Keep footnote text concise</li>
+              <li>Ensure footnote text is at least 10pt (readable size)</li>
+              <li>Use footnotes for brief notes; use endnotes for longer explanations</li>
+              <li>Screen readers can navigate between footnote references and footnote text</li>
+            </ul>
+
+            <h4>Making hyperlinks accessible in citations</h4>
+            <p>
+              When including URLs in citations:
+            </p>
+            <ol>
+              <li>Select the URL text</li>
+              <li>Press <strong>Ctrl+K</strong> or go to <strong>Insert</strong> &gt; <strong>Link</strong></li>
+              <li>Ensure the URL is in the address field</li>
+              <li>
+                In the <strong>"Text to display"</strong> field, consider using descriptive text like the article 
+                title instead of the full URL
+              </li>
+              <li>Click <strong>OK</strong></li>
+            </ol>
+
+            <div class="panel panel-info">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">💡 Managing sources</h4>
+                <p>
+                  Click <strong>Manage Sources</strong> on the References tab to:
+                </p>
+                <ul>
+                  <li>View all sources in your document</li>
+                  <li>Edit existing sources</li>
+                  <li>Delete unused sources</li>
+                  <li>Copy sources between documents</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">✅ References and citations checklist</h4>
+                <ul class="list-unstyled">
+                  <li>☐ Used Word's built-in citation tools</li>
+                  <li>☐ Consistent citation style throughout document</li>
+                  <li>☐ Bibliography automatically generated</li>
+                  <li>☐ Footnotes/endnotes inserted using Word tools (not manually numbered)</li>
+                  <li>☐ All text (including citations) is readable size and contrast</li>
+                  <li>☐ Hyperlinks in citations have descriptive text</li>
+                  <li>☐ All sources cited in text appear in bibliography</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <nav role="navigation" aria-labelledby="nav-pagination">
+            <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+            <ul class="pager">
+              <li class="previous">
+                <a rel="prev" href="alt-text-long-descriptions.html">Previous - Alt Text and Long Descriptions</a>
+              </li>
+              <li class="next">
+                <a rel="next" href="index.html">Return to Module 4 Home</a>
+              </li>
+            </ul>
+          </nav>
+        </main>
+        <nav
+          id="wb-sec"
+          class="wb-sec col-md-3 col-md-pull-9"
+          typeof="SiteNavigationElement"
+          aria-labelledby="wb-sec-h"
+        >
+          <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">Word Accessibility Techniques</h3>
+            <ul class="list-group menu list-unstyled">
+              <li><a class="list-group-item" href="word-templates-page-layout.html">Word Templates and Page Layout</a></li>
+              <li><a class="list-group-item" href="heading-styles.html">Heading Styles</a></li>
+              <li><a class="list-group-item" href="text-and-fonts.html">Text and Fonts</a></li>
+              <li><a class="list-group-item" href="alt-text-long-descriptions.html">Alt Text and Long Descriptions</a></li>
+              <li><a class="list-group-item active" href="additional-information.html">Additional Information</a></li>
+            </ul>
+          </section>
+
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">All modules</h3>
+            <ul class="list-group menu list-unstyled">
+              <li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
+              <li><a class="list-group-item" href="../module2/index.html">Module 2 – Global Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module3/index.html">Module 3 – PowerPoint Accessibility Techniques</a></li>
+              <li><a class="list-group-item active" href="index.html">Module 4 – Word Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module5/index.html">Module 5 – Outlook Email Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module6/index.html">Module 6 – Introduction to Accessible PDFs</a></li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+      <div id="def-preFooter2"></div>
+      <script src="../../../scripts/preFooter2.min.js"></script>
+      <div id="def-preFooter"></div>
+      <script src="../../../scripts/preFooter.min.js"></script>
+    </div>
+
+    <div id="def-footer"></div>
+    <script src="../../../scripts/appFooter.min.js"></script>
+    <script src="../../../scripts/refFooter.min.js"></script>
+    <script src="../../../scripts/bati-itao.min.js"></script>
+  </body>
+</html>
