@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<title>Bilingual Email Structure & Keyboard Navigation - Module 5 – Outlook Email Accessibility Techniques</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<meta name="description" content="Learn how to structure bilingual emails with skip links, bookmarks, and keyboard navigation using borders instead of underscores.">
+	<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+	<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top"></div>
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{"text": "ESDC / IT Accessibility office", "href": "../../../index.html"}],
+           "breadcrumbs" : [
+                {"title": "Home", "href" : "../../../index.html"},
+                {"title": "Learning", "href" : "../../index.html"},
+                {"title": "Document accessibility course", "href" : "../index.html"},
+                {"title": "Module 5 – Outlook Email Accessibility Techniques", "href" : "index.html"}
+		],
+            "lngLinks": [{"lang": "fr", "href": "bilingual-structure-fr.html", "text": "Français"}],
+            "menuPath": "../../../ajax/menu-en.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+		<h1 property="name" id="wb-cont">Bilingual Email Structure & Keyboard Navigation</h1>
+		
+		<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+			<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+			<details class="mrgn-bttm-lg on" open="open">
+				<summary class="bg-info">Table of contents</summary>
+				<ul>
+					<li><a href="#what-it-is">What it is</a></li>
+					<li><a href="#why-it-matters">Why it matters</a></li>
+					<li><a href="#how-to-do-it">How to structure bilingual emails</a></li>
+					<li><a href="#skip-links">Creating skip links</a></li>
+					<li><a href="#bookmarks">Using bookmarks</a></li>
+					<li><a href="#visual-separation">Visual separation with borders</a></li>
+				</ul>
+			</details>
+		</nav>
+
+		<section id="what-it-is">
+			<h2>What it is</h2>
+			<p>Bilingual email structure refers to organizing emails that contain content in multiple languages (typically English and French) in a way that allows recipients to easily navigate to their preferred language. This involves:</p>
+			
+			<ul>
+				<li><strong>Skip links:</strong> Hyperlinks at the top of the email that allow users to jump directly to content in their preferred language</li>
+				<li><strong>Bookmarks:</strong> Named anchors within the email that serve as destinations for skip links</li>
+				<li><strong>Visual separation:</strong> Clear visual indicators (like borders) that distinguish between language sections</li>
+				<li><strong>Keyboard navigation:</strong> Ensuring all navigation features work with keyboard-only access</li>
+			</ul>
+		</section>
+
+		<section id="why-it-matters">
+			<h2>Why it matters</h2>
+			<p>Proper bilingual email structure is critical for accessibility because:</p>
+			
+			<ul>
+				<li><strong>Screen reader efficiency:</strong> Screen reader users can skip past content in languages they don't understand, saving significant time</li>
+				<li><strong>Keyboard navigation:</strong> Users who rely on keyboard navigation need functional skip links to navigate long emails efficiently</li>
+				<li><strong>Cognitive accessibility:</strong> Clear separation between languages reduces cognitive load for all users</li>
+				<li><strong>Language settings:</strong> Helps assistive technologies correctly identify and pronounce content in each language</li>
+				<li><strong>Official communications:</strong> Many government and bilingual organizations require accessible bilingual communications</li>
+			</ul>
+
+			<div class="panel panel-danger">
+				<div class="panel-body">
+					<h3 class="mrgn-tp-0">Common mistake</h3>
+					<p>Simply placing content in two languages without navigation aids creates accessibility barriers. A screen reader user would need to listen to the entire English section before reaching French content, even if they only need the French version.</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="how-to-do-it">
+			<h2>How to structure bilingual emails</h2>
+			
+			<h3>Basic bilingual email structure</h3>
+			<ol>
+				<li>Start with skip links at the top of the email</li>
+				<li>Place English content first (or follow your organization's convention)</li>
+				<li>Add a bookmark at the start of each language section</li>
+				<li>Use visual separation between language sections</li>
+				<li>Include a link back to the top at the end of each section</li>
+			</ol>
+
+			<div class="panel panel-success">
+				<div class="panel-body">
+					<h4 class="text-success mrgn-tp-0">
+						<span class="glyphicon glyphicon-ok-circle"></span>&nbsp;&nbsp; Good example: Basic bilingual structure
+					</h4>
+					<div class="well">
+						<p><strong>Skip to:</strong> <a href="#english">English</a> | <a href="#francais">Français</a></p>
+						<div style="border-top: 3px solid #333; padding-top: 1em; margin-top: 1em;">
+							<h2 id="english">English Content</h2>
+							<p>[Your English content here]</p>
+							<p><a href="#top">Back to top</a></p>
+						</div>
+						<div style="border-top: 3px solid #333; padding-top: 1em; margin-top: 1em;">
+							<h2 id="francais">Contenu en français</h2>
+							<p>[Your French content here]</p>
+							<p><a href="#top">Haut de la page</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="skip-links">
+			<h2>Creating skip links</h2>
+			<p>Skip links are hyperlinks that connect to bookmarks within your email, allowing users to jump to specific sections.</p>
+			
+			<h3>How to create skip links in Outlook</h3>
+			<ol>
+				<li>At the top of your email, type the text for your skip links (e.g., "Skip to: English | Français")</li>
+				<li>Select the text you want to make into a link (e.g., "English")</li>
+				<li>Press <strong>Ctrl+K</strong> or go to <strong>Insert</strong> > <strong>Link</strong></li>
+				<li>In the Address field, type <code>#bookmarkname</code> (e.g., <code>#english</code>)</li>
+				<li>Click <strong>OK</strong></li>
+				<li>Repeat for other language links</li>
+			</ol>
+
+			<div class="panel panel-info">
+				<div class="panel-body">
+					<h4 class="mrgn-tp-0">Tip: Testing skip links</h4>
+					<p>To test skip links before sending, save your email as a draft, open it, and click the links while holding Ctrl to navigate to the bookmarked sections.</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="bookmarks">
+			<h2>Using bookmarks</h2>
+			<p>Bookmarks are named locations in your email that serve as targets for skip links.</p>
+			
+			<h3>How to create bookmarks in Outlook</h3>
+			<ol>
+				<li>Position your cursor at the start of the language section (e.g., before the English heading)</li>
+				<li>Go to <strong>Insert</strong> > <strong>Bookmark</strong></li>
+				<li>In the Bookmark name field, enter a descriptive name (e.g., "english" or "francais")</li>
+				<li>Click <strong>Add</strong></li>
+				<li>Repeat for each language section</li>
+			</ol>
+
+			<h3>Bookmark naming conventions</h3>
+			<ul>
+				<li>Use lowercase letters</li>
+				<li>Avoid spaces (use underscores if needed, e.g., "english_content")</li>
+				<li>Keep names simple and descriptive</li>
+				<li>Be consistent across emails</li>
+			</ul>
+
+			<div class="panel panel-warning">
+				<div class="panel-body">
+					<h4 class="mrgn-tp-0">Important</h4>
+					<p>Always create bookmarks before creating skip links. The bookmark must exist for the skip link to work properly.</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="visual-separation">
+			<h2>Visual separation with borders</h2>
+			<p>Use borders instead of underscores or other text-based separators to visually distinguish language sections.</p>
+			
+			<h3>Why borders instead of underscores</h3>
+			<ul>
+				<li><strong>Screen reader friendly:</strong> Borders are ignored by screen readers, while underscores are read aloud repeatedly (e.g., "underscore underscore underscore...")</li>
+				<li><strong>Visual clarity:</strong> Borders provide clear visual separation without cluttering the content</li>
+				<li><strong>Professional appearance:</strong> Borders look more polished than text-based separators</li>
+				<li><strong>Maintains flow:</strong> Doesn't interrupt the reading flow for assistive technology users</li>
+			</ul>
+
+			<h3>How to add borders in Outlook</h3>
+			<ol>
+				<li>Select the heading or paragraph where you want to add a border</li>
+				<li>Go to <strong>Home</strong> > <strong>Borders</strong> button (in the Paragraph group)</li>
+				<li>Select <strong>Top Border</strong> or <strong>Bottom Border</strong></li>
+				<li>For custom borders, select <strong>Borders and Shading</strong></li>
+				<li>Adjust width, style, and color as needed</li>
+				<li>Click <strong>OK</strong></li>
+			</ol>
+
+			<div class="panel panel-danger">
+				<div class="panel-body">
+					<h4 class="text-danger mrgn-tp-0">
+						<span class="glyphicon glyphicon-remove-circle"></span>&nbsp;&nbsp; Avoid text-based separators
+					</h4>
+					<div class="well">
+						<p>❌ Bad: Using underscores for separation</p>
+						<p>_________________________________________________</p>
+						<p><strong>Why it's bad:</strong> Screen readers will read "underscore" repeatedly, creating a poor user experience.</p>
+					</div>
+					<div class="well">
+						<p>✓ Good: Using a border for separation</p>
+						<div style="border-top: 2px solid #333; padding-top: 1em;">
+							<p><strong>Why it's good:</strong> Visual separation without screen reader clutter.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="panel panel-primary">
+				<div class="panel-body">
+					<h3 class="mrgn-tp-0">Bilingual email checklist</h3>
+					<ul class="list-unstyled">
+						<li>☐ Skip links provided at the top of the email</li>
+						<li>☐ Bookmarks created for each language section</li>
+						<li>☐ Skip links point to correct bookmarks</li>
+						<li>☐ Visual separation using borders (not underscores)</li>
+						<li>☐ "Back to top" links included at the end of each section</li>
+						<li>☐ Language sections clearly identified with headings</li>
+						<li>☐ Skip links tested before sending</li>
+						<li>☐ Keyboard navigation works for all links</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+			<ul class="pager">
+				<li class="previous"> <a rel="prev" href="message-format.html">Previous - Choose the Right Message Format</a> </li>
+				<li class="next"> <a rel="next" href="headings-lists.html">Next - Structure & Styles in Outlook</a> </li>
+			</ul>
+		</nav>
+
+<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	<script src="../../../scripts/esdc-course.js"></script></main>
+		
+<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+	<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+		<section class="list-group menu list-unstyled">
+			<h3 class="wb-navcurr">Module 5 –  Outlook Email Accessibility Techniques</h3>
+			<ul class="list-group menu list-unstyled">
+				<li><a class="list-group-item" href="introduction.html">Introduction</a></li>
+				<li><a class="list-group-item" href="message-format.html">Choose the Right Message Format</a></li>
+				<li><a class="list-group-item active" aria-current="page" href="bilingual-structure.html">Bilingual Email Structure & Keyboard Navigation</a></li>
+				<li><a class="list-group-item" href="headings-lists.html">Structure & Styles in Outlook</a></li>
+				<li><a class="list-group-item" href="data-tables.html">Data Tables in Emails</a></li>
+				<li><a class="list-group-item" href="email-templates.html">Outlook-Specific Templates</a></li>
+				<li><a class="list-group-item" href="support-resources.html">Support & Further Reading</a></li>
+				<li><a class="list-group-item" href="best-practice-mod-5.html">Best practice</a></li>
+			</ul>
+		</section>
+		
+		<section class="list-group menu list-unstyled">
+			<h3 class="wb-navcurr">All modules</h3>
+			<ul class="list-group menu list-unstyled">
+				<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
+				<li><a class="list-group-item" href="../module2/index.html">Module 2 – Global M365 Document Techniques</a></li>			
+				<li><a class="list-group-item" href="../module3/index.html">Module 3 – PowerPoint Accessibility Techniques</a></li>
+				<li><a class="list-group-item" href="../module4/index.html">Module 4 – Word Accessibility Techniques</a></li>
+				<li><a class="list-group-item active" href="index.html">Module 5 – Outlook Email Accessibility Techniques</a></li>
+				<li><a class="list-group-item" href="../module6/index.html">Module 6 – Introduction to Accessible PDFs</a></li>
+			</ul>
+		</section>
+		<section class="list-group menu list-unstyled">
+			<h3 class="wb-navcurr">Appendix</h3>
+			<ul class="list-group menu list-unstyled">
+				<li><a class="list-group-item" href="../sitemap/sitemap.html">Site map</a></li>
+				<li><a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a></li>
+				<li><a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a></li>
+			</ul>
+		</section>
+</nav>
+
+</div>
+<div id="def-preFooter2"></div>
+<script src="../../../scripts/preFooter2.min.js"></script>
+<div id="def-preFooter"></div>
+<script src="../../../scripts/preFooter.min.js"></script>
+</div>	
+<div id="def-footer"></div>
+<script src="../../../scripts/appFooter.min.js"></script>
+<script src="../../../scripts/refFooter.min.js"></script>
+<script src="../../../scripts/bati-itao.min.js"></script>
+</body>
+</html>
