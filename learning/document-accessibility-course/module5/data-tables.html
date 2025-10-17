@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<title>Data Tables in Emails - Module 5 – Outlook Email Accessibility Techniques</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<meta name="description" content="Learn when and how to use data tables in Outlook emails for accessibility.">
+	<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+	<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top"></div>
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{"text": "ESDC / IT Accessibility office", "href": "../../../index.html"}],
+           "breadcrumbs" : [
+                {"title": "Home", "href" : "../../../index.html"},
+                {"title": "Learning", "href" : "../../index.html"},
+                {"title": "Document accessibility course", "href" : "../index.html"},
+                {"title": "Module 5 – Outlook Email Accessibility Techniques", "href" : "index.html"}
+		],
+            "lngLinks": [{"lang": "fr", "href": "data-tables-fr.html", "text": "Français"}],
+            "menuPath": "../../../ajax/menu-en.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" role="main" property="mainContentOfPage">
+		<h1 property="name" id="wb-cont">Data Tables in Emails</h1>
+		
+		<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+			<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+			<details class="mrgn-bttm-lg on" open="open">
+				<summary class="bg-info">Table of contents</summary>
+				<ul>
+					<li><a href="#what-it-is">What it is</a></li>
+					<li><a href="#why-it-matters">Why it matters</a></li>
+					<li><a href="#how-to-do-it">How to create accessible tables</a></li>
+					<li><a href="#alternatives">Alternatives to tables</a></li>
+				</ul>
+			</details>
+		</nav>
+
+		<section id="what-it-is">
+			<h2>What it is</h2>
+			<p>Data tables in emails are structured grids used to present information in rows and columns. While tables can be useful for certain types of data, they should be used sparingly in emails because:</p>
+			
+			<ul>
+				<li>Email clients render tables inconsistently</li>
+				<li>Tables can be difficult to navigate on mobile devices</li>
+				<li>Screen readers require properly structured tables with headers</li>
+				<li>Complex tables rarely work well in email format</li>
+			</ul>
+
+			<p>When tables are necessary, Outlook provides basic table functionality with accessibility features.</p>
+		</section>
+
+		<section id="why-it-matters">
+			<h2>Why it matters</h2>
+			<p>Tables in emails present specific accessibility challenges:</p>
+			
+			<ul>
+				<li><strong>Screen reader navigation:</strong> Screen readers navigate tables cell by cell. Without proper headers, users cannot understand the relationship between data</li>
+				<li><strong>Mobile accessibility:</strong> Tables that are too wide cause horizontal scrolling, making content hard to access on mobile devices</li>
+				<li><strong>Cognitive load:</strong> Complex tables require significant mental effort to understand, especially for users with cognitive disabilities</li>
+				<li><strong>Email client limitations:</strong> Some email clients strip table formatting or display tables incorrectly</li>
+			</ul>
+
+			<div class="panel panel-warning">
+				<div class="panel-body">
+					<h3 class="mrgn-tp-0">When NOT to use tables</h3>
+					<ul>
+						<li>For page layout or visual design</li>
+						<li>For simple lists that could be bulleted or numbered</li>
+						<li>When data could be presented in paragraphs</li>
+						<li>For complex, multi-level data structures</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section id="how-to-do-it">
+			<h2>How to create accessible tables</h2>
+			<p>If a table is necessary, follow these steps to make it accessible in Outlook.</p>
+			
+			<h3>Creating a simple table</h3>
+			<ol>
+				<li>Position your cursor where you want the table</li>
+				<li>Go to <strong>Insert</strong> tab > <strong>Table</strong></li>
+				<li>Select the number of columns and rows you need</li>
+				<li>Keep tables simple (3-4 columns maximum for email)</li>
+			</ol>
+
+			<h3>Adding header rows</h3>
+			<p>Header rows are essential for accessibility - they tell screen readers what each column represents.</p>
+			<ol>
+				<li>Create your table</li>
+				<li>Type headers in the first row</li>
+				<li>Select the first row of the table</li>
+				<li>Go to <strong>Table Design</strong> tab</li>
+				<li>Check <strong>Header Row</strong> in the Table Style Options group</li>
+			</ol>
+
+			<div class="panel panel-success">
+				<div class="panel-body">
+					<h4 class="text-success mrgn-tp-0">
+						<span class="glyphicon glyphicon-ok-circle"></span>&nbsp;&nbsp; Good example: Simple accessible table
+					</h4>
+					<div class="well">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Department</th>
+									<th>Extension</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Sarah Johnson</td>
+									<td>IT Support</td>
+									<td>x5234</td>
+								</tr>
+								<tr>
+									<td>Mike Chen</td>
+									<td>HR</td>
+									<td>x5156</td>
+								</tr>
+								<tr>
+									<td>Lisa Anderson</td>
+									<td>Finance</td>
+									<td>x5298</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<p><strong>Why it's good:</strong></p>
+					<ul>
+						<li>Clear column headers</li>
+						<li>Simple structure (3 columns)</li>
+						<li>No merged cells</li>
+						<li>Consistent data format</li>
+					</ul>
+				</div>
+			</div>
+
+			<h3>Table accessibility guidelines</h3>
+			<ul>
+				<li><strong>Keep it simple:</strong> Maximum 3-4 columns</li>
+				<li><strong>Use header rows:</strong> Always designate the first row as headers</li>
+				<li><strong>Avoid merged cells:</strong> They confuse screen readers</li>
+				<li><strong>No nested tables:</strong> Tables within tables are very difficult to navigate</li>
+				<li><strong>Use descriptive headers:</strong> Make column headers clear and specific</li>
+				<li><strong>Consider mobile:</strong> Tables wider than 3-4 columns may not display well on phones</li>
+			</ul>
+		</section>
+
+		<section id="alternatives">
+			<h2>Alternatives to tables</h2>
+			<p>In many cases, you can present information more accessibly without using a table.</p>
+			
+			<h3>Alternative 1: Lists with formatting</h3>
+			<div class="panel panel-success">
+				<div class="panel-body">
+					<h4 class="text-success mrgn-tp-0">Example: Contact list without a table</h4>
+					<div class="well">
+						<p><strong>Contact Information:</strong></p>
+						<ul>
+							<li><strong>Sarah Johnson</strong> - IT Support - Extension x5234</li>
+							<li><strong>Mike Chen</strong> - HR - Extension x5156</li>
+							<li><strong>Lisa Anderson</strong> - Finance - Extension x5298</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<h3>Alternative 2: Structured text with headings</h3>
+			<div class="panel panel-success">
+				<div class="panel-body">
+					<h4 class="text-success mrgn-tp-0">Example: Meeting schedule without a table</h4>
+					<div class="well">
+						<p><strong>Meeting Schedule:</strong></p>
+						
+						<p><strong>Monday, March 15 - 10:00 AM</strong><br>
+						Team Standup<br>
+						Room: Conference A</p>
+						
+						<p><strong>Tuesday, March 16 - 2:00 PM</strong><br>
+						Project Review<br>
+						Room: Conference B</p>
+						
+						<p><strong>Friday, March 19 - 3:00 PM</strong><br>
+						Weekly Recap<br>
+						Room: Virtual</p>
+					</div>
+				</div>
+			</div>
+
+			<h3>Alternative 3: Attach a document</h3>
+			<p>For complex data that requires a table:</p>
+			<ul>
+				<li>Create the table in Word or Excel</li>
+				<li>Ensure the document is accessible (proper headers, alt text, etc.)</li>
+				<li>Attach the file to your email</li>
+				<li>Provide a brief summary in the email body</li>
+			</ul>
+		</section>
+
+		<section>
+			<div class="panel panel-primary">
+				<div class="panel-body">
+					<h3 class="mrgn-tp-0">Data tables checklist</h3>
+					<ul class="list-unstyled">
+						<li>☐ Consider if a table is truly necessary</li>
+						<li>☐ Explored alternatives (lists, structured text, attachments)</li>
+						<li>☐ If using a table, keep it simple (3-4 columns max)</li>
+						<li>☐ First row designated as header row</li>
+						<li>☐ No merged cells or nested tables</li>
+						<li>☐ Column headers are descriptive and clear</li>
+						<li>☐ Table width appropriate for mobile viewing</li>
+						<li>☐ Consider mobile accessibility</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<nav aria-labelledby="nav-pagination">
+			<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+			<ul class="pager">
+				<li class="previous"> <a rel="prev" href="headings-lists.html">Previous - Structure & Styles in Outlook</a> </li>
+				<li class="next"> <a rel="next" href="email-templates.html">Next - Outlook-Specific Templates</a> </li>
+			</ul>
+		</nav>
+
+<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	<script src="../../../scripts/esdc-course.js"></script></main>
+		
+<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+	<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+		<section class="list-group menu list-unstyled">
+			<h3 class="wb-navcurr">Module 5 –  Outlook Email Accessibility Techniques</h3>
+			<ul class="list-group menu list-unstyled">
+				<li><a class="list-group-item" href="introduction.html">Introduction</a></li>
+				<li><a class="list-group-item" href="message-format.html">Choose the Right Message Format</a></li>
+				<li><a class="list-group-item" href="bilingual-structure.html">Bilingual Email Structure & Keyboard Navigation</a></li>
+				<li><a class="list-group-item" href="headings-lists.html">Structure & Styles in Outlook</a></li>
+				<li><a class="list-group-item active" aria-current="page" href="data-tables.html">Data Tables in Emails</a></li>
+				<li><a class="list-group-item" href="email-templates.html">Outlook-Specific Templates</a></li>
+				<li><a class="list-group-item" href="support-resources.html">Support & Further Reading</a></li>
+				<li><a class="list-group-item" href="best-practice-mod-5.html">Best practice</a></li>
+			</ul>
+		</section>
+		
+		<section class="list-group menu list-unstyled">
+			<h3 class="wb-navcurr">All modules</h3>
+			<ul class="list-group menu list-unstyled">
+				<li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
+				<li><a class="list-group-item" href="../module2/index.html">Module 2 – Global M365 Document Techniques</a></li>			
+				<li><a class="list-group-item" href="../module3/index.html">Module 3 – PowerPoint Accessibility Techniques</a></li>
+				<li><a class="list-group-item" href="../module4/index.html">Module 4 – Word Accessibility Techniques</a></li>
+				<li><a class="list-group-item active" href="index.html">Module 5 – Outlook Email Accessibility Techniques</a></li>
+				<li><a class="list-group-item" href="../module6/index.html">Module 6 – Introduction to Accessible PDFs</a></li>
+			</ul>
+		</section>
+		<section class="list-group menu list-unstyled">
+			<h3 class="wb-navcurr">Appendix</h3>
+			<ul class="list-group menu list-unstyled">
+				<li><a class="list-group-item" href="../sitemap/sitemap.html">Site map</a></li>
+				<li><a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a></li>
+				<li><a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a></li>
+			</ul>
+		</section>
+</nav>
+
+</div>
+<div id="def-preFooter2"></div>
+<script src="../../../scripts/preFooter2.min.js"></script>
+<div id="def-preFooter"></div>
+<script src="../../../scripts/preFooter.min.js"></script>
+</div>	
+<div id="def-footer"></div>
+<script src="../../../scripts/appFooter.min.js"></script>
+<script src="../../../scripts/refFooter.min.js"></script>
+<script src="../../../scripts/bati-itao.min.js"></script>
+</body>
+</html>
