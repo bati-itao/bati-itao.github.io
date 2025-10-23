@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Exporting Accessible PDFs from Word 365 - Module 6 – Introduction to Accessible PDFs</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Step-by-step guide for creating and exporting accessible PDFs from Microsoft Word 365.">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+		<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../../index.html"
+            },
+			{
+                "title": "Document accessibility course",
+                "href" : "../index.html"
+            },
+			{
+                "title": "Module 6 – Introduction to Accessible PDFs",
+                "href" : "index.html"
+            }
+		],
+            "lngLinks": [{
+                "lang": "fr",
+                "href": "word-export-fr.html",
+                "text": "Français"
+            }],
+            "menuPath": "../../../ajax/menu-en.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" property="mainContentOfPage" role="main">
+
+		<h1 property="name" id="wb-cont">Exporting Accessible PDFs from Word 365</h1>
+		
+		<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+			<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+			<details class="mrgn-bttm-lg on" open="open">
+				<summary class="bg-info">Table of contents</summary>
+				<ul>
+					<li>
+						<a href="#prepare">Preparing an accessible Word document</a>
+					</li>
+					<li>
+						<a href="#checker">Using the Accessibility Checker</a>
+					</li>
+					<li>
+						<a href="#properties">Setting document properties</a>
+					</li>
+					<li>
+						<a href="#export">Exporting to PDF with accessibility tags</a>
+					</li>
+					<li>
+						<a href="#tips">Essential tips for accessible Word PDFs</a>
+					</li>
+				</ul>
+			</details>
+		</nav>
+		
+		<section>
+			<h2 id="prepare">Preparing an accessible Word document</h2>
+			
+			<p>The key to creating an accessible PDF is starting with an accessible Word document. Most accessibility features in Word carry over to the PDF when you export correctly.</p>
+
+			<h3>Use heading styles</h3>
+			<p>Headings provide structure that screen readers use for navigation. Always use Word's built-in heading styles rather than just making text bold or large.</p>
+			<ul>
+				<li><strong>Use Heading 1 for main titles</strong></li>
+				<li><strong>Use Heading 2 for major sections</strong></li>
+				<li><strong>Use Heading 3, 4, etc. for subsections</strong></li>
+				<li><strong>Don't skip heading levels</strong> (e.g., don't jump from Heading 1 to Heading 3)</li>
+			</ul>
+			<p><strong>How to apply:</strong> Select text, then choose a heading style from the Styles group on the Home tab.</p>
+
+			<h3>Use real lists</h3>
+			<p>Create lists using Word's bullet or numbering tools, not by manually typing bullets or numbers.</p>
+			<ul>
+				<li><strong>Bulleted lists:</strong> Use for items in no particular order</li>
+				<li><strong>Numbered lists:</strong> Use for steps or items in a sequence</li>
+			</ul>
+			<p><strong>How to apply:</strong> Select your text, then click the Bullets or Numbering button on the Home tab.</p>
+
+			<h3>Add alternative text to images</h3>
+			<p>Images need text descriptions so screen reader users know what they show.</p>
+			<p><strong>How to add alt text:</strong></p>
+			<ol>
+				<li>Right-click the image and select "View Alt Text" (or "Edit Alt Text")</li>
+				<li>Type a brief but meaningful description in the Alt Text pane</li>
+				<li>If the image is purely decorative, check "Mark as decorative"</li>
+			</ol>
+			<p><strong>What makes good alt text:</strong></p>
+			<ul>
+				<li>Describe what's important about the image in context</li>
+				<li>Keep it concise (usually 1-2 sentences)</li>
+				<li>Don't start with "Image of..." or "Picture of..."</li>
+				<li>For charts/graphs, describe the key data or trend</li>
+			</ul>
+
+			<h3>Use descriptive link text</h3>
+			<p>Screen readers can list all links on a page. Each link should make sense out of context.</p>
+			<ul>
+				<li><strong>Good:</strong> "Download the accessibility guide" or "Read the full report"</li>
+				<li><strong>Bad:</strong> "Click here" or "Read more" or using the URL itself</li>
+			</ul>
+			<p><strong>How to create good links:</strong></p>
+			<ol>
+				<li>Select meaningful text that describes the link destination</li>
+				<li>Press Ctrl+K (or right-click and choose "Link")</li>
+				<li>Enter or paste the URL</li>
+			</ol>
+
+			<h3>Use Word's table features</h3>
+			<p>If you need tables, use Word's Insert Table feature and mark the header row:</p>
+			<ol>
+				<li>Insert a table using Insert &gt; Table</li>
+				<li>Select the first row</li>
+				<li>Check "Repeat as header row" on the Table Design tab</li>
+			</ol>
+		</section>
+
+		<section>
+			<h2 id="checker">Using the Accessibility Checker</h2>
+			
+			<p>Word's built-in Accessibility Checker identifies common accessibility issues before you export to PDF.</p>
+
+			<h3>How to run the Accessibility Checker</h3>
+			<ol>
+				<li>Click the <strong>Review</strong> tab on the ribbon</li>
+				<li>Click <strong>Check Accessibility</strong></li>
+				<li>The Accessibility pane opens on the right side</li>
+			</ol>
+
+			<h3>Understanding the results</h3>
+			<p>The checker groups issues into three categories:</p>
+			<ul>
+				<li><strong>Errors:</strong> Content that is very difficult or impossible for people with disabilities to access (e.g., missing alt text)</li>
+				<li><strong>Warnings:</strong> Content that may be difficult to access (e.g., unclear link text)</li>
+				<li><strong>Tips:</strong> Suggestions that improve accessibility (e.g., using simple table structure)</li>
+			</ul>
+
+			<h3>Fixing issues</h3>
+			<p>Click on any issue in the list to:</p>
+			<ul>
+				<li>Jump to that location in your document</li>
+				<li>See why it's an issue</li>
+				<li>Learn how to fix it</li>
+			</ul>
+			<p><strong>Tip:</strong> Fix errors first, then warnings, then review tips as time allows.</p>
+
+			<div class="panel panel-info">
+				<div class="panel-body">
+					<p><strong>Keep the Accessibility Checker open:</strong> Check "Keep accessibility checker running while I work" at the bottom of the pane. This provides real-time feedback as you create content.</p>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<h2 id="properties">Setting document properties</h2>
+			
+			<p>Document properties help assistive technology users understand and navigate your document. They also improve searchability.</p>
+
+			<h3>How to set properties</h3>
+			<ol>
+				<li>Click <strong>File</strong> &gt; <strong>Info</strong></li>
+				<li>On the right side, you'll see Properties</li>
+				<li>Fill in at least:
+					<ul>
+						<li><strong>Title:</strong> The document's main title (will appear in the PDF)</li>
+						<li><strong>Author:</strong> Who created the document</li>
+						<li><strong>Subject:</strong> Brief description of the document's purpose</li>
+					</ul>
+				</li>
+				<li>Click "Show All Properties" to see additional fields</li>
+			</ol>
+
+			<h3>Why properties matter</h3>
+			<ul>
+				<li>Screen readers announce the document title when opening the PDF</li>
+				<li>Properties appear in PDF readers' document information</li>
+				<li>They help users verify they have the right document</li>
+				<li>Search engines and document management systems use this metadata</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2 id="export">Exporting to PDF with accessibility tags</h2>
+			
+			<p>Using the correct export method is crucial for creating accessible PDFs from Word.</p>
+
+			<h3>Step-by-step export process</h3>
+			<ol>
+				<li>Click <strong>File</strong> &gt; <strong>Save As</strong></li>
+				<li>Choose where to save the file</li>
+				<li>In the "Save as type" dropdown, select <strong>PDF (*.pdf)</strong></li>
+				<li><strong>Important:</strong> Click the <strong>Options</strong> button</li>
+				<li>In the Options dialog, make sure these are checked:
+					<ul>
+						<li><strong>"Document structure tags for accessibility"</strong> - This is the most critical setting</li>
+						<li>"ISO 19005-1 compliant (PDF/A)" if archival format is needed</li>
+					</ul>
+				</li>
+				<li>Click <strong>OK</strong></li>
+				<li>Click <strong>Save</strong></li>
+			</ol>
+
+			<div class="panel panel-warning">
+				<div class="panel-body">
+					<h3 class="mrgn-tp-0">Critical: Always use "Save As" with Options</h3>
+					<p>Do not use:</p>
+					<ul>
+						<li><strong>"Export" to PDF</strong> – This may not include all accessibility features</li>
+						<li><strong>"Print to PDF"</strong> – This creates an image-based PDF without any accessibility features</li>
+						<li><strong>Third-party PDF converters</strong> – These often strip accessibility information</li>
+					</ul>
+				</div>
+			</div>
+
+			<h3>Verifying your PDF</h3>
+			<p>After exporting, quickly check that accessibility carried over:</p>
+			<ol>
+				<li>Open the PDF in Adobe Acrobat Reader (free version is fine)</li>
+				<li>Try using the keyboard:
+					<ul>
+						<li>Press Tab to navigate between links and form fields</li>
+						<li>Use arrow keys to read text</li>
+					</ul>
+				</li>
+				<li>In Acrobat Reader, check File &gt; Properties &gt; Description to verify your title and metadata transferred</li>
+			</ol>
+		</section>
+
+		<section>
+			<h2 id="tips">Essential tips for accessible Word PDFs</h2>
+			
+			<h3>Do's</h3>
+			<ul>
+				<li><strong>Do use built-in Word features</strong> – heading styles, lists, tables, etc.</li>
+				<li><strong>Do run the Accessibility Checker</strong> before exporting</li>
+				<li><strong>Do set document properties</strong> (title, author, subject)</li>
+				<li><strong>Do add alt text to all informative images</strong></li>
+				<li><strong>Do use descriptive link text</strong></li>
+				<li><strong>Do check "Document structure tags"</strong> when exporting</li>
+				<li><strong>Do test the PDF</strong> after exporting, at least briefly</li>
+			</ul>
+
+			<h3>Don'ts</h3>
+			<ul>
+				<li><strong>Don't use manual formatting</strong> instead of styles (e.g., bold text instead of headings)</li>
+				<li><strong>Don't skip heading levels</strong> in your document structure</li>
+				<li><strong>Don't use "Print to PDF"</strong> – it strips all accessibility features</li>
+				<li><strong>Don't leave images without alt text</strong> (unless they're truly decorative)</li>
+				<li><strong>Don't use color alone</strong> to convey meaning</li>
+				<li><strong>Don't use vague link text</strong> like "click here"</li>
+				<li><strong>Don't create fake lists</strong> using manual bullets or numbers</li>
+			</ul>
+
+			<h3>Quick checklist before exporting</h3>
+			<ul>
+				<li>✓ Document uses heading styles properly</li>
+				<li>✓ All images have alt text or are marked decorative</li>
+				<li>✓ Links have descriptive text</li>
+				<li>✓ Accessibility Checker shows no errors</li>
+				<li>✓ Document properties are set</li>
+				<li>✓ Lists and tables use Word's built-in features</li>
+			</ul>
+
+			<div class="panel panel-success">
+				<div class="panel-body">
+					<h3 class="mrgn-tp-0">Remember</h3>
+					<p>An accessible Word document + correct export settings = an accessible PDF. Take time to build accessibility into your Word document, and the PDF export will preserve it. Fixing accessibility issues in PDF later is much harder than creating an accessible Word document from the start.</p>
+				</div>
+			</div>
+		</section>
+
+		<nav role="navigation">
+			<ul class="pager">
+				<li class="previous">
+					<a rel="prev" href="introduction.html">Previous - Why Accessibility Matters in PDFs</a>
+				</li>
+				<li class="next">
+					<a rel="next" href="powerpoint-export.html">Next - Exporting Accessible PDFs from PowerPoint 365</a>
+				</li>
+			</ul>
+		</nav>
+
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	<script src="../../../scripts/esdc-course.js"></script></main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 6 – Introduction to Accessible PDFs</h3>
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="introduction.html">Why Accessibility Matters in PDFs</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="word-export.html">Exporting Accessible PDFs from Word 365</a></li>
+						<li><a class="list-group-item" href="powerpoint-export.html">Exporting Accessible PDFs from PowerPoint 365</a></li>
+						<li><a class="list-group-item" href="tips-mistakes.html">Quick Tips and Common Mistakes</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-6.html">Best practice</a></li>
+					</ul>
+			</section>
+			
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">All modules</h3>
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="../module1/document-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/infoPane.html">Module 2 – Global M365 Document Techniques</a></li>		
+						<li><a class="list-group-item" href="../module3/index.html">Module 3 – PowerPoint Accessibility Techniques</a></li>
+						<li><a class="list-group-item" href="../module4/index.html">Module 4 – Word Accessibility Techniques</a></li>
+						<li><a class="list-group-item" href="../module5/index.html">Module 5 – Outlook Email Accessibility Techniques</a></li>
+						<li><a class="list-group-item active" href="index.html">Module 6 – Introduction to Accessible PDFs</a></li>
+				</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Appendix</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
+				</ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>
