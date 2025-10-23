@@ -69,10 +69,10 @@
 						<a href="#prepare">Ensuring slide deck accessibility</a>
 					</li>
 					<li>
-						<a href="#reading-order">Checking reading order</a>
+						<a href="#reading-order">Checking reading order before export</a>
 					</li>
 					<li>
-						<a href="#checker">Using the Accessibility Checker</a>
+						<a href="#checker">Final Accessibility Checker run</a>
 					</li>
 					<li>
 						<a href="#export">Exporting to PDF with accessibility tags</a>
@@ -87,146 +87,93 @@
 		<section>
 			<h2 id="prepare">Ensuring slide deck accessibility</h2>
 			
-			<p>PowerPoint presentations converted to PDF are commonly used for sharing presentations after meetings, for reports, or as handouts. Making your slides accessible before exporting ensures the PDF will work for everyone.</p>
-
-			<h3>Use meaningful slide titles</h3>
-			<p>Every slide must have a unique, descriptive title. Screen readers use slide titles to help users navigate the document.</p>
-			<ul>
-				<li><strong>Good titles:</strong> "Q1 Revenue Results", "Project Timeline", "Contact Information"</li>
-				<li><strong>Bad titles:</strong> "Slide 1", "Untitled Slide", or identical titles on multiple slides</li>
-			</ul>
-			<p><strong>How to add/edit titles:</strong></p>
-			<ol>
-				<li>Click the title placeholder on the slide</li>
-				<li>Type a descriptive title</li>
-				<li>If you don't want the title to appear visually, use the Selection Pane to hide it while keeping it for screen readers</li>
-			</ol>
-
-			<h3>Add alternative text to images</h3>
-			<p>All images, charts, SmartArt, and other visual elements need text descriptions.</p>
-			<p><strong>How to add alt text:</strong></p>
-			<ol>
-				<li>Right-click the image and select "View Alt Text" (or "Edit Alt Text")</li>
-				<li>Type a meaningful description in the Alt Text pane</li>
-				<li>For decorative images, check "Mark as decorative"</li>
-			</ol>
-			<p><strong>What to describe:</strong></p>
-			<ul>
-				<li><strong>Photos:</strong> Describe who/what is shown and why it's relevant</li>
-				<li><strong>Charts:</strong> Summarize the key data point or trend</li>
-				<li><strong>Diagrams:</strong> Explain the relationship or process shown</li>
-				<li><strong>Logos:</strong> Usually just the organization name is sufficient</li>
-			</ul>
-
-			<h3>Use sufficient color contrast</h3>
-			<p>Text must have enough contrast against its background for people with low vision or color blindness.</p>
-			<ul>
-				<li><strong>Minimum contrast ratio:</strong> 4.5:1 for normal text, 3:1 for large text (18pt or larger)</li>
-				<li><strong>Avoid:</strong> Light text on light backgrounds, or dark text on dark backgrounds</li>
-				<li><strong>Don't rely on color alone:</strong> Use text labels, patterns, or icons in addition to color</li>
-			</ul>
-			<p><strong>Check contrast:</strong> The Accessibility Checker will flag some contrast issues, but manually review your slides too.</p>
-
-			<h3>Keep slides simple and uncluttered</h3>
-			<p>Complex or cluttered slides are harder for everyone to understand, especially people with cognitive disabilities.</p>
-			<ul>
-				<li><strong>Limit content per slide:</strong> One main idea per slide</li>
-				<li><strong>Use simple layouts:</strong> Avoid overlapping text boxes</li>
-				<li><strong>Remove decorative elements:</strong> Only include images that add meaning</li>
-				<li><strong>Use built-in layouts:</strong> PowerPoint's layouts ensure proper reading order</li>
-			</ul>
-
-			<h3>Use built-in layouts and placeholders</h3>
-			<p>PowerPoint's slide layouts have proper reading order built in. When you add your own text boxes, the reading order may become confusing.</p>
-			<ul>
-				<li><strong>Use:</strong> Title placeholder, content placeholder, built-in layouts</li>
-				<li><strong>Avoid:</strong> Free-floating text boxes when possible</li>
-				<li><strong>If you must use text boxes:</strong> Check and fix reading order (see next section)</li>
-			</ul>
-		</section>
-
-		<section>
-			<h2 id="reading-order">Checking reading order</h2>
-			
-			<p>Reading order is the sequence in which a screen reader presents slide content. If the order is wrong, content may be confusing or nonsensical.</p>
-
-			<h3>Why reading order matters</h3>
-			<p>Screen readers read content in the order it appears in the Selection Pane, not based on visual position. A slide might look organized visually but be read in a jumbled order.</p>
-
-			<h3>How to check and fix reading order</h3>
-			<ol>
-				<li>On the <strong>Home</strong> tab, click <strong>Arrange</strong> &gt; <strong>Selection Pane</strong></li>
-				<li>The Selection Pane shows all objects on the slide</li>
-				<li>Screen readers read from <strong>bottom to top</strong> in this list</li>
-				<li>To reorder:
-					<ul>
-						<li>Drag objects up or down in the list, or</li>
-						<li>Select an object and use the up/down arrows</li>
-					</ul>
-				</li>
-				<li>The typical reading order should be:
-					<ul>
-						<li>Slide title (top in Selection Pane = read last)</li>
-						<li>Content in logical order</li>
-						<li>Any additional text or images</li>
-					</ul>
-				</li>
-			</ol>
-
-			<h3>When to check reading order</h3>
-			<p>Check reading order when slides have:</p>
-			<ul>
-				<li>Multiple text boxes</li>
-				<li>Images with captions</li>
-				<li>Multi-column layouts</li>
-				<li>Custom layouts or designs</li>
-			</ul>
-		</section>
-
-		<section>
-			<h2 id="checker">Using the Accessibility Checker</h2>
-			
-			<p>PowerPoint's Accessibility Checker identifies common issues before you export to PDF.</p>
-
-			<h3>How to run the Accessibility Checker</h3>
-			<ol>
-				<li>Click the <strong>Review</strong> tab on the ribbon</li>
-				<li>Click <strong>Check Accessibility</strong></li>
-				<li>The Accessibility pane opens on the right</li>
-			</ol>
-
-			<p><strong>Alternatively:</strong> In recent versions, you may see an Accessibility icon in the status bar at the bottom of the window. Click it to open the checker.</p>
-
-			<h3>Understanding the results</h3>
-			<p>Issues are grouped as:</p>
-			<ul>
-				<li><strong>Errors:</strong> Must fix – content that blocks access (e.g., missing slide titles, images without alt text)</li>
-				<li><strong>Warnings:</strong> Should fix – content that may be difficult to access (e.g., low contrast, unclear table headers)</li>
-				<li><strong>Tips:</strong> Consider fixing – suggestions for better accessibility</li>
-			</ul>
-
-			<h3>Fix issues slide by slide</h3>
-			<p>Click on any issue to:</p>
-			<ul>
-				<li>Jump to that slide</li>
-				<li>See why it's flagged</li>
-				<li>Get instructions on how to fix it</li>
-			</ul>
+			<p>PowerPoint presentations converted to PDF are commonly used for sharing presentations after meetings, for reports, or as handouts. Before exporting to PDF, your presentation must be accessible in PowerPoint first.</p>
 
 			<div class="panel panel-info">
 				<div class="panel-body">
-					<p><strong>Keep the checker running:</strong> Check "Keep accessibility checker running while I work" at the bottom of the pane. This gives you real-time feedback as you build your presentation.</p>
+					<h3 class="mrgn-tp-0">📚 Prerequisites: PowerPoint accessibility fundamentals</h3>
+					<p>This lesson assumes you've already made your PowerPoint presentation accessible. If you need to learn or review PowerPoint accessibility basics, see:</p>
+					<ul>
+						<li><strong><a href="../module3/slide-master-templates.html">Slide Master & Templates</a></strong> - Foundation setup and accessible templates</li>
+						<li><strong><a href="../module3/slide-layouts-structure.html">Slide Layouts & Structure</a></strong> - Using built-in layouts and proper structure</li>
+						<li><strong><a href="../module3/reading-order-navigation.html">Reading Order & Navigation</a></strong> - Ensuring logical content flow</li>
+						<li><strong><a href="../module3/alt-text-long-descriptions.html">Alt Text & Long Descriptions</a></strong> - Making images accessible</li>
+						<li><strong><a href="../module2/contrast.html">Color and Contrast</a></strong> - Meeting contrast requirements</li>
+					</ul>
 				</div>
 			</div>
 
-			<h3>Common issues the checker finds</h3>
+			<h3>Quick pre-export accessibility verification</h3>
+			<p>Before exporting to PDF, verify these essential elements are in place:</p>
 			<ul>
-				<li>Missing slide titles</li>
-				<li>Missing alt text on images</li>
-				<li>Poor color contrast</li>
-				<li>Unclear reading order</li>
-				<li>Tables without header rows</li>
-				<li>Hard-to-read fonts or font sizes</li>
+				<li><strong>Slide titles:</strong> Every slide has a unique, descriptive title (see <a href="../module3/slide-layouts-structure.html#slide-titles">Slide Layouts & Structure</a>)</li>
+				<li><strong>Alt text:</strong> All images have appropriate descriptions (see <a href="../module3/alt-text-long-descriptions.html">Alt Text & Long Descriptions</a>)</li>
+				<li><strong>Color contrast:</strong> Text meets minimum contrast ratios (see <a href="../module2/contrast.html">Color and Contrast</a>)</li>
+				<li><strong>Reading order:</strong> Content flows logically (see <a href="../module3/reading-order-navigation.html">Reading Order & Navigation</a>)</li>
+				<li><strong>Built-in layouts:</strong> Using PowerPoint's structured layouts (see <a href="../module3/slide-layouts-structure.html">Slide Layouts & Structure</a>)</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2 id="reading-order">Checking reading order before export</h2>
+			
+			<p>Reading order determines how screen readers navigate through your PDF content. Issues with reading order in PowerPoint will carry over to the exported PDF.</p>
+
+			<div class="panel panel-info">
+				<div class="panel-body">
+					<h3 class="mrgn-tp-0">📖 Learn about reading order</h3>
+					<p>For detailed guidance on checking and fixing reading order in PowerPoint, see <strong><a href="../module3/reading-order-navigation.html">Reading Order & Navigation</a></strong> in Module 3.</p>
+				</div>
+			</div>
+
+			<h3>Quick reading order check for PDF export</h3>
+			<p>Before exporting, do a final reading order verification:</p>
+			<ol>
+				<li>Open the <strong>Selection Pane</strong> (Home tab > Arrange > Selection Pane)</li>
+				<li>Check that objects are listed in logical reading order (bottom to top in the list)</li>
+				<li>Use Tab key navigation to verify the sequence makes sense</li>
+				<li>Pay special attention to slides with multiple text boxes or complex layouts</li>
+			</ol>
+
+			<h3>Common reading order issues that affect PDFs</h3>
+			<ul>
+				<li><strong>Text boxes read before titles:</strong> Can confuse PDF navigation</li>
+				<li><strong>Multi-column content:</strong> May not flow logically in PDF</li>
+				<li><strong>Floating images with captions:</strong> Captions may be separated from images</li>
+				<li><strong>Sidebar content:</strong> May interrupt main content flow</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2 id="checker">Final Accessibility Checker run</h2>
+			
+			<p>Before exporting to PDF, run PowerPoint's Accessibility Checker one final time to catch any remaining issues.</p>
+
+			<h3>Quick Accessibility Checker workflow</h3>
+			<ol>
+				<li>Click the <strong>Review</strong> tab > <strong>Check Accessibility</strong></li>
+				<li>Address any <strong>Errors</strong> (these will block PDF accessibility)</li>
+				<li>Review <strong>Warnings</strong> and fix when possible</li>
+				<li>Consider <strong>Tips</strong> for improved accessibility</li>
+			</ol>
+
+			<div class="panel panel-info">
+				<div class="panel-body">
+					<h3 class="mrgn-tp-0">🔍 Detailed Accessibility Checker guidance</h3>
+					<p>For comprehensive information about using the Accessibility Checker in PowerPoint, including how to interpret and fix specific issues, see the Accessibility Checker sections in:</p>
+					<ul>
+						<li><strong><a href="../module3/slide-master-templates.html#accessibility-checker">Slide Master & Templates</a></strong></li>
+						<li><strong><a href="../module2/infoPane.html">Global M365 Document Techniques</a></strong></li>
+					</ul>
+				</div>
+			</div>
+
+			<h3>Critical issues to resolve before PDF export</h3>
+			<ul>
+				<li><strong>Missing slide titles</strong> - PDFs need titles for navigation</li>
+				<li><strong>Missing alt text</strong> - Images will be inaccessible in PDF</li>
+				<li><strong>Poor color contrast</strong> - Text may be unreadable</li>
+				<li><strong>Reading order warnings</strong> - Will affect PDF navigation</li>
 			</ul>
 		</section>
 
@@ -299,52 +246,34 @@
 		<section>
 			<h2 id="tips">Essential tips for accessible PowerPoint PDFs</h2>
 			
-			<h3>Do's</h3>
-			<ul>
-				<li><strong>Do give every slide a unique, descriptive title</strong></li>
-				<li><strong>Do add alt text to all images, charts, and SmartArt</strong></li>
-				<li><strong>Do use built-in slide layouts</strong> instead of custom text boxes</li>
-				<li><strong>Do check color contrast</strong> – ensure text is readable</li>
-				<li><strong>Do run the Accessibility Checker</strong> before exporting</li>
-				<li><strong>Do check reading order</strong> on complex slides</li>
-				<li><strong>Do use "Save As" with document structure tags</strong></li>
-				<li><strong>Do keep slides simple and uncluttered</strong></li>
-			</ul>
-
-			<h3>Don'ts</h3>
-			<ul>
-				<li><strong>Don't use "Print to PDF"</strong> – it strips all accessibility features</li>
-				<li><strong>Don't leave slides without titles</strong> or use generic titles like "Slide 1"</li>
-				<li><strong>Don't forget alt text</strong> on images (unless purely decorative)</li>
-				<li><strong>Don't rely only on color</strong> to convey information</li>
-				<li><strong>Don't use low contrast</strong> color combinations</li>
-				<li><strong>Don't create cluttered, complex slides</strong> with overlapping elements</li>
-				<li><strong>Don't skip checking reading order</strong> on slides with multiple objects</li>
-			</ul>
-
-			<h3>PowerPoint-specific considerations</h3>
+			<h3>PDF export-specific considerations</h3>
 			<ul>
 				<li><strong>Animations don't carry over to PDF:</strong> Ensure content makes sense without animations</li>
 				<li><strong>Transitions are ignored:</strong> PDF shows static slides only</li>
 				<li><strong>Speaker notes aren't included:</strong> Put essential information on slides or in a separate document</li>
 				<li><strong>Links work in PDFs:</strong> Hyperlinks on slides remain functional</li>
+				<li><strong>Document properties transfer:</strong> PDF title comes from presentation title</li>
 			</ul>
 
 			<h3>Quick pre-export checklist</h3>
-			<ul>
-				<li>✓ Every slide has a unique, descriptive title</li>
-				<li>✓ All images have appropriate alt text</li>
-				<li>✓ Color contrast is sufficient</li>
-				<li>✓ Reading order is logical</li>
-				<li>✓ Accessibility Checker shows no errors</li>
-				<li>✓ Content is clear without animations</li>
-				<li>✓ Slides use built-in layouts where possible</li>
-			</ul>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<h4 class="mrgn-tp-0">Before exporting to PDF, verify:</h4>
+					<ul class="list-unstyled">
+						<li>✓ PowerPoint accessibility fundamentals complete (see <a href="../module3/index.html">Module 3</a>)</li>
+						<li>✓ Accessibility Checker shows no critical errors</li>
+						<li>✓ Reading order verified on complex slides</li>
+						<li>✓ Content is clear without animations</li>
+						<li>✓ Document title set in File > Info > Properties</li>
+					</ul>
+				</div>
+			</div>
 
 			<div class="panel panel-success">
 				<div class="panel-body">
 					<h3 class="mrgn-tp-0">Key takeaway</h3>
-					<p>A well-structured, accessible PowerPoint presentation + correct export method = an accessible PDF. Focus on slide titles, alt text, reading order, and contrast. Then use "Save As PDF" with document structure tags enabled. Avoid "Print to PDF" – always use the proper export methods described above.</p>
+					<p>PDF accessibility starts in PowerPoint. Focus on proper slide structure, meaningful titles, alt text, and reading order during PowerPoint creation. Then use the correct export method ("Save As PDF" with document structure tags) to preserve that accessibility in the final PDF.</p>
+					<p><strong>Remember:</strong> This lesson focused on the export process. For comprehensive PowerPoint accessibility training, complete <a href="../module3/index.html">Module 3 – PowerPoint Accessibility Techniques</a>.</p>
 				</div>
 			</div>
 		</section>
