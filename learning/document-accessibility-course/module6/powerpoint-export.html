@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Exporting Accessible PDFs from PowerPoint 365 - Module 6 – Introduction to Accessible PDFs</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Step-by-step guide for creating and exporting accessible PDFs from Microsoft PowerPoint 365.">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+		<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../../index.html"
+            },
+			{
+                "title": "Document accessibility course",
+                "href" : "../index.html"
+            },
+			{
+                "title": "Module 6 – Introduction to Accessible PDFs",
+                "href" : "index.html"
+            }
+		],
+            "lngLinks": [{
+                "lang": "fr",
+                "href": "powerpoint-export-fr.html",
+                "text": "Français"
+            }],
+            "menuPath": "../../../ajax/menu-en.html"
+        });
+    </script>
+<div class="container">
+<div class="row">
+	<main class="col-md-9 col-md-push-3" property="mainContentOfPage" role="main">
+
+		<h1 property="name" id="wb-cont">Exporting Accessible PDFs from PowerPoint 365</h1>
+		
+		<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+			<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+			<details class="mrgn-bttm-lg on" open="open">
+				<summary class="bg-info">Table of contents</summary>
+				<ul>
+					<li>
+						<a href="#prepare">Ensuring slide deck accessibility</a>
+					</li>
+					<li>
+						<a href="#reading-order">Checking reading order</a>
+					</li>
+					<li>
+						<a href="#checker">Using the Accessibility Checker</a>
+					</li>
+					<li>
+						<a href="#export">Exporting to PDF with accessibility tags</a>
+					</li>
+					<li>
+						<a href="#tips">Essential tips for accessible PowerPoint PDFs</a>
+					</li>
+				</ul>
+			</details>
+		</nav>
+		
+		<section>
+			<h2 id="prepare">Ensuring slide deck accessibility</h2>
+			
+			<p>PowerPoint presentations converted to PDF are commonly used for sharing presentations after meetings, for reports, or as handouts. Making your slides accessible before exporting ensures the PDF will work for everyone.</p>
+
+			<h3>Use meaningful slide titles</h3>
+			<p>Every slide must have a unique, descriptive title. Screen readers use slide titles to help users navigate the document.</p>
+			<ul>
+				<li><strong>Good titles:</strong> "Q1 Revenue Results", "Project Timeline", "Contact Information"</li>
+				<li><strong>Bad titles:</strong> "Slide 1", "Untitled Slide", or identical titles on multiple slides</li>
+			</ul>
+			<p><strong>How to add/edit titles:</strong></p>
+			<ol>
+				<li>Click the title placeholder on the slide</li>
+				<li>Type a descriptive title</li>
+				<li>If you don't want the title to appear visually, use the Selection Pane to hide it while keeping it for screen readers</li>
+			</ol>
+
+			<h3>Add alternative text to images</h3>
+			<p>All images, charts, SmartArt, and other visual elements need text descriptions.</p>
+			<p><strong>How to add alt text:</strong></p>
+			<ol>
+				<li>Right-click the image and select "View Alt Text" (or "Edit Alt Text")</li>
+				<li>Type a meaningful description in the Alt Text pane</li>
+				<li>For decorative images, check "Mark as decorative"</li>
+			</ol>
+			<p><strong>What to describe:</strong></p>
+			<ul>
+				<li><strong>Photos:</strong> Describe who/what is shown and why it's relevant</li>
+				<li><strong>Charts:</strong> Summarize the key data point or trend</li>
+				<li><strong>Diagrams:</strong> Explain the relationship or process shown</li>
+				<li><strong>Logos:</strong> Usually just the organization name is sufficient</li>
+			</ul>
+
+			<h3>Use sufficient color contrast</h3>
+			<p>Text must have enough contrast against its background for people with low vision or color blindness.</p>
+			<ul>
+				<li><strong>Minimum contrast ratio:</strong> 4.5:1 for normal text, 3:1 for large text (18pt or larger)</li>
+				<li><strong>Avoid:</strong> Light text on light backgrounds, or dark text on dark backgrounds</li>
+				<li><strong>Don't rely on color alone:</strong> Use text labels, patterns, or icons in addition to color</li>
+			</ul>
+			<p><strong>Check contrast:</strong> The Accessibility Checker will flag some contrast issues, but manually review your slides too.</p>
+
+			<h3>Keep slides simple and uncluttered</h3>
+			<p>Complex or cluttered slides are harder for everyone to understand, especially people with cognitive disabilities.</p>
+			<ul>
+				<li><strong>Limit content per slide:</strong> One main idea per slide</li>
+				<li><strong>Use simple layouts:</strong> Avoid overlapping text boxes</li>
+				<li><strong>Remove decorative elements:</strong> Only include images that add meaning</li>
+				<li><strong>Use built-in layouts:</strong> PowerPoint's layouts ensure proper reading order</li>
+			</ul>
+
+			<h3>Use built-in layouts and placeholders</h3>
+			<p>PowerPoint's slide layouts have proper reading order built in. When you add your own text boxes, the reading order may become confusing.</p>
+			<ul>
+				<li><strong>Use:</strong> Title placeholder, content placeholder, built-in layouts</li>
+				<li><strong>Avoid:</strong> Free-floating text boxes when possible</li>
+				<li><strong>If you must use text boxes:</strong> Check and fix reading order (see next section)</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2 id="reading-order">Checking reading order</h2>
+			
+			<p>Reading order is the sequence in which a screen reader presents slide content. If the order is wrong, content may be confusing or nonsensical.</p>
+
+			<h3>Why reading order matters</h3>
+			<p>Screen readers read content in the order it appears in the Selection Pane, not based on visual position. A slide might look organized visually but be read in a jumbled order.</p>
+
+			<h3>How to check and fix reading order</h3>
+			<ol>
+				<li>On the <strong>Home</strong> tab, click <strong>Arrange</strong> &gt; <strong>Selection Pane</strong></li>
+				<li>The Selection Pane shows all objects on the slide</li>
+				<li>Screen readers read from <strong>bottom to top</strong> in this list</li>
+				<li>To reorder:
+					<ul>
+						<li>Drag objects up or down in the list, or</li>
+						<li>Select an object and use the up/down arrows</li>
+					</ul>
+				</li>
+				<li>The typical reading order should be:
+					<ul>
+						<li>Slide title (top in Selection Pane = read last)</li>
+						<li>Content in logical order</li>
+						<li>Any additional text or images</li>
+					</ul>
+				</li>
+			</ol>
+
+			<h3>When to check reading order</h3>
+			<p>Check reading order when slides have:</p>
+			<ul>
+				<li>Multiple text boxes</li>
+				<li>Images with captions</li>
+				<li>Multi-column layouts</li>
+				<li>Custom layouts or designs</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2 id="checker">Using the Accessibility Checker</h2>
+			
+			<p>PowerPoint's Accessibility Checker identifies common issues before you export to PDF.</p>
+
+			<h3>How to run the Accessibility Checker</h3>
+			<ol>
+				<li>Click the <strong>Review</strong> tab on the ribbon</li>
+				<li>Click <strong>Check Accessibility</strong></li>
+				<li>The Accessibility pane opens on the right</li>
+			</ol>
+
+			<p><strong>Alternatively:</strong> In recent versions, you may see an Accessibility icon in the status bar at the bottom of the window. Click it to open the checker.</p>
+
+			<h3>Understanding the results</h3>
+			<p>Issues are grouped as:</p>
+			<ul>
+				<li><strong>Errors:</strong> Must fix – content that blocks access (e.g., missing slide titles, images without alt text)</li>
+				<li><strong>Warnings:</strong> Should fix – content that may be difficult to access (e.g., low contrast, unclear table headers)</li>
+				<li><strong>Tips:</strong> Consider fixing – suggestions for better accessibility</li>
+			</ul>
+
+			<h3>Fix issues slide by slide</h3>
+			<p>Click on any issue to:</p>
+			<ul>
+				<li>Jump to that slide</li>
+				<li>See why it's flagged</li>
+				<li>Get instructions on how to fix it</li>
+			</ul>
+
+			<div class="panel panel-info">
+				<div class="panel-body">
+					<p><strong>Keep the checker running:</strong> Check "Keep accessibility checker running while I work" at the bottom of the pane. This gives you real-time feedback as you build your presentation.</p>
+				</div>
+			</div>
+
+			<h3>Common issues the checker finds</h3>
+			<ul>
+				<li>Missing slide titles</li>
+				<li>Missing alt text on images</li>
+				<li>Poor color contrast</li>
+				<li>Unclear reading order</li>
+				<li>Tables without header rows</li>
+				<li>Hard-to-read fonts or font sizes</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2 id="export">Exporting to PDF with accessibility tags</h2>
+			
+			<p>PowerPoint offers multiple ways to create PDFs. The method you choose makes a significant difference in accessibility.</p>
+
+			<h3>Recommended method: Save As PDF</h3>
+			<p>This is the most reliable method for accessible PDFs from PowerPoint.</p>
+			<ol>
+				<li>Click <strong>File</strong> &gt; <strong>Save As</strong></li>
+				<li>Choose where to save your file</li>
+				<li>In the "Save as type" dropdown, select <strong>PDF (*.pdf)</strong></li>
+				<li><strong>Important:</strong> Click the <strong>Options</strong> button</li>
+				<li>In the Options dialog, verify these settings:
+					<ul>
+						<li><strong>"Document structure tags for accessibility"</strong> is checked (this is critical)</li>
+						<li>Choose what to publish: "All" slides or a range</li>
+						<li>Choose whether to include hidden slides</li>
+					</ul>
+				</li>
+				<li>Click <strong>OK</strong></li>
+				<li>Click <strong>Save</strong></li>
+			</ol>
+
+			<h3>Alternative method: Create PDF/XPS</h3>
+			<p>This method also works but has fewer options:</p>
+			<ol>
+				<li>Click <strong>File</strong> &gt; <strong>Export</strong></li>
+				<li>Click <strong>Create PDF/XPS Document</strong></li>
+				<li>Click <strong>Create PDF/XPS</strong></li>
+				<li>Click <strong>Options</strong> and ensure "Document structure tags for accessibility" is checked</li>
+				<li>Click <strong>OK</strong>, then <strong>Publish</strong></li>
+			</ol>
+
+			<div class="panel panel-warning">
+				<div class="panel-body">
+					<h3 class="mrgn-tp-0">Critical: Avoid "Print to PDF"</h3>
+					<p><strong>Never use "Print to PDF"</strong> – This creates an image-based PDF without any accessibility features. The resulting PDF will be:</p>
+					<ul>
+						<li>Completely inaccessible to screen readers</li>
+						<li>Missing all tags and structure</li>
+						<li>Unable to be navigated by keyboard</li>
+						<li>Non-compliant with accessibility requirements</li>
+					</ul>
+					<p>Always use <strong>Save As</strong> or <strong>Create PDF/XPS</strong> with tags enabled.</p>
+				</div>
+			</div>
+
+			<h3>Setting PDF options</h3>
+			<p>In the Options dialog, consider these settings:</p>
+			<ul>
+				<li><strong>Slides:</strong> Choose which slides to include</li>
+				<li><strong>Publish what:</strong> "Slides" (not "Handouts" or "Notes Pages" unless specifically needed)</li>
+				<li><strong>Frame slides:</strong> Generally leave unchecked for cleaner output</li>
+				<li><strong>Include hidden slides:</strong> Only if needed</li>
+			</ul>
+
+			<h3>After exporting</h3>
+			<p>Open your PDF and do a quick check:</p>
+			<ol>
+				<li>Open in Adobe Acrobat Reader (free version)</li>
+				<li>Try keyboard navigation – press Tab to move between content</li>
+				<li>Check File &gt; Properties to see if document title is set</li>
+				<li>If available, use the Accessibility Checker in Acrobat Pro</li>
+			</ol>
+		</section>
+
+		<section>
+			<h2 id="tips">Essential tips for accessible PowerPoint PDFs</h2>
+			
+			<h3>Do's</h3>
+			<ul>
+				<li><strong>Do give every slide a unique, descriptive title</strong></li>
+				<li><strong>Do add alt text to all images, charts, and SmartArt</strong></li>
+				<li><strong>Do use built-in slide layouts</strong> instead of custom text boxes</li>
+				<li><strong>Do check color contrast</strong> – ensure text is readable</li>
+				<li><strong>Do run the Accessibility Checker</strong> before exporting</li>
+				<li><strong>Do check reading order</strong> on complex slides</li>
+				<li><strong>Do use "Save As" with document structure tags</strong></li>
+				<li><strong>Do keep slides simple and uncluttered</strong></li>
+			</ul>
+
+			<h3>Don'ts</h3>
+			<ul>
+				<li><strong>Don't use "Print to PDF"</strong> – it strips all accessibility features</li>
+				<li><strong>Don't leave slides without titles</strong> or use generic titles like "Slide 1"</li>
+				<li><strong>Don't forget alt text</strong> on images (unless purely decorative)</li>
+				<li><strong>Don't rely only on color</strong> to convey information</li>
+				<li><strong>Don't use low contrast</strong> color combinations</li>
+				<li><strong>Don't create cluttered, complex slides</strong> with overlapping elements</li>
+				<li><strong>Don't skip checking reading order</strong> on slides with multiple objects</li>
+			</ul>
+
+			<h3>PowerPoint-specific considerations</h3>
+			<ul>
+				<li><strong>Animations don't carry over to PDF:</strong> Ensure content makes sense without animations</li>
+				<li><strong>Transitions are ignored:</strong> PDF shows static slides only</li>
+				<li><strong>Speaker notes aren't included:</strong> Put essential information on slides or in a separate document</li>
+				<li><strong>Links work in PDFs:</strong> Hyperlinks on slides remain functional</li>
+			</ul>
+
+			<h3>Quick pre-export checklist</h3>
+			<ul>
+				<li>✓ Every slide has a unique, descriptive title</li>
+				<li>✓ All images have appropriate alt text</li>
+				<li>✓ Color contrast is sufficient</li>
+				<li>✓ Reading order is logical</li>
+				<li>✓ Accessibility Checker shows no errors</li>
+				<li>✓ Content is clear without animations</li>
+				<li>✓ Slides use built-in layouts where possible</li>
+			</ul>
+
+			<div class="panel panel-success">
+				<div class="panel-body">
+					<h3 class="mrgn-tp-0">Key takeaway</h3>
+					<p>A well-structured, accessible PowerPoint presentation + correct export method = an accessible PDF. Focus on slide titles, alt text, reading order, and contrast. Then use "Save As PDF" with document structure tags enabled. Avoid "Print to PDF" – always use the proper export methods described above.</p>
+				</div>
+			</div>
+		</section>
+
+		<nav role="navigation">
+			<ul class="pager">
+				<li class="previous">
+					<a rel="prev" href="word-export.html">Previous - Exporting Accessible PDFs from Word 365</a>
+				</li>
+				<li class="next">
+					<a rel="next" href="tips-mistakes.html">Next - Quick Tips and Common Mistakes</a>
+				</li>
+			</ul>
+		</nav>
+
+	<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	<script src="../../../scripts/esdc-course.js"></script></main>
+			
+
+	<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+		<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Module 6 – Introduction to Accessible PDFs</h3>
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="introduction.html">Why Accessibility Matters in PDFs</a></li>
+						<li><a class="list-group-item" href="word-export.html">Exporting Accessible PDFs from Word 365</a></li>
+						<li><a class="list-group-item active" aria-current="page" href="powerpoint-export.html">Exporting Accessible PDFs from PowerPoint 365</a></li>
+						<li><a class="list-group-item" href="tips-mistakes.html">Quick Tips and Common Mistakes</a></li>
+						<li><a class="list-group-item" href="best-practice-mod-6.html">Best practice</a></li>
+					</ul>
+			</section>
+			
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">All modules</h3>
+					<ul class="list-group menu list-unstyled">
+						<li><a class="list-group-item" href="../module1/document-accessibility.html">Module 1 - Accessibility fundamentals</a></li>
+						<li><a class="list-group-item" href="../module2/infoPane.html">Module 2 – Global M365 Document Techniques</a></li>		
+						<li><a class="list-group-item" href="../module3/index.html">Module 3 – PowerPoint Accessibility Techniques</a></li>
+						<li><a class="list-group-item" href="../module4/index.html">Module 4 – Word Accessibility Techniques</a></li>
+						<li><a class="list-group-item" href="../module5/index.html">Module 5 – Outlook Email Accessibility Techniques</a></li>
+						<li><a class="list-group-item active" href="index.html">Module 6 – Introduction to Accessible PDFs</a></li>
+				</ul>
+
+			</section>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Appendix</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
+				</ul>
+			</section>
+	</nav>
+</div>
+
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+		
+</div>	
+		
+<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+
+</body>
+</html>
