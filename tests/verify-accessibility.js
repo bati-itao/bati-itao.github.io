@@ -16,10 +16,15 @@ const path = require('path');
 
 // Configuration constants
 const CONFIG = {
+  // Performance limits: Process only first 50 HTML files to keep tests fast (< 30 seconds)
   MAX_FILES_TO_TEST: 50,
+  // Display limits: Show first 10 link issues to prevent console overflow
   MAX_LINK_ISSUES_TO_DISPLAY: 10,
+  // Summary limits: Show first 5 issues per category in summary
   MAX_CATEGORY_ISSUES_TO_DISPLAY: 5,
+  // Core scripts to verify are loaded
   IMPORTANT_SCRIPTS: ['refTop.min.js', 'appFooter.min.js', 'bati-itao.min.js'],
+  // Accessibility markers to count
   ACCESSIBILITY_MARKERS: {
     'aria-label': 0,
     'aria-labelledby': 0,
@@ -182,6 +187,8 @@ function testLinkPaths() {
               results.linkPaths.issues.push(`Broken link: ${href} (in ${file})`);
               if (results.linkPaths.issues.length <= CONFIG.MAX_LINK_ISSUES_TO_DISPLAY) {
                 log(`✗ Broken link: ${href} in ${file}`, 'red');
+              } else if (results.linkPaths.issues.length === CONFIG.MAX_LINK_ISSUES_TO_DISPLAY + 1) {
+                log(`⚠ Additional broken links found (limit reached, not all shown)`, 'yellow');
               }
             }
           } else if (href.startsWith('http')) {
@@ -329,11 +336,18 @@ function main() {
       log(`\n${category}:`, 'blue');
       log(`  Passed: ${passed}, Failed: ${failed}, Warnings: ${warnings} (Total: ${total})`, status);
       
-      if (results[category].issues.length > 0 && results[category].issues.length <= CONFIG.MAX_CATEGORY_ISSUES_TO_DISPLAY) {
-        log(`  Issues:`, 'yellow');
-        results[category].issues.forEach((issue) => {
-          log(`    - ${issue}`, 'yellow');
-        });
+      if (results[category].issues.length > 0) {
+        if (results[category].issues.length <= CONFIG.MAX_CATEGORY_ISSUES_TO_DISPLAY) {
+          log(`  Issues:`, 'yellow');
+          results[category].issues.forEach((issue) => {
+            log(`    - ${issue}`, 'yellow');
+          });
+        } else {
+          log(`  Issues (showing first ${CONFIG.MAX_CATEGORY_ISSUES_TO_DISPLAY} of ${results[category].issues.length}):`, 'yellow');
+          results[category].issues.slice(0, CONFIG.MAX_CATEGORY_ISSUES_TO_DISPLAY).forEach((issue) => {
+            log(`    - ${issue}`, 'yellow');
+          });
+        }
       }
     });
     
