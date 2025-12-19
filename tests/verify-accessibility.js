@@ -14,6 +14,23 @@
 const fs = require('fs');
 const path = require('path');
 
+// Configuration constants
+const CONFIG = {
+  MAX_FILES_TO_TEST: 50,
+  MAX_LINK_ISSUES_TO_DISPLAY: 10,
+  MAX_CATEGORY_ISSUES_TO_DISPLAY: 5,
+  IMPORTANT_SCRIPTS: ['refTop.min.js', 'appFooter.min.js', 'bati-itao.min.js'],
+  ACCESSIBILITY_MARKERS: {
+    'aria-label': 0,
+    'aria-labelledby': 0,
+    'aria-describedby': 0,
+    'role': 0,
+    'alt': 0,
+    'sr-only': 0,
+    'wb-inv': 0,
+  }
+};
+
 // ANSI color codes for better output
 const colors = {
   reset: '\x1b[0m',
@@ -121,8 +138,7 @@ function testScriptLoading() {
   }
   
   // Check for other common scripts
-  const importantScripts = ['refTop.min.js', 'appFooter.min.js', 'bati-itao.min.js'];
-  importantScripts.forEach((script) => {
+  CONFIG.IMPORTANT_SCRIPTS.forEach((script) => {
     const refs = Object.keys(scriptReferences).filter(src => src.includes(script));
     if (refs.length > 0) {
       log(`✓ Found ${script} referenced in ${scriptReferences[refs[0]].length} files`, 'green');
@@ -138,7 +154,7 @@ function testScriptLoading() {
 function testLinkPaths() {
   log('\n=== Test 2: Link Path Verification ===', 'cyan');
   
-  const htmlFiles = findFiles('.', /\.html$/).slice(0, 50); // Test first 50 files for performance
+  const htmlFiles = findFiles('.', /\.html$/).slice(0, CONFIG.MAX_FILES_TO_TEST);
   let totalLinks = 0;
   
   htmlFiles.forEach((file) => {
@@ -164,7 +180,7 @@ function testLinkPaths() {
             } else {
               results.linkPaths.failed++;
               results.linkPaths.issues.push(`Broken link: ${href} (in ${file})`);
-              if (results.linkPaths.issues.length <= 10) { // Limit output
+              if (results.linkPaths.issues.length <= CONFIG.MAX_LINK_ISSUES_TO_DISPLAY) {
                 log(`✗ Broken link: ${href} in ${file}`, 'red');
               }
             }
@@ -250,16 +266,8 @@ function testDataWbAjax() {
 function testAccessibilityMarkers() {
   log('\n=== Test 5: Accessibility Markers ===', 'cyan');
   
-  const htmlFiles = findFiles('.', /\.html$/).slice(0, 50); // Test first 50 files
-  const markers = {
-    'aria-label': 0,
-    'aria-labelledby': 0,
-    'aria-describedby': 0,
-    'role': 0,
-    'alt': 0,
-    'sr-only': 0,
-    'wb-inv': 0,
-  };
+  const htmlFiles = findFiles('.', /\.html$/).slice(0, CONFIG.MAX_FILES_TO_TEST);
+  const markers = {...CONFIG.ACCESSIBILITY_MARKERS};
   
   htmlFiles.forEach((file) => {
     const content = readFile(file);
@@ -321,7 +329,7 @@ function main() {
       log(`\n${category}:`, 'blue');
       log(`  Passed: ${passed}, Failed: ${failed}, Warnings: ${warnings} (Total: ${total})`, status);
       
-      if (results[category].issues.length > 0 && results[category].issues.length <= 5) {
+      if (results[category].issues.length > 0 && results[category].issues.length <= CONFIG.MAX_CATEGORY_ISSUES_TO_DISPLAY) {
         log(`  Issues:`, 'yellow');
         results[category].issues.forEach((issue) => {
           log(`    - ${issue}`, 'yellow');
