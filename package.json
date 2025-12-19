@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "link-check": "node link-check.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node tests/verify-accessibility.js",
+    "verify": "node tests/verify-accessibility.js",
     "a11y:cli": "pa11y --standard WCAG2AA --reporter cli https://bati-itao.github.io/awareness/index.html",
     "a11y:html": "pa11y --standard WCAG2AA --wait 500 --hide-elements .ms-Spinner,.loading,[aria-busy='true'] --reporter html https://bati-itao.github.io/awareness/index.html > reports/awareness.html",
     "a11y:json": "pa11y --standard WCAG2AA --wait 500 --hide-elements .ms-Spinner,.loading,[aria-busy='true'] --reporter json https://bati-itao.github.io/awareness/index.html > reports/awareness.json",
