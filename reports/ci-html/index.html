@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Pa11y CI Accessibility Report Summary</title>
+	<style>
+		:root {
+			/* Default */
+			--color-background-page: #ffffff;
+			--color-text-page: #333333;
+			--color-border-page: #cccccc;
+
+			/* Default */
+			--color-background-default: #e8e8e8;
+			--color-text-default: #2d2d2d;
+			--color-sidebar-default: #7c7c7c;
+			--color-border-default: #c9c9c9;
+
+			/* Error */
+			--color-background-error: #f8d7da;
+			--color-text-error: #67191f;
+			--color-sidebar-error: #d53447;
+			--color-border-error: #f2bbc1;
+
+			/* Warning */
+			--color-background-warning: #fff3cd;
+			--color-text-warning: #544003;
+			--color-sidebar-warning: #c79500;
+			--color-border-warning: #ffd761;
+
+			/* Notice */
+			--color-background-notice: #cfe2ff;
+			--color-text-notice: #062c65;
+			--color-sidebar-notice: #015cda;
+			--color-border-notice: #a9cefe;
+
+			/* Failure */
+			--color-background-failure: #f8e5d7;
+			--color-text-failure: #673a19;
+			--color-sidebar-failure: #d57234;
+			--color-border-failure: #f2d0bb;
+
+			/* Hidden */
+			--color-background-hidden: #f6f6f6;
+			--color-text-hidden: #323232;
+			--color-sidebar-hidden: #c0c0c0;
+			--color-border-hidden: #e9e9e9;
+		}
+
+		body {
+			background-color: var(--color-background-page);
+			color: var(--color-text-page);
+			display: flex;
+			font-family: system-ui, sans-serif;
+			font-size: 16px;
+			line-height: 1.3rem;
+			margin: 0;
+			padding: 0;
+		}
+
+		main {
+			margin-block: 0;
+			margin-inline: auto;
+			min-inline-size: 1000px;
+			padding: 1.25rem;
+			text-align: center;
+		}
+
+		h1 {
+			font-size: 1.5rem;
+			line-height: 1.5rem;
+			margin: 0;
+			margin-block-end: 0.75rem;
+		}
+
+		h2 {
+			font-size: 1.15rem;
+			font-weight: normal;
+			margin-block: 0 0.75rem;
+			margin-inline: 0;
+		}
+
+		p {
+			margin: 0;
+		}
+
+		.counts {
+			display: inline-grid;
+			grid-template-columns: repeat(3, 1fr);
+			inline-size: 27rem;
+			margin-block: 0.75rem;
+			margin-inline: 0;
+		}
+
+		.page-error .counts {
+			grid-template-columns: 1fr;
+		}
+
+		.count {
+			background-color: var(--color-background-default);
+			box-shadow: 0.1rem 0.25rem 0.5rem rgb(0 0 0 / 15%);
+			color: var(--color-text-default);
+			display: inline-grid;
+			font-size: 1rem;
+			grid-template-columns: 0.35rem 1fr;
+			margin-inline-end: 0.75rem;
+		}
+
+		.count .left-bar {
+			background-color: var(--color-sidebar-default);
+		}
+
+		.count .body {
+			border-color: var(--color-border-default);
+			border-style: solid;
+			border-width: 1px 1px 1px 0;
+			overflow-x: hidden;
+			padding-block: 0.35rem;
+			padding-inline: 0.7rem;
+		}
+
+		.error {
+			background-color: var(--color-background-error);
+			color: var(--color-text-error);
+		}
+
+		.warning {
+			background-color: var(--color-background-warning);
+			color: var(--color-text-warning);
+		}
+
+		.notice {
+			background-color: var(--color-background-notice);
+			color: var(--color-text-notice);
+		}
+
+		.failure {
+			background-color: var(--color-background-failure);
+			color: var(--color-text-failure);
+		}
+
+		.error>.left-bar {
+			background-color: var(--color-sidebar-error);
+		}
+
+		.error>.body {
+			border-color: var(--color-border-error);
+		}
+
+		.warning>.left-bar {
+			background-color: var(--color-sidebar-warning);
+		}
+
+		.warning>.body {
+			border-color: var(--color-border-warning);
+		}
+
+		.notice>.left-bar {
+			background-color: var(--color-sidebar-notice);
+		}
+
+		.notice>.body {
+			border-color: var(--color-border-notice);
+		}
+
+		.failure>.left-bar {
+			background-color: var(--color-sidebar-failure);
+		}
+
+		.failure>.body {
+			border-color: var(--color-border-failure);
+		}
+
+		.count.hidden {
+			background-color: var(--color-background-hidden);
+			color: var(--color-text-hidden);
+		}
+
+		.count.hidden .left-bar {
+			background-color: var(--color-sidebar-hidden);
+		}
+
+		.count.hidden .body {
+			border-color: var(--color-border-hidden);
+		}
+
+		.pages {
+			list-style-type: none;
+			margin-block: 0.5rem 1rem;
+			margin-inline: 0;
+			padding: 0;
+		}
+
+		.page {
+			background-color: var(--color-background-page);
+			border: 1px solid var(--color-border-page);
+			border-radius: 0;
+			box-shadow: 0.1rem 0.25rem 0.5rem rgb(0 0 0 / 15%);
+			display: grid;
+			gap: 0.5rem;
+			grid-template-columns: 1.5fr auto;
+			margin: 0;
+			margin-block-end: 1.5rem;
+			padding-block: 0.25rem;
+			padding-inline: 0.5rem;
+		}
+
+		.page.hidden {
+			display: none;
+		}
+
+		.page-link {
+			align-self: center;
+			display: inline-block;
+			font-size: 1.05rem;
+			overflow: hidden;
+			padding-block: 0;
+			padding-inline: 0.75rem 0.3rem;
+			text-align: start;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		.filter {
+			display: inline-grid;
+			grid-template-columns: 1.5fr repeat(3, 1fr);
+			margin-block: 0.75rem;
+			margin-inline: 0;
+		}
+
+		.label {
+			align-self: center;
+			display: inline-block;
+			font-size: 1.15em;
+			padding-inline-end: 0.5rem;
+		}
+
+		.button:hover {
+			cursor: pointer;
+		}
+	</style>
+</head>
+
+<body>
+	<main>
+		<h1>Pa11y CI Accessibility Report Summary</h1>
+		<h2>Generated at: Fri Dec 19 2025 11:23:22 GMT-0500 (Eastern Standard Time)</h2>
+		<h2>Summary: 4 pages (4 passed / 0
+			failed), 0 accessibility issues</h2>
+		<div class="filter">
+			<span class="label">Filter page results: </span>
+			<span class="count error button" id="pa11y-issues" tabindex="0" role="button" aria-label="Toggle pages with issues" title="Pa11y analyzed page and found issues">
+				<span class="left-bar" aria-hidden="true"></span>
+				<span class="body">Pa11y Issues</span>
+			</span>
+			<span class="count button" id="no-issues" tabindex="0" role="button" aria-label="Toggle pages with no issues" title="Pa11y analyzed page and found no issues">
+				<span class="left-bar" aria-hidden="true"></span>
+				<span class="body">No Issues</span>
+			</span>
+			<span class="count failure button" id="page-errors" tabindex="0" role="button" aria-label="Toggle page errors" title="Pa11y failed to analyze page">
+				<span class="left-bar" aria-hidden="true"></span>
+				<span class="body">Page Errors</span>
+			</span>
+		</div>
+		<ul class="pages">
+<li class="page"><a class="page-link" href="bati-itao-github-io-awareness-index.html">https://bati-itao.github.io/awareness/index.html</a><p class="counts">
+					<span class="count">
+						<span class="left-bar" aria-hidden="true"></span>
+						<span class="body">0 errors</span>
+					</span>
+					<span class="count">
+						<span class="left-bar" aria-hidden="true"></span>
+						<span class="body">0 warnings</span>
+					</span>
+					<span class="count">
+						<span class="left-bar" aria-hidden="true"></span>
+						<span class="body">0 notices</span>
+					</span>
+				</p>
+			</li><li class="page"><a class="page-link" href="bati-itao-github-io-awareness-training.html">https://bati-itao.github.io/awareness/training.html</a><p class="counts">
+					<span class="count">
+						<span class="left-bar" aria-hidden="true"></span>
+						<span class="body">0 errors</span>
+					</span>
+					<span class="count">
+						<span class="left-bar" aria-hidden="true"></span>
+						<span class="body">0 warnings</span>
+					</span>
+					<span class="count">
+						<span class="left-bar" aria-hidden="true"></span>
+						<span class="body">0 notices</span>
+					</span>
+				</p>
+			</li><li class="page"><a class="page-link" href="bati-itao-github-io-awareness-events.html">https://bati-itao.github.io/awareness/events.html</a><p class="counts">
+					<span class="count">
+						<span class="left-bar" aria-hidden="true"></span>
+						<span class="body">0 errors</span>
+					</span>
+					<span class="count">
+						<span class="left-bar" aria-hidden="true"></span>
+						<span class="body">0 warnings</span>
+					</span>
+					<span class="count">
+						<span class="left-bar" aria-hidden="true"></span>
+						<span class="body">0 notices</span>
+					</span>
+				</p>
+			</li><li class="page"><a class="page-link" href="bati-itao-github-io-awareness-articles.html">https://bati-itao.github.io/awareness/articles.html</a><p class="counts">
+					<span class="count">
+						<span class="left-bar" aria-hidden="true"></span>
+						<span class="body">0 errors</span>
+					</span>
+					<span class="count">
+						<span class="left-bar" aria-hidden="true"></span>
+						<span class="body">0 warnings</span>
+					</span>
+					<span class="count">
+						<span class="left-bar" aria-hidden="true"></span>
+						<span class="body">0 notices</span>
+					</span>
+				</p>
+			</li>		</ul>
+	</main>
+	<script>
+		const togglePages = (btn, pageQuery) => {
+			const className = 'hidden';
+			document.getElementById(btn).classList.toggle(className);
+			document.querySelectorAll(pageQuery).forEach(page => {
+				page.classList.toggle(className);
+			});
+		};
+
+		const pa11yIssuesFilter = document.getElementById('pa11y-issues');
+		pa11yIssuesFilter.addEventListener('click', () => togglePages('pa11y-issues', '.page.has-errors, .page.has-warnings, .page.has-notices'));
+		pa11yIssuesFilter.addEventListener('keydown', (event) => event.key === "Enter" && togglePages('pa11y-issues', '.page.has-errors, .page.has-warnings, .page.has-notices'));
+
+		const pageErrorsFilter = document.getElementById('page-errors');
+		pageErrorsFilter.addEventListener('click', () => togglePages('page-errors', '.page.page-error'));
+		pageErrorsFilter.addEventListener('keydown', (event) => event.key === "Enter" && togglePages('page-errors', '.page.page-error'));
+
+		const noIssuesFilter = document.getElementById('no-issues');
+		noIssuesFilter.addEventListener('click', () => togglePages('no-issues', '.page:not(.has-errors, .has-warnings, .has-notices, .page-error)'));
+		noIssuesFilter.addEventListener('keydown', (event) => event.key === "Enter" && togglePages('no-issues', '.page:not(.has-errors, .has-warnings, .has-notices, .page-error)'));
+	</script>
+</body>
+
+</html>

@@ -5,7 +5,13 @@
   "main": "index.js",
   "scripts": {
     "link-check": "node link-check.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "a11y:cli": "pa11y --standard WCAG2AA --reporter cli https://bati-itao.github.io/awareness/index.html",
+    "a11y:html": "pa11y --standard WCAG2AA --wait 500 --hide-elements .ms-Spinner,.loading,[aria-busy='true'] --reporter html https://bati-itao.github.io/awareness/index.html > reports/awareness.html",
+    "a11y:json": "pa11y --standard WCAG2AA --wait 500 --hide-elements .ms-Spinner,.loading,[aria-busy='true'] --reporter json https://bati-itao.github.io/awareness/index.html > reports/awareness.json",
+    "a11y:ci": "pa11y-ci",
+    "a11y:ci:html": "pa11y-ci --reporter html > reports/awareness-ci.html",
+    "a11y:ci:json": "pa11y-ci --reporter json > reports/awareness-ci.json"
   },
   "repository": {
     "type": "git",
@@ -18,7 +24,14 @@
   },
   "homepage": "https://github.com/bati-itao/bati-itao.github.io#readme",
   "devDependencies": {
+    "chalk": "^4.1.0",
     "linkinator": "^4.1.2",
-    "chalk": "^4.1.0"
-  }
+    "pa11y": "^9.0.1",
+    "pa11y-ci": "^4.0.1",
+    "pa11y-ci-reporter-html": "^8.0.1"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "keywords": []
 }
