@@ -13,28 +13,34 @@
     <script src="../scripts/refTop.min.js"></script>
 
     <style>
-        /* Compact Hub Styling */
-        .hub-strip { background:#26374a; color:white; display:flex; height:160px; border-radius:8px; overflow:hidden; margin-bottom:30px; border:1px solid #1a2a3a; position:relative; }
-        .hub-left { flex:3; padding:25px; display:flex; flex-direction:column; justify-content:center; z-index:2; }
-        .hub-right { flex:1; background:url('./assets/img/video-hub.jpg') center/cover; position:relative; }
-        .hub-right::after { content:''; position:absolute; inset:0; background:linear-gradient(to right, #26374a 20%, transparent 80%); }
-        .hub-left h2 { color:#fff; margin:0; font-size:24px; border:none; }
-        .hero-background { position:absolute; top:0; right:0; bottom:0; left:60%; background:url('./assets/img/featured-articles.jpg') center/cover; opacity:0.3; z-index:1; }
+        /* Compact Hub Styling with Stock Photos */
+        .hub-strip { 
+            background: linear-gradient(135deg, #26374a 0%, #1a365d 100%), url('https://images.pexels.com/photos/7188802/pexels-photo-7188802.jpeg?auto=compress&cs=tinysrgb&w=2128&h=1420&fit=crop&crop=center') center/cover;
+            color:white; display:flex; height:200px; border-radius:12px; overflow:hidden; margin-bottom:30px; 
+            border:1px solid #1a2a3a; position:relative; background-blend-mode:overlay;
+        }
+        .hub-left { flex:2; padding:30px; display:flex; flex-direction:column; justify-content:center; z-index:2; background:rgba(38,55,74,0.9); }
+        .hub-right { flex:1; background:url('https://images.pexels.com/photos/7188802/pexels-photo-7188802.jpeg?auto=compress&cs=tinysrgb&w=2126&h=1420&fit=crop&crop=center') center/cover; position:relative; }
+        .hub-right::after { content:''; position:absolute; inset:0; background:linear-gradient(to left, transparent 0%, rgba(38,55,74,0.7) 100%); }
+        .hub-left h2 { color:#fff; margin:0; font-size:28px; border:none; font-weight:600; }
+        .hero-background { position:absolute; top:0; right:0; bottom:0; left:0; background:url('https://images.pexels.com/photos/7188802/pexels-photo-7188802.jpeg?auto=compress&cs=tinysrgb&w=2070&h=1420&fit=crop&crop=center') center/cover; opacity:0.15; z-index:1; }
         
         /* Grid Styling */
         .dashboard-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:25px; margin-bottom:40px; }
         .grid-col h3 { border-bottom:3px solid #269abc; padding-bottom:10px; margin-bottom:20px; font-size:18px; }
-        .item-card { background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:15px; margin-bottom:15px; transition:0.2s; position:relative; overflow:hidden; }
-        .item-card:hover { border-color:#269abc; transform:translateY(-2px); box-shadow:0 4px 8px rgba(0,0,0,0.05); }
-        .card-tag { font-size:10px; font-weight:bold; color:#269abc; text-transform:uppercase; display:block; }
-        .card-link { font-weight:bold; color:#2d3748; text-decoration:none; display:block; margin-top:5px; }
-        .event-badge { background:#269abc; color:white; width:45px; text-align:center; padding:5px; border-radius:4px; float:left; margin-right:12px; z-index:2; position:relative; }
-        .card-image { width:40px; height:40px; border-radius:6px; object-fit:cover; float:right; margin-left:10px; }
-        .article-card { padding-left:60px; }
-        .article-icon { position:absolute; left:15px; top:15px; width:35px; height:35px; background:#f7fafc; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:18px; }
+        .item-card { background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:0; margin-bottom:20px; transition:all 0.3s ease; position:relative; overflow:hidden; box-shadow:0 2px 4px rgba(0,0,0,0.05); height:220px; display:flex; flex-direction:column; }
+        .item-card:hover { border-color:#269abc; transform:translateY(-3px); box-shadow:0 8px 25px rgba(0,0,0,0.15); }
+        .card-content { padding:20px; flex:1; display:flex; flex-direction:column; justify-content:space-between; }
+        .card-tag { font-size:10px; font-weight:bold; color:#269abc; text-transform:uppercase; display:block; margin-bottom:8px; }
+        .card-link { font-weight:bold; color:#2d3748; text-decoration:none; display:block; font-size:16px; line-height:1.4; }
+        .card-image { width:100%; height:120px; object-fit:cover; display:block; flex-shrink:0; }
+        .event-badge { background:#269abc; color:white; width:50px; text-align:center; padding:8px 5px; border-radius:6px; position:absolute; top:10px; left:10px; z-index:2; box-shadow:0 2px 4px rgba(0,0,0,0.2); }
+        .article-card .card-image { height:120px; }
         .training-card { background:linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); }
+        .training-card .card-image { height:120px; filter:sepia(20%) saturate(0.8); }
         .event-card { position:relative; }
-        .event-icon { position:absolute; right:15px; top:15px; width:30px; height:30px; opacity:0.6; }
+        .event-card .card-image { height:120px; }
+        .card-overlay { position:absolute; top:0; left:0; right:0; bottom:0; background:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 100%); }
         
         @media (max-width: 992px) { .dashboard-grid { grid-template-columns: 1fr; } }
     </style>
@@ -54,16 +60,16 @@
 
     <main role="main" property="mainContentOfPage" class="container">
         
-        <!-- 1. Compact Dashboard Strip -->
+        <!-- 1. Compact Dashboard Strip with Stock Photography -->
         <div class="hub-strip">
             <div class="hero-background"></div>
             <div class="hub-left">
-                <h2>🔍 IT Accessibility Lens</h2>
-                <p style="color:#a0aec0; margin:5px 0;">Your centralized hub for accessibility guidance and events.</p>
-                <div style="margin-top:10px;">
-                    <a href="articles.html" style="color:#63b3ed; font-weight:bold; margin-right:15px; text-decoration:none;">Articles →</a>
-                    <a href="events.html" style="color:#63b3ed; font-weight:bold; margin-right:15px; text-decoration:none;">Events →</a>
-                    <a href="training.html" style="color:#63b3ed; font-weight:bold; text-decoration:none;">Training →</a>
+                <h2>IT Accessibility Lens</h2>
+                <p style="color:#e2e8f0; margin:8px 0; font-size:16px; line-height:1.5;">Your centralized hub for accessibility guidance, training, and events. Empowering inclusive digital experiences.</p>
+                <div style="margin-top:15px;">
+                    <a href="articles.html" style="color:#63b3ed; font-weight:bold; margin-right:20px; text-decoration:none; font-size:15px;">Articles →</a>
+                    <a href="events.html" style="color:#63b3ed; font-weight:bold; margin-right:20px; text-decoration:none; font-size:15px;">Events →</a>
+                    <a href="training.html" style="color:#63b3ed; font-weight:bold; text-decoration:none; font-size:15px;">Training →</a>
                 </div>
             </div>
             <div class="hub-right"></div>
@@ -77,14 +83,18 @@
             <div class="grid-col">
                 <h3>📰 Latest Articles</h3>
                 <div class="item-card article-card">
-                    <div class="article-icon">🗣️</div>
-                    <span class="card-tag">WCAG 2.2</span>
-                    <a href="./articles/2025/non-text-content-alternative-text.html" class="card-link">Give Non-text Content a Voice</a>
+                    <img src="https://images.unsplash.com/photo-1545127398-14699f92334b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Simple Bluetooth speaker device for audio accessibility" class="card-image">
+                    <div class="card-content">
+                        <span class="card-tag">WCAG 2.2</span>
+                        <a href="./articles/2025/non-text-content-alternative-text.html" class="card-link">Give Non-text Content a Voice</a>
+                    </div>
                 </div>
                 <div class="item-card article-card">
-                    <div class="article-icon">📧</div>
-                    <span class="card-tag">EMAILS</span>
-                    <a href="./articles/2025/email-accessibility.html" class="card-link">Accessibility in Everyday Emails</a>
+                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Email application inbox interface showing message composition" class="card-image">
+                    <div class="card-content">
+                        <span class="card-tag">EMAILS</span>
+                        <a href="./articles/2025/email-accessibility.html" class="card-link">Accessibility in Everyday Emails</a>
+                    </div>
                 </div>
             </div>
 
@@ -92,31 +102,41 @@
             <div class="grid-col">
                 <h3>📅 Next Events</h3>
                 <div class="item-card event-card">
-                    <div class="event-icon">🎯</div>
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Training workshop with people learning about digital accessibility" class="card-image">
+                    <div class="card-overlay"></div>
                     <div class="event-badge"><div style="font-size:9px">FEB</div><strong>20</strong></div>
-                    <a href="./events/join-intro-to-a11y.html" class="card-link">Intro to Digital Accessibility</a>
-                    <div style="clear:both"></div>
+                    <div class="card-content">
+                        <span class="card-tag">WORKSHOP</span>
+                        <a href="./events/join-intro-to-a11y.html" class="card-link">Intro to Digital Accessibility</a>
+                    </div>
                 </div>
                 <div class="item-card event-card">
-                    <div class="event-icon">📄</div>
+                    <img src="https://images.unsplash.com/photo-1618477388954-7852f32655ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Microsoft Word 365 interface showing document accessibility features" class="card-image">
+                    <div class="card-overlay"></div>
                     <div class="event-badge"><div style="font-size:9px">MAR</div><strong>05</strong></div>
-                    <a href="./events/creating-accessible-documents.html" class="card-link">Creating Accessible Docs</a>
-                    <div style="clear:both"></div>
+                    <div class="card-content">
+                        <span class="card-tag">HANDS-ON</span>
+                        <a href="./events/creating-accessible-documents.html" class="card-link">Creating Accessible Docs</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Training Column -->
             <div class="grid-col">
                 <h3>🎓 Active Training</h3>
-                <div class="item-card training-card article-card">
-                    <div class="article-icon">👁️</div>
-                    <span class="card-tag">SELF-PACED</span>
-                    <a href="training.html" class="card-link">Screen Reader Basics</a>
+                <div class="item-card training-card">
+                    <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Person working alone at laptop for self-paced learning" class="card-image">
+                    <div class="card-content">
+                        <span class="card-tag">SELF-PACED</span>
+                        <a href="training.html" class="card-link">Screen Reader Basics</a>
+                    </div>
                 </div>
-                <div class="item-card training-card article-card">
-                    <div class="article-icon">📝</div>
-                    <span class="card-tag">MS TEAMS</span>
-                    <a href="training.html" class="card-link">Accessible Forms Workshop</a>
+                <div class="item-card training-card">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Microsoft Forms interface showing form creation with accessibility options" class="card-image">
+                    <div class="card-content">
+                        <span class="card-tag">MS TEAMS</span>
+                        <a href="training.html" class="card-link">Accessible Forms Workshop</a>
+                    </div>
                 </div>
             </div>
         </div>
