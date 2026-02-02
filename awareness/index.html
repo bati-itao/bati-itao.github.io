@@ -11,39 +11,7 @@
     <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
     <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
     <script src="../scripts/refTop.min.js"></script>
-
-    <style>
-        /* Compact Hub Styling with Stock Photos */
-        .hub-strip { 
-            background: linear-gradient(135deg, #26374a 0%, #1a365d 100%), url('https://images.pexels.com/photos/7188802/pexels-photo-7188802.jpeg?auto=compress&cs=tinysrgb&w=2128&h=1420&fit=crop&crop=center') center/cover;
-            color:white; display:flex; height:200px; border-radius:12px; overflow:hidden; margin-bottom:30px; 
-            border:1px solid #1a2a3a; position:relative; background-blend-mode:overlay;
-        }
-        .hub-left { flex:2; padding:30px; display:flex; flex-direction:column; justify-content:center; z-index:2; background:rgba(38,55,74,0.9); }
-        .hub-right { flex:1; background:url('https://images.pexels.com/photos/7188802/pexels-photo-7188802.jpeg?auto=compress&cs=tinysrgb&w=2126&h=1420&fit=crop&crop=center') center/cover; position:relative; }
-        .hub-right::after { content:''; position:absolute; inset:0; background:linear-gradient(to left, transparent 0%, rgba(38,55,74,0.7) 100%); }
-        .hub-left h2 { color:#fff; margin:0; font-size:28px; border:none; font-weight:600; }
-        .hero-background { position:absolute; top:0; right:0; bottom:0; left:0; background:url('https://images.pexels.com/photos/7188802/pexels-photo-7188802.jpeg?auto=compress&cs=tinysrgb&w=2070&h=1420&fit=crop&crop=center') center/cover; opacity:0.15; z-index:1; }
-        
-        /* Grid Styling */
-        .dashboard-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:25px; margin-bottom:40px; }
-        .grid-col h3 { border-bottom:3px solid #269abc; padding-bottom:10px; margin-bottom:20px; font-size:18px; }
-        .item-card { background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:0; margin-bottom:20px; transition:all 0.3s ease; position:relative; overflow:hidden; box-shadow:0 2px 4px rgba(0,0,0,0.05); height:220px; display:flex; flex-direction:column; }
-        .item-card:hover { border-color:#269abc; transform:translateY(-3px); box-shadow:0 8px 25px rgba(0,0,0,0.15); }
-        .card-content { padding:20px; flex:1; display:flex; flex-direction:column; justify-content:space-between; }
-        .card-tag { font-size:10px; font-weight:bold; color:#269abc; text-transform:uppercase; display:block; margin-bottom:8px; }
-        .card-link { font-weight:bold; color:#2d3748; text-decoration:none; display:block; font-size:16px; line-height:1.4; }
-        .card-image { width:100%; height:120px; object-fit:cover; display:block; flex-shrink:0; }
-        .event-badge { background:#269abc; color:white; width:50px; text-align:center; padding:8px 5px; border-radius:6px; position:absolute; top:10px; left:10px; z-index:2; box-shadow:0 2px 4px rgba(0,0,0,0.2); }
-        .article-card .card-image { height:120px; }
-        .training-card { background:linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); }
-        .training-card .card-image { height:120px; filter:sepia(20%) saturate(0.8); }
-        .event-card { position:relative; }
-        .event-card .card-image { height:120px; }
-        .card-overlay { position:absolute; top:0; left:0; right:0; bottom:0; background:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 100%); }
-        
-        @media (max-width: 992px) { .dashboard-grid { grid-template-columns: 1fr; } }
-    </style>
+    <link rel="stylesheet" href="../css/awareness-dashboard.css">
 </head>
 
 <body vocab="https://schema.org/" typeof="WebPage">
@@ -78,9 +46,9 @@
         <h1 class="wb-inv">Accessibility Spotlight</h1>
 
         <!-- 2. The Pulse Grid -->
-        <div class="dashboard-grid">
+        <div class="row wb-eqht">
             <!-- Latest Column -->
-            <div class="grid-col">
+            <div class="col-md-4 col-sm-6">
                 <h3>📰 Latest Articles</h3>
                 <div class="item-card article-card">
                     <img src="https://images.unsplash.com/photo-1545127398-14699f92334b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Simple Bluetooth speaker device for audio accessibility" class="card-image">
@@ -99,7 +67,7 @@
             </div>
 
             <!-- Events Column -->
-            <div class="grid-col">
+            <div class="col-md-4 col-sm-6">
                 <h3>📅 Next Events</h3>
                 <div class="item-card event-card">
                     <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Training workshop with people learning about digital accessibility" class="card-image">
@@ -122,7 +90,7 @@
             </div>
 
             <!-- Training Column -->
-            <div class="grid-col">
+            <div class="col-md-4 col-sm-12">
                 <h3>🎓 Active Training</h3>
                 <div class="item-card training-card">
                     <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Person working alone at laptop for self-paced learning" class="card-image">
