@@ -4,7 +4,7 @@
 
 /* Hub Strip Hero Banner - Enhanced with Stock Photography */
 .hub-strip { 
-    background: linear-gradient(135deg, #26374a 0%, #1a365d 100%), url('https://images.pexels.com/photos/7188802/pexels-photo-7188802.jpeg?auto=compress&cs=tinysrgb&w=2128&h=1420&fit=crop&crop=center') center/cover;
+    background: url('https://images.pexels.com/photos/7188802/pexels-photo-7188802.jpeg?auto=compress&cs=tinysrgb&w=2128&h=1420&fit=crop&crop=center') center/cover;
     color: white; 
     display: flex; 
     min-height: 200px; 
@@ -13,7 +13,17 @@
     margin-bottom: 30px; 
     border: 1px solid #1a2a3a; 
     position: relative; 
-    background-blend-mode: overlay;
+}
+
+.hub-strip::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(38, 55, 74, 0.98) 0%, rgba(38, 55, 74, 0.7) 100%);
+    z-index: 1;
 }
 
 .hub-left { 
@@ -23,20 +33,13 @@
     flex-direction: column; 
     justify-content: center; 
     z-index: 2; 
-    background: rgba(38, 55, 74, 0.9); 
+    position: relative;
 }
 
 .hub-right { 
     flex: 1; 
-    background: url('https://images.pexels.com/photos/7188802/pexels-photo-7188802.jpeg?auto=compress&cs=tinysrgb&w=2126&h=1420&fit=crop&crop=center') center/cover; 
-    position: relative; 
-}
-
-.hub-right::after { 
-    content: ''; 
-    position: absolute; 
-    inset: 0; 
-    background: linear-gradient(to left, transparent 0%, rgba(38, 55, 74, 0.7) 100%); 
+    position: relative;
+    z-index: 2;
 }
 
 .hub-left h2 { 
@@ -45,17 +48,6 @@
     font-size: 28px; 
     border: none; 
     font-weight: 600; 
-}
-
-.hero-background { 
-    position: absolute; 
-    top: 0; 
-    right: 0; 
-    bottom: 0; 
-    left: 0; 
-    background: url('https://images.pexels.com/photos/7188802/pexels-photo-7188802.jpeg?auto=compress&cs=tinysrgb&w=2070&h=1420&fit=crop&crop=center') center/cover; 
-    opacity: 0.15; 
-    z-index: 1; 
 }
 
 /* WET Bootstrap Compatible Grid Enhancement */
@@ -67,7 +59,7 @@
 }
 
 .wb-eqht h3 { 
-    border-bottom: 3px solid #269abc; 
+    border-bottom: 3px solid #1e5a7a; 
     padding-bottom: 10px; 
     margin-bottom: 20px; 
     font-size: 18px; 
@@ -90,7 +82,7 @@
 }
 
 .item-card:hover { 
-    border-color: #269abc; 
+    border-color: #1e5a7a; 
     transform: translateY(-3px); 
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); 
 }
@@ -106,7 +98,7 @@
 .card-tag { 
     font-size: 10px; 
     font-weight: bold; 
-    color: #269abc; 
+    color: #1e5a7a; 
     text-transform: uppercase; 
     display: block; 
     margin-bottom: 8px; 
@@ -131,7 +123,7 @@
 
 /* Event Badge Styling */
 .event-badge { 
-    background: #269abc; 
+    background: #1e5a7a; 
     color: white; 
     width: 50px; 
     text-align: center; 
@@ -164,15 +156,6 @@
 
 .event-card .card-image { 
     height: 120px; 
-}
-
-.card-overlay { 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    right: 0; 
-    bottom: 0; 
-    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.3) 100%); 
 }
 
 /* WET Framework Mobile Responsive Compatibility */
@@ -249,7 +232,7 @@
 }
 
 .panel .panel-body h3 a:hover {
-    color: #269abc;
+    color: #1e5a7a;
     text-decoration: underline;
 }
 
@@ -263,6 +246,192 @@
     font-size: 18px;
     font-weight: 600;
     color: #2d3748;
+}
+
+/* =====================================================
+   Global Awareness Section Styling
+   Applied to all awareness internal pages for consistency
+   ===================================================== */
+
+/* Enhanced Typography for Awareness Pages */
+.awareness-page h1[property="name"] {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #2d3748;
+    border-bottom: 4px solid #1e5a7a;
+    padding-bottom: 15px;
+    margin-bottom: 2rem;
+}
+
+.awareness-page .lead {
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #4a5568;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8fafe 0%, #e8f4fd 100%);
+    border-left: 5px solid #1e5a7a;
+    border-radius: 8px;
+}
+
+/* Enhanced Panel Styling */
+.awareness-page .panel {
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    border: none;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.awareness-page .panel-heading {
+    background: linear-gradient(135deg, #1e5a7a 0%, #164659 100%);
+    color: white;
+    padding: 1.5rem;
+    border: none;
+}
+
+.awareness-page .panel-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+    color: white;
+}
+
+.awareness-page .panel-body {
+    padding: 2rem;
+    background: #fff;
+}
+
+.awareness-page .panel-primary .panel-heading {
+    background: linear-gradient(135deg, #269abc 0%, #1a7a9a 100%);
+}
+
+.awareness-page .panel-info .panel-heading {
+    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+}
+
+.awareness-page .panel-success .panel-heading {
+    background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+}
+
+.awareness-page .panel-warning .panel-heading {
+    background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+    color: #333;
+}
+
+/* Enhanced List Styling */
+.awareness-page .list-unstyled li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e9ecef;
+    transition: background-color 0.2s ease;
+}
+
+.awareness-page .list-unstyled li:hover {
+    background-color: #f8f9fa;
+    padding-left: 1rem;
+}
+
+.awareness-page .list-unstyled li:last-child {
+    border-bottom: none;
+}
+
+/* Enhanced Label Styling */
+.awareness-page .label {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.75rem;
+}
+
+.awareness-page .label-info {
+    background: linear-gradient(135deg, #269abc 0%, #1a7a9a 100%);
+    color: white;
+}
+
+.awareness-page .label-success {
+    background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+}
+
+.awareness-page .label-warning {
+    background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+    color: #333;
+}
+
+/* Enhanced Link Styling */
+.awareness-page a:not(.btn):not(.card-link) {
+    color: #269abc;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.awareness-page a:not(.btn):not(.card-link):hover {
+    color: #1a7a9a;
+    border-bottom: 1px solid #269abc;
+}
+
+/* Enhanced Section Spacing */
+.awareness-page section {
+    margin-bottom: 3rem;
+}
+
+/* Enhanced Responsive Typography */
+@media (max-width: 767px) {
+    .awareness-page h1[property="name"] {
+        font-size: 2rem;
+    }
+    
+    .awareness-page .lead {
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+    
+    .awareness-page .panel-heading,
+    .awareness-page .panel-body {
+        padding: 1.5rem;
+    }
+}
+
+/* Event Calendar Enhanced Styling */
+.awareness-page .event-calendar-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+    background: #f8f9fa;
+    border-left: 4px solid transparent;
+}
+
+.awareness-page .event-calendar-item:hover {
+    background: #e9ecef;
+    border-left-color: #269abc;
+    transform: translateX(5px);
+}
+
+.awareness-page .event-calendar-item .label {
+    margin-right: 1rem;
+    min-width: 100px;
+    text-align: center;
+}
+
+/* Enhanced Table Styling (if used) */
+.awareness-page table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.awareness-page table th {
+    background: linear-gradient(135deg, #269abc 0%, #1a7a9a 100%);
+    color: white;
+    font-weight: 600;
+    padding: 1rem;
 }
 
 /* Main page typography consistency */
