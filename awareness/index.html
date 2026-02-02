@@ -1,369 +1,133 @@
 <!DOCTYPE html>
-<!-- [if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en" dir="ltr">
-  <!--<![endif]-->
-  <head>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en" dir="ltr"><!--<![endif]-->
+<head>
     <meta charset="utf-8" />
-    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
     <title>IT Accessibility Lens - ESDC / IT Accessibility office</title>
     <meta content="width=device-width,initial-scale=1" name="viewport" />
-    <!-- Meta data -->
-    <meta
-      name="description"
-      content="Explore featured articles, videos, and upcoming events from the IT Accessibility Office. Learn practical ways to create inclusive, accessible digital experiences."
-    />
-    <!-- /Meta data -->
-
-    <!-- Load closure template scripts -->
+    <meta name="description" content="Explore featured articles, videos, and upcoming events from the IT Accessibility Office." />
+    
+    <!-- Load GCWeb/WET scripts -->
     <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
     <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
-
-    <!-- Write closure template -->
     <script src="../scripts/refTop.min.js"></script>
-    <!-- Optional extra stylesheet(s) used elsewhere in your site; keep if needed -->
-    <!-- <link rel="stylesheet" href="../css/a11y-dark.css"> -->
-  </head>
-  <body vocab="https://schema.org/" typeof="WebPage">
+
+    <style>
+        /* Compact Hub Styling */
+        .hub-strip { background:#26374a; color:white; display:flex; height:160px; border-radius:8px; overflow:hidden; margin-bottom:30px; border:1px solid #1a2a3a; position:relative; }
+        .hub-left { flex:3; padding:25px; display:flex; flex-direction:column; justify-content:center; z-index:2; }
+        .hub-right { flex:1; background:url('./assets/img/video-hub.jpg') center/cover; position:relative; }
+        .hub-right::after { content:''; position:absolute; inset:0; background:linear-gradient(to right, #26374a 20%, transparent 80%); }
+        .hub-left h2 { color:#fff; margin:0; font-size:24px; border:none; }
+        .hero-background { position:absolute; top:0; right:0; bottom:0; left:60%; background:url('./assets/img/featured-articles.jpg') center/cover; opacity:0.3; z-index:1; }
+        
+        /* Grid Styling */
+        .dashboard-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:25px; margin-bottom:40px; }
+        .grid-col h3 { border-bottom:3px solid #269abc; padding-bottom:10px; margin-bottom:20px; font-size:18px; }
+        .item-card { background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:15px; margin-bottom:15px; transition:0.2s; position:relative; overflow:hidden; }
+        .item-card:hover { border-color:#269abc; transform:translateY(-2px); box-shadow:0 4px 8px rgba(0,0,0,0.05); }
+        .card-tag { font-size:10px; font-weight:bold; color:#269abc; text-transform:uppercase; display:block; }
+        .card-link { font-weight:bold; color:#2d3748; text-decoration:none; display:block; margin-top:5px; }
+        .event-badge { background:#269abc; color:white; width:45px; text-align:center; padding:5px; border-radius:4px; float:left; margin-right:12px; z-index:2; position:relative; }
+        .card-image { width:40px; height:40px; border-radius:6px; object-fit:cover; float:right; margin-left:10px; }
+        .article-card { padding-left:60px; }
+        .article-icon { position:absolute; left:15px; top:15px; width:35px; height:35px; background:#f7fafc; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:18px; }
+        .training-card { background:linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); }
+        .event-card { position:relative; }
+        .event-icon { position:absolute; right:15px; top:15px; width:30px; height:30px; opacity:0.6; }
+        
+        @media (max-width: 992px) { .dashboard-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
     <div id="def-top"></div>
     <script>
-      var defTop = document.getElementById("def-top");
-      defTop.outerHTML = wet.builder.appTop({
-        appName: [
-          {
-            text: "ESDC / IT Accessibility office",
-            href: "../index.html",
-          },
-        ],
-        breadcrumbs: [
-          {
-            title: "Home",
-            href: "../index.html",
-          },
-          {
-            title: "Accessibility Awareness",
-          },
-        ],
-        lngLinks: [
-          {
-            lang: "fr",
-            href: "./index-fr.html",
-            text: "Français",
-          },
-        ],
-        menuPath: "../ajax/menu-en.html",
-      });
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            appName: [{ text: "ESDC / IT Accessibility office", href: "../index.html" }],
+            breadcrumbs: [{ title: "Home", href: "../index.html" }, { title: "Accessibility Awareness" }],
+            lngLinks: [{ lang: "fr", href: "./index-fr.html", text: "Français" }],
+            menuPath: "../ajax/menu-en.html"
+        });
     </script>
 
     <main role="main" property="mainContentOfPage" class="container">
-      <!-- Featured Hero Banner -->
-      <section class="wb-tabs carousel-s2 playing" data-speed="slow">
-        <h2 class="wb-inv">Featured Content</h2>
-        <ul role="tablist">
-          <li><a href="#tab1">Latest Article</a></li>
-          <li><a href="#tab2">Featured Video</a></li>
-          <li><a href="#tab3">Upcoming Event</a></li>
-        </ul>
-        <div class="tabpanels">
-          <div role="tabpanel" id="tab1" class="in fade">
-            <figure class="well well-sm">
-              <img src="./assets/img/featured-articles.jpg" alt="" class="img-responsive full-width" />
-              <figcaption class="mrgn-tp-md">
-                <h3 class="h2">
-                  <a href="./articles/2025/non-text-content-alternative-text.html">
-                    Give Non-text Content a Voice Using Alternative Text
-                  </a>
-                </h3>
-                <p class="lead">Learn how to make images, icons, and graphics accessible by providing meaningful alternative text that conveys the same information to all users.</p>
-                <p><a href="./articles/2025/non-text-content-alternative-text.html" class="btn btn-primary">Read Article</a></p>
-              </figcaption>
-            </figure>
-          </div>
-          <div role="tabpanel" id="tab2" class="out fade">
-            <figure class="well well-sm">
-              <img src="./assets/img/video-hub.jpg" alt="" class="img-responsive full-width" />
-              <figcaption class="mrgn-tp-md">
-                <h3 class="h2">
-                  <a href="./video-hub/index.html">
-                    The Video Hub: Accessibility in Action
-                  </a>
-                </h3>
-                <p class="lead">Watch short, captioned videos that demonstrate practical techniques for creating accessible digital content.</p>
-                <p><a href="./video-hub/index.html" class="btn btn-primary">Browse Videos</a></p>
-              </figcaption>
-            </figure>
-          </div>
-          <div role="tabpanel" id="tab3" class="out fade">
-            <figure class="well well-sm">
-              <img src="./assets/img/events.jpg" alt="" class="img-responsive full-width" />
-              <figcaption class="mrgn-tp-md">
-                <h3 class="h2">
-                  <a href="./upcoming-events.html">
-                    Introduction to Digital Accessibility
-                  </a>
-                </h3>
-                <p class="lead">Join our upcoming session on February 20, 2026. Learn the fundamentals of digital accessibility and practical ways to create inclusive experiences.</p>
-                <p><a href="./upcoming-events.html" class="btn btn-primary">View All Events</a></p>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <h1 property="name" id="wb-cont">Accessibility Spotlight</h1>
-      <p class="lead">Explore resources, guidance, and events to help you create accessible, inclusive digital experiences for all users.</p>
-
-      <!-- Feature tiles (3 across) -->
-      <section class="gc-srvinfo mrgn-tp-lg">
-        <div class="row wb-eqht">
-          <div class="col-md-4 col-sm-6">
-            <h3 class="h4">
-              <a href="./articles/index.html">Featured Articles</a>
-            </h3>
-            <p>
-              Plain‑language articles that explain key accessibility topics and
-              show what “good” looks like in everyday work.
-            </p>
-          </div>
-
-          <div class="col-md-4 col-sm-6">
-            <div class="thumbnail mrgn-bttm-0">
-              <img src="./assets/img/video-hub.jpg" alt="" class="img-responsive" />
-              <div class="caption">
-                <h3 class="h4">
-                  <a href="./video-hub/index.html">The Video Hub</a>
-                </h3>
-                <p>
-                  Short, captioned videos that demonstrate techniques and common
-                  fixes for accessible content.
-                </p>
-              </div>
+        
+        <!-- 1. Compact Dashboard Strip -->
+        <div class="hub-strip">
+            <div class="hero-background"></div>
+            <div class="hub-left">
+                <h2>🔍 IT Accessibility Lens</h2>
+                <p style="color:#a0aec0; margin:5px 0;">Your centralized hub for accessibility guidance and events.</p>
+                <div style="margin-top:10px;">
+                    <a href="articles.html" style="color:#63b3ed; font-weight:bold; margin-right:15px; text-decoration:none;">Articles →</a>
+                    <a href="events.html" style="color:#63b3ed; font-weight:bold; margin-right:15px; text-decoration:none;">Events →</a>
+                    <a href="training.html" style="color:#63b3ed; font-weight:bold; text-decoration:none;">Training →</a>
+                </div>
             </div>
-          </div>
+            <div class="hub-right"></div>
+        </div>
 
-          <div class="col-md-4 col-sm-6">
-            <div class="thumbnail mrgn-bttm-0">
-              <img src="./assets/img/events.jpg" alt="" class="img-responsive" />
-              <div class="caption">
-                <h3 class="h4">
-                  <a href="./events.html">Events</a>
-                </h3>
-                <p>
-                  Join upcoming awareness talks, demos, and community sessions
-                  hosted by the IT Accessibility Office.
-                </p>
-              </div>
+        <h1 class="wb-inv">Accessibility Spotlight</h1>
+
+        <!-- 2. The Pulse Grid -->
+        <div class="dashboard-grid">
+            <!-- Latest Column -->
+            <div class="grid-col">
+                <h3>📰 Latest Articles</h3>
+                <div class="item-card article-card">
+                    <div class="article-icon">🗣️</div>
+                    <span class="card-tag">WCAG 2.2</span>
+                    <a href="./articles/2025/non-text-content-alternative-text.html" class="card-link">Give Non-text Content a Voice</a>
+                </div>
+                <div class="item-card article-card">
+                    <div class="article-icon">📧</div>
+                    <span class="card-tag">EMAILS</span>
+                    <a href="./articles/2025/email-accessibility.html" class="card-link">Accessibility in Everyday Emails</a>
+                </div>
             </div>
-          </div>
+
+            <!-- Events Column -->
+            <div class="grid-col">
+                <h3>📅 Next Events</h3>
+                <div class="item-card event-card">
+                    <div class="event-icon">🎯</div>
+                    <div class="event-badge"><div style="font-size:9px">FEB</div><strong>20</strong></div>
+                    <a href="./events/join-intro-to-a11y.html" class="card-link">Intro to Digital Accessibility</a>
+                    <div style="clear:both"></div>
+                </div>
+                <div class="item-card event-card">
+                    <div class="event-icon">📄</div>
+                    <div class="event-badge"><div style="font-size:9px">MAR</div><strong>05</strong></div>
+                    <a href="./events/creating-accessible-documents.html" class="card-link">Creating Accessible Docs</a>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+
+            <!-- Training Column -->
+            <div class="grid-col">
+                <h3>🎓 Active Training</h3>
+                <div class="item-card training-card article-card">
+                    <div class="article-icon">👁️</div>
+                    <span class="card-tag">SELF-PACED</span>
+                    <a href="training.html" class="card-link">Screen Reader Basics</a>
+                </div>
+                <div class="item-card training-card article-card">
+                    <div class="article-icon">📝</div>
+                    <span class="card-tag">MS TEAMS</span>
+                    <a href="training.html" class="card-link">Accessible Forms Workshop</a>
+                </div>
+            </div>
         </div>
-      </section>
 
-      <!-- Articles + Upcoming events (two-column layout) -->
-      <section class="mrgn-tp-xl">
-        <div class="row">
-          <!-- Left column: Featured Articles -->
-          <div class="col-lg-8 col-md-7">
-            <h2>Featured Articles</h2>
-            <p class="mrgn-bttm-lg">
-              Deep dives and quick reads on creating accessible
-              content—documents, web pages, multimedia, and more.
-            </p>
-
-            <article class="mrgn-bttm-lg">
-              <h3>
-                <a href="./articles/keyboard-accessibility.html"
-                  >Keyboard accessibility: designing for everyone</a
-                >
-              </h3>
-              <p>
-                Learn how focus order, visible focus states, and operable
-                components help all users—including those using screen readers
-                and switch devices.
-              </p>
-            </article>
-
-            <article class="mrgn-bttm-lg">
-              <h3>
-                <a href="./articles/contrast-and-color.html"
-                  >Colour and contrast that meet WCAG</a
-                >
-              </h3>
-              <p>
-                How to meet contrast ratios, avoid conveying meaning by colour
-                alone, and support high‑contrast themes in GCWeb.
-              </p>
-            </article>
-
-            <article class="mrgn-bttm-lg">
-              <h3>
-                <a href="./articles/multimedia-captions-descriptions.html"
-                  >Making multimedia inclusive: captions and descriptions</a
-                >
-              </h3>
-              <p>
-                What to caption, when to add described audio, and practical
-                approaches for short training clips and event recordings.
-              </p>
-            </article>
-
-            <article class="mrgn-bttm-lg">
-              <h3>
-                <a href="./articles/2025/email-accessibility.html"
-                  >Accessibility in Your Everyday Emails</a
-                >
-              </h3>
-              <p>
-                Simple techniques for writing clear subject lines, using proper formatting, and ensuring your messages are accessible to everyone.
-              </p>
-            </article>
-
-            <article class="mrgn-bttm-lg">
-              <h3>
-                <a href="./articles/2025/enchancing-powerpoint-accessibility.html"
-                  >Enhancing PowerPoint Accessibility</a
-                >
-              </h3>
-              <p>
-                Using the Outline View to support neurodivergent audiences and create more structured, accessible presentations.
-              </p>
-            </article>
-
-            <p class="text-right">
-              <a href="./articles.html" class="btn btn-default">View All Articles</a>
-            </p>
-          </div>
-
-          <!-- Right column: Upcoming Events -->
-          <aside class="col-lg-4 col-md-5" aria-labelledby="upcoming-events">
-            <h2 id="upcoming-events">Upcoming Events</h2>
-            <p class="h4 mrgn-tp-0">What’s next</p>
-
-            <ul class="list-unstyled">
-              <li class="media mrgn-bttm-md">
-                <img
-                  class="mrgn-rght-sm"
-                  src="../assets/img/event-placeholder-1.png"
-                  alt=""
-                  role="presentation"
-                  width="64"
-                  height="64"
-                />
-                <div class="media-body">
-                  <h3 class="h4 mrgn-tp-0">
-                    <a href="./events/join-intro-to-a11y.html"
-                      >Introduction to Digital Accessibility (EN/FR)</a
-                    >
-                  </h3>
-                  <p class="mrgn-bttm-0">
-                    <time datetime="2026-02-20">February 20, 2026</time>
-                    &middot; 60‑minute session with Q&amp;A.
-                  </p>
-                </div>
-              </li>
-
-              <li class="media mrgn-bttm-md">
-                <img
-                  class="mrgn-rght-sm"
-                  src="../assets/img/event-placeholder-2.png"
-                  alt=""
-                  role="presentation"
-                  width="64"
-                  height="64"
-                />
-                <div class="media-body">
-                  <h3 class="h4 mrgn-tp-0">
-                    <a href="./events/creating-accessible-documents.html"
-                      >Creating Accessible Documents</a
-                    >
-                  </h3>
-                  <p class="mrgn-bttm-0">
-                    <time datetime="2026-03-05">March 5, 2026</time> &middot;
-                    Hands‑on tips for Word, PowerPoint, and PDF workflows.
-                  </p>
-                </div>
-              </li>
-
-              <li class="media">
-                <img
-                  class="mrgn-rght-sm"
-                  src="../assets/img/event-placeholder-3.png"
-                  alt=""
-                  role="presentation"
-                  width="64"
-                  height="64"
-                />
-                <div class="media-body">
-                  <h3 class="h4 mrgn-tp-0">
-                    <a href="./events/testing-with-keyboard.html"
-                      >Testing with the Keyboard</a
-                    >
-                  </h3>
-                  <p class="mrgn-bttm-0">
-                    <time datetime="2026-03-21">March 21, 2026</time> &middot;
-                    Practical checks you can run in minutes.
-                  </p>
-                </div>
-              </li>
-
-              <li class="media mrgn-bttm-md">
-                <img
-                  class="mrgn-rght-sm"
-                  src="../assets/img/event-placeholder-1.png"
-                  alt=""
-                  role="presentation"
-                  width="64"
-                  height="64"
-                />
-                <div class="media-body">
-                  <h3 class="h4 mrgn-tp-0">
-                    <a href="./upcoming-events.html"
-                      >Screen Reader Demo and Q&amp;A</a
-                    >
-                  </h3>
-                  <p class="mrgn-bttm-0">
-                    <time datetime="2026-04-10">April 10, 2026</time> &middot;
-                    Learn how screen readers navigate web content.
-                  </p>
-                </div>
-              </li>
-
-              <li class="media">
-                <img
-                  class="mrgn-rght-sm"
-                  src="../assets/img/event-placeholder-2.png"
-                  alt=""
-                  role="presentation"
-                  width="64"
-                  height="64"
-                />
-                <div class="media-body">
-                  <h3 class="h4 mrgn-tp-0">
-                    <a href="./upcoming-events.html"
-                      >Accessible Forms Workshop</a
-                    >
-                  </h3>
-                  <p class="mrgn-bttm-0">
-                    <time datetime="2026-05-15">May 15, 2026</time> &middot;
-                    Best practices for creating usable, accessible forms.
-                  </p>
-                </div>
-              </li>
-            </ul>
-
-            <p class="text-right mrgn-tp-md">
-              <a href="./events.html" class="btn btn-default btn-sm">View All Events</a>
-            </p>
-          </aside>
-        </div>
-      </section>
-
-      <div id="def-preFooter"></div>
-      <script src="../scripts/preFooter.min.js"></script>
+        <div id="def-preFooter"></div>
+        <script src="../scripts/preFooter.min.js"></script>
     </main>
 
     <div id="def-footer"></div>
     <script src="../scripts/appFooter.min.js"></script>
     <script src="../scripts/refFooter.min.js"></script>
     <script src="../scripts/bati-itao.min.js"></script>
-  </body>
+</body>
 </html>
