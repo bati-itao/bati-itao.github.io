@@ -51,6 +51,7 @@
 }
 
 /* WET Bootstrap Compatible Grid Enhancement */
+.wb-eqht .col-md-3,
 .wb-eqht .col-md-4,
 .wb-eqht .col-md-6,
 .wb-eqht .col-sm-6,
@@ -203,6 +204,16 @@
     }
 }
 
+/* Pulse Grid spacing */
+.pulse-grid {
+    margin-top: 20px;
+}
+
+/* Video Highlights spacing */
+.video-highlights {
+    margin-top: 30px;
+}
+
 /* Ensure compatibility with WET equal height components */
 .wb-eqht-grd {
     display: flex;
@@ -216,6 +227,101 @@
 
 .wb-eqht-grd .item-card {
     flex: 1;
+}
+
+/* Video Hub Distinctive Card */
+.video-hub-card {
+    background: linear-gradient(135deg, #1e5a7a 0%, #26374a 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(30, 90, 122, 0.3);
+    transition: all 0.3s ease;
+    min-height: 460px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.video-hub-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="30" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="15" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.video-hub-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(30, 90, 122, 0.4);
+}
+
+.video-hub-card-content {
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.video-hub-icon {
+    font-size: 48px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.video-hub-card h3 {
+    text-align: center;
+    border-bottom: none;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.video-hub-card p {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+}
+
+.video-hub-card small {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.video-hub-card .video-hub-btn.btn.btn-default {
+    background: #fff;
+    color: #1e5a7a;
+    border: none;
+    font-weight: 600;
+}
+
+/* Responsive adjustments for Video Hub card */
+@media (max-width: 991px) {
+    .video-hub-card {
+        min-height: 320px;
+    }
+}
+
+@media (max-width: 767px) {
+    .video-hub-card {
+        min-height: auto;
+        margin-bottom: 20px;
+    }
+    
+    .video-hub-card-content {
+        padding: 20px;
+    }
+    
+    .video-hub-icon {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
 }
 
 /* Articles Page Specific Font Consistency */
