@@ -6,13 +6,16 @@
 .hub-strip { 
     background: url('https://images.pexels.com/photos/7188802/pexels-photo-7188802.jpeg?auto=compress&cs=tinysrgb&w=2128&h=1420&fit=crop&crop=center') center/cover;
     color: white; 
-    display: flex; 
     min-height: 250px; 
     border-radius: 12px; 
     overflow: hidden; 
     margin-bottom: 30px; 
     border: 1px solid #1a2a3a; 
     position: relative; 
+    padding: 30px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
 }
 
 .hub-strip::before {
@@ -26,28 +29,20 @@
     z-index: 1;
 }
 
-.hub-left { 
-    flex: 2; 
-    padding: 30px; 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    z-index: 2; 
-    position: relative;
-}
-
-.hub-right { 
-    flex: 1; 
-    position: relative;
-    z-index: 2;
-}
-
-.hub-left h2 { 
+.hub-strip h2 { 
     color: #fff; 
     margin: 0; 
     font-size: 28px; 
     border: none; 
     font-weight: 600; 
+    position: relative;
+    z-index: 2;
+}
+
+.hub-strip p,
+.hub-strip div {
+    position: relative;
+    z-index: 2;
 }
 
 /* WET Bootstrap Compatible Grid Enhancement */
@@ -176,21 +171,11 @@
 /* WET Framework Mobile Responsive Compatibility */
 @media (max-width: 991px) { 
     .hub-strip {
-        flex-direction: column;
         min-height: auto;
-    }
-    
-    .hub-left {
-        flex: none;
         padding: 20px;
     }
     
-    .hub-right {
-        flex: none;
-        min-height: 150px;
-    }
-    
-    .hub-left h2 {
+    .hub-strip h2 {
         font-size: 24px;
     }
 }
@@ -198,13 +183,10 @@
 @media (max-width: 767px) {
     .hub-strip {
         margin-bottom: 20px;
-    }
-    
-    .hub-left {
         padding: 15px;
     }
     
-    .hub-left h2 {
+    .hub-strip h2 {
         font-size: 20px;
     }
     
