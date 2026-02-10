@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+	<title>Parsing and validity – Module 2 - Page structure and semantics</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<!-- Meta data -->
+	<meta name="description"
+		content="Accessibility guidelines related to parsing and validity. Defects in the markup can cause user agents to fail to parse it or to present the content differently.">
+		<!-- Meta data-->
+	<!-- Load closure template scripts -->
+	<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+	<!-- Write closure template -->
+	<script src="../../../scripts/refTop.min.js"></script>
+	<link rel="stylesheet" href="../../../css/a11y-dark.css">
+	<script src="../../../scripts/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="../../../css/esdc-course.css">
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+	<div id="def-top">
+	</div>
+	<!-- Write closure template -->
+    <script>
+        var defTop = document.getElementById("def-top");
+        defTop.outerHTML = wet.builder.appTop({
+            "appName": [{
+                "text": "ESDC / IT Accessibility office",
+                "href": "../../../index.html"
+            }],
+           "breadcrumbs" : [{
+                "title": "Home",
+                "href" : "../../../index.html"
+            },{
+                "title": "Learning",
+                "href" : "../../index.html"
+            },
+			{
+                "title": "Web accessibility course",
+                "href" : "../index.html"
+            },
+			{
+                "title": "Module 2 – Page structure and semantics",
+                
+                "href" : "index.html"
+            },
+          {
+            "title": "Parsing and validity",
+            
+          }],
+        "lngLinks": [
+          {
+            "lang": "fr",
+            "href": "parsing-and-validity-fr.html",
+            "text": "Français",
+          }],
+        "menuPath": "../../../ajax/menu-en.html"
+      });
+
+      </script> <div class="container"> <div class="row"><div id="def-search"></div><script src="../../../scripts/appSearch.js"></script>
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Parsing and validity</h1>
+						
+					<nav aria-labelledby="nav-table" class="mrgn-tp-md">
+						<h2 id="nav-table" class="wb-inv">Table of contents</h2>
+						<details class="mrgn-bttm-lg on" open="open">
+							<summary class="bg-info">Table of contents</summary>
+							<ul>
+						<li>
+							<a href="../module2/parsing-and-validity.html#parsing">Parsing and validity</a>
+						</li>
+						<li>
+							<a href="../module2/parsing-and-validity.html#elements-tags">Elements have complete start and end tags</a>
+						</li>
+						<li>
+							<a href="../module2/parsing-and-validity.html#elements-specifications">Elements are nested according to their specifications</a>
+							<ul>
+								<li>
+									<a href="../module2/parsing-and-validity.html#list-item-tags">Good example: the start and end list item tags are fully inside the parent list’s tags</a>
+								</li>
+								<li>
+									<a href="../module2/parsing-and-validity.html#inline-strong-element-tags">Good example: an inline strong element’s tags are fully nested inside the parent paragraph’s tags</a>
+								</li>
+								<li>
+									<a href="../module2/parsing-and-validity.html#bad-example-broken-list">Bad example: broken list</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="../module2/parsing-and-validity.html#elements-attributes">Elements do not contain duplicate attributes</a>
+						</li>
+						<li>
+							<a href="../module2/parsing-and-validity.html#idunique">Any IDs are unique</a>
+						</li>
+						<li>
+							<a href="../module2/parsing-and-validity.html#resources-7">Related WCAG resources</a>
+						</li>
+					</ul>
+						</details>
+					</nav>
+					
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" data-toggle="{&#x22;selector&#x22;: &#x22;.grouped&#x22;, &#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;on&#x22;}" aria-controls="details-1" id="expandAllButton">Expand all details</button>
+		<button type="button" class="btn btn-default wb-toggle wb-init wb-toggle-inited" aria-controls="details-1 " data-toggle="{&#x22;group&#x22;: &#x22;.grouped&#x22;, &#x22;type&#x22;: &#x22;off&#x22;}" id="collapseAllButton"  disabled="disabled">	Collapse all<span class="wb-inv"> details</span></button>
+					
+			<section>
+				<h2 id="parsing">Overview – Parsing and validity</h2>
+				<p>User agents, including browsers and assistive technologies, need to accurately interpret and parse content. Defects in the markup can cause user agents to fail to parse it or to present the content differently.</p>
+				<p>WCAG Success Criterion 4.1.1 Parsing (Level A) specifies four markup requirements: </p>
+				<ul>
+					<li>elements have complete start and end tags, </li>
+					<li>elements are nested according to their specifications, </li>
+					<li>elements do not contain duplicate attributes, and </li>
+					<li>any IDs are unique.</li>
+				</ul>
+				<p>Validate your markup with a tool such as The <a href="https://validator.w3.org/">W3C Markup Validation Service</a>. Validation reports generally catch each requirement’s defects.</p>
+				<p>The consequences to accessibility range from minimal to severe. Most modern browsers repair incomplete start or end tags, improper nesting and duplicate attributes. However, duplicate id attribute values can cause a screen reader to make incorrect associations between elements, such as the wrong label or description.</p>
+			</section>
+			<section>
+				<h2 id="elements-tags">Elements have complete start and end tags</h2>
+				<p>The tags can’t be missing any characters required by the HTML syntax, e.g., </p>
+				<ul>
+					<li>start tags consist of an element name between less-than and greater-than characters: <code>&lt;h1&gt;</code></li>
+					<li>closing tags add a back slash: <code>&lt;/h1&gt;</code></li>
+				</ul>
+			</section>
+			<section>
+				<h2 id="elements-specifications">Elements are nested according to their specifications</h2>
+				<p>Elements with a parent-child relationship are cleanly nested, with the start and end tags of the child element fully inside the start and end tags of the parent element. </p>
+
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 id="list-item-tags" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span> Good example: the start and end list item tags are fully inside the parent list’s tags</h3>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv" role="separator">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;ul&gt;
+   &lt;li&gt;Corn&lt;/li&gt;
+   &lt;li&gt;Tomatoes&lt;/li&gt;
+   &lt;li&gt;Beans&lt;/li&gt;
+&lt;/ul&gt;</code>
+</pre>
+						<p class="wb-inv" role="separator">Code ends</p>
+					</div>
+				</div>
+				<div class="panel panel-success mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 id="inline-strong-element-tags" class="text-success mrgn-tp-0 h3"><span class="glyphicon glyphicon-ok-circle"></span> Good example: an inline strong element’s tags are fully nested inside the parent paragraph’s tags</h3>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv" role="separator">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;p&gt;&lt;strong&gt;Important:&lt;/strong&gt; Lock the door when you leave.&lt;/p&gt;</code></pre>
+						<p class="wb-inv" role="separator">Code ends</p>
+					</div>
+				</div>
+				<div class="panel panel-danger mrgn-tp-lg">
+					<div class="panel-body">
+						<h3 id="bad-example-broken-list" class="text-danger mrgn-tp-0 h3"><span class="glyphicon glyphicon-remove-circle"></span> Bad example: broken list</h3>
+		
+						<p>Both “list item with no parent list element” and “Text with no parent list item element” are caught by the W3C Validator.</p>
+<p class="lang-label small">HTML</p>
+		<p class="wb-inv" role="separator">Code begins</p>
+<pre class="mrgn-tp-0"><code class="language-html">&lt;body&gt;
+   &lt;h1&gt;Fully-tagged heading&lt;/h1&gt;
+   &lt;p&gt;Fully-tagged paragraph&lt;/p&gt;
+   &lt;p&gt;Paragraph with no end tag (valid in HTML5)
+   &lt;li&gt;list item with no parent list element&lt;/li&gt;
+   &lt;ul&gt;
+	Text with no parent list item element
+   &lt;/ul&gt;
+&lt;/body&gt;</code>
+</pre>
+						<p class="wb-inv" role="separator">Code ends</p>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2 id="elements-attributes">Elements do not contain duplicate attributes</h2>
+				<p>Ensure no attribute occurs more than once on any element.</p>
+			</section>
+			<section>
+				<h2 id="idunique">Any IDs are unique</h2>
+				<p>Ensure no id attribute value is repeated on any page view. </p>
+				<p>Id values are used by assistive technologies to associate labels and descriptions with elements, for header and cell associations in complex tables, and to define relationships in ARIA widgets (<code>aria-owns</code>, <code>aria-controls</code>, etc.). Duplicate id attribute values can sow confusion, and in the case of forms can lead to user input errors, with input fields misidentified or misdescribed. </p>
+			</section>
+			<section>
+				<h2 id="resources-7" class="wb-inv">Related WCAG resources</h2>
+				<details id="details-1" class="mrgn-tp-lg grouped on">
+					<summary class="bg-info">Related WCAG resources</summary>
+					<h3>Success criteria</h3>
+					<ul>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/parsing">4.1.1: Parsing</a></li>
+					</ul>
+					<h3>Techniques</h3>
+					<ul>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H74">H74: Ensuring that opening and closing tags are used according to specification</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H93">H93: Ensuring that id attributes are unique on a Web page</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H94">H94: Ensuring that elements do not contain duplicate attributes</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H75">H75: Ensuring that Web pages are well-formed</a>
+						</li>
+					</ul>
+				</details>
+			</section>
+			
+		<nav aria-labelledby="nav-pagination">
+	<h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+	<ul class="pager">
+		<li class="previous"> <a rel="prev" href="iframes.html">Previous - Iframes</a></li>
+	  <li class="next"> <a rel="next" href="best-practice-mod-2.html">Next - Best practice</a> </li>
+	</ul>
+  </nav>
+					
+
+<a href="#wb-tphp" id="topBtn" class="btn btn-primary btn-xs topBtn"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Back to top</a>	  <script src="../../../scripts/esdc-course.js"></script></main>
+		
+		
+
+		<nav id="wb-sec" class="wb-sec col-md-3 col-md-pull-9" typeof="SiteNavigationElement" aria-labelledby="wb-sec-h">	
+			
+			
+
+				<h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">
+				Module 2 – Page structure and semantics
+				</h3>
+				
+					<ul class="list-group menu list-unstyled">
+				
+						<li><a class="list-group-item" href="landmarks.html">Landmarks</a></li>
+
+        <li><a class="list-group-item" href="headings.html">Headings</a></li>
+					<li><a class="list-group-item" href="content-structure.html">Content structure</a></li>
+
+						<li><a class="list-group-item" href="language.html">Language</a></li>
+					
+						<li><a class="list-group-item" href="lists.html">Lists</a></li>
+				
+						<li><a class="list-group-item" href="iframes.html">Iframes</a></li>
+					
+						<li><a class="list-group-item active"  aria-current="page" href="parsing-and-validity.html">Parsing and validity</a></li>
+					
+						<li><a class="list-group-item" href="best-practice-mod-2.html">Best practice</a></li>
+				</ul>
+			
+			</section>
+			
+			
+			
+<section class="list-group menu list-unstyled">
+    <h3 class="wb-navcurr">All modules</h3>
+    <ul class="list-group menu list-unstyled">
+        <li><a class="list-group-item" href="../module2/info-pane.html">The Info Pane</a></li>
+        <li><a class="list-group-item" href="../module2/document-title.html">Document Title</a></li>
+        <li><a class="list-group-item" href="../module2/writing-for-accessibility.html">Writing for Accessibility</a></li>
+        <li><a class="list-group-item" href="../module2/descriptive-hyperlinks.html">Descriptive Hyperlinks</a></li>
+        <li><a class="list-group-item" href="../module2/images-and-visual-content.html">Images and Visual Content</a></li>
+        <li><a class="list-group-item" href="../module2/tables-and-data.html">Tables and Data</a></li>
+        <li><a class="list-group-item" href="../module2/multimedia-accessibility.html">Multimedia Accessibility</a></li>
+        <li><a class="list-group-item" href="../module2/final-accessibility-review.html">Final Accessibility Review</a></li>
+    </ul>
+</section>
+
+			<section class="list-group menu list-unstyled">
+				<h3 class="wb-navcurr">Appendix</h3>
+
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<a class="list-group-item" href="../sitemap/sitemap.html">Site map</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../best-practice/all-best-practice.html">All best practices</a>
+					</li>
+					<li>
+						<a class="list-group-item" href="../wcag/wcag-view.html">WCAG view</a>
+					</li>
+				</ul>
+			</section>
+		
+		</nav>
+	
+		
+
+		
+		
+	
+			
+</div>
+<div id="def-preFooter2"></div>
+		<script src="../../../scripts/preFooter2.min.js"></script>
+<div id="def-preFooter"></div>
+		<script src="../../../scripts/preFooter.min.js"></script>
+</div>	
+		
+		
+	<div id="def-footer"></div>
+	<script src="../../../scripts/appFooter.min.js"></script>
+	<script src="../../../scripts/refFooter.min.js"></script>
+	<script src="../../../scripts/bati-itao.min.js"></script>
+</body>
+	
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>Alt Text and Long Descriptions – Module 4 - Word Accessibility</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <!-- Meta data -->
+    <meta
+      name="description"
+      content="Learn how to add alternative text and long descriptions to images in Word documents for accessibility."
+    />
+    <!-- Meta data-->
+    <!-- Load closure template scripts -->
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- Write closure template -->
+    <script src="../../../scripts/refTop.min.js"></script>
+    <link rel="stylesheet" href="../../../css/a11y-dark.css" />
+    <script src="../../../scripts/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <link rel="stylesheet" href="../../../css/esdc-course.css" />
+  </head>
+
+  <body vocab="https://schema.org/" typeof="WebPage">
+    <div id="def-top"></div>
+    <!-- Write closure template -->
+    <script>
+      var defTop = document.getElementById('def-top');
+      defTop.outerHTML = wet.builder.appTop({
+        appName: [
+          {
+            text: 'ESDC / IT Accessibility office',
+            href: '../../../index.html',
+          },
+        ],
+        breadcrumbs: [
+          {
+            title: 'Home',
+            href: '../../../index.html',
+          },
+          {
+            title: 'Learning',
+            href: '../../index.html',
+          },
+          {
+            title: 'Document accessibility course',
+            href: '../index.html',
+          },
+          {
+            title: 'Module 4 – Word Accessibility Techniques',
+            href: 'index.html',
+          },
+          {
+            title: 'Alt Text and Long Descriptions',
+          },
+        ],
+        lngLinks: [
+          {
+            lang: 'fr',
+            href: 'alt-text-long-descriptions-fr.html',
+            text: 'Français',
+          },
+        ],
+        menuPath: '../../../ajax/menu-en.html',
+      });
+    </script>
+    <div class="container">
+      <div class="row">
+        <div id="def-search"></div>
+        <script src="../../../scripts/appSearch.js"></script>
+        <main class="col-md-9 col-md-push-3" property="mainContentOfPage">
+          <h1 property="name" id="wb-cont">Alt Text and Long Descriptions</h1>
+
+          <nav aria-labelledby="nav-table" class="mrgn-tp-md">
+            <h2 id="nav-table" class="wb-inv">Table of contents</h2>
+            <details class="mrgn-bttm-lg on" open="open">
+              <summary class="bg-info">Table of contents</summary>
+              <ul>
+                <li><a href="#what-it-is">What it is</a></li>
+                <li><a href="#why-it-matters">Why it matters</a></li>
+                <li><a href="#how-to-do-it">How to do it</a></li>
+              </ul>
+            </details>
+          </nav>
+
+          <section id="what-it-is">
+            <h2>What it is</h2>
+            <p>
+              Alternative text (alt text) and long descriptions are textual alternatives to visual content in Word 
+              documents. They make images, charts, diagrams, and other non-text content accessible to people who 
+              cannot see them.
+            </p>
+
+            <h3>Alternative text (alt text)</h3>
+            <p>
+              Alt text is a brief description of an image that:
+            </p>
+            <ul>
+              <li>Conveys the essential information or function of the image</li>
+              <li>Is typically 1-2 sentences (up to 125 characters is ideal)</li>
+              <li>Is read aloud by screen readers in place of the image</li>
+              <li>Appears if the image fails to load</li>
+            </ul>
+
+            <h3>Long descriptions</h3>
+            <p>
+              Long descriptions provide detailed explanations for complex images that:
+            </p>
+            <ul>
+              <li>Contain significant detail that cannot be summarized briefly</li>
+              <li>Include data visualizations, charts, graphs, diagrams, or flowcharts</li>
+              <li>Require more than 125 characters to describe adequately</li>
+              <li>May be provided in the document body, a caption, or an appendix</li>
+            </ul>
+
+            <h3>Decorative images</h3>
+            <p>
+              Some images are purely decorative and don't convey meaningful information. These should be marked 
+              as decorative so screen readers skip them entirely.
+            </p>
+          </section>
+
+          <section id="why-it-matters">
+            <h2>Why it matters</h2>
+            <p>
+              Providing text alternatives for images is essential for several reasons:
+            </p>
+            <ul>
+              <li>
+                <strong>Screen reader users:</strong> People who are blind or have low vision rely on screen readers 
+                that cannot interpret images without text descriptions
+              </li>
+              <li>
+                <strong>Context and meaning:</strong> Alt text ensures everyone understands the purpose and content 
+                of images, regardless of whether they can see them
+              </li>
+              <li>
+                <strong>Technical issues:</strong> If images fail to load or display, alt text provides the essential 
+                information
+              </li>
+              <li>
+                <strong>Search and navigation:</strong> Alt text makes images searchable and helps users understand 
+                document content
+              </li>
+              <li>
+                <strong>Legal compliance:</strong> Accessible documents with proper alt text meet WCAG 2.1 Level AA 
+                requirements and legal obligations
+              </li>
+              <li>
+                <strong>PDF conversion:</strong> Alt text added in Word carries over to PDF documents, maintaining 
+                accessibility
+              </li>
+            </ul>
+
+            <div class="panel panel-danger">
+              <div class="panel-body">
+                <h3 class="mrgn-tp-0">❌ Without alt text</h3>
+                <p>
+                  A screen reader encountering an image without alt text will either skip it entirely or announce 
+                  unhelpful information like "Image" or the file name "IMG_20231015_142304.jpg", leaving the user 
+                  with no understanding of the image's content or purpose.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="how-to-do-it">
+            <h2>How to do it</h2>
+
+            <h3>Adding alt text in Word</h3>
+
+            <h4>Method 1: Using the Alt Text pane (recommended)</h4>
+            <ol>
+              <li>Right-click on the image</li>
+              <li>Select <strong>View Alt Text</strong> from the contextual menu</li>
+              <li>The Alt Text pane opens on the right side of the screen</li>
+              <li>
+                Type your description in the text box:
+                <ul>
+                  <li>Describe what the image shows and its purpose</li>
+                  <li>Be concise but complete</li>
+                  <li>Include relevant text that appears in the image</li>
+                  <li>Aim for 125 characters or less when possible</li>
+                </ul>
+              </li>
+              <li>
+                If the image is decorative, check the <strong>"Mark as decorative"</strong> checkbox instead of 
+                adding description text
+              </li>
+            </ol>
+
+            <h4>Method 2: Using the Format Picture dialog</h4>
+            <ol>
+              <li>Right-click on the image</li>
+              <li>Select <strong>Format Picture</strong></li>
+              <li>In the Format Picture pane, click the <strong>Size &amp; Properties</strong> icon (looks like a square with arrows)</li>
+              <li>Expand the <strong>Alt Text</strong> section</li>
+              <li>Enter your description in the <strong>Description</strong> field</li>
+              <li>Note: The Title field is optional and not always read by screen readers</li>
+            </ol>
+
+            <h4>Method 3: Using the ribbon</h4>
+            <ol>
+              <li>Select the image</li>
+              <li>Go to the <strong>Picture Format</strong> or <strong>Picture Tools Format</strong> tab</li>
+              <li>Click <strong>Alt Text</strong> in the Accessibility group</li>
+              <li>The Alt Text pane opens; add your description</li>
+            </ol>
+
+            <h3>Writing effective alt text</h3>
+
+            <h4>General principles</h4>
+            <ul>
+              <li><strong>Be accurate:</strong> Describe what is actually in the image</li>
+              <li><strong>Be concise:</strong> Focus on essential information; aim for 125 characters or less</li>
+              <li><strong>Be specific:</strong> Provide meaningful detail rather than generic descriptions</li>
+              <li><strong>Avoid redundancy:</strong> Don't start with "Image of..." or "Picture of..." - screen readers announce it's an image</li>
+              <li><strong>Include text:</strong> If the image contains important text, include it in the alt text</li>
+              <li><strong>Convey function:</strong> If the image is a button or link, describe what happens when clicked</li>
+            </ul>
+
+            <h4>Examples of good alt text</h4>
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <p><strong>Photo of people in a meeting:</strong></p>
+                <ul>
+                  <li>❌ Poor: "Meeting"</li>
+                  <li>❌ Poor: "Image of people"</li>
+                  <li>✅ Good: "Five team members reviewing project plans around a conference table"</li>
+                </ul>
+
+                <p><strong>Logo:</strong></p>
+                <ul>
+                  <li>❌ Poor: "Logo"</li>
+                  <li>✅ Good: "ESDC IT Accessibility Office logo"</li>
+                </ul>
+
+                <p><strong>Screenshot showing a button:</strong></p>
+                <ul>
+                  <li>❌ Poor: "Screenshot"</li>
+                  <li>✅ Good: "Screenshot of the Save button in the Word toolbar, showing a blue disk icon"</li>
+                </ul>
+
+                <p><strong>Decorative image:</strong></p>
+                <ul>
+                  <li>❌ Poor: "Blue swirl decoration"</li>
+                  <li>✅ Good: Mark as decorative (no alt text needed)</li>
+                </ul>
+              </div>
+            </div>
+
+            <h4>Context matters</h4>
+            <p>
+              The same image may need different alt text depending on context:
+            </p>
+            <ul>
+              <li>
+                <strong>In an article about dogs:</strong> "Golden retriever sitting in a park" 
+              </li>
+              <li>
+                <strong>In a photo editing tutorial:</strong> "Photo with high contrast and warm color temperature"
+              </li>
+              <li>
+                <strong>On a pet adoption page:</strong> "Max, 3-year-old golden retriever available for adoption"
+              </li>
+            </ul>
+
+            <h3>Creating long descriptions</h3>
+
+            <h4>When to use long descriptions</h4>
+            <p>
+              Use long descriptions when:
+            </p>
+            <ul>
+              <li>The image contains complex data (charts, graphs, diagrams)</li>
+              <li>The image includes multiple important elements that each need description</li>
+              <li>The image conveys a process or relationship that requires explanation</li>
+              <li>A brief alt text would not adequately convey the image's information</li>
+            </ul>
+
+            <h4>Methods for providing long descriptions</h4>
+
+            <p><strong>Method 1: In the document body (recommended)</strong></p>
+            <ul>
+              <li>Place detailed description in the paragraph immediately before or after the image</li>
+              <li>Keep alt text brief: "Bar chart showing quarterly sales data (see description below)"</li>
+              <li>Begin the paragraph with: "Description of chart:" or similar indicator</li>
+              <li>This approach ensures all users benefit from the detailed description</li>
+            </ul>
+
+            <p><strong>Method 2: In a caption</strong></p>
+            <ul>
+              <li>Use Word's caption feature: Right-click image &gt; Insert Caption</li>
+              <li>Include the description in the caption text</li>
+              <li>Keep alt text brief: "Organizational hierarchy chart (see caption for details)"</li>
+            </ul>
+
+            <p><strong>Method 3: In an appendix</strong></p>
+            <ul>
+              <li>For documents with many complex images</li>
+              <li>Create an appendix titled "Image Descriptions" or "Extended Descriptions"</li>
+              <li>Number images and descriptions</li>
+              <li>In alt text, reference the appendix: "Flowchart of approval process (see Appendix A, Figure 3 for detailed description)"</li>
+            </ul>
+
+            <h4>Writing long descriptions</h4>
+            <p>
+              For charts and graphs, describe:
+            </p>
+            <ul>
+              <li>The type of chart (bar, line, pie, etc.)</li>
+              <li>What data is being shown</li>
+              <li>Key trends or patterns</li>
+              <li>Notable data points (highest, lowest, anomalies)</li>
+              <li>The overall conclusion or takeaway</li>
+            </ul>
+
+            <div class="panel panel-info">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">Example: Bar chart description</h4>
+                <p><strong>Brief alt text:</strong> "Bar chart showing quarterly sales 2023 (see description below)"</p>
+                <p><strong>Long description in body text:</strong></p>
+                <p>
+                  "Description of chart: This bar chart displays quarterly sales figures for 2023. Q1 shows $2.5M, 
+                  Q2 shows $3.1M, Q3 shows $2.8M, and Q4 shows $3.4M. The data reveals a general upward trend with 
+                  a slight dip in Q3. Q4 represents the highest sales quarter, showing a 21% increase over Q1."
+                </p>
+              </div>
+            </div>
+
+            <h3>Marking decorative images</h3>
+
+            <h4>What are decorative images?</h4>
+            <p>
+              Decorative images are visual elements that:
+            </p>
+            <ul>
+              <li>Don't convey information necessary to understand the content</li>
+              <li>Are used purely for visual design or aesthetics</li>
+              <li>Would not cause confusion if removed</li>
+              <li>Examples: borders, dividers, background patterns, purely aesthetic photos</li>
+            </ul>
+
+            <h4>How to mark as decorative</h4>
+            <ol>
+              <li>Right-click on the image</li>
+              <li>Select <strong>View Alt Text</strong></li>
+              <li>Check the <strong>"Mark as decorative"</strong> checkbox</li>
+              <li>Screen readers will skip this image entirely</li>
+            </ol>
+
+            <div class="panel panel-warning">
+              <div class="panel-body">
+                <h4 class="mrgn-tp-0">⚠️ When in doubt</h4>
+                <p>
+                  If you're unsure whether an image is decorative, it's better to provide alt text. An extra 
+                  description is better than missing information. Ask yourself: "Would someone miss important 
+                  information if they couldn't see this image?" If yes, it needs alt text.
+                </p>
+              </div>
+            </div>
+
+            <h3>Special cases</h3>
+
+            <h4>Complex diagrams</h4>
+            <p>
+              For complex diagrams, flowcharts, or organizational charts:
+            </p>
+            <ul>
+              <li>Brief alt text: Identify the type and topic</li>
+              <li>Long description: Describe the flow, relationships, and key elements</li>
+              <li>Consider creating a text-based table as an alternative representation</li>
+            </ul>
+
+            <h4>Screenshots with text</h4>
+            <p>
+              For screenshots that include visible text:
+            </p>
+            <ul>
+              <li>Include all visible text in the alt text or description</li>
+              <li>Describe the context and what the screenshot shows</li>
+              <li>Example: "Screenshot of Word's Home tab showing the Styles group with Heading 1, Heading 2, and Normal styles visible"</li>
+            </ul>
+
+            <h4>Infographics</h4>
+            <p>
+              For infographics combining text and images:
+            </p>
+            <ul>
+              <li>Brief alt text: Topic and type</li>
+              <li>Long description: Include all text and describe visual relationships</li>
+              <li>Consider providing data in an accessible table as an alternative</li>
+            </ul>
+
+            <h4>Linked images</h4>
+            <p>
+              If an image is a hyperlink:
+            </p>
+            <ul>
+              <li>Alt text should describe the link destination or action</li>
+              <li>Example: "Go to accessibility resources page" (not just "Arrow icon")</li>
+              <li>Include both image content and link purpose if both are important</li>
+            </ul>
+
+            <h3>Checking your work</h3>
+
+            <h4>Use the Accessibility Checker</h4>
+            <ol>
+              <li>Go to <strong>Review</strong> &gt; <strong>Check Accessibility</strong></li>
+              <li>The Accessibility Checker will flag images without alt text</li>
+              <li>Click on each issue to jump to that image</li>
+              <li>Add alt text or mark as decorative as appropriate</li>
+            </ol>
+
+            <h4>Review all images systematically</h4>
+            <ul>
+              <li>Go through your document page by page</li>
+              <li>Right-click each image and check View Alt Text</li>
+              <li>Verify alt text is meaningful and adequate</li>
+              <li>Ensure decorative images are marked as such</li>
+            </ul>
+
+            <div class="panel panel-success">
+              <div class="panel-body">
+                <h3 class="mrgn-tp-0">✅ Alt text and descriptions checklist</h3>
+                <ul class="list-unstyled">
+                  <li>☐ Every informative image has alt text</li>
+                  <li>☐ Alt text is concise (ideally under 125 characters)</li>
+                  <li>☐ Alt text is accurate and describes essential information</li>
+                  <li>☐ Alt text doesn't start with "Image of" or "Picture of"</li>
+                  <li>☐ Text visible in images is included in alt text</li>
+                  <li>☐ Complex images have long descriptions provided</li>
+                  <li>☐ Long descriptions are in body text, captions, or appendix</li>
+                  <li>☐ Decorative images are marked as decorative</li>
+                  <li>☐ Linked images describe the link destination</li>
+                  <li>☐ Accessibility Checker shows no missing alt text errors</li>
+                  <li>☐ Alt text provides equivalent information to visual content</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <nav role="navigation" aria-labelledby="nav-pagination">
+            <h2 id="nav-pagination" class="wb-inv">Pagination menu</h2>
+            <ul class="pager">
+              <li class="previous">
+                <a rel="prev" href="text-and-fonts.html">Previous - Text and Fonts</a>
+              </li>
+              <li class="next">
+                <a rel="next" href="additional-information.html">Next - Additional Information</a>
+              </li>
+            </ul>
+          </nav>
+        </main>
+        <nav
+          id="wb-sec"
+          class="wb-sec col-md-3 col-md-pull-9"
+          typeof="SiteNavigationElement"
+          aria-labelledby="wb-sec-h"
+        >
+          <h2 id="wb-sec-h" class="wb-inv">Section menu</h2>
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">Word Accessibility Techniques</h3>
+            <ul class="list-group menu list-unstyled">
+              <li><a class="list-group-item" href="word-templates-page-layout.html">Word Templates and Page Layout</a></li>
+              <li><a class="list-group-item" href="heading-styles.html">Heading Styles</a></li>
+              <li><a class="list-group-item" href="text-and-fonts.html">Text and Fonts</a></li>
+              <li><a class="list-group-item active" href="alt-text-long-descriptions.html">Alt Text and Long Descriptions</a></li>
+              <li><a class="list-group-item" href="additional-information.html">Additional Information</a></li>
+            </ul>
+          </section>
+
+          <section class="list-group menu list-unstyled">
+            <h3 class="wb-navcurr">All modules</h3>
+            <ul class="list-group menu list-unstyled">
+              <li><a class="list-group-item" href="../module1/index.html">Module 1 - Accessibility fundamentals</a></li>
+              <li><a class="list-group-item" href="../module2/index.html">Module 2 – Global Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module3/index.html">Module 3 – PowerPoint Accessibility Techniques</a></li>
+              <li><a class="list-group-item active" href="index.html">Module 4 – Word Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module5/index.html">Module 5 – Outlook Email Accessibility Techniques</a></li>
+              <li><a class="list-group-item" href="../module6/index.html">Module 6 – Introduction to Accessible PDFs</a></li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+      <div id="def-preFooter2"></div>
+      <script src="../../../scripts/preFooter2.min.js"></script>
+      <div id="def-preFooter"></div>
+      <script src="../../../scripts/preFooter.min.js"></script>
+    </div>
+
+    <div id="def-footer"></div>
+    <script src="../../../scripts/appFooter.min.js"></script>
+    <script src="../../../scripts/refFooter.min.js"></script>
+    <script src="../../../scripts/bati-itao.min.js"></script>
+  </body>
+</html>
