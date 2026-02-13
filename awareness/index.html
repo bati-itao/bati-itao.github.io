@@ -14,7 +14,84 @@
     <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
     <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
     <script src="../scripts/refTop.min.js"></script>
-    <link rel="stylesheet" href="../css/awareness-dashboard.css" />
+    <style>
+      /* Minimal inline styles to maintain look and feel using WET components */
+      .hero-banner {
+        background: linear-gradient(135deg, #26374a 0%, #1e2f3d 100%);
+        color: white;
+        padding: 40px 30px;
+        margin: 35px 0 30px 0;
+        border-radius: 4px;
+      }
+      .hero-banner h2 {
+        color: white;
+        border: none;
+        margin-top: 0;
+      }
+      .panel-feature {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+      }
+      .panel-feature:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      }
+      .panel-feature .panel-body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .panel-feature .panel-body p {
+        flex: 1;
+      }
+      .event-date-badge {
+        background: #26374a;
+        color: white;
+        width: 50px;
+        text-align: center;
+        padding: 8px 5px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        border-radius: 3px;
+        font-size: 10px;
+        font-weight: bold;
+      }
+      .event-date-badge strong {
+        display: block;
+        font-size: 18px;
+      }
+      .article-tag, .event-tag, .training-tag {
+        display: inline-block;
+        padding: 3px 8px;
+        font-size: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        border-radius: 3px;
+      }
+      .article-tag {
+        background: #e3f2fd;
+        color: #1976d2;
+      }
+      .event-tag {
+        background: #fff3e0;
+        color: #f57c00;
+      }
+      .training-tag {
+        background: #f3e5f5;
+        color: #7b1fa2;
+      }
+      .video-tag {
+        background: #e8f5e9;
+        color: #388e3c;
+      }
+      .section-heading {
+        border-bottom: 3px solid #26374a;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+      }
+    </style>
   </head>
 
   <body vocab="https://schema.org/" typeof="WebPage">
@@ -42,11 +119,9 @@
           class="col-md-9 col-md-push-3"
         >
           <!-- Hero Banner -->
-          <div class="hub-strip">
-            <div class="hub-strip-title">
-              Enable Digital
-            </div>
-            <p style="line-height: 1.5; font-size: 18px">
+          <div class="hero-banner">
+            <h2>Enable Digital</h2>
+            <p style="line-height: 1.5; font-size: 18px; margin-bottom: 0;">
               Your central hub for accessibility resources, learning
               opportunities, and awareness initiatives. Explore articles,
               upcoming events, training programs, and practical videos designed
@@ -60,326 +135,205 @@
           <section class="mrgn-tp-lg">
             <h2 class="wb-inv">Explore Our Resources</h2>
             <div class="row wb-eqht">
-            <!-- Articles Card -->
-            <div class="col-md-4 col-sm-6">
-              <div class="item-card">
-                <a href="articles.html" class="stretched-link">
-                  <div
-                    class="card-image"
-                    style="
-                      background: url('./assets/img/featured-articles.jpg')
-                        center/cover;
-                    "
-                  ></div>
-                  <div class="card-content">
-                    <h3
-                      style="
-                        font-weight: bold;
-                        color: #2d3748;
-                        font-size: 16px;
-                        line-height: 1.4;
-                      "
-                    >
-                      Articles
-                    </h3>
+              <!-- Articles Card -->
+              <div class="col-md-4 col-sm-6">
+                <section class="panel panel-default panel-feature">
+                  <div class="panel-body">
+                    <h3 class="mrgn-tp-0"><a href="articles.html">Articles</a></h3>
                     <p>
                       Explore accessibility-focused articles covering best
                       practices and awareness days.
                     </p>
                   </div>
-                </a>
+                </section>
               </div>
-            </div>
-            <!-- Events Card -->
-            <div class="col-md-4 col-sm-6">
-              <div class="item-card">
-                <a href="events.html" class="stretched-link">
-                  <div
-                    class="card-image"
-                    style="
-                      background: url('./assets/img/events.jpg') center/cover;
-                    "
-                  ></div>
-                  <div class="card-content">
-                    <h3
-                      style="
-                        font-weight: bold;
-                        color: #2d3748;
-                        font-size: 16px;
-                        line-height: 1.4;
-                      "
-                    >
-                      Events
-                    </h3>
+              <!-- Events Card -->
+              <div class="col-md-4 col-sm-6">
+                <section class="panel panel-default panel-feature">
+                  <div class="panel-body">
+                    <h3 class="mrgn-tp-0"><a href="events.html">Events</a></h3>
                     <p>
                       Join upcoming accessibility awareness and information
                       sessions.
                     </p>
                   </div>
-                </a>
+                </section>
               </div>
-            </div>
-            <!-- Training Card -->
-            <div class="col-md-4 col-sm-6">
-              <div class="item-card">
-                <a href="training.html" class="stretched-link">
-                  <div
-                    class="card-image"
-                    style="
-                      background: url('./assets/img/training.jpg') center/cover;
-                    "
-                  ></div>
-                  <div class="card-content">
-                    <h3
-                      style="
-                        font-weight: bold;
-                        color: #2d3748;
-                        font-size: 16px;
-                        line-height: 1.4;
-                      "
-                    >
-                      Active Training
-                    </h3>
+              <!-- Training Card -->
+              <div class="col-md-4 col-sm-6">
+                <section class="panel panel-default panel-feature">
+                  <div class="panel-body">
+                    <h3 class="mrgn-tp-0"><a href="training.html">Active Training</a></h3>
                     <p>
                       Access self-paced and instructor-led accessibility
                       training programs.
                     </p>
                   </div>
-                </a>
+                </section>
               </div>
             </div>
-          </div>
           </section>
 
           <!-- Latest Articles Section -->
-          <section class="row wb-eqht pulse-grid" aria-labelledby="latest-articles-title">
-            <div class="col-md-12">
-              <h2 id="latest-articles-title">Latest Articles</h2>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="item-card article-card">
-                <div
-                  class="card-image"
-                  aria-hidden="true"
-                  style="background: url('') center/cover"
-                ></div>
-                <div class="card-content">
-                  <span class="card-tag">WCAG 2.2</span>
-                  <a
-                    href="./articles/2025/non-text-content-alternative-text.html"
-                    class="card-link"
-                    >Give Non-text Content a Voice</a
-                  >
-                </div>
+          <section class="mrgn-tp-lg" aria-labelledby="latest-articles-title">
+            <h2 id="latest-articles-title" class="section-heading">Latest Articles</h2>
+            <div class="row wb-eqht">
+              <div class="col-md-4 col-sm-6">
+                <section class="panel panel-default panel-feature">
+                  <div class="panel-body">
+                    <span class="article-tag">WCAG 2.2</span>
+                    <h3 class="mrgn-tp-sm">
+                      <a href="./articles/2025/non-text-content-alternative-text.html">Give Non-text Content a Voice</a>
+                    </h3>
+                  </div>
+                </section>
               </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="item-card article-card">
-                <div
-                  class="card-image"
-                  aria-hidden="true"
-                  style="background: url('') center/cover"
-                ></div>
-                <div class="card-content">
-                  <span class="card-tag">EMAILS</span>
-                  <a
-                    href="./articles/2025/email-accessibility.html"
-                    class="card-link"
-                    >Accessibility in Everyday Emails</a
-                  >
-                </div>
+              <div class="col-md-4 col-sm-6">
+                <section class="panel panel-default panel-feature">
+                  <div class="panel-body">
+                    <span class="article-tag">EMAILS</span>
+                    <h3 class="mrgn-tp-sm">
+                      <a href="./articles/2025/email-accessibility.html">Accessibility in Everyday Emails</a>
+                    </h3>
+                  </div>
+                </section>
               </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="item-card article-card">
-                <div
-                  class="card-image"
-                  aria-hidden="true"
-                  style="background: url('') center/cover"
-                ></div>
-                <div class="card-content">
-                  <span class="card-tag">BEST PRACTICES</span>
-                  <a href="articles.html" class="card-link"
-                    >View All Articles</a
-                  >
-                </div>
+              <div class="col-md-4 col-sm-6">
+                <section class="panel panel-default panel-feature">
+                  <div class="panel-body">
+                    <span class="article-tag">BEST PRACTICES</span>
+                    <h3 class="mrgn-tp-sm">
+                      <a href="articles.html">View All Articles</a>
+                    </h3>
+                  </div>
+                </section>
               </div>
             </div>
           </section>
 
           <!-- Next Events Section -->
-          <section class="row wb-eqht pulse-grid" aria-labelledby="next-events-title">
-            <div class="col-md-12">
-              <h2 id="next-events-title">Next Events</h2>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="item-card event-card">
-                <div
-                  class="card-image"
-                  aria-hidden="true"
-                  style="background: url('') center/cover"
-                ></div>
-                <div class="event-badge">
-                  <div style="font-size: 9px">FEB</div>
-                  <strong>20</strong>
-                </div>
-                <div class="card-content">
-                  <span class="card-tag">WORKSHOP</span>
-                  <a href="./events/join-intro-to-a11y.html" class="card-link"
-                    >Intro to Digital Accessibility</a
-                  >
-                </div>
+          <section class="mrgn-tp-lg" aria-labelledby="next-events-title">
+            <h2 id="next-events-title" class="section-heading">Next Events</h2>
+            <div class="row wb-eqht">
+              <div class="col-md-4 col-sm-6">
+                <section class="panel panel-default panel-feature" style="position: relative;">
+                  <div class="event-date-badge">
+                    <div>FEB</div>
+                    <strong>20</strong>
+                  </div>
+                  <div class="panel-body">
+                    <span class="event-tag">WORKSHOP</span>
+                    <h3 class="mrgn-tp-sm">
+                      <a href="./events/join-intro-to-a11y.html">Intro to Digital Accessibility</a>
+                    </h3>
+                  </div>
+                </section>
               </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="item-card event-card">
-                <div
-                  class="card-image"
-                  aria-hidden="true"
-                  style="background: url('') center/cover"
-                ></div>
-                <div class="event-badge">
-                  <div style="font-size: 9px">MAR</div>
-                  <strong>05</strong>
-                </div>
-                <div class="card-content">
-                  <span class="card-tag">HANDS-ON</span>
-                  <a
-                    href="./events/creating-accessible-documents.html"
-                    class="card-link"
-                    >Creating Accessible Docs</a
-                  >
-                </div>
+              <div class="col-md-4 col-sm-6">
+                <section class="panel panel-default panel-feature" style="position: relative;">
+                  <div class="event-date-badge">
+                    <div>MAR</div>
+                    <strong>05</strong>
+                  </div>
+                  <div class="panel-body">
+                    <span class="event-tag">HANDS-ON</span>
+                    <h3 class="mrgn-tp-sm">
+                      <a href="./events/creating-accessible-documents.html">Creating Accessible Docs</a>
+                    </h3>
+                  </div>
+                </section>
               </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="item-card event-card">
-                <div
-                  class="card-image"
-                  aria-hidden="true"
-                  style="background: url('') center/cover"
-                ></div>
-                <div class="event-badge">
-                  <div style="font-size: 9px">APR</div>
-                  <strong>15</strong>
-                </div>
-                <div class="card-content">
-                  <span class="card-tag">INFO SESSION</span>
-                  <a href="events.html" class="card-link"
-                    >View All Events</a
-                  >
-                </div>
+              <div class="col-md-4 col-sm-6">
+                <section class="panel panel-default panel-feature" style="position: relative;">
+                  <div class="event-date-badge">
+                    <div>APR</div>
+                    <strong>15</strong>
+                  </div>
+                  <div class="panel-body">
+                    <span class="event-tag">INFO SESSION</span>
+                    <h3 class="mrgn-tp-sm">
+                      <a href="events.html">View All Events</a>
+                    </h3>
+                  </div>
+                </section>
               </div>
             </div>
           </section>
 
           <!-- Active Training Section -->
-          <section class="row wb-eqht pulse-grid" aria-labelledby="training-title">
-            <div class="col-md-12">
-              <h2 id="training-title">Active Training</h2>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="item-card training-card">
-                <div
-                  class="card-image"
-                  aria-hidden="true"
-                  style="background: url('') center/cover"
-                ></div>
-                <div class="card-content">
-                  <span class="card-tag">SELF-PACED</span>
-                  <a href="training.html" class="card-link"
-                    >Screen Reader Basics</a
-                  >
-                </div>
+          <section class="mrgn-tp-lg" aria-labelledby="training-title">
+            <h2 id="training-title" class="section-heading">Active Training</h2>
+            <div class="row wb-eqht">
+              <div class="col-md-4 col-sm-6">
+                <section class="panel panel-default panel-feature">
+                  <div class="panel-body">
+                    <span class="training-tag">SELF-PACED</span>
+                    <h3 class="mrgn-tp-sm">
+                      <a href="training.html">Screen Reader Basics</a>
+                    </h3>
+                  </div>
+                </section>
               </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="item-card training-card">
-                <div
-                  class="card-image"
-                  aria-hidden="true"
-                  style="background: url('') center/cover"
-                ></div>
-                <div class="card-content">
-                  <span class="card-tag">MS TEAMS</span>
-                  <a href="training.html" class="card-link"
-                    >Accessible Forms Workshop</a
-                  >
-                </div>
+              <div class="col-md-4 col-sm-6">
+                <section class="panel panel-default panel-feature">
+                  <div class="panel-body">
+                    <span class="training-tag">MS TEAMS</span>
+                    <h3 class="mrgn-tp-sm">
+                      <a href="training.html">Accessible Forms Workshop</a>
+                    </h3>
+                  </div>
+                </section>
               </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="item-card training-card">
-                <div
-                  class="card-image"
-                  aria-hidden="true"
-                  style="background: url('') center/cover"
-                ></div>
-                <div class="card-content">
-                  <span class="card-tag">ONLINE</span>
-                  <a href="training.html" class="card-link"
-                    >View All Training</a
-                  >
-                </div>
+              <div class="col-md-4 col-sm-6">
+                <section class="panel panel-default panel-feature">
+                  <div class="panel-body">
+                    <span class="training-tag">ONLINE</span>
+                    <h3 class="mrgn-tp-sm">
+                      <a href="training.html">View All Training</a>
+                    </h3>
+                  </div>
+                </section>
               </div>
             </div>
           </section>
 
           <!-- Video Hub Section -->
-          <section
-            class="row wb-eqht video-highlights"
-            aria-labelledby="video-hub-title"
-          >
-            <div class="col-md-12">
-              <h2 id="video-hub-title">Video Hub</h2>
-              <p>
-                Short, practical videos to help teams apply accessibility in
-                real work. New sessions are added regularly.
-              </p>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="item-card training-card">
-                <div
-                  class="card-image"
-                  aria-hidden="true"
-                  style="background: url('') center/cover"
-                ></div>
-                <div class="card-content">
-                  <span class="card-tag">QUICK TIP</span>
-                  <a href="video-hub.html" class="card-link"
-                    >Alt Text in 3 Minutes</a
-                  >
-                </div>
+          <section class="mrgn-tp-lg" aria-labelledby="video-hub-title">
+            <h2 id="video-hub-title" class="section-heading">Video Hub</h2>
+            <p>
+              Short, practical videos to help teams apply accessibility in
+              real work. New sessions are added regularly.
+            </p>
+            <div class="row wb-eqht">
+              <div class="col-md-4 col-sm-6">
+                <section class="panel panel-default panel-feature">
+                  <div class="panel-body">
+                    <span class="video-tag">QUICK TIP</span>
+                    <h3 class="mrgn-tp-sm">
+                      <a href="video-hub.html">Alt Text in 3 Minutes</a>
+                    </h3>
+                  </div>
+                </section>
               </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="item-card training-card">
-                <div
-                  class="card-image"
-                  aria-hidden="true"
-                  style="background: url('') center/cover"
-                ></div>
-                <div class="card-content">
-                  <span class="card-tag">HOW-TO</span>
-                  <a href="video-hub.html" class="card-link"
-                    >Captions and Transcripts 101</a
-                  >
-                </div>
+              <div class="col-md-4 col-sm-6">
+                <section class="panel panel-default panel-feature">
+                  <div class="panel-body">
+                    <span class="video-tag">HOW-TO</span>
+                    <h3 class="mrgn-tp-sm">
+                      <a href="video-hub.html">Captions and Transcripts 101</a>
+                    </h3>
+                  </div>
+                </section>
               </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="item-card training-card">
-                <div
-                  class="card-image"
-                  aria-hidden="true"
-                  style="background: url('') center/cover"
-                ></div>
-                <div class="card-content">
-                  <span class="card-tag">TUTORIAL</span>
-                  <a href="video-hub.html" class="card-link"
-                    >View All Videos</a
-                  >
-                </div>
+              <div class="col-md-4 col-sm-6">
+                <section class="panel panel-default panel-feature">
+                  <div class="panel-body">
+                    <span class="video-tag">TUTORIAL</span>
+                    <h3 class="mrgn-tp-sm">
+                      <a href="video-hub.html">View All Videos</a>
+                    </h3>
+                  </div>
+                </section>
               </div>
             </div>
           </section>
@@ -414,11 +368,7 @@
                 <a class="list-group-item" href="training.html">Training</a>
               </li>
               <li>
-                <a
-                  class="list-group-item video-hub-menu-item"
-                  href="video-hub.html"
-                  >▶ Video Hub</a
-                >
+                <a class="list-group-item" href="video-hub.html">▶ Video Hub</a>
               </li>
             </ul>
           </section>
