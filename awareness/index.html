@@ -91,36 +91,40 @@
         padding-bottom: 10px;
         margin-bottom: 20px;
       }
-      /* Inverted cards for Articles, Events, and Active Training */
-      .panel-inverted {
-        background-color: #26374a;
-        border-color: #26374a;
-        color: #ffffff;
+      /* Featured topic cards with icons */
+      .panel-topic {
+        border-left: 4px solid #26374a;
+        transition: border-color 0.3s ease;
       }
-      .panel-inverted .panel-body {
-        background-color: #26374a;
+      .panel-topic:hover {
+        border-left-color: #0b3d91;
       }
-      .panel-inverted h3 a {
-        color: #ffffff;
-        text-decoration: underline;
+      .topic-icon {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background: #f0f0f0;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        font-size: 20px;
       }
-      .panel-inverted h3 a:hover,
-      .panel-inverted h3 a:focus {
-        color: #e0e0e0;
-        text-decoration: underline;
+      .topic-icon.articles-icon {
+        background: #e3f2fd;
+        color: #1976d2;
       }
-      .panel-inverted p {
-        color: #ffffff;
+      .topic-icon.events-icon {
+        background: #fff3e0;
+        color: #f57c00;
       }
-      /* Dark mode support - ensure text is always readable */
-      @media (prefers-color-scheme: dark) {
-        .panel-inverted {
-          background-color: #1a2634;
-          border-color: #1a2634;
-        }
-        .panel-inverted .panel-body {
-          background-color: #1a2634;
-        }
+      .topic-icon.training-icon {
+        background: #f3e5f5;
+        color: #7b1fa2;
+      }
+      .topic-icon.video-icon {
+        background: #e8f5e9;
+        color: #388e3c;
       }
     </style>
   </head>
@@ -165,9 +169,10 @@
             <h2 class="wb-inv">Explore Our Resources</h2>
             <div class="row wb-eqht">
               <!-- Articles Card -->
-              <div class="col-md-4 col-sm-6">
-                <section class="panel panel-default panel-feature panel-inverted">
+              <div class="col-md-6 col-sm-6">
+                <section class="panel panel-default panel-feature panel-topic">
                   <div class="panel-body">
+                    <div class="topic-icon articles-icon" aria-hidden="true">📄</div>
                     <h3 class="mrgn-tp-0"><a href="articles.html">Articles</a></h3>
                     <p>
                       Explore accessibility-focused articles covering best
@@ -177,9 +182,10 @@
                 </section>
               </div>
               <!-- Events Card -->
-              <div class="col-md-4 col-sm-6">
-                <section class="panel panel-default panel-feature panel-inverted">
+              <div class="col-md-6 col-sm-6">
+                <section class="panel panel-default panel-feature panel-topic">
                   <div class="panel-body">
+                    <div class="topic-icon events-icon" aria-hidden="true">📅</div>
                     <h3 class="mrgn-tp-0"><a href="events.html">Events</a></h3>
                     <p>
                       Join upcoming accessibility awareness and information
@@ -188,14 +194,30 @@
                   </div>
                 </section>
               </div>
+            </div>
+            <div class="row wb-eqht mrgn-tp-md">
               <!-- Training Card -->
-              <div class="col-md-4 col-sm-6">
-                <section class="panel panel-default panel-feature panel-inverted">
+              <div class="col-md-6 col-sm-6">
+                <section class="panel panel-default panel-feature panel-topic">
                   <div class="panel-body">
+                    <div class="topic-icon training-icon" aria-hidden="true">🎓</div>
                     <h3 class="mrgn-tp-0"><a href="training.html">Active Training</a></h3>
                     <p>
                       Access self-paced and instructor-led accessibility
                       training programs designed to build your skills in creating accessible digital experiences.
+                    </p>
+                  </div>
+                </section>
+              </div>
+              <!-- Video Hub Card -->
+              <div class="col-md-6 col-sm-6">
+                <section class="panel panel-default panel-feature panel-topic">
+                  <div class="panel-body">
+                    <div class="topic-icon video-icon" aria-hidden="true">🎥</div>
+                    <h3 class="mrgn-tp-0"><a href="video-hub.html">Video Hub</a></h3>
+                    <p>
+                      Watch short, practical videos covering accessibility topics
+                      from alt text basics to keyboard navigation testing with step-by-step tutorials.
                     </p>
                   </div>
                 </section>

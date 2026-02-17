@@ -21,6 +21,61 @@
 
     <!-- Write closure template -->
     <script src="../scripts/refTop.min.js"></script>
+    <style>
+      /* Minimal inline styles to maintain look and feel using WET components */
+      .panel-feature {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+        min-height: 200px;
+      }
+      .panel-feature:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      }
+      .panel-feature .panel-body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .panel-feature .panel-body p {
+        flex: 1;
+      }
+      /* Featured topic cards with icons */
+      .panel-topic {
+        border-left: 4px solid #26374a;
+        transition: border-color 0.3s ease;
+      }
+      .panel-topic:hover {
+        border-left-color: #0b3d91;
+      }
+      .topic-icon {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background: #f0f0f0;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        font-size: 20px;
+      }
+      .topic-icon.articles-icon {
+        background: #e3f2fd;
+        color: #1976d2;
+      }
+      .topic-icon.events-icon {
+        background: #fff3e0;
+        color: #f57c00;
+      }
+      .topic-icon.training-icon {
+        background: #f3e5f5;
+        color: #7b1fa2;
+      }
+      .topic-icon.video-icon {
+        background: #e8f5e9;
+        color: #388e3c;
+      }
+    </style>
   </head>
   <body vocab="https://schema.org/" typeof="WebPage">
     <div id="def-top"></div>
@@ -65,40 +120,69 @@
         </p>
       </div>
 
-      <!-- Feature tiles (3 across) -->
+<!-- Feature tiles (2x2 layout) -->
       <section class="gc-srvinfo mrgn-tp-lg">
+        <h2 class="wb-inv">Explorez nos ressources</h2>
         <div class="row wb-eqht">
-          <div class="col-md-4 col-sm-6">
-            <h3 class="h4">
-              <a href="./articles/index.html">Articles en vedette</a>
-            </h3>
-            <p>
-              Plain‑language articles that explain key accessibility topics and
-              show what “good” looks like in everyday work.
-            </p>
+          <div class="col-md-6 col-sm-6">
+            <section class="panel panel-default panel-feature panel-topic">
+              <div class="panel-body">
+                <div class="topic-icon articles-icon" aria-hidden="true">📄</div>
+                <h3 class="mrgn-tp-0">
+                  <a href="articles-fr.html">Articles</a>
+                </h3>
+                <p>
+                  Explorez des articles sur l'accessibilité couvrant les meilleures pratiques, les directives WCAG et les journées de sensibilisation pour approfondir votre compréhension de la conception inclusive.
+                </p>
+              </div>
+            </section>
           </div>
 
-          <div class="col-md-4 col-sm-6">
-            <h3 class="h4">
-              <a href="./video-hub/index.html">La vidéothèque</a>
-            </h3>
-            <p>
-              Short, captioned videos that demonstrate techniques and common
-              fixes for accessible content.
-            </p>
+          <div class="col-md-6 col-sm-6">
+            <section class="panel panel-default panel-feature panel-topic">
+              <div class="panel-body">
+                <div class="topic-icon events-icon" aria-hidden="true">📅</div>
+                <h3 class="mrgn-tp-0">
+                  <a href="events-fr.html">Événements</a>
+                </h3>
+                <p>
+                  Participez aux prochaines séances de sensibilisation et d'information sur l'accessibilité avec des ateliers, des webinaires et des discussions communautaires sur l'inclusion numérique.
+                </p>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="row wb-eqht mrgn-tp-md">
+          <div class="col-md-6 col-sm-6">
+            <section class="panel panel-default panel-feature panel-topic">
+              <div class="panel-body">
+                <div class="topic-icon training-icon" aria-hidden="true">🎓</div>
+                <h3 class="mrgn-tp-0">
+                  <a href="training-fr.html">Formation active</a>
+                </h3>
+                <p>
+                  Accédez à des programmes de formation sur l'accessibilité à rythme libre et dirigés par un instructeur, conçus pour développer vos compétences dans la création d'expériences numériques accessibles.
+                </p>
+              </div>
+            </section>
           </div>
 
-          <div class="col-md-4 col-sm-6">
-            <h3 class="h4">
-              <a href="./events/index.html">Événements</a>
-            </h3>
-            <p>
-              Join upcoming awareness talks, demos, and community sessions
-              hosted by the IT Accessibility Office.
-            </p>
+          <div class="col-md-6 col-sm-6">
+            <section class="panel panel-default panel-feature panel-topic">
+              <div class="panel-body">
+                <div class="topic-icon video-icon" aria-hidden="true">🎥</div>
+                <h3 class="mrgn-tp-0">
+                  <a href="video-hub-fr.html">Carrefour vidéo</a>
+                </h3>
+                <p>
+                  Regardez des vidéos courtes et pratiques couvrant les sujets d'accessibilité, des bases du texte alternatif aux tests de navigation au clavier avec des tutoriels étape par étape.
+                </p>
+              </div>
+            </section>
           </div>
         </div>
       </section>
+
 
       <!-- Articles + Upcoming events (two-column layout) -->
       <section class="mrgn-tp-xl">
