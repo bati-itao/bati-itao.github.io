@@ -1,62 +1,90 @@
-// ...existing code...
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr-CA" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js" lang="fr-CA" dir="ltr"><!--<![endif]-->
+<!--[if gt IE 8]><!--><html
+  class="no-js"
+  lang="fr-CA"
+  dir="ltr"
+><!--<![endif]-->
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta http-equiv="Content-Language" content="fr-CA" />
-    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-    <title>Articles pour 2025 - L'accessibilité d'abord - EDSC /
-      Bureau de l'accessibilité des TI</title>
-    <meta content="width=device-width,initial-scale=1" name="viewport">
-    <!-- Meta data -->
-    <meta name="description"
-      content="Cette page consiste des articles d'accessibilité publiée durant l'année 2025.">
-    <!-- Meta data-->
-    <!-- Load closure template scripts -->
+    <title>
+      Articles pour 2025 - L'accessibilité d'abord - EDSC / Bureau de
+      l'accessibilité des TI
+    </title>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta
+      name="description"
+      content="Cette page contient des articles sur l'accessibilité publiés en 2025."
+    />
+
+    <!-- Load GCWeb/WET scripts -->
     <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
     <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-fr.js"></script>
-    <!-- Write closure template -->
     <script src="../scripts/refTop.min.js"></script>
-    <link rel="stylesheet" href="../css/a11y-dark.css">
-    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="../css/a11y-dark.css" />
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
+
   <body vocab="https://schema.org/" typeof="WebPage">
-    <div id="def-top">
-    </div>
-    <!-- Write closure template -->
+    <div id="def-top"></div>
+
     <script>
-        var defTop = document.getElementById("def-top");
-        defTop.outerHTML = wet.builder.appTop({
-            "appName": [{
-                "text": "EDSC / Bureau de l’accessibilité des TI",
-                "href": "../index-fr.html"
-            }],
-           "breadcrumbs" : [{
-                "title": "Accueil",
-                "href" : "../index-fr.html"
-            },{
-                "title": "L'accessibilité d'abord",
-                "href" : "index-fr.html"
-            },{
-                "title": "Articles pour l'année 2025"
-            }],
-            "lngLinks": [{
-                "lang": "en-CA",
-                "href": "../awareness/articles.html",
-                "text": "English"
-            }],
-            "menuPath": "../ajax/menu-fr.html"
-        });
-      </script>
+      // Fallback for offline CDTS/WET support
+      if (typeof wet === "undefined" || !wet.builder) {
+        document.write('<script src="../scripts/cdts/soyutils.js"><\/script>');
+        var lang =
+          (document.documentElement && document.documentElement.lang) || "fr";
+        document.write(
+          '<script src="../scripts/cdts/' +
+            (lang.indexOf("fr") === 0 ? "wet-fr.js" : "wet-en.js") +
+            '"><\/script>'
+        );
+      }
+    </script>
+
+    <script>
+      var defTop = document.getElementById("def-top");
+      defTop.outerHTML = wet.builder.appTop({
+        appName: [
+          {
+            text: "EDSC / Bureau de l'accessibilité des TI",
+            href: "../index-fr.html",
+          },
+        ],
+        breadcrumbs: [
+          { title: "Accueil", href: "../index-fr.html" },
+          { title: "L'accessibilité d'abord", href: "index-fr.html" },
+          { title: "Articles pour 2025" },
+        ],
+        lngLinks: [
+          {
+            lang: "en-CA",
+            href: "../awareness/articles.html",
+            text: "English",
+          },
+        ],
+        menuPath: "../ajax/menu-fr.html",
+      });
+    </script>
+
     <div class="container">
       <div class="row">
-        <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
+        <main
+          role="main"
+          property="mainContentOfPage"
+          class="col-md-9 col-md-push-3"
+        >
           <!-- Hero Banner -->
           <div class="mrgn-tp-lg">
-            <h1 property="name" id="wb-cont">Articles pour l'année 2025</h1>
+            <h1 property="name" id="wb-cont">Articles pour 2025</h1>
             <p>
-              Découvrez des articles perspicaces sur les meilleures pratiques d'accessibilité numérique, les journées de sensibilisation et les principes de conception inclusive. Notre collection fournit des conseils pratiques pour vous aider à créer du contenu numérique accessible pour tous les utilisateurs.
+              Découvrez des articles perspicaces sur les meilleures pratiques
+              d'accessibilité numérique, les journées de sensibilisation et les
+              principes de conception inclusive. Notre collection fournit des
+              conseils pratiques pour vous aider à créer du contenu numérique
+              accessible pour tous.
             </p>
           </div>
 
@@ -65,12 +93,14 @@
             <div class="panel panel-primary">
               <div class="panel-heading">
                 <h2 class="panel-title">
-                  Article en vedette : Donnez une voix au contenu non textuel grâce au texte alternatif
+                  Article en vedette : Donnez une voix au contenu non textuel
+                  grâce au texte alternatif
                 </h2>
               </div>
               <div class="panel-body">
                 <p>
-                  Découvrez les meilleures pratiques pour rédiger un texte alternatif significatif pour un contenu numérique accessible.
+                  Découvrez les meilleures pratiques pour rédiger un texte
+                  alternatif significatif pour un contenu numérique accessible.
                 </p>
                 <p>
                   <a
@@ -83,73 +113,213 @@
             </div>
           </section>
 
-          <div>
-           <p>
-              Il s'agit d'une petite initiative de sensibilisation à travers des articles mettant l'accent sur l'importance des différentes Journées de sensibilisation relatives à l'accessibilité et à leurs enjeux. Les articles incluent des événements à venir, des formations et plus encore.
-           </p>
-          
-          <p>
-            Articles publiés pour le mois de:
-          </p>
+          <!-- Recent Articles -->
+          <section class="mrgn-bttm-lg">
+            <h2>Articles récents</h2>
+            <div class="row wb-eqht mrgn-tp-md">
+              <div class="col-md-6 col-lg-4">
+                <section
+                  class="panel panel-default hght-inhrt article-card-thumbnail"
+                >
+                  <div class="panel-body">
+                    <img
+                      src="./assets/img/alt-text-image1.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <h3 class="mrgn-tp-0">
+                      <a
+                        href="../awareness/articles/2025/low-vision-awareness-month-2025-fr.html"
+                        >Protéger vos yeux – Outils pour votre confort visuel</a
+                      >
+                    </h3>
+                    <p>
+                      Découvrez des outils et des stratégies pour protéger votre
+                      vision et créer des environnements numériques
+                      confortables.
+                    </p>
+                  </div>
+                </section>
+              </div>
 
-          <h2>Janvier</h2>
-                    <ul>
-                        <li>
-                            <a href="../awareness/articles/2025/world-braille-day-fr.html">Journée mondiale du braille</a>
-                        </li>
-                    </ul>
+              <div class="col-md-6 col-lg-4">
+                <section
+                  class="panel panel-default hght-inhrt article-card-thumbnail"
+                >
+                  <div class="panel-body">
+                    <img
+                      src="./assets/img/non-text-thumb.png"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <h3 class="mrgn-tp-0">
+                      <a
+                        href="../awareness/articles/2025/non-text-content-alternative-text-fr.html"
+                        >Donnez une voix au contenu non textuel grâce au texte
+                        alternatif</a
+                      >
+                    </h3>
+                    <p>
+                      Découvrez les meilleures pratiques pour rédiger un texte
+                      alternatif significatif pour les images, icônes et
+                      graphiques.
+                    </p>
+                  </div>
+                </section>
+              </div>
 
-                    <h2>Février</h2>
-                    <ul>
-                        <li>
-              <a href="../awareness/articles/2025/low-vision-awareness-month-2025-fr.html">Protéger vos yeux – Outils pour votre confort visuel</a>
-          </li>
-          <li>
-            <a href="../awareness/articles/2025/non-text-content-alternative-text-fr.html">Donnez une voix au contenu non textuel grâce au texte alternatif</a>
-        </li>
-                    </ul>
+              <div class="col-md-6 col-lg-4">
+                <section
+                  class="panel panel-default hght-inhrt article-card-thumbnail"
+                >
+                  <div class="panel-body">
+                    <img
+                      src="./assets/img/featured-articles.jpg"
+                      alt=""
+                      loading="lazy"
+                    />
+                    <h3 class="mrgn-tp-0">Article de remplacement</h3>
+                    <p>
+                      D'autres articles à venir. Revenez pour consulter les
+                      dernières informations sur l'accessibilité.
+                    </p>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </section>
 
-          <h2>Mars</h2>
-                    <ul>
-                        <li>
-                            <a href="../awareness/articles/2025/enhancing-powerpoint-accessibility-fr.html">Améliorer l’accessibilité de PowerPoint : Utiliser le mode « Plan » pour aider les personnes neurodivergentes</a>
-                        </li>
-            <li>
-                            <a href="../awareness/articles/2025/bilingual-email-fr.html">Améliorez l’accessibilité de vos courriels bilingues grâce à la fonctionnalité de définition de la langue de vérification</a>
-                        </li>
-                    </ul>
-                    
-          <h2>Avril</h2>
-                    <ul>
-                        <li>
-              <a href="../awareness/articles/2025/email-accessibility-fr.html">L’accessibilité dans vos courriels quotidiens</a>
-          </li>
-        </ul>
+          <!-- Monthly Articles Tabs -->
+          <h2>Articles par mois</h2>
+          <section class="wb-tabs">
+            <div class="tabpanels">
+              <details id="february-2026" open="open">
+                <summary>Février</summary>
+                <div class="row wb-eqht mrgn-tp-md">
+                  <div class="col-md-6 col-lg-4">
+                    <section
+                      class="panel panel-default hght-inhrt article-card-thumbnail"
+                    >
+                      <div class="panel-body">
+                        <h3 class="mrgn-tp-0">Article fictif : février 2026</h3>
+                        <p>
+                          Une description fictive pour un article
+                          d'accessibilité publié en février 2026.
+                        </p>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="col-md-6 col-lg-4">
+                    <section
+                      class="panel panel-default hght-inhrt article-card-thumbnail"
+                    >
+                      <div class="panel-body">
+                        <h3 class="mrgn-tp-0">Article fictif : février 2026</h3>
+                        <p>
+                          Une description fictive pour un article
+                          d'accessibilité publié en février 2026.
+                        </p>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="col-md-6 col-lg-4">
+                    <section
+                      class="panel panel-default hght-inhrt article-card-thumbnail"
+                    >
+                      <div class="panel-body">
+                        <h3 class="mrgn-tp-0">Article fictif : février 2026</h3>
+                        <p>
+                          Une description fictive pour un article
+                          d'accessibilité publié en février 2026.
+                        </p>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </details>
 
-                    <h2>Mai</h2>
-                    <ul>
-                        <li>
-              <a href="../awareness/articles/2025/itao-available-fr.html">Vous n’êtes pas seuls: le Bureau de l’accessibilité des TI est là pour vous!</a>
-            </li>
-            <li>
-              <a href="../awareness/articles/2025/IT-Accessibility-Office-Your-Go-To-for-IT-Accessibility-Support-fr.html">Le Bureau de l’accessibilité des TI – votre référence pour obtenir de l’aide en accessibilité des TI!</a>
-            </li>
-                    </ul>
-          <h2>Juin</h2>
-          <ul>
-                        <li>
-              <a href="../awareness/articles/2025/Inclusive-IT-Solutions-fr.html">Les stratégies et les vérifications du Bureau d'accessibilité des TI – des solutions de TI inclusives</a>
-          </li>
-          <li>
-              <a href="../awareness/articles/2025/virtual-kiosk2025-fr.html">Semaine nationale de l’accessibilité à la Direction générale de l'innovation, de l'information et de la technologie (DGIIT)</a>
-          </li>
-        </ul>
+              <details id="january-2026">
+                <summary>Janvier</summary>
+                <div class="row wb-eqht mrgn-tp-md">
+                  <div class="col-md-6 col-lg-4">
+                    <section
+                      class="panel panel-default hght-inhrt article-card-thumbnail"
+                    >
+                      <div class="panel-body">
+                        <h3 class="mrgn-tp-0">Article fictif : janvier 2026</h3>
+                        <p>
+                          Une description fictive pour un article
+                          d'accessibilité publié en janvier 2026.
+                        </p>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </details>
 
-          <p>
-            <h2><a href="../awareness/archived-articles-fr.html">Articles Archivés</a></h2>
-          </p>
-          
-        </div>
+              <details id="december-2025">
+                <summary>Décembre</summary>
+                <div class="row wb-eqht mrgn-tp-md">
+                  <div class="col-md-6 col-lg-4">
+                    <section
+                      class="panel panel-default hght-inhrt article-card-thumbnail"
+                    >
+                      <div class="panel-body">
+                        <h3 class="mrgn-tp-0">
+                          Article fictif : décembre 2025
+                        </h3>
+                        <p>
+                          Une description fictive pour un article
+                          d'accessibilité publié en décembre 2025.
+                        </p>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </details>
+
+              <!-- Other months can be added here -->
+            </div>
+          </section>
+
+          <section class="mrgn-tp-xl">
+            <h3>Années précédentes</h3>
+            <p>
+              Parcourez les articles des années précédentes dans nos archives :
+            </p>
+            <ul class="list-unstyled mrgn-tp-md">
+              <li class="mrgn-bttm-md">
+                <strong>2024 :</strong>
+                <a href="../awareness/articles-2024.html"
+                  >Voir les articles 2024</a
+                >
+              </li>
+              <li class="mrgn-bttm-md">
+                <strong>2023 :</strong>
+                <a href="../awareness/articles-2023.html"
+                  >Voir les articles 2023</a
+                >
+              </li>
+              <li class="mrgn-bttm-md">
+                <strong>2022 :</strong>
+                <a href="../awareness/articles-2022.html"
+                  >Voir les articles 2022</a
+                >
+              </li>
+              <li class="mrgn-bttm-md">
+                <strong>2021 :</strong>
+                <a href="../awareness/articles-2021.html"
+                  >Voir les articles 2021</a
+                >
+              </li>
+              <li class="mrgn-bttm-md">
+                <strong>Archives :</strong>
+                <a href="../awareness/archived-articles-fr.html"
+                  >Tous les articles archivés</a
+                >
+              </li>
+            </ul>
+          </section>
 
           <div id="def-preFooter"></div>
           <script src="../scripts/preFooter.min.js"></script>
@@ -165,207 +335,44 @@
           <section class="list-group menu list-unstyled">
             <h3 class="wb-navcurr">L'accessibilité d'abord</h3>
             <ul class="list-group menu list-unstyled">
-              <li><a class="list-group-item" href="index-fr.html">Aperçu</a></li>
-              <li><a class="list-group-item active" aria-current="page" href="articles-fr.html">Articles</a></li>
-              <li><a class="list-group-item" href="events-fr.html">Événements</a></li>
-              <li><a class="list-group-item" href="training-fr.html">Formation</a></li>
-              <li><a class="list-group-item video-hub-menu-item" href="video-hub-fr.html">Carrefour vidéo</a></li>
-              <li><a class="list-group-item" href="best-practices-fr.html">Meilleures pratiques</a></li>
+              <li>
+                <a class="list-group-item" href="index-fr.html">Aperçu</a>
+              </li>
+              <li>
+                <a
+                  class="list-group-item active"
+                  aria-current="page"
+                  href="articles-fr.html"
+                  >Articles</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="events-fr.html">Événements</a>
+              </li>
+              <li>
+                <a class="list-group-item" href="training-fr.html">Formation</a>
+              </li>
+              <li>
+                <a
+                  class="list-group-item video-hub-menu-item"
+                  href="video-hub-fr.html"
+                  >Carrefour vidéo</a
+                >
+              </li>
+              <li>
+                <a class="list-group-item" href="best-practices-fr.html"
+                  >Meilleures pratiques</a
+                >
+              </li>
             </ul>
           </section>
         </nav>
       </div>
     </div>
+
     <div id="def-footer"></div>
     <script src="../scripts/appFooter-fr.min.js"></script>
     <script src="../scripts/refFooter.min.js"></script>
     <script src="../scripts/bati-itao.min.js"></script>
   </body>
 </html>
-// ...existing code...
-```// filepath: c:\Users\christopher.king\OneDrive - ESDC EDSC\Desktop\ocs-1\awareness\articles-fr.html
-// ...existing code...
-<!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr-CA" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js" lang="fr-CA" dir="ltr"><!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Language" content="fr-CA" />
-    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-    <title>Articles pour 2025 - L'accessibilité d'abord - EDSC /
-      Bureau de l'accessibilité des TI</title>
-    <meta content="width=device-width,initial-scale=1" name="viewport">
-    <!-- Meta data -->
-    <meta name="description"
-      content="Cette page consiste des articles d'accessibilité publiée durant l'année 2025.">
-    <!-- Meta data-->
-    <!-- Load closure template scripts -->
-    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
-    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-fr.js"></script>
-    <!-- Write closure template -->
-    <script src="../scripts/refTop.min.js"></script>
-    <link rel="stylesheet" href="../css/a11y-dark.css">
-    <link rel="stylesheet" href="../css/style.css">
-  </head>
-  <body vocab="https://schema.org/" typeof="WebPage">
-    <div id="def-top">
-    </div>
-    <!-- Write closure template -->
-    <script>
-        var defTop = document.getElementById("def-top");
-        defTop.outerHTML = wet.builder.appTop({
-            "appName": [{
-                "text": "EDSC / Bureau de l’accessibilité des TI",
-                "href": "../index-fr.html"
-            }],
-           "breadcrumbs" : [{
-                "title": "Accueil",
-                "href" : "../index-fr.html"
-            },{
-                "title": "L'accessibilité d'abord",
-                "href" : "index-fr.html"
-            },{
-                "title": "Articles pour l'année 2025"
-            }],
-            "lngLinks": [{
-                "lang": "en-CA",
-                "href": "../awareness/articles.html",
-                "text": "English"
-            }],
-            "menuPath": "../ajax/menu-fr.html"
-        });
-      </script>
-    <div class="container">
-      <div class="row">
-        <main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
-          <!-- Hero Banner -->
-          <div class="mrgn-tp-lg">
-            <h1 property="name" id="wb-cont">Articles pour l'année 2025</h1>
-            <p>
-              Découvrez des articles perspicaces sur les meilleures pratiques d'accessibilité numérique, les journées de sensibilisation et les principes de conception inclusive. Notre collection fournit des conseils pratiques pour vous aider à créer du contenu numérique accessible pour tous les utilisateurs.
-            </p>
-          </div>
-
-          <!-- Featured Article -->
-          <section class="mrgn-tp-lg mrgn-bttm-lg">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h2 class="panel-title">
-                  Article en vedette : Donnez une voix au contenu non textuel grâce au texte alternatif
-                </h2>
-              </div>
-              <div class="panel-body">
-                <p>
-                  Découvrez les meilleures pratiques pour rédiger un texte alternatif significatif pour un contenu numérique accessible.
-                </p>
-                <p>
-                  <a
-                    href="../awareness/articles/2025/non-text-content-alternative-text-fr.html"
-                    class="btn btn-primary btn-sm"
-                    >Lire l'article</a
-                  >
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <div>
-           <p>
-              Il s'agit d'une petite initiative de sensibilisation à travers des articles mettant l'accent sur l'importance des différentes Journées de sensibilisation relatives à l'accessibilité et à leurs enjeux. Les articles incluent des événements à venir, des formations et plus encore.
-           </p>
-          
-          <p>
-            Articles publiés pour le mois de:
-          </p>
-
-          <h2>Janvier</h2>
-                    <ul>
-                        <li>
-                            <a href="../awareness/articles/2025/world-braille-day-fr.html">Journée mondiale du braille</a>
-                        </li>
-                    </ul>
-
-                    <h2>Février</h2>
-                    <ul>
-                        <li>
-              <a href="../awareness/articles/2025/low-vision-awareness-month-2025-fr.html">Protéger vos yeux – Outils pour votre confort visuel</a>
-          </li>
-          <li>
-            <a href="../awareness/articles/2025/non-text-content-alternative-text-fr.html">Donnez une voix au contenu non textuel grâce au texte alternatif</a>
-        </li>
-                    </ul>
-
-          <h2>Mars</h2>
-                    <ul>
-                        <li>
-                            <a href="../awareness/articles/2025/enhancing-powerpoint-accessibility-fr.html">Améliorer l’accessibilité de PowerPoint : Utiliser le mode « Plan » pour aider les personnes neurodivergentes</a>
-                        </li>
-            <li>
-                            <a href="../awareness/articles/2025/bilingual-email-fr.html">Améliorez l’accessibilité de vos courriels bilingues grâce à la fonctionnalité de définition de la langue de vérification</a>
-                        </li>
-                    </ul>
-                    
-          <h2>Avril</h2>
-                    <ul>
-                        <li>
-              <a href="../awareness/articles/2025/email-accessibility-fr.html">L’accessibilité dans vos courriels quotidiens</a>
-          </li>
-        </ul>
-
-                    <h2>Mai</h2>
-                    <ul>
-                        <li>
-              <a href="../awareness/articles/2025/itao-available-fr.html">Vous n’êtes pas seuls: le Bureau de l’accessibilité des TI est là pour vous!</a>
-            </li>
-            <li>
-              <a href="../awareness/articles/2025/IT-Accessibility-Office-Your-Go-To-for-IT-Accessibility-Support-fr.html">Le Bureau de l’accessibilité des TI – votre référence pour obtenir de l’aide en accessibilité des TI!</a>
-            </li>
-                    </ul>
-          <h2>Juin</h2>
-          <ul>
-                        <li>
-              <a href="../awareness/articles/2025/Inclusive-IT-Solutions-fr.html">Les stratégies et les vérifications du Bureau d'accessibilité des TI – des solutions de TI inclusives</a>
-          </li>
-          <li>
-              <a href="../awareness/articles/2025/virtual-kiosk2025-fr.html">Semaine nationale de l’accessibilité à la Direction générale de l'innovation, de l'information et de la technologie (DGIIT)</a>
-          </li>
-        </ul>
-
-          <p>
-            <h2><a href="../awareness/archived-articles-fr.html">Articles Archivés</a></h2>
-          </p>
-          
-        </div>
-
-          <div id="def-preFooter"></div>
-          <script src="../scripts/preFooter.min.js"></script>
-        </main>
-
-        <nav
-          id="wb-sec"
-          class="wb-sec col-md-3 col-md-pull-9"
-          typeof="SiteNavigationElement"
-          aria-labelledby="wb-sec-h"
-        >
-          <h2 id="wb-sec-h" class="wb-inv">Menu de la section</h2>
-          <section class="list-group menu list-unstyled">
-            <h3 class="wb-navcurr">L'accessibilité d'abord</h3>
-            <ul class="list-group menu list-unstyled">
-              <li><a class="list-group-item" href="index-fr.html">Aperçu</a></li>
-              <li><a class="list-group-item active" aria-current="page" href="articles-fr.html">Articles</a></li>
-              <li><a class="list-group-item" href="events-fr.html">Événements</a></li>
-              <li><a class="list-group-item" href="training-fr.html">Formation</a></li>
-              <li><a class="list-group-item video-hub-menu-item" href="video-hub-fr.html">Carrefour vidéo</a></li>
-              <li><a class="list-group-item" href="best-practices-fr.html">Meilleures pratiques</a></li>
-            </ul>
-          </section>
-        </nav>
-      </div>
-    </div>
-    <div id="def-footer"></div>
-    <script src="../scripts/appFooter-fr.min.js"></script>
-    <script src="../scripts/refFooter.min.js"></script>
-    <script src="../scripts/bati-itao.min.js"></script>
-  </body>
-</html>
-// ...existing code...
