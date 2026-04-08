@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title>EPMO Accessibility Requirements ESDC / IT Accessibility Office</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <meta name="description"
+        content="Web Experience Toolkit (WET) includes reusable components for building and maintaining innovative Web sites that are accessible, usable, and interoperable.">
+
+    <!-- CDTS / WET scripts -->
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/soyutils.js"></script>
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/rn/cdts/compiled/wet-en.js"></script>
+    <script src="https://bati-itao.github.io/scripts/refTop.min.js"></script>
+</head>
+
+<body vocab="https://schema.org/" typeof="WebPage">
+
+<div id="def-top"></div>
+
+<script>
+    var defTop = document.getElementById("def-top");
+    defTop.outerHTML = wet.builder.appTop({
+        "appName": [{
+            "text": "ESDC / IT Accessibility office",
+            "href": "https://bati-itao.github.io/index.html"
+        }],
+        "breadcrumbs": [{
+            "title": "Home",
+            "href": "https://bati-itao.github.io/index.html"
+        }],
+        "lngLinks": [{
+            "lang": "fr",
+            "href": "./project-accessibility-checklist-fr.html",
+            "text": "Français"
+        }],
+        "menuPath": "https://bati-itao.github.io/ajax/menu-en.html"
+    });
+</script>
+
+<main class="container" property="mainContentOfPage">
+
+    <h1 id="wb-cont" property="name">
+        IT Accessibility Office (ITAO) accessibility checklist for projects
+    </h1>
+
+    <h2>Accessibility Checklist</h2>
+
+    <div class="form-group">
+        <label for="project_name">Project name</label>
+        <input type="text" class="form-control" id="project_name" placeholder="Enter project name">
+
+        <label for="rmt_number">RMT Request Number</label>
+        <input type="text" class="form-control" id="rmt_number"
+               style="width: 25%;" placeholder="Enter RMT Request Number">
+    </div>
+
+    <p>Please identify which of the following processes the project is completing the checklist for:</p>
+
+    <ul class="list-unstyled">
+        <li><label><input type="checkbox"> Project Programme Management Practice (PPMP) Stage 2 - Initiation</label></li>
+        <li><label><input type="checkbox"> Programme Project Stage A - Planning</label></li>
+        <li><label><input type="checkbox"> Project type not listed (the project must be delivering digital content)</label></li>
+    </ul>
+
+    <p>The ICT solution provides (select all that apply):</p>
+
+    <ul class="list-unstyled">
+        <li><label><input type="checkbox"> Generic requirements</label></li>
+        <li><label><input type="checkbox"> ICT with two-way voice communication</label></li>
+        <li><label><input type="checkbox"> ICT with video capabilities</label></li>
+        <li><label><input type="checkbox"> Hardware</label></li>
+        <li><label><input type="checkbox"> Web</label></li>
+        <li><label><input type="checkbox"> Non-web documents</label></li>
+        <li><label><input type="checkbox"> Software</label></li>
+        <li><label><input type="checkbox"> Documentation and support services</label></li>
+        <li><label><input type="checkbox"> ICT providing relay or emergency service access</label></li>
+    </ul>
+
+    <h2>IT Accessibility Office decision</h2>
+
+    <p>After completing the Accessibility Checklist with the project team, the IT Accessibility Office has determined
+        the project:</p>
+
+    <ul class="list-unstyled">
+        <li><label><input type="checkbox"> Does have ICT accessibility requirements</label></li>
+        <li><label><input type="checkbox"> Does not have ICT accessibility requirements</label></li>
+    </ul>
+
+    <hr>
+
+    <!-- ========================= -->
+    <!-- EMAIL DRAFT FUNCTIONALITY -->
+    <!-- ========================= -->
+
+    <h2>Email draft</h2>
+
+    <button id="draftEmailBtn" class="btn btn-primary">
+        Draft email
+    </button>
+
+    <div id="emailPreview" class="well mt-3" aria-live="polite" hidden>
+        <h3>Email content</h3>
+
+        <p>
+            <strong>Subject:</strong>
+            <span id="emailSubject"></span>
+        </p>
+
+        <label for="emailBody"><strong>Body:</strong></label>
+        <textarea id="emailBody"
+                  class="form-control"
+                  rows="14"
+                  style="width: 100%;"></textarea>
+
+        <p class="mrgn-tp-sm">
+            Copy and paste this content directly into Outlook.
+        </p>
+    </div>
+
+    <!-- Page details -->
+    <div class="pagedetails">
+        <dl id="wb-dtmd">
+            <dt>Date modified:</dt>
+            <dd><time property="dateModified">2020-06-05</time></dd>
+        </dl>
+    </div>
+
+    <script src="https://bati-itao.github.io/scripts/preFooter.min.js"></script>
+</main>
+
+<div id="def-footer"></div>
+<script src="https://bati-itao.github.io/scripts/appFooter.min.js"></script>
+<script src="https://bati-itao.github.io/scripts/refFooter.min.js"></script>
+<script src="https://bati-itao.github.io/scripts/bati-itao.min.js"></script>
+
+<!-- ========================= -->
+<!-- EMAIL DRAFT SCRIPT -->
+<!-- ========================= -->
+
+<script>
+(function () {
+
+    function getCheckedItems() {
+        const checked = document.querySelectorAll('input[type="checkbox"]:checked');
+        const items = [];
+        checked.forEach(cb => {
+            items.push(cb.parentElement.textContent.trim());
+        });
+        return items;
+    }
+
+    document.getElementById('draftEmailBtn').addEventListener('click', function () {
+
+        const projectName = document.getElementById('project_name').value || 'N/A';
+        const rmtNumber = document.getElementById('rmt_number').value || 'N/A';
+        const selections = getCheckedItems();
+
+        const subject = 'IT Accessibility Checklist – ' + projectName;
+
+        let body =
+`Hello,
+
+Please find below the summary of the IT Accessibility Checklist for the following project.
+
+Project name:
+${projectName}
+
+RMT request number:
+${rmtNumber}
+
+Checklist details:
+`;
+
+        if (selections.length > 0) {
+            selections.forEach(item => {
+                body += `- ${item}\n`;
+            });
+        } else {
+            body += '- No options selected\n';
+        }
+
+        body += `
+
+If you have any questions or require further clarification, please let us know.
+
+Kind regards,
+IT Accessibility Office
+Employment and Social Development Canada`;
+
+        document.getElementById('emailSubject').textContent = subject;
+        document.getElementById('emailBody').value = body;
+
+        const preview = document.getElementById('emailPreview');
+        preview.hidden = false;
+        preview.scrollIntoView({ behavior: 'smooth' });
+    });
+
+})();
+</script>
+
+</body>
+</html>
