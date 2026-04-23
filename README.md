@@ -4,10 +4,10 @@ Le bureau de l'accessibilite des TI est fournisseur de technologie adaptative et
 
 Nous sommes des chefs de file confirmes, engages envers notre mandat d'accessibilitie et continuant de fournir du support aux employes ayant des handicaps.
 
-------
+---
 
 IT Accessibility Office provides adaptive technology and advocate for inclusiveness of people with disabilities in the workplace.
 
 We are demonstrated leaders, committed to our accessibility mandate, continuing to provide support to employees with disabilities.
 
-<!-- Last deployment trigger: 2025-01-27 -->
+<!-- Last deployment trigger: 2025-01-27 -- testing>
